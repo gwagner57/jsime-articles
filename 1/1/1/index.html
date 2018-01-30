@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"></link>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/themes/prism.min.css"></link>
-      <link rel="stylesheet" href="../../jsime.css"></link>
+      <link rel="stylesheet" href="../../../jsime.css"></link>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="application/ld+json">
@@ -78,7 +78,7 @@
       </head>
    <body vocab="http://schema.org/">
       <header>
-         <small><img src="../../JSimE.svg" style="height:20px; margin-right:0.7em;"/>Journal of Simulation Engineering, 1:1 (under construction). Available from: <a href="http://JSimE.org">http://JSimE.org</a></small>
+         <small><img src="../../../JSimE.svg" style="height:20px; margin-right:0.7em;"/>Journal of Simulation Engineering, 1:1 (under construction). Available from: <a href="http://JSimE.org">http://JSimE.org</a></small>
          <h1 class="title">Information and Process Modeling for Simulation – Part I: Objects and Events</h1>
          <address class="lead_authors" typeof="Person">
             <div property="name">Gerd Wagner</div>
@@ -378,19 +378,18 @@
                </li>
             </ol>
             <figure id="_Ref493071591">
-               <p><img src="./img/image4.png" alt="Adding properties and operations ."></img></p>
-               <figcaption><strong>Figure 4.</strong> Adding properties and operations .
+               <p><img src="./img/image4.png"/></p>
+               <figcaption><strong>Figure 4.</strong> Adding properties and operations.
                </figcaption>
             </figure>
-            <p>Notice that in <a href="#_Ref493071591">Figure 4</a>, each property is declared together with a datatype as its range. Likewise, operations
+            <p>Notice that in <a href="#_Ref493071591">Figure 4</a>, each property is declared together with a datatype as its <em>range</em>. Likewise, operations
                are declared with a (possibly empty) list of parameters, and with an optional return
                value type. When an operation (or property) declaration is underlined, this means
                that it is class-level instead of instance-level. For instance, the underlined operation
-               declaration <code>leadTime() : Decimal</code> indicates that <em>leadTime</em> is a class-level operation that does not take any argument and returns an integer.
+               declaration <code>leadTime() : Decimal</code> indicates that <em>leadTime</em> is a class-level operation that does not take any argument and returns a decimal number.
             </p>
             <p>We may want to define various types of integrity constraints for better capturing
-               the semantics of entity types, properties and operations. The model shown in <a href="#_Ref493014282">Figure 5</a> contains an example of a property constraint and an example of an operation constraint.
-               These types of constraints can be expressed within curly braces appended to a property
+               the semantics of entity types, properties and operations. The model shown in <a href="#_Ref493014282">Figure 5</a> contains an example of a property constraint and an example of an operation constraint. These types of constraints can be expressed within curly braces appended to a property
                or operation declaration. The keyword <code>id</code> in the declaration of the property <code>name</code> in the <code>Shop</code> class expresses an ID constraint stating that the property is a standard identifier,
                or primary key, attribute. The expression <code>Exp(0.5)</code> in the declaration of the random variable operation <code>leadTime</code> in the <code>Delivery</code> class denotes the constraint that the operation must implement the <em>exponential</em> probability distribution function with event rate 0.5. 
             </p>
@@ -416,7 +415,7 @@
             <p>For a short introduction to UML Class Diagrams, the reader is referred to <a href="#Ambler2010">(Ambler, 2010)</a>. A good overview of the most recent version of UML (2.5) is provided by <a href="http://www.uml-diagrams.org/uml-25-diagrams.html">www.uml-diagrams.org/uml-25-diagrams.html</a></p>
          </section>
          <section>
-            <h1>Process Modeling with BPMN</h1>
+            <h1>Process Modeling with BPMN Process Diagrams</h1>
             <p>The Business Process Modeling Notation (BPMN) is an activity-based graphical modeling
                language for defining business processes following the flow-chart metaphor. In 2011,
                the Object Management Group (OMG) has released version 2.0 of BPMN with a semi-formal
@@ -1463,9 +1462,9 @@ ServiceDesk.serviceDuration = function () {
                            <p>CustomerArrival( c, sd) @ t <br/>with c:Customer and sd:Servicedesk</p>
                         </td>
                         <td><pre><code>
-PUSH c TO sd.waitingCustomers
-IF sd.waitingCustomers.length = 1
-THEN SCHEDULE CustomerDeparture( sd) @
+sd.waitingCustomers.<b>push</b>(c)
+<b>if</b> sd.waitingCustomers.length = 1 <b>then</b>
+  <b>schedule</b> CustomerDeparture( sd) @
          (t + ServiceDesk.serviceDuration())</code></pre>
                            </td>
                      </tr>
@@ -1474,9 +1473,9 @@ THEN SCHEDULE CustomerDeparture( sd) @
                            <p>CustomerDeparture( sd) @ t <br/>with sd:Servicedesk</p>
                         </td>
                         <td><pre><code>
-POP c FROM sd.waitingCustomers
-IF sd.waitingCustomers.length &gt; 0
-THEN SCHEDULE CustomerDeparture( sd) @
+sd.waitingCustomers.<b>pop</b>()
+<b>if</b> sd.waitingCustomers.length > 0 <b>then</b>
+  <b>schedule</b> CustomerDeparture( sd) @
          (t + ServiceDesk.serviceDuration())</code></pre>
                            </td>
                      </tr>
@@ -1487,7 +1486,7 @@ THEN SCHEDULE CustomerDeparture( sd) @
                      <p><img src="./img/Service_PDM.svg"></p>
                      <figcaption><strong>Figure 24.</strong> A process design model in the form of a DPMN diagram.</figcaption>
                   </figure>
-                  <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the annotations of the dashed state change association lines between the two event types and the <code>sd.ServiceDesk</code> object. Generally, in DPMN, these state change associations are annotated with a set of state change expressions in a state change language depending on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as link creations and deletions.
+                  <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the annotations of the dashed state change association lines between the two event types and the <code>sd.ServiceDesk</code> object. Generally, in DPMN, these state change associations are annotated with a set of state change expressions in a state change language depending on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as link creations and destructions.
                   </p>
 				  </section>
             </section>
@@ -1500,37 +1499,37 @@ THEN SCHEDULE CustomerDeparture( sd) @
          <section role="doc-bibliography">
             <h1>Bibliography</h1>
             <ul>
-               <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML 2 Class Diagrams</em>.   <a href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img src="../../icons/html.png" /></a></li>
+               <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML 2 Class Diagrams</em>.   <a href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img src="../../../icons/html.png" /></a></li>
                <li id="BankCNN2009" role="doc-biblioentry">Banks, J., Carson, J.S., Nelson, B.L., &amp; Nicol, D.M. (2009). <em>Discrete-Event System Simulation</em>. Pearson Prentice Hall.</li>
-               <li id="Camunda2017" role="doc-biblioentry">BPMN 2.0 Tutorial.  (2017). <em>Camunda</em>. <a href="https://camunda.org/bpmn/tutorial"><img src="../../icons/link.png" /></a></li>
+               <li id="Camunda2017" role="doc-biblioentry">BPMN 2.0 Tutorial.  (2017). <em>Camunda</em>. <a href="https://camunda.org/bpmn/tutorial"><img src="../../../icons/link.png" /></a></li>
                <li id="CetinkayaVS2011" role="doc-biblioentry">Cetinkaya, D., Verbraeck, A., &amp; Seck, M. (2011). MDD4MS: A Model Driven Development Framework for Modeling and Simulation. In <em>Proceedings of the 2011 Summer Computer Simulation Conference (SCSC 2011)</em>. The Hague, Netherlands. /li>
-               <li id="Cet11" role="doc-biblioentry">Cetinkaya, D., &amp; Verbraeck, A. (2011). Metamodeling and Model Transformations in Modeling and Simulation. In <em>Proceedings of the 2011 Winter Simulation Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/271.pdf"><img src="../../icons/pdf.png" /></a></li>
+               <li id="Cet11" role="doc-biblioentry">Cetinkaya, D., &amp; Verbraeck, A. (2011). Metamodeling and Model Transformations in Modeling and Simulation. In <em>Proceedings of the 2011 Winter Simulation Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/271.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="Gordon1961" role="doc-biblioentry">Gordon, G. (1961). A General Purpose Systems Simulation Program. In <em>Proceedings of the Eastern Joint Computer Conference</em>. Washington, D.C.</li>
-               <li id="GuizzardiW2010a" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2010a). Using the Unified Foundational Ontology (UFO) as a Foundation for General Conceptual Modeling Languages. In <em>Theory and Applications of Ontology: Computer Applications</em> (175−196). Springer. <a href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img src="../../icons/pdf.png" /></a></li>
-               <li id="GuizzardiW2010b" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2010b). Towards an Ontological Foundation of Discrete Event Simulation. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (652−664). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/059.pdf"><img src="../../icons/pdf.png" /></a></li>
-               <li id="GuizzardiW2012" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2012). Tutorial: Conceptual Simulation Modeling with Onto-UML. In <em>Proceedings of the 2012 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img src="../../icons/pdf.png" /></a></li>
+               <li id="GuizzardiW2010a" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2010a). Using the Unified Foundational Ontology (UFO) as a Foundation for General Conceptual Modeling Languages. In <em>Theory and Applications of Ontology: Computer Applications</em> (175−196). Springer. <a href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img src="../../../icons/pdf.png" /></a></li>
+               <li id="GuizzardiW2010b" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2010b). Towards an Ontological Foundation of Discrete Event Simulation. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (652−664). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/059.pdf"><img src="../../../icons/pdf.png" /></a></li>
+               <li id="GuizzardiW2012" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2012). Tutorial: Conceptual Simulation Modeling with Onto-UML. In <em>Proceedings of the 2012 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="GuizzardiW2013" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2013). Dispositions and Causal Laws as the Ontological Foundation of Transition Rules in Simulation Models. In <em>Proceedings of the 2013 Winter Simulation Conference</em> (1335–1346). Piscataway, NJ: IEEE. 
-			   <a href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img src="../../icons/pdf.png" /></a></li>
+			   <a href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="Himmelspach2009" role="doc-biblioentry">Himmelspach, J. (2009). Toward a Collection of Principles, Techniques and Elements of Modeling and Simulation
                   Software. In <em>Proc. of the 2009 International Conference on Advances in System Simulation</em> (56–61). IEEE Computer Society. 
-				  <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../icons/html.png" /></a>  
-				  <a href="https://dx.doi.org/http://doi.ieeecomputersociety.org/10.1109/SIMUL.2009.19"><img src="../../icons/doi.png" /></a></li>
-               <li id="Ong11" role="doc-biblioentry">Onggo, B., &amp; Karpat, O. (2011). Agent-Based Conceptual Model Representation Using BPMN. In <em>Proceedings of the 2011 Winter Simulation Conference</em> (671−682). Piscataway, NJ: IEEE.   <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img src="../../icons/pdf.png" /></a></li>
-               <li id="Peg92" role="doc-biblioentry">Pegden, C.D., &amp; Davis, D.A. (1992). Arena: a SIMAN/Cinema-Based Hierarchical Modeling System. In <em>Proceedings of the 1992 Winter Simulation Conference</em> (390–399). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img src="../../icons/pdf.png" /></a></li>
-               <li id="Peg10" role="doc-biblioentry">Pegden, C.D. (2010). Advanced Tutorial: Overview of Simulation World Views. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (643−651). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img src="../../icons/pdf.png" /></a></li>
-               <li id="Rob13" role="doc-biblioentry">Robinson, S. (2013). Conceptual Modeling for Simulation. In <em>Proceedings of the 2013 Winter Simulation Conference</em> (377−388). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/032.pdf"><img src="../../icons/pdf.png" /></a></li>
+				  <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../../icons/html.png" /></a>  
+				  <a href="https://dx.doi.org/http://doi.ieeecomputersociety.org/10.1109/SIMUL.2009.19"><img src="../../../icons/doi.png" /></a></li>
+               <li id="Ong11" role="doc-biblioentry">Onggo, B., &amp; Karpat, O. (2011). Agent-Based Conceptual Model Representation Using BPMN. In <em>Proceedings of the 2011 Winter Simulation Conference</em> (671−682). Piscataway, NJ: IEEE.   <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img src="../../../icons/pdf.png" /></a></li>
+               <li id="Peg92" role="doc-biblioentry">Pegden, C.D., &amp; Davis, D.A. (1992). Arena: a SIMAN/Cinema-Based Hierarchical Modeling System. In <em>Proceedings of the 1992 Winter Simulation Conference</em> (390–399). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img src="../../../icons/pdf.png" /></a></li>
+               <li id="Peg10" role="doc-biblioentry">Pegden, C.D. (2010). Advanced Tutorial: Overview of Simulation World Views. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (643−651). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img src="../../../icons/pdf.png" /></a></li>
+               <li id="Rob13" role="doc-biblioentry">Robinson, S. (2013). Conceptual Modeling for Simulation. In <em>Proceedings of the 2013 Winter Simulation Conference</em> (377−388). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/032.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="LSch83" role="doc-biblioentry">Schruben, L. (1983). Simulation Modeling with Event Graphs. <i>Communications of the ACM</i> 26 (957-963). 
-			    <a href="https://dl.acm.org/citation.cfm?id=358460"><img src="../../icons/pdf.png" /></a></li>
+			    <a href="https://dl.acm.org/citation.cfm?id=358460"><img src="../../../icons/pdf.png" /></a></li>
                <li id="Tak10" role="doc-biblioentry">Tako, A.A., Kotiadis, K., &amp; Vasilakis, C. (2010). A Participative Modeling Framework for Developing Conceptual Models in Healthcare Simulation Studies. In B. Johansson et al<em>Proceedings of the 2010 Winter Simulation Conference</em> (500−512). Piscataway, NJ: IEEE.   
-			   <a href="http://www.informs-sim.org/wsc10papers/045.pdf"><img src="../../icons/pdf.png" /></a></li>
+			   <a href="http://www.informs-sim.org/wsc10papers/045.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="Wag09" role="doc-biblioentry">Wagner, G., Nicolae, O., &amp; Werner, J. (2009). Extending Discrete Event Simulation by Adding an Activity Concept for Business Process Modeling and Simulation. In <em>Proceedings of Winter Simulation Conference</em> (2951−2962). Piscataway, NJ: IEEE. 
-			   <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img src="../../icons/pdf.png" /></a></li>
+			   <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="GWa17a" role="doc-biblioentry">Wagner, G. (2017a). An Abstract State Machine Semantics For Discrete Event Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. 
-                <a href="http://oxygen.informatik.tu-cottbus.de/publications/wagner/WSC2017-DES-ASM-Semantics.pdf"><img src="../../icons/pdf.png" /></a></li>
+                <a href="http://oxygen.informatik.tu-cottbus.de/publications/wagner/WSC2017-DES-ASM-Semantics.pdf"><img src="../../../icons/pdf.png" /></a></li>
                <li id="GWa17b" role="doc-biblioentry">Wagner, G. (2017b). Introduction to Information and Process Modeling for Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE.</li>
-               <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="http://oxygen.informatik.tu-cottbus.de/publications/wagner/WSC2017-Sim4Edu.pdf"><img src="../../icons/pdf.png" /></a></li>
-               <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Syntax and Semantics of the Discrete Event Process Modeling Notation. Forthcoming.</li>
-               <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako, A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel Discussion: Education on Conceptual Modeling for Simulation – Challenging the Art. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (290−304). Piscataway, NJ: IEEE.   <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png" /></a></li>
+               <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="http://oxygen.informatik.tu-cottbus.de/publications/wagner/WSC2017-Sim4Edu.pdf"><img src="../../../icons/pdf.png" /></a></li>
+               <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). Forthcoming.</li>
+               <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako, A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel Discussion: Education on Conceptual Modeling for Simulation – Challenging the Art. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (290−304). Piscataway, NJ: IEEE.   <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../../icons/pdf.png" /></a></li>
             </ul>
          </section>
       </main>
