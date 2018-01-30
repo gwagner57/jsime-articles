@@ -1,7 +1,6 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 html {
   color: black;
-  font-size: 1em;
 }
 
 ::-moz-selection {
@@ -56,11 +55,33 @@ textarea {
  JSimE Content Styles
 *********************************************/
 body {
-  font-family: Helvetica, Helvetica Neue, Arial;
-  max-width: 50em;
-  padding: 10px;
-  margin: auto;
+  color: black;
+  background-color: white; 
+  margin: 2em auto; 
+  hyphens: auto;
 }
+@media screen {
+  body { 
+    /* font: 1.1rem 'Arial', sans-serif; */
+    font: 1.1rem Helvetica, Helvetica Neue, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 2em auto; 
+    padding: 10px;
+    max-width: 45em;
+  }
+}
+
+@media print { 
+  body { 
+    font: 10pt 'TimesNewRoman', serif;
+    line-height: 1.2;
+    text-align: justify; 
+  } 
+  main {
+    columns: 2 
+  }
+}
+
 p {
   margin-top: 0;
   margin-bottom: 0.33em;
