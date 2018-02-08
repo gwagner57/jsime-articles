@@ -134,11 +134,11 @@
          <section><h1>What Is Discrete Event Simulation?</h1>
             <p>The term <em>Discrete Event Simulation (DES)</em> has been established as an umbrella term subsuming various kinds of computer simulation approaches, all based on the general idea of modeling entities/objects and events. In the DES literature, it is often stated that DES is based on the concept of entities <q>flowing through the system</q> (more precisely, through a <q>queueing network</q>). E.g., this is the paradigm of an entire class of simulation software in the tradition of GPSS <a href="#Gordon1961">(Gordon, 1961)</a> and SIMAN/Arena <a href="#Peg92">(Pegden &amp; Davis, 1992)</a>. However, this paradigm characterizes a special (yet important) class of DES only, it does not apply to all discrete dynamic systems.
             </p>
-            <p>In <em>Ontology</em>, which is the philosophical study of what there is, <strong><em>entities</em></strong> (also called <em>individuals</em>) are distinguished from <strong><em>entity types</em></strong> (called <q>universals</q>). There are three fundamental categories of entities:
+            <p>In <em>Ontology</em>, which is the philosophical study of what there is, <b><i>entities</i></b> (also called <em>individuals</em>) are distinguished from <b><i>entity types</i></b> (called <q>universals</q>). There are three fundamental categories of entities:
             </p>
             <ol>
                <li>
-                  <p><strong><em>objects</em></strong>,
+                  <p><b><i>objects</i></b>,
                   </p>
                </li>
                <li>
@@ -146,7 +146,7 @@
                   </p>
                </li>
                <li>
-                  <p><strong><em>events</em></strong>.
+                  <p><b><i>events</i></b>.
                   </p>
                </li>
             </ol>
@@ -174,15 +174,15 @@
             </p>
             <ol>
                <li>
-                  <p><strong><em>object types</em></strong>, e.g., in the form of <em>classes</em> of an object-oriented language;
+                  <p><b><i>object types</i></b>, e.g., in the form of <em>classes</em> of an object-oriented language;
                   </p>
                </li>
                <li>
-                  <p><strong><em>event types</em></strong>, e.g., in the form of <em>classes</em> of an object-oriented language;
+                  <p><b><i>event types</i></b>, e.g., in the form of <em>classes</em> of an object-oriented language;
                   </p>
                </li>
                <li>
-                  <p><strong><em>causal regularities</em></strong> (<em>disposition types</em>) e.g., in the form of <em>event rules</em>.
+                  <p><b><i>causal regularities</i></b> (<em>disposition types</em>) e.g., in the form of <em>event rules</em>.
                   </p>
                </li>
             </ol>
@@ -194,13 +194,13 @@
             </p>
             <p>According to <a href="#Peg10">(Pegden, 2010)</a>, a <em>simulation modeling worldview</em> provides <q>a framework for defining a system in sufficient detail that it can be executed to simulate the behavior of the system</q>. It <q>must precisely define the dynamic state transitions that occur over time</q>. Pegden continues saying that <q>Over the 50 year history of simulation there has been three distinct world views in use: event, process, and objects</q>:
             </p>
-            <p><strong><em>Event worldview</em></strong>: The system is viewed as a series of instantaneous events that change the state of
+            <p><b><i>Event worldview</i></b>: The system is viewed as a series of instantaneous events that change the state of
                the system over time. The modeler defines the events in the system and models the
                state changes that take place when those events occur. According to Pegden, the event
                worldview is the most fundamental worldview since the other worldviews also use events,
                at least implicitly.
             </p>
-            <p><strong><em>Processing Network worldview</em></strong>: The system under investigation is described as a processing network where <q>entities flow through the system</q> (or, more precisely, work objects are routed through the network) and are subject
+            <p><b><i>Processing Network worldview</i></b>: The system under investigation is described as a processing network where <q>entities flow through the system</q> (or, more precisely, work objects are routed through the network) and are subject
                to a series of processing steps performed at processing nodes through processing activities,
                possibly requiring resources and inducing queues of work objects waiting for the availability
                of resources (processing networks have been called <q>queueing networks</q> in Operations Research). This approach allows high-level modeling with semi-visual
@@ -208,7 +208,7 @@
                in manufacturing industries and service industries. Simulation platforms based on
                this worldview may or may not support object-oriented modeling and programming.
             </p>
-            <p><strong><em>Object worldview</em></strong>: The system is modeled by describing the objects that make up the system. The system
+            <p><b><i>Object worldview</i></b>: The system is modeled by describing the objects that make up the system. The system
                behavior emerges from the <q>interaction</q> of these objects.
             </p>
             <p>All three worldviews lack important conceptual elements. The event worldview
@@ -252,10 +252,10 @@
             </ol>
             <p>Domain models are solution-independent descriptions of a problem domain produced in
                the analysis phase of a software engineering project. We follow the IS/SE usage of
-               the term ‘conceptual model’ as a synonym of ‘domain model’. However, in the M&amp;S literature
-               there are diverging proposals how to define the term ‘conceptual model’, see, e.g.,
+               the term <q>conceptual model</q> as a synonym of <q>domain model</q>. However, in the M&amp;S literature
+               there are diverging proposals how to define the term <q>conceptual model</q>, see, e.g.,
                <a href="#GuizzardiW2012">(Guizzardi &amp; Wagner, 2012)</a> and <a href="#Rob13">(Robinson, 2013)</a>. A domain model may include both descriptions of the domain’s state structure (in
-               conceptual <em>information models</em>) and descriptions of its processes (in conceptual <em>process models</em>). They are solution-independent, or ‘computation-independent’, in the sense that they are not concerned with making any system design choices or with other computational
+               conceptual <em>information models</em>) and descriptions of its processes (in conceptual <em>process models</em>). They are solution-independent, or <q>computation-independent</q>, in the sense that they are not concerned with making any system design choices or with other computational
                issues. Rather, they focus on the perspective and language of the subject matter experts
                for the domain under consideration.
             </p>
@@ -277,26 +277,26 @@
                of the target platform. Finally, after testing and debugging, the implemented solution
                is then deployed in a target environment.
             </p>
-            <p>A model for a software (or information) system, which may be called a ‘software system
-               model’, does not consist of just one model diagram including all viewpoints or aspects
+            <p>A model for a software (or information) system, which may be called a <q>software system
+               model</q>, does not consist of just one model diagram including all viewpoints or aspects
                of the system to be developed (or to be documented). Rather it consists of a set of
                models, one (or more) for each viewpoint. The two most important viewpoints, crosscutting
                all three modeling levels: domain, design and implementation, are 
             </p>
             <ol>
                <li>
-                  <p><strong><em>information modeling</em></strong>, which is concerned with the state structure of the domain;
+                  <p><b><i>information modeling</i></b>, which is concerned with the <b><i>state structure</i></b> of the domain, design or implementation;
                   </p>
                </li>
                <li>
-                  <p><strong><em>process modeling</em></strong>, which is concerned with the dynamics of the domain.
+                  <p><b><i>process modeling</i></b>, which is concerned with the <b><i>dynamics</i></b> of the domain, design or implementation.
                   </p>
                </li>
             </ol>
             <p>In the computer science field of database engineering, which is only concerned with
-               information modeling, domain information models have been called ‘conceptual models’,
-               information design models have been called ‘logical design models’, and database implementation
-               models have been called ‘physical design models’. In the sequel, we call information
+               information modeling, domain information models have been called <q>conceptual models</q>,
+               information design models have been called <q>logical design models</q>, and database implementation
+               models have been called <q>physical design models</q>. In the sequel, we call information
                implementation models <em>data models</em> or <em>class models</em>. So, from a given information design model, we may derive an SQL data model, a Java
                class model and a C# class model.
             </p>
@@ -329,21 +329,21 @@
          </section>
          <section>
             <h1>Information Modeling with UML Class Diagrams</h1>
-            <p>Conceptual information modeling is mainly concerned with describing the relevant <strong><em>entity types</em></strong> of a real-world domain and the relationships between them, while information design
-               and implementation modeling is concerned with describing the <em>logical</em> (or <em>platform-independent</em>) and <em>platform-specific</em> data structures (in the form of <strong><em>classes</em></strong>) for designing and implementing a software system or simulation. The most important
+            <p>Conceptual information modeling is mainly concerned with describing the relevant <b><i>entity types</i></b> of a real-world domain and the relationships between them, while information design
+               and implementation modeling is concerned with describing the <em>logical</em> (or <em>platform-independent</em>) and <em>platform-specific</em> data structures (in the form of <b><i>classes</i></b>) for designing and implementing a software system or simulation. The most important
                kinds of relationships between entity types to be described in an information model
-               are <strong><em>associations</em></strong>, which are called ‘relationship types’ in <em>ER modeling</em>, and <strong><em>subtype</em></strong>/<em>supertype</em> relationships, which are called ‘generalizations’ in <em>UML</em>. In addition, one may model various kinds of <em>part-whole</em> relationships between different kinds of aggregate entities and component entities,
+               are <b><i>associations</i></b>, which are called <q>relationship types</q> in <em>ER modeling</em>, and <b><i>subtype</i></b>/<em>supertype</em> relationships, which are called <q>generalizations</q> in <em>UML</em>. In addition, one may model various kinds of <em>part-whole</em> relationships between different kinds of aggregate entities and component entities,
                but this is an advanced topic that is not covered in this tutorial.
             </p>
             <p>As explained in the introduction, we are using the visual modeling language of UML
                Class Diagrams for information modeling. In this language, an entity type is described
-               with a name, and possibly with a list of <strong><em>properties</em></strong> and <strong><em>operations</em></strong> (called <em>methods</em> when implemented), in the form of a <em>class rectangle</em> with one, two or three compartments, depending on the presence of properties and
-               operations. <strong><em>Integrity constraints</em></strong>, which are conditions that must be satisfied by the instances of a type, can be expressed
+               with a name, and possibly with a list of <b><i>properties</i></b> and <b><i>operations</i></b> (called <em>methods</em> when implemented), in the form of a <em>class rectangle</em> with one, two or three compartments, depending on the presence of properties and
+               operations. <b><i>Integrity constraints</i></b>, which are conditions that must be satisfied by the instances of a type, can be expressed
                in special ways when defining properties or they can be explicitly attached to an
                entity type in the form of an <em>invariant</em> box.
             </p>
-            <p>An <strong><em>association</em></strong> between two entity types is expressed as a connection line between the two class
-               rectangles representing the entity types. The connection line is annotated with <em>multiplicity</em> expressions at both ends. A <strong><em>multiplicity</em></strong> expression has the form <code>m..n</code> where <em>m</em> is a non-negative natural number denoting the <em>minimum cardinality</em>, and <em>n</em> is a positive natural number (or the special symbol * standing for <em>unbounded)</em> denoting the maximum cardinality, of the sets of associated entities. Typically,
+            <p>An <b><i>association</i></b> between two entity types is expressed as a connection line between the two class
+               rectangles representing the entity types. The connection line is annotated with <em>multiplicity</em> expressions at both ends. A <b><i>multiplicity</i></b> expression has the form <code>m..n</code> where <em>m</em> is a non-negative natural number denoting the <em>minimum cardinality</em>, and <em>n</em> is a positive natural number (or the special symbol * standing for <em>unbounded)</em> denoting the maximum cardinality, of the sets of associated entities. Typically,
                a multiplicity expression states an integrity constraint. For instance, the multiplicity
                expression <code>1..3</code> means that there are at least 1 and at most 3 associated entities. However, the special
                multiplicity expression <code>0..*</code> (also expressed as <code>*</code>) means that there is no constraint since the minimum cardinality is zero and the
@@ -404,7 +404,7 @@
                <figcaption><strong>Figure 5.</strong> Adding a property constraint and an operation constraint.</figcaption>
             </figure>
             <p>UML allows defining special categories of modeling elements called <q>stereotypes</q>.
-               For instance, for distinguishing between <strong><em>object types</em></strong> and <strong><em>event types</em></strong>
+               For instance, for distinguishing between <b><i>object types</i></b> and <b><i>event types</i></b>
                as two different categories of entity types we can define corresponding stereotypes of UML classes («object type» and «event type»)
                and use them for categorizing classes in class models, as shown in <a href="#_Ref493015782">Figure 6</a> below.
             </p>
@@ -609,12 +609,9 @@
             </p>
             <section>
                <h1>Information Modeling</h1>
-               <p>How should we start the information modeling process? Should we first model object
-                  types and then event types, or the other way around? Here, the right order is dictated
-                  by existential dependencies. Since <strong><em>events existentially depend on the objects that participate in them</em></strong>, which is an ontological pattern that is fundamental for DES, see, e.g., <a href="#GuizzardiW2010b">(Guizzardi &amp; Wagner, 2010b)</a>, we first model object types, together with their associations, and then add event
-                  types on top of them.
+               <p>How should we start the information modeling process? Should we first model object types and then event types, or the other way around? Here, the right order is dictated by existential dependencies. Since <b><i>events are always associated with objects that participate in them</i></b>, which is an ontological pattern that is fundamental for DES, see, e.g., <a href="#GuizzardiW2010b">(Guizzardi &amp; Wagner, 2010b)</a>, we first model object types, together with their associations, and then add event types on top of them.
                </p>
-               <p>A <strong><em>conceptual information model</em></strong> describes the subject matter vocabulary used, e.g., in the system narrative, in a
+               <p>A <b><i>conceptual information model</i></b> describes the subject matter vocabulary used, e.g., in the system narrative, in a
                   semi-formal way. Such a vocabulary essentially consists of names for 
                </p>
                <ol>
@@ -636,7 +633,7 @@
                   associations, including the participation of objects (of certain types) in events
                   (of certain types).
                </p>
-               <p>An <strong><em>information design model</em></strong> is normally derived from a conceptual information model by choosing the design-relevant
+               <p>An <b><i>information design model</i></b> is normally derived from a conceptual information model by choosing the design-relevant
                   types of objects and events and enrich them with design details, while dropping other
                   object types and event types not deemed relevant for the simulation design. Adding
                   design details includes specifying property ranges as well as adding multiplicity
@@ -711,19 +708,19 @@
                   </p>
                   <ol>
                      <li>
-                        <p>The (named) many-to-many association <em>customers–</em><strong><em>order-from</em></strong><em>–shops</em>.
+                        <p>The (named) many-to-many association <em>customers–</em><b><i>order-from</i></b><em>–shops</em>.
                         </p>
                      </li>
                      <li>
-                        <p>The (un-named) one-to-one association <em>shops–</em><strong><em>have</em></strong><em>–products</em>.
+                        <p>The (un-named) one-to-one association <em>shops–</em><b><i>have</i></b><em>–products</em>.
                         </p>
                      </li>
                      <li>
-                        <p>The (un-named) one-to-one association <em>shops–</em><strong><em>have</em></strong><em>–inventories</em>.
+                        <p>The (un-named) one-to-one association <em>shops–</em><b><i>have</i></b><em>–inventories</em>.
                         </p>
                      </li>
                      <li>
-                        <p>The (named) many-to-one association <em>shops–</em><strong><em>order-from</em></strong><em>–vendors</em>.
+                        <p>The (named) many-to-one association <em>shops–</em><b><i>order-from</i></b><em>–vendors</em>.
                         </p>
                      </li>
                   </ol>
@@ -812,7 +809,7 @@
         routine</em> of each event type. Thus, the ontological pattern of <em>objects participating
         in events</em> and the implied software pattern of object reference properties in event
        types are the basis for defining event routines (and rules) in event types. </p>
-                  <p>In the next step (step 2), we distinguish between two kinds of event types: <strong><em>exogenous event types</em></strong> and <strong><em>caused event types</em></strong>, and we also define for all attributes a platform-independent datatype as their range,
+                  <p>In the next step (step 2), we distinguish between two kinds of event types: <b><i>exogenous event types</i></b> and <b><i>caused event types</i></b>, and we also define for all attributes a platform-independent datatype as their range,
                      using specific datatypes (such as <code>PositiveInteger</code>, instead of plain <code>Integer</code>, for the quantity of a delivery), as shown in <a href="#_Ref493087168">Figure 10</a>.
                   </p>
                   <figure id="_Ref493087168">
@@ -834,12 +831,12 @@
                   <p>In the language of such a platform, there would normally be two predefined abstract foundation classes for defining object types and event types. For instance, in OESjs, they are called <em>oBJECT</em> and <em>eVENT</em>, each with a set of generic properties and methods for implementing the two stereotypes «object type» and «event type». These two classes, with their name in italics for indicating that they are <em>abstract</em>, are used for deriving object types and event types in the OESjs class models shown in <a href="#_Ref493094582">Figure 11</a> and <a href="#_Ref493094586">Figure 12</a> below.
                   </p>
                   <figure id="_Ref493094582">
-                     <p><img src="./img/Inventory-ObjTypes_OESjs.svg" alt="Defining a class for an object type in OESjs"></img></p>
+                     <p><img src="./img/Inventory-ObjTypes_OESjs.svg" width="320" /></p>
                      <figcaption><strong>Figure 11.</strong> Defining a class for an object type in OESjs.
                      </figcaption>
                   </figure>
                   <figure id="_Ref493094586">
-                     <p><img src="./img/Inventory-EvtTypes_OESjs.svg" alt="Defining classes for event types in OESjs ."></img></p>
+                     <p><img src="./img/Inventory-EvtTypes_OESjs.svg" width="450" /></p>
                      <figcaption><strong>Figure 12.</strong> Defining classes for event types in OESjs.
                      </figcaption>
                   </figure>
@@ -892,7 +889,7 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
                <p>We make a conceptual process model and a process design model for the inventory management
                   system. These models can be expressed visually in the form of <em>BPMN process diagrams</em> and textually in the form of <em>event rule tables</em>.
                </p>
-               <p>A <strong><em>conceptual process model</em></strong> should include the event types identified in the conceptual information model, and
+               <p>A <b><i>conceptual process model</i></b> should include the event types identified in the conceptual information model, and
                   describe in which temporal sequences events may occur, based on conditional and parallel
                   branching. We can do this by describing, for each of the event types from the conceptual
                   information model, the causal regularity associated with it in the form of an event
@@ -968,8 +965,8 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
                         </td>
                         <td>
                            <p>customer departure</p>
-						   <small><i>[Notice that we do not mention the increase of the shop's cash balance due to the payment,
-						   simply because the focus is on inventory only.]</i></small>
+						   <small>[Notice that we do not describe the increase of the shop's cash balance due to the payment,
+						   because we focus on inventory.]</small>
                         </td>
                         <td>
                            <figure>
@@ -995,7 +992,7 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
                            <p>delivery</p>
                         </td>
                         <td>
-                           <p>payment</p>
+                           <p>increment inventory;<br/>payment</p>
                         </td>
                         <td>
                            <figure>
@@ -1026,7 +1023,9 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
                      </tr>
                      <tr>
                         <td>
-                           <p>DailyDemand( sh, demQ) @ t<br/>with sh: SingleProductShop</p>
+                           <p>DailyDemand( sh, demQ) @ t</p>
+						    <ul style="font-size:smaller"><li>sh:SingleProductShop references the shop where the DailyDemand event happens</li>
+						     <li>demQ is the daily demand quantity</li></ul>
                         </td>
                         <td><pre><code><b>var</b> sQ := sh.stockQuantity
 <b>var</b> newSQ := sQ - demQ
@@ -1042,10 +1041,11 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                      </tr>
                      <tr>
                         <td>
-                           <p>Delivery( rec, delQ) @ t<br/>with rec: SingleProductShop</p>
+                           <p>Delivery( rec, delQ) @ t</p>
+						    <ul style="font-size:smaller"><li>rec:SingleProductShop references the shop that is the receiver of the delivery </li>
+						     <li>delQ is the delivered quantity</li></ul>
                         </td>
-                        <td><pre><code>
-rec.stockQuantity += delQ</code></pre>
+                        <td><pre><code>rec.stockQuantity += delQ</code></pre>
                            </td>
                      </tr>
                      <caption><strong>Table 3.</strong> Event rule design with pseudo-code.
@@ -1189,7 +1189,7 @@ rec.stockQuantity += delQ</code></pre>
                         <p>customers queuing up,</p>
                      </li>
                      <li>
-                        <p>customers being notified/invited to move forward towards the service desk,</p>
+                        <p>customers being notified/invited to move forward to the service desk,</p>
                      </li>
                      <li>
                         <p>service start,</p>
@@ -1201,7 +1201,7 @@ rec.stockQuantity += delQ</code></pre>
                         <p>customer departures.</p>
                      </li>
                   </ol>
-                  <p>The main type of association between events and objects is <strong><em>participation</em></strong>. When adding event types to the object types in our conceptual information model,
+                  <p>The main type of association between events and objects is <b><i>participation</i></b>. When adding event types to the object types in our conceptual information model,
                      we therefore also model the participation types between them. For instance, in <a href="#_Ref494398925">Figure 18</a>, we express that a customer arrival event has exactly one customer and one service
                      desk as its participants.
                   </p>
@@ -1286,8 +1286,8 @@ rec.stockQuantity += delQ</code></pre>
                   <p>An alternative approach would be not considering the currently served customer as
                      part of the queue, but rather use a Boolean attribute <code>isBusy</code> for being able to keep track if the service desk ist still busy with serving a customer.
                   </p>
-                  <p>In an information design model we distinguish between two kinds of event types: <strong><em>exogenous event types</em></strong>
-                     and <strong><em>caused event types</em></strong>. While exogenous events of a certain type occur again and again,
+                  <p>In an information design model we distinguish between two kinds of event types: <b><i>exogenous event types</i></b>
+                     and <b><i>caused event types</i></b>. While exogenous events of a certain type occur again and again,
                      typically with some <em>random recurrence</em> that can be modeled with a probability distribution,
                      caused events occur at times that result from the internal causation dynamics of the simulation.
                      So, for any event type adopted from the conceptual model, we have to make a decision
@@ -1399,7 +1399,7 @@ ServiceDesk.serviceDuration = function () {
                            <p>customer departure</p>
                         </td>
                         <td>
-                           <p>decrement the queue (length); if there is still someone in the queue, the next service starts</p>
+                           <p>decrement the queue (length);<br/>if there is still someone in the queue, the next service starts</p>
                         </td>
                         <td>
                            <figure>
@@ -1435,7 +1435,9 @@ ServiceDesk.serviceDuration = function () {
                      </tr>
                      <tr>
                         <td>
-                           <p>CustomerArrival( c, sd) @ t <br/>with c:Customer and sd:Servicedesk</p>
+                           <p>CustomerArrival( c, sd) @ t</p>
+						    <ul style="font-size:smaller"><li>c:Customer references the arrived customer</li>
+						     <li>sd:Servicedesk references the service desk where the new customer arived</li></ul>
                         </td>
                         <td><pre><code>
 sd.waitingCustomers.<b>push</b>(c)
@@ -1446,7 +1448,9 @@ sd.waitingCustomers.<b>push</b>(c)
                      </tr>
                      <tr>
                         <td>
-                           <p>CustomerDeparture( sd) @ t <br/>with sd:Servicedesk</p>
+                           <p>CustomerDeparture( sd) @ t</p>
+						    <ul style="font-size:smaller">
+						     <li>sd:Servicedesk references the service desk from where the customer departs</li></ul>
                         </td>
                         <td><pre><code>
 sd.waitingCustomers.<b>pop</b>()
@@ -1457,12 +1461,21 @@ sd.waitingCustomers.<b>pop</b>()
                      </tr>
                      <caption><strong>Table 5.</strong> The event rule design table for the service system.</caption>
                   </table>
+                  <p>These two event rule design models are visually expressed in the DPMN diagrams shown in <a href="#_Ref499542497">Figure 24</a> and <a href="#_Ref499542498">Figure 25</a> below.</p>
+                  <figure id="_Ref499542497">
+                     <p><img src="./img/Service-Arrival_RDM.svg"></p>
+                     <figcaption><strong>Figure 24.</strong> A DPMN design model for the customer arrival event rule.</figcaption>
+                  </figure>
+                  <figure id="_Ref499542498">
+                     <p><img src="./img/Service-Departure_RDM.svg"></p>
+                     <figcaption><strong>Figure 25.</strong> A DPMN design model for the customer departure event rule.</figcaption>
+                  </figure>
                   <p>These two event rule design models can be merged into a process design model:</p>
                   <figure id="_Ref499542496">
                      <p><img src="./img/Service_PDM.svg"></p>
-                     <figcaption><strong>Figure 24.</strong> A process design model in the form of a DPMN diagram.</figcaption>
+                     <figcaption><strong>Figure 26.</strong> A process design model in the form of a DPMN diagram.</figcaption>
                   </figure>
-                  <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the annotations of the dashed state change association lines between the two event types and the <code>sd.ServiceDesk</code> object. Generally, in DPMN, these state change associations are annotated with a set of state change expressions in a state change language depending on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as link creations and destructions.
+                  <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the annotations of the dashed state change association lines between the two event types and the <code>sd:ServiceDesk</code> object. Generally, in DPMN, these state change associations are annotated with a set of state change expressions in a state change language depending on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as link creations and destructions.
                   </p>
 				  </section>
             </section>

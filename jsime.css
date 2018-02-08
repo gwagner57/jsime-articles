@@ -1,7 +1,4 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
-html {
-  color: black;
-}
 
 ::-moz-selection {
   background: #b3d4fc;
@@ -62,10 +59,8 @@ body {
 }
 @media screen {
   body { 
-    /* font: 1.1rem 'Arial', sans-serif; */
-    font: 1.1rem Helvetica, Helvetica Neue, Arial, sans-serif;
-    line-height: 1.5;
-    margin: 2em auto; 
+    font: 1.1rem/1.5 Helvetica, Helvetica Neue, Arial, sans-serif;
+    margin: 0 auto; 
     padding: 10px;
     max-width: 45em;
   }
@@ -84,7 +79,7 @@ body {
 
 p {
   margin-top: 0;
-  margin-bottom: 0.33em;
+  margin-bottom: 1em;
 }
 h1 {
   margin-top: 0.67em;
@@ -97,17 +92,17 @@ body > header > small {
 }
 body > header > h1 {
   text-align: center;
-  font-size: 240%;
-  margin-top: 0;
+  font-size: 180%;
+  line-height: 1.2;
+  margin-top: 0.2em;
 }
 address > div[property="name"] {
   text-align: center;
-  font-size: 180%;
+  font-size: 150%;
 }
 address > div[property="email"] {
   text-align: center;
-  font-size: 120%;
-  margin-top: 0.3em;
+  font-size: 100%;
 }
 address > div[property="affiliation"] {
   text-align: center;
