@@ -485,8 +485,8 @@
                      <p>A <em>Start Event</em> is drawn as a circle with a thin border line, while an <em>Intermediate Event</em> has a double border line and an <em>End Event</em> has a thick border line.</p>
                   </td>
                   <td>
-                     <figure>
-                        <img src="./img/Events.svg" width="400"/>
+                     <figure style="width:200px">
+                        <img src="./img/Events.svg"/>
                      </figure>
                   </td>
                </tr>
@@ -496,7 +496,7 @@
                      <p>(Task, Sub-Process)</p>
                   </td>
                   <td>
-                     <p>Work that is performed within a process.</p>
+                     <p><q>Work that is performed within a process.</q></p>
                      <p>A <em>Task</em> is an atomic Activity, while a <em>Sub-Process</em> is a <em>composite</em> Activity. A Sub-Process can be either in a <em>collapsed</em> or in an <em>expanded</em> view. The latter shows its internal process structure.
                      </p>
                   </td>
@@ -511,12 +511,7 @@
                      <p>Gateway</p>
                   </td>
                   <td>
-                     <p>For conditional or parallel branching.</p>
-                     <p>A single Gateway could have multiple input and multiple output flows. A gateway with an "X"
-                        symbol denotes an Exclusive OR-Split (if there are 2 or more output flows) or an Exclusive
-                        OR-Join (if there are 2 or more input flows). A gateway with a plus symbol denotes
-                        an AND-Split (if there are 2 or more output flows) or an AND-Join (if there are 2
-                        or more input flows).
+                     <p>A Gateway is a node for branching or merging control flows. A Gateway with an "X" symbol denotes an Exclusive OR-Split for conditional branching, if there are 2 or more output flows, or an Exclusive OR-Join, if there are 2 or more input flows. A Gateway with a plus symbol denotes an AND-Split for parallel branching, if there are 2 or more output flows, or an AND-Join, if there are 2 or more input flows. A Gateway can have both input and output flows.
                      </p>
                   </td>
                   <td>
@@ -530,11 +525,12 @@
                      <p>Sequence Flow</p>
                   </td>
                   <td>
-                     <p>Defines the temporal order of Events, Activities, and Gateways.</p>
+                     <p>An arrow expressing the temporal order of Events, Activities, and Gateways. A <em>Conditional Sequence Flow</em> arrow starts with a diamond and is annotated with a condition (in brackets).</p>
                   </td>
                   <td>
                      <figure>
-                        <img src="./img/image11.png"></img>
+                        <img src="./img/image11.png"/>
+                        <img src="./img/ConditionalSequenceFlow.svg"/>
                      </figure>
                   </td>
                </tr>
@@ -674,7 +670,7 @@
                   </li>
                   <li>
                      <p>The queues of a queueing system are modeled in the form of <em>ordered association ends</em>, which represent ordered-collection-valued
-                      reference properties. For instance, in our service desk model shown in <a href="#_Ref494399721">Figure 19</a> below,
+                      reference properties. For instance, in our service desk model shown in <a href="#_Ref494399721">Figure 20</a> below,
                       there is an association between the classes
                       <code>ServiceDesk</code> and <code>Customer</code> with an ordered association end named <code>waitingCustomers</code>
                       representing a queue. The annotation <code>{ordered}</code> means that the collection of <code>Customer</code> instances
@@ -685,10 +681,8 @@
                </ol>
                <section>
                   <h1>Making a Solution-Independent Conceptual Information Model</h1>
-                  <p>We can extract the following candidates for object types from the problem description
-                     above by identifying and analyzing the domain-specific noun phrases: <em>shops</em> (for being more precise, we also say <em>single product shops</em>), <em>products</em> (or <em>items</em>), <em>inventories</em>, <em>customers</em>, <em>customer orders</em>, <em>replenishment orders</em>, and <em>vendors</em>. Since noun phrases may also denote events (or event types), we need to take another
-                     look at our list and drop those noun phrases. We recognize that <em>customer orders</em> and <em>replenishment orders</em> denote messages or communication events, and not ordinary objects. This leaves us
-                     with the five object types described in the diagram shown in <a href="#_Ref493083679">Figure 7</a> below.
+                  <p>We can extract the following candidates for object types from the problem description above by identifying and analyzing the domain-specific noun phrases: <em>shops</em> (for being more precise, we also say <em>single product shops</em>), <em>products</em> (or <em>items</em>), <em>inventories</em>, <em>customers</em>, <em>customer orders</em>, <em>replenishment orders</em>, and <em>vendors</em>. Since noun phrases may also denote events (or event types), we need to take another
+                     look at our list and drop those noun phrases. We recognize that <em>customer orders</em> and <em>replenishment orders</em> denote messages or communication events, and not ordinary objects. This leaves us with the five object types described in the diagram shown in <a href="#_Ref493083679">Figure 7</a> below.
                   </p>
                   <figure id="_Ref493083679">
                      <p><img src="./img/image14.png"/></p>
@@ -730,12 +724,7 @@
                   </p>
                   <p>We have also added some attributes to the model’s object types, such as a <em>name</em> attribute for <em>customers</em>, shops, <em>products</em> and <em>vendors</em>, and a <em>reorder point</em> as well as a <em>stock quantity</em> attribute for <em>inventories</em>. Some of these attributes can be found in the problem description (such as <em>reorder point)</em>, while others have to be inferred by commonsense reasoning (such as <em>target inventory</em> for the quantity to which the inventory is to be restocked<em>)</em>. 
                   </p>
-                  <p>In the next step, we add event types. We have already identified <em>customer orders</em> and <em>replenishment orders</em> as two potentially relevant event types mentioned as noun phrases in the problem
-                     description. We can try to extract the other potentially relevant event types from
-                     the text, typically by considering the verb phrases, such as <q>pay order</q>, <q>hand out product</q>, and <q>deliver</q>. For getting the names of our event types, we nominalize these verb phrases. So we
-                     get <em>customer payments</em>, <em>product handovers</em> and <em>deliveries</em>. Finally, even if this is not mentioned in the business description above, we know,
-                     using common sense, that a delivery by the vendor leads to a corresponding payment
-                     by the shop, so we also need a <em>payments</em> event type. 
+                  <p>In the next step, we add event types. We have already identified <em>customer orders</em> and <em>replenishment orders</em> as two potentially relevant event types mentioned as noun phrases in the problem description. We can try to extract the other potentially relevant event types from the text, typically by considering the verb phrases, such as <q>pay order</q>, <q>hand out product</q>, and <q>deliver</q>. For getting the names of our event types, we nominalize these verb phrases. So we get <em>customer payments</em>, <em>product handovers</em> and <em>deliveries</em>. Finally, even if this is not mentioned in the business description above, we know, using common sense, that a delivery by the vendor leads to a corresponding payment by the shop, so we also need a <em>payments</em> event type. 
                   </p>
                   <p>So we add these six event types to our model, together with their participation associations
                      with involved object types, now distinguishing class rectangles that denote event
@@ -753,17 +742,8 @@
                      <figcaption><strong>Figure 8.</strong> The complete conceptual information model.
                      </figcaption>
                   </figure>
-                  <p>Notice that, for brevity, we omitted the event type for the shop declining a
-       customer order. Even so, the model may seem quite large for a problem like inventory
-       management. However, in a conceptual model, we describe a complete system including all
-       object and event types that are relevant for understanding its dynamics. </p>
-                  <p>Typically, in a simulation design model we would make several simplifications allowed
-                     by our research questions, and, for instance, abstract away from the object types
-                     <em>products</em> and <em>inventories</em>. But in a conceptual model of the system under investigation, we include all relevant
-                     entity types, independently of the simplifications we may later make in the solution
-                     design and implementation. This approach results in a conceptual model that can be
-                     re-used in other simulation projects (with different research questions).
-                  </p>
+                  <p>Notice that, for brevity, we omitted the event type for the shop declining a customer order. Even so, the model may seem quite large for a problem like inventory management. However, in a conceptual model, we describe a complete system including all object and event types that are relevant for understanding its dynamics.</p>
+                  <p>Typically, in a simulation design model we would make several simplifications allowed by our research questions, and, for instance, abstract away from the object types <em>products</em> and <em>inventories</em>. But in a conceptual model of the system under investigation, we include all relevant entity types, independently of the simplifications we may later make in the solution design and implementation. This approach results in a conceptual model that can be re-used in other simulation projects (with different research questions).</p>
                </section>
                <section>
                   <h1>Making a Solution-Specific and Platform-Independent Information Design Model</h1>
@@ -1072,7 +1052,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                      <figcaption><strong>Figure 16.</strong> A rule design model for the event type <i>Delivery</i>.</figcaption>
                   </figure>
                   <p>Notice that <i>Delivery</i> events trigger a state change, but no follow-up events.</p>
-                  <p>These two event rule design models can be merged into a process design model:</p>
+                  <p>These two event rule design models can be merged into a process design model shown in <a href="#_Ref493110216">Figure 17</a> below.</p>
                   <figure id="_Ref493110216">
                      <p><img src="./img/Inventory-PDM.svg"/></p>
                      <figcaption><strong>Figure 17.</strong> A process design model in the form of a DPMN diagram.</figcaption>
@@ -1159,11 +1139,11 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                      </li>
                   </ol>
                   <p>Thus, a first version conceptual information model of the service system may look
-                     as shown in <a href="#_Ref494397234">Figure 17</a>.
+                     as shown in <a href="#_Ref494397234">Figure 18</a>.
                   </p>
                   <figure id="_Ref494397234">
                      <p><img src="./img/image26.png"/></p>
-                     <figcaption><strong>Figure 17.</strong> A first version conceptual information model of a s ervice s ystem .
+                     <figcaption><strong>Figure 18.</strong> A first version conceptual information model of a service system .
                      </figcaption>
                   </figure>
                   <p>Notice that it seems preferable (more natural) to separate the service queue from
@@ -1202,15 +1182,15 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                      </li>
                   </ol>
                   <p>The main type of association between events and objects is <b><i>participation</i></b>. When adding event types to the object types in our conceptual information model,
-                     we therefore also model the participation types between them. For instance, in <a href="#_Ref494398925">Figure 18</a>, we express that a customer arrival event has exactly one customer and one service
+                     we therefore also model the participation types between them. For instance, in <a href="#_Ref494398925">Figure 19</a>, we express that a customer arrival event has exactly one customer and one service
                      desk as its participants.
                   </p>
                   <figure id="_Ref494398925">
                      <p><img src="./img/image27.png" alt="Adding event types to the conceptual information model."></img></p>
-                     <figcaption><strong>Figure 18.</strong> Adding event types to the conceptual information model.
+                     <figcaption><strong>Figure 19.</strong> Adding event types to the conceptual information model.
                      </figcaption>
                   </figure>
-                  <p>In order to complete the model of <a href="#_Ref494398925">Figure 18</a>, we may add attributes that help describing objects and events of these types.
+                  <p>In order to complete the model of <a href="#_Ref494398925">Figure 19</a>, we may add attributes that help describing objects and events of these types.
                   </p>
                   <p>The reader may have noticed that, while only modeling object and event types, our
                      model does implicitly contain an activity type composed of the two event types <q>service start</q> and <q>service end</q>. It is well-known that, conceptually, an activity is a composite event that is temporally
@@ -1224,7 +1204,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                <section>
                   <h1>Making an Information Design Model</h1>
                   <p>We now derive a platform-independent information design model from the solution-independent conceptual
-                     information model shown in <a href="#_Ref494398925">Figure 18</a> above. Our design model is solution-specific because it is a computational design
+                     information model shown in <a href="#_Ref494398925">Figure 19</a> above. Our design model is solution-specific because it is a computational design
                      for the following specific simulation research question: compute the "mean response
                      time" statistics as the average length of time a customer spends in the system from
                      arrival to departure, which is the average waiting time plus the average service duration.
@@ -1294,12 +1274,12 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                      if we model it as an exogenous or as a caused event type, and for any exogenous event
                      type, we specify a recurrence operation (typically a random variable) in the information design model.
                   </p>
-                  <p>In our example model, shown in <a href="#_Ref494399721">Figure 19</a> below, we define <code>CustomerArrival</code> as an exogenous event type with a <code>recurrence</code> function that implements a random variable based on the exponential distribution
+                  <p>In our example model, shown in <a href="#_Ref494399721">Figure 20</a> below, we define <code>CustomerArrival</code> as an exogenous event type with a <code>recurrence</code> function that implements a random variable based on the exponential distribution
                      with event rate 0.5, symbolically expressed as <em>Exp</em>(0.5), while we define <code>CustomerDeparture</code> as a caused event type.
                   </p>
                   <figure id="_Ref494399721">
                      <p><img src="./img/image28.png" alt="An information design model for the service system."></img></p>
-                     <figcaption><strong>Figure 19.</strong> An information design model for the service system.
+                     <figcaption><strong>Figure 20.</strong> An information design model for the service system.
                      </figcaption>
                   </figure>
                   <p>Notice that we have modeled the random duration of a service with the help of the
@@ -1309,22 +1289,22 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                </section>
                <section>
                   <h1>Deriving an OESjs Class Model from the Information Design Model</h1>
-                  <p>We derive an OESjs class model, shown in <a href="#_Ref493094587">Figure 20</a> and <a href="#_Ref493094588">Figure 21</a> below, for the object types and event types defined in the design model. 
+                  <p>We derive an OESjs class model, shown in <a href="#_Ref493094587">Figure 21</a> and <a href="#_Ref493094588">Figure 22</a> below, for the object types and event types defined in the design model. 
                   </p>
                   <figure id="_Ref493094587">
                      <p><img src="./img/ServiceSystem-ObjTypes_OESjs.svg" width="400" alt="Defining OESjs object types"></img></p>
-                     <figcaption><strong>Figure 20.</strong> Defining object types in OESjs.</figcaption>
+                     <figcaption><strong>Figure 21.</strong> Defining object types in OESjs.</figcaption>
                   </figure>
                   <figure id="_Ref493094588">
                      <p><img src="./img/ServiceSystem-EvtTypes_OESjs.svg" width="400" alt="Defining OESjs object types"></img></p>
-                     <figcaption><strong>Figure 21.</strong> Defining event types in OESjs.</figcaption>
+                     <figcaption><strong>Figure 22.</strong> Defining event types in OESjs.</figcaption>
                   </figure>
                   <p>Notice that in the OESjs class model, associations are represented by corresponding reference properties (like <em>ServiceDesk::waitingCustomers</em> and <em>CustomerArrival::serviceDesk)</em>.
                   </p>
                </section>
                <section>
                   <h1>Coding the OESjs Class Model</h1>
-                  <p>The object class <em>ServiceDesk</em> defined in the OESjs class model shown in <a href="#_Ref493094587">Figure 20</a> above can be coded as follows:
+                  <p>The object class <em>ServiceDesk</em> defined in the OESjs class model shown in <a href="#_Ref493094587">Figure 21</a> above can be coded as follows:
                   </p><pre class="language-javascript"><code>var ServiceDesk = new cLASS({
   Name: "ServiceDesk",
   supertypeName: "oBJECT",
@@ -1410,24 +1390,24 @@ ServiceDesk.serviceDuration = function () {
                      <caption><strong>Table 4.</strong> Conceptual event rule models for the service system example.
                      </caption>
                   </table>
-                  <p>The individual event rule models shown in <a href="#_Ref494404037">Table  4</a> can be integrated with each other as shown in <a href="#_Ref494405660">Figure 22</a> where we have to cast the two event types <q>service start</q> and <q>service end</q> to BPMN’s <em>intermediate events</em> for complying with the BPMN syntax.
+                  <p>The individual event rule models shown in <a href="#_Ref494404037">Table  4</a> can be integrated with each other as shown in <a href="#_Ref494405660">Figure 23</a> where we have to cast the two event types <q>service start</q> and <q>service end</q> to BPMN’s <em>intermediate events</em> for complying with the BPMN syntax.
                   </p>
                   <figure id="_Ref494405660">
                      <p><img src="./img/Service_CPM.svg" alt="A conceptual process model integrating the event rule diagrams of Table 4."></img></p>
-                     <figcaption><strong>Figure 22.</strong> A conceptual process model integrating the event rule diagrams of Table 4.
+                     <figcaption><strong>Figure 23.</strong> A conceptual process model integrating the event rule diagrams of Table 4.
                      </figcaption>
                   </figure>
                   <p>If we would make a process model for a form of basic DES extended with activities, which will be discussed in Part II of this tutorial, we would replace the two event
-                     types <q>service start</q> and <q>service end</q> with the activity type <q>perform service</q> resulting in the model depicted below in <a href="#_Ref499542494">Figure 23</a>.
+                     types <q>service start</q> and <q>service end</q> with the activity type <q>perform service</q> resulting in the model depicted below in <a href="#_Ref499542494">Figure 24</a>.
                   </p>
                   <figure id="_Ref499542494">
                      <p><img src="./img/Service-with-Activity_CPM.svg" alt="A conceptual process model with an activity"></img></p>
-                     <figcaption><strong>Figure 23.</strong> A model with an activity replacing a start/end event pair.</figcaption>
+                     <figcaption><strong>Figure 24.</strong> A model with an activity replacing a start/end event pair.</figcaption>
                   </figure>
                </section>
                <section>
                   <h1>Making a Process Design Model</h1>
-                  <p>In the process design model, we only need to include two event rules, one for <i>CustomerArrival</i> and one for <i>CustomerDeparture</i> events, since only these two event types have been included in the information design model in <a href="#_Ref494399721">Figure 19</a> above.</p>
+                  <p>In the process design model, we only need to include two event rules, one for <i>CustomerArrival</i> and one for <i>CustomerDeparture</i> events, since only these two event types have been included in the information design model in <a href="#_Ref494399721">Figure 20</a> above.</p>
                   <table>
                      <tr>
                         <th>ON (event expr.)</th>
@@ -1461,21 +1441,21 @@ sd.waitingCustomers.<b>pop</b>()
                      </tr>
                      <caption><strong>Table 5.</strong> The event rule design table for the service system.</caption>
                   </table>
-                  <p>These two event rule design models are visually expressed in the DPMN diagrams shown in <a href="#_Ref499542497">Figure 24</a> and <a href="#_Ref499542498">Figure 25</a> below.</p>
+                  <p>These two event rule design models are visually expressed in the DPMN diagrams shown in <a href="#_Ref499542497">Figure 25</a> and <a href="#_Ref499542498">Figure 26</a> below.</p>
                   <figure id="_Ref499542497">
                      <p><img src="./img/Service-Arrival_RDM.svg"></p>
-                     <figcaption><strong>Figure 24.</strong> A DPMN design model for the customer arrival event rule.</figcaption>
+                     <figcaption><strong>Figure 25.</strong> A DPMN design model for the customer arrival event rule.</figcaption>
                   </figure>
                   <figure id="_Ref499542498">
                      <p><img src="./img/Service-Departure_RDM.svg"></p>
-                     <figcaption><strong>Figure 25.</strong> A DPMN design model for the customer departure event rule.</figcaption>
+                     <figcaption><strong>Figure 26.</strong> A DPMN design model for the customer departure event rule.</figcaption>
                   </figure>
                   <p>These two event rule design models can be merged into a process design model:</p>
                   <figure id="_Ref499542496">
                      <p><img src="./img/Service_PDM.svg"></p>
-                     <figcaption><strong>Figure 26.</strong> A process design model in the form of a DPMN diagram.</figcaption>
+                     <figcaption><strong>Figure 27.</strong> A process design model in the form of a DPMN diagram.</figcaption>
                   </figure>
-                  <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the annotations of the dashed state change association lines between the two event types and the <code>sd:ServiceDesk</code> object. Generally, in DPMN, these state change associations are annotated with a set of state change expressions in a state change language depending on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as link creations and destructions.
+                  <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the state change statements within the <code>sd:ServiceDesk</code> object rectangle. Generally, in DPMN, state change statements are expressed in a state change language that depends on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as creations and destructions of links between objects.
                   </p>
 				  </section>
             </section>
