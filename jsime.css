@@ -51,10 +51,36 @@ textarea {
 /*********************************************
  JSimE Content Styles
 *********************************************/
+/* -------------------------------------------
+            Pagination and Page Regions
+   ------------------------------------------- */
+
+@page {
+  size: A4 portrait;  /* or US-Letter */
+  margin: 2.5cm 2.5cm 2cm 2.5cm;
+
+  @top-center {
+    content: string(header, first); 
+    font-style: italic;
+    vertical-align: bottom;
+    padding-bottom: 1.5em;
+  }
+  @bottom-center {
+    content: counter(page) " (" counter(pages) ")";
+    vertical-align: top;
+    padding-top: 1em;
+  }
+  @footnotes {
+    border-top: thin solid black;
+    border-clip: 100px;
+    margin: 0.6em 0 0 0;
+    padding: 0.3em 0 0 0;
+  }
+}
+
 body {
   color: black;
   background-color: white; 
-  margin: 2em auto; 
   hyphens: auto;
 }
 @media screen {
@@ -64,16 +90,54 @@ body {
     padding: 10px;
     max-width: 45em;
   }
+  /* floats */
+  .top, .bottom, .column-top, .column-bottom {
+    float: right; 
+    width: 55%;
+  }
 }
 
 @media print { 
   body { 
-    font: 10pt 'TimesNewRoman', serif;
-    line-height: 1.2;
+    font: 10pt/1.2 "PT Serif", 'TimesNewRoman', serif;
     text-align: justify; 
   } 
+  header {
+    page-break-after: avoid; 
+  }
   main {
-    columns: 2 
+    columns: 2; 
+    column-gap: 0.25in;   
+  }
+  #front-matter {
+    column-span: all;   
+  }
+  
+  ::footnote-call {
+    content: "[" counter(footnote, lower-latin) "]";
+    font-size: 83%;
+    vertical-align: super;
+    line-height: none
+  }
+  ::footnote-marker {
+    content: "[" counter(footnote, lower-latin) "]";
+    list-style-position: inside;
+    margin: 0; padding: 0 0.3em 0 0;
+  }
+  .footNote {
+    float: prince-column-footnote;
+    font-size: 90%;
+    footnote-style-position: outside;
+    margin: 0.3em 0 0 1.3em; padding: 0; text-indent: 0;
+  }
+
+  /* page floats */
+  .column-top { float: column-top; margin-bottom: 2em }
+  .column-bottom { float: column-bottom;  margin-top: 2em }
+  .top { float: top;  margin-bottom: 2em }
+  .bottom { float: bottom;  margin-top: 2em }
+  .top figcaption, .bottom figcaption { 
+    margin-left: 2em; margin-right: 2em 
   }
 }
 
