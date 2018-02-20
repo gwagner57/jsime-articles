@@ -60,14 +60,17 @@ textarea {
   margin: 2.5cm 2.5cm 2cm 2.5cm;
 
   @top-center {
-    content: string(header, first); 
-    font-style: italic;
-    vertical-align: bottom;
-    padding-bottom: 1.5em;
+    content: string(articleTitleAbbr); 
+    font-size: 75%;
   }
-  @bottom-center {
-    content: counter(page) " (" counter(pages) ")";
-    vertical-align: top;
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-size: 75%;
+    padding-top: 1em;
+  }
+  @bottom-left {
+    content: string(articleURL);
+    font-size: 75%;
     padding-top: 1em;
   }
   @footnotes {
@@ -78,10 +81,14 @@ textarea {
   }
 }
 
+:root {  /* pseudo-class used for root element */
+    --light-bg-color: #f16529;
+    --dark-bg-color: #e44d26;
+} /* usage example: background-color: var(--light-bg-color); */
+
 body {
   color: black;
-  background-color: white; 
-  hyphens: auto;
+  background-color: white;
 }
 @media screen {
   body { 
@@ -90,10 +97,21 @@ body {
     padding: 10px;
     max-width: 45em;
   }
-  /* floats */
-  .top, .bottom, .column-top, .column-bottom {
-    float: right; 
-    width: 55%;
+  main > section > h1, 
+  section[role="doc-abstract"] > h1 {
+    font-size: 1.5rem;
+  }
+  main > section > section > h1 {
+    font-size: 1.3rem;
+  }
+  main > section > section > section > h1 {
+    font-size: 1.1rem;
+  }
+  p + p {
+    margin-top: 1em;
+  }
+  ul {
+    padding-left: 1em;  
   }
 }
 
@@ -101,16 +119,79 @@ body {
   body { 
     font: 10pt/1.2 "PT Serif", 'TimesNewRoman', serif;
     text-align: justify; 
+    hyphens: auto;
   } 
   header {
     page-break-after: avoid; 
+  }
+  #PDF {
+    display: none;
   }
   main {
     columns: 2; 
     column-gap: 0.25in;   
   }
-  #front-matter {
+  #front-matter,
+  table {
     column-span: all;   
+  }
+  section[role="doc-abstract"] {
+    margin-bottom: 1em;  
+  }
+  main > section > h1, 
+  section[role="doc-abstract"] > h1 {
+    font-size: 1.1rem;
+  }
+  main > section > section > h1 {
+    font-size: 1rem;
+  }
+  main > section > section > section > h1 {
+    font-size: 0.9rem;
+  }
+  
+  p {
+    margin: 0;
+  }
+  p + p,
+  figure.top + p,
+  figure.column-top + p,
+  figure.bottom + p,
+  figure.column-bottom + p
+  {
+    text-indent: 1.5em;
+  }
+  ol {
+    box-sizing: content-box;
+	margin: 0.7em 0; 
+	padding-left: 2em;
+  }
+  ol > li::marker { 
+    width: 2em; 
+	text-align: right; 
+  }
+  ul {
+    box-sizing: content-box;
+	margin: 0.7em 0; 
+	padding-left: 2em;
+  }
+  ul > li::marker { 
+    width: 1em; 
+	text-align: right; 
+  }
+  li {
+    list-style-position: outside;
+  }
+  
+  img { 
+    prince-image-resolution: normal; 
+    prince-background-image-resolution: normal; 
+  }
+
+  /* adjusting prism.css settings */
+  code[class*="language-"], pre[class*="language-"] {
+    font-size: smaller;
+	padding: 5px;
+    line-height: 1.2;   
   }
   
   ::footnote-call {
@@ -141,10 +222,6 @@ body {
   }
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: 1em;
-}
 h1 {
   margin-top: 0.67em;
   margin-bottom: 0.33em;
@@ -154,11 +231,23 @@ body > header > small {
   display: block;
   text-align: center;
 }
-body > header > h1 {
+#articleURL { 
+  string-set: articleURL content() 
+}
+
+
+h1#article-title {
   text-align: center;
   font-size: 180%;
   line-height: 1.2;
   margin-top: 0.2em;
+}
+#article-title-abbr {
+  display: none;
+}
+
+address {
+  font-style: normal;
 }
 address > div[property="name"] {
   text-align: center;
@@ -178,33 +267,24 @@ address > div[property="affiliation"] {
   margin-top: 2em;
 }
 #acm-subject-categories > h1,
-#keywords > h1
-{
+#keywords > h1 {
   font-size: 120%;
 }
 #acm-subject-categories > ul,
-#keywords > ul
-{
+#keywords > ul {
   margin-top: 0;
 }
 
-main > section > h1 {
-  font-size: 1.5rem;
-}
-main > section > section > h1 {
-  font-size: 1.3rem;
-}
-main > section > section > section > h1 {
-  font-size: 1.1rem;
+#article-title-abbr { 
+  string-set: articleTitleAbbr content() 
 }
 
-ul {
-  padding-left: 1em;	
+li > p  {
+    text-indent: 0;
 }
-
 .list-inline {
-	padding-left: 0;
-	list-style: none
+  padding-left: 0;
+  list-style: none;
 }
 .list-inline > li {
     display: inline-block;
@@ -213,13 +293,20 @@ ul {
 .list-inline.comma-separated > li:not(:last-child):after {
   content: ",";
 }
+
+section[role="doc-bibliography"] ul {
+  list-style: none;
+}
 section[role="doc-bibliography"] li {
+  /* text-indent: 1.5em hanging; */
+  text-indent: -1em;
   margin-bottom: 3px;
 }
 
 table {
   border-collapse:collapse;
   margin: 1em auto;
+  table-layout:fixed;
 }
 table, td, th {
   border: thin solid black;
@@ -233,15 +320,11 @@ table > caption {
 }
 
 figure {
-  margin: 1em auto;	
+  margin: 1em auto;  
   text-align: center;
 }
 figcaption {
   margin-top: 0.7em;
-}
-
-code[class*="language-"], pre[class*="language-"] {
-  line-height: 1.2;	 /* adjusting a prism.css setting of 1.5 */
 }
 
 /***** counters *****/
@@ -266,3 +349,4 @@ main > section > section > section > h1:before {
   counter-increment: sub-sub-sections;
   content: counter(sections) "." counter(sub-sections) "." counter(sub-sub-sections) " ";
 }
+
