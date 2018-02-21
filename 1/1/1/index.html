@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
-      <title>JSimE 1:1 - Information and Process Modeling for Simulation – Part I</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+  <title>JSimE 1:1 - Information and Process Modeling for Simulation – Part I</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	  
+  <meta name="citation_journal_title" content="Journal of Simulation Engineering"/>
+  <meta name="citation_author" content="Gerd Wagner"/>
+  <meta name="citation_title" content="Information and Process Modeling for Simulation – Part I"/>
+  <!--
+  <meta name="citation_date" content="2017/10/05"/>
+  -->
+  <meta name="citation_volume" content="1"/>
+  <meta name="citation_issue" content="1"/>
+  <meta name="citation_abstract_html_url" content="https://jsimeng.gear.host/index.php/jsimeng/article/view/2"/>
+  <meta name="citation_pdf_url" content="https://articles.jsime.org/1/1/jsime-article-1-1-1.pdf">       
+  
+  <link rel="canonical" href="https://articles.jsime.org/1/1/1/Modeling-for-Simulation" />
       
-      <link rel="canonical" href="https://articles.jsime.org/1/1/1/Modeling-for-Simulation" />
-      
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"></link>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/themes/prism.min.css"></link>
-      <link rel="stylesheet" href="../../../jsime.css"></link>
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js"></script>
-      <!--
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      -->
-      <script type="application/ld+json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"></link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/themes/prism.min.css"></link>
+  <link rel="stylesheet" href="../../../jsime.css"></link>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js"></script>
+  <!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  -->
+  <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@graph": [
@@ -84,7 +95,7 @@
 </head>
 <body vocab="http://schema.org/">
  <header>
-   <small><img src="../../../JSimE.svg" style="height:24px; margin-right:0.7em;"/><i>Journal of Simulation Engineering</i>, 1:1 (under construction). Article URL: <a href="https://articles.jsime.org/1/1/1" id="articleURL">https://articles.jsime.org/1/1/1</a><a id="PDF" href="../jsime-article-1-1-1.pdf" style="position:relative; left:1em"><img src="../../../icons/pdf.png" /></a></small>
+   <small><img src="../../../JSimE.svg" style="height:24px; margin-right:0.7em;"/><i>Journal of Simulation Engineering</i>, 1:1 (under construction). Article URL: <a href="https://articles.jsime.org/1/1/1" id="articleURL">https://articles.jsime.org/1/1/1</a><a id="PDF" class="suppressPDF" href="https://jsimeng.gear.host/index.php/jsimeng/article/view/2" style="position:relative; left:1em"><img src="../../../icons/pdf.png" /></a></small>
    
  </header>
  <main>
@@ -108,7 +119,7 @@
      </div>
      <section role="doc-abstract">
         <h1>Abstract</h1>
-        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics, including its state changes. In the fields of <em>Information Systems</em> and <em>Software Engineering</em> (IS/SE) there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general approach, called <em>Object-Event Modeling (OEM)</em>, for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and in pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>, while in Part III we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
+        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics, including its state changes. In the fields of <em>Information Systems</em> and <em>Software Engineering (IS/SE)</em> there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general approach, called <em>Object-Event Modeling (OEM)</em>, for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and in pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>, while in Part III we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
         </p>
      </section>
    </div>
@@ -259,9 +270,8 @@
          conceptual models, design models and implementation models are illustrated in <a href="#_Ref493009969">Figure 1</a>.
       </p>
       <figure id="_Ref493009969" class="top">
-         <img src="./img/image1.png" alt="From a conceptual model via design models to implementation models."/>
-         <figcaption><strong>Figure 1.</strong> From a conceptual model via design models to implementation models.
-         </figcaption>
+         <img src="./img/MDD.svg" width="600"/>
+         <figcaption><strong>Figure 1.</strong> From a conceptual model via design models to implementation models.</figcaption>
       </figure>
       <p>In the implementation phase, an implementation model is coded in the programming language
          of the target platform. Finally, after testing and debugging, the implemented solution
@@ -312,7 +322,7 @@
          they define requirements for the modeling languages to be used.
       </p>
       <figure id="_Ref493010044" class="top">
-         <img src="./img/image2.png"/>
+         <img src="./img/MDD-Example.svg" width="700"/>
          <figcaption><strong>Figure 2.</strong> From a conceptual information model via a design model to OO and C++ class models.</figcaption>
       </figure>
    </section>

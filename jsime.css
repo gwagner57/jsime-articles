@@ -124,7 +124,7 @@ body {
   header {
     page-break-after: avoid; 
   }
-  #PDF {
+  .suppressPDF {
     display: none;
   }
   main {
