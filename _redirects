@@ -1,2 +1,3 @@
 # Rewrite a path with a slug
+/:volume/:articleno/:slug  /:volume/:articleno  200
 /:volume/:month/:articleno/:slug  /:volume/:month/:articleno  200
