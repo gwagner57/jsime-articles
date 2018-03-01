@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+      <title>JSimE 1:1 - Information and Process Modeling for Simulation – Part I</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"></link>
+      <link rel="stylesheet" href="jsime.css"></link>
+</head>
+<body vocab="http://schema.org/">
+  <main>
+   <div id="front-matter">
+     <h1 id="article-title">Information and Process Modeling for Simulation – Part I: Objects and Events</h1>
+	 <div id="article-title-abbr">Information and Process Modeling for Simulation – Part I</div>
+     <address class="lead_authors" typeof="Person">
+        <div property="name">Gerd Wagner</div>
+        <div property="email"><a href="mailto:G.Wagner@b-tu.de">G.Wagner@b-tu.de</a></div>
+        <div property="affiliation">Dept. of Informatics, Brandenburg University of Technology, Cottbus, GERMANY</div>
+     </address>
+     <div id="acm-subject-categories"><h1>ACM Subject Categories</h1>
+        <ul>
+           <li><code>Computing methodologies~Modeling methodologies</code></li>
+        </ul>
+     </div>
+     <div id="keywords"><h1>Keywords</h1>
+        <ul class="list-inline comma-separated">
+           <li>Conceptual Model</li><li>Design Model</li><li>Information Model</li><li>Process Model</li>
+        </ul>
+     </div>
+     <section role="doc-abstract">
+        <h1>Abstract</h1>
+        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics, including its state changes. In the fields of <em>Information Systems</em> and <em>Software Engineering</em> (IS/SE) there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general approach, called <em>Object-Event Modeling (OEM)</em>, for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and in pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>, while in Part III we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
+        </p>
+     </section>
+   </div>
+   <section><h1>Introduction</h1>
+      <p>The term <em>simulation engineering</em> denotes the scientific engineering discipline concerned with the development of computer simulations, which are a special class of software applications. Since a running computer simulation is a particular kind of software system, we may consider simulation engineering as a special case of <em>software engineering</em>. 
+      </p>
+      <p>Even though there is a common agreement that modeling is an important first step in a simulation project, at the same time it is thought to be the least understood part of simulation engineering <a href="#Tak10">(Tako, Kotiadis, &amp; Vasilakis, 2010)</a>. In a panel discussion on conceptual simulation modeling <a href="#Dur10">(Zee, et al., 2010)</a>, the participants agreed that there is a lack of <q>standards, on procedures, notation, and model qualities</q>. On the other hand, there is no such lack in the field of <em>Information Systems and Software Engineering (IS/SE)</em> where widely used standards such as the <em>Unified Modeling Language (UML)</em> and the <em>Business Process Modeling Notation (BPMN)</em> and various modeling methodologies and model quality assurance methods have been established.
+      </p>
+      <p>The standard view in the simulation literature, see, e.g., <a href="#Himmelspach2009">(Himmelspach, 2009)</a>, is that a <em>simulation model</em> can be expressed either in a general purpose programming language or in a specialized simulation language. This means that the term <q>model</q> in <em>simulation model</em> typically refers to a low-level computer program and not to a model expressed in a higher-level diagrammatic modeling language. In a <em>modeling and simulation</em> project, despite the fact that <q>modeling</q> is part of the discipline’s name, often no model in the sense of a conceptual model or a design model is made, but rather the modeler jumps from her mental model to its implementation in some target technology platform. Clearly, as in IS/SE, making conceptual models and design models would be important for several reasons: as opposed to a low-level computer program, a high-level model would be more comprehensible and easier to communicate, share, reuse, maintain and evolve, while it could still be used for obtaining platform-specific implementation code, possibly with the help of <em>model transformations</em> and <em>code generation</em>.
+      </p>
+      <p>Due to their great expressivity and their wide adoption as modeling standards, <em>UML</em> and <em>BPMN</em> seem to be the best choices for making information and process models in a model-based simulation engineering approach. However, since they have not been designed for this purpose, we may have to restrict, modify and extend them in a suitable way.         
+      </p>
+      <p>Several authors, e.g. <a href="#Wag09">(Wagner, Nicolae, &amp; Werner, 2009)</a>, <a href="#CetinkayaVS2011">(Cetinkaya, Verbraeck, &amp; Seck, 2011)</a>, and <a href="#Ong11">(Onggo &amp; Karpat, 2011)</a>, have proposed to use BPMN for Discrete Event Simulation (DES) modeling and for agent-based modeling. However, process modeling in general is much less understood than information modeling, and there are no guidelines and no best practices how to use BPMN for simulation modeling. Schruben (<a href="#Schruben83">1983</a>), with his <em>Event Graph</em> diagram language, has pioneered the research on process modeling languages for DES based on the modeling concept of <em>event types</em> and the operational semantics concept of <em>event scheduling</em> with a <em>future events list</em>. Remarkably, Event Graphs correspond to a fragment of BPMN (without Activities and Pools), which indicates the potential of BPMN as a basis of a general process modeling language for DES.
+      </p>
+      <p>This tutorial article extends and improves the modeling approach presented in <a href="#GWa17b">(Wagner, 2017b)</a>. In particular, the BPMN-based process design modeling approach has been revised and refined, inspired by the <em>Event Graph</em> diagrams of <a href="#Schruben83">(Schruben 1983)</a>. The resulting variant of BPMN, called <em>Discrete Event Process Modeling Notation (DPMN)</em>, allows making computational (platform-independent) process design models for DES.
+      </p>
+      <p>The tutorial first provides short introductions to <em>model-driven engineering</em>, to <em>information modeling</em> with UML class diagrams, and to <em>process modeling</em> with BPMN process diagrams, and then shows how to use the approach of <em>Object-Event Modeling (OEM)</em> for developing basic discrete event simulations. In a forthcoming Part II of this tutorial, we will discuss the more advanced modeling concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em> where work objects <q>flow through the system</q> by entering it through an <em>arrival event</em> at an <em>entry node</em>, then passing one or more <em>processing nodes</em>, participating in their processing activities, and finally leaving it through a <em>departure event</em> at an <em>exit node</em>. Finally, in Part III, we will show how to add the modeling concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em> resulting in a general agent-based DES modeling framework.
+      </p>
+      <p>In our OEM approach, <em>object types</em> and <em>event types</em> are first modeled in an information model for describing the state structure of the system under investigation, and then used as special categories of classes in a UML Class Diagram, which can be implemented with any object-oriented (OO) programming language or simulation library/framework. <em>Random variables</em> are modeled as a special category of UML operations constrained to comply with a specific probability distribution such that they can be implemented as methods of an object or event class with any OO simulation technology. <em>Queues</em> are not modeled as objects, but rather as ordered association ends, which can be implemented as collection-valued reference properties. Finally, <em>event rules</em>, which include <em>event routines</em>, are modeled both as BPMN process diagrams and in pseudo-code such that they can be implemented in the form of special <em>onEvent</em> methods of event classes.
+      </p>
+      <p>The OEM approach results in a simulation design model that has a well-defined operational semantics, as shown in <a href="#GWa17a">(Wagner, 2017a)</a>. Such a model can, in principle, be implemented with any OO simulation technology. However, a straightforward implementation can only be expected from a technology that implements the <em>Object-Event Simulation (OES)</em> paradigm proposed in <a href="#GWa17a">(Wagner, 2017a)</a>, such as the <em>OES JavaScript (OESjs)</em> framework presented in <a href="#GWa17c">(Wagner, 2017c)</a>.
+      </p>
+      <p>There are two examples of systems, which are paradigmatic for DES (and for <em>operations research</em>): <em>service/processing systems</em> with queues (also called <q>queuing networks</q>) and <em>inventory management systems</em>. However, neither of them has yet been presented with elaborate information and process models in tutorials or textbooks. In this tutorial, we show how to make information and process models of an inventory management system and of a service system, and how to code them using the JavaScript-based simulation framework OESjs.
+      </p>
+   </section>
+   <section><h1>Information Modeling with UML Class Diagrams</h1>
+      <p>Conceptual information modeling is mainly concerned with describing the relevant <b><i>entity types</i></b> of a real-world domain and the relationships between them, while information design
+         and implementation modeling is concerned with describing the <em>logical</em> (or <em>platform-independent</em>) and <em>platform-specific</em> data structures (in the form of <b><i>classes</i></b>) for designing and implementing a software system or simulation. The most important
+         kinds of relationships between entity types to be described in an information model
+         are <b><i>associations</i></b>, which are called <q>relationship types</q> in <em>ER modeling</em>, and <b><i>subtype</i></b>/<em>supertype</em> relationships, which are called <q>generalizations</q> in <em>UML</em>. In addition, one may model various kinds of <em>part-whole</em> relationships between different kinds of aggregate entities and component entities,
+         but this is an advanced topic that is not covered in this tutorial.
+      </p>
+      <p>As explained in the introduction, we are using the visual modeling language of UML
+         Class Diagrams for information modeling. In this language, an entity type is described
+         with a name, and possibly with a list of <b><i>properties</i></b> and <b><i>operations</i></b> (called <em>methods</em> when implemented), in the form of a <em>class rectangle</em> with one, two or three compartments, depending on the presence of properties and
+         operations. <b><i>Integrity constraints</i></b>, which are conditions that must be satisfied by the instances of a type, can be expressed
+         in special ways when defining properties or they can be explicitly attached to an
+         entity type in the form of an <em>invariant</em> box.
+      </p>
+      <p>An <b><i>association</i></b> between two entity types is expressed as a connection line between the two class
+         rectangles representing the entity types. The connection line is annotated with <em>multiplicity</em> expressions at both ends. A <b><i>multiplicity</i></b> expression has the form <code>m..n</code> where <em>m</em> is a non-negative natural number denoting the <em>minimum cardinality</em>, and <em>n</em> is a positive natural number (or the special symbol * standing for <em>unbounded)</em> denoting the maximum cardinality, of the sets of associated entities. Typically,
+         a multiplicity expression states an integrity constraint. For instance, the multiplicity
+         expression <code>1..3</code> means that there are at least 1 and at most 3 associated entities. However, the special
+         multiplicity expression <code>0..*</code> (also expressed as <code>*</code>) means that there is no constraint since the minimum cardinality is zero and the
+         maximum cardinality is unbounded.
+      </p>
+      <p>For instance, the model shown in <a href="#_Ref493010135">Figure 3</a> describes the entity types <code>Shop</code> and <code>Delivery</code>, and it states that
+      </p>
+      <ol>
+         <li>
+      <p>there are two classes: <code>Shop</code> and <code>Delivery</code>, representing entity types; 
+      </p>
+         </li>
+         <li>
+      <p>there is a one-to-many association between the classes <code>Shop</code> and <code>Delivery</code>, where a shop is the <code>receiver</code> of a delivery.
+      </p>
+         </li>
+      </ol>
+      <figure id="_Ref493010135">
+         <img src="./img/IntroUML1.svg" width="400"/>
+         <figcaption><strong>Figure 3.</strong> The entity types Shop and Delivery.</figcaption>
+      </figure>
+      <p>Using further compartments in class rectangles, we can add properties and operations.
+         For instance, in the model shown in <a href="#_Ref493071591">Figure 4</a>, we have added
+      </p>
+      <ol>
+         <li>
+      <p>the properties <em>name</em> and <em>stockQuantity</em> to <code>Shop</code> and <em>quantity</em> to <code>Delivery</code>,
+      </p>
+         </li>
+         <li>
+      <p>the instance-level operation <em>onEvent</em> to <code>Delivery</code>,
+      </p>
+         </li>
+         <li>
+      <p>the class-level operation <em>leadTime</em> to <code>Delivery</code>.
+      </p>
+         </li>
+      </ol>
+      <figure id="_Ref493071591" class="top">
+         <img src="./img/IntroUML2.svg" width="450"/>
+         <figcaption><strong>Figure 4.</strong> Adding properties and operations.</figcaption>
+      </figure>
+      <p>Notice that in <a href="#_Ref493071591">Figure 4</a>, each property is declared together with a datatype as its <em>range</em>. Likewise, operations are declared with a (possibly empty) list of parameters, and with an optional return value type. When an operation (or property) declaration is underlined, this means that it is class-level instead of instance-level. For instance, the underlined operation declaration <u><code>leadTime() : Decimal</code></u> indicates that <em>leadTime</em> is a class-level operation that does not take any argument and returns a decimal number.
+      </p>
+      <p>We may want to define various types of integrity constraints for better capturing
+         the semantics of entity types, properties and operations. The model shown in <a href="#_Ref493014282">Figure 5</a> contains an example of a property constraint and an example of an operation constraint. These types of constraints can be expressed within curly braces appended to a property
+         or operation declaration. The keyword <code>id</code> in the declaration of the property <code>name</code> in the <code>Shop</code> class expresses an ID constraint stating that the property is a standard identifier,
+         or primary key, attribute. The expression <code>Exp(0.5)</code> in the declaration of the random variable operation <code>leadTime</code> in the <code>Delivery</code> class denotes the constraint that the operation must implement the <em>exponential</em> probability distribution function with event rate 0.5. 
+      </p>
+      <figure id="_Ref493014282">
+         <img src="./img/IntroUML3.svg" style="width:500px"/>
+         <figcaption><strong>Figure 5.</strong> Adding a property constraint and an operation constraint.</figcaption>
+      </figure>
+      <p>UML allows defining special categories of modeling elements called <q>stereotypes</q>.
+         For instance, for distinguishing between <b><i>object types</i></b> and <b><i>event types</i></b>
+         as two different categories of entity types we can define corresponding stereotypes of UML classes («object type» and «event type»)
+         and use them for categorizing classes in class models, as shown in <a href="#_Ref493015782">Figure 6</a>.
+      </p>
+      <p>Another example of using UML’s stereotype feature is the designation of an operation as a function that represents a
+         <em>random variable</em> using the operation stereotype «rv» in the diagram of <a href="#_Ref493015782">Figure 6</a>.
+      </p>
+      <figure id="_Ref493015782" class="column-top">
+         <img src="./img/IntroUML4.svg" width="500"/>
+         <figcaption><strong>Figure 6.</strong> Object and event types as two different categories of entity types.</figcaption>
+      </figure>
+      <p>A class may be defined as <em>abstract</em> by writing its name in italics, as in the example model of <a href="#_Ref493094582">Figure 11</a>. An abstract class cannot have direct instances. It can only be indirectly instantiated by objects that are direct instances of a subclass.
+      </p>
+      <p>For a short introduction to UML Class Diagrams, the reader is referred to <a href="#Ambler2010">(Ambler, 2010)</a>. A good overview of the most recent version of UML (2.5) is provided by <a href="http://www.uml-diagrams.org/uml-25-diagrams.html">www.uml-diagrams.org/uml-25-diagrams.html</a></p>
+   </section>
+   
+   </main>
+</body>
+</html>
