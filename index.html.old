@@ -24,23 +24,19 @@ body {
     <h1 class="title">
       <img src="JSimE.svg"
         style="width: 4em; margin-right: 0.3em; margin-bottom: -0.4em"
-        alt="Journal of Simulation Engineering (JSimE) Logo" />Volumes
+        alt="Journal of Simulation Engineering (JSimE) Logo" /> Volumes
     </h1>
   </header>
-  <main>
-    <details>
-      <summary>Volume 1</summary>
-      <ol>
-        <li><a href="./1/1">Information and Process Modeling for Simulation – Part I: Objects and Events</a></li>
-        <li><a href="./1/2">Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Volume 2</summary>
-      <ol>
-        <li><a href="./2/1">Title 2</a></li>
-      </ol>
-    </details>
-  </main>
+  <main> <details>
+    <summary>Volume 1</summary>
+    <ol>
+      <li><a href="./1/1">Issue 1</a></li>
+    </ol>
+  </details> <details>
+    <summary>Volume 2</summary>
+    <ol>
+      <li><a href="./2/1">Issue 1</a></li>
+    </ol>
+  </details> </main>
 </body>
 </html>

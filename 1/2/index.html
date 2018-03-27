@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title>Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <!--Google Scholar-->
+      <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
+      <!-- <meta name="citation_issn" content="XXXX-XXXX" /> -->
+      <meta name="citation_author" content="Shafagh Jafer" />
+      <meta name="citation_author_email" content="jafers@erau.edu" />
+      <meta name="citation_author_institution" content="Embry-Riddle Aeronautical University, Florida, United States" />
+      <meta name="citation_author" content="Bharvi Chhaya" />
+      <meta name="citation_author_email" content="chhayab@my.erau.edu" />
+      <meta name="citation_author_institution" content="Embry-Riddle Aeronautical University, Florida, United States" />
+      <meta name="citation_author" content="Jessica Updegrove" />
+      <meta name="citation_author_email" content="updegroj@my.erau.edu" />
+      <meta name="citation_author_institution" content="Embry-Riddle Aeronautical University, Florida, United States" />
+      <meta name="citation_author" content="Umut Durak" />
+      <meta name="citation_author_email" content="umut.durak@dlr.de" />
+      <meta name="citation_author_institution" content="German Aerospace Center, Germany" />
+      <meta name="citation_title" content="Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language" />
+      <meta name="citation_publication_date" content="2018-04-01" />
+      <meta name="citation_volume" content="1" />
+      <!-- <meta name="citation_doi" content="DOI" /> -->
+      <meta name="citation_language" content="en" />
+      <meta name="citation_keywords" xml:lang="en" lang="en" content="Model-based development, Simulation scenario, SES" />
+      <meta name="citation_abstract_html_url" content="https://jsimeng.gear.host/index.php/jsimeng/article/view/5" />
+      <meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-2.pdf" />
+      <!--Cannonical URL-->
+      <link rel="canonical" href="https://articles.jsime.org/1/2/Short-Title" />
+      <!--Stylesheets-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+      <link rel="stylesheet" href="../../jsime.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.11.0/themes/prism.min.css" />
+      <!--Scripts-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.11.0/prism.min.js"></script>
+      <!--schema.org JSON-LD-->
+      <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@id": "#volume-1",
+      "@type": "PublicationVolume",
+      "datePublished": "2018-04-01",
+      "volumeNumber": "1",
+    },
+    {
+      "@id": "#jsime",
+      "@type": "Periodical",
+      "name": "Journal of Simulation Engineering",
+      "issn": "XXXX-XXXX",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Consortium for True Open Access in Modeling and Simulation"
+      },
+      "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+    },
+    {
+      "@id": "#affiliation-1",
+      "@type": "Organization",
+      "address": "Embry-Riddle Aeronautical University, Florida, United States"
+    },
+    {
+      "@id": "#affiliation-2",
+      "@type": "Organization",
+      "address": "German Aerospace Center, Germany"
+    },
+    {
+      "@id": "#author-1",
+      "@type": "Person",
+      "name": "Shafagh Jafer",
+      "email": jafers@erau.edu",
+      "affiliation": "#affiliation-1"
+    },
+    {
+      "@id": "#author-2",
+      "@type": "Person",
+      "name": "Bharvi Chhaya",
+      "email": chhayab@my.erau.edu",
+      "affiliation": "#affiliation-1"
+    },
+    {
+      "@id": "#author-3",
+      "@type": "Person",
+      "name": "Jessica Updegrove",
+      "email": updegroj@my.erau.edu",
+      "affiliation": "#affiliation-1"
+    },
+    {
+      "@id": "#author-4",
+      "@type": "Person",
+      "name": "Umut Durak",
+      "email": umut.durak@dlr.de",
+      "affiliation": "#affiliation-2"
+    },
+    {
+      "@id": "#artcile-1-2",
+      "@type": "ScholarlyArticle",
+      "isPartOf": [
+        {
+          "@id": "#jsime"
+        },
+        {
+          "@id": "#volume-1"
+        }
+      ],
+      "name": "Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language",
+      "author": [ "#author-1", "#author-2", "#author-3", "#author-4" ],
+      "keywords": [ "Model-based development", "Simulation scenario", "SES" ],
+      "description": "The first step in designing a domain-specific simulation scenario definition language is constructing its ontology. The recently published Aviation Scenario Definition Language (ASDL) aims at providing a common platform to specify scenarios in the aviation domain. To capture ASDL ontology, the Web Ontology Language and Protégé tool was utilized which was then converted into an XML schema by means of tool automation in Eclipse Modeling Framework. On the other hand, the System Entity Structure (SES) provides a formal basis to represent the ontological foundations of a domain language. Following the XML Schema representation of SES scenario modeling ontology that has been recently published, we illustrate how equivalent schema for a scenario definition language can be constructed using a domain-specific language ontology-driven approach and SES. We take both approaches to represent the ASDL ontology and prove that the resulting schema produced from these two approaches converge to the same result.",
+      "url": "https://articles.jsime.org/[V]/[N]",
+      "sameAs": "DOI",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [ "Shafagh Jafer", "Bharvi Chhaya", "Jessica Updegrove", "Umut Durak" ],
+      "copyrightYear": "2018",
+      "dateCreated": "2018-04-01",
+      "dateModified": "2018-04-01",
+      "datePublished": "2018-04-01"
+    },
+    {
+      "@type": "CategoryCodeSet",
+      "@id": "http://totem.semedica.com/taxonomy/The ACM Computing Classification System (CCS)",
+      "name": "The 2012 ACM Computing Classification System"
+    },
+    {
+      "@type": "CategoryCode",
+      "identifier": "",
+      "codeValue": "Computing methodologies~Modeling methodologies",
+      "inCodeSet": "http://totem.semedica.com/taxonomy/The ACM Computing Classification System (CCS)"
+    },
+    {
+      "@type": "CategoryCode",
+      "identifier": "",
+      "codeValue": "Computing methodologies~Simulation languages",
+      "inCodeSet": "http://totem.semedica.com/taxonomy/The ACM Computing Classification System (CCS)"
+    },
+    {
+      "@type": "CategoryCode",
+      "identifier": "",
+      "codeValue": "Information systems~Ontologies",
+      "inCodeSet": "http://totem.semedica.com/taxonomy/The ACM Computing Classification System (CCS)"
+    }
+  ]
+}
+</script>
+      </head>
+   <body vocab="http://schema.org/">
+      <header>
+         <small><img src="../../JSimE.svg" style="height:20px; margin-right:0.7em;" />Journal of Simulation Engineering, Vol. 1 (under construction). Article URL: <a href="https://articles.jsime.org/1/2" id="articleURL">https://articles.jsime.org/1/2</a><a id="PDF" class="supressPDF" href="https://jsimeng.gear.host/index.php/jsimeng/article/view/5" style="position:relative; left:1em"><img src="../../icons/pdf.png" /></a></small> 
+      </header>
+      <main>
+         <div id="front-matter">
+            <h1 id="article-title">Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language</h1>
+            <address class="lead_authors" typeof="Person">
+               <div property="name">Shafagh Jafer</div>
+               <div property="email"><a href="mailto:jafers@erau.edu">jafers@erau.edu</a></div>
+               <div property="affiliation">Embry-Riddle Aeronautical University, Daytona Beach, FL, UNITED STATES</div>
+            </address>
+            <address class="lead_authors" typeof="Person">
+               <div property="name">Bharvi Chhaya</div>
+               <div property="email"><a href="mailto:chhayab@my.erau.edu">chhayab@my.erau.edu</a></div>
+               <div property="affiliation">Embry-Riddle Aeronautical University, Daytona Beach, FL, UNITED STATES</div>
+            </address>
+            <address class="lead_authors" typeof="Person">
+               <div property="name">Jessica Updegrove</div>
+               <div property="email"><a href="mailto:updegroj@my.erau.edu">updegroj@my.erau.edu</a></div>
+               <div property="affiliation">Embry-Riddle Aeronautical University, Daytona Beach, FL, UNITED STATES</div>
+            </address>
+            <address class="lead_authors" typeof="Person">
+               <div property="name">Umut Durak</div>
+               <div property="email"><a href="mailto:umut.durak@dlr.de">umut.durak@dlr.de</a></div>
+               <div property="affiliation">German Aerospace Center, Köln, GERMANY</div>
+            </address>
+            <div id="acm_subject_categories">
+               <h1>ACM Subject Categories</h1>
+               <ul>
+                  <li><code>Computing methodologies~Modeling methodologies</code></li>
+                  <li><code>Computing methodologies~Simulation languages</code></li>
+                  <li><code>Information systems~Ontologies</code></li>
+               </ul>
+            </div>
+            <div id="keywords">
+               <h1>Keywords</h1>
+               <ul class="list-inline comma-separated">
+                  <li>Model-based development</li>
+                  <li>Simulation scenario</li>
+                  <li>SES</li>
+               </ul>
+            </div>
+            <section role="doc-abstract">
+               <h1>Abstract</h1>
+               <p>The first step in designing a domain-specific simulation scenario definition language
+                  is constructing its ontology. The recently published Aviation Scenario Definition
+                  Language (ASDL) aims at providing a common platform to specify scenarios in the aviation
+                  domain. To capture ASDL ontology, the Web Ontology Language and Protégé tool was utilized
+                  which was then converted into an XML schema by means of tool automation in Eclipse
+                  Modeling Framework. On the other hand, the System Entity Structure (SES) provides
+                  a formal basis to represent the ontological foundations of a domain language. Following
+                  the XML Schema representation of SES scenario modeling ontology that has been recently
+                  published, we illustrate how equivalent schema for a scenario definition language
+                  can be constructed using a domain-specific language ontology-driven approach and SES.
+                  We take both approaches to represent the ASDL ontology and prove that the resulting
+                  schema produced from these two approaches converge to the same result.
+               </p>
+            </section>
+         </div>
+         <section>
+            <h1>Introduction</h1>
+            <p>The term <q>scenario</q> has a variety of published definitions from a vast array of domains. While the term
+               itself has varying meanings, two definitions represent a scenario in the context of
+               simulation development and usage. First, a scenario can be defined as a description
+               of the hypothetical or real area, environment, means, objectives, and events during
+               a specified time frame related to events of interest (<a role="doc-biblioref" href="#GSD14">GSD Product Development Group, SISO, 2014</a>). Second, a scenario can be defined as a specification of conditions and situations
+               to be represented by a simulation environment for its purpose (<a role="doc-biblioref" href="#Umu">Durak, Topcu, Siegfried, &amp; Oguztuzun, 2014</a>). Both definitions agree that a scenario is a description of important events and
+               conditions needed to represent a specific order of events which, in this application,
+               occurs within a simulation environment. Therefore, when developing a simulation environment
+               which utilizes these events and conditions, it is often a prerequisite to define the
+               scenarios that will be executed in the target simulation environment. This concept
+               is known as scenario-based development.
+            </p>
+            <p>The Simulation Interoperability Standards Organization (SISO) released guidelines
+               for the creation of simulation scenarios, detailed in (<a role="doc-biblioref" href="#NAT15">NATO Modelling and Simulation Group MSG-086, 2015</a>). The guideline provides detailed information regarding the development of simulation
+               scenarios, including an overview of available tools and processes. According to (<a role="doc-biblioref" href="#GSD14">GSD Product Development Group, SISO, 2014</a>), a scenario must be well-defined and must be complete, consistent, and comprehensible.
+               Failing to achieve these aspects can lead to incomplete scenario definition and misunderstanding
+               regarding the scope and applications of the simulation environment. As a result, the
+               subsequently designed simulation environment is prone to error and may not reflect
+               what the user originally intended. For a simulation environment that is designed to
+               execute a specific set of scenarios, this misunderstanding can be disastrous.
+            </p>
+            <p>Scenario development is an important part of all phases of the simulation environment
+               development process. It not only defines a specification of a simulation run, but
+               also provides an input for the design and evaluation of the simulation environment
+               itself (<a role="doc-biblioref" href="#Umu">Durak, Topcu, Siegfried, &amp; Oguztuzun, 2014</a>). Scenario development can be broken down into the creation of three scenario groups:
+               (1) operational scenarios, (2) conceptual scenarios, and (3) executable scenarios.
+               First, operational scenarios are provided by subject-matter experts (SMEs) in the
+               early stages of development. These scenarios often provide a broad description of
+               the desired events in textual form using natural language. For example, an operational
+               scenario may describe what events occur during the simulation and in which order they
+               should occur. Operational scenarios use domain-specific terminology to describe the
+               events, which can then be identified by the Modeling and Simulation (M&amp;S) expert and
+               incorporated into the simulation ontology. Operational scenarios must be identified
+               before development of the simulation environment, as virtually all simulation requirements
+               are derived from these scenarios. Second, although operational scenarios provide the
+               simulation requirements, they are too broad to provide the details necessary to derive
+               a conceptual model and create a simulation environment. A conceptual scenario adds
+               this detail and additional information to the operational scenarios. These scenarios
+               are often created by an M&amp;S expert in collaboration with an SME. Although similar
+               to an operational scenario, conceptual scenarios should contain all information needed
+               for the simulation environment. In addition, instead of a purely natural language
+               approach, a conceptual scenario is used to create a conceptual model, which elaborates
+               concepts into entities similar to UML classes. These entities contain properties and
+               attributes which describe their roles and associations in the simulation environment.
+               Finally, once the conceptual model is complete and the simulation environment is defined,
+               executable scenarios can be made. An executable scenario is the specification of a
+               specific situation providing all information necessary for preparation, initialization,
+               and execution of a simulation environment (<a role="doc-biblioref" href="#GSD14">GSD Product Development Group, SISO, 2014</a>). These scenarios are ideally specified in a way that allows them to be machine-readable
+               and reusable. These types of scenarios can be seen in <a href="#_Ref509500998">Figure 1</a>.
+            </p>
+            <figure id="_Ref509500998"><img src="./img/image1.png" /><figcaption><strong>Figure 1.</strong> Types of scenarios
+               </figcaption>
+            </figure>
+            <p>Durak et al. (<a role="doc-biblioref" href="#Umu">Durak, Topcu, Siegfried, &amp; Oguztuzun, 2014</a>) propose a model-driven engineering (MDE) approach to the scenario development process
+               using the Eclipse Modeling Framework (EMF). Following MDE principles, scenario development
+               is viewed as the transformation of operational scenarios (defined using natural language)
+               to conceptual scenarios (conforming to a metamodel) to executable scenarios (specified
+               using a scenario specification language) and simulation environment design (following
+               a specific formalism). As the development process occurs, the scenario models are
+               refined and transformed. As a result, the proposed method requires conceptual scenarios
+               to be based on a metamodel which is then transformed into executable scenarios for
+               target simulation environments using a set of rules specific to the target simulation
+               environment. Following this method of model-to-model or model-to-text transformations,
+               a conceptual scenario can be transformed into multiple executable scenarios for multiple
+               target simulation environments. This greatly promotes reuse and simplicity among the
+               M&amp;S community.
+            </p>
+            <p>During the scenario development process, each scenario should at least specify three
+               main components: (1) the initial state, (2) the course of events, and (3) the termination
+               conditions. As the scenario development process progresses, these three components
+               should be further refined and expanded. The initial state describes the situation
+               at the beginning of the scenario timeline and generally contains information such
+               as date and time, surrounding conditions, and objects. The course of events describes
+               any pre-planned events that occur at a specified time or in a specified order. These
+               events can elicit a response, such as from a trainee using the system, or describe
+               a change in entity association or state, such as an aircraft beginning a turn while
+               en route. Events are often prompted by a trigger condition and each event injects
+               changes to the simulation scenario state to achieve a desired effect or action. Any
+               number of events can occur throughout the scenario timeline. The termination conditions
+               describe the state of the simulation environment where the scenario can be defined
+               as completed or terminated. This can occur via a specific event (such as a successful
+               landing) or other means of measurement (such as achieving a predefined elapsed time)
+               (<a role="doc-biblioref" href="#GSD14">GSD Product Development Group, SISO, 2014</a>).
+            </p>
+            <p>Scenario-based development and the scenario development process are complex and time-consuming.
+               However, a variety of tools and standards exist to help alleviate these challenges.
+               For operational scenarios, the Distributed Simulation Engineering and Execution Process
+               (DSEEP) describes a generic 7-step process for developing and executing a simulation
+               environment. DSEEP was used by Durak et al. (<a role="doc-biblioref" href="#Umu">Durak, Topcu, Siegfried, &amp; Oguztuzun, 2014</a>) when implementing the MDE approach to scenario development. The Coalition-Battle
+               Management Language (C-BML) strives to provide a standard for specifying the course
+               of events within a scenario. For conceptual scenarios, the Base Object Model (BOM)
+               defines a standard for defining and reusing components of models, simulations, and
+               federations. BOM can be used as a base for a simulation conceptual model and in the
+               design of scenarios for interoperable simulations. For executable scenarios, the Military
+               Scenario Definition Language (MSDL) is the most well-known standard for specifying
+               executable scenarios in the military domain (<a role="doc-biblioref" href="#GSD14">GSD Product Development Group, SISO, 2014</a>).
+            </p>
+            <p>The American Institute of Aeronautics and Astronautics (AIAA) Modeling and Simulation
+               Technical Committee (MSTC) recently launched a working group towards the development
+               of a standard simulation scenario definition language for the aviation domain. However,
+               there are multitudes of challenges which are well introduced in (<a role="doc-biblioref" href="#Jaf171">Jafer &amp; Durak, 2017</a>). First to mention is the complexity of the aviation systems which comes from the
+               large number of systems/subsystems involved, their deep hierarchical system structures,
+               and complicated interrelations and inter-dependencies. Simulation scenario definition
+               conclusively inherits this complexity. Additionally, variability of intended use adds
+               another flavor to complexity. It corresponds to variability in systems modeling both
+               in scope and resolution. As the structure and elements of the modeled air and ground
+               systems vary, the simulation scenario definition also varies. For example, the elements
+               of scenarios may largely differ between the simulations for air crew training and
+               research into pilot vehicle interfaces. Therefore, we are conducting two parallel
+               efforts for developing the simulation scenario definition language of aviation. First
+               to mention, the Aviation Scenario Definition Language (ASDL), proposed by Jafer et.
+               al. in 2016 (<a role="doc-biblioref" href="#Jaf161">2016</a>) utilizes the Web Ontology Language (OWL) and Eclipse Modeling Framework. The second
+               one proposed by Durak et al. (<a role="doc-biblioref" href="#Dur17">2017</a>) utilizes System Entity Structure ontology. Durak et al.(<a role="doc-biblioref" href="#Dur18">2018</a>) claims that utilizing XML based approaches are key to achieve wide industry acceptance
+               of the standard simulation scenario definition language. Here in this paper we illustrate
+               how equivalent schema for a scenario definition language can be constructed using
+               both OWL ontology and SES based approaches.
+            </p>
+         </section>
+         <section>
+            <h1>Background</h1>
+            <section>
+               <h1>Domain-Specific Languages</h1>
+               <p>Domain-specific languages (DSLs) are computer languages tailored to a specific application
+                  domain. As a result, DSLs are often more expressive for that particular domain, offering
+                  ease of use. This allows domain experts, who may not be familiar with programming
+                  and general-purpose programming languages, to use a DSL to express ideas and concepts
+                  in their domain, which is commonly not possible otherwise.
+               </p>
+               <p>DSL development is incredibly difficult as it requires knowledge of the domain and
+                  language development expertise, of which few people have both. As a result, the creation
+                  of a DSL is often not considered and if so, a DSL rarely evolves into a full-fledged
+                  language which can be used within the domain it is intended for (<a role="doc-biblioref" href="#Mer05">Mernik, Heering, &amp; Sloane, 2005</a>).
+               </p>
+            </section>
+            <section>
+               <h1>Ontology</h1>
+               <p>An ontology describes the concepts and relationships that are important in a particular
+                  domain and provides a vocabulary for that domain via a computerized specification
+                  of the meaning of terms used in the vocabulary (<a role="doc-biblioref" href="#Zho09">Yao &amp; Zhang, 2009</a>). Ontologies bridge the gap between people and systems, as ontologies describe domain
+                  relationships and objects in an easily understood manner while maintaining the ability
+                  to be machine interpretable. As a result, ontologies allow both people and computers
+                  to understand and derive new knowledge about the domain in question (<a role="doc-biblioref" href="#Bar08">Putten, Wolfe, &amp; Dignum, 2008</a>). Therefore, ontologies can be used as a starting point for further development as
+                  a domain expands or the ontology embraces new or additional concepts.
+               </p>
+               <p>The Web Ontology Language (OWL) is a popular format for creating and sharing an ontology.
+                  OWL is a semantic markup language for publishing and sharing ontologies on the web.
+                  It extends the Resource Description Framework (RDF) vocabulary and enables describing
+                  a domain in terms of classes, properties, and individuals (<a role="doc-biblioref" href="#Bec09">Bechhofer, 2009</a>).
+               </p>
+            </section>
+            <section>
+               <h1>Aviation Scenario Definition Language</h1>
+               <p>First proposed by Jafer et. al. in 2016 (<a role="doc-biblioref" href="#Jaf161">2016</a>), the Aviation Scenario Definition Language (ASDL) provides a simple, standardized
+                  method for aviation scenario generation from a model-driven perspective. ASDL aims
+                  to provide a common mechanism for verifying and executing aviation scenarios, allow
+                  for effective sharing of scenarios among various simulation environments, improve
+                  the consistency of different simulators and simulations, and enable the reuse of scenario
+                  specifications. By creating a common, standardized language for defining aviation
+                  scenarios, the duplicate effort often seen in the aviation simulation scenario generation
+                  process can be avoided. Developed in the Eclipse Modeling Framework (EMF), ASDL is
+                  a DSL currently supports four major categories of flight operation scenarios: departure,
+                  en route, reroute, and landing, as well as air traffic management concepts such as
+                  controller-pilot communication (<a role="doc-biblioref" href="#Chh18">Chhaya, Jafer, Coyne, Thigpen, &amp; Durak, 2018</a>).
+               </p>
+               <p>The creation of ASDL and ASDL scenarios follows three major steps: (1) ASDL-specific
+                  ontology creation, (2) EMF definition and metamodel creation, and (3) design and implementation
+                  of a scenario in the instantiated model. The ASDL ontology is comprised primarily
+                  of key terminology defined by the Federal Aviation Administration (FAA), as well as
+                  procedures and operations that are communicated between the pilot and air traffic
+                  control (ATC). All ontology terms currently included in ASDL were obtained from (<a role="doc-biblioref" href="#FAA93">Federal Aviation Administration, 1995</a>), (<a role="doc-biblioref" href="#SES">SESAR, 2018</a>), and (<a role="doc-biblioref" href="#Fed12">Federal Aviation Administration, 2012</a>). In the interest of reusability, the ASDL ontology focuses on all aspects of a flight,
+                  including the physical aircraft, ATC communications and procedures, and pilot communications
+                  and procedures. By including such aspects, the ontology can be used in all forms of
+                  aviation simulators, including ATC simulators and pilot training simulators.
+               </p>
+            </section>
+            <section>
+               <h1>SES</h1>
+               <p>A fundamental representation of Discrete Event System Specification (DEVS)(<a role="doc-biblioref" href="#Ber00">Zeigler B. P., 2000</a>) hierarchical modular model structures is the System Entity Structure (SES) (<a role="doc-biblioref" href="#Ber84">Zeigler B. P., 1984</a>) which represents a design space via the elements of a system and their relationships
+                  in a hierarchical and axiomatic manner. SES is a declarative knowledge representation
+                  scheme that characterizes the structure of a family of models in terms of decompositions,
+                  component taxonomies, and coupling specifications and constraints. The SES is a formal
+                  ontology framework, axiomatically defined, to represent the elements of a system (or
+                  world) and their relationships in hierarchical manner making a family of hierarchical
+                  DEVS models (<a role="doc-biblioref" href="#Paw16">Pawletta, Schmidt, Zeigler, &amp; Durak, 2016</a>). <a href="#_Ref506133538">Figure 2</a> provides a quick overview of the elements and relationship involved in a SES.
+               </p>
+               <figure id="_Ref506133538"><img src="./img/image2.png" /><figcaption><strong>Figure 2.</strong> Overview of SES Items and Relationships
+                  </figcaption>
+               </figure>
+               <p>Entities represent things that have existence in a certain domain. They can have variables
+                  which are assigned a value within a given range and type. An Aspect expresses a way
+                  of decomposing an object into more detailed parts and is a labeled decomposition relation
+                  between the parent and the children. MultiAspects are aspects for which the components
+                  are all of the same kind. A Specialization represents a category or family of specific
+                  forms that a thing can assume. It is a labeled relation that expresses alternative
+                  choices that a system entity can take on.
+               </p>
+               <p>SES enables selection of:</p>
+               <ol>
+                  <li>
+                     <p>System of system configurations (SES <q>aspects</q>);
+                     </p>
+                  </li>
+                  <li>
+                     <p>Component system alternative functional and abstraction level choices (SES <q>specializations</q>);
+                     </p>
+                  </li>
+                  <li>
+                     <p>Numbers and configurations (recursively) of instances in multiple replications (SES
+                        <q>multiaspects</q>).
+                     </p>
+                  </li>
+               </ol>
+            </section>
+         </section>
+         <section>
+            <h1>ASDL Ontology</h1>
+            <p>All ontology terms currently included in ASDL were obtained from documents available
+               through the FAA and European aviation programs (<a role="doc-biblioref" href="#FAA93">Federal Aviation Administration, 1995</a>). The ASDL ontology focuses on all aspects of a flight, including the physical aircraft,
+               ATC communications and procedures, and pilot communications and procedures. By including
+               such aspects, the ASDL ontology can be used in all forms of aviation simulators, including
+               ATC simulators and pilot training simulators.
+            </p>
+            <p>The ontology consists of two parts: keywords that describe the physical model and
+               operation of flights, and words that describe key communication between the control
+               tower and pilots. Over 100 keywords can be found on the basic ontology created using
+               Protégé (<a role="doc-biblioref" href="#Emh13">Alatrish, 2013</a>), which saves them in OWL format. The Web Ontology Language (<a role="doc-biblioref" href="#Bec09">Bechhofer, 2009</a>) is a language for defining ontologies on the Web. An OWL ontology describes a domain
+               in terms of classes, properties and individuals and may include rich descriptions
+               of the characteristics of those objects (<a role="doc-biblioref" href="#Pro">Protégé Home Page, 2018</a>).
+            </p>
+            <p>An ontology focuses mainly on classes which describe the concepts of the domain. It
+               follows a hierarchical model where subclasses are all necessarily a part of the superclass
+               (<a role="doc-biblioref" href="#Nat011">Noy &amp; McGuinness, 2001</a>). The ASDL ontology has four base classes: Air_Traffic_Control, Aircraft, Airport,
+               and Weather. This can be seen in <a href="#_Ref448318380">Figure 3</a> below. All these terms have been defined in <a href="#_Ref509502629">Table 1</a>.
+            </p>
+            <figure id="_Ref448318380"><img src="./img/image3.tmp" /><figcaption><strong>Figure 3.</strong> High-Level View of ASDL Ontology
+               </figcaption>
+            </figure>
+            <table id="_Ref509502629">
+               <thead>
+                  <tr>
+                     <th>Term</th>
+                     <th>Definition</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>
+                        <p>Air Traffic Control</p>
+                     </td>
+                     <td>
+                        <p>A service operated by appropriate authority to promote the safe, orderly and expeditious
+                           flow of air traffic.
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Aircraft</p>
+                     </td>
+                     <td>
+                        <p>Any machine that can derive support in the atmosphere from the reactions of the air
+                           other than the reactions of the air against the earth’s surface.
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Airport</p>
+                     </td>
+                     <td>
+                        <p>An area on land or water that is used or intended to be used for the landing and takeoff
+                           of aircraft and includes its buildings and facilities, if any.
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Weather</p>
+                     </td>
+                     <td>
+                        <p>The state of the atmosphere at a place and time as regards heat, dryness, sunshine,
+                           wind, rain, etc.
+                        </p>
+                     </td>
+                  </tr>
+               </tbody>
+               <caption><strong>Table 1.</strong> Definition of terms in base class of ASDL Ontology
+               </caption>
+            </table>
+            <p>The main part of this ontology involves the aircraft and its properties. <a href="#_Ref448318942">Figure 4</a> shows the subclasses of the Aircraft class. The Flight_Properties subclass describes
+               the rules (IFR or VFR) that govern the flight, the speed of the aircraft, the fuel
+               remaining and has three other subclasses: controls (pitch, roll and turn rates), location
+               (altitude, latitude, longitude) and time (arrival time, departure time and Actual
+               Calculated Landing Time). The physical properties subclass contains the call sign,
+               type of aircraft and its weight class.
+            </p>
+            <figure id="_Ref448318942"><img src="./img/image4.tmp" /><figcaption><strong>Figure 4.</strong> Elements present in Aircraft Class in Ontology
+               </figcaption>
+            </figure>
+            <p>This ontology has been extended over time, with the departure extension being added
+               first, followed by the en route and reroute extensions, respectively. This resulted
+               in a language composition following an <q>inside-out</q> approach, with the landing and departure phases being completed first, followed by
+               the <q>middle</q> en route and reroute extensions. This approach made it easier to determine missing
+               components from both the landing and departure stages, as inserting the middle extension
+               was not possible unless all components from both the landing and departure stages
+               were complete and accounted for. In addition, this approach allowed for <q>ignoring</q> the more complicated components of flight, such as airspace classifications and identification,
+               until both the landing and departure phases were implemented. This greatly simplified
+               the already complicated additions needed for completing the en route and reroute extensions,
+               which needed to modify the original ASDL structure.
+            </p>
+            <p>The addition of three extensions resulted in only doubling the ontology, not tripling.
+               This is because many terms already defined in the original ASDL ontology could be
+               reused in the other phases of flight. This is common in aviation, where terms that
+               are defined can span multiple phases of flights or domains. Therefore, it is believed
+               that as further extensions are added to ASDL, the number of additional ontology terms
+               needed to complete each extension may gradually decrease. This, in turn, suggests
+               that future ASDL extensions can be added faster than previous extensions, given the
+               future additions remain in a similar domain and/or subject area as the previous ones.
+            </p>
+            <section>
+               <h1>Departure Extension Ontology</h1>
+               <p>The departure extension was similar to the original ASDL implementation in that both
+                  phases of flight involved an aircraft, pilot, and air traffic controller and their
+                  interactions in an airport environment. As a result, only a few additional ontology
+                  terms were needed to create a departure scenario. However, some additional terms were
+                  added for robustness in both the landing and departure scenarios, such as the weight
+                  properties of the aircraft.
+               </p>
+               <p><a href="#_Ref505119809">Figure 5</a> shows the departure ontology terms added to the Air Traffic Control class of ASDL
+                  ontology. Note that some terms, such as Abort, are from the original ASDL ontology
+                  and do not reflect additions made for the departure extension; terms that were added
+                  in this extension are highlighted in red. These terms are used by air traffic control
+                  when communicating with a departing aircraft and provide additional control options.
+                  For example, the Line Up and Wait term is not required for every departure but can
+                  be used by ATC at airports with heavy traffic in order to expedite the departure process.
+               </p>
+               <figure id="_Ref505119809"><img src="./img/image5.png" /><figcaption><strong>Figure 5.</strong> ATC Ontology Terms with Departure Updates
+                  </figcaption>
+               </figure>
+               <p><a href="#_Ref505095447">Figure 6</a> shows the departure terms added to Aircraft class of the original ASDL ontology.
+                  These terms define characteristics of the aircraft relevant to the departure phase,
+                  such as the aircraft’s maximum takeoff weight and the proposed departure time. In
+                  addition, the Pilot subclass was updated to contain an additional option a pilot may
+                  request during the departure phase.
+               </p>
+               <figure id="_Ref505095447"><img src="./img/image6.png" /><figcaption><strong>Figure 6.</strong> Aircraft Departure Ontology Terms
+                  </figcaption>
+               </figure>
+            </section>
+            <section>
+               <h1>En Route Extension Ontology</h1>
+               <p>The en route extension introduced the concept of airspace and how aircraft move through
+                  different parts of an airspace. This required a variety of changes to the original
+                  ASDL ontology, which previously did not extend beyond a tower controller and airport
+                  airspace. As a result, a large amount of new terms was needed, especially in the ATC
+                  class. In addition, a new Airspace class was added in order to capture the movement
+                  of the aircraft through different parts of an airspace during the en route phase.
+               </p>
+               <p><a href="#_Ref505095165">Figure 7</a> shows the en route ontology terms added to the Air Traffic Control class of ASDL
+                  ontology. These terms are used by air traffic control when communicating with an aircraft
+                  in the en route phase and provide additional control options. For example, the Traffic
+                  Alert term is not required for every aircraft in the en route phase but can be used
+                  by ATC if another aircraft may break the separation minima required between aircraft.
+               </p>
+               <figure id="_Ref505095165"><img src="./img/image7.png" /><figcaption><strong>Figure 7.</strong> ATC En Route Ontology Terms
+                  </figcaption>
+               </figure>
+               <p><a href="#_Ref505095050">Figure 8</a> shows the Aircraft class updated with the en route terms. These terms define aircraft-specific
+                  components during the en route phase of flight, such as Miles-in-Trail, which is used
+                  by ATC for enforcing separation minima between two cruising aircraft.
+               </p>
+               <figure id="_Ref505095050"><img src="./img/image8.png" /><figcaption><strong>Figure 8.</strong> Aircraft En Route Ontology Terms
+                  </figcaption>
+               </figure>
+               <p><a href="#_Ref505205742">Figure 9</a> shows the new Airspace class. This class supports the movement of an aircraft through
+                  an associated airspace by defining the airspace components, such as routes and fixes.
+                  It should be noted that Route is not included as a term and instead acts only as a
+                  means of categorizing all sub-classifications of routes and the terms related to routes.
+               </p>
+               <figure id="_Ref505205742"><img src="./img/image9.png" /><figcaption><strong>Figure 9.</strong> Airspace Ontology Terms
+                  </figcaption>
+               </figure>
+            </section>
+         </section>
+         <section>
+            <h1>SES for Ontological Representation</h1>
+            <p>The ontological representation of ASDL elements using SES is discussed in this section.
+               The methodology of creating this schema representation was the same as that used to
+               create the OWL ontology, and the data has been gathered from the same sources. The
+               ontological details have been shown in tree-structure for better visualization. <a href="#_Ref505205871">Figure 10</a> shows the high-level view of this SES representation.
+            </p>
+            <figure id="_Ref505205871"><img src="./img/image10.png" /><figcaption><strong>Figure 10.</strong> High Level SES Tree-Structure Visualization of ASDL Scenario
+               </figcaption>
+            </figure>
+            <p>A scenario encapsulates the Environment in which all interaction takes place, the
+               Entities that perform tasks or interact with each other and the Events that are triggered.
+               The three main Entities are Aircraft, Airport and Airspace. The Aircraft entity can
+               be seen in full in <a href="#_Ref506140771">Figure 11</a>.
+            </p>
+            <figure id="_Ref506140771"><img src="./img/image11.png" /><figcaption><strong>Figure 11.</strong> SES Tree-Structure Visualization of Entities
+               </figcaption>
+            </figure>
+            <p>The Airport Entity contains a Runway and is associated with flights and scenarios.
+               <a href="#_Ref506133646">Figure 12</a> shows a full description of this SES element.
+            </p>
+            <figure id="_Ref506133646"><img src="./img/image12.png" /><figcaption><strong>Figure 12.</strong> SES Tree-Structure Visualization of Entity Airport
+               </figcaption>
+            </figure>
+            <p>The Airspace entity contains a number of sectors, which contain several Air Traffic
+               Centers (ATCs), which have a facility name, a type of center (such as Air Route Traffic
+               Control Center for en route control, tower and terminal radar approach control). This
+               has been shown in <a href="#_Ref505207864">Figure 13</a>.
+            </p>
+            <figure id="_Ref505207864"><img src="./img/image13.png" /><figcaption><strong>Figure 13.</strong> SES Tree-Structure Visualization of Entity Airport
+               </figcaption>
+            </figure>
+            <p>In addition to Entities, a Scenario also contains Events. These describe the changes
+               to the Environment or Entity and their effects on the other elements of the Scenario.
+               The changes in the state of an aircraft during flight are recorded using State Machines.
+               <a href="#_Ref505117845">Figure 14</a> shows the SES representation of Events in ASDL.
+            </p>
+            <figure id="_Ref505117845"><img src="./img/image14.png" /><figcaption><strong>Figure 14.</strong> SES Tree-Structure Visualization of Events
+               </figcaption>
+            </figure>
+            <p>The state machines are composed of states and state transitions. We abstract the state
+               transitions with an event. An event (state transition) has a guard condition and an
+               action. <a href="#_Ref506133744">Figure 15</a> shows the SES tree-structure for the state machine.
+            </p>
+            <figure id="_Ref506133744"><img src="./img/image15.png" /><figcaption><strong>Figure 15.</strong> SES Tree-Structure Visualization of Events
+               </figcaption>
+            </figure>
+            <p><a href="#_Ref505210321">Figure 16</a> shows the overall view of ASDL in SES. All entities, events and properties can be
+               observed here which make up the definition of all attributes of the language. The
+               eXtensible Markup Language (XML) schema was generated for this model to define ASDL
+               scenarios.
+            </p>
+            <figure id="_Ref505210321"><img src="./img/image16.png" /><figcaption><strong>Figure 16.</strong> Excerpt Representation of XML Schema Model Created Using ASDL SES
+               </figcaption>
+            </figure>
+            <p>In the next section, we will present a sample en route scenario and model it using
+               both approaches to scenario definition, that is, by using the EMF metamodel of ASDL,
+               and the SES definition of ASDL.
+            </p>
+         </section>
+         <section>
+            <h1>Sample En Route Scenario</h1>
+            <p>The use of both forms of the ASDL Ontology can be illustrated by defining a sample
+               scenario using each method. An en route scenario describes the aircraft’s progression
+               through airspace from the departure climb to the arrival descent. The en route scenario
+               is defined as follows:
+            </p>
+            <blockquote>
+               <p>Aircraft ER-1357 has departed from the Daytona Beach International Airport (KDAB)
+                  via runway 7L. ER-1357 will be landing on runway 29 at the Gainesville airport (KGNV).
+                  Stable weather conditions nearing Daytona Beach are reported as calm winds, dew point:
+                  23, sky condition: scattered clouds at 5500 feet, temperature: 15, visibility: 10.
+                  ER-1357 begins climbing and heads direct to the Ormond VOR (OMN). Daytona departure
+                  ATC grants ER-1357 to climb to 8000 feet and tells ER-1357 to proceed along the route
+                  as filed. ER-1357 begins to climb to 8000 feet. After passing OMN, ER-1357 joins airway
+                  T207-208. At CARRA, Daytona departure hands off ER-1357 to Jacksonville approach.
+                  ER-1357 turns west to join T208, heading towards KGNV. Once within 30 miles of KGNV,
+                  Jacksonville approach control contacts ER-1357 and the landing phase begins.
+               </p>
+            </blockquote>
+            <p>The state diagram for the en route extension is shown in <a href="#_Ref505205239">Figure 17</a>. During the en route phase of flight, the aircraft spends a majority of its time
+               in the Cruise state, where the aircraft’s location on the route is constantly updating.
+               At any time during the Cruise state, an aircraft may turn, climb, or descend as necessary
+               to avoid traffic, follow the designated route, or as commanded by ATC. After arriving
+               within approach range of the destination, the aircraft transitions into the landing
+               phase, thereby ending the en route phase.
+            </p>
+            <figure id="_Ref505205239"><img src="./img/image17.png" /><figcaption><strong>Figure 17.</strong> En Route Scenario State Diagram
+               </figcaption>
+            </figure>
+            <section>
+               <h1>EMF En Route Scenario Implementation</h1>
+               <p><a href="#_Ref509500567">Figure 18</a> shows the EMF runtime implementation for the en route example scenario. expands the
+                  State Machine to show the aircraft’s movement through each state. It can be noted
+                  how this attribute closely follows the states and transitions seen in the state diagram
+                  in <a href="#_Ref505205239">Figure 17</a>.
+               </p>
+               <figure id="_Ref509500567"><img src="./img/image18.png" /><figcaption><strong>Figure 18.</strong> Conceptual Scenario Attributes for En Route Scenario
+                  </figcaption>
+               </figure>
+               <figure id="_Ref509500629"><img src="./img/image19.png" /><figcaption><strong>Figure 19.</strong> State Machine for the En Route Scenario
+                  </figcaption>
+               </figure>
+               <p>An excerpt from the en route scenario XML file is presented here. This portion of
+                  the scenario shows the definition of all states in the State Machine.
+               </p><pre><code>
+    &lt;stateMachines&gt;
+        &lt;stateTransitions Name="Climb"&gt;
+            &lt;guard Name="Aircraft reaches 8000 feet."&gt;
+                &lt;exitAction Name="Issue climb" Sequence = "1"/&gt;
+            &lt;/guard&gt;
+        &lt;/stateTransitions&gt;
+        &lt;stateTransitions Name="Cruise"&gt;
+            &lt;guard Name="Aircraft passes OMN."/&gt;
+        &lt;/stateTransitions&gt;
+        &lt;stateTransitions Name="Turn"&gt;
+            &lt;guard Name="Aircraft joins airway T207-208."/&gt;
+        &lt;/stateTransitions&gt;
+        &lt;stateTransitions Name="Cruise"&gt;
+            &lt;guard Name="Aircraft passes CARRA."&gt;
+                &lt;exitAction Name="Daytona ATC issues handoff to Jacksonville ATC." Sequence = "1"/&gt;
+            &lt;/guard&gt;
+        &lt;/stateTransitions&gt;
+        &lt;stateTransitions Name="Turn"&gt;
+            &lt;guard Name="Aircraft joins airway T208."/&gt;
+        &lt;/stateTransitions&gt;
+        &lt;stateTransitions Name="Cruise"/&gt;
+    &lt;/stateMachines&gt;</code></pre>
+               </section>
+            <section>
+               <h1>SES En Route Scenario Implementation</h1>
+               <p>The SES implementation allows for the same information to be entered which is present
+                  in the EMF metamodel. However, it implements it using an XML schema extracted from
+                  the tree structure of SES shown in <a href="#_Ref505210321">Figure 16</a>.
+               </p>
+               <p>With the given SES tree consisting of all possible elements of the simulation scenario,
+                  the scenario modeling activity requires pruning of this tree to hand pick a very particular
+                  scenario. Pruning is defined as assigning the values to the variables and resolving
+                  the choices in Aspect, Multi-Aspect and Specialization relations. While there may
+                  be several Aspect nodes for several decompositions of the system on the same hierarchical
+                  level, a particular subset can be chosen in pruning based on the purpose. The resulting
+                  selection-free tree is the model representation of that particular scenario. The pruned
+                  version of the SES representation has been shown for an en route scenario in <a href="#_Ref505212183">Figure 20</a>.
+               </p>
+               <figure id="_Ref505212183"><img src="./img/image20.png" /><figcaption><strong>Figure 20.</strong> Pruned SES definition for En Route Scenario XML Schema
+                  </figcaption>
+               </figure>
+               <p>The elements shown for the EMF model in <a href="#_Ref509500629">Figure 19</a> are implemented in this pruned SES ontology to obtain the same type of graphical
+                  representation. The figure does not include all the elements to save space, but shows
+                  the basic structure to be similar to that obtained using EMF. <a href="#_Ref509500760">Figure 21</a> shows this graphical representation of entities using the SES definition of ASDL.
+                  The state machine for this scenario using SES is seen in <a href="#_Ref509500775">Figure 22</a> and is comparable to that obtained using EMF in <a href="#_Ref509500629">Figure 19</a>.
+               </p>
+               <figure id="_Ref509500760"><img src="./img/image21.png" /><figcaption><strong>Figure 21.</strong> Scenario Attributes for En Route Scenario using SES Definition
+                  </figcaption>
+               </figure>
+               <figure id="_Ref509500775"><img src="./img/image22.png" /><figcaption><strong>Figure 22.</strong> State Machine for En Route Scenario using SES Definition
+                  </figcaption>
+               </figure>
+               <p>The XML depiction of the state machine using this process is presented here.</p><pre><code>
+    &lt;StateMachines&gt;
+        &lt;StateTransitions Name="Climb"&gt;
+            &lt;Guard Name="Aircraft reaches 8000 feet."&gt;
+                &lt;ExitAction Name="Issue climb" Sequence = "1"/&gt;
+            &lt;/Guard&gt;
+        &lt;/StateTransitions&gt;
+        &lt;StateTransitions Name="Cruise"&gt;
+            &lt;Guard Name="Aircraft passes OMN."/&gt;
+        &lt;/StateTransitions&gt;
+        &lt;StateTransitions Name="Turn"&gt;
+            &lt;Guard Name="Aircraft joins airway T207-208."/&gt;
+        &lt;/StateTransitions&gt;
+        &lt;StateTransitions Name="Cruise"&gt;
+            &lt;Guard Name="Aircraft passes CARRA."&gt;
+                &lt;ExitAction Name="Daytona ATC issues handoff to Jacksonville ATC." Sequence = "1"/&gt;
+            &lt;/Guard&gt;
+        &lt;/StateTransitions&gt;
+        &lt;StateTransitions Name="Turn"&gt;
+            &lt;Guard Name="Aircraft joins airway T208."/&gt;
+        &lt;/StateTransitions&gt;
+        &lt;StateTransitions Name="Cruise"/&gt;
+    &lt;/StateMachines&gt;</code></pre>
+               <p>As can be seen from the excerpts, an identical XML scenario is produced using two
+                  different mechanisms and representations of the ASDL ontology.
+               </p>
+            </section>
+         </section>
+         <section>
+            <h1>ASDL Standardization</h1>
+            <p>A well-known problem in the aviation simulation community is the complexity of simulators
+               and variety in simulator designs. This commonly results in individual implementations
+               of scenarios which work only on a specific simulator system. Standardization of ASDL
+               creates a more accessible means of defining aviation scenarios which are reusable,
+               easier to understand, and reduce error through reduced complexity. By following the
+               Simulation Interoperability Standards Organization (SISO) standardization guidelines
+               and procedure, ASDL can become a full-fledged standard providing a general, stable,
+               and supported means of defining scenarios for use in aviation in ways that are not
+               limited to a specific simulator design.
+            </p>
+            <section>
+               <h1>SISO Standardization Process</h1>
+               <p>SISO is an international organization dedicated to the promotion of interoperability
+                  and reuse in the M&amp;S community (<a role="doc-biblioref" href="#Sim17">Simulation Interoperability Standards Organization, 2017</a>). SISO publishes a variety of standards which strive to meet this goal in a variety
+                  of simulation domains, including analysis, research and development, testing and evaluation,
+                  and training. These standards provide a common base for creating reusable simulation
+                  components. However, becoming a SISO standard is not an easy task. SISO standards
+                  need to be stable, well understood, technically competent, have multiple independent
+                  interoperable implementations, be well received by the community, and be recognizably
+                  useful to the M&amp;S community (<a role="doc-biblioref" href="#Sim172">Simulation Interoperability Standards Organization, 2017</a>).
+               </p>
+               <p>There is a six-step process to becoming a SISO standard: (1) Activity Approval, (2)
+                  Product Development, (3) Forming Balloting Group and Product Balloting, (4) Product
+                  Approval, (5) Interpretation, Distribution and Configuration Management, and (6) Periodic
+                  Review. After being nominated to become a SISO standard, the product must apply for
+                  formal SISO approval. The proposal may be based on work previously done by an external
+                  organization. If the proposal is approved, the product begins development, following
+                  SISO standards, by a Product Development Group (PDG), which is assigned to the project.
+                  The PDG then presents the status of the product for approval to begin balloting to
+                  become a full-fledged standard. If more work on the product is needed, it goes back
+                  to the product development step. Otherwise, it moves into product approval. If the
+                  product demonstrates adherence to SISO principles for inclusion as a SISO standard,
+                  it is accepted by a committee. Once approved, a Product Support Group (PSG) takes
+                  responsibility of the product and handles the distribution and configuration management
+                  for the product and provides support to the community for the product. Finally, the
+                  PSG will periodically review each product to ensure they are still relevant to the
+                  community and they continue to meet SISO requirements (<a role="doc-biblioref" href="#Sim173">Simulation Interoperability Standards Organization, 2017</a>).
+               </p>
+               <p>In 2008, the Military Scenario Definition Language (MSDL) standard was accepted and
+                  published as a SISO standard. Reaffirmed in 2015, this standard defined an XML-based
+                  language for defining military scenarios. The intent of MSDL was to create a general
+                  and reusable method of creating and verifying military scenarios, improve consistency
+                  among scenarios, and create reuse of scenarios between different simulators through
+                  a standard scenario language format (<a role="doc-biblioref" href="#Sim08">Simulation Interoperability Standards Organization, 2008</a>).
+               </p>
+               <p>ASDL was created with MSDL as a source of inspiration, as both languages share a similar
+                  domain of scenario generation and application. However, ASDL addresses scenario generation
+                  for the aviation domain, which is not addressed or supported through MSDL. Similar
+                  to the MSDL, ASDL is defined using an XML schema that allows for format standardization
+                  and content verification. This definition of ASDL should be used towards applying
+                  for SISO standardization.
+               </p>
+            </section>
+            <section>
+               <h1>DSL Standardization Challenges</h1>
+               <p>In addition to being incredibly difficult to create, DSLs are also difficult to standardize.
+                  An examination of the Battle Management Language (BML) standardization efforts identified
+                  three major problems that can delay or inhibit the standardization of a domain language:
+                  (1) the technical readiness, (2) the need for a deliberate process, and (3) the adequacy
+                  of resources to pursue standard development. After over five years of standardization
+                  efforts, BML was still unable to be accepted as a SISO standard. One of the major
+                  factors in this result was the lack of technical readiness. Technical readiness includes
+                  the need for multi-disciplined support and multiple perspectives, technology advancement,
+                  and emergent requirements. BML is a wide-spread, large-scope language that requires
+                  a vast amount of technical expertise across a variety of domains, including all branches
+                  of the military. In addition, as technology continued to mature, BML requirements
+                  and the systems used by BML changed. For example, while attempting to standardize
+                  BML, the underlying data model was continually updated and revised, leading to inconsistencies
+                  and issues with the standardization. These problems significantly delayed the standardization
+                  process for BML. In addition to technical readiness issues, BML was required by the
+                  SISO standardization process to follow a deliberate process which proved the need
+                  for and competency of the language. However, this was incredibly difficult to achieve
+                  for a project of this size and style. BML was being developed piecemeal, by contributors
+                  and volunteers from all over the world. This distributed development style led to
+                  copious misunderstandings and trust issues amongst the team. The team became fractured
+                  and meaningful development slowed to a crawl. The team also lacked resources to achieve
+                  the goal of standardization. While volunteers keep the costs of development lower,
+                  it can lead to issues in motivation and drive. As a result, the development schedule
+                  can suffer from a lack of direction and motivation from a single driving point, such
+                  as a sponsor. In addition, because SISO standards strive for openness and accessibility,
+                  tension was created between leaders trying to drive a project forward and those implementing
+                  the project. A strong understanding of the technical domain and a homogeneous team
+                  culture are necessary to avoid these fatal standardization problems (<a role="doc-biblioref" href="#Abb11">Abbot, Pullen, &amp; S., 2011</a>).
+               </p>
+            </section>
+         </section>
+         <section>
+            <h1>Discussion and Future Work</h1>
+            <p>This paper examined the ontological development of ASDL using two different methods.
+               For the first, the ontology was created in the OWL format using an open-source ontology
+               editor called Protégé. This ontology was then used to create an EMF metamodel of the
+               language and an XML schema was produced using automated model transformations and
+               code generation. In the other approach, the ontology was defined in the form of SES
+               entities and relationships. This tree structure of SES was used to obtain the XML
+               schema. The XML script of a sample en route scenario was obtained using both methods
+               and found to be identical. However, as the results are indistinguishable, both approaches
+               are valid and suited to the purpose of creating a scenario definition language in
+               aviation. A comparison of the two approaches has been presented in <a href="#_Ref509502691">Table 2</a>.
+            </p>
+            <table id="_Ref509502691">
+               <thead>
+                  <tr>
+                     <th>Characteristics</th>
+                     <th>OWL/EMF</th>
+                     <th>SES/XML</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>
+                        <p>Required attributes</p>
+                     </td>
+                     <td>
+                        <p>Entities and relationships</p>
+                     </td>
+                     <td>
+                        <p>Entities, relationships and quantities</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Specification structure</p>
+                     </td>
+                     <td>
+                        <p>Hierarchical</p>
+                     </td>
+                     <td>
+                        <p>Tree structure</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Ontology format</p>
+                     </td>
+                     <td>
+                        <p>.owl file</p>
+                     </td>
+                     <td>
+                        <p>Graphical</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Scenario output format</p>
+                     </td>
+                     <td>
+                        <p>XML</p>
+                     </td>
+                     <td>
+                        <p>XML</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Framework independence</p>
+                     </td>
+                     <td>
+                        <p>No; dependent on EMF</p>
+                     </td>
+                     <td>
+                        <p>Yes</p>
+                     </td>
+                  </tr>
+               </tbody>
+               <caption><strong>Table 2.</strong> Comparison of characteristics using the two approaches
+               </caption>
+            </table>
+            <p>It was found that entities and relationships are required at the start to define a
+               scenario using both approaches. The specification format for OWL is hierarchical,
+               whereas SES follows more rigid guidelines and restrictions in the definition of entities,
+               aspects and specializations. The EMF ontology is in a standard web ontology language
+               format (.owl file), whereas the SES is in a graphical format. An OWL file requires
+               an additional tool to open and edit the file, while working with SES can be done using
+               any graphical editor. However, due to the specialized structure, an understanding
+               of SES is required to comprehend and edit these files. The authors found that the
+               SES approach did not require the additional step of transforming the ontological details
+               into an EMF model, but rather required its definition using an XML tool. It also removed
+               the dependency on the Eclipse framework during the development stage. Ultimately,
+               both approaches produced an identical scenario in XML format.
+            </p>
+            <p>As ASDL is still in its infancy, the next step is to expand the language to describe
+               scenarios in better detail than is currently possible. The language needs to be extended
+               to cover a wider variety of scenarios such as flight training, air traffic controller
+               training, and unmanned vehicle flight. This work done for ASDL is a stepping stone
+               to the standardization of the language as a method for defining aviation scenarios.
+               The process for standardizing such a language has been described here along with some
+               of the challenges facing this effort.
+            </p>
+         </section>
+         <section role="doc-bibliography">
+            <h1>Bibliography</h1>
+            <ul>
+               <li id="Abb11" role="doc-biblioentry">Abbot, J., Pullen, J, &amp; S., Levine (2011). Answering the Question: Why a BML Standard Has Taken So Long to Be Established?. In <em>IEEE Fall Simulation Interoperability Workshop</em>. Orlando, FL. 
+               </li>
+               <li id="Emh13" role="doc-biblioentry">Alatrish, E. (2013). Comparison Some of Ontology Editors. <em>Management Information Systems</em>, 8(2), 18-24.
+               </li>
+               <li id="Bec09" role="doc-biblioentry">Bechhofer, S. (2009). OWL: Web Ontology Language. In <em>Encyclopedia of Database Systems</em> (pp. 2008-2009). Boston: Springer US. 
+               </li>
+               <li id="Chh18" role="doc-biblioentry">Chhaya, B., Jafer, S., Coyne, W., Thigpen, N., &amp; Durak, U. (2018). Enhancing Scenario-Centric Air Traffic Control Training. In <em>AIAA Modeling and Simulation Technologies Conference</em> (p. 1399). Kissimmee, FL: American Institute of Aeronautics and Astronautics.   <a href="https://dx.doi.org/10.2514/6.2018-1399"><img src="icon/doi.png" /></a></li>
+               <li id="Umu" role="doc-biblioentry">Durak, U., Topcu, O., Siegfried, R., &amp; Oguztuzun, H. (2014). Scenario Development: A Model-Driven Engineering Perspective. In <em>Simulation and Modeling Methodologies, Technologies and Applications (SIMULTECH),
+                     2014 International Conference on</em> (pp. 117-124). Vienna: IEEE. 
+               </li>
+               <li id="Dur17" role="doc-biblioentry">Durak, U., Pruter, I., Gerlach, T., Jafer, S., Pawletta, T., &amp; Hartmann, S. (2017). Using System Entity Structures to Model the Elements of a Scenario in a Research Flight
+                  Simulator. In <em>AIAA Modeling and Simulation Technologies Conference</em> (p. 1076). Grapevine, TX: American Institute of Aeronautics and Astronautics.   <a href="https://dx.doi.org/10.2514/6.2017-1076"><img src="icon/doi.png" /></a></li>
+               <li id="Dur18" role="doc-biblioentry">Durak, U., Jafer, S., Wittman, R., Mittal, S., Hartmann, S., &amp; Zeigler, B. (2018). Computational Representation for a Simulation Scenario Definition Language. In <em>AIAA Modeling and Simulation Technologies Conference</em> (p. 1398). Kissimmee, FL: American Institute of Aeronautics and Astronautics.   <a href="https://dx.doi.org/10.2514/6.2018-1398"><img src="icon/doi.png" /></a></li>
+               <li id="FAA93" role="doc-biblioentry">Federal Aviation Administration (1995). <em>Order JO 7110.65J, Air Traffic Control</em>. Federal Aviation Administration. 
+               </li>
+               <li id="Fed12" role="doc-biblioentry">Federal Aviation Administration (2012). <em>AFS Flight Program Flight Operations Manual</em>. Federal Aviation Administration.   <a href="http://fsims.faa.gov/wdocs/other/fom.htm"><img src="icon/html.png" /></a></li>
+               <li id="Jaf161" role="doc-biblioentry">Jafer, S., Chhaya, B., Durak, U., &amp; Gerlach, T. (2016). Formal Scenario Definition Language for Aviation: Aircraft Landing Case Study. In <em>AIAA Modeling and Simulation Technologies Conference</em> (p. 3521). Washington, D.C.: American Institute of Aeronautics and Astronautics.   <a href="https://dx.doi.org/10.2514/6.2016-3521"><img src="icon/doi.png" /></a></li>
+               <li id="Jaf171" role="doc-biblioentry">Jafer, S., &amp; Durak, U. (2017). Tackling the Complexity of Simulation Scenario Development in Aviation. In <em>Proceedings of the Symposium on Modeling and Simulation of Complexity in Intelligent,
+                     Adaptive and Autonomous Systems</em> (p. 4). Pasadena, CA: Society for Computer Simulation International.   <a href="https://dx.doi.org/10.22360/springsim.2017.msciaas.005"><img src="icon/doi.png" /></a></li>
+               <li id="Jaf18" role="doc-biblioentry">Jafer, S., Chhaya, B., Durak, U., &amp; Gerlach, T. (2018). Automatic Generation of Flight Simulation Scenarios with Aviation Scenario Definition
+                  Language. <em>Journal of Aerospace Information Systems</em>, 1-10.  <a href="https://dx.doi.org/10.2514/1.i010514"><img src="icon/doi.png" /></a></li>
+               <li id="Mer05" role="doc-biblioentry">Mernik, M., Heering, J., &amp; Sloane, A. (2005). When and How to Develop Domain-Specific Languages. <em>ACM Computing Surveys (CSUR)</em>, 37(4), 316-344.  <a href="https://dx.doi.org/10.1145/1118890.1118892"><img src="icon/doi.png" /></a></li>
+               <li id="Paw16" role="doc-biblioentry">Pawletta, T., Schmidt, A., Zeigler, B., &amp; Durak, U. (2016). Extended Variability Modeling using System Entity Structure Ontology within MATLAB/Simulink. In <em>Proceedings of the 49th Annual Simulation Symposium</em> (pp. 62-69). Pasadena, CA: The Society for Modeling &amp; Simulation International. 
+               </li>
+               <li id="Pro" role="doc-biblioentry">Protégé Home Page.  (2018, March 23).   <a href="http://protege.stanford.edu/"><img src="icon/link.png" /></a></li>
+               <li id="Bar08" role="doc-biblioentry">Putten, B., Wolfe, S., &amp; Dignum, V. (2008). An Ontology for Traffic Flow Management. In <em>The 26th Congress of ICAS and 8th AIAA ATIO</em> (p. 8946). Anchorage, AK: Aviation Technology, Integrations, and Operations (ATIO) Conference.   <a href="https://dx.doi.org/10.2514/6.2008-8946"><img src="icon/doi.png" /></a></li>
+               <li id="SES" role="doc-biblioentry">SESAR (2018, March 23). <em>EUROCONTROL ATM Lexicon</em>.   <a href="https://ext.eurocontrol.int/lexicon/index.php/SESAR"><img src="icon/link.png" /></a></li>
+               <li id="Sim08" role="doc-biblioentry">Simulation Interoperability Standards Organization (2008, October 14). <em>SISO-STD-007-2008, Standard for Military Scenario Definition Language (MSDL)</em>. Orlando, FL: Simulation Interoperability Standards Organization. 
+               </li>
+               <li id="Sim172" role="doc-biblioentry">Simulation Interoperability Standards Organization (2017). <em>What is a Standard?</em>.   <a href="https://www.sisostds.org/StandardsActivities/WhatisaStandard.aspx"><img src="icon/link.png" /></a></li>
+               <li id="Sim17" role="doc-biblioentry">Simulation Interoperability Standards Organization (2017). <em>Overview of SISO: Who We Are and What We Do</em>.   <a href="https://www.sisostds.org/AboutSISO/Overview.aspx"><img src="icon/link.png" /></a></li>
+               <li id="Sim173" role="doc-biblioentry">Simulation Interoperability Standards Organization (2017). <em>The Six-Step Process</em>.   <a href="https://www.sisostds.org/StandardsActivities/ProcessesProcedures/Six-StepProcess.aspx"><img src="icon/link.png" /></a></li>
+               <li id="Zho09" role="doc-biblioentry">Yao, Z., &amp; Zhang, Q. (2009). Protégé-Based Ontology Knowledge Representation for MIS Courses. In <em>International Conference on Web Information Systems and Mining</em> (pp. 787-791). Shanghai: IEEE.   <a href="https://dx.doi.org/10.1109/WISM.2009.163"><img src="icon/doi.png" /></a></li>
+               <li id="Ber84" role="doc-biblioentry">Zeigler, B. (1984). <em>Multifacetted Modelling and Discrete Event Simulation</em>. New York, NY: Academic Press. 
+               </li>
+               <li id="Ber00" role="doc-biblioentry">Zeigler, B. (2000). <em>Theory of Modeling and Simulation</em>. (2nd). New York: Wiley Interscience. 
+               </li>
+               <li id="Zei07" role="doc-biblioentry">Zeigler, B., &amp; Hammonds, P. (2007). <em>Modeling and Simulation-based Data Engineering</em>. Burlington, MA: Academic Press. 
+               </li>
+            </ul>
+         </section>
+      </main>
+   </body>
+</html>
