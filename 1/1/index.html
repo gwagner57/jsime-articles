@@ -15,7 +15,7 @@
   <meta name="citation_volume" content="1"/>
   <meta name="citation_issue" content="1"/>
   <meta name="citation_abstract_html_url" content="https://jsimeng.gear.host/index.php/jsimeng/article/view/2"/>
-  <meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-1.pdf">
+  <meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-1.pdf"/>
   
   <link rel="canonical" href="https://articles.jsime.org/1/1/Modeling-for-Simulation"/>
       
@@ -152,7 +152,7 @@
       </p>
    </section>
    <section><h1>What Is Discrete Event Simulation?</h1>
-      <p>The term <em>Discrete Event Simulation (DES)</em> has been established as an umbrella term subsuming various kinds of computer simulation approaches, all based on the general idea of modeling entities/objects and events. In the DES literature, it is often stated that DES is based on the concept of entities <q>flowing through the system</q> (more precisely, through a <q>queueing network</q>). E.g., this is the paradigm of an entire class of simulation software in the tradition of GPSS <a href="#Gordon1961">(Gordon, 1961)</a> and SIMAN/Arena <a href="#Peg92">(Pegden &amp; Davis, 1992)</a>. However, this paradigm characterizes a special (yet important) class of DES only, it does not apply to all discrete dynamic systems.
+      <p>The term <em>Discrete Event Simulation (DES)</em> has been established as an umbrella term subsuming various kinds of computer simulation approaches, all based on the general idea of modeling entities/objects and events. In the DES literature, it is often stated that DES is based on the concept of entities <q>flowing through the system</q> (more precisely, through a <q>queueing network</q>). E.g., this is the paradigm of an entire class of simulation software in the tradition of GPSS <a href="#Gordon61">(Gordon, 1961)</a> and SIMAN/Arena <a href="#Peg92">(Pegden &amp; Davis, 1992)</a>. However, this paradigm characterizes a special (yet important) class of DES only, it does not apply to all discrete dynamic systems.
       </p>
       <p>In <em>Ontology</em>, which is the philosophical study of what there is, <b><i>entities</i></b> (also called <em>individuals</em>) are distinguished from <b><i>entity types</i></b> (called <em>universals</em>). There are three fundamental categories of entities:
       </p>
@@ -212,27 +212,25 @@
          the transition system. Unfortunately, this is often obscured by the standard definitions
          of DES that are repeatedly presented in simulation textbooks and tutorials. 
       </p>
-      <p>According to <a href="#Peg10">(Pegden, 2010)</a>, a <em>simulation modeling worldview</em> provides <q>a framework for defining a system in sufficient detail that it can be executed to simulate the behavior of the system</q>. It <q>must precisely define the dynamic state transitions that occur over time</q>. Pegden continues saying that <q>Over the 50 year history of simulation there has been three distinct world views in use: event, process, and objects</q>:
+      <p>According to Pegden (<a href="#Peg10">2010</a>), a <em>simulation modeling worldview</em> provides <q>a framework for defining a system in sufficient detail that it can be executed to simulate the behavior of the system</q>. It <q>must precisely define the dynamic state transitions that occur over time</q>. 
+	  Pegden explains that the 50 year history of DES has been shaped by three fundamental paradigms: Markowitz, Hausner, and Karr (<a href="#MarkHK62">1962</a>) pioneered 
+	  the <em>event worldview</em> with <em>SIMSCRIPT</em>, Gordon (<a href="#Gordon61">1961</a>) pioneered the <em>processing network worldview</em> with <em>GPSS</em>, and Dahl and Nygaard (<a href="#DahlNygaard66">1966</a>) pioneered the <em>object worldview</em> with <em>Simula</em>. Pegden characterizes these paradigms in the following way:
       </p>
       <p><b><i>Event worldview</i></b>: The system is viewed as a series of instantaneous events that change the state of
-         the system over time. The modeler defines the events in the system and models the
-         state changes that take place when those events occur. According to Pegden, the event
-         worldview is the most fundamental worldview since the other worldviews also use events,
-         at least implicitly.
+         the system over time. The modeler defines the events in the system and models the state changes that take place when those events occur. 
+		 According to Pegden, the event worldview is the most fundamental worldview since the other worldviews also use events, at least implicitly.
       </p>
       <p><b><i>Processing Network worldview</i></b>: The system under investigation is described as a processing network where <q>entities flow through the system</q> (or, more precisely, work objects are routed through the network) and are subject
          to a series of processing steps performed at processing nodes through processing activities,
          possibly requiring resources and inducing queues of work objects waiting for the availability
          of resources (processing networks have been called <q>queueing networks</q> in Operations Research). This approach allows high-level modeling with semi-visual
-         languages and is therefore the most widely used DES approach nowadays, in particular
-         in manufacturing industries and service industries. Simulation platforms based on
-         this worldview may or may not support object-oriented modeling and programming.
+         languages and is therefore the most widely used DES approach nowadays, in particular in manufacturing industries and service industries. 
+		 Simulation platforms based on this worldview may or may not support object-oriented modeling and programming.
       </p>
       <p><b><i>Object worldview</i></b>: The system is modeled by describing the objects that make up the system. The system
          behavior emerges from the <q>interaction</q> of these objects.
       </p>
-      <p>All three worldviews lack important conceptual elements. The event worldview
-         does not consider objects with their (categorical and dispositional) properties.
+      <p>All three worldviews lack important conceptual elements. The event worldview does not consider objects with their (categorical and dispositional) properties.
          The Processing Network worldview neither considers events nor objects. And the object
          worldview, while it considers objects with their <em>categorical</em> properties, does not consider events. None of the three worldviews includes
          modeling the <em>dispositional</em> properties of objects with a full-fledged explicit concept of <em>event rules</em>.
@@ -1377,19 +1375,21 @@ sd.waitingCustomers.<b>pop</b>()
       <ul>
          <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML 2 Class Diagrams</em>. <a href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img src="../../icons/html.png" /></a></li>
          <li id="BankCNN2009" role="doc-biblioentry">Banks, J., Carson, J.S., Nelson, B.L., &amp; Nicol, D.M. (2009). <em>Discrete-Event System Simulation</em>. Pearson Prentice Hall.</li>
-         <li id="Camunda2017" role="doc-biblioentry">BPMN 2.0 Tutorial.  (2017). <em>Camunda</em>. <a href="https://camunda.org/bpmn/tutorial"><img src="../../icons/link.png" /></a></li>
+         <li id="Camunda2017" role="doc-biblioentry">BPMN 2.0 Tutorial. (2017). <em>Camunda</em>. <a href="https://camunda.org/bpmn/tutorial"><img src="../../icons/link.png" /></a></li>
          <li id="CetinkayaVS2011" role="doc-biblioentry">Cetinkaya, D., Verbraeck, A., &amp; Seck, M. (2011). MDD4MS: A Model Driven Development Framework for Modeling and Simulation. In <em>Proceedings of the 2011 Summer Computer Simulation Conference (SCSC 2011)</em>. The Hague, Netherlands.</li>
          <li id="Cet11" role="doc-biblioentry">Cetinkaya, D., &amp; Verbraeck, A. (2011). Metamodeling and Model Transformations in Modeling and Simulation. In <em>Proceedings of the 2011 Winter Simulation Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/271.pdf"><img src="../../icons/pdf.png" /></a></li>
-         <li id="Gordon1961" role="doc-biblioentry">Gordon, G. (1961). A General Purpose Systems Simulation Program. In <em>Proceedings of the Eastern Joint Computer Conference</em>. Washington, D.C.</li>
+	     <li id="DahlNygaard66" role="doc-biblioentry">Dahl, O.-J., &amp; Nygaard, K. 1966. Simula – an ALGOL-Based Simulation Language. Communications of the ACM 9:9, September 1966. <a href="http://simula67.at.ifi.uio.no/Archive/artikkel1966cacm.pdf"><img src="../../icons/pdf.png" /></a></li>
+         <li id="Gordon61" role="doc-biblioentry">Gordon, G. (1961). A General Purpose Systems Simulation Program. In <em>Proceedings of the Eastern Joint Computer Conference</em>. Washington, D.C.</li>
          <li id="GuizzardiW2010a" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2010a). Using the Unified Foundational Ontology (UFO) as a Foundation for General Conceptual Modeling Languages. In <em>Theory and Applications of Ontology: Computer Applications</em> (175−196). Springer. <a href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GuizzardiW2010b" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2010b). Towards an Ontological Foundation of Discrete Event Simulation. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (652−664). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/059.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GuizzardiW2012" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2012). Tutorial: Conceptual Simulation Modeling with Onto-UML. In <em>Proceedings of the 2012 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GuizzardiW2013" role="doc-biblioentry">Guizzardi, G., &amp; Wagner, G. (2013). Dispositions and Causal Laws as the Ontological Foundation of Transition Rules in Simulation Models. In <em>Proceedings of the 2013 Winter Simulation Conference</em> (1335–1346). Piscataway, NJ: IEEE. 
          <a href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img src="../../icons/pdf.png" /></a></li>
-         <li id="Himmelspach2009" role="doc-biblioentry">Himmelspach, J. (2009). Toward a Collection of Principles, Techniques and Elements of Modeling and Simulation
-      Software. In <em>Proc. of the 2009 International Conference on Advances in System Simulation</em> (56–61). IEEE Computer Society. 
-      <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../icons/html.png" /></a>  
-      <a href="https://dx.doi.org/http://doi.ieeecomputersociety.org/10.1109/SIMUL.2009.19"><img src="../../icons/doi.png" /></a></li>
+         <li id="Himmelspach2009" role="doc-biblioentry">Himmelspach, J. (2009). Toward a Collection of Principles, Techniques and Elements of Modeling and Simulation Software. In <em>Proc. of the 2009 International Conference on Advances in System Simulation</em> (56–61). IEEE Computer Society. 
+          <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../icons/html.png" /></a>  
+          <a href="https://dx.doi.org/http://doi.ieeecomputersociety.org/10.1109/SIMUL.2009.19"><img src="../../icons/doi.png" /></a></li>
+	     <li id="MarkHK62" role="doc-biblioentry">Markowitz, H., Hausner, B., &amp; Karr, H. 1962. SIMSCRIPT: A Simulation Programming Language. 
+		  Memorandum RM-3310-PR, Nov. 1962, The RAND Corporation. <a href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2009/RM3310.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="Ong11" role="doc-biblioentry">Onggo, B., &amp; Karpat, O. (2011). Agent-Based Conceptual Model Representation Using BPMN. In <em>Proceedings of the 2011 Winter Simulation Conference</em> (671−682). Piscataway, NJ: IEEE.   <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="Peg92" role="doc-biblioentry">Pegden, C.D., &amp; Davis, D.A. (1992). Arena: a SIMAN/Cinema-Based Hierarchical Modeling System. In <em>Proceedings of the 1992 Winter Simulation Conference</em> (390–399). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="Peg10" role="doc-biblioentry">Pegden, C.D. (2010). Advanced Tutorial: Overview of Simulation World Views. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (643−651). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img src="../../icons/pdf.png" /></a></li>

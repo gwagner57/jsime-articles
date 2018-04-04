@@ -257,9 +257,21 @@ address > div[property="email"] {
   text-align: center;
   font-size: 100%;
 }
-address > div[property="affiliation"] {
+/* single author */
+#front-matter > address > div[property="affiliation"] {
   text-align: center;
   font-size: 100%;
+  margin-top: 0.5em;
+}
+/* multiple authors */
+#authors > address {
+  display: inline-block;
+  width: 49%;
+  margin-bottom: 0.5em;
+}
+#authors > div.affiliation {
+  font-size: 100%;
+  text-align: center;
   margin-top: 0.5em;
 }
 
