@@ -124,7 +124,7 @@ body {
   header {
     page-break-after: avoid; 
   }
-  .suppressPDF {
+  .suppressInPDF {
     display: none;
   }
   main {
@@ -269,10 +269,16 @@ address > div[property="email"] {
   width: 49%;
   margin-bottom: 0.5em;
 }
+#authors > address sup {
+  font-size: 60%;
+}
 #authors > div.affiliation {
   font-size: 100%;
   text-align: center;
   margin-top: 0.5em;
+}
+#authors > div.affiliation sup {
+  font-size: 90%;
 }
 
 #acm-subject-categories {
