@@ -355,7 +355,7 @@ main > section {
 main > section > section {
   counter-reset: sub-sub-sections;
 }
-main > section:not([role="doc-abstract"]):not([role="doc-bibliography"]) > h1:before {
+main > section:not([role="doc-abstract"]):not([role="doc-bibliography"]):not([role="doc-acknowledgements"]):not([role="doc-endnotes"]) > h1:before {
   counter-increment: sections;
   content: counter(sections) " "
 }
