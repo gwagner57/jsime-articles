@@ -102,7 +102,8 @@
 </head>
 <body vocab="http://schema.org/">
  <header>
-   <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height:24px; margin-right:0.7em;"/></a><i>Journal of Simulation Engineering</i>, Vol. 1 (under construction). Article URL: <a href="https://articles.jsime.org/1/1/" id="articleURL">https://articles.jsime.org/1/1/</a><a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/2" style="position:relative; left:1em"><img src="../../icons/pdf.png"/></a></small>
+   <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height:24px; margin-right:0.7em;"/></a><i>Journal of Simulation Engineering</i>, Vol. 1 (under construction). Article URL: <a href="https://articles.jsime.org/1/1/" id="articleURL">https://articles.jsime.org/1/1/</a>
+   <a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/2" style="position:relative; left:1em"><img src="../../icons/pdf.png"/></a></small>
  </header>
  <main>
    <div id="front-matter">
@@ -125,7 +126,7 @@
      </div>
      <section role="doc-abstract">
         <h1>Abstract</h1>
-        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics, including its state changes. In the fields of <em>Information Systems</em> and <em>Software Engineering (IS/SE)</em> there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general approach, called <em>Object-Event Modeling (OEM)</em>, for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and in pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>, while in Part III we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
+        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics, including its state changes. In the fields of <em>Information Systems</em> and <em>Software Engineering (IS/SE)</em> there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general approach, called <em>Object Event Modeling (OEM)</em>, for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and in pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>, while in Part III we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
         </p>
      </section>
    </div>
@@ -162,12 +163,10 @@
       </p>
          </li>
          <li>
-      <p><em>tropes,</em> which are existentially dependent entities such as the <em>qualities</em> and <em>dispositions</em> of objects and their <em>relationships</em> with each other, and
-      </p>
+      <p><em>tropes,</em> which are existentially dependent entities such as the <em>qualities</em> and <em>dispositions</em> of objects and their <em>relationships</em> with each other, and</p>
          </li>
          <li>
-      <p><b><i>events</i></b>.
-      </p>
+      <p><b><i>events</i></b>.</p>
          </li>
       </ol>
       <p>These ontological distinctions are discussed, e.g., by Guizzardi and Wagner (<a href="#GuizzardiW2010a">2010a</a>, <a href="#GuizzardiW2010b">2010b</a>, <a href="#GuizzardiW2013">2013</a>).
@@ -177,33 +176,24 @@
       </p>
       <ul>
          <li>
-      <p>objects (of various types),</p>
+      <p>objects (of various types) having qualities and dispositions,</p>
          </li>
          <li>
-      <p>events (of various types),</p>
-         </li>
-         <li>
-      <p>dispositions of objects triggered by events,</p>
+      <p>events (of various types) occurring at times from a discrete set of time points,</p>
          </li>
       </ul>
-      <p>such that the states of objects may be changed by events occurring at times from a
-         discrete set of time points, according to the dispositions of the objects triggered
-         by the events.
-      </p>
+      <p>such that the states of affected objects may be changed by events according to the dispositions of the objects triggered by the events.</p>
       <p>For modeling a discrete event system as a state transition system, we have to describe its
       </p>
       <ol>
          <li>
-      <p><b><i>object types</i></b>, e.g., in the form of <em>classes</em> of an object-oriented language;
-      </p>
+      <p><b><i>object types</i></b>, e.g., in the form of <em>classes</em> of an object-oriented language;</p>
          </li>
          <li>
-      <p><b><i>event types</i></b>, e.g., in the form of <em>classes</em> of an object-oriented language;
-      </p>
+      <p><b><i>event types</i></b>, e.g., in the form of <em>classes</em> of an object-oriented language;</p>
          </li>
          <li>
-      <p><b><i>causal regularities</i></b> (<em>disposition types</em>) e.g., in the form of <em>event rules</em>.
-      </p>
+      <p><b><i>causal regularities</i></b> (<em>disposition types</em>) e.g., in the form of <em>event rules</em>.</p>
          </li>
       </ol>
       <p>Any <em>discrete event simulation</em> (DES) formalism has one or more language elements that allow specifying
@@ -746,7 +736,7 @@
          <img src="./img/Inventory_IDM-2.svg" width="500"/>
          <figcaption><strong>Figure 10.</strong> Adding the range of attributes and random variables (Step 2).</figcaption>
       </figure>
-      <p>While exogenous events of a certain type occur again and again with some (typically <em>random</em>)<em> recurrence</em>, caused events occur at times that result from the internal causation dynamics of the simulation model. So, for any event type adopted from the conceptual model, we choose one of these two categories. For any exogenous event type, we add a <em>recurrence</em> operation, which is responsible for computing the time until the next event occurs, and a <em>createNextEvent</em> operation, which is invoked for creating a new instance of the event type as its next occurrence.
+      <p>While exogenous events of a certain type occur again and again with some (typically <em>random</em>)<em> recurrence</em>, caused events occur at times that result from the internal causation dynamics of the simulation model. So, for any event type adopted from the conceptual model, we choose one of these two categories. For any exogenous event type, we add a class-level ("static") <em>recurrence</em> operation, which is responsible for computing the time until the next event occurs. If new exogenous events have to be created with specific attribute assignments, like in the case of <i>DailyDemand</i> events, which require a random variate assignment to their <i>quantity</i> attribute, a <i>createNextEvent</i> operation is defined for creating a new instance of the event type as its next occurrence.
       </p>
       <p>In the model shown in <a href="#_Ref493087168">Figure 10</a>, we define <em>DailyDemand</em> as an exogenous event type with a recurrence of 1, implying that an event of this type occurs on each day, while we define <em>Delivery</em> as a caused event type.
       </p>
@@ -1021,12 +1011,12 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
   properties: {...},
   methods: {
     "onEvent": function () {
-       var sh = this.shop,
-     sQ = sh.stockQuantity,
-     newSQ = sQ - this.quantity,
-     rP = sh.reorderPoint;
-       // update stockQuantity
-       this.shop.stockQuantity = Math.max( 0, newSQ);
+      var sh = this.shop,
+          sQ = sh.stockQuantity,
+          newSQ = sQ - this.quantity,
+          rP = sh.reorderPoint;
+      // update stockQuantity
+      this.shop.stockQuantity = Math.max( 0, newSQ);
       // update lostSales if demand > stock
       if (newSQ &lt; 0) {
         sim.stat.lostSales += Math.abs( newSQ);
@@ -1036,9 +1026,9 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       // falls below reorder point
       if (sQ > rP &amp;&amp; newSQ &lt;= rP) {
         return [new Delivery({
-    occTime: this.occTime + Delivery.leadTime(),
-    quantity: sh.targetInventory - newSQ,
-    receiver: sh
+            occTime: this.occTime + Delivery.leadTime(),
+            quantity: sh.targetInventory - newSQ,
+            receiver: sh
         })];
       } else return [];  // no follow-up events
     }
@@ -1058,21 +1048,12 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       <p>It is straight-forward to extract four object types from the problem description above by analyzing the noun phrases: 
       </p>
       <ol>
-         <li>
-            <p>customers,</p>
-         </li>
-         <li>
-            <p>service desks,</p>
-         </li>
-         <li>
-            <p>service queues,</p>
-         </li>
-         <li>
-            <p>service clerks.</p>
-         </li>
+         <li>customers,</li>
+         <li>service desks,</li>
+         <li>service queues,</li>
+         <li>service clerks.</li>
       </ol>
-      <p>Thus, a first version conceptual information model of the service system may look
-         as shown in <a href="#_Ref494397234">Figure 18</a>.
+      <p>Thus, a first version conceptual information model of the service system may look as shown in <a href="#_Ref494397234">Figure 18</a>.
       </p>
       <figure id="_Ref494397234" class="top">
          <img src="./img/image26.png"/>
@@ -1090,24 +1071,12 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       <p>After modeling all potentially relevant object types in the first step, we model the potentially relevant event types in a second step:
       </p>
       <ol>
-         <li>
-            <p>customer arrivals,</p>
-         </li>
-         <li>
-            <p>customers queuing up,</p>
-         </li>
-         <li>
-            <p>customers being notified/invited to move forward to the service desk,</p>
-         </li>
-         <li>
-            <p>service start,</p>
-         </li>
-         <li>
-            <p>service end,</p>
-         </li>
-         <li>
-            <p>customer departures.</p>
-         </li>
+         <li>customer arrivals,</li>
+         <li>customers queuing up,</li>
+         <li>customers being notified/invited to move forward to the service desk,</li>
+         <li>service start,</li>
+         <li>service end,</li>
+         <li>customer departures.</li>
       </ol>
       <p>The main type of association between events and objects is <b><i>participation</i></b>. When adding event types to the object types in our conceptual information model,
          we therefore also model the participation types between them. For instance, in <a href="#_Ref494398925">Figure 19</a>, we express that a customer arrival event has exactly one customer and one service
@@ -1134,7 +1103,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
        <li>Compute the maximum queue length statistics.</li>
        <li>Compute the "mean response time" statistics as the average length of time a customer spends in the system from arrival to departure, which is the average waiting time plus the average service duration.</li>
       </ol>
-      <p>Answering research question 1 does not require to model the waiting line as a queue consisting of individual customers, since for keeping track of the queue length and computing its maximum value, a queue length variable is sufficient and there is no need to know the composition of the queue and which customer is the next one to be served. The natural way for modeling the queue length variable is to model it as an attribute of the object type <i>ServiceDesk</i>, as in the model of <a href="#_Ref494399720">Figure 20</a>, which we also call <q>design model 1</q>.
+      <p>Answering research question 1 does not require to model the waiting line as a queue consisting of individual customers, since for keeping track of the queue length and computing its maximum value, a queue length variable is sufficient and there is no need to know the composition of the queue and which customer is the next one to be served. The natural way for modeling the queue length variable is to model it as an attribute of the object type <i>ServiceDesk</i>, as in the model of <a href="#_Ref494399720">Figure 20</a>, which we also call <em>design model 1</em>.
       </p>
       <figure id="_Ref494399720">
          <img src="./img/ServiceDesk-1_IDM.svg" width="400"/>
@@ -1142,8 +1111,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       </figure>
       <p>Research question 2 requires modeling individual customers, since for being able to compute the time a customer spends in the system we need to know which customer
          is next for getting the service and what is their arrival time. For knowing which customer is next, we need to model the service queue as a First-In-First-Out (FIFO)
-         queue, which can be expressed in the UML class diagram with the help of the ordered association end <code>waitingCustmers</code>. Notice that by placing a dot on the line at this end of the association, and not on the other end as well, we make the association unidirectional implying the design decision that it will be represented by a reference property with name <code>waitingCustmers</code> in the <code>ServiceDesk</code> class. For being able to easily retrieve the arrival time of a customer, which is
-         an information item coming from the <code>CustomerArrival</code> event, we record it along with the customer data, so we add a corresponding attribute to the <code>Customer</code> class. The resulting <q>design model 2</q> is shown in <a href="#_Ref494399721">Figure 21</a>.
+         queue, which can be expressed in a UML class diagram in the form of an ordered association end, like <code>waitingCustmers</code> in <a href="#_Ref494399721">Figure 21</a>. Notice that by placing a dot on the line at this end of the association, and not on the other end as well, we make the association unidirectional implying the design decision that it will be represented by a reference property with name <code>waitingCustmers</code> in the <code>ServiceDesk</code> class. For being able to easily retrieve the arrival time of a customer, which is an information item coming from the <code>CustomerArrival</code> event, we record it along with the customer data, so we add a corresponding attribute to the <code>Customer</code> class. The resulting <em>design model 2</em> is shown in <a href="#_Ref494399721">Figure 21</a>.
       </p>
       <p>Concerning the event types described in the conceptual information model, the goal is to keep only those that are really needed in the design model. This question is
          closely related to the question, which types of state changes and follow-up events have to be modeled for being able to answer the research question(s).
@@ -1323,7 +1291,7 @@ ServiceDesk.serviceDuration = function () {
             <td>
          <p>CustomerArrival( c, sd) @ t</p>
           <ul style="font-size:smaller"><li>c:Customer references the arrived customer</li>
-           <li>sd:Servicedesk references the service desk where the new customer arived</li></ul>
+           <li>sd:Servicedesk references the service desk where the new customer arrived</li></ul>
             </td>
             <td><pre><code>
 sd.waitingCustomers.<b>push</b>(c)
@@ -1401,9 +1369,9 @@ sd.waitingCustomers.<b>pop</b>()
          <li id="Wag09" role="doc-biblioentry">Wagner, G., Nicolae, O., &amp; Werner, J. (2009). Extending Discrete Event Simulation by Adding an Activity Concept for Business Process Modeling and Simulation. In <em>Proceedings of Winter Simulation Conference</em> (2951−2962). Piscataway, NJ: IEEE. 
          <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GWa17a" role="doc-biblioentry">Wagner, G. (2017a). An Abstract State Machine Semantics For Discrete Event Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE.
-          <a href="http://oxygen.informatik.tu-cottbus.de/publications/wagner/WSC2017-DES-ASM-Semantics.pdf"><img src="../../icons/pdf.png" /></a></li>
+          <a href="https://www.informs-sim.org/wsc17papers/includes/files/056.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GWa17b" role="doc-biblioentry">Wagner, G. (2017b). Introduction to Information and Process Modeling for Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE.</li>
-         <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="http://oxygen.informatik.tu-cottbus.de/publications/wagner/WSC2017-Sim4Edu.pdf"><img src="../../icons/pdf.png" /></a></li>
+         <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="http://sim4edu.com/sims/papers/DPMN-0-1.pdf"><img src="../../icons/pdf.png" /></a>.</li>
          <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako, A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel Discussion: Education on Conceptual Modeling for Simulation – Challenging the Art. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (290−304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png" /></a></li>
       </ul>
