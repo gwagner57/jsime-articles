@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--Google Scholar-->
 <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
-<!-- <meta name="citation_issn" content="XXXX-XXXX" /> -->
+<meta name="citation_issn" content="2569-9466" />
 <meta name="citation_author" content="Shafagh Jafer" />
 <meta name="citation_author_email" content="jafers@erau.edu" />
 <meta name="citation_author_institution"
@@ -64,7 +64,7 @@
       "@id": "#jsime",
       "@type": "Periodical",
       "name": "Journal of Simulation Engineering",
-      "issn": "XXXX-XXXX",
+      "issn": "2569-9466",
       "publisher": {
         "@type": "Organization",
         "name": "Consortium for True Open Access in Modeling and Simulation"
@@ -163,14 +163,20 @@
 </head>
 <body vocab="http://schema.org/">
   <header>
-    <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height: 24px; margin-right: 0.7em;" /></a>Journal of Simulation
-      Engineering, Vol. 1 (under construction). Article URL: <a href="https://articles.jsime.org/1/2/" id="articleURL">https://articles.jsime.org/1/2/</a>
-	  <a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/5" style="position:relative; left:1em"><img src="../../icons/pdf.png"/></a></small>
+    <small><a href="https://jsime.org"><img src="../../JSimE.svg"
+        style="height: 24px; margin-right: 0.7em;" /></a>Journal of Simulation
+      Engineering, Vol. 1 (under construction). Article URL: <a
+      href="https://articles.jsime.org/1/2/" id="articleURL">https://articles.jsime.org/1/2/</a>
+      <a id="PDF" class="suppressInPDF"
+      href="https://jsime.org/index.php/jsimeng/article/view/5"
+      style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
   </header>
   <main>
   <div id="front-matter">
-    <h1 id="article-title">Schema-based Ontological Representations of a<br/>
-      Domain-Specific Scenario Modeling Language</h1>
+    <h1 id="article-title">
+      Schema-based Ontological Representations of a<br /> Domain-Specific
+      Scenario Modeling Language
+    </h1>
     <div id="authors">
       <address typeof="Person">
         <div property="name">
@@ -180,7 +186,7 @@
           <a href="mailto:jafers@erau.edu">jafers@erau.edu</a>
         </div>
       </address>
-      <address class="lead_authors" typeof="Person">
+      <address typeof="Person">
         <div property="name">
           Bharvi Chhaya<sup>1</sup>
         </div>
@@ -188,7 +194,7 @@
           <a href="mailto:chhayab@my.erau.edu">chhayab@my.erau.edu</a>
         </div>
       </address>
-      <address class="lead_authors" typeof="Person">
+      <address typeof="Person">
         <div property="name">
           Jessica Updegrove<sup>1</sup>
         </div>
@@ -196,7 +202,7 @@
           <a href="mailto:updegroj@my.erau.edu">updegroj@my.erau.edu</a>
         </div>
       </address>
-      <address class="lead_authors" typeof="Person">
+      <address typeof="Person">
         <div property="name">
           Umut Durak<sup>2</sup>
         </div>
@@ -325,7 +331,7 @@
       machine-readable and reusable. These types of scenarios can be seen in <a
         href="#_Ref509500998">Figure 1</a>.
     </p>
-    <figure id="_Ref509500998">
+    <figure class="column-top-corner" id="_Ref509500998">
       <img src="./img/image1.png" />
       <figcaption>
         <strong>Figure 1.</strong> Types of scenarios
@@ -602,7 +608,7 @@
         <strong>Figure 3.</strong> High-Level View of ASDL Ontology
       </figcaption>
     </figure>
-    <table id="_Ref509502629">
+    <table class="top" id="_Ref509502629">
       <thead>
         <tr>
           <th>Term</th>
@@ -880,7 +886,7 @@
       Language (XML) schema was generated for this model to define ASDL
       scenarios.
     </p>
-    <figure id="_Ref505210321">
+    <figure class="top" id="_Ref505210321">
       <img src="./img/image16.png" />
       <figcaption>
         <strong>Figure 16.</strong> Excerpt Representation of XML Schema Model
@@ -939,14 +945,14 @@
         noted how this attribute closely follows the states and transitions seen
         in the state diagram in <a href="#_Ref505205239">Figure 17</a>.
       </p>
-      <figure id="_Ref509500567">
+      <figure class="column-top" id="_Ref509500567">
         <img src="./img/image18.png" />
         <figcaption>
           <strong>Figure 18.</strong> Conceptual Scenario Attributes for En
           Route Scenario
         </figcaption>
       </figure>
-      <figure id="_Ref509500629">
+      <figure class="column-top-corner" id="_Ref509500629">
         <img src="./img/image19.png" />
         <figcaption>
           <strong>Figure 19.</strong> State Machine for the En Route Scenario
@@ -955,11 +961,11 @@
       <p>An excerpt from the en route scenario XML file is presented here.
         This portion of the scenario shows the definition of all states in the
         State Machine.</p>
-      <pre>
-        <code class="language-markup">&lt;stateMachines&gt;
+      <pre><code class="language-markup">&lt;stateMachines&gt;
         &lt;stateTransitions Name="Climb"&gt;
             &lt;guard Name="Aircraft reaches 8000 feet."&gt;
-                &lt;exitAction Name="Issue climb" Sequence = "1"/&gt;
+                &lt;exitAction Name="Issue climb"
+                            Sequence = "1"/&gt;
             &lt;/guard&gt;
         &lt;/stateTransitions&gt;
         &lt;stateTransitions Name="Cruise"&gt;
@@ -970,7 +976,9 @@
         &lt;/stateTransitions&gt;
         &lt;stateTransitions Name="Cruise"&gt;
             &lt;guard Name="Aircraft passes CARRA."&gt;
-                &lt;exitAction Name="Daytona ATC issues handoff to Jacksonville ATC." Sequence = "1"/&gt;
+                &lt;exitAction Name="Daytona ATC issues
+                            handoff to Jacksonville ATC."
+                            Sequence = "1"/&gt;
             &lt;/guard&gt;
         &lt;/stateTransitions&gt;
         &lt;stateTransitions Name="Turn"&gt;
@@ -1001,7 +1009,7 @@
         SES representation has been shown for an en route scenario in <a
           href="#_Ref505212183">Figure 20</a>.
       </p>
-      <figure id="_Ref505212183">
+      <figure class="next top" id="_Ref505212183">
         <img src="./img/image20.png" />
         <figcaption>
           <strong>Figure 20.</strong> Pruned SES definition for En Route
@@ -1019,14 +1027,14 @@
           href="#_Ref509500775">Figure 22</a> and is comparable to that obtained
         using EMF in <a href="#_Ref509500629">Figure 19</a>.
       </p>
-      <figure id="_Ref509500760">
+      <figure class="column-bottom-corner" id="_Ref509500760">
         <img src="./img/image21.png" />
         <figcaption>
           <strong>Figure 21.</strong> Scenario Attributes for En Route Scenario
           using SES Definition
         </figcaption>
       </figure>
-      <figure id="_Ref509500775">
+      <figure class="column-top" id="_Ref509500775">
         <img src="./img/image22.png" />
         <figcaption>
           <strong>Figure 22.</strong> State Machine for En Route Scenario using
@@ -1035,11 +1043,11 @@
       </figure>
       <p>The XML depiction of the state machine using this process is
         presented here.</p>
-      <pre>
-        <code class="language-markup">&lt;StateMachines&gt;
+      <pre><code class="language-markup">&lt;StateMachines&gt;
         &lt;StateTransitions Name="Climb"&gt;
             &lt;Guard Name="Aircraft reaches 8000 feet."&gt;
-                &lt;ExitAction Name="Issue climb" Sequence = "1"/&gt;
+                &lt;ExitAction Name="Issue climb"
+                            Sequence = "1"/&gt;
             &lt;/Guard&gt;
         &lt;/StateTransitions&gt;
         &lt;StateTransitions Name="Cruise"&gt;
@@ -1050,7 +1058,9 @@
         &lt;/StateTransitions&gt;
         &lt;StateTransitions Name="Cruise"&gt;
             &lt;Guard Name="Aircraft passes CARRA."&gt;
-                &lt;ExitAction Name="Daytona ATC issues handoff to Jacksonville ATC." Sequence = "1"/&gt;
+                &lt;ExitAction Name="Daytona ATC issues
+                            handoff to Jacksonville ATC."
+                            Sequence = "1"/&gt;
             &lt;/Guard&gt;
         &lt;/StateTransitions&gt;
         &lt;StateTransitions Name="Turn"&gt;
@@ -1195,7 +1205,7 @@
       creating a scenario definition language in aviation. A comparison of the
       two approaches has been presented in <a href="#_Ref509502691">Table 2</a>.
     </p>
-    <table id="_Ref509502691">
+    <table class="top" id="_Ref509502691">
       <thead>
         <tr>
           <th>Characteristics</th>
