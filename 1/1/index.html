@@ -127,7 +127,7 @@
      </div>
      <section role="doc-abstract">
         <h1>Abstract</h1>
-        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics. In the fields of <em>Information Systems</em> and <em>Software Engineering</em>, there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general approach, called <em>Object Event Modeling (OEM)</em>, for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In this approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>. Finally, in Part III, we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
+        <p>In simulation engineering, a system model mainly consists of an <em>information model</em> describing a system's state structure and a <em>process model</em> describing its dynamics. In the fields of <em>Information Systems</em> and <em>Software Engineering</em>, there are widely used standards such as the <em>Class Diagrams</em> of the <em>Unified Modeling Language (UML)</em> for making information models, and the <em>Business Process Modeling Notation (BPMN)</em> for making process models. This tutorial presents a general <em>Object Event Modeling (OEM)</em> approach for Discrete Event Simulation modeling using UML class diagrams and BPMN-based process diagrams at all three levels of <em>model-driven simulation engineering</em>: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In this approach, object and event types are modeled as special categories of UML classes, random variables are modeled as a special category of UML operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while <em>event rules</em> are modeled both as BPMN-based process diagrams and pseudo-code. In Part II, we will discuss the more advanced OEM concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em>. Finally, in Part III, we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>.
         </p>
      </section>
    </div>
@@ -142,7 +142,7 @@
       </p>
       <p>Several authors, e.g., (<a href="#Wag09">Wagner, Nicolae, &amp; Werner, 2009</a>), (<a href="#CetinkayaVS2011">Cetinkaya, Verbraeck, &amp; Seck, 2011</a>), and (<a href="#Ong11">Onggo &amp; Karpat, 2011</a>), have proposed to use BPMN for Discrete Event Simulation (DES) modeling and for agent-based modeling. However, process modeling in general is much less understood than information modeling, and there are no guidelines and no best practices how to use BPMN for simulation modeling. Schruben (<a href="#Schruben83">1983</a>), with his <em>Event Graph</em> diagram language, has pioneered the research on process modeling languages for DES based on the modeling concept of <em>event types</em> and the operational semantics concept of <em>event scheduling</em> with a <em>future events list</em>. Remarkably, Event Graphs correspond to a fragment of BPMN (without Activities and Pools), which indicates the potential of BPMN as a basis of a general process modeling language for DES.
       </p>
-      <p>This tutorial article extends and improves the modeling approach presented in (<a href="#GWa17b">Wagner, 2017b</a>). In particular, the BPMN-based process design modeling approach has been revised and refined, inspired by the <em>Event Graph</em> diagrams of (<a href="#Schruben83">Schruben 1983</a>). The resulting variant of BPMN, called <em>Discrete Event Process Modeling Notation (DPMN)</em>, is discussed in <a href="#"sectPM">Section 5</a>. It allows making computational (platform-independent) process design models for DES.
+      <p>This tutorial article extends and improves the modeling approach presented in (<a href="#GWa17b">Wagner, 2017b</a>). In particular, the BPMN-based process design modeling approach has been revised and refined by using a variant of BPMN, called <em>Discrete Event Process Modeling Notation (DPMN)</em>, which is discussed in <a href="#"sectPM">Section 5</a>.
       </p>
       <p>This first part of the tutorial presents the <em>Object-Event Modeling (OEM)</em> paradigm and an OEM approach for developing basic discrete event simulations. First, short introductions to model-driven engineering, to information modeling with UML class diagrams, and to process modeling with BPMN and DPMN process diagrams are presented. Next, two examples are provided to illustrate how to apply the OEM paradigm to developing discrete event simulations. In Part II of this tutorial, we will discuss the more advanced modeling concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em> where work objects <q>flow through the system</q> by entering it through an <em>arrival event</em> at an <em>entry node</em>, then passing one or more <em>processing nodes</em>, where processing activities are being performed, and finally leaving it through a <em>departure event</em> at an <em>exit node</em>. Finally, Part III will show how to add the modeling concepts of <em>agents</em> with <em>perceptions</em>, <em>actions</em> and <em>beliefs</em>, resulting in a general agent-based DES modeling framework.
       </p>
@@ -156,7 +156,7 @@
       </p>
    </section>
    <section><h1>What Is Discrete Event Simulation?</h1>
-      <p>The term <em>Discrete Event Simulation (DES)</em> has been established as an umbrella term subsuming various kinds of computer simulation approaches, all based on the general idea of modeling entities/objects and events. In the DES literature, it is often stated that DES is based on the concept of <q>entities flowing through the system</q> (more precisely, through a <q>queueing network</q>). This is the paradigm of an entire class of simulation software in the tradition of GPSS <a href="#Gordon61">(Gordon, 1961</a>) and SIMAN/Arena <a href="#Peg92">(Pegden &amp; Davis, 1992</a>). However, this paradigm characterizes a special (yet important) class of DES only, it does not apply to all discrete dynamic systems.
+      <p>The term <em>Discrete Event Simulation (DES)</em> has been established as an umbrella term subsuming various kinds of computer simulation approaches, all based on the general idea of modeling entities/objects and events. In the DES literature, it is often stated that DES is based on the concept of <q>entities flowing through the system</q> (more precisely, through a <q>queueing network</q>). This is the paradigm of an entire class of simulation software in the tradition of GPSS (<a href="#Gordon61">Gordon, 1961</a>) and SIMAN/Arena (<a href="#Peg92">Pegden &amp; Davis, 1992</a>). However, this paradigm characterizes a special (yet important) class of DES only, it does not apply to all discrete dynamic systems.
       </p>
       <p>In Ontology, which is the philosophical study of what there is, <b><i>entities</i></b> (also called <em>individuals</em>) are distinguished from <b><i>entity types</i></b> (called <em>universals</em>). There are three fundamental categories of entities:
       </p>
@@ -272,7 +272,7 @@
          for being used on one or two of these three levels only. For instance, Petri Nets cannot be
          used for conceptual process modeling, since they lack the required expressiveness .
       </p>
-      <p>We illustrate the distinction between the three modeling levels with an example in <a href="#_Ref493010044">Figure 2</a>. In a simple conceptual information model of people, expressed as a UML class diagram, we require that any person has exactly one mother, expressed by a corresponding binary many-to-one association, while we represent this association with a corresponding reference property <em>mother</em> in the OO class model. Also, we may not care about the datatypes of attributes in the conceptual model, while we do care about them in the design model, where we use platform-independent datatype names (such as <code>Decimal</code>), and in the C++ class model where we use C++ datatypes (such as <code>double</code>). Following OO programming conventions, we add <em>get</em> and <em>set</em> methods for all attributes, and we specify the visibility <em>private</em> (symbolically -) for attributes and <em>public</em> (symbolically +) for methods, in the OO class model. Finally, in the C++ class model, we use the pointer type <code>Person*</code> instead of <code>Person</code> for implementing a reference property.
+      <p>We illustrate the distinction between the three modeling levels with an example in <a href="#_Ref493010044">Figure 2</a>. In a simple conceptual information model of people, expressed as a UML class diagram, we require that any person has exactly one mother, expressed by a corresponding binary many-to-one association, while we represent this association with a corresponding reference property <em>mother</em> in the OO and C++ class models. Also, we may not care about the datatypes of attributes in the conceptual model, while we do care about them in the design model, where we use platform-independent datatype names (such as <code>Decimal</code>), and in the C++ class model where we use C++ datatypes (such as <code>double</code>). Following OO programming conventions, we add <em>get</em> and <em>set</em> methods for all attributes, and we specify the visibility <em>private</em> (symbolically -) for attributes and <em>public</em> (symbolically +) for methods, in the OO class model. Finally, in the C++ class model, we use the pointer type <code>Person*</code> instead of <code>Person</code> for implementing a reference property.
       </p>
       <p>Model-driven simulation engineering is based on the same kinds of models as model-driven
          software engineering: going from a <em>domain model</em> via a<em> design model</em> to an <em>implementation model</em> for the simulation platform of choice (or to several implementation models if there
@@ -354,7 +354,7 @@
       </figure>
       <p>A class may be defined as <em>abstract</em> by writing its name in italics, as in the example model of <a href="#_Ref493094582">Figure 11</a>. An abstract class cannot have direct instances. It can only be indirectly instantiated by objects that are direct instances of a subclass.
       </p>
-      <p>For a short introduction to UML Class Diagrams, the reader is referred to <a href="#Ambler2010">(Ambler, 2010</a>). A good overview of the most recent version of UML (UML 2.5) is provided by <a href="http://www.uml-diagrams.org/uml-25-diagrams.html">www.uml-diagrams.org/uml-25-diagrams.html</a></p>
+      <p>For a short introduction to UML Class Diagrams, the reader is referred to (<a href="#Ambler2010">Ambler, 2010</a>). A good overview of the most recent version of UML (UML 2.5) is provided by <a href="http://www.uml-diagrams.org/uml-25-diagrams.html">www.uml-diagrams.org/uml-25-diagrams.html</a></p>
    </section>
    
    <section id="sectPM"><h1>Process Modeling with BPMN and DPMN</h1>
@@ -474,7 +474,7 @@
        </tbody>
          <caption><strong>Table 1.</strong> Basic elements of BPMN.</caption>
       </table>
-      <p>For an introductory BPMN tutorial, the reader is referred to <a href="#Camunda2017">(BPMN 2.0 Tutorial, 2017</a>). A good modeling tool, with the advantages of an online solution, is the <a href="http://www.signavio.com/bpm-academic-initiative"><em>Signavio Process Editor</em></a>, which is free for academic use.
+      <p>For an introductory BPMN tutorial, the reader is referred to (<a href="#Camunda2017">BPMN 2.0 Tutorial, 2017</a>). A good modeling tool, with the advantages of an online solution, is the <a href="http://www.signavio.com/bpm-academic-initiative"><em>Signavio Process Editor</em></a>, which is free for academic use.
       </p>
       <p>Ontologically, BPMN <em>activities</em> (or, more precisely, <em>activity types</em>) are special event types. However, the subsumption of activities under events is
          not supported by the standard semantics of BPMN. 
@@ -489,7 +489,7 @@
       </p>
       <p>Despite these issues, using BPMN as a basis for developing a process design modeling approach is the best choice of a modeling language we can make, considering the alternatives, which are either not well-defined (like <em>Flow Charts</em> or <q>Logic Flow Diagrams</q>) or not sufficiently expressive (Petri Nets, UML State Transition Diagrams, UML Activity Diagrams).
       </p>
-      <p>We need to adapt the language of BPMN Process Diagrams for the purpose of simulation design modeling where a process model must represent a computationally complete process specification. While we can use large parts of its vocabulary, visual syntax and informal semantics, we need to modify them for a number of modeling elements. The resulting BPMN variant, which is fully described in (<a href="#GWa18">Wagner, 2018</a>), is called <em>Discrete Event Process Modeling Notation (DPMN)</em>. It may be viewed as a BPMN-based generalization of the <em>Event Graph</em> diagrams of <a href="#Schruben83">(Schruben 1983</a>).
+      <p>We need to adapt the language of BPMN Process Diagrams for the purpose of simulation design modeling where a process model must represent a computationally complete process specification. While we can use large parts of its vocabulary, visual syntax and informal semantics, we need to modify them for a number of modeling elements. The resulting BPMN variant, which is fully described in (<a href="#GWa18">Wagner, 2018</a>), is called <em>Discrete Event Process Modeling Notation (DPMN)</em>. It may be viewed as a BPMN-based generalization of the <em>Event Graph</em> diagrams of (<a href="#Schruben83">Schruben 1983</a>).
       </p>
         <p><em>DPMN</em> adopts and adapts the syntax and semantics of BPMN in the following way:</p>
         <ol>
@@ -522,7 +522,7 @@
       </p>
       <section>
          <h1>Information Modeling</h1>
-         <p>How should we start the information modeling process? Should we first model object types and then event types, or the other way around? Here, the right order is dictated by informational dependencies. Since <b><i>events are always associated with objects that participate in them</i></b>, which is an ontological pattern that is fundamental for DES, see, e.g., <a href="#GuizzardiW2010b">(Guizzardi &amp; Wagner, 2010b</a>), we first model object types, together with their associations, and then add event types on top of them.
+         <p>How should we start the information modeling process? Should we first model object types and then event types, or the other way around? Here, the right order is dictated by informational dependencies. Since <b><i>events are always associated with objects that participate in them</i></b>, which is an ontological pattern that is fundamental for DES, see, e.g., (<a href="#GuizzardiW2010b">Guizzardi &amp; Wagner, 2010b</a>), we first model object types, together with their associations, and then add event types on top of them.
          </p>
          <p>A <b><i>conceptual information model</i></b> describes the subject matter vocabulary used, e.g., in the system narrative, in a
       semi-formal way. Such a vocabulary essentially consists of names for 
@@ -643,9 +643,9 @@
       </p>
       <p>For simplicity, we add a <em>lostSales</em> attribute to the <em>SingleProductShop</em> class for storing the lost-sales statistics for each shop. Alternatively, we could add a special class for defining statistics variables.
       </p>
-      <p>Further analysis shows that we can drop the event types <em>customer payments</em> and <em>vendor payments</em>, since we don’t need any payment data, and also <em>product handovers</em>, since we don’t care about the point-of-sales logistics. This leaves us with three potentially relevant object types: <em>customers</em>, <em>single product shops</em> and <em>vendors</em>, and with three potentially relevant event types: <em>customer orders</em>, <em>replenishment orders</em> and <em>deliveries</em>.
+      <p>Further analysis shows that we can drop the event types <em>customer payments</em> and <em>vendor payments</em>, since we do not need any payment data, and also <em>product handovers</em>, since we do not care about the point-of-sales logistics. This leaves us with three potentially relevant object types: <em>customers</em>, <em>single product shops</em> and <em>vendors</em>; and three potentially relevant event types: <em>customer orders</em>, <em>replenishment orders</em> and <em>deliveries</em>.
       </p>
-      <p>There is still room for further simplification. Since for computing the percentage of lost sales, we don’t need the order quantities of individual orders, but only the total number of ordered items, it’s sufficient to model an aggregate of customer orders like, for instance, the <em>daily demand</em>. Consequently, we don’t need to consider individual customers and their orders. So,we can drop the object type <em>customers</em> and use the aggregate event type <em>DailyDemand</em> instead of <em>customer orders</em>. Since we don’t need any vendor information, we can also drop the object type <em>vendors</em>. 
+      <p>There is still room for further simplification. Since for computing the percentage of lost sales, we do not need the order quantities of individual orders, but only the total number of ordered items, it is sufficient to model an aggregate of customer orders like the <em>daily demand</em>. Consequently, we do not need to consider individual customers and their orders. So, we can drop the object type <em>customers</em> and use the aggregate event type <em>DailyDemand</em> instead of <em>customer orders</em>. Since we do not need any vendor information, we can also drop the object type <em>vendors</em>. 
       </p>
       <p>Finally, since we can now assume that replenishment orders are placed when a <em>DailyDemand</em> event has occurred, implying that any <em>replenishment order</em> event temporally coincides with a <em>DailyDemand</em> event, we can also drop the event type <em>replenishment orders</em>.
       </p>
@@ -663,14 +663,14 @@
          <img src="./img/Inventory_IDM-2.svg" width="500"/>
          <figcaption><strong>Figure 10.</strong> Adding the range of attributes and random variables (Step 2).</figcaption>
       </figure>
-      <p>While exogenous events of a certain type occur again and again with some (typically <em>random</em>)<em> recurrence</em>, caused events occur at times that result from the internal causation dynamics of the simulation model. So, for any event type adopted from the conceptual model, we choose one of these two categories. For any exogenous event type, we add a class-level ("static") <em>recurrence</em> operation, which is responsible for computing the time until the next event occurs. If new exogenous events have to be created with specific attribute assignments, like in the case of <i>DailyDemand</i> events, which require a random variate assignment to their <i>quantity</i> attribute, a <i>createNextEvent</i> operation is defined for creating a new instance of the event type as its next occurrence.
+      <p>While exogenous events of a certain type occur periodically with some (typically <em>random</em>)<em> recurrence</em>, caused events occur at times that result from the internal causation dynamics of the simulation model. So, for any event type adopted from the conceptual model, we choose one of these two categories. For any exogenous event type, we add a class-level ("static") <em>recurrence</em> operation, which is responsible for computing the time until the next event occurs. If new exogenous events have to be created with specific attribute assignments, like in the case of <i>DailyDemand</i> events, which require a random variate assignment to their <i>quantity</i> attribute, a <i>createNextEvent</i> operation is defined for creating a new instance of the event type as its next occurrence.
       </p>
       <p>In the model shown in <a href="#_Ref493087168">Figure 10</a>, we define <em>DailyDemand</em> as an exogenous event type with a recurrence of 1, implying that an event of this type occurs on each day, while we define <em>Delivery</em> as a caused event type.
       </p>
          </section>
          <section>
       <h1>Deriving Platform-Specific Class Models from the Information Design Model</h1>
-      <p>After choosing an object-oriented simulation platform based on the object-event paradigm (e.g., the JavaScript-based platform <em>OESjs</em> available from <a href="http://sim4edu.com">Sim4edu</a>, or one of the Java-based platforms <a href="http://desmoj.sourceforge.net/home.html">DESMO-J</a>, <a href="http://jaamsim.com/">JaamSim</a> or <a href="https://www.anylogic.com/">AnyLogic</a>), we can derive a platform-specific class model for this platform from the information
+      <p>After choosing an object-oriented simulation platform based on the object-event paradigm (e.g., the JavaScript-based platform <em>OESjs</em> available from <a href="https://sim4edu.com">Sim4edu</a>, or one of the Java-based platforms <a href="http://desmoj.sourceforge.net/home.html">DESMO-J</a>, <a href="http://jaamsim.com/">JaamSim</a> or <a href="https://www.anylogic.com/">AnyLogic</a>), we can derive a platform-specific class model for this platform from the information
          design model.
       </p>
       <p>In the language of such a platform, there would normally be two predefined abstract foundation classes for defining object types and event types. For instance, in OESjs, they are called <em>oBJECT</em> and <em>eVENT</em>, each with a set of generic properties and methods for implementing the two stereotypes «object type» and «event type». These two classes, with their name in italics for indicating that they are <em>abstract</em>, are used for deriving object types and event types in the OESjs class models shown in <a href="#_Ref493094582">Figure 11</a> and <a href="#_Ref493094586">Figure 12</a>.
@@ -685,7 +685,7 @@
       </figure>
       <p>Notice that OESjs allows using specific datatypes, like <em>PositiveInteger</em>, as the range of an attribute, while variables and functions are not explicitly typed in JavaScript, which only has one numeric datatype (<code>number</code>), not supporting the distinction between decimal numbers and integers.
       </p>
-      <p>OESjs class models do no longer contain any explicit associations, which have been replaced with corresponding reference properties (like <em>DailyDemand::shop</em> and <em>Delivery::receiver)</em>. This is the way associations are implemented in OO programing.
+      <p>OESjs class models no longer contain any explicit associations, which have been replaced with corresponding reference properties (like <em>DailyDemand::shop</em> and <em>Delivery::receiver)</em>. This is the way associations are implemented in OO programing.
       </p>
       <p>The <em>onEvent</em> operation in the <em>eVENT</em> class is abstract, as indicated by its name in italics. It requires that any subclass provides a concrete  <code>onEvent</code> method that implements the event routine of the event rule associated with the event type implemented by the <em>eVENT</em> subclass. For instance, the <code>onEvent</code> method of the subclass <em>DailyDemand</em> implements the event routine of the <em>DailyDemand</em> event rules, see <a href="#sectEventRoutinesOESjs">Section 6.2.3</a>. The return type declaration <code>eVENT[*]</code> means that the <code>onEvent</code> method returns a set of (follow-up) events.
       </p>
@@ -700,13 +700,10 @@
   Name: "SingleProductShop",
   supertypeName: "oBJECT",
   properties: {
-    "stockQuantity": {
-       range:"NonNegativeInteger", 
-       label:"Stock"},
-    "reorderPoint": {
-       range:"NonNegativeInteger"},
-    "targetInventory": {
-       range:"PositiveInteger"}
+    "stockQuantity": {range:"NonNegativeInteger"},
+    "reorderPoint": {range:"NonNegativeInteger"},
+    "targetInventory": {range:"PositiveInteger"},
+    "lostSales": {range:"Percentage"}
   }
 });</code></pre>
       <p>This class just has three simple data-valued properties (attributes), each defined with an integer range.</p>
@@ -715,11 +712,8 @@
   Name: "DailyDemand",
   supertypeName: "eVENT",
   properties: {
-    "quantity": {
-       range: "PositiveInteger", 
-       label:"Quantity"},
-    "shop": {
-       range: "SingleProductShop"}
+    "quantity": {range: "PositiveInteger"},
+    "shop": {range: "SingleProductShop"}
   },
   methods: {
     "onEvent": function () {...}
@@ -733,9 +727,6 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
          method for implementing the event rule of the <em>DailyDemand</em> event type. In this method, the reference property
          <code>shop</code> can be used for retrieving or changing the state of the shop that participates in the <em>DailyDemand</em> event.
          We will discuss the code of this event routine below in the section on implementing the process design model.</p>
-       <p>The full code of this simulation model is available by loading the web-based simulation
-         <a href="http://sim4edu.com/sims/4">http://sim4edu.com/sims/4</a> and inspecting its Java&shy;Script code in the browser.
-      </p>
          </section>
       </section>
       <section><h1>Process Modeling</h1>
@@ -754,7 +745,7 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
          </p>
          <section>
       <h1>Making a Conceptual Process Model</h1>
-      <p>Since inventory management is part of a business system, it’s natural to make a kind
+      <p>Since inventory management is part of a business system, it is natural to make a kind
          of business process (BP) model describing actors and their activities, typically in
          response to events, as shown in <a href="#_Ref493109665">Figure 13</a>, where we model the two actors <em>Customer</em> and <em>SingleProductShop</em>, together with their interactions.
       </p>
@@ -768,11 +759,11 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
             <p>Activities/actions are not considered to be special events.</p>
          </li>
          <li>
-            <p>There is no semantic account of the activities/actions of one agent (such as Customer) being events for another agent (such as Single Product Shop). In the case of outgoing message actions (<q>message tasks</q>), like <q>Place order</q>, and their corresponding incoming message events, like <q>CustomerOrder</q>, this relationship can be expressed with <em>message flow</em> arrows between the two actors involved, but in the case of non-communicative actions and events (like Customer:<q>Make payment</q> and Shop:CustomerPayment), BPMN does not support expressing such a relationship.
+            <p>There is no semantic account of the activities/actions of one actor (such as Customer) being events for another actor (such as Single Product Shop). In the case of outgoing message actions (<q>message tasks</q>), like <q>Place order</q>, and their corresponding incoming message events, like <q>CustomerOrder</q>, this relationship can be expressed with <em>message flow</em> arrows between the two actors involved, but in the case of non-communicative actions and events (like Customer:<q>Make payment</q> and Shop:CustomerPayment), BPMN does not support expressing such a relationship.
             </p>
          </li>
       </ol>
-      <p>Also, in basic DES, we do neither have an activity nor an agent concept, and therefore BPMN <em>pools</em> denoting actors, and the distinction between an action/activity (like <q>Place order</q>) and a corresponding event (like <q>CustomerOrder</q>) are not needed. Consequently, for our purpose of making a conceptual process model for basic DES, we do not use BPMN in the traditional BP modeling way, but rather a special form of BPMN models, without activities and without actors/swimlanes. Below, in our discussion of a service desk model, we will show an example of activity modeling, which requires an extended form of DES by adding an activity concept, as proposed in <a href="#Wag09">(Wagner, Nicolae, &amp; Werner, 2009</a>).
+      <p>Also, in basic DES, we neither have an activity nor an agent concept, and therefore BPMN <em>pools</em> denoting actors, and the distinction between an action/activity (like <q>Place order</q>) and a corresponding event (like <q>CustomerOrder</q>) are not needed. Consequently, for our purpose of making a conceptual process model for basic DES, we do not use BPMN in the traditional BP modeling way, but rather a special form of BPMN models, without activities and without actors/swimlanes. Below, in our discussion of a service desk model, we will show an example of activity modeling, which requires an extended form of DES by adding an activity concept, as proposed in (<a href="#Wag09">Wagner, Nicolae, &amp; Werner, 2009</a>).
       </p>
       <p>The purpose of a conceptual process model for simulation is to identify causal regularities and express them in the form of <em>event rules</em>, one for each relevant type of events, at a conceptual level. We can describe event rules textually and visually in an <i>event rule table</i> like <a href="#_Ref494382666">Table 2</a>.</p>
       <table id="_Ref494382666">
@@ -853,11 +844,12 @@ DailyDemand.demandQuantity = function () {...}</code></pre>
          <figcaption><strong>Figure 14.</strong> The conceptual process model integrating all event rule models.</figcaption>
       </figure>
       <p>Notice that the BPMN End Event circles used in the event rule models may have to be converted to BPMN Intermediate Event circles in the integrated model.</p>
-         </section>
-         <section>
-      <h1>Making a Process Design Model</h1>
+     </section>
+    <section>
+		 
+      <h1>Process Design Model</h1>
       <p>A process design model needs to provide a computationally complete specification of <i>event rules</i>, one for each event type defined in the information design model. An event rule for a given event type essentially defines a set of (possibly conditional) state changes and a set of (possibly conditional) follow-up events triggered by an event of that type. We show below how a computational form of event rules can be visually expressed in DPMN diagrams.</p>
-      <p>Since our information design model (tailored to the given research question of computing the lost sales statistics) only includes two event types, <em>DailyDemand</em> and <em>Delivery</em>, we need to model the two corresponding event rules, only, as in the event rule design <a href="#_Ref494385925">Table  3</a>, where these rules are modeled textually using pseudo-code.</p>
+      <p>Since our information design model (tailored to the given research question of computing the lost sales statistics) only includes two event types, <em>DailyDemand</em> and <em>Delivery</em>, we need to model the two corresponding event rules, as in the event rule design <a href="#_Ref494385925">Table  3</a>, where these rules are modeled textually using pseudo-code.</p>
       <table id="_Ref494385925">
        <thead>
          <tr>
@@ -898,14 +890,14 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       </table>
       <p>Notice the general structure of an event expression like <code>DailyDemand( sh, demQ) @ t</code>: it starts with the name of an event type (here: <i>DailyDemand</i>) followed by a comma-separated list of event parameter names (here, <code>sh</code> and <code>demQ</code>), corresponding to event attributes, and an occurrence time annotation <code>@ t</code>. The event expression is complemented with a parameter legend (here, <code>sh: SingleProductShop</code>) defining the type of each event parameter.
       </p>
-      <p>We can also express these two rules visually using the BPMN-based <em>Discrete Event Process Modeling Notation (DPMN)</em> <a href="#GWa18">(Wagner, 2018</a>), as shown in <a href="#_Ref493110215">Figure 15</a> and <a href="#_Ref494386620">Figure 16</a>.</p>
+      <p>We can also express these two rules visually using the BPMN-based <em>Discrete Event Process Modeling Notation (DPMN)</em> defined in (<a href="#GWa18">Wagner, 2018</a>), as shown in <a href="#_Ref493110215">Figure 15</a> and <a href="#_Ref494386620">Figure 16</a>.</p>
       <figure id="_Ref493110215" class="top">
          <img src="./img/DailyDemand_RDM.svg"/>
          <figcaption><strong>Figure 15.</strong> A rule design model for the event type <i>DailyDemand</i>.</figcaption>
       </figure>
       <p>In general, a DPMN event rule design diagram contains event circles with two-part names (like <i>dd: DailyDemand</i>) specifying an event variable (like <i>dd</i>) and an event type (like <i>DailyDemand</i>). Event circles may be associated with one or more data object rectangles (like <i>sh: SingleProductShop</i>). There is exactly one start event circle without incoming arrows, which may contain rule variable declarations in an attached text annotation. The data object rectangles contain state change statements using the event variable and possibly the rule variable(s).
       </p>
-      <p>An event circle may have one or more outgoing arrows leading to gateways or to event circles. The incoming arrows to an event circle represent <em>event scheduling</em> control flows. They must be annotated with event attribute assignments (including an assignment of the scheduled event's occurrence time).</p>
+      <p>An event circle may have one or more outgoing arrows leading to gateways or to event circles. The incoming arrows to an event circle represent <em>event scheduling</em> control flows. They must be annotated with event attribute assignments and an assignment of the scheduled event's future occurrence time <i>t'</i>, which is typically defined by adding a delay time <i>&Delta;</i> to the occurrence time <i>t</i> of the triggering event. In a DPMN diagram, the occurrence time assignment annotation <i>t' = t + &Delta;</i> can be abbreviated by the expression <i>+&Delta;</i>, like <i>+Delivery.leadTime()</i> in <a href="#_Ref493110215">Figure 15</a> above.</p>
       <figure id="_Ref494386620" class="column-top">
          <img src="./img/Delivery_RDM.svg"/>
          <figcaption><strong>Figure 16.</strong> A rule design model for the event type <i>Delivery</i>.</figcaption>
@@ -916,8 +908,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
          <img src="./img/Inventory_PDM.svg"/>
          <figcaption><strong>Figure 17.</strong> A process design model in the form of a DPMN diagram.</figcaption>
       </figure>
-         </section>
-         <section id="sectEventRoutinesOESjs"><h1>Implementing the Process Design Model with OESjs</h1>
+     </section>
+     <section><h1>Implementing the Process Design Model with OESjs</h1>
       <p>The process design model specifies a set of event rules, each of which can be implemented with OESjs by coding its event routine in the <code>onEvent</code> method of the class that represents the triggering event type. For instance, the <em>Delivery</em> event rule modeled in <a href="#_Ref494386620">Figure 16</a> can be coded as follows:</p>
       <pre><code class="language-javascript">var Delivery = new cLASS({
   Name: "Delivery",
@@ -962,16 +954,17 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
   }
 });</code></pre>
       <p>The full code of this simulation model is available by loading the web-based simulation
-         <a href="http://sim4edu.com/sims/4">http://sim4edu.com/sims/4</a> and inspecting its JavaScript code in the browser.
+         <a href="https://sim4edu.com/sims/4">https://sim4edu.com/sims/4</a> and inspecting its JavaScript code in the browser.
       </p>
-         </section>
-      </section>
+     </section>
+    </section>
    </section>
+   
    <section><h1>Example 2: A Service System</h1>
-     <p>In our basic <a href="http://sim4edu.com/sims/2">service system example</a>, as implemented in the <a href="http://sim4edu.com">Sim4edu</a> simulation library, customers arrive at random times at a service desk where they have to wait in a queue when the service desk is busy. Otherwise, when the queue is empty and the service desk is not busy, they are immediately served by the service clerk. Whenever a service is completed, the next customer from the queue, if there is any, is invited for the service.
+     <p>In our basic <a href="https://sim4edu.com/sims/2">service system example</a>, as implemented in the <a href="https://sim4edu.com">Sim4edu</a> simulation library, customers arrive at random times at a service desk where they have to wait in a queue when the service desk is busy. Otherwise, when the queue is empty and the service desk is not busy, they are immediately served by the service clerk. Whenever a service is completed, the next customer from the queue, if there is any, is invited for the service.
      </p>
      <section><h1>Information Modeling</h1>
-      <section><h1>Making a Solution-Independent Conceptual Information Model</h1>
+      <section><h1>Conceptual Information Model</h1>
       <p>It is straight-forward to extract four object types from the problem description above by analyzing the noun phrases: 
       </p>
       <ol>
@@ -983,7 +976,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       <p>Thus, a first version conceptual information model of the service system may look as shown in <a href="#_Ref494397234">Figure 18</a>.
       </p>
       <figure id="_Ref494397234" class="top">
-         <img src="./img/image26.png"/>
+         <img src="./img/Service-ObjectTypes_CIM.svg" width="600"/>
          <figcaption><strong>Figure 18.</strong> A first version conceptual information model of a service system.</figcaption>
       </figure>
       <p>Notice that it seems preferable (more natural) to separate the service queue from
@@ -1010,7 +1003,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
          desk as its participants.
       </p>
       <figure id="_Ref494398925" class="top">
-         <img src="./img/image27.png"/>
+         <img src="./img/Service_CIM.svg" width="600"/>
          <figcaption><strong>Figure 19.</strong> Adding event types to the conceptual information model.</figcaption>
       </figure>
       <p>In order to complete the model of <a href="#_Ref494398925">Figure 19</a>, we may add attributes that help describing objects and events of these types.
@@ -1024,7 +1017,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
          would replace the two event types <q>service start</q> and <q>service end</q> with the activity type <q>perform service</q>.
       </p>
      </section>
-      <section><h1>Making an Information Design Model</h1>
+      <section><h1>Information Design Model</h1>
        <p>We now derive platform-independent <em>information design models</em> from the solution-independent <em>conceptual information model</em> shown in <a href="#_Ref494398925">Figure 19</a>. A design model is solution-specific because it is a computational design for the particular purpose of a simulation development project. For instance, the purpose may be to answer one or more specific research questions or to teach specific concepts/methods with an educational simulation. We consider the following two research questions:</p> 
       <ol>
        <li>Compute the maximum queue length statistics.</li>
@@ -1038,7 +1031,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       </figure>
       <p>Research question 2 requires modeling individual customers, since for being able to compute the time a customer spends in the system we need to know which customer
          is next for getting the service and what is their arrival time. For knowing which customer is next, we need to model the service queue as a First-In-First-Out (FIFO)
-         queue, which can be expressed in a UML class diagram in the form of an ordered association end, like <code>waitingCustmers</code> in <a href="#_Ref494399721">Figure 21</a>. Notice that by placing a dot on the line at this end of the association, and not on the other end as well, we make the association unidirectional implying the design decision that it will be represented by a reference property with name <code>waitingCustmers</code> in the <code>ServiceDesk</code> class. For being able to easily retrieve the arrival time of a customer, which is an information item coming from the <code>CustomerArrival</code> event, we record it along with the customer data, so we add a corresponding attribute to the <code>Customer</code> class. The resulting <em>design model 2</em> is shown in <a href="#_Ref494399721">Figure 21</a>.
+         queue, which can be expressed in a UML class diagram in the form of an ordered association end, like <code>waitingCustomers</code> in <a href="#_Ref494399721">Figure 21</a>. Notice that by placing a dot on the line at this end of the association, and not on the other end as well, we make the association unidirectional implying the design decision that it will be represented by a reference property with name <code>waitingCustomers</code> in the <code>ServiceDesk</code> class. For being able to easily retrieve the arrival time of a customer, which is an information item coming from the <code>CustomerArrival</code> event, we record it along with the customer data, so we add a corresponding attribute to the <code>Customer</code> class. The resulting <em>design model 2</em> is shown in <a href="#_Ref494399721">Figure 21</a>.
       </p>
       <p>Concerning the event types described in the conceptual information model, the goal is to keep only those that are really needed in the design model. This question is
          closely related to the question, which types of state changes and follow-up events have to be modeled for being able to answer the research question(s).
@@ -1076,9 +1069,9 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       <p>Notice that, for simplicity, we consider the customer that is currently being served to be part of the queue. In this way, in the simulation program, we can check if the
          service desk is busy by testing if the length of the queue is greater than 0.
       </p>
-      <p>An alternative approach would be not considering the currently served customer as part of the queue, but rather use a Boolean attribute <code>isBusy</code> for being able to keep track if the service desk ist still busy with serving a customer.
+      <p>An alternative approach would be not considering the currently served customer as part of the queue, but rather use a Boolean attribute <code>isBusy</code> for being able to keep track if the service desk is still busy with serving a customer.
       </p>
-      <p>In an information design model we distinguish between two kinds of event types: <b><i>exogenous event types</i></b> and <b><i>caused event types</i></b>. While exogenous events of a certain type occur again and again, typically with some <em>random recurrence</em> that can be modeled with a probability distribution, caused events occur at times that result from the internal causation dynamics of the simulation. So, for any event type adopted from the conceptual model, we have to make a decision if we model it as an exogenous or as a caused event type, and for any exogenous event type, we specify a recurrence operation (typically a random variable) in the information design model.
+      <p>In an information design model we distinguish between two kinds of event types: <b><i>exogenous event types</i></b> and <b><i>caused event types</i></b>. While exogenous events of a certain type occur periodically, typically with some <em>random recurrence</em> that can be modeled with a probability distribution, caused events occur at times that result from the internal causation dynamics of the simulation. So, for any event type adopted from the conceptual model, we have to make a decision if we model it as an exogenous or as a caused event type, and for any exogenous event type, we specify a recurrence operation (typically a random variable) in the information design model.
       </p>
       <p>In both model 1 and model 2, we define <code>CustomerArrival</code> as an exogenous event type with a <code>recurrence</code> function that implements a random variable based on the exponential distribution with event rate 0.5, symbolically expressed as <em>Exp</em>(0.5), while we define <code>CustomerDeparture</code> as a caused event type.
       </p>
@@ -1122,15 +1115,12 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
 ServiceDesk.serviceDuration = function () {
   return rand.exponential( 0.5);
 };</code></pre>
-      <p>The full code of this simulation model is available by loading the web-based simulation
-         <a href="http://sim4edu.com/sims/2">http://sim4edu.com/sims/2</a> and inspecting its JavaScript code in the browser.
-      </p>
          </section>
       </section>
       <section>
          <h1>Process Modeling</h1>
          <section>
-      <h1>Making a Conceptual Process Model</h1>
+      <h1>Conceptual Process Model</h1>
       <p>For brevity, we show the conceptual event rule models only for a selection of the
          event types from the conceptual information model.
       </p>
@@ -1203,7 +1193,7 @@ ServiceDesk.serviceDuration = function () {
       </p>
       <figure id="_Ref499542494">
          <img src="./img/Service-with-Activity_CPM.svg"/>
-         <figcaption><strong>Figure 25.</strong> A model with an activity replacing a start/end event pair.</figcaption>
+         <figcaption><strong>Figure 25.</strong> The model of Figure 24 with an activity replacing the start/end event pair.</figcaption>
       </figure>
          </section>
          <section>
@@ -1254,17 +1244,78 @@ sd.waitingCustomers.<b>pop</b>()
       <p>These two event rule design models can be merged into a process design model shown in <a href="#_Ref499542496">Figure 28</a>.</p>
       <figure id="_Ref499542496" class="bottom">
          <img src="./img/Service_PDM.svg" width="550" />
-         <figcaption><strong>Figure 28.</strong> A process design model in the form of a DPMN diagram.</figcaption>
+         <figcaption><strong>Figure 28.</strong> A DPMN process design model integrating the two rule design models.</figcaption>
       </figure>
       <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em> in the state change statements within the <code>sd:ServiceDesk</code> object rectangle. Generally, in DPMN, state change statements are expressed in a state change language that depends on the state structure of the modeled system. Typically, this will be an object-oriented system state structure where basic state changes consist of attribute value changes as well as creations and destructions of links between objects.
       </p>
-      </section>
-      </section>
+     </section>
+
+     <section><h1>Implementing the Process Design Model with OESjs</h1>
+      <p>The event rules specifies by the process design model can be implemented with OESjs by coding its event routine in the <code>onEvent</code> method of the class that represents the triggering event type. For instance, the <em>CustomerArrival</em> event rule modeled in <a href="#_Ref499542497">Figure 26</a> can be coded as follows:</p>
+      <pre><code class="language-javascript">var CustomerArrival = new cLASS({
+  Name: "CustomerArrival",
+  supertypeName: "eVENT",
+  properties: {...},
+  methods: {
+    "onEvent": function () {
+      var srvTm=0, followupEvents=[];
+      // create new customer object
+      this.customer = new Customer({arrivalTime: this.occTime});
+      sim.addObject( this.customer);
+      // push new customer to the queue
+      this.serviceDesk.waitingCustomers.push( this.customer);
+      // if the service desk is not busy
+      if (this.serviceDesk.waitingCustomers.length === 1) {
+        srvTm = ServiceDesk.serviceDuration();
+        followupEvents.push( new CustomerDeparture({
+          occTime: this.occTime + srvTm,
+          serviceDesk: this.serviceDesk
+        }));
+      }
+      return followupEvents;
+    }
+  }
+});</code></pre>
+      <p>The <em>CustomerDeparture</em> event rule can be coded like so:</p>
+      <pre><code class="language-javascript">var CustomerDeparture = new cLASS({
+  Name: "CustomerDeparture",
+  supertypeName: "eVENT",
+  properties: {...},
+  methods: {
+    "onEvent": function () {
+      var events=[], srvTm=0;
+      // remove/pop customer from FIFO queue (FIFO pop = JS shift)
+      var departingCustomer = this.serviceDesk.waitingCustomers.shift();
+      // remove customer from simulation
+      sim.removeObject( departingCustomer);
+      // if there are still customers waiting
+      if (this.serviceDesk.waitingCustomers.length > 0) {
+        // start next service and schedule its end/departure
+        srvTm = ServiceDesk.serviceDuration();
+        events.push( new CustomerDeparture({
+          occTime: this.occTime + srvTm,
+          serviceDesk: this.serviceDesk
+        }));
+      }
+      return events;
+    }
+  }
+});</code></pre>
+      <p>The full code of this simulation model is available by loading the web-based simulation
+         <a href="https://sim4edu.com/sims/2">https://sim4edu.com/sims/2</a> and inspecting its JavaScript code in the browser.
+      </p>
+     </section>
+    </section>
    </section>
    <section>
       <h1>Conclusions</h1>
-      <p>Combining UML class diagrams with BPMN and DPMN process diagrams allows making visual models for conceptualizing the problem domain of a simulation study and for designing a simulation model that can be coded with any object-oriented simulation platform. Unlike in <em>information systems</em> and <em>software engineering</em>, making visual domain models and design models is not yet an established best practice in <em>modeling and simulation</em>. Given their clear benefits, we expect that this will change in the near future. 
+      <p>Combining UML class diagrams with BPMN and DPMN process diagrams allows making visual models for conceptualizing the problem domain of a simulation study and for designing a simulation model. The visual simulation design model, consisting of a UML class model and a set of DPMN event rule models, represents a computational specification of an abstract state machine that can be directly coded with any OOP language or with any OO simulation technology supporting event scheduling.
       </p>
+      <p>Unlike in <em>information systems</em> and <em>software engineering</em>, making visual domain models and design models is not yet an established best practice in <em>modeling and simulation</em>. Since these models facilitate the communication, sharing, reuse, maintainance and evolution of a simulation model, it can be expected that this will change in the near future. 
+      </p>
+	  <p>After establishing the foundational layer of an OEM approach, based on the concepts of <em>objects</em> and <em>events</em>, we will show how the more advanced modeling concepts of <em>activities</em> and GPSS/SIMAN/Arena-style <em>Processing Networks</em> can be defined on the basis of objects and events in the second Part of this tutorial. Finally, in Part III, we will further extend the OEM paradigm towards agent-based modeling and simulation by adding the concepts of agents with perceptions, actions and beliefs.
+      </p>
+	  
    </section>
    <section role="doc-bibliography"><h1>Bibliography</h1>
       <ul>
@@ -1299,7 +1350,7 @@ sd.waitingCustomers.<b>pop</b>()
           <a href="https://www.informs-sim.org/wsc17papers/includes/files/056.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GWa17b" role="doc-biblioentry">Wagner, G. (2017b). Introduction to Information and Process Modeling for Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE.</li>
          <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png" /></a></li>
-         <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="http://sim4edu.com/sims/papers/DPMN-0-1.pdf"><img src="../../icons/pdf.png" /></a>.</li>
+         <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/sims/papers/DPMN-0-1.pdf"><img src="../../icons/pdf.png" /></a>.</li>
          <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako, A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel Discussion: Education on Conceptual Modeling for Simulation – Challenging the Art. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (290−304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png" /></a></li>
       </ul>
    </section>

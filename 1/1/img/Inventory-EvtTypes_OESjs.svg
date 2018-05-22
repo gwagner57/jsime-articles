@@ -186,21 +186,20 @@
 				<v:textBlock v:margins="rect(1,1,1,1)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 				<v:textRect cx="48.5638" cy="131.69" width="97.13" height="21.2035"/>
 				<rect x="0" y="121.088" width="97.1276" height="21.2035" class="st1"/>
-				<text x="1" y="129.29" class="st3" v:langID="1033"><v:paragraph/><v:tabList/>quantity : PositiveInteger<v:newlineChar/><tspan
-							x="1" dy="1.2em" class="st6" v:langID="1031">receiver </tspan><tspan class="st6" v:langID="1031">: </tspan><tspan
-							class="st6" v:langID="1031">SingleProductShop</tspan></text>			</g>
-			<g id="shape60-62" v:mID="60" v:groupContext="shape" transform="translate(0,-42.4071)">
+				<text x="1" y="129.29" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>quantity : PositiveInteger<v:newlineChar/><tspan
+							x="1" dy="1.2em" class="st6">receiver </tspan>: SingleProductShop</text>			</g>
+			<g id="shape60-60" v:mID="60" v:groupContext="shape" transform="translate(0,-42.4071)">
 				<title>Name</title>
 				<desc>Delivery</desc>
 				<v:textBlock v:margins="rect(1,1,1,1)" v:tabSpace="42.5197"/>
 				<v:textRect cx="48.5638" cy="135.063" width="97.13" height="14.4567"/>
 				<path d="M0 142.29 L97.13 142.29 L97.13 127.83 L0 127.83 L0 142.29 Z" class="st1"/>
 				<text x="34.84" y="137.46" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Delivery</text>			</g>
-			<g id="shape61-65" v:mID="61" v:groupContext="shape" transform="translate(61.1276,-49.7558)">
+			<g id="shape61-63" v:mID="61" v:groupContext="shape" transform="translate(61.1276,-49.7558)">
 				<title>Parameters</title>
 			</g>
 		</g>
-		<g id="group71-67" transform="translate(77.1088,-97.646)" v:mID="71" v:groupContext="group">
+		<g id="group71-65" transform="translate(77.1088,-97.646)" v:mID="71" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="UMLShapeType" v:val="VT0(22):26"/>
 				<v:ud v:nameU="UMLObjectGUID" v:val="VT4({8836F5FA-F341-4FF9-A375-BA824CBE0997})"/>
@@ -215,14 +214,14 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<title>Generalization.71</title>
-			<g id="shape72-68" v:mID="72" v:groupContext="shape" transform="translate(7.2,24.8)">
+			<g id="shape72-66" v:mID="72" v:groupContext="shape" transform="translate(7.2,24.8)">
 				<title>Discriminator</title>
 			</g>
-			<g id="shape71-69" v:mID="71" v:groupContext="groupContent">
+			<g id="shape71-67" v:mID="71" v:groupContext="groupContent">
 				<path d="M0 142.29 L0 156.32 L-20.23 156.32 L-20.23 163.15" class="st8"/>
 			</g>
 		</g>
-		<g id="group73-72" transform="translate(77.1088,-97.646)" v:mID="73" v:groupContext="group">
+		<g id="group73-70" transform="translate(77.1088,-97.646)" v:mID="73" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="UMLShapeType" v:val="VT0(22):26"/>
 				<v:ud v:nameU="UMLObjectGUID" v:val="VT4({141BD8EA-27BC-4053-B4C0-9AF0D68295CD})"/>
@@ -237,15 +236,15 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<title>Generalization.73</title>
-			<g id="shape74-73" v:mID="74" v:groupContext="shape" transform="translate(7.2,24.8)">
+			<g id="shape74-71" v:mID="74" v:groupContext="shape" transform="translate(7.2,24.8)">
 				<title>Discriminator</title>
 			</g>
-			<g id="shape73-74" v:mID="73" v:groupContext="groupContent">
+			<g id="shape73-72" v:mID="73" v:groupContext="groupContent">
 				<path d="M0 142.29 L0 156.32 L99.2 156.32 L99.2 163.66" class="st8"/>
 				<path d="M-5.63 151.29 L5.62 151.29 L0 142.29 L-5.63 151.29 Z" class="st9"/>
 			</g>
 		</g>
-		<g id="group78-78" transform="translate(136.662,-97.646)" v:mID="78" v:groupContext="group">
+		<g id="group78-76" transform="translate(135.098,-97.646)" v:mID="78" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="UMLShapeType" v:val="VT0(45):26"/>
 				<v:ud v:nameU="UMLObjectGUID" v:val="VT4({BE547ECB-1225-4956-89B0-1AD0D146CB04})"/>
@@ -256,19 +255,19 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<title>Note.78</title>
-			<g id="shape79-79" v:mID="79" v:groupContext="shape" transform="translate(44.9396,-18)">
+			<g id="shape79-77" v:mID="79" v:groupContext="shape" transform="translate(46.5041,-18)">
 				<title>Sheet.79</title>
 				<path d="M0 142.29 L-60.61 140.45" class="st10"/>
 			</g>
-			<g id="shape80-82" v:mID="80" v:groupContext="shape">
+			<g id="shape80-80" v:mID="80" v:groupContext="shape">
 				<title>Name</title>
-				<desc>From OESjs http://sim4edu.com</desc>
+				<desc>From OESjs https://sim4edu.com</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-				<v:textRect cx="44.9396" cy="124.292" width="89.88" height="36"/>
-				<path d="M89.88 117.09 L80.88 106.29 L80.88 117.09 L89.88 117.09 ZM0 142.29 L89.88 142.29 L89.88 117.09 L80.88 117.09
-							 L80.88 106.29 L0 106.29 L0 142.29 Z" class="st11"/>
+				<v:textRect cx="46.5041" cy="124.292" width="93.01" height="36"/>
+				<path d="M93.01 117.09 L84.01 106.29 L84.01 117.09 L93.01 117.09 ZM0 142.29 L93.01 142.29 L93.01 117.09 L84.01 117.09
+							 L84.01 106.29 L0 106.29 L0 142.29 Z" class="st11"/>
 				<text x="4" y="121.89" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>From OESjs<v:newlineChar/><tspan x="4"
-							dy="1.2em" class="st6">http</tspan>://sim4edu.com</text>			</g>
+							dy="1.2em" class="st6">https</tspan>://sim4edu.com</text>			</g>
 		</g>
 	</g>
 </svg>
