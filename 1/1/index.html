@@ -1267,18 +1267,20 @@ sd.waitingCustomers.<b>pop</b>()
   properties: {...},
   methods: {
     "onEvent": function () {
-      var srvTm=0, followupEvents=[];
+      var srvTm=0, followupEvents=[],
+          sd = this.serviceDesk;
       // create new customer object
-      this.customer = new Customer({arrivalTime: this.occTime});
+      this.customer = new Customer(
+	      {arrivalTime: this.occTime});
       sim.addObject( this.customer);
       // push new customer to the queue
-      this.serviceDesk.waitingCustomers.push( this.customer);
+      sd.waitingCustomers.push( this.customer);
       // if the service desk is not busy
-      if (this.serviceDesk.waitingCustomers.length === 1) {
+      if (sd.waitingCustomers.length === 1) {
         srvTm = ServiceDesk.serviceDuration();
         followupEvents.push( new CustomerDeparture({
           occTime: this.occTime + srvTm,
-          serviceDesk: this.serviceDesk
+          serviceDesk: sd
         }));
       }
       return followupEvents;
@@ -1292,21 +1294,22 @@ sd.waitingCustomers.<b>pop</b>()
   properties: {...},
   methods: {
     "onEvent": function () {
-      var events=[], srvTm=0;
-      // remove/pop customer from FIFO queue (FIFO pop = JS shift)
-      var departingCustomer = this.serviceDesk.waitingCustomers.shift();
+      var srvTm=0, followupEvents=[],
+          sd = this.serviceDesk;
+      // pop customer from FIFO queue
+      var departingCustomer = sd.waitingCustomers.shift();
       // remove customer from simulation
       sim.removeObject( departingCustomer);
       // if there are still customers waiting
-      if (this.serviceDesk.waitingCustomers.length > 0) {
-        // start next service and schedule its end/departure
+      if (sd.waitingCustomers.length > 0) {
+        // schedule next departure
         srvTm = ServiceDesk.serviceDuration();
-        events.push( new CustomerDeparture({
+        followupEvents.push( new CustomerDeparture({
           occTime: this.occTime + srvTm,
-          serviceDesk: this.serviceDesk
+          serviceDesk: sd
         }));
       }
-      return events;
+      return followupEvents;
     }
   }
 });</code></pre>
@@ -1359,7 +1362,7 @@ sd.waitingCustomers.<b>pop</b>()
           <a href="https://www.informs-sim.org/wsc17papers/includes/files/056.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GWa17b" role="doc-biblioentry">Wagner, G. (2017b). Introduction to Information and Process Modeling for Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE.</li>
          <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png" /></a></li>
-         <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/sims/papers/DPMN-0-1.pdf"><img src="../../icons/pdf.png" /></a>.</li>
+         <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/reading/DPMN.pdf"><img src="../../icons/pdf.png" /></a>.</li>
          <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako, A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel Discussion: Education on Conceptual Modeling for Simulation – Challenging the Art. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (290−304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png" /></a></li>
       </ul>
    </section>
