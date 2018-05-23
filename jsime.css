@@ -190,8 +190,8 @@ body {
   /* adjusting prism.css settings */
   code[class*="language-"], pre[class*="language-"] {
     font-size: smaller;
-	padding: 5px;
-    line-height: 1.2;   
+    /* padding: 5px; */
+    line-height: 1.2;
   }
   
   ::footnote-call {
