@@ -19,7 +19,7 @@
   <meta name="citation_abstract_html_url" content="https://jsime.org/index.php/jsimeng/article/view/2" />
   <meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-1.pdf" />
   <!--Canonical URL-->
-  <link rel="canonical" href="https://articles.jsime.org/1/1/Modeling-for-Simulation" />
+  <link rel="canonical" href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
   <!--Stylesheets-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.11.0/themes/prism.min.css" />
@@ -31,7 +31,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-115543812-1');
 </script>
   
@@ -1111,7 +1110,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
          <section>
       <h1>Coding the OESjs Class Model</h1>
       <p>The object class <em>ServiceDesk</em> defined in the OESjs class model shown in <a href="#_Ref493094587">Figure 22</a> can be coded as follows:
-      </p><pre><code class="language-javascript">var ServiceDesk = new cLASS({
+      </p>
+	  <pre><code class="language-javascript">var ServiceDesk = new cLASS({
   Name: "ServiceDesk",
   supertypeName: "oBJECT",
   properties: {
@@ -1261,25 +1261,27 @@ sd.waitingCustomers.<b>pop</b>()
      </section>
 
      <section><h1>Implementing the Process Design Model with OESjs</h1>
-      <p>The event rules specifies by the process design model can be implemented with OESjs by coding its event routine in the <code>onEvent</code> method of the class that represents the triggering event type. For instance, the <em>CustomerArrival</em> event rule modeled in <a href="#_Ref499542497">Figure 26</a> can be coded as follows:</p>
+      <p>The event rules specified by the process design model can be implemented with OESjs by coding its event routine in the <code>onEvent</code> method of the class that represents the triggering event type. For instance, the <em>CustomerArrival</em> event rule modeled in <a href="#_Ref499542497">Figure 26</a> can be coded as follows:</p>
       <pre><code class="language-javascript">var CustomerArrival = new cLASS({
   Name: "CustomerArrival",
   supertypeName: "eVENT",
   properties: {...},
   methods: {
     "onEvent": function () {
-      var srvTm=0, followupEvents=[];
+      var srvTm=0, followupEvents=[],
+          sd = this.serviceDesk;
       // create new customer object
-      this.customer = new Customer({arrivalTime: this.occTime});
+      this.customer = new Customer(
+	      {arrivalTime: this.occTime});
       sim.addObject( this.customer);
       // push new customer to the queue
-      this.serviceDesk.waitingCustomers.push( this.customer);
+      sd.waitingCustomers.push( this.customer);
       // if the service desk is not busy
-      if (this.serviceDesk.waitingCustomers.length === 1) {
+      if (sd.waitingCustomers.length === 1) {
         srvTm = ServiceDesk.serviceDuration();
         followupEvents.push( new CustomerDeparture({
           occTime: this.occTime + srvTm,
-          serviceDesk: this.serviceDesk
+          serviceDesk: sd
         }));
       }
       return followupEvents;
@@ -1293,21 +1295,22 @@ sd.waitingCustomers.<b>pop</b>()
   properties: {...},
   methods: {
     "onEvent": function () {
-      var events=[], srvTm=0;
-      // remove/pop customer from FIFO queue (FIFO pop = JS shift)
-      var departingCustomer = this.serviceDesk.waitingCustomers.shift();
+      var srvTm=0, followupEvents=[],
+          sd = this.serviceDesk;
+      // pop customer from FIFO queue
+      var departingCustomer = sd.waitingCustomers.shift();
       // remove customer from simulation
       sim.removeObject( departingCustomer);
       // if there are still customers waiting
-      if (this.serviceDesk.waitingCustomers.length > 0) {
-        // start next service and schedule its end/departure
+      if (sd.waitingCustomers.length > 0) {
+        // schedule next departure
         srvTm = ServiceDesk.serviceDuration();
-        events.push( new CustomerDeparture({
+        followupEvents.push( new CustomerDeparture({
           occTime: this.occTime + srvTm,
-          serviceDesk: this.serviceDesk
+          serviceDesk: sd
         }));
       }
-      return events;
+      return followupEvents;
     }
   }
 });</code></pre>
@@ -1360,7 +1363,7 @@ sd.waitingCustomers.<b>pop</b>()
           <a href="https://www.informs-sim.org/wsc17papers/includes/files/056.pdf"><img src="../../icons/pdf.png" /></a></li>
          <li id="GWa17b" role="doc-biblioentry">Wagner, G. (2017b). Introduction to Information and Process Modeling for Simulation. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE.</li>
          <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c). Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png" /></a></li>
-         <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/sims/papers/DPMN-0-1.pdf"><img src="../../icons/pdf.png" /></a>.</li>
+         <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/reading/DPMN.pdf"><img src="../../icons/pdf.png" /></a>.</li>
          <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako, A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel Discussion: Education on Conceptual Modeling for Simulation – Challenging the Art. In <em>Proceedings of the 2010 Winter Simulation Conference</em> (290−304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png" /></a></li>
       </ul>
    </section>
