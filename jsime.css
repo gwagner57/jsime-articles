@@ -192,6 +192,8 @@ body {
     font-size: smaller;
     /* padding: 5px; */
     line-height: 1.2;
+    word-wrap: normal;
+    white-space: pre-wrap;
   }
   
   ::footnote-call {

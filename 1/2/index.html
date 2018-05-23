@@ -972,8 +972,7 @@
       <pre><code class="language-markup">&lt;stateMachines&gt;
   &lt;stateTransitions Name="Climb"&gt;
     &lt;guard Name="Aircraft reaches 8000 feet."&gt;
-      &lt;exitAction Name="Issue climb"
-                  Sequence = "1"/&gt;
+      &lt;exitAction Name="Issue climb" Sequence="1" /&gt;
     &lt;/guard&gt;
   &lt;/stateTransitions&gt;
   &lt;stateTransitions Name="Cruise"&gt;
@@ -984,9 +983,7 @@
   &lt;/stateTransitions&gt;
   &lt;stateTransitions Name="Cruise"&gt;
     &lt;guard Name="Aircraft passes CARRA."&gt;
-      &lt;exitAction Name="Daytona ATC issues
-                        handoff to Jacksonville ATC."
-                  Sequence = "1"/&gt;
+      &lt;exitAction Name="Daytona ATC issues handoff to Jacksonville ATC." Sequence="1" /&gt;
     &lt;/guard&gt;
   &lt;/stateTransitions&gt;
   &lt;stateTransitions Name="Turn"&gt;
@@ -1054,8 +1051,7 @@
       <pre><code class="language-markup">&lt;StateMachines&gt;
   &lt;StateTransitions Name="Climb"&gt;
     &lt;Guard Name="Aircraft reaches 8000 feet."&gt;
-      &lt;ExitAction Name="Issue climb"
-                  Sequence = "1"/&gt;
+      &lt;ExitAction Name="Issue climb" Sequence="1" /&gt;
     &lt;/Guard&gt;
   &lt;/StateTransitions&gt;
   &lt;StateTransitions Name="Cruise"&gt;
@@ -1066,9 +1062,7 @@
   &lt;/StateTransitions&gt;
   &lt;StateTransitions Name="Cruise"&gt;
     &lt;Guard Name="Aircraft passes CARRA."&gt;
-      &lt;ExitAction Name="Daytona ATC issues
-                        handoff to Jacksonville ATC."
-                  Sequence = "1"/&gt;
+      &lt;ExitAction Name="Daytona ATC issues handoff to Jacksonville ATC." Sequence="1" /&gt;
     &lt;/Guard&gt;
   &lt;/StateTransitions&gt;
   &lt;StateTransitions Name="Turn"&gt;
