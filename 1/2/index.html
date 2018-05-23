@@ -970,30 +970,30 @@
         This portion of the scenario shows the definition of all states in the
         State Machine.</p>
       <pre><code class="language-markup">&lt;stateMachines&gt;
-        &lt;stateTransitions Name="Climb"&gt;
-            &lt;guard Name="Aircraft reaches 8000 feet."&gt;
-                &lt;exitAction Name="Issue climb"
-                            Sequence = "1"/&gt;
-            &lt;/guard&gt;
-        &lt;/stateTransitions&gt;
-        &lt;stateTransitions Name="Cruise"&gt;
-            &lt;guard Name="Aircraft passes OMN."/&gt;
-        &lt;/stateTransitions&gt;
-        &lt;stateTransitions Name="Turn"&gt;
-            &lt;guard Name="Aircraft joins airway T207-208."/&gt;
-        &lt;/stateTransitions&gt;
-        &lt;stateTransitions Name="Cruise"&gt;
-            &lt;guard Name="Aircraft passes CARRA."&gt;
-                &lt;exitAction Name="Daytona ATC issues
-                            handoff to Jacksonville ATC."
-                            Sequence = "1"/&gt;
-            &lt;/guard&gt;
-        &lt;/stateTransitions&gt;
-        &lt;stateTransitions Name="Turn"&gt;
-            &lt;guard Name="Aircraft joins airway T208."/&gt;
-        &lt;/stateTransitions&gt;
-        &lt;stateTransitions Name="Cruise"/&gt;
-    &lt;/stateMachines&gt;</code>
+  &lt;stateTransitions Name="Climb"&gt;
+    &lt;guard Name="Aircraft reaches 8000 feet."&gt;
+      &lt;exitAction Name="Issue climb"
+                  Sequence = "1"/&gt;
+    &lt;/guard&gt;
+  &lt;/stateTransitions&gt;
+  &lt;stateTransitions Name="Cruise"&gt;
+    &lt;guard Name="Aircraft passes OMN."/&gt;
+  &lt;/stateTransitions&gt;
+  &lt;stateTransitions Name="Turn"&gt;
+    &lt;guard Name="Aircraft joins airway T207-208."/&gt;
+  &lt;/stateTransitions&gt;
+  &lt;stateTransitions Name="Cruise"&gt;
+    &lt;guard Name="Aircraft passes CARRA."&gt;
+      &lt;exitAction Name="Daytona ATC issues
+                        handoff to Jacksonville ATC."
+                  Sequence = "1"/&gt;
+    &lt;/guard&gt;
+  &lt;/stateTransitions&gt;
+  &lt;stateTransitions Name="Turn"&gt;
+    &lt;guard Name="Aircraft joins airway T208."/&gt;
+  &lt;/stateTransitions&gt;
+  &lt;stateTransitions Name="Cruise"/&gt;
+&lt;/stateMachines&gt;</code>
       </pre>
     </section>
     <section>
@@ -1052,30 +1052,30 @@
       <p>The XML depiction of the state machine using this process is
         presented here.</p>
       <pre><code class="language-markup">&lt;StateMachines&gt;
-        &lt;StateTransitions Name="Climb"&gt;
-            &lt;Guard Name="Aircraft reaches 8000 feet."&gt;
-                &lt;ExitAction Name="Issue climb"
-                            Sequence = "1"/&gt;
-            &lt;/Guard&gt;
-        &lt;/StateTransitions&gt;
-        &lt;StateTransitions Name="Cruise"&gt;
-            &lt;Guard Name="Aircraft passes OMN."/&gt;
-        &lt;/StateTransitions&gt;
-        &lt;StateTransitions Name="Turn"&gt;
-            &lt;Guard Name="Aircraft joins airway T207-208."/&gt;
-        &lt;/StateTransitions&gt;
-        &lt;StateTransitions Name="Cruise"&gt;
-            &lt;Guard Name="Aircraft passes CARRA."&gt;
-                &lt;ExitAction Name="Daytona ATC issues
-                            handoff to Jacksonville ATC."
-                            Sequence = "1"/&gt;
-            &lt;/Guard&gt;
-        &lt;/StateTransitions&gt;
-        &lt;StateTransitions Name="Turn"&gt;
-            &lt;Guard Name="Aircraft joins airway T208."/&gt;
-        &lt;/StateTransitions&gt;
-        &lt;StateTransitions Name="Cruise"/&gt;
-    &lt;/StateMachines&gt;</code>
+  &lt;StateTransitions Name="Climb"&gt;
+    &lt;Guard Name="Aircraft reaches 8000 feet."&gt;
+      &lt;ExitAction Name="Issue climb"
+                  Sequence = "1"/&gt;
+    &lt;/Guard&gt;
+  &lt;/StateTransitions&gt;
+  &lt;StateTransitions Name="Cruise"&gt;
+    &lt;Guard Name="Aircraft passes OMN."/&gt;
+  &lt;/StateTransitions&gt;
+  &lt;StateTransitions Name="Turn"&gt;
+    &lt;Guard Name="Aircraft joins airway T207-208."/&gt;
+  &lt;/StateTransitions&gt;
+  &lt;StateTransitions Name="Cruise"&gt;
+    &lt;Guard Name="Aircraft passes CARRA."&gt;
+      &lt;ExitAction Name="Daytona ATC issues
+                        handoff to Jacksonville ATC."
+                  Sequence = "1"/&gt;
+    &lt;/Guard&gt;
+  &lt;/StateTransitions&gt;
+  &lt;StateTransitions Name="Turn"&gt;
+    &lt;Guard Name="Aircraft joins airway T208."/&gt;
+  &lt;/StateTransitions&gt;
+  &lt;StateTransitions Name="Cruise"/&gt;
+&lt;/StateMachines&gt;</code>
       </pre>
       <p>As can be seen from the excerpts, an identical XML scenario is
         produced using two different mechanisms and representations of the ASDL
