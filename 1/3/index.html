@@ -33,15 +33,19 @@
 <link rel="stylesheet" href="../../jsime.css" />
 <!--Scripts-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+<script async="async"
+  src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-115543812-1');
+  function gtag () {
+    dataLayer.push( arguments );
+  }
+  gtag( 'js', new Date() );
+  
+  gtag( 'config', 'UA-115543812-1' );
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
 {
@@ -98,7 +102,7 @@
       "copyrightHolder": "Tomoichi Takahashi",
       "copyrightYear": "2018",
       "dateCreated": "2018-05-07",
-      "dateModified": "2018-05-11",
+      "dateModified": "2018-05-24",
       "datePublished": "2018-05-11"
     },
     {
@@ -121,8 +125,9 @@
     <small><a href="https://jsime.org"><img src="../../JSimE.svg"
         style="height: 20px; margin-right: 0.7em;" /></a>Journal of Simulation
       Engineering, Vol. 1 (under construction). Article URL: <a
-      href="https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention" id="articleURL">https://articles.jsime.org/1/3</a><a
-      id="PDF" class="suppressInPDF"
+      href="https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention"
+      id="articleURL">https://articles.jsime.org/1/3</a><a id="PDF"
+      class="suppressInPDF"
       href="https://jsime.org/index.php/jsimeng/article/view/3"
       style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
   </header>
@@ -313,8 +318,9 @@
                      </msup>
                      <mo>.</mo>
                   </math>
-        Modeling of phenomena involves extracting parameters (
+        Modeling of phenomena involves extracting parameters
         <math xmlns="http://www.w3.org/1998/Math/MathML">
+                     <mo>(</mo>
                      <msub>
                         <mrow>
                            <mi>c</mi>
@@ -323,8 +329,9 @@
                            <mi>i</mi>
                         </mrow>
                      </msub>
+                     <mo>)</mo>
                   </math>
-        ) and the relationships among them,
+        and the relationships among them,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
                         <mrow>
@@ -486,7 +493,6 @@
                            <mi>i</mi>
                         </mrow>
                      </msub>
-                     <mi> </mi>
                   </math>
         are integrated to simulate composite disaster situations. The
         entanglement is based on the following hypotheses.
@@ -495,8 +501,9 @@
         H1:(whole-part relation) A social system,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi mathvariant="normal">Σ</mi>
+                     <mo>,</mo>
                   </math>
-        , may be composed of subsystems,
+        may be composed of subsystems,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
                         <mrow>
@@ -567,8 +574,9 @@
                            <mi>i</mi>
                         </mrow>
                      </msub>
+                     <mo>,</mo>
                   </math>
-        , represent features of agents, environments, and the interactions among
+        represent features of agents, environments, and the interactions among
         them or others.
       </p>
       <p>
@@ -622,13 +630,15 @@
                            <mi>i</mi>
                         </mrow>
                      </msup>
+                     <mo>,</mo>
                   </math>
-        , are well defined, then the system,
+        are well defined, then the system,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi mathvariant="normal">Σ</mi>
+                     <mo>,</mo>
                   </math>
-        , may be well designed and expanding or refining parameters and
-        functions can cover more phenomena.
+        may be well designed and expanding or refining parameters and functions
+        can cover more phenomena.
       </p>
       <p>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -698,7 +708,6 @@
                            <mi>i</mi>
                         </mrow>
                      </msub>
-                     <mi> </mi>
                   </math>
         and corresponding situations
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -710,7 +719,6 @@
                            <mi>i</mi>
                         </mrow>
                      </msub>
-                     <mi> </mi>
                   </math>
         are stored as manual recipes during an emergency.
       </p>
@@ -997,15 +1005,17 @@
         The parameter,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>p</mi>
+                          <mo>,</mo>
                         </math>
-        , is implemented in the agent behavior model shown in <a
+        is implemented in the agent behavior model shown in <a
           href="#_Ref511747742">Figure 2</a>. When agents see new messages, they
         change their goal according to the messages with probability
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>p</mi>
                         </math>
-        <sup><a href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref"
-          title="Footnote 1: We calculate a uniform random number for each agent. When the random number is smaller than p, the agents change the goal to the new one. This process and the way in which each agent is implemented as a thread cause stochastic factors in simulations.">1</a></sup>.
+        <span class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1"
+            role="doc-noteref"
+            title="Footnote 1: We calculate a uniform random number for each agent. When the random number is smaller than p, the agents change the goal to the new one. This process and the way in which each agent is implemented as a thread cause stochastic factors in simulations.">1</a></sup></span>.
         The number of people and PS,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>n</mi>
@@ -1013,8 +1023,9 @@
         and
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>s</mi>
+                          <mo>,</mo>
                         </math>
-        , are parameters of
+        are parameters of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <msub>
                             <mi>E</mi>
@@ -1047,8 +1058,8 @@
                               <mi>%</mi>
                            </mrow>
                         </mfenced>
+                        <mo>,</mo>
                       </math>
-          ,
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>n</mi>
                         <mo>=</mo>
@@ -1063,8 +1074,9 @@
                             <mn>10000</mn>
                           </mrow>
                         </mfenced>
+                        <mo>,</mo>
                      </math>
-          , and
+          and
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>s</mi>
                         <mo>=</mo>
@@ -1086,8 +1098,8 @@
             <strong>Figure 6.</strong> Evacuation rates for different
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>n</mi>
+                    <mo>,</mo>
                    </math>
-            ,
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>p</mi>
                    </math>
@@ -1139,8 +1151,8 @@
                         <mo>=</mo>
                         <mn>30</mn>
                         <mi>%</mi>
+                        <mo>,</mo>
                      </math>
-          ,
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>n</mi>
                         <mo>=</mo>
@@ -1194,8 +1206,9 @@
                             <mn>4</mn>
                           </mrow>
                         </mfenced>
+                        <mo>,</mo>
                      </math>
-          , is
+          is
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                        <mn>30.3</mn>
                        <mo>±</mo>
@@ -1241,8 +1254,9 @@
                        <mi>n</mi>
                        <mo>=</mo>
                        <mn>1000</mn>
+                       <mo>,</mo>
                      </math>
-          , the evacuation rate increases with
+          the evacuation rate increases with
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                        <mi>p</mi>
                      </math>
@@ -1292,8 +1306,9 @@
           and
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                        <mn>10000</mn>
+                       <mo>,</mo>
                      </math>
-          , the evacuation rates at
+          the evacuation rates at
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                        <mi>p</mi>
                        <mo>=</mo>
@@ -1339,7 +1354,7 @@
             Shah, 2011</a>). As a result, camera monitoring system could be used as
           a component of CCEG management system using PS.
         </p>
-        <figure id="_Ref513459437">
+        <figure class="column-top" id="_Ref513459437">
           <figure id="_Ref513459437a">
             <img src="./img/image7.png" />
             <figcaption>
@@ -1367,53 +1382,6 @@
           corresponds to Experiment 2 where PS displays contents suitable to
           current situations.
         </p>
-        <figure class="top" id="_Ref513459770">
-          <figure id="_Ref513459770a">
-            <img src="./img/image9.png" />
-            <figcaption>
-              <strong>(a)</strong> graphs for
-              <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>4000</mn>
-                     </math>
-              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
-              considering congestion.
-            </figcaption>
-          </figure>
-          <figure id="_Ref513459770b">
-            <img src="./img/image10.png" />
-            <figcaption>
-              <strong>(b)</strong> graphs from
-              <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                     </math>
-              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
-              considering congestion.
-            </figcaption>
-          </figure>
-          <figcaption>
-            <strong>Figure 8.</strong> Improvement of refuge rate (
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mi>n</mi>
-                      <mo>=</mo>
-                      <mn>4000</mn>
-                    </math>
-            ,
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mn>7000</mn>
-                    </math>
-            and
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mi>s</mi>
-                      <mo>=</mo>
-                      <mn>8</mn>
-                    </math>
-            ).
-          </figcaption>
-        </figure>
         <p>
           <a href="#_Ref513459770">Figure 8</a> shows the comparison of the
           refuge rates between manual based guidance (experiment 1) and guidance
@@ -1460,6 +1428,55 @@
                     </math>
           is small.
         </p>
+        <figure class="top" id="_Ref513459770">
+          <figure id="_Ref513459770a">
+            <img src="./img/image9.png" />
+            <figcaption>
+              <strong>(a)</strong> graphs for
+              <math xmlns="http://www.w3.org/1998/Math/MathML">
+                       <mi>n</mi>
+                       <mo>=</mo>
+                       <mn>4000</mn>
+                     </math>
+              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
+              considering congestion.
+            </figcaption>
+          </figure>
+          <figure id="_Ref513459770b">
+            <img src="./img/image10.png" />
+            <figcaption>
+              <strong>(b)</strong> graphs from
+              <math xmlns="http://www.w3.org/1998/Math/MathML">
+                       <mi>n</mi>
+                       <mo>=</mo>
+                       <mn>7000</mn>
+                     </math>
+              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
+              considering congestion.
+            </figcaption>
+          </figure>
+          <figcaption>
+            <strong>Figure 8.</strong> Improvement of refuge rate
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mo>(</mo>
+                      <mi>n</mi>
+                      <mo>=</mo>
+                      <mn>4000</mn>
+                      <mo>,</mo>
+                    </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mn>7000</mn>
+                    </math>
+            and
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>s</mi>
+                      <mo>=</mo>
+                      <mn>8</mn>
+                      <mo>)</mo>
+                      <mo>.</mo>
+                    </math>
+          </figcaption>
+        </figure>
       </section>
     </section>
   </section>
@@ -1476,9 +1493,9 @@
         size could be larger than what we expect at present. As it would require
         substantial recourse to prepare for such incidents, it is hard to make
         sufficient prevention plans. Once it happens, such conditions may cause
-        more damages than the ones prepared for<sup><a href="#ftn2"
-          id="fn_pointer_ftn2" role="doc-noteref"
-          title="Footnote 2: According to WHO, insufficient capacity of response for hazard situations is one component to cause disaster (WHO, 2002).">2</a></sup>.
+        more damages than the ones prepared for<span class="fn"><sup><a
+            href="#ftn2" id="fn_pointer_ftn2" role="doc-noteref"
+            title="Footnote 2: According to WHO, insufficient capacity of response for hazard situations is one component to cause disaster (WHO, 2002).">2</a></sup></span>.
         This means disaster simulations should be well designed to present the
         behavior of targets and the features of fields when the results are used
         in policy or decision making. We need to know that the results are
@@ -1522,8 +1539,9 @@
                      <mi> </mi>
                      <mi>N</mi>
                      <mo>)</mo>
+                     <mo>,</mo>
                   </math>
-        , one simulation results, is involved in
+        one simulation results, is involved in
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>P</mi>
                      <mi>R</mi>
@@ -1548,8 +1566,8 @@
                         </mrow>
                      </msub>
                      <mo>}</mo>
+                     <mo>,</mo>
                   </math>
-        ,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>E</mi>
                      <mo>=</mo>
@@ -1563,8 +1581,9 @@
                         </mrow>
                      </msub>
                      <mo>}</mo>
+                     <mo>,</mo>
                   </math>
-        , and
+        and
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>N</mi>
                      <mo>=</mo>
@@ -1626,8 +1645,9 @@
                      <mi> </mi>
                      <mi>N</mi>
                      <mo>)</mo>
+                     <mo>,</mo>
                   </math>
-        , we accept the calculations as correct when their behaviors agree with
+        we accept the calculations as correct when their behaviors agree with
         our intuitions or are within probability laws. For example, think of
         Buffon's Needle, the dropped positions are different at every trial in
         real world and the prediction of the positions are taken to be correct
@@ -1667,9 +1687,9 @@
         expectations. When we recognize that the cases may occur, the results
         may caution us about unintended damages. Q3 indicates that the concerned
         parties may evaluate the results with conflicting factors to make
-        prevention plans<sup><a href="#ftn3" id="fn_pointer_ftn3"
-          role="doc-noteref"
-          title="Footnote 3: For example, in the Great East Japan Earthquake, the power-supply unit of Fukushima Nuclear Plant was damaged by the 15m high tsunami, which caused the serious accidents. Owing to cost and the very small probability of a 15m high tsunami, Tokyo Electric Power Company (TEPCO) had earlier built a breakwater of 6.1m and not 15m even though they knew the possibility of the occurrence (Tokyo Electric Power Company, 2018).">3</a></sup>.
+        prevention plans<span class="fn"><sup><a href="#ftn3"
+            id="fn_pointer_ftn3" role="doc-noteref"
+            title="Footnote 3: For example, in the Great East Japan Earthquake, the power-supply unit of Fukushima Nuclear Plant was damaged by the 15m high tsunami, which caused the serious accidents. Owing to cost and the very small probability of a 15m high tsunami, Tokyo Electric Power Company (TEPCO) had earlier built a breakwater of 6.1m and not 15m even though they knew the possibility of the occurrence (Tokyo Electric Power Company, 2018).">3</a></sup></span>.
       </p>
     </section>
     <section id="Sect4.2">
@@ -1785,8 +1805,9 @@
             and
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                          <mn>10000</mn>
+                         <mo>,</mo>
                        </math>
-            , the evacuation rates do not necessarily increase as
+            the evacuation rates do not necessarily increase as
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                          <mi>p</mi>
                        </math>
@@ -1836,7 +1857,7 @@
     <h1>Acknowledgements</h1>
     <p>This work was supported by JSPS KAKENHI Grant Number 16K01291.</p>
   </section>
-  <section role="doc-endnotes">
+  <section class="suppressInPDF" role="doc-endnotes">
     <h1>Footnotes</h1>
     <ol>
       <li id="ftn1" role="doc-endnote">We calculate a uniform random number
@@ -2033,5 +2054,6 @@
     </ul>
   </section>
   </main>
+  <!-- <script src="../../jsime.js"></script> -->
 </body>
 </html>
