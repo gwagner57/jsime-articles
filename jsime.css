@@ -54,11 +54,10 @@ textarea {
 /* -------------------------------------------
             Pagination and Page Regions
    ------------------------------------------- */
-
 @page {
   size: A4 /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
-
+  
   @top-center {
     content: string(articleTitleAbbr); 
     font-size: 75%;
@@ -81,23 +80,14 @@ textarea {
   }
 }
 
-:root {  /* pseudo-class used for root element */
-    --light-bg-color: #f16529;
-    --dark-bg-color: #e44d26;
-} /* usage example: background-color: var(--light-bg-color); */
-
-body {
-  color: black;
-  background-color: white;
-}
 @media screen {
   body { 
-    font: 1.1rem/1.5 Helvetica, Helvetica Neue, Arial, sans-serif;
-    margin: 0 auto; 
+    font: 1.1rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
+    margin: 0 auto;
     padding: 10px;
     max-width: 45em;
   }
-  main > section > h1, 
+  main > section > h1,
   section[role="doc-abstract"] > h1 {
     font-size: 1.5rem;
   }
@@ -111,29 +101,29 @@ body {
     margin-top: 1em;
   }
   ul {
-    padding-left: 1em;  
+    padding-left: 1em;
   }
 }
 
-@media print { 
-  body { 
-    font: 10pt/1.2 "PT Serif", 'TimesNewRoman', serif;
-    text-align: justify; 
+@media print {
+  body {
+    font: 10pt/1.2 "PT Serif", "TimesNewRoman", "serif";
+    text-align: justify;
     hyphens: auto;
   } 
   header {
-    page-break-after: avoid; 
+    page-break-after: avoid;
   }
   .suppressInPDF {
     display: none;
   }
   main {
     columns: 2; 
-    column-gap: 0.25in;   
+    column-gap: 0.25in;
   }
   #front-matter,
   table {
-    column-span: all;   
+    column-span: all;
   }
   section[role="doc-abstract"] {
     margin-bottom: 1em;  
@@ -148,7 +138,6 @@ body {
   main > section > section > section > h1 {
     font-size: 0.9rem;
   }
-  
   p {
     margin: 0;
   }
@@ -162,21 +151,21 @@ body {
   }
   ol {
     box-sizing: content-box;
-	margin: 0.7em 0; 
-	padding-left: 2em;
+    margin: 0.7em 0;
+    padding-left: 2em;
   }
-  ol > li::marker { 
-    width: 2em; 
-	text-align: right; 
+  ol > li::marker {
+    width: 2em;
+    text-align: right;
   }
   ul {
     box-sizing: content-box;
-	margin: 0.7em 0; 
-	padding-left: 2em;
+    margin: 0.7em 0;
+    padding-left: 2em;
   }
-  ul > li::marker { 
-    width: 1em; 
-	text-align: right; 
+  ul > li::marker {
+    width: 1em;
+    text-align: right;
   }
   li {
     list-style-position: outside;
@@ -190,28 +179,27 @@ body {
   /* adjusting prism.css settings */
   code[class*="language-"], pre[class*="language-"] {
     font-size: smaller;
-    /* padding: 5px; */
     line-height: 1.2;
     word-wrap: normal;
     white-space: pre-wrap;
   }
   
   ::footnote-call {
-    content: "[" counter(footnote, lower-latin) "]";
-    font-size: 83%;
+    content: "[" counter(footnote) "]";
+    font-size: 75%;
     vertical-align: super;
     line-height: none
   }
   ::footnote-marker {
-    content: "[" counter(footnote, lower-latin) "]";
+    content: "[" counter(footnote) "]";
     list-style-position: inside;
     margin: 0; padding: 0 0.3em 0 0;
   }
-  .footNote {
-    float: prince-column-footnote;
-    font-size: 90%;
-    footnote-style-position: outside;
+  .fn {
+    float: footnote;
+    font-size: 75%;
     margin: 0.3em 0 0 1.3em; padding: 0; text-indent: 0;
+    content: prince-script(replaceFootnote, content());
   }
 
   /* page floats */
@@ -221,9 +209,21 @@ body {
   .column-bottom { float: column-bottom;  margin-top: 2em }
   .top { float: top;  margin-bottom: 2em }
   .bottom { float: bottom;  margin-top: 2em }
-  .top figcaption, .bottom figcaption { 
-    margin-left: 2em; margin-right: 2em 
+  .top figcaption,
+  .bottom figcaption {
+    text-align: left;
+    margin-left: 2em;
+    margin-right: 2em
   }
+}
+
+body {
+  color: black;
+  background-color: white;
+}
+body > header > small {
+  display: block;
+  text-align: center;
 }
 
 h1 {
@@ -231,14 +231,9 @@ h1 {
   margin-bottom: 0.33em;
 }
 
-body > header > small {
-  display: block;
-  text-align: center;
-}
 #articleURL { 
-  string-set: articleURL content() 
+  string-set: articleURL content()
 }
-
 
 h1#article-title {
   text-align: center;
@@ -302,15 +297,15 @@ address > div[property="email"] {
 }
 
 li > p  {
-    text-indent: 0;
+  text-indent: 0;
 }
 .list-inline {
   padding-left: 0;
   list-style: none;
 }
 .list-inline > li {
-    display: inline-block;
-    margin-right: 0.2em;
+  display: inline-block;
+  margin-right: 0.2em;
 }
 .list-inline.comma-separated > li:not(:last-child):after {
   content: ",";
@@ -371,4 +366,3 @@ main > section > section > section > h1:before {
   counter-increment: sub-sub-sections;
   content: counter(sections) "." counter(sub-sections) "." counter(sub-sub-sections) " ";
 }
-
