@@ -103,6 +103,12 @@ textarea {
   ul {
     padding-left: 1em;
   }
+  code, pre,
+  /* adjusting prism.css settings */
+  code[class*="language-"], pre[class*="language-"] {
+    font-size: 90%;
+    line-height: 1.3;
+  }
 }
 
 @media print {
@@ -180,8 +186,10 @@ textarea {
   code[class*="language-"], pre[class*="language-"] {
     font-size: smaller;
     line-height: 1.2;
+	/* NOT NEEDED?
     word-wrap: normal;
     white-space: pre-wrap;
+	*/
   }
   
   ::footnote-call {
