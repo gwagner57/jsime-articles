@@ -8,14 +8,12 @@
       
   <meta name="citation_journal_title" content="Journal of Simulation Engineering"/>
   <meta name="citation_issn" content="2569-9466" />
+  <meta name="citation_volume" content="1" />
+  <meta name="citation_title" content="Information and Process Modeling for Simulation – Part I"/>
+  <meta name="citation_publication_date" content="2017-10-05" />
   <meta name="citation_author" content="Gerd Wagner"/>
   <meta name="citation_author_email" content="G.Wagner@b-tu.de" />
   <meta name="citation_author_institution" content="Dept. of Informatics, Brandenburg University of Technology, Cottbus, Germany" />
-  <meta name="citation_title" content="Information and Process Modeling for Simulation – Part I"/>
-  <meta name="citation_publication_date" content="2017-10-05" />
-  <meta name="citation_volume" content="1" />
-  <meta name="citation_language" content="en" />
-  <meta name="citation_keywords" xml:lang="en" lang="en" content="Conceptual Model, Design Model, Information Model, Process Model" />
   <meta name="citation_abstract_html_url" content="https://jsime.org/index.php/jsimeng/article/view/2" />
   <meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-1.pdf" />
   <!--Canonical URL-->
@@ -42,12 +40,6 @@
   "@context": "http://schema.org",
   "@graph": [
     {
-      "@id": "#volume-1",
-      "@type": "PublicationVolume",
-      "datePublished": "2018-06-30",
-      "volumeNumber": "1",
-    },
-    {
       "@id": "#jsime",
       "@type": "Periodical",
       "name": "Journal of Simulation Engineering",
@@ -59,6 +51,13 @@
       "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
     },
     {
+      "@id": "#volume-1",
+      "@type": "PublicationVolume",
+      "datePublished": "2018-06-30",
+      "volumeNumber": "1",
+      "isPartOf": { "@id": "#jsime" }
+    },
+    {
       "@id": "#affiliation-1",
       "@type": "Organization",
       "address": "Department of Informatics, Brandenburg University of Technology, Cottbus, Germany"
@@ -67,29 +66,21 @@
       "@id": "#author-1",
       "@type": "Person",
       "name": "Gerd Wagner",
-      "email": G.Wagner@b-tu.de",
+      "email": "G.Wagner@b-tu.de",
       "affiliation": "#affiliation-1"
     },
     {
       "@id": "#artcile-1-1",
       "@type": "ScholarlyArticle",
-      "isPartOf": [
-        {
-          "@id": "#jsime"
-        },
-        {
-          "@id": "#volume-1"
-        }
-      ],
+      "isPartOf": { "@id": "#volume-1" },
       "name": "Information and Process Modeling for Simulation – Part I: Objects and Events",
       "author": "#author-1",
       "keywords": [ "Conceptual Model", "Design Model", "Information Model", "Process Model" ],
       "description": "In simulation engineering, a system model mainly consists of an information model and a process model. In the fields of Information Systems and Software Engineering (IS/SE) there are widely used standards such as the Class Diagrams of the Unified Modeling Language (UML) for making information models, and the Business Process Modeling Notation (BPMN) for making process models. This tutorial presents a general approach how to use UML class diagrams and BPMN process diagrams at all three levels of model-driven simulation engineering: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our Object-Event Modeling (OEM) approach, object and event types are modeled as stereotyped classes, random variables are modeled as stereotyped operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while event rules/routines are modeled both as BPMN process diagrams and in pseudo-code. In Part II, we will discuss the more advanced modeling concepts of activities and GPSS/SIMAN/Arena-style processing networks, while in Part III we will further extend the OEM framework by adding the concepts of agents with perceptions, actions and beliefs.",
       "url": "https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I",
-      "sameAs": "DOI",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "copyrightHolder": "Gerd Wagner",
+      "copyrightHolder": "#author-1",
       "copyrightYear": "2017",
       "dateCreated": "2017-10-05",
       "dateModified": "2018-05-22",

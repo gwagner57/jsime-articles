@@ -9,6 +9,10 @@
 <!--Google Scholar-->
 <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
 <meta name="citation_issn" content="2569-9466" />
+<meta name="citation_volume" content="1" />
+<meta name="citation_title"
+  content="Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language" />
+<meta name="citation_publication_date" content="2018-04-06" />
 <meta name="citation_author" content="Shafagh Jafer" />
 <meta name="citation_author_email" content="jafers@erau.edu" />
 <meta name="citation_author_institution"
@@ -25,13 +29,6 @@
 <meta name="citation_author_email" content="umut.durak@dlr.de" />
 <meta name="citation_author_institution"
   content="German Aerospace Center, Germany" />
-<meta name="citation_title"
-  content="Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language" />
-<meta name="citation_publication_date" content="2018-04-06" />
-<meta name="citation_volume" content="1" />
-<meta name="citation_language" content="en" />
-<meta name="citation_keywords" xml:lang="en" lang="en"
-  content="Model-based development, Simulation scenario, SES" />
 <meta name="citation_abstract_html_url"
   content="https://jsime.org/index.php/jsimeng/article/view/5" />
 <meta name="citation_pdf_url"
@@ -62,12 +59,6 @@
   "@context": "http://schema.org",
   "@graph": [
     {
-      "@id": "#volume-1",
-      "@type": "PublicationVolume",
-      "datePublished": "2018-06-30",
-      "volumeNumber": "1",
-    },
-    {
       "@id": "#jsime",
       "@type": "Periodical",
       "name": "Journal of Simulation Engineering",
@@ -77,6 +68,13 @@
         "name": "Consortium for True Open Access in Modeling and Simulation"
       },
       "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+    },
+    {
+      "@id": "#volume-1",
+      "@type": "PublicationVolume",
+      "datePublished": "2018-06-30",
+      "volumeNumber": "1",
+      "isPartOf": { "@id": "#jsime" }
     },
     {
       "@id": "#affiliation-1",
@@ -92,50 +90,42 @@
       "@id": "#author-1",
       "@type": "Person",
       "name": "Shafagh Jafer",
-      "email": jafers@erau.edu",
+      "email": "jafers@erau.edu",
       "affiliation": "#affiliation-1"
     },
     {
       "@id": "#author-2",
       "@type": "Person",
       "name": "Bharvi Chhaya",
-      "email": chhayab@my.erau.edu",
+      "email": "chhayab@my.erau.edu",
       "affiliation": "#affiliation-1"
     },
     {
       "@id": "#author-3",
       "@type": "Person",
       "name": "Jessica Updegrove",
-      "email": updegroj@my.erau.edu",
+      "email": "updegroj@my.erau.edu",
       "affiliation": "#affiliation-1"
     },
     {
       "@id": "#author-4",
       "@type": "Person",
       "name": "Umut Durak",
-      "email": umut.durak@dlr.de",
+      "email": "umut.durak@dlr.de",
       "affiliation": "#affiliation-2"
     },
     {
       "@id": "#artcile-1-2",
       "@type": "ScholarlyArticle",
-      "isPartOf": [
-        {
-          "@id": "#jsime"
-        },
-        {
-          "@id": "#volume-1"
-        }
-      ],
+      "isPartOf": { "@id": "#volume-1" },
       "name": "Schema-based Ontological Representations of a Domain-Specific Scenario Modeling Language",
       "author": [ "#author-1", "#author-2", "#author-3", "#author-4" ],
       "keywords": [ "Model-based development", "Simulation scenario", "SES" ],
       "description": "The first step in designing a domain-specific simulation scenario definition language is constructing its ontology. The recently published Aviation Scenario Definition Language (ASDL) aims at providing a common platform to specify scenarios in the aviation domain. To capture an ASDL ontology, the Web Ontology Language and the Protégé tool was utilized, which was then converted into an XML schema by means of tool automation in the Eclipse Modeling Framework. On the other hand, the System Entity Structure (SES) provides a formal basis to represent the ontological foundations of a domain language. Following the XML Schema representation of SES, a scenario modeling ontology that has been recently published, we illustrate how an equivalent schema for a scenario definition language can be constructed using a domain-specific language ontology-driven approach and SES. We take both approaches to represent the ASDL ontology and prove that the resulting schema produced from these two approaches converge to the same result.",
       "url": "https://articles.jsime.org/1/2/Domain-Specific-Scenario-Modeling-Language",
-      "sameAs": "DOI",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "copyrightHolder": [ "Shafagh Jafer", "Bharvi Chhaya", "Jessica Updegrove", "Umut Durak" ],
+      "copyrightHolder": [ "#author-1", "#author-2", "#author-3", "#author-4" ],
       "copyrightYear": "2018",
       "dateCreated": "2018-03-29",
       "dateModified": "2018-04-11",

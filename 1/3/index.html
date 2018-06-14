@@ -9,17 +9,14 @@
 <!--Google Scholar-->
 <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
 <meta name="citation_issn" content="2569-9466" />
+<meta name="citation_volume" content="1" />
+<meta name="citation_title"
+  content="Assessments of Introducing New Technologies in Disaster Prevention Planning" />
+<meta name="citation_publication_date" content="2018-05-11" />
 <meta name="citation_author" content="Tomoichi Takahashi" />
 <meta name="citation_author_email" content="ttaka@meijo-u.ac.jp" />
 <meta name="citation_author_institution"
   content="Meijo University, Nagoya, Japan" />
-<meta name="citation_title"
-  content="Assessments of Introducing New Technologies in Disaster Prevention Planning" />
-<meta name="citation_publication_date" content="2018-05-11" />
-<meta name="citation_volume" content="1" />
-<meta name="citation_language" content="en" />
-<meta name="citation_keywords" xml:lang="en" lang="en"
-  content="Social simulation, Decision support, Evacuation guidance" />
 <meta name="citation_abstract_html_url"
   content="https://jsime.org/index.php/jsimeng/article/view/3" />
 <meta name="citation_pdf_url"
@@ -48,12 +45,6 @@
   "@context": "http://schema.org",
   "@graph": [
     {
-      "@id": "#volume-1",
-      "@type": "PublicationVolume",
-      "datePublished": "2018-06-30",
-      "volumeNumber": "1",
-    },
-    {
       "@id": "#jsime",
       "@type": "Periodical",
       "name": "Journal of Simulation Engineering",
@@ -65,6 +56,13 @@
       "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
     },
     {
+      "@id": "#volume-1",
+      "@type": "PublicationVolume",
+      "datePublished": "2018-06-30",
+      "volumeNumber": "1",
+      "isPartOf": { "@id": "#jsime" }
+    },
+    {
       "@id": "#affiliation-1",
       "@type": "Organization",
       "address": "Meijo University, Nagoya, Japan"
@@ -73,29 +71,21 @@
       "@id": "#author-1",
       "@type": "Person",
       "name": "Tomoichi Takahashi",
-      "email": ttaka@meijo-u.ac.jp",
+      "email": "ttaka@meijo-u.ac.jp",
       "affiliation": "#affiliation-1"
     },
     {
       "@id": "#artcile-1-3",
       "@type": "ScholarlyArticle",
-      "isPartOf": [
-        {
-          "@id": "#jsime"
-        },
-        {
-          "@id": "#volume-1"
-        }
-      ],
+      "isPartOf": { "@id": "#volume-1" },
       "name": "Assessments of Introducing New Technologies in Disaster Prevention Planning",
       "author": "#author-1",
       "keywords": [ "Social simulation", "Decision support", "Evacuation guidance" ],
       "description": "Simulations have been used in multiple fields. Social simulation, in which humans play a major role in simulated scenarios, is one of the most promising fields in research. Human behavior is difficult to mathematically formulate. This makes it challenging to determine how well simulations mimic real situations; confirming simulation results empirically is also difficult. In this study, we present a new device that could change human behavior and provide a good method for mitigating damages during emergencies. We also consider ways of validating the simulation results to assess the new technology adoption.",
       "url": "https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention",
-      "sameAs": "DOI",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "copyrightHolder": "Tomoichi Takahashi",
+      "copyrightHolder": "#author-1",
       "copyrightYear": "2018",
       "dateCreated": "2018-05-07",
       "dateModified": "2018-05-24",
