@@ -273,7 +273,7 @@
          used for conceptual process modeling, since they lack the required expressiveness.
       </p>
       <figure id="_Ref493010044" class="top">
-         <img src="./img/MDD-Example.svg" width="600"/>
+         <img src="./img/MDD-Example.svg" width="800"/>
          <figcaption><strong>Figure 2.</strong> From a conceptual information model via a design model to OO and C++ class models.</figcaption>
       </figure>
       <p>We illustrate the distinction between the three modeling levels with an example in <a href="#_Ref493010044">Figure 2</a>. In a simple conceptual information model of people, expressed as a UML class diagram, we require that any person has exactly one mother, expressed by a corresponding binary many-to-one association, while we represent this association with a corresponding reference property <em>mother</em> in the OO and C++ class models. Also, we may not care about the datatypes of attributes in the conceptual model, while we do care about them in the design model, where we use platform-independent datatype names (such as <code>Decimal</code>), and in the C++ class model where we use C++ datatypes (such as <code>double</code>). Following OO programming conventions, we add <em>get</em> and <em>set</em> methods for all attributes, and we specify the visibility <em>private</em> (symbolically -) for attributes and <em>public</em> (symbolically +) for methods, in the OO class model. Finally, in the C++ class model, we use the pointer type <code>Person*</code> instead of <code>Person</code> for implementing a reference property.

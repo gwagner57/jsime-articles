@@ -81,11 +81,16 @@ textarea {
 }
 
 @media screen {
-  body { 
+  body {
     font: 1.1rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
     margin: 0 auto;
     padding: 10px;
     max-width: 45em;
+    hyphens: auto;  /* does this work? */
+  }
+  .two-column {
+    columns: 2; 
+    column-gap: 0.25in;
   }
   main > section > h1,
   section[role="doc-abstract"] > h1 {
@@ -186,10 +191,10 @@ textarea {
   code[class*="language-"], pre[class*="language-"] {
     font-size: smaller;
     line-height: 1.2;
-	/* NOT NEEDED?
+  /* NOT NEEDED?
     word-wrap: normal;
     white-space: pre-wrap;
-	*/
+  */
   }
   
   ::footnote-call {
@@ -256,12 +261,13 @@ h1#article-title {
 address {
   font-style: normal;
 }
-address > div[property="name"] {
+address > div[property] {
   text-align: center;
+}
+address > div[property="name"] {
   font-size: 150%;
 }
 address > div[property="email"] {
-  text-align: center;
   font-size: 100%;
 }
 /* single author */
@@ -278,6 +284,9 @@ address > div[property="email"] {
 }
 #authors > address sup {
   font-size: 60%;
+}
+#authors > address sup > img {
+  margin-left: 0.5em;
 }
 #authors > div.affiliation {
   font-size: 100%;
@@ -351,6 +360,34 @@ figure {
 figcaption {
   margin-top: 0.7em;
 }
+blockquote {
+  position: relative;
+  font: 1.3rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
+  /* font: 14px/22px normal helvetica, sans-serif; */
+  margin-top: 1.2em;
+  margin-bottom: 1em;
+  margin-left: 20px;
+  margin-right: 0;
+  padding-left: 15px;
+  /* border-left: 3px solid #ccc; */
+}
+blockquote::before {
+  content: "\201C"; /*Unicode for Left Double Quote*/  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: grey;
+  position: absolute;
+  left: -20px;
+  top: -30px;
+}
+blockquote.right {
+  float: right;
+  width: 50%;
+  margin-top: 0.8em;
+  margin-left: 2em;
+}
 
 /***** counters *****/
 main {
@@ -362,7 +399,7 @@ main > section {
 main > section > section {
   counter-reset: sub-sub-sections;
 }
-main > section:not([role="doc-abstract"]):not([role="doc-bibliography"]):not([role="doc-acknowledgements"]):not([role="doc-endnotes"]) > h1:before {
+main > section:not([role="doc-abstract"]):not([role="doc-bibliography"]):not([role="doc-acknowledgements"]):not([role="doc-endnotes"]):not(.no-counter) > h1:before {
   counter-increment: sections;
   content: counter(sections) " "
 }
