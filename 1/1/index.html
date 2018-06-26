@@ -84,7 +84,7 @@
       "copyrightYear": "2017",
       "dateCreated": "2017-10-05",
       "dateModified": "2018-05-22",
-      "datePublished": "2017-10-05"
+      "datePublished": "2018-06-28"
     },
     {
       "@type": "CategoryCodeSet",
@@ -106,6 +106,33 @@
    <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height:24px; margin-right:0.7em;"/></a><i>Journal of Simulation Engineering</i>, Vol. 1 (under construction). Article URL: <a href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" id="articleURL">https://articles.jsime.org/1/1</a>
    <a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/2" style="position:relative; left:1em"><img src="../../icons/pdf.png"/></a></small>
  </header>
+ <aside id="feedback">
+   <button type=button onclick="document.body.classList.add('feedbackMode')">Provide comments. Report errors</button>
+   <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field" netlify>
+    <p class="hidden">
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+	<h1>Provide comments and report errors</h1>
+	<p>During a 4-week feedback period ending on July 31, anyone may provide comments and report errors, which will be taken into consideration by the author(s).
+    </p>
+    <div>
+      <label>Your name: <input type="text" name="name" size="30" required="required" /></label>
+    </div>
+    <div>
+      <label>Email address: <input type="email" name="emailAddress" size="30" required="required" /></label>
+    </div>
+    <div>
+      <label>Affiliation: <input type="text" name="affiliation" size="30" /></label>
+    </div>
+    <div>
+      <label>Comments/hints:<br/>
+	  <textarea name="feedback" required="required"></textarea></label>
+    </div>
+    <div>
+      <button type=”submit”>Send</button>
+    </div>
+  </form>
+ </aside>
  <main>
    <div id="front-matter">
      <h1 id="article-title">Information and Process Modeling for Simulation – Part I: Objects and Events</h1>
