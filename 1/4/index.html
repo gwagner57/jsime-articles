@@ -13,8 +13,8 @@
   <meta name="citation_publication_date" content="2018-06-30" />
 
   <meta name="citation_author" content="Alexis Drogoul"/>
-  <meta name="citation_author_email" content="alexis.drogoul@gmail.com" />
-  <meta name="citation_author_institution" content="Institut Français de Recherche pour le Développement, France" />
+  <meta name="citation_author_email" content="alexis.drogoul@ird.fr" />
+  <meta name="citation_author_institution" content="UMMISCO, IRD, France and Vietnam" />
   <meta name="citation_author" content="Paul Fishwick"/>
   <meta name="citation_author_email" content="paul.fishwick@utdallas.edu" />
   <meta name="citation_author_institution" content="University of Texas at Dallas, USA" />
@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="../../jsime.css" />
   <!--Scripts-->
   <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -49,8 +50,8 @@
   gtag('js', new Date());
   gtag('config', 'UA-115543812-1', {'anonymize_ip':true});
 </script>
-  
-  <script type="application/ld+json">
+-->
+<script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@graph": [
@@ -77,7 +78,7 @@
       "@type": "Organization",
       "address": "Institute of Informatics, Brandenburg University of Technology, Germany"
     },
-    { "@id":"#author-1", "@type":"Person", "name":"Alexis Drogoul", "email":"alexis.drogoul@gmail.com", "affiliation":"Institut Français de Recherche pour le Développement, France"},
+    { "@id":"#author-1", "@type":"Person", "name":"Alexis Drogoul", "email":"alexis.drogoul@ird.fr", "affiliation":"UMMISCO, IRD, France and Vietnam"},
     { "@id":"#author-2", "@type":"Person", "name":"Paul Fishwick", "email":"paul.fishwick@utdallas.edu", "affiliation":"University of Texas at Dallas, USA"},
     { "@id":"#author-3", "@type":"Person", "name":"Nigel Gilbert", "email":"n.gilbert@surrey.ac.uk", "affiliation":"University of Surrey, England"},
     { "@id":"#author-4", "@type":"Person", "name":"Dennis Pegden", "email":"cdpegden@simio.com", "affiliation":" Simio LLC, USA"},
@@ -114,6 +115,13 @@
   ]
 }
 </script>
+<script>
+  function handleFeedbackButtonClickEvent () {
+    var formEl = document.forms['Feedback-1-4'];
+    document.body.classList.add("feedbackMode");
+	console.log( document.body.className);
+  }
+</script>
 </head>
 <body vocab="http://schema.org/">
  <header>
@@ -123,6 +131,33 @@
    -->
    </small>
  </header>
+ <aside id="feedback">
+   <button type=button onclick="handleFeedbackButtonClickEvent()">Ask questions? Provide comments!</button>
+   <form name="Feedback-1-4" method="POST" netlify-honeypot="bot-field" netlify>
+    <p class="hidden">
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+	<h1>Ask questions or provide comments</h1>
+	<p>During a 4-week discussion period ending on July 31, anyone may ask questions to, or provide comments for, the panelists, which will be reviewed and appended to the article in a <em>General Discussion</em> section, if they get accepted.
+    </p>
+    <div>
+      <label>Your name: <input type="text" name="name" size="30" required="required" /></label>
+    </div>
+    <div>
+      <label>Email address: <input type="email" name="emailAddress" size="30" required="required" /></label>
+    </div>
+    <div>
+      <label>Affiliation: <input type="text" name="name" size="30" /></label>
+    </div>
+    <div>
+      <label>Questions/comments:<br/>
+	  <textarea name="feedback" required="required"></textarea></label>
+    </div>
+    <div>
+      <button type=”submit”>Send</button>
+    </div>
+  </form>
+ </aside>
  <main>
   <div id="front-matter">
    <h1 id="article-title">Panel Discussion: On the Unity and Diversity of Computer Simulation</h1>
@@ -130,8 +165,8 @@
    <div id="authors">
      <address typeof="Person">
         <div property="name">Alexis Drogoul</div>
-        <div property="email"><a href="mailto:alexis.drogoul@gmail.com">alexis.drogoul@gmail.com</a></div>
-        <div property="affiliation">IRD, France</div>
+        <div property="email"><a href="mailto:alexis.drogoul@gmail.com">alexis.drogoul@ird.fr</a></div>
+        <div property="affiliation">UMMISCO, IRD, France and Vietnam</div>
      </address>
      <address typeof="Person">
         <div property="name">Paul Fishwick</div>
@@ -162,19 +197,19 @@
      <section role="doc-abstract">
         <h1>Abstract</h1>
         <p>
-         The term <em>Computer Simulation</em> subsumes different simulation paradigms, languages and implementation technologies as well as many different application areas each with its own scientific communities. So, there is clearly a lot of conceptual, methodological, technological and application diversity in the area of Computer Simulation. From its start in 1967, the Winter Simulation Conference managed to get four scientific communities involved: computer scientists, electrical engineers, industrial engineers and mathematiciens (operations researchers). Only later, in 2011 and 2012, an attempt was made to get environmental and social scientists involved who have been adopting the idea of "individual-based" or "agent-based" simulation. Today, two American, a European and an Asian social simulation conference have been established. How much unity exists between the scientific areas and communities represented by the Winter Simulation Conference? How much unity exists between the scientific areas and communities represented by the newer social science simulation conferences? And how much unity exists between Discrete Event Simulation and the newer forms of social science simulation? These and other questions about the unity and diversity of Computer Simulation have been discussed via email from April 17 to May 17, 2018, by five leading experts: Alexis Drogoul, Paul Fishwick, Nigel Gilbert, Dennis Pegden and Levent Yilmaz, moderated by Gerd Wagner. 
-		</p>
+         The term <em>Computer Simulation</em> subsumes different simulation paradigms, languages and implementation technologies as well as many different application areas each with its own scientific communities. So, there is clearly a lot of conceptual, methodological, technological and application diversity in the area of Computer Simulation. From its start in 1967, the Winter Simulation Conference managed to get four scientific communities involved: computer scientists, electrical engineers, industrial engineers and mathematicians (operations researchers). Only later, in 2011 and 2012, an attempt was made to get environmental and social scientists involved who have been adopting the idea of "individual-based" or "agent-based" simulation. Today, two American, a European and an Asian social simulation conference have been established. How much unity exists between the scientific areas and communities represented by the Winter Simulation Conference? How much unity exists between the scientific areas and communities represented by the newer social science simulation conferences? And how much unity exists between Discrete Event Simulation and the newer forms of social science simulation? These and other questions about the unity and diversity of Computer Simulation have been discussed via email from April 17 to May 17, 2018, by five leading experts: Alexis Drogoul, Paul Fishwick, Nigel Gilbert, Dennis Pegden and Levent Yilmaz, moderated by Gerd Wagner. 
+        </p>
      </section>
    </div>
    <section class="no-counter two-column"><h1 style="column-span: all">Introduction of Panelists</h1>
     <p><strong>Alexis Drogoul</strong> graduated in Artificial Intelligence in 1990, became full professor in 2000 and joined the Institut Fran&ccedil;ais de Recherche pour le D&eacute;veloppement (<a href="http://www.ird.fr/">IRD</a>) as a Senior Researcher in 2004. He is mostly working on agent-based modeling and simulation with applications to Environmental Decision-Support Systems. He has co-designed, and still contributes to, the Java-based <a href="http://gama-platform.org/">GAMA platform</a>, which combines multi-agent simulation with Geographic Information Systems (GIS) capabilities.</p>
-	
+    
     <p><strong>Paul Fishwick</strong> is Distinguished University Chair of Arts, Technology, and Emerging Communication, and Professor of Computer Science at the University of Texas at Dallas, where he is active in forging new bridges between the arts, engineering and computer science, and involved in teaching undergraduates at the intersection of humanities and Modeling &amp; Simulation. While in the 1980s and 90s, he has written articles about many issues of simulation, being one of the first who investigated the potential of web-based simulation, he increasingly focused on the connections between arts and simulation in the 2000s, coining the term <a href="https://mitpress.mit.edu/books/aesthetic-computing"><em>Aesthetic Computing</em></a>.</p>
-	
+    
     <p><strong>Nigel Gilbert</strong> read for a first degree in Engineering, initially intending to go into the computer industry. However, he was attracted into sociology and obtained his doctorate on the sociology of scientific knowledge from the University of Cambridge. He is the founder and director of the Centre for Research in Social Simulation at the University of Surrey and (co-)authored several textbooks in the area of computational social sciences. He was the founding editor of the peer-published Open Access <a href="http://jasss.soc.surrey.ac.uk/JASSS.html">Journal of Artificial Societies and Social Simulation</a>. He counts as one of the founders of modern <em>Computational Sociology</em>, a discipline that merges social science research with simulation techniques with the goal of modelling complex policy issues and fundamental aspects of human societies.</p>
 
     <p><strong>Dennis Pegden</strong> is the founder and CEO of <a href="https://www.simio.com">Simio LLC</a>, one of the leading vendors of Discrete Event Simulation software packages. Prior to this position, in the 1970s and 80s, he earned a Ph.D. from the School of Industrial Engineering at Purdue University, held faculty positions at the University of Alabama in Huntsville and The Pennsylvania State University and founded Systems Modeling Corporation, which developed the famous <a href="https://www.arenasimulation.com/">Arena</a> simulation software package. He also led in the development of the SLAM and SIMAN simulation languages, which have been milestones in the history of Discrete Event Simulation. He is the author/co-author of three textbooks in simulation and a frequent speaker at the Winter Simulation Conference.</p>
-	
+    
     <p><strong>Gerd Wagner</strong>, who moderates the panel discussion, is Professor of Internet Technology at Brandenburg University of Technology, Germany, and a member of the <em>Consortium for True Open Access in Modeling and Simulation</em>, which publishes the <em>Journal of Simulation Engineering</em>.</p>
 
     <p><strong>Levent Yilmaz</strong> is Professor of Computer Science and Software Engineering at Auburn University with a joint appointment in Industrial and Systems Engineering. His research interests are in agent-directed simulation, cognitive computing, and model-driven science and engineering for complex adaptive systems. He co-authored a 2016 book with the title <q>Distributed Simulation: A Model-Driven Engineering Approach". He is the founding organizer and general chair of the <a href="http://scs.org/wp-content/uploads/2016/02/CFP_ADS_Springsim17_v1.pdf">Agent-Directed Simulation Symposium</a> series.</p>
@@ -276,6 +311,9 @@
 <p><b>Levent Yilmaz</b>: The comments made by Dennis and Gerd highlight the tradeoffs between over standardization and the flexibility needed to conduct studies based on assumptions that may not be foreseeable in advance. The use of standardized and complex federated campaign models in the DoD context had proved to result in monolithic models that are extremely narrow, incomprehensible, and insensitive to analysis under uncertainty. The standardization was to a large extent achieved by suppressing uncertainty; yet, dealing with uncertainty (both parametric and structural) was extremely critical in dealing with analytical problems. I think we can avoid the fallacies of over standardization by focusing in developing abilities to bring together modeling concepts appropriately for a given context and objective.</p>
 <blockquote>Variability management, role-driven modeling, and the ability to develop models that can be customized to adapt to a new context are essential.</blockquote>
 <p>During the standardization process, there are often strong pressures and incentives to agree on and hold the parameters of component models as well as relations among them fixed. Yet, this approach is often a recipe for failure when modeling complex socio-cultural phenomena. The notion of objects playing multiple roles, as raised by both Gerd and Dennis, appear to fit here quite nicely. Variability management, role-driven modeling, and the ability to develop models that can be customized to adapt to a new context are indeed essential. The provision of multiple models that allow disagreement, competition, and uncertainty may be a better strategy for dealing with wicked problems in analyzing complex phenomena. In the past decade, there has been significant progress in the theory and methodology of programming language development, including metaprogramming, context-oriented programming, multi-paradigm languages, aspect-oriented modeling, and feature-oriented languages that together may help avoid the need for over standardization by managing flexibility in a tractable manner.</p>
+
+<p><b>Gerd Wagner</b>: Thanks to all of you for your participating in this discussion. I think we have addressed many important issues, but the discussion must go on...</p>
+
    </section>
   </main>
 </body>
