@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>JSimE 1/5 - Simulation Framework for Asynchronous Iterative
+  Methods</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--Google Scholar-->
+<meta name="citation_journal_title" content="Journal of Simulation Engineering" />
+<meta name="citation_issn" content="2569-9466" />
+<meta name="citation_volume" content="1" />
+<meta name="citation_title"
+  content="Simulation Framework for Asynchronous Iterative Methods" />
+<meta name="citation_publication_date" content="2018-06-28" />
+<meta name="citation_author" content="Evan Christopher Coleman" />
+<meta name="citation_author_email" content="evanccoleman@gmail.com" />
+<meta name="citation_author_institution"
+  content="Old Dominion University, Norfolk, VA, United States" />
+<meta name="citation_author" content="Erik Jensen" />
+<meta name="citation_author_email" content="ejens005@odu.edu" />
+<meta name="citation_author_institution"
+  content="Old Dominion University, Norfolk, VA, United States" />
+<meta name="citation_author" content="Masha Sosonkina" />
+<meta name="citation_author_email" content="msosonki@odu.edu" />
+<meta name="citation_author_institution"
+  content="Old Dominion University, Norfolk, VA, United States" />
+<meta name="citation_abstract_html_url"
+  content="https://jsime.org/index.php/jsimeng/article/view/6" />
+<meta name="citation_pdf_url"
+  content="https://articles.jsime.org/1/jsime-article-1-5.pdf" />
+<!--Canonical URL-->
+<link rel="canonical"
+  href="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="async"
+  src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag () {
+    dataLayer.push( arguments );
+  }
+  gtag( 'js', new Date() );
+  gtag( 'config', 'UA-115543812-1', {
+    'anonymize_ip': true
+  } );
+</script>
+<!--Stylesheets-->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+<link rel="stylesheet" href="../../jsime.css" />
+<!--Scripts-->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--schema.org JSON-LD-->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@id": "#jsime",
+      "@type": "Periodical",
+      "name": "Journal of Simulation Engineering",
+      "issn": "2569-9466",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Consortium for True Open Access in Modeling and Simulation"
+      },
+      "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+    },
+    {
+      "@id": "#volume-1",
+      "@type": "PublicationVolume",
+      "datePublished": "2018-06-28",
+      "volumeNumber": "1",
+      "isPartOf": { "@id": "#jsime" }
+    },
+    {
+      "@id": "#affiliation-1",
+      "@type": "Organization",
+      "address": "Old Dominion University, Norfolk, VA, United States"
+    },
+    {
+      "@id": "#author-1",
+      "@type": "Person",
+      "name": "Evan Christopher Coleman",
+      "email": "evanccoleman@gmail.com",
+      "affiliation": "#affiliation-1"
+    },
+    {
+      "@id": "#author-2",
+      "@type": "Person",
+      "name": "Erik Jensen",
+      "email": "ejens005@odu.edu",
+      "affiliation": "#affiliation-1"
+    },
+    {
+      "@id": "#author-3",
+      "@type": "Person",
+      "name": "Masha Sosonkina",
+      "email": "msosonki@odu.edu",
+      "affiliation": "#affiliation-1"
+    },
+    {
+      "@id": "#artcile-1-5",
+      "@type": "ScholarlyArticle",
+      "isPartOf": { "@id": "#volume-1" },
+      "name": "Simulation Framework for Asynchronous Iterative Methods",
+      "author": [ "#author-1", "#author-2", "#author-3" ],
+      "keywords": [ "Asynchronous iterative methods", "Fault tolerance", "Asynchronous simulation", "Shared memory", "Intel Xeon Phi" ],
+      "description": "As high-performance computing (HPC) platforms progress towards exascale, computational methods must be revamped to successfully leverage them. In particular, (1) asynchronous methods become of great importance because synchronization becomes prohibitively expensive and (2) resilience of computations must be achieved, e.g., using checkpointing selectively which may otherwise become prohibitively expensive due to the sheer scale of the computing environment. In this work, a simulation framework for asynchronous iterative methods is proposed and tested on HPC accelerator (shared-memory) architecture. The design proposed here offers a lightweight alternative to existing computational frameworks to allow for easy experimentation with various relaxation iterative techniques, solution updating schemes, and predicted performance. The simulation framework is implemented in MATLAB® using function handles which offers a modular, easily extensible design. An example of a case study using the simulation framework is presented to examine the efficacy of different checkpointing schemes for asynchronous relaxation methods.",
+      "url": "https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [ "#author-1", "#author-2", "#author-3" ],
+      "copyrightYear": "2018",
+      "dateCreated": "2018-06-25",
+      "dateModified": "2018-06-25",
+      "datePublished": "2018-06-28"
+    },
+    {
+      "@type": "CategoryCodeSet",
+      "@id": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)",
+      "name": "The 2012 ACM Computing Classification System"
+    },
+    {
+      "@type": "CategoryCode",
+      "identifier": "10010147.10010341.10010342.10010344",
+      "codeValue": "Computing methodologies~Model verification and validation",
+      "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+    }
+  ]
+}
+</script>
+</head>
+<body vocab="http://schema.org/">
+  <header>
+    <small><a href="https://jsime.org"><img src="../../JSimE.svg"
+        style="height: 20px; margin-right: 0.7em;" /></a>Journal of Simulation
+      Engineering, Vol. 1 (under construction). Article URL: <a
+      href="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods"
+      id="articleURL">https://articles.jsime.org/1/5</a><a id="PDF"
+      class="suppressInPDF"
+      href="https://jsime.org/index.php/jsimeng/article/view/6"
+      style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
+  </header>
+  <main>
+  <div id="front-matter">
+    <h1 id="article-title">Simulation Framework for Asynchronous Iterative
+      Methods</h1>
+    <div id="authors">
+      <address typeof="Person">
+        <div property="name">
+          Evan C. Coleman<sup><img src="../../icons/envelope.png"></sup>
+        </div>
+        <div property="email">
+          <a href="mailto:evanccoleman@gmail.com">evanccoleman@gmail.com</a>
+        </div>
+      </address>
+      <address typeof="Person">
+        <div property="name">Erik Jensen</div>
+        <div property="email">
+          <a href="mailto:ejens005@odu.edu">ejens005@odu.edu</a>
+        </div>
+      </address>
+      <address typeof="Person">
+        <div property="name">Masha Sosonkina</div>
+        <div property="email">
+          <a href="mailto:msosonki@odu.edu">msosonki@odu.edu</a>
+        </div>
+      </address>
+      <div class="affiliation">Old Dominion University, Norfolk, VA,
+        United States</div>
+    </div>
+    <div id="acm-subject-categories">
+      <h1>ACM Subject Categories</h1>
+      <ul>
+        <li><code>TBD~TBD</code></li>
+      </ul>
+    </div>
+    <div id="keywords">
+      <h1>Keywords</h1>
+      <ul class="list-inline comma-separated">
+        <li>Asynchronous iterative methods</li>
+        <li>Fault tolerance</li>
+        <li>Asynchronous simulation</li>
+        <li>Shared memory</li>
+        <li>Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup></li>
+      </ul>
+    </div>
+  </div>
+  <section role="doc-abstract">
+    <h1>Abstract</h1>
+    <p>
+      As high-performance computing (HPC) platforms progress towards exascale,
+      computational methods must be revamped to successfully leverage them. In
+      particular, (1) asynchronous methods become of great importance because
+      synchronization becomes prohibitively expensive and (2) resilience of
+      computations must be achieved, e.g., using checkpointing selectively which
+      may otherwise become prohibitively expensive due to the sheer scale of the
+      computing environment. In this work, a simulation framework for
+      asynchronous iterative methods is proposed and tested on HPC accelerator
+      (shared-memory) architecture. The design proposed here offers a
+      lightweight alternative to existing computational frameworks to allow for
+      easy experimentation with various relaxation iterative techniques,
+      solution updating schemes, and predicted performance. The simulation
+      framework is implemented in MATLAB<sup>&reg;</sup> using function handles,
+      which offers a modular and easily extensible design. An example of a case
+      study using the simulation framework is presented to examine the efficacy
+      of different checkpointing schemes for asynchronous relaxation methods.
+    </p>
+  </section>
+  <section id="Sect1">
+    <h1>Introduction</h1>
+    <p>
+      Asynchronous iterative methods are increasing in popularity recently due
+      to their ability to be parallelized naturally on modern co-processors such
+      as GPUs and Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup>. Many
+      examples of recent work using fine-grained parallel methods are available
+      (see <a role="doc-biblioref" href="#ADQO16">Anzt, Dongarra, &amp;
+        Quintana-Ortí, 2016</a>, <a role="doc-biblioref" href="#Anz12">Anzt,
+        2012</a>, <a role="doc-biblioref" href="#CAD15">Chow, Anzt, &amp;
+        Dongarra, 2015</a>, <a role="doc-biblioref" href="#CP15">Chow, &amp;
+        Patel, 2015</a>, <a role="doc-biblioref" href="#ACD15">Anzt, Chow, &amp;
+        Dongarra, 2015</a> and many others in <a href="#Sect2">Section 2</a>). A
+      specific area of interest is on techniques that utilize fixed point
+      iteration, i.e., those techniques that solve equations of the form
+    </p>
+    <p>$$x = G\left( x \right)\label{a}\tag{1}$$</p>
+    <p>
+      for some vector
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>x</mi>
+    <mo>&isin;</mo>
+    <mi>D</mi>
+    </math>
+      and some map
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>G</mi>
+      <mo>:</mo>
+      <mi>D</mi>
+      <mo>&rarr;</mo>
+      <mi>D</mi>
+      <mo>.</mo>
+      </math>
+      These techniques are well suited for fine-grained computation and they can
+      be executed either synchronously or asynchronously, which helps tolerate
+      latency in high-performance computing (HPC) environments. Looking forward
+      to the future of HPC, it is important to prioritize the develop of
+      algorithms that are resilient to faults since on future platforms, the
+      rate at which faults occur is expected to increase dramatically (<a
+        role="doc-biblioref" href="#CGG+09">Cappello, et al., 2009</a>; <a
+        role="doc-biblioref" href="#CGG+14">Cappello, et al., 2014</a>; <a
+        role="doc-biblioref" href="#ABC+06">Asanović, et al., 2006</a>; <a
+        role="doc-biblioref" href="#GL09">Geist, &amp; Lucas, 2009</a>).
+    </p>
+    <p>
+      While many asynchronous methods are designed for shared memory
+      architectures and asynchronous iterative methods have gained popularity
+      for their efficient use of resources on shared memory accelerators in
+      modern HPC environments (<a role="doc-biblioref" href="#VV09">Venkatasubramanian,
+        &amp; Vuduc, 2009</a>), lately there has been some work done at improving
+      the performance of asynchronous iterative methods in distributed memory
+      environments. Such works include attempts to implement asynchronous
+      iterative methods in MPI-3 using one sided remote memory access (<a
+        role="doc-biblioref" href="#GBH14">Gerstenberger, Besta, &amp;
+        Hoefler, 2014</a>) as well as efforts to reduce the cost of communication in
+      these environments (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
+        &amp; Chow, 2016</a>).
+    </p>
+    <p>Developing algorithms that are resilient to faults is of paramount
+      importance, and fine-grained parallel fixed point methods are no
+      exception. In this paper, we propose a simulation framework that can help
+      developing algorithms resilient to faults. These types of frameworks allow
+      for experimentation that is not specific to any singular platform or
+      hardware architectures and allows experiments to simulate performance on
+      both current computing environments and look at how those results may
+      continue to evolve along with the computer hardware. Hence, they enable
+      the possibility to: (1) test and validate different fault-models (which
+      are still emerging), (2) experiment with different checkpointing
+      libraries/mechanisms, and (3) help in efficiently implementing
+      asynchronous iterative methods. Additionally, it can be difficult to
+      implement asynchronous iterative methods on a variety of architectures to
+      observe performance behavior in different computing environments, and
+      having a working simulation framework allows users to conduct extensive
+      experiments without any major programming investment.</p>
+    <p>This study aims to develop a simulation framework that is focused on
+      the performance of asynchronous iterative methods. The goal is to produce
+      a lightweight computational framework capable of being used for various
+      asynchronous iterative methods, with an emphasis on methods for solving
+      linear systems, and simulating the performance of these methods on shared
+      memory devices. The contributions of this work are</p>
+    <ol>
+      <li>the development, testing, and validation of a modular simulation
+        framework for asynchronous iterative methods that can be used in the
+        creation of new and improved algorithms,</li>
+      <li>a process for the generation of time models from HPC
+        implementation code, which may be used to initialize the framework,</li>
+      <li>a case study on how to use the framework in the development of
+        fault tolerant algorithms, and</li>
+      <li>a comparison of several implementations of an asynchronous
+        iterative relaxation method, used in the proposed framework.</li>
+    </ol>
+    <p>The simulation framework developed here is capable of predicting
+      performance on various HPC system configurations and to show the
+      performance of an algorithm subject to resiliency or reproducibility
+      requirements.</p>
+    <p>
+      The rest of this paper is organized as follows. <a href="#Sect2">Section
+        2</a> provides a brief summary of related studies. <a href="#Sect3">Section
+        3</a> gives an overview of asynchronous iterative methods, while <a
+        href="#Sect4">Section 4</a> describes the design and utilization of the
+      simulation framework in modeling the behavior of these methods. <a
+        href="#Sect5">Section 5</a> describes a process for collecting time data
+      from HPC implementations and developing time models from the data for use
+      in the simulation framework. A comparison of different implementations is
+      given in <a href="#Sect5.3">Section 5.3</a>, while framework validation is
+      considered in <a href="#Sect5.4">Section 5.4</a>. <a href="#Sect6">Section
+        6</a> gives background information related to the creation of efficient
+      checkpointing routines and provides a series of numerical results. <a
+        href="#Sect7">Section 7</a> provides conclusions.
+    </p>
+  </section>
+
+  <section id="Sect2">
+    <h1>Related Work</h1>
+    <p>
+      Development of computational frameworks for the purposes of simulating
+      performance has a long history in the literature. Examples of such
+      frameworks include SimGrid (<a role="doc-biblioref" href="#Cas01">Casanova,
+        2001</a>; <a role="doc-biblioref" href="#CLQ08">Casanova, Legrand, &amp;
+        Quinson, 2008</a>) that focuses on distributed experiments, GangSim (<a
+        role="doc-biblioref" href="#DF05">Dumitrescu, &amp; Foster, 2005</a>)
+      and GridSim (<a role="doc-biblioref" href="#BM02">Buyya, &amp;
+        Murshed, 2002</a>) that focus on grid scheduling, and CloudSim (<a
+        role="doc-biblioref" href="#CRDRB09">Calheiros, et al., 2009</a>; <a
+        role="doc-biblioref" href="#CRB+11">Calheiros, et al., 2011</a>) that
+      models performance of cloud computing environments. These environments
+      focus on specific HPC implementation features, such as job scheduling and
+      data movement, and on providing a view of how the systems themselves
+      behave in HPC-like scenarios. On the other hand, the framework developed
+      here is intended to simulate not only the HPC performance but also the
+      algorithmic performance of a particular class of problems (e.g., iterative
+      convergence to a linear system solution) under various system
+      configurations (e.g., asynchronous thread behavior in shared-memory
+      systems) and with various additional requirements (e.g., resiliency or
+      reproducibility).
+    </p>
+    <p>
+      The class of problems that the framework proposed in this study addresses
+      are stationary solvers, also referred to as relaxation methods. The focus
+      is on the behavior of these methods in asynchronous computing
+      environments. However, the framework also easily admits synchronous
+      updates; the key is the fine-grained nature of the algorithm. Fine-grained
+      parallel methods, specifically parallel fixed point methods, are an area
+      of increased research activity due to their practical use on HPC
+      environments. An initial exploration of fault tolerance for stationary
+      iterative linear solvers (i.e., Jacobi) is given in (<a
+        role="doc-biblioref" href="#ADQO15">Anzt, Dongarra, &amp;
+        Quintana-Ortí, 2015</a>) and expanded on (<a role="doc-biblioref"
+        href="#ADQO16">Anzt, Dongarra, &amp; Quintana-Ortí, 2016</a>). The
+      general convergence of parallel fixed point methods has been explored
+      extensively (<a role="doc-biblioref" href="#AB05">Addou, &amp;
+        Benahmed, 2005</a>; <a role="doc-biblioref" href="#FS00">Frommer, &amp;
+        Szyld, 2000</a>; <a role="doc-biblioref" href="#BT89">Bertsekas, &amp;
+        Tsitsiklis, 1989</a>; <a role="doc-biblioref" href="#OR00">Ortega, &amp;
+        Rheinboldt, 2000</a>; <a role="doc-biblioref" href="#Bau78">Baudet, 1978</a>;
+      <a role="doc-biblioref" href="#Ben07">Benahmed, 2007</a>).
+    </p>
+    <p>
+      Examples of work examining the performance of asynchronous iterative
+      methods include an in-depth analysis from the perspective of utilizing a
+      system with a co-processor (<a role="doc-biblioref" href="#Anz12">Anzt,
+        2012</a>; <a role="doc-biblioref" href="#ADG15">Avron, Druinsky, &amp;
+        Gupta, 2015</a>), as well as performance analysis of asynchronous methods (<a
+        role="doc-biblioref" href="#BBDH11">Bethune, et al., 2011</a>; <a
+        role="doc-biblioref" href="#BBDH14">Bethune, et al., 2014</a>; <a
+        role="doc-biblioref" href="#HD18">Hook, &amp; Dingle, 2018</a>). In
+      particular, both (<a role="doc-biblioref" href="#BBDH11">Bethune, et
+        al., 2011</a>) and (<a role="doc-biblioref" href="#BBDH14">Bethune, et
+        al., 2014</a>) focus on low level analysis of the asynchronous Jacobi
+      method, similar to the example problem that is featured here. While many
+      recent research results for asynchronous iterative methods are focused on
+      implementations that utilize a shared memory architecture, one area of
+      asynchronous iterative methods that has seen significant development using
+      a distributed memory architecture is optimization (<a role="doc-biblioref"
+        href="#CC16">Cheung, &amp; Cole, 2016</a>; <a role="doc-biblioref"
+        href="#IBCH13">Iutzeler, et al., 2013</a>; <a role="doc-biblioref"
+        href="#Hon17">Hong, 2017</a>; <a role="doc-biblioref" href="#ZC10">Zhong,
+        &amp; Cassandras, 2010</a>; <a role="doc-biblioref" href="#SN11">Srivastava,
+        &amp; Cassandras, 2011</a>; <a role="doc-biblioref" href="#TBA86">Tsitsiklis,
+        Bertsekas, &amp; Athans, 1986</a>; <a role="doc-biblioref" href="#BPC+11">Boyd,
+        et al., 2011</a>).
+    </p>
+    <p>
+      The use case of the simulation framework that is featured in <a
+        href="#Sect6">Section 6</a> shows the ability of the framework to be
+      used in the development of fault tolerance techniques. The development of
+      these techniques is important as HPC platforms continue to become both
+      larger and more susceptible to faults. The expected increase in faults for
+      future HPC systems is detailed in a variety of different sources. A high
+      level article detailing the expected increase in failure rate from a
+      reasonably non-technical point of view is available in the various
+      versions of the "Monster in the Closet" talk and paper (<a
+        role="doc-biblioref" href="#Gei11">Geist, 2011</a>; <a
+        role="doc-biblioref" href="#Gei12">Geist, 2012</a>; <a
+        role="doc-biblioref" href="#Gei16">Geist, 2016</a>). More technical and
+      detailed reports are given in a variety of sources composed of groups of
+      different researchers from both academia and industry (<a
+        role="doc-biblioref" href="#ABC+06">Asanović, et al., 2006</a>; <a
+        role="doc-biblioref" href="#CGG+09">Cappello, et al., 2009</a>; <a
+        role="doc-biblioref" href="#CGG+14">Cappello, et al., 2014</a>; <a
+        role="doc-biblioref" href="#SWA+14">Snir, et al., 2014</a>; <a
+        role="doc-biblioref" href="#GL09">Geist, &amp; Lucas, 2009</a>).
+      Additionally, the Department of Energy has commissioned two very detailed
+      reports about the progression towards exascale level computing; one from a
+      general computing standpoint (<a role="doc-biblioref" href="#ABC+10">Ashby,
+        et al., 2010</a>), and a report aimed specifically at applied mathematics
+      for exascale computing (<a role="doc-biblioref" href="#DHB+14">Dongarra,
+        et al., 2014</a>). Fault tolerance for fine-grained asynchronous iterative
+      methods has been studied at a fundamental level (<a role="doc-biblioref"
+        href="#Gär99">Gärtner, 1999</a>; <a role="doc-biblioref" href="#CS17">Coleman,
+        &amp; Sosonkina, 2017</a>), as well as made specific to certain algorithms (<a
+        role="doc-biblioref" href="#CSC17">Coleman, Sosonkina, &amp; Chow,
+        2017</a>; <a role="doc-biblioref" href="#CS18">Coleman, &amp; Sosonkina,
+        2018</a>; <a role="doc-biblioref" href="#ADQO15">Anzt, Dongarra, &amp;
+        Quintana-Ortí, 2015</a>; <a role="doc-biblioref" href="#ADQO16">Anzt,
+        Dongarra, &amp; Quintana-Ortí, 2016</a>). Fault tolerance for synchronous
+      fixed point algorithms from a numerical analysis has been investigated in
+      (<a role="doc-biblioref" href="#SW15">Stoyanov, &amp; Webster, 2015</a>).
+      Error correction for GPU based oriented asynchronous methods were
+      investigated in (<a role="doc-biblioref" href="#ALDH12">Anzt, et al.,
+        2012</a>).
+    </p>
+    <p>
+      Several numerically based fault models similar to the one that is used in
+      this study have been developed recently, and are used as a basis for the
+      generalized fault simulation that is developed here. These include a
+      "numerical" fault model that is predicated on shuffling the components of
+      an important data structure (<a role="doc-biblioref" href="#EHM15">Elliott,
+        Hoemmen, &amp; Mueller, 2015</a>), and a perturbation based model put forth
+      in (<a role="doc-biblioref" href="#SW15">Stoyanov, &amp; Webster, 2015</a>)
+      and (<a role="doc-biblioref" href="#CS16b">Coleman, &amp; Sosonkina,
+        2016b</a>). Other models that are not based upon directly injecting a bit
+      flip, such as inducing a small shift to a single component of a vector
+      have been considered as well (<a role="doc-biblioref" href="#HH11">Hoemmen,
+        &amp; Heroux, 2011</a>; <a role="doc-biblioref" href="#BFHH12">Bridges,
+        et al., 2012</a>). Comparisons between various numerical soft fault models
+      have been made in (<a role="doc-biblioref" href="#CS16a">Coleman,
+        &amp; Sosonkina, 2016a</a>; <a role="doc-biblioref" href="#CJB+18">Coleman,
+        et al., 2018</a>).
+    </p>
+  </section>
+
+  <section id="Sect3">
+    <h1>Asynchronous iterative methods</h1>
+    <p>
+      In fine-grained parallel computation, each component of the problem (i.e.,
+      a matrix or vector entry) is updated in a manner that does not require
+      information from the computations involving other components while the
+      update is being made. This allows for each computing element (e.g., for a
+      single processor, CUDA core, or Xeon Phi<sup>&trade;</sup> core) to act
+      independently from all other computing elements. Depending on the size of
+      both the problem and the computing environment, each computing element may
+      be responsible for updating a single entry to update, or may be assigned a
+      block that contains multiple components. The generalized mathematical
+      model that is used throughout this paper comes from (<a
+        role="doc-biblioref" href="#FS00">Frommer, &amp; Szyld, 2000</a>), which
+      in turn comes from (<a role="doc-biblioref" href="#CM69">Chazan, &amp;
+        Miranker, 1969</a>; <a role="doc-biblioref" href="#Bau78">Baudet, 1978</a>;
+      <a role="doc-biblioref" href="#Szy98">Szyld, 1998</a>) among many others.
+    </p>
+    <p>
+      To keep the mathematical model as general as possible, consider a
+      function,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>G</mi>
+      <mo>:</mo>
+      <mi>D</mi>
+      <mo>&rarr;</mo>
+      <mi>D</mi>
+      <mo>.</mo>
+      </math>
+      where
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>D</mi>
+      </math>
+      is a domain that represents a product space
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>D</mi>
+      <mo>=</mo>
+      <msub>
+      <mi>D</mi>
+      <mn>1</mn>
+      </msub>
+      <mo>&times;</mo>
+      <msub>
+      <mi>D</mi>
+      <mn>2</mn>
+      </msub>
+      <mo>&times;</mo>
+      <mo>&hellip;</mo>
+      <mo>&times;</mo>
+      <msub>
+      <mi>D</mi>
+      <mi>m</mi>
+      </msub>
+      <mo>.</mo>
+      </math>
+      The goal is to find a fixed point of the function
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>G</mi>
+      </math>
+      inside of the domain
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>D</mi>
+      <mo>.</mo>
+      </math>
+      To this end, a fixed point iteration is performed such that
+    </p>
+    <p>$$x^{k+1} = G \left( x^{k} \right),\label{b}\tag{2}$$</p>
+    <p>
+      and a fixed point is declared if
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msup>
+      <mi>x</mi>
+      <mrow>
+      <mi>k</mi>
+      <mo>+</mo>
+      <mn>1</mn>
+      </mrow>
+      </msup>
+      <mo>&asymp;</mo>
+      <msup>
+      <mi>x</mi>
+      <mi>k</mi>
+      </msup>
+      <mo>.</mo>
+      </math>
+      Note that the function
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>G</mi>
+      </math>
+      has internal component functions
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>G</mi>
+      <mi>i</mi>
+      </msub>
+      </math>
+      for each sub-domain,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>D</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>,</mo>
+      </math>
+      in the product space,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>D</mi>
+      <mo>.</mo>
+      </math>
+      In particular,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>G</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>:</mo>
+      <mi>D</mi>
+      <mo>&rarr;</mo>
+      <msub>
+      <mi>D</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>,</mo>
+      </math>
+      which gives that
+    </p>
+    <p>$$ \begin{eqnarray} x = \left( x_{1}, x_{2}, \ldots, x_{m} \right)
+      \in D \longrightarrow G\left( x \right) &=& G\left( x_{1}, x_{2}, \ldots,
+      x_{m} \right)\label{c}\tag{3} \\ &=& \left( G_{1}\left(x \right),
+      G_{2}\left(x \right), \ldots, G_{m}\left(x \right) \right) \in
+      D\label{d}\tag{4} \end{eqnarray} $$</p>
+    <p>
+      As a concrete example, let each
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>D</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>=</mo>
+      <mo>&reals;</mo>
+      <mo>.</mo>
+      </math>
+      Forming the product space of each of these
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>D</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>'s</mo>
+      </math>
+      gives that
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>D</mi>
+      <mo>=</mo>
+      <msup>
+      <mo>&reals;</mo>
+      <mi>m</mi>
+      </msup>
+      <mo>.</mo>
+      </math>
+      This leads to the more formal functional mapping,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>f</mi>
+      <mo>:</mo>
+      <msup>
+      <mi>&reals;</mi>
+      <mi>m</mi>
+      </msup>
+      <mo>&rarr;</mo>
+      <msup>
+      <mi>&reals;</mi>
+      <mi>m</mi>
+      </msup>
+      <mo>.</mo>
+      </math>
+      Additionally, let
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>f</mi>
+      <mfenced open="(" close=")">
+      <mi>x&#8407;</mi>
+      </mfenced>
+      <mo>=</mo>
+      <mn>2</mn>
+      <mi>x&#8407;</mi>
+      <mo>.</mo>
+      </math>
+      In this case, each of the individual
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>f</mi>
+      <mi>i</mi>
+      </msub>
+      </math>
+      component functions is defined by
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>f</mi>
+      <mfenced open="(" close=")">
+      <mi>x&#8407;</mi>
+      </mfenced>
+      <mo>=</mo>
+      <mn>2</mn>
+      <msub>
+      <mi>x</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>.</mo>
+      </math>
+      Note that each component functions operates on all of the vector
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x&#8407;</mi>
+      </math>
+      even if the individual function definition does not require all of the
+      components of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x&#8407;</mi>
+      </math>
+      to perform its specific update.
+    </p>
+    <p>
+      The assumption is also made that there is some finite number of processing
+      elements
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>P</mi>
+      <mn>1</mn>
+      </msub>
+      <mo>,</mo>
+      <msub>
+      <mi>P</mi>
+      <mn>2</mn>
+      </msub>
+      <mo>,</mo>
+      <mo>&hellip;</mo>
+      <mo>,</mo>
+      <msub>
+      <mi>P</mi>
+      <mn>p</mn>
+      </msub>
+      </math>
+      each of which is assigned to a block
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>B</mi>
+      </math>
+      of components
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>B</mi>
+      <mn>1</mn>
+      </msub>
+      <mo>,</mo>
+      <msub>
+      <mi>B</mi>
+      <mn>2</mn>
+      </msub>
+      <mo>,</mo>
+      <mo>&hellip;</mo>
+      <mo>,</mo>
+      <msub>
+      <mi>B</mi>
+      <mn>m</mn>
+      </msub>
+      </math>
+      to update. Note that the number
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>p</mi>
+      </math>
+      of processing elements will typically be significantly smaller than the
+      number
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>m</mi>
+      </math>
+      of blocks to update. With these assumptions, the computational model can
+      be stated in Algorithm 1.
+    </p>
+    <p>
+      <strong>Algorithm 1</strong>
+    </p>
+    <p>
+      This computational model has each processing element read all pertinent
+      data from global memory that is accessible by each of the processors,
+      update the pieces of data specific to the component functions that it has
+      been assigned, and update those components in the global memory. Note that
+      the computational model presented in Algorithm 1 allows for either
+      synchronous or asynchronous computation; it only prescribes that an update
+      has to be made as an "atomic" operation (in line 5), i.e., without
+      interleaving of its result. If each processing element
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>P</mi>
+      <mi>l</mi>
+      </msub>
+      </math>
+      is to wait for the other processors to finish each update, then the model
+      describes a parallel synchronous form of computation. On the other hand,
+      if no order is established for
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>P</mi>
+      <mi>l</mi>
+      </msub>
+      <mo>s</mo>
+      <mo>,</mo>
+      </math>
+      then an asynchronous form of computation arises.
+    </p>
+    <p>
+      To continue formalizing this computational model a few more definitions
+      are necessary. First, set a global iteration counter
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>k</mi>
+      </math>
+      that increases <em>every</em> time any processor reads
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x&#8407;</mi>
+      </math>
+      from common memory. At the end of the work done by any individual
+      processor,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>p</mi>
+      <mo>,</mo>
+      </math>
+      the components associated with the block
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>B</mi>
+      <mi>p</mi>
+      </msub>
+      </math>
+      will be updated. This results in a vector,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x&#8407;</mi>
+      <mo>=</mo>
+      <mfenced open="(" close=")">
+      <msubsup>
+      <mi>x</mi>
+      <mn>1</mn>
+      <mrow>
+      <msub>
+      <mi>s</mi>
+      <mn>1</mn>
+      </msub>
+      <mfenced open="(" close=")">
+      <mo>x</mo>
+      </mfenced>
+      </mrow>
+      </msubsup>
+      <msubsup>
+      <mi>x</mi>
+      <mn>2</mn>
+      <mrow>
+      <msub>
+      <mi>s</mi>
+      <mn>2</mn>
+      </msub>
+      <mfenced open="(" close=")">
+      <mo>x</mo>
+      </mfenced>
+      </mrow>
+      </msubsup>
+      <mo>&hellip;</mo>
+      <msubsup>
+      <mi>x</mi>
+      <mi>m</mi>
+      <mrow>
+      <msub>
+      <mi>s</mi>
+      <mi>m</mi>
+      </msub>
+      <mfenced open="(" close=")">
+      <mo>x</mo>
+      </mfenced>
+      </mrow>
+      </msubsup>
+      </mfenced>
+      </math>
+      where the function
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>s</mi>
+      <mi>l</mi>
+      </msub>
+      <mfenced open="(" close=")">
+      <mo>k</mo>
+      </mfenced>
+      </math>
+      indicates how many times an specific component has been updated. Finally,
+      a set of individual components can be grouped into a set,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msup>
+      <mi>I</mi>
+      <mi>k</mi>
+      </msup>
+      <mo>,</mo>
+      </math>
+      that contains all of the components that were updated on the
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msup>
+      <mi>k</mi>
+      <mi>th</mi>
+      </msup>
+      </math>
+      iteration. Given these basic definitions, the three following conditions
+      (along with the model presented in Algorithm 1) provide a working
+      mathematical framework for fine-grained asynchronous computation.
+    </p>
+
+    <section id="Sect3.1">
+      <h1>Asynchronous relaxation methods</h1>
+    </section>
+  </section>
+
+  <section id="Sect4">
+    <h1>Design of simulation framework</h1>
+
+    <section id="Sect4.1">
+      <h1>Sample use-cases for the framework</h1>
+    </section>
+  </section>
+
+  <section id="Sect5">
+    <h1>Asynchronous Jacobi implementations for the framework</h1>
+
+    <section id="Sect5.1">
+      <h1>Implementation 1: General Jacobi solver</h1>
+    </section>
+
+    <section id="Sect5.2">
+      <h1>Implementation 2: Finite difference Jacobi solver</h1>
+    </section>
+
+    <section id="Sect5.3">
+      <h1>Implementation comparison</h1>
+    </section>
+
+    <section id="Sect5.4">
+      <h1>Framework validation</h1>
+    </section>
+  </section>
+
+  <section id="Sect6">
+    <h1>Framework extension for fault-tolerance requirements</h1>
+
+    <section id="Sect6.1">
+      <h1>Fault model</h1>
+    </section>
+
+    <section id="Sect6.2">
+      <h1>Experiments with the Fault-tolerance module</h1>
+    </section>
+  </section>
+
+  <section id="Sect7">
+    <h1>Conclusions and Future Work</h1>
+    <p>This work has developed a framework that can be used to efficiently
+      simulate the outcomes of asynchronous methods for future High Performance
+      Computing environments. Given that asynchronous methods are notoriously
+      difficult to study theoretically, their simulation is an invaluable tool
+      for observing behavior and making quantitative and qualitative assertions.
+      The modular and extensible nature of the framework proposed here allows
+      for easy experimentation with modifications to a popular class of
+      algorithms that finds uses in many areas of science and engineering.</p>
+    <p>
+      The work presented was designed to show the ability of the framework to
+      adapt to new algorithm variants, such as those capable of handling
+      algorithm recovery in the presence of transient soft faults as was shown
+      by example in <a href="#Sect6.2">Section 6.2</a>.
+    </p>
+    <p>The simulation framework presented here is extensible and flexible
+      and is able to:</p>
+    <ol>
+      <li>admit a variety of asynchronous methods (i.e., beyond the simple
+        Jacobi algorithm)</li>
+      <li>incorporate different fault models and recovery techniques for
+        the development of fault tolerant algorithms, and</li>
+      <li>vary hardware parameters such as thread and processor counts and
+        the performance of those parameters as governed by the timing
+        distributions that are supplied.</li>
+    </ol>
+    <p>
+      In the future, the most obvious extension of the simulation framework is
+      to add modules that allow it to be accurately used for experiments on
+      either distributed or cloud-based computing environments. Additionally, it
+      is planned to add features for optimization that could allow for the
+      automation of the selection of the checkpointing tolerance as well as
+      checkpointing frequency in the course of simulation. Adding the capability
+      for the framework to take a range of parameters and find optimal values
+      without direct input from the user could aid in the development of
+      algorithms. Furthermore, the simulation framework is intended to be
+      augmented with runtime simulation measurements, such those provided by
+      Intel<sup>&reg;</sup> Running Average Power Limit (RAPL) interface (<a
+        role="doc-biblioref" href="#Int16">Intel, 2016</a>), to obtain simulated
+      application execution traces in order to model application performance and
+      energy consumption.
+    </p>
+  </section>
+  <section role="doc-acknowledgements">
+    <h1>Acknowledgements</h1>
+    <p>
+      This work was supported in part by the Air Force Office of Scientific
+      Research under the AFOSR award FA9550-12-1-0476, by the U.S. Department of
+      Energy (DOE) Office of Advanced Scientific Computing Research under the
+      grant DE-SC-0016564 and the Exascale Computing Project (ECP) through the
+      Ames Laboratory, operated by Iowa State University under contract No.
+      DE-AC00-07CH11358, by the U.S. Department of Defense High Performance
+      Computing Modernization Program, through a HASI grant, the High
+      Performance Computing facilities at Old Dominion University, and through
+      the ILIR/IAR program at the Naval Surface Warfare Center - Dahlgren
+      Division. Edmond Chow provided the MATLAB<sup>&reg;</sup> script that
+      evolved into part of the proposed simulation framework.
+    </p>
+  </section>
+  <section class="suppressInPDF" role="doc-endnotes">
+    <h1>Footnotes</h1>
+    <ol>
+      <li id="ftn1" role="doc-endnote">Throughout the text, vector notation
+        is occasionally adopted to emphasize when functions take all components
+        of <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi>x</mi>
+</math> as opposed to a single component, such as <math
+          xmlns="http://www.w3.org/1998/Math/MathML">
+<msub>
+<mi>x</mi>
+<mn>1</mn>
+</msub>
+</math>.<sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup>
+      </li>
+      <li id="ftn2" role="doc-endnote">Rulfo is a part of computing
+        resources of the Department of Modeling, Simulation and Visualization
+        Engineering at Old Dominion University.<sup><a role="doc-backlink"
+          href="#fn_pointer_ftn2">[back]</a></sup>
+      </li>
+    </ol>
+  </section>
+  <section role="doc-bibliography">
+    <h1>Bibliography</h1>
+    <ul>
+      <li id="AB05" role="doc-biblioentry">Addou, A., &amp; Benahmed, A.
+        (2005). Parallel synchronous algorithm for nonlinear fixed point
+        problems. <em>International Journal of Mathematics and Mathematical
+          Sciences</em>. 2005(19):3175-3183. <a
+        href="https://dx.doi.org/10.1155/IJMMS.2005.3175"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Anz12" role="doc-biblioentry">Anzt, H. (2012). <em>Asynchronous
+          and multiprecision linear solvers: Scalable and fault-tolerant
+          numerics for energy efficient high performance computing</em> (Doctoral
+        dissertation, Karlsruher Institut für Technologie, Karlsruhe, Germany).
+        <a href="https://d-nb.info/1029764689/34"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="ACD15" role="doc-biblioentry">Anzt, H., Chow, E., &amp;
+        Dongarra, J. (2015). Iterative sparse triangular solves for
+        preconditioning. In Träff, J., Hunold, S., &amp; Versaci, F. (eds) <em>Euro-Par
+          2015: Parallel Processing. Euro-Par 2015</em> (pp. 650-661). Lecture Notes
+        in Computer Science, vol 9233. Berlin, Heidelberg: Springer. <a
+        href="https://dx.doi.org/10.1007/978-3-662-48096-0_50"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="ADQO15" role="doc-biblioentry">Anzt, H., Dongarra, J., &amp;
+        Quintana-Ortí, E.S. (2015). Tuning stationary iterative solvers for
+        fault resilience. In <em>Proceedings of the 6th Workshop on Latest
+          Advances in Scalable Algorithms for Large-Scale Systems</em> (pp. 1:1-1:8).
+        New York, NY: ACM. <a href="https://dx.doi.org/10.1145/2832080.2832081"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="ADQO16" role="doc-biblioentry">Anzt, H., Dongarra, J., &amp;
+        Quintana-Ortí, E.S. (2016). Fine-grained bit-flip protection for
+        relaxation methods. <em>Journal of Computational Science</em>. <a
+        href="https://dx.doi.org/10.1016/j.jocs.2016.11.013"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="ALDH12" role="doc-biblioentry">Anzt, H., Luszczek, P.,
+        Dongarra, J., &amp; Heuveline, V. (2012). GPU-accelerated asynchronous
+        error correction for mixed precision iterative refinement. In
+        Kaklamanis, C., Papatheodorou, T., &amp; Spirakis, P.G. (eds) <em>Euro-Par
+          2012 Parallel Processing</em> (pp. 908-919). Lecture Notes in Computer
+        Science, vol 7484. Berlin, Heidelberg: Springer. <a
+        href="https://dx.doi.org/10.1007/978-3-642-32820-6_89"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="ABC+06" role="doc-biblioentry">Asanović, K., Bodik, R.,
+        Catanzaro, B.C., Gebis, J.J., Husbands, P., Keutzer, K., Patterson, D.
+        A., Plishker, W.L., Shalf, J., Williams, S.W., &amp; Yelick, K.A.
+        (2006). <em>The landscape of parallel computing research: A view
+          from Berkeley</em> (Report No. UCB/EECS-2006-183). Berkeley, CA: EECS
+        Department, University of California. <a
+        href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.html"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="ABC+10" role="doc-biblioentry">Ashby, S., Beckman, P., Chen,
+        J., Colella, P., Collins, B., Crawford, D., Dongarra, J., Kothe, D.,
+        Lusk, R., Messina, P., Mezzacappa, T., Moin, P., Norman, M. Rosner, R.,
+        Sarkar, V., Siegel, A., Streitz, F., White, A., &amp; Wright, M. (2010).
+        <em>The opportunities and challenges of exascale computing: Summary
+          report of the advanced scientific computing advisory committee (ASCAC)
+          subcommittee.</em> (Report No. Fall 2010). Washington, D.C.: U.S.
+        Department of Energy Office of Science. <a
+        href="https://science.energy.gov/~/media/ascr/ascac/pdf/reports/Exascale_subcommittee_report.pdf"><img
+          src="../../icons/pdf.png" /></a>
+      </li>
+      <li id="ADG15" role="doc-biblioentry">Avron, H., Druinsky, A. &amp;
+        Gupta, A. (2015). Revisiting asynchronous linear solvers: Provable
+        convergence rate through randomization. <em>Journal of the ACM</em>,
+        62(6):51:1-51:27. <a href="https://dx.doi.org/10.1145/2814566"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Bau78" role="doc-biblioentry">Baudet, G.M. (1978).
+        Asynchronous iterative methods for multiprocessors. <em>Journal of
+          the ACM</em>, 25(2):226-244. <a
+        href="https://dx.doi.org/10.1145/322063.322067"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Ben07" role="doc-biblioentry">Benahmed, A. (2007). A
+        convergence result for asynchronous algorithms and applications. <em>Proyecciones
+          (Antofagasta)</em>, 26(2):219-236. <a
+        href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&pid=S0716-09172007000200005&lng=pt&nrm=iso&tlng=en"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="BT89" role="doc-biblioentry">Bertsekas, D.P., &amp;
+        Tsitsiklis, J.N. (1989). <em>Parallel and distributed computation:
+          numerical methods</em>. Englewood Cliffs, NJ: Prentice-Hall.
+      </li>
+      <li id="BBDH11" role="doc-biblioentry">Bethune, I., Bull, J.M.,
+        Dingle, N.J., &amp; Higham, N.J. (2011). <em>Investigating the
+          performance of asynchronous Jacobi's method for solving systems of
+          linear equations</em> (Report No. 2011.82). Manchester: The University of
+        Manchester. <a href="http://eprints.maths.manchester.ac.uk/1684/"><img
+          src="../../icons/html.png" /></a> <a
+        href="http://eprints.maths.manchester.ac.uk/1684/1/paper.pdf"><img
+          src="../../icons/pdf.png" /></a>
+      </li>
+      <li id="BBDH14" role="doc-biblioentry">Bethune, I., Bull, J.M.,
+        Dingle, N.J., &amp; Higham, N.J. (2014). Performance analysis of
+        asynchronous Jacobi's method implemented in MPI, SHMEM and OpenMP. <em>International
+          Journal of High Performance Computing Applications</em>, 28(1):97-111. <a
+        href="https://dx.doi.org/10.1177/1094342013493123"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="BPC+11" role="doc-biblioentry">Boyd, S., Parikh, N., Chu, E.,
+        Peleato, B., &amp; Eckstein, J. (2011). Distributed optimization and
+        statistical learning via the alternating direction method of
+        multipliers. <em>Foundations and Trends in Machine Learning</em>,
+        3(1):1-122. <a
+        href="https://web.stanford.edu/~boyd/papers/admm_distr_stats.html"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="BFHH12" role="doc-biblioentry">Bridges, P.G., Ferreira, K.
+        B., Heroux, M.A., &amp; Hoemmen, M. (2012). Fault-tolerant linear
+        solvers via selective reliability. <em>arXiv preprint
+          arXiv:1206.1390</em>. <a href="https://arxiv.org/abs/1206.1390"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="BM02" role="doc-biblioentry">Buyya, R. &amp; Murshed, M.
+        (2002). Gridsim: A toolkit for the modeling and simulation of
+        distributed resource management and scheduling for grid computing. <em>Concurrency
+          and Computation: Practice and Experience</em>, 14(13-15):1175-1220. <a
+        href="https://dx.doi.org/10.1002/cpe.710"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CRB+11" role="doc-biblioentry">Calheiros, R.N., Ranjan, R.,
+        Beloglazov, A., De Rose, C.A.F., &amp; Buyya, R. (2011). CloudSim: A
+        toolkit for modeling and simulation of cloud computing environments and
+        evaluation of resource provisioning algorithms. <em>Software:
+          Practice and Experience</em>, 41(1):23-50. <a
+        href="https://dx.doi.org/10.1002/spe.995"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CRDRB09" role="doc-biblioentry">Calheiros, R.N., Ranjan, R.,
+        De Rose, C.A.F., &amp; Buyya, R. (2009). Cloudsim: A novel framework for
+        modeling and simulation of cloud computing infrastructures and services.
+        <em>arXiv preprint arXiv:0903.2525</em>. <a
+        href="https://arxiv.org/abs/0903.2525"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="CGG+09" role="doc-biblioentry">Cappello, F., Geist, A.,
+        Gropp, B., Kale, L., Kramer, B., &amp; Snir, M. (2009). Toward exascale
+        resilience. <em>International Journal of High Performance Computing
+          Applications</em>, 23(4):374-388. <a
+        href="https://dx.doi.org/10.1177/1094342009347767"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CGG+14" role="doc-biblioentry">Cappello, F., Geist, A.,
+        Gropp, B., Kale, L., Kramer, B., &amp; Snir, M. (2014). Toward exascale
+        resilience: 2014 update. <em>Supercomputing Frontiers and
+          Innovations</em>, 1(1). <a href="https://dx.doi.org/10.14529/jsfi140101"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Cas01" role="doc-biblioentry">Casanova, H. (2001). Simgrid: A
+        toolkit for the simulation of application scheduling. In <em>Proceedings
+          of the First IEEE/ACM International Symposium on Cluster Computing and
+          the Grid</em> (pp. 430-437). Piscataway, NJ: IEEE Press. <a
+        href="https://dx.doi.org/10.1109/CCGRID.2001.923223"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CLQ08" role="doc-biblioentry">Casanova, H., Legrand, A.,
+        &amp; Quinson, M. (2008). Simgrid: A generic framework for large-scale
+        distributed experiments. In <em>Proceedings of the Tenth
+          International Conference on Computer Modeling and Simulation (UKSIM
+          2008)</em> (pp. 126-131). Piscataway, NJ: IEEE Press. <a
+        href="https://dx.doi.org/10.1109/UKSIM.2008.28"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CM69" role="doc-biblioentry">Chazan, D., &amp; Miranker, W.
+        (2014). Chaotic relaxation. <em>Linear Algebra and its Applications</em>,
+        2(2):199-222. <a href="https://dx.doi.org/10.1016/0024-3795(69)90028-7"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CC16" role="doc-biblioentry">Cheung, Y.K. &amp; Cole, R.
+        (2016). A unified approach to analyzing asynchronous coordinate descent
+        and tatonnement. <em>arXiv preprint arXiv:1612.09171</em>. <a
+        href="https://arxiv.org/abs/1612.09171"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="CAD15" role="doc-biblioentry">Chow, E., Anzt, H., &amp;
+        Dongarra, J. (2015). Asynchronous iterative algorithm for computing
+        incomplete factorizations on GPUs. In Kunkel, J., &amp; Ludwig, T. (eds)
+        <em>High Performance Computing. ISC High Performance 2015</em>. Lecture
+        Notes in Computer Science, vol 9137. Cham: Springer. <a
+        href="https://dx.doi.org/10.1007/978-3-319-20119-1_1"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CP15" role="doc-biblioentry">Chow, E., &amp; Patel, A.
+        (2015). Fine-grained parallel incomplete LU factorization. <em>SIAM
+          Journal on Scientific Computing</em>, 37(2):C169-C193. <a
+        href="https://dx.doi.org/10.1137/140968896"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CJB+18" role="doc-biblioentry">Coleman, E.C., Jamal, A.,
+        Baboulin, M., Khabou, A., &amp; Sosonkina, M. (2018). A comparison of
+        soft-fault error models in the parallel preconditioned flexible GMRES.
+        In Wyrzykowski, R., Dongarra, J., Deelman, E., Karczewski, K. (eds) <em>Parallel
+          Processing and Applied Mathematics. PPAM 2017.</em> (pp. 36-46). Lecture
+        Notes in Computer Science, vol 10777. Cham: Springer. <a
+        href="https://dx.doi.org/10.1007/978-3-319-78024-5_4"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CS16a" role="doc-biblioentry">Coleman, E.C., &amp; Sosonkina,
+        M. (2016a). A comparison and analysis of soft-fault error models using
+        FGMRES. In <em>Proceedings of the 6th Annual Virginia Modeling,
+          Simulation, and Analysis Center Capstone Conference</em> (pp. 135-142).
+        Norfolk, VA: Virginia Modeling, Simulation, and Analysis Center.
+      </li>
+      <li id="CS16b" role="doc-biblioentry">Coleman, E.C., &amp; Sosonkina,
+        M. (2016b). Evaluating a persistent soft fault model on preconditioned
+        iterative methods. In <em>Proceedings of the 22nd Annual
+          International Conference on Parallel and Distributed Processing
+          Techniques and Applications</em> (pp. 98-104). Athens: The Steering
+        Committee of The World Congress in Computer Science, Computer
+        Engineering and Applied Computing (WorldComp). <a
+        href="http://worldcomp-proceedings.com/proc/p2016/PDP3831.pdf"><img
+          src="../../icons/pdf.png" /></a>
+      </li>
+      <li id="CS17" role="doc-biblioentry">Coleman, E.C., &amp; Sosonkina,
+        M. (2017). Fault tolerance for fine-grained iterative methods. In <em>Proceedings
+          of the 7th Annual Virginia Modeling, Simulation, and Analysis Center
+          Capstone Conference</em>. Norfolk, VA: Virginia Modeling, Simulation, and
+        Analysis Center.
+      </li>
+      <li id="CS18" role="doc-biblioentry">Coleman, E.C., &amp; Sosonkina,
+        M. (2018). CloudSim: A toolkit for modeling and simulation of cloud
+        computing environments and evaluation of resource provisioning
+        algorithms. <em>Sustainable Computing: Informatics and Systems</em>, (In
+        Press). <a href="https://dx.doi.org/10.1016/j.suscom.2018.01.003"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="CSC17" role="doc-biblioentry">Coleman, E.C., Sosonkina, M.,
+        &amp; Chow, E. (2017). Fault tolerant variants of the fine-grained
+        parallel incomplete LU factorization. In <em>Proceedings of the
+          25th High Performance Computing Symposium</em>. San Diego, CA: Society for
+        Computer Simulation International. <a
+        href="http://scs.org/wp-content/uploads/2017/06/50_Final_Manuscript.pdf"><img
+          src="../../icons/pdf.png" /></a>
+      </li>
+      <li id="DHB+14" role="doc-biblioentry">Dongarra, J., Hittinger, J.,
+        Bell, J., Chacon, L., Falgout, R., Heroux, M., Hovland, P., Ng, E.,
+        Webster, A., &amp; Wild, S. (2014). <em>Applied mathematics
+          research for exascale computing</em> (Report No. LLNL-TR-651000).
+        Livermore, CA: Lawrence Livermore National Laboratory. <a
+        href="https://dx.doi.org/10.2172/1149042"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="DF05" role="doc-biblioentry">Dumitrescu, C.L., &amp; Foster,
+        I. (2005). GangSim: A simulator for grid scheduling studies. In <em>CCGrid
+          2005. IEEE International Symposium on Cluster Computing and the Grid</em>
+        (pp. 1151-1158, vol 2). Piscataway, NJ: IEEE Press. <a
+        href="https://dx.doi.org/10.1109/CCGRID.2005.1558689"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="EHM15" role="doc-biblioentry">Elliott, J., Hoemmen, M., &amp;
+        Mueller, F. (2015). A numerical soft fault model for iterative linear
+        solvers. In <em>Proceedings of the 24th International Symposium on
+          High-Performance Parallel and Distributed Computing</em> (pp. 271-274). New
+        York, NY: ACM. <a href="https://dx.doi.org/10.1145/2749246.2749254"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="FS00" role="doc-biblioentry">Frommer, A. &amp; Szyld, D. B.
+        (2000). On asynchronous iterations. <em>Journal of Computational
+          and Applied Mathematics</em>, 123(1):201-216. <a
+        href="https://dx.doi.org/10.1016/S0377-0427(00)00409-X"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Gär99" role="doc-biblioentry">Gärtner, F.C. (1999).
+        Fundamentals of fault-tolerant distributed computing in asynchronous
+        environments. <em>ACM Computing Surveys</em>, 31(1):1-26. <a
+        href="https://dx.doi.org/10.1145/311531.311532"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Gei11" role="doc-biblioentry">Geist, A. (2011). What is the
+        monster in the closet?. In <em>Invited Talk at Workshop on
+          Architectures I: Exascale and Beyond: Gaps in Research, Gaps in our
+          Thinking</em> (vol 2).
+      </li>
+      <li id="Gei12" role="doc-biblioentry">Geist, A. (2012). Exascale
+        monster in the closet. In <em>2012 IEEE Workshop on Silicon Errors
+          in Logic-System Effects, Champaign-Urbana, IL, March</em> (pp. 27-28).
+        Piscataway, NJ: IEEE Press.
+      </li>
+      <li id="Gei16" role="doc-biblioentry">Geist, A. (2016).
+        Supercomputing's monster in the closet. <em>IEEE Spectrum</em>.
+        53(3):30-35. <a href="https://doi.org/10.1109/MSPEC.2016.7420396"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="GL09" role="doc-biblioentry">Geist, A., &amp; Lucas, R.
+        (2009). Major computer science challenges at exascale. <em>International
+          Journal of High Performance Computing Applications</em>. 23(4):427-436. <a
+        href="https://doi.org/10.1177%2F1094342009347445"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="GBH14" role="doc-biblioentry">Gerstenberger, R., Besta, M.,
+        &amp; Hoefler, T. (2014). Enabling highly-scalable remote memory access
+        programming with MPI-3 one sided. <em>Scientific Programming</em>,
+        22(2):75-91. <a href="https://dx.doi.org/10.3233/SPR-140383"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="HW10" role="doc-biblioentry">Hager, G., &amp; Wellein, G.
+        (2010). <em>Introduction to high performance computing for
+          scientists and engineers</em>. Boca Raton, FL: CRC Press. <a
+        href="https://dx.doi.org/10.1109/TCNS.2017.2657460"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="HH11" role="doc-biblioentry">Hoemmen, M., &amp; Heroux, M.A.
+        (2011). <em>Fault-tolerant iterative methods via selective
+          reliability</em>. vol 3.<a
+        href="http://www.sandia.gov/%7Emaherou/docs/FTGMRES.pdf"><img
+          src="../../icons/pdf.png" /></a>
+      </li>
+      <li id="Hon17" role="doc-biblioentry">Hong, M. (2017). A distributed,
+        asynchronous and incremental algorithm for nonconvex optimization: An
+        ADMM approach. <em>IEEE Transactions on Control of Network Systems</em>.
+        Piscataway, NJ: IEEE Press. <a
+        href="https://dx.doi.org/10.1109/TCNS.2017.2657460"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="HD18" role="doc-biblioentry">Hook, J., &amp; Dingle, N.
+        (2018). Performance analysis of asynchronous parallel Jacobi. <em>Numerical
+          Algorithms</em>. 77(3):831-866. <a
+        href="https://dx.doi.org/10.1007/s11075-017-0342-9"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Int16" role="doc-biblioentry">Intel (2016). <em>Intel<sup>&reg;</sup>
+          64 and IA-32 architectures developer's manual
+      </em>. Volume 3B: System Programming Guide, Part 2. <a
+        href="https://www.intel.de/content/www/de/de/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3b-part-2-manual.html"><img
+          src="../../icons/html.png" /></a>
+      </li>
+      <li id="IBCH13" role="doc-biblioentry">Iutzeler, F., Bianchi, P.,
+        Ciblat, P., &amp; Hachem, W. (2013). Asynchronous distributed
+        optimization using a randomized alternating direction method of
+        multipliers. In <em>Decision and Control (CDC), 2013 IEEE 52nd
+          Annual Conference on</em> (pp. 3671-3676). Piscataway, NJ: IEEE Press. <a
+        href="https://dx.doi.org/10.1109/CDC.2013.6760448"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="OR00" role="doc-biblioentry">Ortega, J.M., &amp; Rheinboldt,
+        W.C. (2000). <em>Iterative solution of nonlinear equations in
+          several variables</em>. Philadelphia, PA: SIAM. <a
+        href="https://dx.doi.org/10.1137/1.9780898719468"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Saa03" role="doc-biblioentry">Saad, Y. (2003). <em>Iterative
+          methods for sparse linear systems</em>. Philadelphia, PA: SIAM. <a
+        href="https://dx.doi.org/10.1137/1.9780898718003"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="SV13" role="doc-biblioentry">Sao, P. &amp; Vuduc, R. (2013).
+        Self-stabilizing iterative solvers. In <em>Proceedings of the
+          Workshop on Latest Advances in Scalable Algorithms for Large-Scale
+          Systems</em> (pp. 4:1-4:8). New York, NY: ACM. <a
+        href="https://dx.doi.org/10.1145/2530268.2530272"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="SWA+14" role="doc-biblioentry">Snir, M., Wisniewski, R.W.,
+        Abraham, J.A., Adve, S.V., Bagchi, S., Balaji, P., Belak, J., Bose, P.,
+        Cappello, F., Carlson, B., Chien, A.A., Coteus, P., Debardeleben, N.A.,
+        Diniz, P.C., Engelmann, C., Erez, M., Fazzari, S., Geist, A., Gupta, R.,
+        Johnson, F., Krishnamoorthy, S., Leyffer, S., Liberty, D., Mitra, S.,
+        Munson, T., Schreiber, R., Stearley, J., &amp; van Hensbergen, E.
+        (2014). Addressing failures in exascale computing. <em>International
+          Journal of High Performance Computing Applications</em>. 28(2):129-173. <a
+        href="https://dx.doi.org/10.1177/1094342014522573"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="SN11" role="doc-biblioentry">Srivastava, K., &amp; Nedic, A.
+        (2011). Distributed asynchronous constrained stochastic optimization. <em>IEEE
+          Journal of Selected Topics in Signal Processing</em>. 5(4):772-790. <a
+        href="https://dx.doi.org/10.1109/JSTSP.2011.2118740"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="SW15" role="doc-biblioentry">Stoyanov, M. &amp; Webster, C.
+        (2015). Numerical analysis of fixed point algorithms in the presence of
+        hardware faults. <em>SIAM Journal on Scientific Computing</em>.
+        37(5):C532-C553. <a href="https://dx.doi.org/10.1137/140991406"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="Szy98" role="doc-biblioentry">Szyld, D.B. (1998). Different
+        models of parallel asynchronous iterations with overlapping blocks. <em>Computational
+          and Applied Mathematics</em>. 17:101-115. <a
+        href="https://dx.doi.org/10.1137/140991406"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="TBA86" role="doc-biblioentry">Tsitsiklis, J., Bertsekas, D.,
+        &amp; Athans, M. (1986). Distributed asynchronous deterministic and
+        stochastic gradient optimization algorithms. <em>IEEE Transactions
+          on Automatic Control</em>. 31(9):803-812. <a
+        href="https://dx.doi.org/10.1137/140991406"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="VV09" role="doc-biblioentry">Venkatasubramanian, S., &amp;
+        Vuduc, R.W. (2009). Tuned and wildly asynchronous stencil kernels for
+        hybrid CPU/GPU systems. In <em>Proceedings of the 23rd
+          International Conference on Supercomputing</em> (pp. 244-255). New York,
+        NY: ACM. <a href="https://dx.doi.org/10.1145/1542275.1542312"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="WPC16" role="doc-biblioentry">Wolfson-Pou, J., &amp; Chow, E.
+        (2016). Reducing communication in distributed asynchronous iterative
+        methods. <em>Procedia Computer Science</em>. 80:1906-1916. <a
+        href="https://dx.doi.org/10.1016/j.procs.2016.05.501"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+      <li id="ZC10" role="doc-biblioentry">Zhong, M., &amp; Cassandras, C.
+        G. (2010). Distributed asynchronous deterministic and stochastic
+        gradient optimization algorithms. <em>IEEE Transactions on
+          Automatic Control</em>. 55(12):2735-2750. <a
+        href="https://dx.doi.org/10.1109/TAC.2010.2049518"><img
+          src="../../icons/doi.png" /></a>
+      </li>
+    </ul>
+  </section>
+  </main>
+</body>
+</html>
