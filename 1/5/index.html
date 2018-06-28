@@ -61,8 +61,19 @@
   font-variant: small-caps;
 }
 
-.tab-matrix {
-  border-style: none;
+.tab-matrix td {
+  border-style: hidden;
+  text-align: center;
+}
+
+tr.border_top_bottom td {
+  border-top: 1pt solid black;
+  border-bottom: 1pt solid black;
+}
+
+td.border_left_right {
+  border-left: 1pt solid black;
+  border-right: 1pt solid black;
 }
 </style>
 <!--Scripts-->
@@ -192,7 +203,7 @@
       <div class="affiliation">Old Dominion University, Norfolk, VA,
         United States</div>
     </div>
-<!--     <div id="acm-subject-categories">
+    <!--     <div id="acm-subject-categories">
       <h1>ACM Subject Categories</h1>
       <ul>
         <li><code>TBD~TBD</code></li>
@@ -2370,53 +2381,53 @@
       </p>
       <table id="Tab2" class="tab-matrix">
         <tbody>
-          <tr>
-            <td>0</td>
-            <td>100</td>
+          <tr class="border_top_bottom">
+            <td class="border_left_right">0</td>
+            <td class="border_left_right">100</td>
             <td>&hellip;</td>
             <td>&hellip;</td>
-            <td>100</td>
-            <td>0</td>
+            <td class="border_left_right">100</td>
+            <td class="border_left_right">0</td>
+          </tr>
+          <tr class="border_top_bottom">
+            <td class="border_left_right">75</td>
+            <td class="border_left_right">XXX</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td class="border_left_right">XXX</td>
+            <td class="border_left_right">50</td>
           </tr>
           <tr>
-            <td>75</td>
-            <td>XXX</td>
+            <td class="border_left_right">&vellip;</td>
+            <td class="border_left_right">XXX</td>
             <td>&hellip;</td>
             <td>&hellip;</td>
-            <td>XXX</td>
-            <td>50</td>
+            <td class="border_left_right">XXX</td>
+            <td class="border_left_right">&vellip;</td>
           </tr>
           <tr>
-            <td>&vellip;</td>
-            <td>XXX</td>
+            <td class="border_left_right">&vellip;</td>
+            <td class="border_left_right">XXX</td>
             <td>&hellip;</td>
             <td>&hellip;</td>
-            <td>XXX</td>
-            <td>&vellip;</td>
+            <td class="border_left_right">XXX</td>
+            <td class="border_left_right">&vellip;</td>
           </tr>
-          <tr>
-            <td>&vellip;</td>
-            <td>XXX</td>
+          <tr class="border_top_bottom">
+            <td class="border_left_right">75</td>
+            <td class="border_left_right">XXX</td>
             <td>&hellip;</td>
             <td>&hellip;</td>
-            <td>XXX</td>
-            <td>&vellip;</td>
+            <td class="border_left_right">XXX</td>
+            <td class="border_left_right">50</td>
           </tr>
-          <tr>
-            <td>75</td>
-            <td>XXX</td>
+          <tr class="border_top_bottom">
+            <td class="border_left_right">0</td>
+            <td class="border_left_right">0</td>
             <td>&hellip;</td>
             <td>&hellip;</td>
-            <td>XXX</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
-            <td>0</td>
-            <td>0</td>
+            <td class="border_left_right">0</td>
+            <td class="border_left_right">0</td>
           </tr>
         </tbody>
         <caption>
@@ -2634,7 +2645,7 @@
             <td>3.87</td>
           </tr>
           <tr>
-            <td style="text-align: center" >25</td>
+            <td style="text-align: center">25</td>
             <td>3.92</td>
             <td>2.08</td>
           </tr>
@@ -2827,9 +2838,12 @@
       <table id="Tab4">
         <thead>
           <tr>
-            <th>Thread<br/> Count</th>
-            <th>Run<br/> Average (s)</th>
-            <th>Simulation<br/> Average (s)</th>
+            <th>Thread<br /> Count
+            </th>
+            <th>Run<br /> Average (s)
+            </th>
+            <th>Simulation<br /> Average (s)
+            </th>
           </tr>
         </thead>
         <tbody style="text-align: right">
