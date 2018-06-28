@@ -50,18 +50,23 @@
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta/katex.min.css"
-  integrity="sha384-L/SNYu0HM7XECWBeshTGLluQO9uVI1tvkCtunuoUbCHHoTH76cDyXty69Bb9I0qZ"
+  href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+  integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH"
   crossorigin="anonymous" />
 <link rel="stylesheet" href="https://articles.jsime.org/pseudocode.min.css" />
 <link rel="stylesheet" href="../../jsime.css" />
+<!-- Style -->
+<style>
+.small-caps {
+  font-variant: small-caps;
+}
+</style>
 <!--Scripts-->
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta/katex.min.js"
-  integrity="sha384-ad+n9lzhJjYgO67lARKETJH6WuQVDDlRfj81AJJSswMyMkXTD49wBj5EP004WOY6"
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+  integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
   crossorigin="anonymous"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="https://articles.jsime.org/pseudocode.min.js"></script>
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
@@ -126,7 +131,7 @@
       "copyrightHolder": [ "#author-1", "#author-2", "#author-3" ],
       "copyrightYear": "2018",
       "dateCreated": "2018-06-25",
-      "dateModified": "2018-06-25",
+      "dateModified": "2018-06-28",
       "datePublished": "2018-06-28"
     },
     {
@@ -221,6 +226,7 @@
       of different checkpointing schemes for asynchronous relaxation methods.
     </p>
   </section>
+
   <section id="Sect1">
     <h1>Introduction</h1>
     <p>
@@ -464,7 +470,7 @@
   </section>
 
   <section id="Sect3">
-    <h1>Asynchronous iterative methods</h1>
+    <h1>Asynchronous Iterative Methods</h1>
     <p>
       In fine-grained parallel computation, each component of the problem (i.e.,
       a matrix or vector entry) is updated in a manner that does not require
@@ -754,8 +760,8 @@
       </pre>
     </div>
     <script>
-          var alg1 = document.getElementById( "Alg1t" ).textContent;
-          pseudocode.render( alg1, document.getElementById( "Alg1" ), {
+          var alg = document.getElementById( "Alg1t" ).textContent;
+          pseudocode.render( alg, document.getElementById( "Alg1" ), {
             lineNumber: true
           } );
         </script>
@@ -888,11 +894,12 @@
       provide a working mathematical framework for fine-grained asynchronous
       computation.
     </p>
-    <p id="Def1">
-      <strong>Definition 1.</strong> If the following three conditions hold
-    </p>
-    <ol>
-      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+    <div id="Def1">
+      <p>
+        <strong>Definition 1.</strong> If the following three conditions hold
+      </p>
+      <ol>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mi>s</mi>
       <mi>i</mi>
@@ -906,8 +913,8 @@
       <mn>1</mn>
       <mo>,</mo>
       </math> i.e., only components that have finished computing are used in the
-        current approximation.</li>
-      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+          current approximation.</li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mtext>lim</mtext>
       <mrow>
@@ -927,7 +934,7 @@
       <mn>&infin;</mn>
       <mo>,</mo>
       </math> i.e., the newest updates for each component are used.</li>
-      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <mfenced open="|" close="|">
       <mrow>
       <mi>k</mi>
@@ -946,10 +953,10 @@
       <mn>&infin;</mn>
       <mo>,</mo>
       </math> i.e., all components will continue to be updated.</li>
-    </ol>
-    <p>
-      Then given an initial
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      </ol>
+      <p>
+        Then given an initial
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
       <msup>
       <mi>x&#8407;</mi>
       <mn>0</mn>
@@ -958,13 +965,13 @@
       <mi>D</mi>
       <mo>,</mo>
       </math>
-      the iterative update process defined by
-    </p>
-    <p>$$ x^{k}_{i} = \begin{cases} x^{k-1}_{i} & i \notin I_{k} \\
-      G_{i}\left( \vec{x} \right) & i \in I_{k} \end{cases} $$</p>
-    <p>
-      where the function
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        the iterative update process defined by
+      </p>
+      <p>$$ x^{k}_{i} = \begin{cases} x^{k-1}_{i} & i \notin I_{k} \\
+        G_{i}\left( \vec{x} \right) & i \in I_{k} \end{cases} $$</p>
+      <p>
+        where the function
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mi>G</mi>
       <mi>i</mi>
@@ -973,8 +980,9 @@
       <mi>x&#8407;</mi>
       </mfenced>
       </math>
-      uses the latest updates available is called an asynchronous iteration.
-    </p>
+        uses the latest updates available is called an asynchronous iteration.
+      </p>
+    </div>
     <p>
       This basic computational model (i.e., the combination of <a href="#Alg1">Algorithm
         1</a> and <a href="#Def1">Definition 1</a> together) allows for many
@@ -984,7 +992,7 @@
     </p>
 
     <section id="Sect3.1">
-      <h1>Asynchronous relaxation methods</h1>
+      <h1>Asynchronous Relaxation Methods</h1>
 
       <p>
         Relaxation methods have been the focus of many of the works mentioned in
@@ -1174,7 +1182,8 @@
         As noted in (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
           &amp; Chow, 2016</a>), the iteration matrix
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mi>C</mi></math>
+        <mi>C</mi>
+        </math>
         that is used in the Jacobi relaxation method serves as a worst case for
         relaxation methods of the form discussed here. However, because of the
         ubiquitous use of the Jacobi method in parallel solutions of large
@@ -1188,7 +1197,7 @@
   </section>
 
   <section id="Sect4">
-    <h1>Design of simulation framework</h1>
+    <h1>Design of Simulation Framework</h1>
     <p>
       The simulation framework proposed here is designed to simulate the
       performance of an asynchronous iterative method operating on multiple
@@ -1496,8 +1505,8 @@
       </pre>
     </div>
     <script>
-          var alg1 = document.getElementById( "Alg2t" ).textContent;
-          pseudocode.render( alg1, document.getElementById( "Alg2" ), {
+          var alg = document.getElementById( "Alg2t" ).textContent;
+          pseudocode.render( alg, document.getElementById( "Alg2" ), {
             lineNumber: true
           } );
         </script>
@@ -1622,7 +1631,7 @@
       this inside of the proposed framework is straightforward.</p>
 
     <section id="Sect4.1">
-      <h1>Sample use-cases for the framework</h1>
+      <h1>Sample Use-Cases for the Framework</h1>
       <p>
         Let the matrix
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1734,7 +1743,7 @@
   </section>
 
   <section id="Sect5">
-    <h1>Asynchronous Jacobi implementations for the framework</h1>
+    <h1>Asynchronous Jacobi Implementations for the Framework</h1>
     <p>
       <a href="#Fig4">Figure 4</a> and <a href="#Fig5">Figure 5</a> show
       relative differences in compute times among sharedmemory computing
@@ -1795,7 +1804,7 @@
     </p>
 
     <section id="Sect5.1">
-      <h1>Implementation 1: General Jacobi solver</h1>
+      <h1>Implementation 1: General Jacobi Solver</h1>
       <p>
         In this case, the heat problem is represented mathematically by a sparse
         matrix, which is solved by an asynchronous general Jacobi method. The
@@ -1926,8 +1935,8 @@
       </pre>
       </div>
       <script>
-              var alg1 = document.getElementById( "Alg3t" ).textContent;
-              pseudocode.render( alg1, document.getElementById( "Alg3" ), {
+              var alg = document.getElementById( "Alg3t" ).textContent;
+              pseudocode.render( alg, document.getElementById( "Alg3" ), {
                 lineNumber: true
               } );
             </script>
@@ -2098,9 +2107,9 @@
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: right">
           <tr>
-            <td>11</td>
+            <td style="text-align: center">11</td>
             <td>1.28</td>
             <td>167.00</td>
             <td>7.76</td>
@@ -2109,7 +2118,7 @@
             <td>2.79</td>
           </tr>
           <tr>
-            <td>21</td>
+            <td style="text-align: center">21</td>
             <td>1.31</td>
             <td>84.30</td>
             <td>6.98</td>
@@ -2118,7 +2127,7 @@
             <td>1.96</td>
           </tr>
           <tr>
-            <td>41</td>
+            <td style="text-align: center">41</td>
             <td>1.38</td>
             <td>43.00</td>
             <td>7.09</td>
@@ -2127,7 +2136,7 @@
             <td>1.63</td>
           </tr>
           <tr>
-            <td>81</td>
+            <td style="text-align: center">81</td>
             <td>2.98</td>
             <td>27.30</td>
             <td>20.60</td>
@@ -2136,7 +2145,7 @@
             <td>1.79</td>
           </tr>
           <tr>
-            <td>101</td>
+            <td style="text-align: center">101</td>
             <td>36.70</td>
             <td>23.40</td>
             <td>357.00</td>
@@ -2145,7 +2154,7 @@
             <td>1.79</td>
           </tr>
           <tr>
-            <td>201</td>
+            <td style="text-align: center">201</td>
             <td>251.00</td>
             <td>15.30</td>
             <td>2500.00</td>
@@ -2154,7 +2163,7 @@
             <td>4.33</td>
           </tr>
           <tr>
-            <td>251</td>
+            <td style="text-align: center">251</td>
             <td>345.00</td>
             <td>13.30</td>
             <td>3440.00</td>
@@ -2163,7 +2172,7 @@
             <td>4.55</td>
           </tr>
           <tr>
-            <td>401</td>
+            <td style="text-align: center">401</td>
             <td>1880.00</td>
             <td>8.23</td>
             <td>18,700.00</td>
@@ -2336,7 +2345,7 @@
     </section>
 
     <section id="Sect5.2">
-      <h1>Implementation 2: Finite difference Jacobi solver</h1>
+      <h1>Implementation 2: Finite Difference Jacobi Solver</h1>
       <p>
         This second implementation performs the Jacobi relaxation on the grid
         directly using the neighboring points required by the 5-point stencil as
@@ -2355,7 +2364,7 @@
         grid with boundary conditions set according to <a href="#Tab2">Table
           2</a>.
       </p>
-      <table id="Tab2">
+      <table id="Tab2" style="border-collapse: collapse;">
         <tbody>
           <tr>
             <td>0</td>
@@ -2569,8 +2578,8 @@
       </pre>
       </div>
       <script>
-              var alg1 = document.getElementById( "Alg4t" ).textContent;
-              pseudocode.render( alg1, document.getElementById( "Alg4" ), {
+              var alg = document.getElementById( "Alg4t" ).textContent;
+              pseudocode.render( alg, document.getElementById( "Alg4" ), {
                 lineNumber: true
               } );
             </script>
@@ -2614,34 +2623,34 @@
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: right">
           <tr>
-            <td>10</td>
+            <td style="text-align: center">10</td>
             <td>8.86</td>
             <td>3.87</td>
           </tr>
           <tr>
-            <td>25</td>
+            <td style="text-align: center" >25</td>
             <td>3.92</td>
             <td>2.08</td>
           </tr>
           <tr>
-            <td>50</td>
+            <td style="text-align: center">50</td>
             <td>2.55</td>
             <td>2.34</td>
           </tr>
           <tr>
-            <td>75</td>
+            <td style="text-align: center">75</td>
             <td>2.53</td>
             <td>5.80</td>
           </tr>
           <tr>
-            <td>100</td>
+            <td style="text-align: center">100</td>
             <td>2.61</td>
             <td>5.95</td>
           </tr>
           <tr>
-            <td>150</td>
+            <td style="text-align: center">150</td>
             <td>2.64</td>
             <td>5.76</td>
           </tr>
@@ -2651,7 +2660,7 @@
           by thread count
         </caption>
       </table>
-      </figure>
+
       <figure id="Fig9">
         <figure id="Fig9a">
           <img src="./img/image9a.png" />
@@ -2689,9 +2698,9 @@
             <strong>(f)</strong> 150 threads
           </figcaption>
         </figure>
-        <caption>
+        <figcaption>
           <strong>Figure 9.</strong> Iteration time histograms with kernel fits
-        </caption>
+        </figcaption>
       </figure>
       <p>
         <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
@@ -2718,7 +2727,7 @@
     </section>
 
     <section id="Sect5.3">
-      <h1>Implementation comparison</h1>
+      <h1>Implementation Comparison</h1>
       <p>
         The <span class="small-caps">Safe</span> variant of the first
         implementation incurs significant overhead costs for
@@ -2774,7 +2783,7 @@
     </section>
 
     <section id="Sect5.4">
-      <h1>Framework validation</h1>
+      <h1>Framework Validation</h1>
       <p>
         To validate the performance of the simulation framework when initialized
         with appropriate distributions, a case study utilizing output from
@@ -2814,44 +2823,44 @@
       <table id="Tab4">
         <thead>
           <tr>
-            <th>Thread Count</th>
-            <th>Run Average (s)</th>
-            <th>Simulation Average (s)</th>
+            <th>Thread<br/> Count</th>
+            <th>Run<br/> Average (s)</th>
+            <th>Simulation<br/> Average (s)</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: right">
           <tr>
-            <td>11</td>
+            <td style="text-align: center">11</td>
             <td>0.01</td>
             <td>0.01</td>
           </tr>
           <tr>
-            <td>21</td>
+            <td style="text-align: center">21</td>
             <td>0.02</td>
             <td>0.02</td>
           </tr>
           <tr>
-            <td>41</td>
+            <td style="text-align: center">41</td>
             <td>0.04</td>
             <td>0.04</td>
           </tr>
           <tr>
-            <td>51</td>
+            <td style="text-align: center">51</td>
             <td>0.04</td>
             <td>0.05</td>
           </tr>
           <tr>
-            <td>81</td>
+            <td style="text-align: center">81</td>
             <td>0.09</td>
             <td>0.09</td>
           </tr>
           <tr>
-            <td>101</td>
+            <td style="text-align: center">101</td>
             <td>0.12</td>
             <td>0.12</td>
           </tr>
           <tr>
-            <td>201</td>
+            <td style="text-align: center">201</td>
             <td>0.34</td>
             <td>0.35</td>
           </tr>
@@ -2865,7 +2874,7 @@
   </section>
 
   <section id="Sect6">
-    <h1>Framework extension for fault-tolerance requirements</h1>
+    <h1>Framework Extension for Fault-Tolerance Requirements</h1>
     <p>
       The modular nature of this framework allows for extra functionality to be
       easily added to the framework itself that can be used to adapt the base
@@ -2879,10 +2888,10 @@
     </p>
     <figure id="Fig10">
       <img src="./img/image10.png" />
-      <caption>
+      <figcaption>
         <strong>Figure 10.</strong> Block diagram of the simulation framework
         with added support for fault tolerance mechanisms
-      </caption>
+      </figcaption>
     </figure>
     <p>
       The contents of the newly added <em>Fault tolerance</em> check module may
@@ -2903,7 +2912,7 @@
     </p>
 
     <section id="Sect6.1">
-      <h1>Fault model</h1>
+      <h1>Fault Model</h1>
       <p>
         For this part of the study, faults are modeled as perturbations similar
         to several recent studies (<a role="doc-biblioref" href="#CS16b">Coleman,
@@ -2980,7 +2989,7 @@
     </section>
 
     <section id="Sect6.2">
-      <h1>Experiments with the Fault-tolerance module</h1>
+      <h1>Experiments with the Fault-Tolerance Module</h1>
       <p>
         Similar to the earlier results in the paper, this study covers the
         solution of the linear system resulting from a two-dimensional finite
@@ -3090,8 +3099,8 @@
       </pre>
       </div>
       <script>
-              var alg1 = document.getElementById( "Alg5t" ).textContent;
-              pseudocode.render( alg1, document.getElementById( "Alg5" ), {
+              var alg = document.getElementById( "Alg5t" ).textContent;
+              pseudocode.render( alg, document.getElementById( "Alg5" ), {
                 lineNumber: true
               } );
             </script>
@@ -3134,10 +3143,10 @@
         <figure id="Fig11d">
           <img src="./img/image11d.png" />
         </figure>
-        <caption>
+        <figcaption>
           <strong>Figure 11.</strong> Effect of differing values of α on the
           progression of the residual
-        </caption>
+        </figcaption>
       </figure>
       <p>
         Note in <a href="#Fig11">Figure 11</a> that no checkpointing results in
@@ -3263,6 +3272,7 @@
       energy consumption.
     </p>
   </section>
+
   <section role="doc-acknowledgements">
     <h1>Acknowledgements</h1>
     <p>
@@ -3279,20 +3289,22 @@
       evolved into part of the proposed simulation framework.
     </p>
   </section>
+
   <section class="suppressInPDF" role="doc-endnotes">
     <h1>Footnotes</h1>
     <ol>
       <li id="ftn1" role="doc-endnote">Throughout the text, vector notation
         is occasionally adopted to emphasize when functions take all components
         of <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mi>x</mi>
-</math> as opposed to a single component, such as <math
+        <mi>x</mi>
+        </math> as opposed to a single component, such as <math
           xmlns="http://www.w3.org/1998/Math/MathML">
-<msub>
-<mi>x</mi>
-<mn>1</mn>
-</msub>
-</math>.<sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup>
+        <msub>
+        <mi>x</mi>
+        <mn>1</mn>
+        </msub>
+        <mo>.</mo>
+        </math><sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup>
       </li>
       <li id="ftn2" role="doc-endnote">Rulfo is a part of computing
         resources of the Department of Modeling, Simulation and Visualization
