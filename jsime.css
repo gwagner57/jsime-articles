@@ -370,7 +370,7 @@ figcaption {
   margin-top: 0.7em;
 }
 
-blockquote {
+blockquote.fragment {
   position: relative;
   font: 1.3rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
   /* font: 14px/22px normal helvetica, sans-serif; */
@@ -381,10 +381,10 @@ blockquote {
   padding-left: 15px;
   /* border-left: 3px solid #ccc; */
 }
-blockquote::before {
-  content: "\201C"; /*Unicode for Left Double Quote*/  
+blockquote.fragment::before {
+  content: "\201C"; /* Unicode for Left Double Quote */
   position: absolute; left: -20px; top: -30px;
-  /*Font*/
+  /* Font */
   font-family: Georgia, serif;
   font-size: 60px;
   font-weight: bold;
