@@ -66,6 +66,16 @@
   text-align: center;
 }
 
+.tab-figure td {
+  border-style: hidden;
+  text-align: center;
+  caption-side: bottom;
+}
+
+.tab-figure caption {
+  caption-side: bottom;
+}
+
 tr.border_top_bottom td {
   border-top: 1pt solid black;
   border-bottom: 1pt solid black;
@@ -194,7 +204,7 @@ td.border_left_right {
           <a href="mailto:ejens005@odu.edu">ejens005@odu.edu</a>
         </div>
       </address>
-      <address style="display:block; margin: 0.5em auto" typeof="Person">
+      <address style="display: block; margin: 0.5em auto" typeof="Person">
         <div property="name">Masha Sosonkina</div>
         <div property="email">
           <a href="mailto:msosonki@odu.edu">msosonki@odu.edu</a>
@@ -1975,21 +1985,21 @@ td.border_left_right {
         outperforms <span class="small-caps">Race</span> in terms of calculation
         time.
       </p>
-      <table id="Fig6">
-	   <tr>
-        <td><figure id="Fig6a">
-          <img src="./img/image6a.png" />
-          <figcaption>
-            <strong>(a)</strong> Calculation time
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig6b">
-          <img src="./img/image6b.png" />
-          <figcaption>
-            <strong>(b)</strong> Number of iterations, average per thread
-          </figcaption>
-        </figure></td>
-	   </tr>
+      <table id="Fig6" class="tab-figure">
+        <tr>
+          <td><figure id="Fig6a">
+              <img src="./img/image6a.png" />
+              <figcaption>
+                <strong>(a)</strong> Calculation time
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig6b">
+              <img src="./img/image6b.png" />
+              <figcaption>
+                <strong>(b)</strong> Number of iterations, average per thread
+              </figcaption>
+            </figure></td>
+        </tr>
         <caption>
           <strong>Figure 6.</strong> Performance variations between <span
             class="small-caps">Safe</span> and <span class="small-caps">Race</span>
@@ -2203,136 +2213,210 @@ td.border_left_right {
           operations
         </caption>
       </table>
-      <table id="Fig7">
-	   <tr>
-        <td><figure id="Fig7a">
-          <img src="./img/image7a.png" />
-          <figcaption>
-            <strong>(a)</strong> 𝓍 copy, 11 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig7b">
-          <img src="./img/image7b.png" />
-          <figcaption>
-            <strong>(b)</strong> 𝓍 compute, 11 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig7c">
-          <img src="./img/image7c.png" />
-          <figcaption>
-            <strong>(c)</strong> 𝓍 update, 11 threads
-          </figcaption>
-        </figure></td>
-	   </tr>
-	   <tr>
-        <td><figure id="Fig7d">
-          <img src="./img/image7d.png" />
-          <figcaption>
-            <strong>(d)</strong> 𝓍 copy, 81 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig7e">
-          <img src="./img/image7e.png" />
-          <figcaption>
-            <strong>(e)</strong> 𝓍 compute, 81 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig7f">
-          <img src="./img/image7f.png" />
-          <figcaption>
-            <strong>(f)</strong> 𝓍 update, 81 threads
-          </figcaption>
-        </figure></td>
-	   </tr>
-	   <tr>
-        <td><figure id="Fig7g">
-          <img src="./img/image7g.png" />
-          <figcaption>
-            <strong>(g)</strong> 𝓍 copy, 201 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig7h">
-          <img src="./img/image7h.png" />
-          <figcaption>
-            <strong>(h)</strong> 𝓍 compute, 201 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig7i">
-          <img src="./img/image7i.png" />
-          <figcaption>
-            <strong>(i)</strong> 𝓍 update, 201 threads
-          </figcaption>
-        </figure></td>
-	   </tr>
-       <caption>
+      <table id="Fig7" class="tab-figure">
+        <tr>
+          <td><figure id="Fig7a">
+              <img src="./img/image7a.png" />
+              <figcaption>
+                <strong>(a)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                copy, 11 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig7b">
+              <img src="./img/image7b.png" />
+              <figcaption>
+                <strong>(b)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                compute, 11 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig7c">
+              <img src="./img/image7c.png" />
+              <figcaption>
+                <strong>(c)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                update, 11 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <tr>
+          <td><figure id="Fig7d">
+              <img src="./img/image7d.png" />
+              <figcaption>
+                <strong>(d)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                copy, 81 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig7e">
+              <img src="./img/image7e.png" />
+              <figcaption>
+                <strong>(e)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                compute, 81 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig7f">
+              <img src="./img/image7f.png" />
+              <figcaption>
+                <strong>(f)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                update, 81 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <tr>
+          <td><figure id="Fig7g">
+              <img src="./img/image7g.png" />
+              <figcaption>
+                <strong>(g)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                copy, 201 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig7h">
+              <img src="./img/image7h.png" />
+              <figcaption>
+                <strong>(h)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                compute, 201 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig7i">
+              <img src="./img/image7i.png" />
+              <figcaption>
+                <strong>(i)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                update, 201 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <caption>
           <strong>Figure 7.</strong> <span class="small-caps">Safe</span> copy,
           compute, and update histograms with kernel fits
-       </caption>
+        </caption>
       </table>
-	  
-	  <table id="Fig8">
-	   <tr>
-	    <td><figure id="Fig8a">
-          <img src="./img/image8a.png" width="250"/>
-          <figcaption>
-            <strong>(a)</strong> 𝓍 copy, 11 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig8b">
-          <img src="./img/image8b.png" width="250"//>
-          <figcaption>
-            <strong>(b)</strong> 𝓍 compute, 11 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig8c">
-          <img src="./img/image8c.png" width="250"//>
-          <figcaption>
-            <strong>(c)</strong> 𝓍 update, 11 threads
-          </figcaption>
-        </figure></td>
-	   </tr>
-	   <tr>
-        <td><figure id="Fig8d">
-          <img src="./img/image8d.png" width="250"//>
-          <figcaption>
-            <strong>(d)</strong> 𝓍 copy, 81 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig8e">
-          <img src="./img/image8e.png" width="250"//>
-          <figcaption>
-            <strong>(e)</strong> 𝓍 compute, 81 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig8f">
-          <img src="./img/image8f.png" width="250"//>
-          <figcaption>
-            <strong>(f)</strong> 𝓍 update, 81 threads
-          </figcaption>
-        </figure></td>
-	   </tr>
-	   <tr>
-        <td><figure id="Fig8g">
-          <img src="./img/image8g.png" width="250"//>
-          <figcaption>
-            <strong>(g)</strong> 𝓍 copy, 201 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig8h">
-          <img src="./img/image8h.png" width="250"//>
-          <figcaption>
-            <strong>(h)</strong> 𝓍 compute, 201 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig8i">
-          <img src="./img/image8i.png" width="250"//>
-          <figcaption>
-            <strong>(i)</strong> 𝓍 update, 201 threads
-          </figcaption>
-        </figure></td>
-	   </tr>
-        <caption><strong>Figure 8.</strong> <span class="small-caps">Race</span> copy,
-          compute, and update histograms with kernel fits</caption>
+
+      <table id="Fig8" class="tab-figure">
+        <tr>
+          <td><figure id="Fig8a">
+              <img src="./img/image8a.png" width="250" />
+              <figcaption>
+                <strong>(a)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                copy, 11 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig8b">
+              <img src="./img/image8b.png" width="250" //>
+              <figcaption>
+                <strong>(b)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                compute, 11 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig8c">
+              <img src="./img/image8c.png" width="250" //>
+              <figcaption>
+                <strong>(c)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                update, 11 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <tr>
+          <td><figure id="Fig8d">
+              <img src="./img/image8d.png" width="250" //>
+              <figcaption>
+                <strong>(d)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                copy, 81 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig8e">
+              <img src="./img/image8e.png" width="250" //>
+              <figcaption>
+                <strong>(e)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                compute, 81 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig8f">
+              <img src="./img/image8f.png" width="250" //>
+              <figcaption>
+                <strong>(f)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                update, 81 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <tr>
+          <td><figure id="Fig8g">
+              <img src="./img/image8g.png" width="250" //>
+              <figcaption>
+                <strong>(g)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                copy, 201 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig8h">
+              <img src="./img/image8h.png" width="250" //>
+              <figcaption>
+                <strong>(h)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                compute, 201 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig8i">
+              <img src="./img/image8i.png" width="250" //>
+              <figcaption>
+                <strong>(i)</strong>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi>
+                </math>
+                update, 201 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <caption>
+          <strong>Figure 8.</strong> <span class="small-caps">Race</span> copy,
+          compute, and update histograms with kernel fits
+        </caption>
       </table>
     </section>
 
@@ -2652,51 +2736,51 @@ td.border_left_right {
           by thread count
         </caption>
       </table>
-	  
-      <table id="Fig9">
-       <tr>
-        <td><figure id="Fig9a">
-          <img src="./img/image9a.png" />
-          <figcaption>
-            <strong>(a)</strong> 10 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig9b">
-          <img src="./img/image9b.png" />
-          <figcaption>
-            <strong>(b)</strong> 25 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig9c">
-          <img src="./img/image9c.png" />
-          <figcaption>
-            <strong>(c)</strong> 50 threads
-          </figcaption>
-        </figure></td>
-       </tr>
-       <tr>
-        <td><figure id="Fig9d">
-          <img src="./img/image9d.png" />
-          <figcaption>
-            <strong>(d)</strong> 75 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig9e">
-          <img src="./img/image9e.png" />
-          <figcaption>
-            <strong>(e)</strong> 100 threads
-          </figcaption>
-        </figure></td>
-        <td><figure id="Fig9f">
-          <img src="./img/image9f.png" />
-          <figcaption>
-            <strong>(f)</strong> 150 threads
-          </figcaption>
-        </figure></td>
-       <tr>
-        <figcaption>
+
+      <table id="Fig9" class="tab-figure">
+        <tr>
+          <td><figure id="Fig9a">
+              <img src="./img/image9a.png" />
+              <figcaption>
+                <strong>(a)</strong> 10 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig9b">
+              <img src="./img/image9b.png" />
+              <figcaption>
+                <strong>(b)</strong> 25 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig9c">
+              <img src="./img/image9c.png" />
+              <figcaption>
+                <strong>(c)</strong> 50 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <tr>
+          <td><figure id="Fig9d">
+              <img src="./img/image9d.png" />
+              <figcaption>
+                <strong>(d)</strong> 75 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig9e">
+              <img src="./img/image9e.png" />
+              <figcaption>
+                <strong>(e)</strong> 100 threads
+              </figcaption>
+            </figure></td>
+          <td><figure id="Fig9f">
+              <img src="./img/image9f.png" />
+              <figcaption>
+                <strong>(f)</strong> 150 threads
+              </figcaption>
+            </figure></td>
+        </tr>
+        <caption>
           <strong>Figure 9.</strong> Iteration time histograms with kernel fits
-        </figcaption>
+        </caption>
       </table>
       <p>
         <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
@@ -3129,24 +3213,32 @@ td.border_left_right {
         of the effects of a fault with different values selected for α are given
         by <a href="#Fig11">Figure 11</a>.
       </p>
-      <figure id="Fig11">
-        <figure id="Fig11a">
-          <img src="./img/image11a.png" />
-        </figure>
-        <figure id="Fig11b">
-          <img src="./img/image11b.png" />
-        </figure>
-        <figure id="Fig11c">
-          <img src="./img/image11c.png" />
-        </figure>
-        <figure id="Fig11d">
-          <img src="./img/image11d.png" />
-        </figure>
-        <figcaption>
+      <table id="Fig11" class="tab-figure">
+        <tr>
+          <td>
+            <figure id="Fig11a">
+              <img src="./img/image11a.png" />
+            </figure>
+          </td>
+          <td><figure id="Fig11b">
+              <img src="./img/image11b.png" />
+            </figure></td>
+        </tr>
+        <tr>
+          <td>
+            <figure id="Fig11c">
+              <img src="./img/image11c.png" />
+            </figure>
+          </td>
+          <td><figure id="Fig11d">
+              <img src="./img/image11d.png" />
+            </figure></td>
+        </tr>
+        <caption>
           <strong>Figure 11.</strong> Effect of differing values of α on the
           progression of the residual
-        </figcaption>
-      </figure>
+        </caption>
+      </table>
       <p>
         Note in <a href="#Fig11">Figure 11</a> that no checkpointing results in
         a delay to convergence relative to the use of checkpointing with either
