@@ -363,9 +363,13 @@ figure {
   margin: 1em auto;  
   text-align: center;
 }
+div.table figure {
+  margin: 0;  
+}
 figcaption {
   margin-top: 0.7em;
 }
+
 blockquote {
   position: relative;
   font: 1.3rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
