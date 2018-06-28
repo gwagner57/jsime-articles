@@ -333,9 +333,6 @@ li > p  {
 .list-inline.comma-separated > li:not(:last-child):after {
   content: ",";
 }
-.small-caps {
-  font-variant:small-caps;
-}
 
 section[role="doc-bibliography"] ul {
   list-style: none;
@@ -347,9 +344,9 @@ section[role="doc-bibliography"] li {
 }
 
 table {
-  border-collapse:collapse;
+  border-collapse: collapse;
   margin: 1em auto;
-  table-layout:fixed;
+  table-layout: fixed;
 }
 table, td, th {
   border: thin solid black;
