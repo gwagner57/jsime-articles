@@ -45,13 +45,24 @@
     'anonymize_ip': true
   } );
 </script>
+
 <!--Stylesheets-->
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta/katex.min.css"
+  integrity="sha384-L/SNYu0HM7XECWBeshTGLluQO9uVI1tvkCtunuoUbCHHoTH76cDyXty69Bb9I0qZ"
+  crossorigin="anonymous" />
+<link rel="stylesheet" href="https://articles.jsime.org/pseudocode.min.css" />
 <link rel="stylesheet" href="../../jsime.css" />
 <!--Scripts-->
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta/katex.min.js"
+  integrity="sha384-ad+n9lzhJjYgO67lARKETJH6WuQVDDlRfj81AJJSswMyMkXTD49wBj5EP004WOY6"
+  crossorigin="anonymous"></script>
+<script src="https://articles.jsime.org/pseudocode.min.js"></script>
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
 {
@@ -726,9 +737,28 @@
       of blocks to update. With these assumptions, the computational model can
       be stated in <a href="#Alg1">Algorithm 1</a>.
     </p>
-    <p id="Alg1">
-      <strong>Algorithm 1</strong>
-    </p>
+    <div id="Alg1">
+      <pre id="Alg1t" style="display: none">
+        \begin{algorithm}
+        \caption{General computational model}
+        \begin{algorithmic}
+          \FOR{each processing element $P_{l}$}
+            \FOR{$i = 1, 2, \ldots$ until convergence}
+              \STATE Read $x$ from common memory
+              \STATE Compute $x_{j}^{i+1} = G_{j}(x)$ for all  $j \in \text{\ss}_{l}$
+              \STATE Update $x_{j}$ in common memory with $x_{j}^{i+1}$ for all $j \in \text{\ss}_{l}$
+            \ENDFOR
+          \ENDFOR
+        \end{algorithmic}
+        \end{algorithm}
+      </pre>
+    </div>
+    <script>
+          var alg1 = document.getElementById( "Alg1t" ).textContent;
+          pseudocode.render( alg1, document.getElementById( "Alg1" ), {
+            lineNumber: true
+          } );
+        </script>
     <p>
       This computational model has each processing element read all pertinent
       data from global memory that is accessible by each of the processors,
@@ -1438,9 +1468,39 @@
       framework for simulated asynchronous Jacobi is given in <a href="#Alg2">Algorithm
         2</a>.
     </p>
-    <p id="Alg2">
-      <strong>Algorithm 2</strong>
-    </p>
+    <div id="Alg2">
+      <pre id="Alg2t" style="display: none">
+        \begin{algorithm}
+        \caption{Asynchronous Jacobi simulation}
+        \begin{algorithmic}
+          \STATE \textbf{Input:} $a_{ij} \in A$, initial guess for $x_{0}$, a number of processing elements $p$, an input random number distribution
+          \STATE \textbf{Output:} Solution vector $x$
+          
+          \STATE Assign processor update times. $\tau_{1}, \tau_{2}, \ldots, \tau_{p}$  by sampling from an appropriate random number distribution
+          
+          \STATE Assign elements $x_{i} \in x$ to each simulated processing element
+          
+          \FOR{$t = 1, 2, \ldots$ until convergence}
+            \FOR{each processing element $P_{l}$}
+              \IF{$\tau_{l} = t$}
+                \FOR{each element $x_{i} \in x$ assigned to $P_{l}$}
+                  \STATE $x_{i} = \frac{-1}{a_{ii}} \left[ \sum_{j \neq i} a_{ij} x_{j} - b_{i} \right]$
+                \ENDFOR
+                \STATE Retrieve a new update time $\tau_{l}$ by sampling from the input distribution
+              \ENDIF
+            \ENDFOR
+            \STATE Calculate the residual as in Eq. (18) and check termination conditions
+          \ENDFOR
+        \end{algorithmic}
+        \end{algorithm}
+      </pre>
+    </div>
+    <script>
+          var alg1 = document.getElementById( "Alg2t" ).textContent;
+          pseudocode.render( alg1, document.getElementById( "Alg2" ), {
+            lineNumber: true
+          } );
+        </script>
     <p>
       In <a href="#Alg2">Algorithm 2</a>, a given update time
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1838,6 +1898,39 @@
         identical to <a href="#Alg3">Algorithm 3</a>, with the exception that
         locks are omitted.
       </p>
+      <div id="Alg3">
+        <pre id="Alg3t" style="display: none">
+        \begin{algorithm}
+        \caption{OpenMP Implementation 1 (a) \textsc{Safe}}
+        \begin{algorithmic}
+          \STATE \textbf{Input:} $a_{ij} \in A$, $b$, initial guess for $X_{0}$, $n$ processing elements $p$
+          \STATE \textbf{Output:} Solution vector $X$
+          
+          \STATE Assign elements $X_i \in X$ to $n-1$ processing elements, i = $[\alpha, \omega]$
+          
+          \FOR{\textbf{parallel} each processing element in $p_{1} \ldots p_{n}$}
+            \WHILE{residual norm $>$ tolerance}
+              \STATE \textbf{COPY} global $X^{\left(t\right)}$ from shared memory to local $x^{\left(t\right)}$
+              \IF{$p_{1}$}
+                \STATE Compute residual norm $||b - Ax||_2$
+              \ELSIF{$p_{2} \ldots p_{n}$}
+                \FOR{$x$ index $i = \alpha \ldots \omega$}
+                  \STATE Compute $x^{\left(t + 1\right)}_{i} = \frac{-1}{a_{ii}}\left[\sum_{j \neq i} a_{ij}x^{\left(t\right)}_{j} - b_{i} \right]$
+                \ENDFOR
+                \STATE \textbf{UPDATE} $X^{\left(t+1\right)}_{i}$ in shared memory with $x_{i}^{\left(t + 1\right)}$ for all $i$ belonging to processing element
+              \ENDIF
+            \ENDWHILE
+          \ENDFOR
+        \end{algorithmic}
+        \end{algorithm}
+      </pre>
+      </div>
+      <script>
+              var alg1 = document.getElementById( "Alg3t" ).textContent;
+              pseudocode.render( alg1, document.getElementById( "Alg3" ), {
+                lineNumber: true
+              } );
+            </script>
       <p>
         <a href="#Fig6">Figure 6</a> compares <span class="small-caps">Safe</span>
         and <span class="small-caps">Race</span> calculation times and number of
@@ -1877,16 +1970,13 @@
           as a function of thread count
         </figcaption>
       </figure>
-      <p id="Alg3">
-        <strong>Algorithm 3</strong>
-      </p>
       <p>
         Both <span class="small-caps">Safe</span> and <span class="small-caps">Race</span>
         were executed over several trials and varying thread counts on the
         experimental HPC platform. For each trial, the times for a thread to
-        access the solution in shared memory (Line 4 of <a href="#Alg3">Algorithm
-          3</a>), compute the relaxation for the rows assigned to it (Line 9), and
-        to update the solution in shared memory (Line 10) were captured. This
+        access the solution in shared memory (Line 6 of <a href="#Alg3">Algorithm
+          3</a>), compute the relaxation for the rows assigned to it (Line 11), and
+        to update the solution in shared memory (Line 13) were captured. This
         data was used to generate MATLAB<sup>&reg;</sup> kernel probability
         density functions for modeling the amount of time a thread takes to
         complete a copy, compute, or update operation. These distributions may
@@ -2451,9 +2541,39 @@
         complete an iteration. Thread counts of 10, 25, 50, 75, 100, and 150
         were used in these series of experiments. The average total iteration
         time for the varying.</p>
-      <p id="Alg4">
-        <strong>Algorithm 4</strong>
-      </p>
+      <div id="Alg4">
+        <pre id="Alg4t" style="display: none">
+        \begin{algorithm}
+        \caption{OpenMP Implementation 2}
+        \begin{algorithmic}
+          \STATE \textbf{Input:} Initial guess for $u^{\left(0\right)}(i,j)$, $n$ processing elements $p$
+          \STATE \textbf{Output:} Solution vector $u(i,j)$
+          
+          \STATE Assign rows $u(i) \in u$ to each processing element, i = $[\alpha, \omega]$
+          
+          \FOR{\textbf{parallel} each processing element in $p_{1} \ldots p_{n}$}
+            \WHILE{residual norm $>$ tolerance}
+              \FOR{row index $i = \alpha \ldots \omega$}
+                \IF{$i \neq 1$ AND $i \neq N$  $i = \alpha$ OR $i=\omega$}
+                  \STATE \textbf{COPY} neighbor $p_{n-1}$ or $p_{n+1}$ boundary row values $u^{\left(t\right)}(i,j)$ for $u^{\left(t+1\right)}(i,j)$
+                \ENDIF
+                \STATE Compute $u^{\left(t + 1\right)}(i,j) = 1/4*(u^{\left(t\right)}(i+1,j) + u^{\left(t\right)}(i-1,j) + u^{\left(t\right)}(i,j+1) + u^{\left(t\right)}(i, j-1)$
+                \IF{$i \neq 1$ AND $i\neq N$  $i = \alpha$ OR $i = \omega$}
+                  \STATE \textbf{UPDATE} own $p_{n}$ boundary row values $u_{j}^{\left(t\right)}(i,j)$ in shared memory with $u_{j}^{\left(t + 1\right)}(i,j)$
+                \ENDIF
+              \ENDFOR
+            \ENDWHILE
+          \ENDFOR
+        \end{algorithmic}
+        \end{algorithm}
+      </pre>
+      </div>
+      <script>
+              var alg1 = document.getElementById( "Alg4t" ).textContent;
+              pseudocode.render( alg1, document.getElementById( "Alg4" ), {
+                lineNumber: true
+              } );
+            </script>
       <p>
         <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
         each of the thread counts. <a href="#Tab3">Table 3</a> and <a
@@ -2927,9 +3047,54 @@
         simulation provided by <a href="#Alg2">Algorithm 2</a>) is provided in <a
           href="#Alg5">Algorithm 5</a>.
       </p>
-      <p id="Alg5">
-        <strong>Algorithm 5</strong>
-      </p>
+      <div id="Alg5">
+        <pre id="Alg5t" style="display: none">
+        \begin{algorithm}
+        \caption{Asynchronous Jacobi simulation with checkpointing}
+        \begin{algorithmic}
+          \STATE \textbf{Input:} $a_{ij} \in A$; initial guess $x_{0}$; number of processing elements $p$;  input random number distribution;
+                                 checkpointing tolerance $\alpha$;
+                                 checkpointing frequency $\omega$
+          \STATE \textbf{Input:} Solution vector $x$
+          
+          \STATE Assign processor update times $\tau_{1}, \tau_{2}, \ldots, \tau_{p}$  by sampling from an appropriate random number distribution
+
+          \STATE Assign a part of $x$ to each processing element
+          
+          \STATE Initialize $r_{old}$ to a large value
+          
+          \FOR{$t = 1, 2, \ldots$, until convergence}
+            \FOR{each processing element, $P_{l}$}
+              \IF{$\tau_{k} = t$}
+                \FOR{each element $x_{i} \in x$ assigned to $P_{l}$}
+                  \STATE $x_i = \frac{-1}{a_{ii}}\left[\sum_{j\neq i} a_{ij}x_j - b_i \right]$
+                \ENDFOR
+                \STATE Retrieve a new update time $\tau_{k}$ by sampling from the input distribution
+              \ENDIF
+            \ENDFOR
+            \STATE Inject a fault if appropriate
+            \STATE Calculate the residual $r_{new}$ as in Eq. (18)
+            
+            \IF{$r_{new} > \alpha \times r_{old}$}
+              \STATE $x \leftarrow x_{cp}$
+            \ENDIF
+            
+            \IF{$\mod(t, \omega) == 0$}
+              \STATE $x_{cp} \leftarrow x$
+            \ENDIF
+            
+            \STATE Check termination conditions
+          \ENDFOR
+        \end{algorithmic}
+        \end{algorithm}
+      </pre>
+      </div>
+      <script>
+              var alg1 = document.getElementById( "Alg5t" ).textContent;
+              pseudocode.render( alg1, document.getElementById( "Alg5" ), {
+                lineNumber: true
+              } );
+            </script>
       <p>
         Note that the asynchronous nature of the iterative method means that a
         strict check on the decrease of the residual (i.e., expecting monotonic
