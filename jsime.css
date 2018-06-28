@@ -333,6 +333,9 @@ li > p  {
 .list-inline.comma-separated > li:not(:last-child):after {
   content: ",";
 }
+.small-caps {
+  font-variant:small-caps;
+}
 
 section[role="doc-bibliography"] ul {
   list-style: none;

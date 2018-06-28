@@ -724,9 +724,9 @@
       <mi>m</mi>
       </math>
       of blocks to update. With these assumptions, the computational model can
-      be stated in Algorithm 1.
+      be stated in <a href="#Alg1">Algorithm 1</a>.
     </p>
-    <p>
+    <p id="Alg1">
       <strong>Algorithm 1</strong>
     </p>
     <p>
@@ -734,10 +734,10 @@
       data from global memory that is accessible by each of the processors,
       update the pieces of data specific to the component functions that it has
       been assigned, and update those components in the global memory. Note that
-      the computational model presented in Algorithm 1 allows for either
-      synchronous or asynchronous computation; it only prescribes that an update
-      has to be made as an "atomic" operation (in line 5), i.e., without
-      interleaving of its result. If each processing element
+      the computational model presented in <a href="#Alg1">Algorithm 1</a>
+      allows for either synchronous or asynchronous computation; it only
+      prescribes that an update has to be made as an "atomic" operation (in line
+      5), i.e., without interleaving of its result. If each processing element
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mi>P</mi>
@@ -854,52 +854,2203 @@
       </msup>
       </math>
       iteration. Given these basic definitions, the three following conditions
-      (along with the model presented in Algorithm 1) provide a working
-      mathematical framework for fine-grained asynchronous computation.
+      (along with the model presented in <a href="#Alg1">Algorithm 1</a>)
+      provide a working mathematical framework for fine-grained asynchronous
+      computation.
+    </p>
+    <p id="Def1">
+      <strong>Definition 1.</strong> If the following three conditions hold
+    </p>
+    <ol>
+      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>s</mi>
+      <mi>i</mi>
+      <mfenced open="(" close=")">
+      <mi>k</mi>
+      </mfenced>
+      </msub>
+      <mo>&le;</mo>
+      <mi>k</mi>
+      <mo>-</mo>
+      <mn>1</mn>
+      <mo>,</mo>
+      </math> i.e., only components that have finished computing are used in the
+        current approximation.</li>
+      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mtext>lim</mtext>
+      <mrow>
+      <mi>k</mi>
+      <mo>&rarr;</mo>
+      <mn>&infin;</mn>
+      </mrow>
+      </msub>
+      <msub>
+      <mi>s</mi>
+      <mi>i</mi>
+      <mfenced open="(" close=")">
+      <mi>k</mi>
+      </mfenced>
+      </msub>
+      <mo>=</mo>
+      <mn>&infin;</mn>
+      <mo>,</mo>
+      </math> i.e., the newest updates for each component are used.</li>
+      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mfenced open="|" close="|">
+      <mrow>
+      <mi>k</mi>
+      <mo>&isin;</mo>
+      <mo>&naturals;</mo>
+      <mo>:</mo>
+      <mi>i</mi>
+      <mo>&isin;</mo>
+      <msup>
+      <mi>I</mi>
+      <mi>k</mi>
+      </msup>
+      </mrow>
+      </mfenced>
+      <mo>=</mo>
+      <mn>&infin;</mn>
+      <mo>,</mo>
+      </math> i.e., all components will continue to be updated.</li>
+    </ol>
+    <p>
+      Then given an initial
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msup>
+      <mi>x&#8407;</mi>
+      <mn>0</mn>
+      </msup>
+      <mo>&isin;</mo>
+      <mi>D</mi>
+      <mo>,</mo>
+      </math>
+      the iterative update process defined by
+    </p>
+    <p>$$ x^{k}_{i} = \begin{cases} x^{k-1}_{i} & i \notin I_{k} \\
+      G_{i}\left( \vec{x} \right) & i \in I_{k} \end{cases} $$</p>
+    <p>
+      where the function
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>G</mi>
+      <mi>i</mi>
+      </msub>
+      <mfenced open="(" close=")">
+      <mi>x&#8407;</mi>
+      </mfenced>
+      </math>
+      uses the latest updates available is called an asynchronous iteration.
+    </p>
+    <p>
+      This basic computational model (i.e., the combination of <a href="#Alg1">Algorithm
+        1</a> and <a href="#Def1">Definition 1</a> together) allows for many
+      different results on fine-grained iterative methods that are both
+      synchronous and asynchronous, though the three conditions given in <a
+        href="#Def1">Definition 1</a> are unnecessary in the synchronous case.
     </p>
 
     <section id="Sect3.1">
       <h1>Asynchronous relaxation methods</h1>
+
+      <p>
+        Relaxation methods have been the focus of many of the works mentioned in
+        <a href="Sect2">Section 2</a> such as (<a role="doc-biblioref"
+          href="#CM69">Chazan, &amp; Miranker, 1969</a>) and (<a
+          role="doc-biblioref" href="#Bau78">Baudet, 1978</a>); a much more
+        detailed description can be found in (<a role="doc-biblioref"
+          href="#BT89">Bertsekas, &amp; Tsitsiklis, 1989</a>) among many other
+        sources. This section provides an introduction that will serve as a
+        reference for the later work in this study.
+      </p>
+      <p>Relaxation methods can be expressed as general fixed point
+        iterations of the form</p>
+      <p>$$ x^{k+1} = Cx^{k} + d \label{e}\tag{5} $$
+      <p>
+        where
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>C</mi>
+      </math>
+        is the
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>n</mi>
+      <mo>&times;</mo>
+      <mi>n</mi>
+      </math>
+        iteration matrix,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x</mi>
+      </math>
+        is an
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x</mi>
+      <mtext>-dimensional</mtext>
+      </math>
+        vector that represents the solution, and
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>d</mi>
+      </math>
+        is another
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x</mi>
+      <mtext>-dimensional</mtext>
+      </math>
+        vector that can be used to help define the particular problem at hand.
+      </p>
+      <p>The Jacobi method is an asynchronous relaxation method built for
+        solving linear systems of the form</p>
+      <p>$$ Ax = b,\label{f}\tag{6} $$
+      <p>
+        and following the methodology put forth in (<a role="doc-biblioref"
+          href="#BT89">Bertsekas, &amp; Tsitsiklis, 1989</a>), this can be
+        broken down to view a specific row - say the
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>i</mi>
+        <mo>th</mo>
+        </msup>
+        </math>
+        - of the matrix
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi>
+        <mo>,</mo>
+        </math>
+      </p>
+      <p>$$ \sum^{n}_{j=1} a_{ij}x_{j} = b_{i},\label{g}\tag{7} $$</p>
+      <p>
+        and this equation can be solved for the
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>i</mi>
+        <mo>th</mo>
+        </msup>
+        </math>
+        component of the solution,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>x</mi>
+        <mo>i</mo>
+        </msub>
+        <mo>,</mo>
+        </math>
+        to give,
+      </p>
+      <p>$$ x_{i} = \frac{-1}{a_{ii}} \left[ \sum_{j \neq i} a_{ij}x_{j} -
+        b_{i} \right].\label{h}\tag{8} $$</p>
+      <p>
+        This equation can then be computed in an iterative manner in order to
+        give successive updates to the solution vector. In synchronous computing
+        environments, each update to an element of the solution vector,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>x</mi>
+        <mo>i</mo>
+        </msub>
+        <mo>,</mo>
+        </math>
+        is computed sequentially using the same data for the other components of
+        the solution vector (i.e., the
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>x</mi>
+        <mo>j</mo>
+        </msub>
+        <mo>,</mo>
+        </math>
+        in Eq. \eqref{h}). Conversely, in an asynchronous computing environment,
+        each update to an element of the solution vector occurs when the
+        computing element responsible for updating that component is ready to
+        write the update to memory and the other components used are simply the
+        latest ones available to the computing element.
+      </p>
+      <p>Expressing Eq. \eqref{h} in a block matrix form more similar to the
+        original form of the iteration expressed in Eq. \eqref{e},</p>
+      <p>$$ \begin{eqnarray} x &=& -D^{-1} \left( \left( L + U \right) x - b
+        \right)\label{i}\tag{9} \\ &=& -D^{-1} \left( L + U \right) x + D^{-1}
+        b,\label{j}\tag{10} \end{eqnarray} $$</p>
+      <p>
+        where
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>D</mi>
+        </math>
+        is the diagonal portion of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi>
+        </math>
+        , and
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>L</mi>
+        </math>
+        and
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>U</mi>
+        </math>
+        are the strictly lower and upper triangular portions of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi>
+        </math>
+        respectively. This gives an iteration matrix of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>D</mi>
+        <mo>=</mo>
+        <mo>-</mo>
+        <msup>
+        <mi>D</mi>
+        <mrow>
+        <mo>-</mo>
+        <mn>1</mn>
+        </mrow>
+        </msup>
+        <mfenced open="(" close=")">
+        <mrow>
+        <mi>L</mi>
+        <mo>+</mo>
+        <mi>U</mi>
+        </mrow>
+        </mfenced>
+        <mo>.</mo>
+        </math>
+      </p>
+      <p>
+        Convergence of asynchronous fixed point methods of the form presented in
+        Eq. \eqref{e} is determined by the spectral radius of the iteration
+        matrix, C, and dates back to the pioneering work done by both (<a
+          role="doc-biblioref" href="#CM69">Chazan, &amp; Miranker, 1969</a>)
+        and (<a role="doc-biblioref" href="#Bau78">Baudet, 1978</a>):
+      </p>
+      <p id="Theo1">
+        <strong>Theorem 1.</strong> <em>For a fixed point iteration of the
+          form given in Eq. \eqref{e} that adheres to the asynchronous
+          computational model provided by <a href="#Alg1">Algorithm 1</a> and <a
+          href="#Def1">Definition 1</a>, if the spectral radius of <math
+            xmlns="http://www.w3.org/1998/Math/MathML">
+            <mi>C</mi>
+            </math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mi>&rho;</mi>
+            <mfenced open="(" close=")">
+            <mfenced open="|" close="|">
+            <mi>C</mi>
+            </mfenced>
+            </mfenced>
+            <mo>,</mo>
+            </math> is less than one, then the iterative method will converge to the
+          fixed point solution
+        </em>.
+      </p>
+      <p>
+        As noted in (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
+          &amp; Chow, 2016</a>), the iteration matrix
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi>C</mi></math>
+        that is used in the Jacobi relaxation method serves as a worst case for
+        relaxation methods of the form discussed here. However, because of the
+        ubiquitous use of the Jacobi method in parallel solutions of large
+        problems in many different domains in science and engineering we use the
+        Asynchronous (Block) Jacobi method predominantly throughout the
+        remainder of this study. Note that many of the concepts and ideas
+        expressed in this paper can be easily adapted to more complex
+        algorithms.
+      </p>
     </section>
   </section>
 
   <section id="Sect4">
     <h1>Design of simulation framework</h1>
+    <p>
+      The simulation framework proposed here is designed to simulate the
+      performance of an asynchronous iterative method operating on multiple
+      computing elements using a single processing element. In this simulation
+      framework, the emphasis is on fixed-point iterations<span class="fn"><sup><a
+          href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref"
+          title="Footnote 1: Throughout the text, vector notation is occasionally adopted to emphasize when functions take all components of x as opposed to a single component, such as x1.">1</a></sup></span>
+    </p>
+    <p>$$ \vec{x} = G \left( \vec{x} \right),\label{k}\tag{11} $$</p>
+    <p>
+      for some
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x&#8407;</mi>
+      <mo>&isin;</mo>
+      <msup>
+      <mi>&reals;</mi>
+      <mi>n</mi>
+      </msup>
+      <mo>.</mo>
+      </math>
+      In the framework, certain components are assigned (possibly distinct)
+      times for performing an update to their components, and the effects of
+      various delay structures can be examined.
+    </p>
+    <p>
+      The development of the present computational framework is shown by the
+      flow diagram in <a href="#Fig1">Figure 1</a>, which is typical for
+      computation frameworks, except for the third Timing Distributions stage. A
+      mathematical formulation of a problem (e.g., as a set of equations) is
+      presented first (Mathematical Model stage). The mathematical model is then
+      implemented in an HPC environment (Parallel Implementation stage). Timing
+      and algorithm-performance data (e.g., iterations to convergence) are
+      collected from parallel executions on a subset of configurations and
+      problem sizes, such that, in the proposed framework, timing distributions
+      may be constructed (Timing Distributions stage) and used to simulate the
+      performance of the mathematical model for target configurations and
+      requirements. Since such simulations are faster and less-cumbersome to
+      set-up, they allow for easy experimenting with variations of the
+      underlying mathematical model, parallel implementation type and
+      environment, or, eventually, in the expected performance.
+    </p>
+    <figure id="Fig1">
+      <img src="./img/image1.png" />
+      <figcaption>
+        <strong>Figure 1.</strong> Stages in the proposed framework development
+      </figcaption>
+    </figure>
+    <p>The simulation framework developed here works to simulate the
+      performance of generic asynchronous relaxation methods in shared memory
+      environments. The simulation framework can then be modified to reflect
+      changes in the environment, or else can be utilized to demonstrate the
+      effectiveness of algorithmic modifications.</p>
+    <p>
+      As a simple example, take
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>n</mi>
+      <mo>=</mo>
+      <mn>2</mn>
+      <mo>.</mo>
+      </math>
+      Then
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x&#8407;</mi>
+      <mo>=</mo>
+      <mfenced open="(" close=")">
+      <msub>
+      <mo>x</mo>
+      <mn>1</mn>
+      </msub>
+      <msub>
+      <mo>x</mo>
+      <mn>2</mn>
+      </msub>
+      </mfenced>
+      <mo>&isin;</mo>
+      <msup>
+      <mi>&reals;</mi>
+      <mn>2</mn>
+      </msup>
+      </math>
+      and, using the terminology of <a href="#Sect3">Section 3</a>,
+    </p>
+    <p>$$ \begin{eqnarray} x_{1} &=& G_{1} \left( \vec{x} \right) = G_{1}
+      \left( x_{1}, x_{2} \right),\label{l}\tag{12} \\ x_{2} &=& G_{2} \left(
+      \vec{x} \right) = G_{2} \left( x_{1}, x_{2} \right).\label{m}\tag{13}
+      \end{eqnarray} $$</p>
+    <p>
+      In a traditional fully synchronous environment, both functions,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>G</mi>
+    <mn>1</mn>
+    </msub>
+    </math>
+      and
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>G</mi>
+    <mn>2</mn>
+    </msub>
+    <mo>,</mo>
+    </math>
+      would be called simultaneously and no subsequent calls would be executed
+      until both functions had returned and <em>synchronized</em> all results.
+      In a fully asynchronous environment, both functions would be allowed to
+      execute again immediately upon their own return, leading to a case where
+      one of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>1</mn>
+    </msub>
+    </math>
+      or
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>2</mn>
+    </msub>
+    </math>
+      may be updated more frequently than the other. Per <a href="#Def1">Definition
+        1</a>, both functions use the latest values of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>x&#8407;</mi>
+    </math>
+      that are available to them when the function call is initiated. For
+      instance, if the processing element that was assigned to update the
+      component
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>1</mn>
+    </msub>
+    </math>
+      was ten times as fast as the processing element assigned to update
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>2</mn>
+    </msub>
+    <mo>,</mo>
+    </math>
+      then in the amount of time needed to update
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>2</mn>
+    </msub>
+    </math>
+      once, the component
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>1</mn>
+    </msub>
+    </math>
+      will have been updated ten times, and when
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>G</mi>
+    <mn>2</mn>
+    </msub>
+    </math>
+      is called for the second time it will be called using the latest component
+      of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>1</mn>
+    </msub>
+    </math>
+      (which has been updated 10 times), and the latest component of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <msub>
+    <mi>x</mi>
+    <mn>2</mn>
+    </msub>
+    </math>
+      (which has only been updated once).
+    </p>
+    <p>
+      A block diagram showing the flow of the simulation framework is provided
+      in <a href="#Fig2">Figure 2</a>. The framework models the performance of
+      methods that solve the linear system
+    </p>
+    <p>$$ Ax = b\label{n}\tag{14} $$</p>
+    <p>using relaxation methods in either a synchronous or asynchronous
+      manner.</p>
+    <figure id="Fig2">
+      <img src="./img/image2.png" />
+      <figcaption>
+        <strong>Figure 2.</strong> Block diagram of the simulation framework
+      </figcaption>
+    </figure>
+    <p>
+      The simulation requires as input the matrix
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>A</mi>
+      <mo>,</mo>
+      </math>
+      the right hand side
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>b</mi>
+      </math>
+      and an initial guess at the solution,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+      </msub>
+      <mo>.</mo>
+      </math>
+      The important pieces of the simulation are all passed as functions to the
+      tool. There are three functions required:
+    </p>
+    <ol>
+      <li>An update function that specifies how to perform the relaxation.
+        A common technique for this is given by Eq. \eqref{h}. It is certainly
+        possible to modify this equation to obtain different updates, as
+        described, e.g., in (<a role="doc-biblioref" href="#Saa03">Saad,
+          2003</a>).
+      </li>
+      <li>An update pattern function that determines which elements of the
+        matrix <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>A</mi>
+      </math> are assigned to each simulated processor. A common technique for this
+        assignment, is to evenly divide the work among all of the available
+        processors, however other patterns are also possible. For example, the
+        use of randomization in the solution of linear systems via relaxation
+        methods has gained some popularity in the fields of optimization and
+        machine learning (see, e.g., (<a role="doc-biblioref" href="#ADG15">Avron,
+          Druinsky, &amp; Gupta, 2015</a>) and references therein) and update
+        patterns such as this are easy to implement inside of this framework.
+      </li>
+      <li>An update time function that captures the empirical information
+        that was captured from parallel performance runs on the HPC hardware.
+        This function will typically be used to sample from the timing
+        distribution that was generated beforehand. Note that, since each
+        simulated processor makes calls to this function independently, the
+        simulated performance will be asynchronous so long as the function
+        returns different values upon different calls. Defining an update time
+        function that has constant return (or constant return for every
+        processor) provides a means to show synchronous performance.</li>
+    </ol>
+    <p>
+      By varying the three functions that are passed to the framework, not only
+      can the HPC performance be predicted by making changes to the update time
+      function, but various modifications to the basic algorithm can be quickly
+      and easily compared in a manner that reflects real world asynchronous
+      performance. With the renewed research interest in asynchronous iterative
+      methods that perform relaxation updates, oftentimes performance between
+      new variants and existing algorithms is <em>only</em> compared in simple
+      synchronous experiments; the simulation framework proposed here allows for
+      a more meaningful comparison between methods that does not require
+      development of parallel implementations of all the methods or algorithm
+      variations that are involved.
+    </p>
+    <p>
+      The simulation framework requires some data that specifies parameters
+      concerning the particular run of the simulation such as the desired
+      tolerance, the number of processors to simulate, and a computational scale
+      factor. The framework itself is developed in MATLAB<sup>&reg;</sup> and
+      the three required functions are passed as function handles.
+    </p>
+    <p>
+      The simulation itself (see <em>Simulation</em> block in <a href="#Fig2">Figure
+        2</a>) progresses by reading in the user provided input data, assigning an
+      initial update pattern and time to each processor, and then beginning the
+      main loop. Inside of the main loop, the time increments and a check is
+      performed to see if the current time matches with the scheduled update
+      time for any of the processors, if so, the update function is called and
+      then a time for the next update is assigned to the processor that just
+      updated and (if desired) the update pattern for the current processor is
+      changed. After this, a check is performed on the size of the residual to
+      determine if the exit criteria is met before the time is incremented again
+      and the loop starts over. A pseudocode representation of the simulation
+      framework for simulated asynchronous Jacobi is given in <a href="#Alg2">Algorithm
+        2</a>.
+    </p>
+    <p id="Alg2">
+      <strong>Algorithm 2</strong>
+    </p>
+    <p>
+      In <a href="#Alg2">Algorithm 2</a>, a given update time
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>&tau;</mi>
+      <mi>l</mi>
+      </msub>
+      </math>
+      will often not be sampled as an integer. The simulation adjusts for this
+      by scaling the number that is sampled by the appropriate order of
+      magnitude, adjusting the maximum value allowed for
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>t</mi>
+      </math>
+      accordingly, and then scaling back the final time calculated by the
+      simulation. For example, if the desired time precision is hundredths of a
+      second, and the time resulting for the first sampling of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>&tau;</mi>
+      <mi>l</mi>
+      </msub>
+      </math>
+      was 1.234<em>s</em>, then the simulation would perform the following
+      steps:
+    </p>
+    <ol>
+      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msubsup>
+      <mi>&tau;</mi>
+      <mi>l</mi>
+      <mtext>new</mtext>
+      </msubsup>
+      <mo>=</mo>
+      <mi>s</mi>
+      <mo>&times;</mo>
+      <msubsup>
+      <mi>&tau;</mi>
+      <mi>l</mi>
+      <mtext>old</mtext>
+      </msubsup>
+      </math></li>
+      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msubsup>
+      <mi>&tau;</mi>
+      <mtext>max</mtext>
+      <mtext>new</mtext>
+      </msubsup>
+      <mo>=</mo>
+      <mi>s</mi>
+      <mo>&times;</mo>
+      <msubsup>
+      <mi>&tau;</mi>
+      <mtext>max</mtext>
+      <mtext>old</mtext>
+      </msubsup>
+      </math></li>
+      <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msubsup>
+      <mi>&tau;</mi>
+      <mtext>final</mtext>
+      <mtext>new</mtext>
+      </msubsup>
+      <mo>=</mo>
+      <mfenced open="(" close=")">
+      <mfrac>
+      <mn>1</mn>
+      <mi>s</mi>
+      </mfrac>
+      </mfenced>
+      <mo>&times;</mo>
+      <msubsup>
+      <mi>&tau;</mi>
+      <mtext>final</mtext>
+      <mtext>old</mtext>
+      </msubsup>
+      <mo>,</mo>
+      </math></li>
+    </ol>
+    <p>
+      where
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>s</mi>
+      </math>
+      referenced is the "scale_factor" defined in the block diagram given by <a
+        href="#Fig2">Figure 2</a>. For example, if the desired precision is
+      hundredths of a second,
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>s</mi>
+      <mo>=</mo>
+      <msup>
+      <mn>10</mn>
+      <mn>2</mn>
+      </msup>
+      <mo>,</mo>
+      </math>
+      and the sampled value
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>&tau;</mi>
+      <mi>l</mi>
+      </msub>
+      </math>
+      becomes
+    </p>
+    <p>$$ \begin{eqnarray} \tau_{l} &=& 1.234 - \text{initial sample} \\
+      \tau_{l} &=& 123.4 - \text{apply scale factor} \\ \tau_{l} &=& 123 -
+      \text{round to nearest integer}. \end{eqnarray} $$</p>
+    <p>
+    <p>Inside of the simulation framework, time is abstracted away to "units
+      of time", and then the final time is scaled back into the appropriate
+      units. This allows the framework to be adapted to future HPC environments,
+      as well as examining the impact of the standard variance of single core
+      performance on multi-core hardware elements if the method that is used is
+      tuned to be completely asynchronous. It should be possible - by adding or
+      removing appropriate communication penalties - to simulate the performance
+      of different memory architectures (e.g., distributed or cloud computing
+      environments). This is left as future work although the method for doing
+      this inside of the proposed framework is straightforward.</p>
 
     <section id="Sect4.1">
       <h1>Sample use-cases for the framework</h1>
+      <p>
+        Let the matrix
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>A</mi>
+      </math>
+        result from a simple two dimensional finite-difference discretization of
+        the Laplacian over a
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>10</mn>
+        <mo>&times;</mo>
+        <mn>10</mn>
+        </math>
+        grid, resulting in a
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>100</mn>
+        <mo>&times;</mo>
+        <mn>100</mn>
+        </math>
+        matrix with an average of 4.6 non-zero entries per row. The Laplacian
+      </p>
+      <p>$$ \begin{eqnarray} \Delta u &=& g,\label{o}\tag{15} \\ u_{xx} +
+        u_{yy} &=& g\label{p}\tag{16} \end{eqnarray} $$</p>
+      <p>is a partial differential equation (PDE) commonly found in both
+        science and engineering. The example problems taken in this study can be
+        thought of as simulating the diffusion of heat across a two dimensional
+        surface given some heat source along the boundary of the problem.</p>
+      <p>Once the PDE is discretized over the desired grid using finite
+        differences, typically central finite differences, the linear system</p>
+      <p>$$ Ax = b\label{q}\tag{17} $$</p>
+      <p>is set up to be solved for a random right-hand side b that
+        represents the desired boundary conditions. All problems considered in
+        this study use Dirichlet boundary conditions. For the examples in this
+        particular subsection, the righthand side is generated by taking each
+        component sampled as a uniform random number between −0:5 and 0:5, and
+        then normalizing the resultant vector. The iterative Jacobi method
+        proceeds until the residual</p>
+      <p>$$ r = b - Ax\label{r}\tag{18} $$</p>
+      <p>is reduced past some desired threshold.</p>
+      <p>
+        To begin with, an example of nominal performance of the solution of the
+        two dimensional Laplacian in a synchronous environment is provided by <a
+          href="#Fig3">Figure 3</a>.
+      </p>
+      <figure id="Fig3">
+        <img src="./img/image3.png" />
+        <figcaption>
+          <strong>Figure 3.</strong> Example of nominal performance of the
+          synchronous Jacobi iteration
+        </figcaption>
+      </figure>
+      <p>
+        Next, consider the same problem from above, but in two slightly more
+        complicated scenarios. In <a href="#Fig4">Figure 4</a> one of the ten
+        processors involved in updating blocks of components of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        </math>
+        is provided updates more slowly than the other processors. This could
+        reflect the scenario where updates are either performed synchronously or
+        asynchronously where the effect of variance in performance is
+        negligible, and a single processor has degraded performance. This can
+        also be viewed as a look at the impact of asynchronous behavior on the
+        Jacobi algorithm. Each curve shows the progression of the (global)
+        residual subject to having a single slower processor with different
+        degrees of slowdown (from zero to 11x).
+      </p>
+      <figure id="Fig4">
+        <img src="./img/image4.png" />
+        <figcaption>
+          <strong>Figure 4.</strong> Example of experiments within the
+          simulation framework; single processor slowdown
+        </figcaption>
+      </figure>
+      <p>
+        In <a href="#Fig5">Figure 5</a> the processor updates are not restricted
+        to occur synchronously. Instead, the processors are assumed to have
+        similar performance and perform their updates in time
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>t</mi>
+        <mi>i</mi>
+        </msub>
+        <mo>&sim;</mo>
+        <mi>N</mi>
+        <mfenced open="(" close=")">
+        <mo>&mu;</mo>
+        <msup>
+        <mo>&sigma;</mo>
+        <mn>2</mn>
+        </msup>
+        </mfenced>
+        </math>
+        where the mean is set to 10 units of time and the variance is different
+        for each curve depicted in the plot. An increase in the variance of
+        processor performance, regardless of the timing distribution, could come
+        about for a variety of reasons; an example of a scenario in the future
+        could be having chips with more cores and lower voltage that are
+        designed to address the challenges in creating very large scale HPC
+        environments.
+      </p>
+      <figure id="Fig5">
+        <img src="./img/image5.png" />
+        <figcaption>
+          <strong>Figure 5.</strong> Example of experiments within the
+          simulation framework; effect of variance
+        </figcaption>
+      </figure>
     </section>
   </section>
 
   <section id="Sect5">
     <h1>Asynchronous Jacobi implementations for the framework</h1>
+    <p>
+      <a href="#Fig4">Figure 4</a> and <a href="#Fig5">Figure 5</a> show
+      relative differences in compute times among sharedmemory computing
+      elements for a specific problem and a specific asynchronous iterative
+      method. A more general simulation framework, which can be used for
+      modeling and testing any synchronous or asynchronous iterative relaxation
+      method, is presented here. Baseline, non-resilient method behavior may be
+      reproduced in the framework; further, the user may also investigate fault
+      injection and checkpointing.
+    </p>
+    <p>
+      The user decomposes the method according to the input parameters required
+      by the simulation framework. The update function that performs the
+      relaxation has an associated operational time, both of which are defined
+      by the user. Functionality within the relaxation may be isolated into
+      discrete operations with corresponding time information; the level of
+      granularity is decided by the user. For example, time to complete an
+      operation in the simulation framework may be modeled with a probability
+      density function derived from empirical data. To model time to perform
+      specific operations or calculations during method execution, data is
+      collected from the application during execution. In the implementation
+      code, operations are enclosed within calls to time functions, which
+      measure time to perform the operations. In this work the OpenMP<sup>&reg;</sup>
+      library function
+      <code>omp_get_wtime()</code>
+      is used to measure wall time. For HPC implementations that use MPI,
+      <code>MPI_Wtime()</code>
+      may be used to measure wall time. Fine-grained operations in the code
+      should not overlap such that measurements overlap, i.e., for one
+      operation, do not measure time function calls of another operation. After
+      taking sufficient measurements, an operation is modeled by fitting a
+      probability density function to a normalized histogram of the time data.
+      This function may be included as part of the input to the framework. Note
+      that when comparing simulated run times with HPC run times, it may be
+      preferable to use an unmodified version of the HPC implementation code
+      that does not have time function calls and mechanisms for storing or
+      printing times. These functions and activities may increase run time and
+      provide an inaccurate metric for comparison.
+    </p>
+    <p>This section describes two asynchronous relaxation method
+      implementations and two corresponding use cases of the simulation
+      framework. For both implementations, the test problem is a two dimensional
+      discretization of the Laplacian</p>
+    <p>$$ \Delta u = b,\label{s}\tag{19} $$</p>
+    <p>
+      where the right-hand side is initialized with Dirichlet boundary
+      conditions. Both implementations use OpenMP<sup>&reg;</sup> for
+      shared-memory parallelism and are executed on the shared-memory computing
+      platform nicknamed Rulfo, which is an Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup>
+      Knight's Landing<span class="fn"><sup><a href="#ftn2"
+          id="fn_pointer_ftn2" role="doc-noteref"
+          title="Footnote 2: Rulfo is a part of computing resources of the Department of Modeling, Simulation and Visualization Engineering at Old Dominion University.">2</a></sup></span>
+      having 7210 model processor with 64 cores. Each core may optimally execute
+      4 threads for 256 threads total, and runs at 1.30 GHz. The simulation
+      framework and experiments were implemented in MATLAB<sup>&reg;</sup>
+      R2018a, while the Jacobi implementations were written in C/C++ using the
+      Intel C compiler version 17.04 and OpenMP<sup>&reg;</sup> version 4.5.
+    </p>
 
     <section id="Sect5.1">
       <h1>Implementation 1: General Jacobi solver</h1>
+      <p>
+        In this case, the heat problem is represented mathematically by a sparse
+        matrix, which is solved by an asynchronous general Jacobi method. The
+        Laplacian is generated over a
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>100</mn>
+        <mo>&times;</mo>
+        <mn>100</mn>
+        </math>
+        grid resulting in a matrix of size
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>10,000</mn>
+        <mo>&times;</mo>
+        <mn>10,000</mn>
+        </math>
+        with 49,600 non-zeros with an average of 4.96 non-zeros per row. The
+        vector b from the resulting linear system,
+      </p>
+      <p>$$ Ax = b,\label{t}\tag{20} $$</p>
+      <p>
+        is initialized such that the final solution vector has
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>x</mi>
+      <mi>i</mi>
+      </msub>
+      <mo>=</mo>
+      <mn>1</mn>
+      </math>
+        for all
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>i</mi>
+      <mo>.</mo>
+      </math>
+        The initial guess
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+      </msub>
+      </math>
+        is all zeros.
+      </p>
+      <p>
+        In this implementation, all threads but one perform relaxations on
+        assigned components, and a dedicated thread computes the global residual
+        norm value
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>b</mi>
+        <mo>-</mo>
+        <mi>A</mi>
+        <mi>x</mi>
+        <msup>
+        <mfenced open="(" close=")">
+        <mi>t</mi>
+        </mfenced>
+        </msup>
+        </math>
+        that determines satisfactory convergence. Each thread retrieves the data
+        it needs from shared memory, performs the necessary computations, and,
+        in the case of the relaxation threads, writes the result back to shared
+        memory. Synchronous shared-memory implementations of all classes of
+        algorithms commonly use mutex locks to avoid race conditions with read
+        and write operations. However, this type of asynchronous relaxation
+        method may be less dependent on these safeguards for two reasons: (1)
+        iterative methods can correct some errors with more iterations, if
+        necessary, and (2) threads executing operations in asynchronous
+        iterative methods are more likely to be at different stages of the
+        iterative cycle, meaning fewer threads may be writing to and reading
+        from the same memory location concurrently. This general Jacobi solver
+        has two varieties: (a) <span class="small-caps">Safe</span> which uses
+        mutex locks to avoid race conditions, and (b) <span class="small-caps">Race</span>
+        which permits race conditions. <span class="small-caps">Safe</span> uses
+        OpenMP<sup>&reg;</sup> locks to copy
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>x</mi>
+        <mfenced open="(" close=")">
+        <mi>t</mi>
+        </mfenced>
+        </msup>
+        </math>
+        safely from shared memory and to update
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>x</mi>
+        <mfenced open="(" close=")">
+        <mrow>
+        <mi>t</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        </mrow>
+        </mfenced>
+        </msup>
+        <mo>.</mo>
+        </math>
+        Pseudocode for this process is given in <a href="#Alg3">Algorithm 3</a>,
+        where bold upper-case text indicates that OpenMP<sup>&reg;</sup> locks
+        are employed. The algorithm for <span class="small-caps">Race</span> is
+        identical to <a href="#Alg3">Algorithm 3</a>, with the exception that
+        locks are omitted.
+      </p>
+      <p>
+        <a href="#Fig6">Figure 6</a> compares <span class="small-caps">Safe</span>
+        and <span class="small-caps">Race</span> calculation times and number of
+        iterations. Calculation times and average iteration counts are similar
+        for thread counts up to 81, but behavior diverges beyond that. For
+        thread counts 101 through 501, <span class="small-caps">Race</span>
+        requires more iterations, perhaps to compensate for threads reading and
+        computing with inaccurate
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        </math>
+        vectors. Despite this, <a href="#Fig6a">Figure 6a</a> shows that <span
+          class="small-caps">Race</span> is still quicker for the largest thread
+        counts, perhaps because threads do not use locks to access data and
+        eliminate that overhead cost. <a href="#Fig6a">Figure 6a</a> also shows
+        that perhaps locks are not too costly for intermediate thread counts
+        101, 201, and 251, where <span class="small-caps">Safe</span>
+        outperforms <span class="small-caps">Race</span> in terms of calculation
+        time.
+      </p>
+      <figure id="Fig6">
+        <figure id="Fig6a">
+          <img src="./img/image6a.png" />
+          <figcaption>
+            <strong>(a)</strong> Calculation time
+          </figcaption>
+        </figure>
+        <figure id="Fig6b">
+          <img src="./img/image6b.png" />
+          <figcaption>
+            <strong>(b)</strong> Number of iterations, average per thread
+          </figcaption>
+        </figure>
+        <figcaption>
+          <strong>Figure 6.</strong> Performance variations between <span
+            class="small-caps">Safe</span> and <span class="small-caps">Race</span>
+          as a function of thread count
+        </figcaption>
+      </figure>
+      <p id="Alg3">
+        <strong>Algorithm 3</strong>
+      </p>
+      <p>
+        Both <span class="small-caps">Safe</span> and <span class="small-caps">Race</span>
+        were executed over several trials and varying thread counts on the
+        experimental HPC platform. For each trial, the times for a thread to
+        access the solution in shared memory (Line 4 of <a href="#Alg3">Algorithm
+          3</a>), compute the relaxation for the rows assigned to it (Line 9), and
+        to update the solution in shared memory (Line 10) were captured. This
+        data was used to generate MATLAB<sup>&reg;</sup> kernel probability
+        density functions for modeling the amount of time a thread takes to
+        complete a copy, compute, or update operation. These distributions may
+        be used in the simulation framework as an input parameter, for the
+        generation of random variables corresponding to key operational times in
+        the HPC architecture. <a href="#Alg2">Algorithm 2</a> demonstrates the
+        use of a time distribution in the framework. Thread counts of 11, 21,
+        41, 81, 101, 201, 251, and 401 were used to collect data for the
+        generation of distributions, some of which are in <a href="#Fig7">Figure
+          7</a> and <a href="#Fig8">Figure 8</a>. For 201 threads, <span
+          class="small-caps">Safe</span> in <a href="#Fig7d">Figure 7d</a> and <a
+          href="#Fig7f">Figure 7f</a> shows the tendency of locks to stratify
+        copy and update times, compared with <span class="small-caps">Race</span>
+        in <a href="#Fig8d">Figure 8d</a> and <a href="#Fig8f">Figure 8f</a>,
+        which are less uniform. These findings are mirrored in <a href="#Tab1">Table
+          1</a>, which provides mean times for each of the three operations that
+        were benchmarked in this implementation, for <span class="small-caps">Safe</span>
+        and <span class="small-caps">Race</span>. <span class="small-caps">Race</span>
+        copy and update times are slightly or significantly quicker than
+        comparable <span class="small-caps">Safe</span> times. Compute times
+        typically dominate total iteration time, except for <span
+          class="small-caps">Safe</span> copy and update times for threads 201,
+        251, and 401. <a href="#Tab1">Table 1</a> shows that increasing the
+        number of threads decreases <span class="small-caps">Race</span> copy,
+        compute, and update times until cores are sufficiently over-subscribed:
+        at 201 threads, these operations have become significantly more costly,
+        as compared with 101 threads. This cost may be attributed to thread
+        context switching. Compute times for <span class="small-caps">Safe</span>
+        do not increase with higher thread counts because thread behavior is
+        controlled explicitly using locks. These statistics can be used to
+        validate the performance of the time distributions, so that the
+        framework provides results comparable to the HPC hardware.
+      </p>
+      <table id="Tab1">
+        <thead>
+          <tr>
+            <th rowspan="2">Threads</th>
+            <th colspan="3"><span class="small-caps">Safe</span></th>
+            <th colspan="3"><span class="small-caps">Race</span></th>
+          </tr>
+          <tr>
+            <th>Copy<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfenced open="(" close=")">
+          <mrow>
+          <msup>
+          <mn>10</mn>
+          <mn>-5</mn>
+          </msup>
+          <mi>s</mi>
+          </mrow>
+          </mfenced>
+          </math>
+            </th>
+            <th>Compute<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfenced open="(" close=")">
+          </mrow>
+          <msup>
+          <mn>10</mn>
+          <mn>-4</mn>
+          </msup>
+          <mi>s</mi>
+          </mrow>
+          </mfenced>
+          </math>
+            </th>
+            <th>Update<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfenced open="(" close=")">
+          </mrow>
+          <msup>
+          <mn>10</mn>
+          <mn>-6</mn>
+          </msup>
+          <mi>s</mi>
+          </mrow>
+          </mfenced>
+          </math>
+            </th>
+            <th>Copy<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfenced open="(" close=")">
+          </mrow>
+          <msup>
+          <mn>10</mn>
+          <mn>-5</mn>
+          </msup>
+          <mi>s</mi>
+          </mrow>
+          </mfenced>
+          </math>
+            </th>
+            <th>Compute<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfenced open="(" close=")">
+          </mrow>
+          <msup>
+          <mn>10</mn>
+          <mn>-4</mn>
+          </msup>
+          <mi>s</mi>
+          </mrow>
+          </mfenced>
+          </math>
+            </th>
+            <th>Update<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfenced open="(" close=")">
+          </mrow>
+          <msup>
+          <mn>10</mn>
+          <mn>-6</mn>
+          </msup>
+          <mi>s</mi>
+          </mrow>
+          </mfenced>
+          </math>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>11</td>
+            <td>1.28</td>
+            <td>167.00</td>
+            <td>7.76</td>
+            <td>1.15</td>
+            <td>167.00</td>
+            <td>2.79</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>1.31</td>
+            <td>84.30</td>
+            <td>6.98</td>
+            <td>1.17</td>
+            <td>83.60</td>
+            <td>1.96</td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>1.38</td>
+            <td>43.00</td>
+            <td>7.09</td>
+            <td>1.23</td>
+            <td>43.10</td>
+            <td>1.63</td>
+          </tr>
+          <tr>
+            <td>81</td>
+            <td>2.98</td>
+            <td>27.30</td>
+            <td>20.60</td>
+            <td>1.43</td>
+            <td>27.20</td>
+            <td>1.79</td>
+          </tr>
+          <tr>
+            <td>101</td>
+            <td>36.70</td>
+            <td>23.40</td>
+            <td>357.00</td>
+            <td>1.64</td>
+            <td>25.20</td>
+            <td>1.79</td>
+          </tr>
+          <tr>
+            <td>201</td>
+            <td>251.00</td>
+            <td>15.30</td>
+            <td>2500.00</td>
+            <td>11.80</td>
+            <td>74.30</td>
+            <td>4.33</td>
+          </tr>
+          <tr>
+            <td>251</td>
+            <td>345.00</td>
+            <td>13.30</td>
+            <td>3440.00</td>
+            <td>16.60</td>
+            <td>90.90</td>
+            <td>4.55</td>
+          </tr>
+          <tr>
+            <td>401</td>
+            <td>1880.00</td>
+            <td>8.23</td>
+            <td>18,700.00</td>
+            <td>20.20</td>
+            <td>91.60</td>
+            <td>4.52</td>
+          </tr>
+        </tbody>
+        <caption>
+          <strong>Table 1.</strong> Mean times for copy, compute, and update
+          operations
+        </caption>
+      </table>
+      <figure id="Fig7">
+        <figure id="Fig7a">
+          <img src="./img/image7a.png" />
+          <figcaption>
+            <strong>(a)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            copy, 11 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7b">
+          <img src="./img/image7b.png" />
+          <figcaption>
+            <strong>(b)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            compute, 11 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7c">
+          <img src="./img/image7c.png" />
+          <figcaption>
+            <strong>(c)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            update, 11 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7d">
+          <img src="./img/image7d.png" />
+          <figcaption>
+            <strong>(d)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            copy, 81 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7e">
+          <img src="./img/image7e.png" />
+          <figcaption>
+            <strong>(e)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            compute, 81 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7f">
+          <img src="./img/image7f.png" />
+          <figcaption>
+            <strong>(f)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            update, 81 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7g">
+          <img src="./img/image7g.png" />
+          <figcaption>
+            <strong>(g)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            copy, 201 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7h">
+          <img src="./img/image7h.png" />
+          <figcaption>
+            <strong>(h)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            compute, 201 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig7i">
+          <img src="./img/image7i.png" />
+          <figcaption>
+            <strong>(i)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            update, 201 threads
+          </figcaption>
+        </figure>
+        <figcaption>
+          <strong>Figure 7.</strong> <span class="small-caps">Safe</span> copy,
+          compute, and update histograms with kernel fits
+        </figcaption>
+      </figure>
+      <figure id="Fig8">
+        <figure id="Fig8a">
+          <img src="./img/image8a.png" />
+          <figcaption>
+            <strong>(a)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            copy, 11 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8b">
+          <img src="./img/image8b.png" />
+          <figcaption>
+            <strong>(b)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            compute, 11 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8c">
+          <img src="./img/image8c.png" />
+          <figcaption>
+            <strong>(c)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            update, 11 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8d">
+          <img src="./img/image8d.png" />
+          <figcaption>
+            <strong>(d)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            copy, 81 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8e">
+          <img src="./img/image8e.png" />
+          <figcaption>
+            <strong>(e)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            compute, 81 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8f">
+          <img src="./img/image8f.png" />
+          <figcaption>
+            <strong>(f)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            update, 81 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8g">
+          <img src="./img/image8g.png" />
+          <figcaption>
+            <strong>(g)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            copy, 201 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8h">
+          <img src="./img/image8h.png" />
+          <figcaption>
+            <strong>(h)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            compute, 201 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig8i">
+          <img src="./img/image8i.png" />
+          <figcaption>
+            <strong>(i)</strong>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"> <mi>x</mi> </math>
+            update, 201 threads
+          </figcaption>
+        </figure>
+        <figcaption>
+          <strong>Figure 8.</strong> <span class="small-caps">Race</span> copy,
+          compute, and update histograms with kernel fits
+        </figcaption>
+      </figure>
     </section>
 
     <section id="Sect5.2">
       <h1>Implementation 2: Finite difference Jacobi solver</h1>
+      <p>
+        This second implementation performs the Jacobi relaxation on the grid
+        directly using the neighboring points required by the 5-point stencil as
+        opposed to explicitly forming the matrix
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi>
+        <mo>,</mo>
+        </math>
+        and in a sense implements a <em>matrix-free</em> solution. For this
+        implementation, the Laplacian was discretized over a
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>600</mn>
+        <mo>&times;</mo>
+        <mn>600</mn>
+        </math>
+        grid with boundary conditions set according to <a href="#Tab2">Table
+          2</a>.
+      </p>
+      <table id="Tab2">
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>100</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>100</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>75</td>
+            <td>XXX</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>XXX</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>&vellip;</td>
+            <td>XXX</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>XXX</td>
+            <td>&vellip;</td>
+          </tr>
+          <tr>
+            <td>&vellip;</td>
+            <td>XXX</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>XXX</td>
+            <td>&vellip;</td>
+          </tr>
+          <tr>
+            <td>75</td>
+            <td>XXX</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>XXX</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+        <caption>
+          <strong>Table 2.</strong> Boundary conditions for the second
+          implementation of the Laplacian
+        </caption>
+      </table>
+      <p>
+        The implementation used here stems from code provided by (<a
+          role="doc-biblioref" href="#HW10">Hager, &amp; Wellein, 2010</a>);
+        similar code solves a three dimensional discretization of the Laplacian
+        in the study featured in (<a role="doc-biblioref" href="#BBDH11">Bethune,
+          et al., 2011</a>) and (<a role="doc-biblioref" href="#BBDH14">Bethune,
+          et al., 2014</a>). The routine solves a heat diffusion problem, in which a
+        two-dimensional heated plate has Dirichlet boundary-condition
+        temperatures. Two matrices,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>u</mi>
+        <mn>0</mn>
+        </msub>
+        </math>
+        and
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>u</mi>
+        <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        </math>
+        store grid point values that each thread reads, e.g., from
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>u</mi>
+        <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        </math>
+        to compute newer values to write, e.g., to
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>u</mi>
+        <mn>0</mn>
+        </msub>
+        <mo>.</mo>
+        </math>
+        As the method is asynchronous, each thread independently determines
+        which matrix stores its newer
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>u</mi>
+        <mrow>
+        <mfenced open="(" close=")">
+        <mrow>
+        <mi>t</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        </mrow>
+        </mfenced>
+        </mrow>
+        </msup>
+        <mfenced open="(" close=")">
+        <mi>i</mi>
+        <mi>j</mi>
+        </mfenced>
+        </math>
+        values and older
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>u</mi>
+        <mrow>
+        <mfenced open="(" close=")">
+        <mi>t</mi>
+        </mfenced>
+        </mrow>
+        </msup>
+        <mfenced open="(" close=")">
+        <mi>i</mi>
+        <mi>j</mi>
+        </mfenced>
+        </math>
+        values. For an
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>N</mi>
+        <mo>+</mo>
+        <mn>2</mn>
+        </math>
+        by
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>N</mi>
+        <mo>+</mo>
+        <mn>2</mn>
+        </math>
+        grid, each thread solves for
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>N</mi>
+        <mn>2</mn>
+        </msup>
+        </math>
+        grid points divided by
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>n</mi>
+        </math>
+        processing elements, such that the grid is evenly divided along the
+        y-axis. When a thread copies grid point values above or below its domain
+        for the computation, OpenMP<sup>&reg;</sup> locks are employed to ensure
+        that data is safely captured from a single iteration. Further, locks are
+        used when updating values on domain boundaries. Each thread
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>p</mi>
+        <mi>n</mi>
+        </msub>
+        </math>
+        computes its local residual value every
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>k</mi>
+        <mi>th</mi>
+        </msup>
+        </math>
+        iteration, which it contributes to the global residual value using an
+        OpenMP<sup>&reg;</sup> atomic operation, such that it adds the local
+        residual from the current iteration and subtracts the local residual
+        from the previous iteration. A single thread checks for convergence with
+        an atomic capture operation, and updates a shared flag variable if the
+        criterion is satisfied. Pseudocode for this implementation is provided
+        in <a href="#Alg4">Algorithm 4</a>, where bold upper-case text indicates
+        that OpenMP<sup>&reg;</sup> locks are employed. Locks are used only with
+        interior boundary rows, meaning they are unnecessary for the first and
+        last rows in the domain.
+      </p>
+      <p>In this implementation, data was collected only for the time to
+        complete an iteration. Thread counts of 10, 25, 50, 75, 100, and 150
+        were used in these series of experiments. The average total iteration
+        time for the varying.</p>
+      <p id="Alg4">
+        <strong>Algorithm 4</strong>
+      </p>
+      <p>
+        <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
+        each of the thread counts. <a href="#Tab3">Table 3</a> and <a
+          href="#Fig9">Figure 9</a> show that with increasing thread count, mean
+        iteration time decreases, but iteration times variance increases. This
+        increase in iteration time variation may result from increased
+        opportunities for lock collisions with greater thread counts.
+      </p>
+      <table id="Tab3">
+        <thead>
+          <tr>
+            <th>Threads</th>
+            <th>Mean<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+            <mfenced open="(" close=")">
+            <mrow>
+            <msup>
+            <mn>10</mn>
+            <mn>-5</mn>
+            </msup>
+            <mi>s</mi>
+            </mrow>
+            </mfenced>
+            </math>
+            </th>
+            <th>Std.<br /> <math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+            <mfenced open="(" close=")">
+            <mrow>
+            <msup>
+            <mn>10</mn>
+            <mn>-6</mn>
+            </msup>
+            <mi>s</mi>
+            </mrow>
+            </mfenced>
+            </math>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10</td>
+            <td>8.86</td>
+            <td>3.87</td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>3.92</td>
+            <td>2.08</td>
+          </tr>
+          <tr>
+            <td>50</td>
+            <td>2.55</td>
+            <td>2.34</td>
+          </tr>
+          <tr>
+            <td>75</td>
+            <td>2.53</td>
+            <td>5.80</td>
+          </tr>
+          <tr>
+            <td>100</td>
+            <td>2.61</td>
+            <td>5.95</td>
+          </tr>
+          <tr>
+            <td>150</td>
+            <td>2.64</td>
+            <td>5.76</td>
+          </tr>
+        </tbody>
+        <caption>
+          <strong>Table 3.</strong> Mean iteration time and standard deviation
+          by thread count
+        </caption>
+      </table>
+      </figure>
+      <figure id="Fig9">
+        <figure id="Fig9a">
+          <img src="./img/image9a.png" />
+          <figcaption>
+            <strong>(a)</strong> 10 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig9b">
+          <img src="./img/image9b.png" />
+          <figcaption>
+            <strong>(b)</strong> 25 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig9c">
+          <img src="./img/image9c.png" />
+          <figcaption>
+            <strong>(c)</strong> 50 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig9d">
+          <img src="./img/image9d.png" />
+          <figcaption>
+            <strong>(d)</strong> 75 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig9e">
+          <img src="./img/image9e.png" />
+          <figcaption>
+            <strong>(e)</strong> 100 threads
+          </figcaption>
+        </figure>
+        <figure id="Fig9f">
+          <img src="./img/image9f.png" />
+          <figcaption>
+            <strong>(f)</strong> 150 threads
+          </figcaption>
+        </figure>
+        <caption>
+          <strong>Figure 9.</strong> Iteration time histograms with kernel fits
+        </caption>
+      </figure>
+      <p>
+        <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
+        each of the thread counts. <a href="#Tab3">Table 3</a> and <a
+          href="#Fig9">Figure 9</a> show that with increasing thread count, mean
+        iteration time decreases, but iteration times variance increases. This
+        increase in iteration time variation may result from increased
+        opportunities for lock collisions with greater thread counts.
+      </p>
+      <p>
+        Since this implementation is even more compute bound than the first one,
+        <a href="#Tab3">Table 3</a> shows a general decrease in the time for
+        each iteration as the thread count is increased. While there is no
+        inflection point evident in the data presented in <a href="#Tab3">Table
+          3</a>, compared to <span class="small-caps">Race</span> in <a href="#Tab1">Table
+          1</a>, <a href="#Tab3">Table 3</a> still suggests that once the number of
+        threads outnumbers physical cores, performance gains diminish. For
+        denser matrices, or for different applications on different systems,
+        these trends could change as the memory-based activities become
+        relatively more expensive. The finite difference discretization of the
+        Laplacian is a very sparse matrix that does not require much data
+        movement.
+      </p>
     </section>
 
     <section id="Sect5.3">
       <h1>Implementation comparison</h1>
+      <p>
+        The <span class="small-caps">Safe</span> variant of the first
+        implementation incurs significant overhead costs for
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        </math>
+        copy and update operations, as thread count increases, because each
+        thread must copy the entire
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        </math>
+        vector. In the second implementation, data shared between threads is
+        differentiated and specific to domain location; therefore, specific
+        locks may be used when copying and updating segments of the subdomain.
+        Assuming an appropriate number of processing elements for a given grid,
+        i.e., a thread has significantly more middle rows than boundary rows,
+        copy operations, and the associated variability and costs, are minimal
+        compared with compute operations. The <span class="small-caps">Race</span>
+        implementation of the general solver eliminates much of the overhead
+        cost from mutex locks, and convergence time is satisfactory for the
+        given system. Implementation 2 is more constrained than Implementation
+        1, generalizing only to finite difference discretizations of partial
+        differential equations over rectangular grids. Implementation 1
+        generalizes further to any sparse matrix,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi>
+        <mo>,</mo>
+        </math>
+        with which the Jacobi method can be used. According to <a href="#Theo1">Theorem
+          1</a>, convergence will occur if the spectral radius of the iteration
+        matrix,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>C</mi>
+        <mo>,</mo>
+        </math>
+        is less than 1. In the case of the Jacobi method, the iteration matrix
+        is given by
+      </p>
+      <p>$$ C = -D^{-1}\left( L + U \right)\label{u}\tag{21} $$</p>
+      <p>
+        Note that in the two dimensional discretization of the Laplacian, the
+        spectral radius of the Jacobian is less than l, which says that both the
+        synchronous and asynchronous variants of the Jacobi algorithm will
+        converge. Note <span class="small-caps">Race</span> behavior is unknown
+        for different problems and HPC systems.
+      </p>
+      <p>The purpose of the two distinct implementations is to emphasize
+        that the simulation framework proposed here can adapt to the behavior of
+        different problems and platforms. The framework may be apdapted to any
+        asynchronous iterative method through the process of collecting data
+        representative of individual update times and using the resultant data
+        to model the system in the framework.</p>
     </section>
 
     <section id="Sect5.4">
       <h1>Framework validation</h1>
+      <p>
+        To validate the performance of the simulation framework when initialized
+        with appropriate distributions, a case study utilizing output from
+        Implementation 1 (see <a href="#Sect5.1">Section 5.1</a> for details)
+        was considered. Data was collected for a smaller problem size only in
+        order to facilitate the collection of data over a large number of runs.
+        Specifically, the Laplacian was discretized over a
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>20</mn>
+        <mo>&times;</mo>
+        <mn>20</mn>
+        </math>
+        grid resulting in a matrix of size
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>400</mn>
+        <mo>&times;</mo>
+        <mn>400</mn>
+        <mo>.</mo>
+        </math>
+        Similarly to the process in <a href="#Sect5.1">Section 5.1</a>,
+        distributions were fit to the output of the OpenMP<sup>&reg;</sup>
+        implementation, and these distributions were used in the simulation
+        framework to provide update times to the simulated processors that are
+        reflective of the HPC hardware that the data was collected on. Output
+        from the average of these runs is provided in <a href="#Tab4">Table
+          4</a>. The leftmost column provides the number of threads that were used
+        (or simulated), the middle column shows the average over multiple runs
+        of the parallel implementation, and the rightmost column shows the
+        average over multiple runs of the simulation generated by the simulation
+        framework. In the case of this small problem, the similarity of actual
+        and simulated run times helps to validate the model. Running multiple
+        trials of larger problems in the framework is currently
+        time-prohibitive, which is an issue that may be improved with framework
+        implementation changes. Future work includes model validation for other
+        problems and larger problems.
+      </p>
+      <table id="Tab4">
+        <thead>
+          <tr>
+            <th>Thread Count</th>
+            <th>Run Average (s)</th>
+            <th>Simulation Average (s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>11</td>
+            <td>0.01</td>
+            <td>0.01</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>0.02</td>
+            <td>0.02</td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>0.04</td>
+            <td>0.04</td>
+          </tr>
+          <tr>
+            <td>51</td>
+            <td>0.04</td>
+            <td>0.05</td>
+          </tr>
+          <tr>
+            <td>81</td>
+            <td>0.09</td>
+            <td>0.09</td>
+          </tr>
+          <tr>
+            <td>101</td>
+            <td>0.12</td>
+            <td>0.12</td>
+          </tr>
+          <tr>
+            <td>201</td>
+            <td>0.34</td>
+            <td>0.35</td>
+          </tr>
+        </tbody>
+        <caption>
+          <strong>Table 4.</strong> Comparisons of run times between parallel
+          executions and simulation
+        </caption>
+      </table>
     </section>
   </section>
 
   <section id="Sect6">
     <h1>Framework extension for fault-tolerance requirements</h1>
+    <p>
+      The modular nature of this framework allows for extra functionality to be
+      easily added to the framework itself that can be used to adapt the base
+      algorithm to suit a specific set of requirements. With the projected
+      increase of faults (see the references in <a href="#Sect2">Section 2</a>),
+      development of fault tolerant algorithms is an important endeavor. A block
+      diagram showing the additional functionality dealing with fault-tolerance
+      is shown in <a href="#Fig10">Figure 10</a>. The new functionality is
+      achieved by passing in another function handle that performs the fault
+      tolerance check and recovery work.
+    </p>
+    <figure id="Fig10">
+      <img src="./img/image10.png" />
+      <caption>
+        <strong>Figure 10.</strong> Block diagram of the simulation framework
+        with added support for fault tolerance mechanisms
+      </caption>
+    </figure>
+    <p>
+      The contents of the newly added <em>Fault tolerance</em> check module may
+      be organized as follows: Each processor makes a call to find the global
+      residual and rolls the state back to the previous known good state if the
+      behavior of the residual is not as expected. See <a href="#Sect6.2">Section
+        6.2</a> for more details. Note that this strategy is not being advocated for
+      due to its optimality, but is being shown as an example of how to extend
+      the framework for algorithm development. Techniques such as monitoring the
+      progression of the component-wise residuals (e.g., (<a
+        role="doc-biblioref" href="#ADQO15">Anzt, Dongarra, &amp;
+        Quintana-Ortí, 2015</a>; <a role="doc-biblioref" href="#ADQO16">Anzt,
+        Dongarra, &amp; Quintana-Ortí, 2016</a>)) or only rolling back portions of
+      the state vector (e.g., (<a role="doc-biblioref" href="#CS17">Coleman,
+        &amp; Sosonkina, 2017</a>; <a role="doc-biblioref" href="#CS18">Coleman,
+        &amp; Sosonkina, 2018</a>)) would probably be more computationally
+      efficient.
+    </p>
 
     <section id="Sect6.1">
       <h1>Fault model</h1>
+      <p>
+        For this part of the study, faults are modeled as perturbations similar
+        to several recent studies (<a role="doc-biblioref" href="#CS16b">Coleman,
+          &amp; Sosonkina, 2016b</a>; <a role="doc-biblioref" href="#CSC17">Coleman,
+          Sosonkina, &amp; Chow, 2017</a>; <a role="doc-biblioref" href="#SW15">Stoyanov,
+          &amp; Webster, 2015</a>); the goal being producing fault tolerant
+        algorithms for future computing platforms that are not too dependent on
+        the precise mechanism of a fault (e.g., bit flip). Modifying the
+        perturbation-based fault model described in (<a role="doc-biblioref"
+          href="#CSC17">Coleman, Sosonkina, &amp; Chow, 2017</a>), a single data
+        structure is targeted and a small random perturbation is injected into
+        each component transiently. For example, if the targeted data structure
+        is a vector
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        </math>
+        and the maximum size of the perturbation-based fault is
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo>&epsilon;</mo>
+        </math>
+        then proceed as follows: sample a random number
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>r</mi>
+        <mi>i</mi>
+        </msub>
+        <mo>&isin;</mo>
+        <mfenced open="(" close=")">
+        <mo>-&epsilon;</mo>
+        <mo>&epsilon;</mo>
+        </mfenced>
+        <mo>,</mo>
+        </math>
+        using a uniform distribution, and then set
+      </p>
+      <p>$$ \hat x_{i} = x_{i} + r_{i}\label{v}\tag{22} $$</p>
+      <p>
+        for all values of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>i</mi>
+      <mo>.</mo>
+      </math>
+        The resultant vector
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mo>x&#770;</mo>
+      </math>
+        is then perturbed away from the original vector
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x</mi>
+      <mo>.</mo>
+      </math>
+        Other similar perturbation-based fault models have sampled the
+        components
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+      <mi>r</mi>
+      <mi>i</mi>
+      </msub>
+      </math>
+        from different ranges. This can allow the creation of scenarios where
+        some components are perturbed by large amounts, and some are only
+        changed incrementally.
+      </p>
+      <p>In this study, faults are injected into the asynchronous Jacobi
+        algorithm following the perturbation based methodology described above.
+        Due to the relatively short execution time of the asynchronous Jacobi
+        algorithm on the given test problems, a fault is induced only once
+        during each run, and the fault is designated to occur at a random
+        iteration number before convergence. To be precise - since "iteration"
+        loses some meaning in an asynchronous iterative algorithm - the fault is
+        injected on a single simulated time before the algorithm terminates. It
+        is not necessary for the program to have an update scheduled on the same
+        simulated time for the fault to be injected.</p>
     </section>
 
     <section id="Sect6.2">
       <h1>Experiments with the Fault-tolerance module</h1>
+      <p>
+        Similar to the earlier results in the paper, this study covers the
+        solution of the linear system resulting from a two-dimensional finite
+        difference discretization of the Laplacian. Before presenting simulation
+        results, it is important to note that faults, as modeled here, will not
+        prevent the <em>eventual</em> solution of the linear system using the
+        (asynchronous) Jacobi method. Since the spectral radius of the
+        associated iteration matrix is strictly less than 1, it will converge
+        for any initial guess
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>x</mi>
+        <mrow>
+        <mfenced open="(" close=")">
+        <mn>0</mn>
+        </mfenced>
+        </mrow>
+        </msup>
+        <mo>.</mo>
+        </math>
+      </p>
+      <p>
+        Since faults are assumed to only affect the memory storing the vector
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        </math>
+        and are assumed to occur in a transient manner, if a fault occurs on
+        iteration
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>F</mi>
+        </math>
+        then the subsequent iterate,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup>
+        <mi>x</mi>
+        <mrow>
+        <mfenced open="(" close=")">
+        <mrow>
+        <mi>F</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        </mrow>
+        </mfenced>
+        </mrow>
+        </msup>
+        </math>
+        can be taken to be the new starting iterate and eventual convergence is
+        guaranteed due to the iteration matrix which has remained the same
+        throughout the occurrence of the fault. This model can reflect the
+        scenario where certain parts of the routine are designated to run on
+        hardware with a higher reliability threshold, and other parts of the
+        algorithm are allowed to run on hardware that may be more susceptible to
+        the occurrence of a fault. This sandbox type design has been suggested
+        as a possible means for providing energy efficient fault tolerance on
+        future HPC environments (<a role="doc-biblioref" href="#BFHH12">Bridges,
+          et al., 2012</a>; <a role="doc-biblioref" href="#HH11">Hoemmen, &amp;
+          Heroux, 2011</a>; <a role="doc-biblioref" href="#SV13">Sao, &amp;
+          Vuduc, 2013</a>).
+      </p>
+      <p>
+        While eventual convergence may be guaranteed, greatly accelerated
+        convergence is possible through a simple checkpointing scheme. An
+        example of such a scheme (as an extension of the asynchronous Jacobi
+        simulation provided by <a href="#Alg2">Algorithm 2</a>) is provided in <a
+          href="#Alg5">Algorithm 5</a>.
+      </p>
+      <p id="Alg5">
+        <strong>Algorithm 5</strong>
+      </p>
+      <p>
+        Note that the asynchronous nature of the iterative method means that a
+        strict check on the decrease of the residual (i.e., expecting monotonic
+        decrease) is not possible. In particular, the checkpointing tolerance
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        </math>
+        needs to be taken such that
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>&gt;</mo>
+        <mn>1</mn>
+        <mo>.</mo>
+        </math>
+        However, the expected manifestation of faults as rare, transient events
+        allows α to be taken fairly large. Taking
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        </math>
+        too large results in a fault having a substantial impact on the
+        convergence rate of algorithm since large faults will be allowed to
+        impact the algorithm with no correction. Conversely, taking α too small
+        causes the algorithm to checkpoint more frequently than needed. Examples
+        of the effects of a fault with different values selected for α are given
+        by <a href="#Fig11">Figure 11</a>.
+      </p>
+      <figure id="Fig11">
+        <figure id="Fig11a">
+          <img src="./img/image11a.png" />
+        </figure>
+        <figure id="Fig11b">
+          <img src="./img/image11b.png" />
+        </figure>
+        <figure id="Fig11c">
+          <img src="./img/image11c.png" />
+        </figure>
+        <figure id="Fig11d">
+          <img src="./img/image11d.png" />
+        </figure>
+        <caption>
+          <strong>Figure 11.</strong> Effect of differing values of α on the
+          progression of the residual
+        </caption>
+      </figure>
+      <p>
+        Note in <a href="#Fig11">Figure 11</a> that no checkpointing results in
+        a delay to convergence relative to the use of checkpointing with either
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        </math>
+        or
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+        <mo>.</mo>
+        </math>
+        The size of the fault selected in this study,
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msub>
+        <mi>r</mi>
+        <mi>i</mi>
+        </msub>
+        <mo>&isin;</mo>
+        <mfenced open="(" close=")">
+        <mn>-100</mn>
+        <mn>100</mn>
+        </mfenced>
+        <mo>,</mo>
+        </math>
+        which may be reflective of an exponent or sign bit flip (<a
+          role="doc-biblioref" href="#CS18">Coleman, &amp; Sosonkina, 2018</a>),
+        results in the values
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        </math>
+        and
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+        </math>
+        having the same performance since the error induced by the fault is
+        sufficiently large that the new residual is more than
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+        </math>
+        times the prior residual. Faults that induce a smaller error may be
+        detected by certain values of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        </math>
+        and not by others which would lead to differing performance.
+      </p>
+      <p>
+        The residual progress in the plot showing the effects of using
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        </math>
+        can be explained by the updates provided by certain simulated processing
+        elements being rejected despite being necessary for the convergence of
+        the algorithm. This can be seen in the small, momentary jumps in the
+        progression of the residual visible in the other graphs. These
+        rejections lead to stagnation in the progression of the algorithm and
+        show why the value of
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&alpha;</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        </math>
+        should not be selected for a checkpointing scheme for an asynchronous
+        iterative method.
+      </p>
     </section>
   </section>
 
@@ -1294,7 +3445,7 @@
       </li>
       <li id="HH11" role="doc-biblioentry">Hoemmen, M., &amp; Heroux, M.A.
         (2011). <em>Fault-tolerant iterative methods via selective
-          reliability</em>. vol 3.<a
+          reliability</em>. vol 3. <a
         href="http://www.sandia.gov/%7Emaherou/docs/FTGMRES.pdf"><img
           src="../../icons/pdf.png" /></a>
       </li>
