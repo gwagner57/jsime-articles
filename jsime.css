@@ -161,8 +161,10 @@ textarea {
   p + p,
   figure.top + p,
   figure.column-top + p,
+  figure.column-top-corner + p,
   figure.bottom + p,
   figure.column-bottom + p
+  figure.column-bottom-corner + p
   {
     text-indent: 1.5em;
   }
