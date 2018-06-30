@@ -122,8 +122,37 @@
       href="https://jsime.org/index.php/jsimeng/article/view/3"
       style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
   </header>
+ <aside id="feedback" class="suppressInPDF">
+   <button type=button onclick="document.body.classList.add('feedbackMode')">Provide comments. Report errors</button>
+   <form name="Feedback-1-3" method="POST" netlify-honeypot="bot-field" netlify>
+    <p class="hidden">
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+    <div class="close-btn" onclick="document.body.classList.remove('feedbackMode')">X</div>
+	<h1>Provide comments and report errors</h1>
+	<p>During a 4-week feedback period ending on July 26, anyone may provide comments and report errors, which will be taken into consideration by the author(s).
+    </p>
+    <div>
+      <label>Your name: <input type="text" name="name" size="30" required="required" /></label>
+    </div>
+    <div>
+      <label>Email address: <input type="email" name="emailAddress" size="30" required="required" /></label>
+    </div>
+    <div>
+      <label>Affiliation: <input type="text" name="affiliation" size="30" /></label>
+    </div>
+    <div>
+      <label>Comments/hints:<br/>
+	  <textarea name="feedback" required="required"></textarea></label>
+    </div>
+    <div>
+      <button type=”submit”>Send</button>
+    </div>
+  </form>
+ </aside>
   <main>
   <div id="front-matter">
+    <div id="release-status">In feedback phase. Some contents may still change.</div>
     <h1 id="article-title">Assessments of Introducing New Technologies in
       Disaster Prevention Planning</h1>
     <address typeof="Person">
