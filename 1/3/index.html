@@ -47,65 +47,73 @@
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
   "@graph": [
     {
-      "@id": "#jsime",
-      "@type": "Periodical",
-      "name": "Journal of Simulation Engineering",
-      "issn": "2569-9466",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Consortium for True Open Access in Modeling and Simulation"
-      },
-      "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
-    },
-    {
-      "@id": "#volume-1",
-      "@type": "PublicationVolume",
-      "datePublished": "2018-06-28",
-      "volumeNumber": "1",
-      "isPartOf": { "@id": "#jsime" }
-    },
-    {
-      "@id": "#affiliation-1",
-      "@type": "Organization",
-      "address": "Meijo University, Nagoya, Japan"
-    },
-    {
-      "@id": "#author-1",
-      "@type": "Person",
-      "name": "Tomoichi Takahashi",
-      "email": "ttaka@meijo-u.ac.jp",
-      "affiliation": "#affiliation-1"
-    },
-    {
-      "@id": "#artcile-1-3",
       "@type": "ScholarlyArticle",
-      "isPartOf": { "@id": "#volume-1" },
       "name": "Assessments of Introducing New Technologies in Disaster Prevention Planning",
-      "author": "#author-1",
+      "author": [
+        { "@id": "/1/3/author-1" }
+      ],
       "keywords": [ "Social Simulation", "Decision Support", "Evacuation Guidance" ],
       "description": "Simulations have been used in multiple fields. Social simulation, in which humans play a major role in simulated scenarios, is one of the most promising fields in research. Human behavior is difficult to mathematically formulate. This makes it challenging to determine how well simulations mimic real situations; confirming simulation results empirically is also difficult. In this study, we present a new device that could change human behavior and provide a good method for mitigating damages during emergencies. We also consider ways of validating the simulation results to assess the new technology adoption.",
       "url": "https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "copyrightHolder": "#author-1",
+      "copyrightHolder": [
+        { "@id": "/1/3/author-1" }
+      ],
       "copyrightYear": "2018",
       "dateCreated": "2018-05-07",
-      "dateModified": "2018-06-28",
-      "datePublished": "2018-05-11"
+      "dateModified": "2018-06-30",
+      "datePublished": "2018-05-11",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2018-06-28",
+        "volumeNumber": "1",
+        "url": "https://articles.jsime.org/1/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": [
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010147.10010341.10010342.10010344",
+          "codeValue": "Computing methodologies~Model verification and validation",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        }
+      ]
     },
     {
-      "@type": "CategoryCodeSet",
-      "@id": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)",
-      "name": "The 2012 ACM Computing Classification System"
+      "@id": "/1/3/author-1",
+      "@type": "Person",
+      "name": "Tomoichi Takahashi",
+      "email": "ttaka@meijo-u.ac.jp",
+      "affiliation": [
+        { "@id": "/1/3/affiliation-1" }
+      ]
     },
     {
-      "@type": "CategoryCode",
-      "identifier": "10010147.10010341.10010342.10010344",
-      "codeValue": "Computing methodologies~Model verification and validation",
-      "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+      "@id": "/1/3/affiliation-1",
+      "@type": "Organization",
+      "name": "Meijo University",
+      "address": {
+        "addressLocality": "Nagoya",
+        "addressCountry": "Japan"
+      }
     }
   ]
 }
@@ -122,37 +130,45 @@
       href="https://jsime.org/index.php/jsimeng/article/view/3"
       style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
   </header>
- <aside id="feedback" class="suppressInPDF">
-   <button type=button onclick="document.body.classList.add('feedbackMode')">Provide comments. Report errors</button>
-   <form name="Feedback-1-3" method="POST" netlify-honeypot="bot-field" netlify>
-    <p class="hidden">
-      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-    </p>
-    <div class="close-btn" onclick="document.body.classList.remove('feedbackMode')">X</div>
-	<h1>Provide comments and report errors</h1>
-	<p>During a 4-week feedback period ending on July 26, anyone may provide comments and report errors, which will be taken into consideration by the author(s).
-    </p>
-    <div>
-      <label>Your name: <input type="text" name="name" size="30" required="required" /></label>
-    </div>
-    <div>
-      <label>Email address: <input type="email" name="emailAddress" size="30" required="required" /></label>
-    </div>
-    <div>
-      <label>Affiliation: <input type="text" name="affiliation" size="30" /></label>
-    </div>
-    <div>
-      <label>Comments/hints:<br/>
-	  <textarea name="feedback" required="required"></textarea></label>
-    </div>
-    <div>
-      <button type=”submit”>Send</button>
-    </div>
-  </form>
- </aside>
+  <aside id="feedback" class="suppressInPDF">
+    <button type=button onclick="document.body.classList.add('feedbackMode')">Provide
+      comments. Report errors</button>
+    <form name="Feedback-1-3" method="POST" netlify-honeypot="bot-field" netlify>
+      <p class="hidden">
+        <label>Don't fill this out if you're human: <input
+          name="bot-field" /></label>
+      </p>
+      <div class="close-btn"
+        onclick="document.body.classList.remove('feedbackMode')">X</div>
+      <h1>Provide comments and report errors</h1>
+      <p>During a 4-week feedback period ending on July 26, anyone may
+        provide comments and report errors, which will be taken into
+        consideration by the author(s).</p>
+      <div>
+        <label>Your name: <input type="text" name="name" size="30"
+          required="required" /></label>
+      </div>
+      <div>
+        <label>Email address: <input type="email" name="emailAddress"
+          size="30" required="required" /></label>
+      </div>
+      <div>
+        <label>Affiliation: <input type="text" name="affiliation"
+          size="30" /></label>
+      </div>
+      <div>
+        <label>Comments/hints:<br /> <textarea name="feedback"
+            required="required"></textarea></label>
+      </div>
+      <div>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </aside>
   <main>
   <div id="front-matter">
-    <div id="release-status">In feedback phase. Some contents may still change.</div>
+    <div id="release-status">In feedback phase. Some contents may still
+      change.</div>
     <h1 id="article-title">Assessments of Introducing New Technologies in
       Disaster Prevention Planning</h1>
     <address typeof="Person">
@@ -423,7 +439,7 @@
         <figcaption>
           <strong>Figure 1.</strong> Modeling process of physical phenomena
           (white and black arrows show modeling process and calculation,
-          respectively)
+          respectively).
         </figcaption>
       </figure>
       <p>
@@ -494,7 +510,7 @@
         <figcaption>
           <strong>Figure 2.</strong> Modeling process and flowchart of emergency
           simulation system (white and black arrows show modeling process and
-          calculation, respectively)
+          calculation, respectively).
         </figcaption>
       </figure>
       <p>
@@ -769,7 +785,7 @@
         <figcaption>
           <strong>Figure 3.</strong> Evacuation guidance media and promotional
           signage (PS) at a terminal. (Left: exit sign (ES). Middle: evacuation
-          plan. Right: evacuation map on the wall.)
+          plan. Right: evacuation map on the wall.).
         </figcaption>
       </figure>
       <p>
@@ -866,7 +882,7 @@
       </ul>
       <p>This indicates that PS is assumed to function as ES in an emergency
         and more signs can guide more people to evacuate properly.</p>
-      <table id="_Ref511750109">
+      <table id="_Ref511750109" class="bottom">
         <thead>
           <tr>
             <th rowspan="2">Test</th>
@@ -945,7 +961,7 @@
         </tbody>
         <caption>
           <strong>Table 1.</strong> Survey on emergency-sign awareness (* Seven
-          PS were added for an unexpected event)
+          PS were added for an unexpected event).
         </caption>
       </table>
     </section>
@@ -1388,17 +1404,17 @@
           <figure id="_Ref513459437a">
             <img src="./img/image7.png" />
             <figcaption>
-              <strong>(a)</strong> PS as promotional media
+              <strong>(a)</strong> PS as promotional media.
             </figcaption>
           </figure>
           <figure id="_Ref513459437b">
             <img src="./img/image8.png" />
             <figcaption>
-              <strong>(b)</strong> two types of Usage
+              <strong>(b)</strong> two types of Usage.
             </figcaption>
           </figure>
           <figcaption>
-            <strong>Figure 7.</strong> Crowd control management system using PS
+            <strong>Figure 7.</strong> Crowd control management system using PS.
           </figcaption>
         </figure>
         <p>
@@ -1796,7 +1812,7 @@
           </tr>
         </tbody>
         <caption>
-          <strong>Table 2.</strong> Relationship between Q and QSs
+          <strong>Table 2.</strong> Relationship between Q and QSs.
         </caption>
       </table>
       <p>Using the simulation results of experiments 1 and 2, the effects in
