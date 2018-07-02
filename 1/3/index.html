@@ -299,127 +299,78 @@
         phenomena are observed and represented as
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>D</mi>
-                        </mrow>
-                        <mrow>
-                           <msup>
-                              <mrow>
-                                 <mi>s</mi>
-                              </mrow>
-                              <mrow>
-                                 <mi>i</mi>
-                              </mrow>
-                           </msup>
-                        </mrow>
+                       <mi>D</mi>
+                       <msup>
+                         <mi>s</mi>
+                         <mi>i</mi>
+                       </msup>
                      </msub>
                      <mo>=</mo>
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <msup>
-                        <mrow>
-                           <mi>s</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>s</mi>
+                       <mi>i</mi>
                      </msup>
-                     <mo>,</mo>
                      <msup>
-                        <mrow>
-                           <mi>d</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>d</mi>
+                       <mi>i</mi>
                      </msup>
-                     <mo>)</mo>
+                     </mfenced>
                   </math>
         where
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>d</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>d</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         is the data of the <em>ith</em> observation at situation
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>s</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>s</mi>
+                       <mi>i</mi>
                      </msup>
-                     <mo>.</mo>
+                     <mo separator="true">.</mo>
                   </math>
         Modeling of phenomena involves extracting parameters
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <msub>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>c</mi>
+                       <mi>i</mi>
                      </msub>
-                     <mo>)</mo>
+                     </mfenced>
                   </math>
         and the relationships among them,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>F</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>F</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         calculates the phenomena from
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>D</mi>
-                        </mrow>
-                        <mrow>
-                           <msup>
-                              <mrow>
-                                 <mi>s</mi>
-                              </mrow>
-                              <mrow>
-                                 <mi>i</mi>
-                              </mrow>
-                           </msup>
-                        </mrow>
+                       <mi>D</mi>
+                       <msup>
+                         <mi>s</mi>
+                         <mi>i</mi>
+                       </msup>
                      </msub>
                   </math>
         and the validity is checked. To check validity, we determine whether the
         derived outputs from
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>F</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>F</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         correspond to observed data,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>d</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>d</mi>
+                       <mi>i</mi>
                      </msup>
                   </math>
         (<a role="doc-biblioref" href="#MFa">Faraday, 1848</a>).
@@ -516,22 +467,36 @@
       <p>
         In the event of an earthquake and consequent fire, the spread of fires
         and the collapse of buildings, roads and other infrastructures are
-        simulated by <em>F</em><sup><em>1</em></sup> and <em>F</em><sup><em>n</em></sup><em>,</em>
+        simulated by
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <msup>
+          <mi>F</mi>
+          <mn>1</mn>
+          </msup>
+        </math>
+        and
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <msup>
+          <mi>F</mi>
+          <mi>n</mi>
+          </msup>
+          <mo separator="true">,</mo>
+        </math>
         respectively. Pedestrian dynamics calculate the movements of humans in
-        these areas. Each <em>F</em> is a model of a disaster case that is
-        derived according to the process of <a href="#_Ref511746582">Figure
-          1</a>. The superscript corresponds to the disaster and the subscript
-        represents the situation. For example, even if the fires occur in the
-        same area, the damages from the disasters are different depending on
-        when they occur or how many people are present. The damages from
+        these areas. Each
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>F</mi>
+        </math>
+        is a model of a disaster case that is derived according to the process
+        of <a href="#_Ref511746582">Figure 1</a>. The superscript corresponds to
+        the disaster and the subscript represents the situation. For example,
+        even if the fires occur in the same area, the damages from the disasters
+        are different depending on when they occur or how many people are
+        present. The damages from
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>F</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>F</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         are integrated to simulate composite disaster situations. The
@@ -540,81 +505,54 @@
       <p>
         H1:(whole-part relation) A social system,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi mathvariant="normal">Σ</mi>
-                     <mo>,</mo>
+                     <mo mathvariant="normal">Σ</mo>
+                     <mo separator="true">,</mo>
                   </math>
         may be composed of subsystems,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>S</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>S</mi>
+                       <mi>i</mi>
                      </msup>
-                     <mo>.</mo>
+                     <mo separator="true">.</mo>
                   </math>
         Everyone has some knowledge on phenomena; social systems simulate this,
         and the knowledge is implemented in
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>S</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>S</mi>
+                       <mi>i</mi>
                      </msup>
-                     <mo>.</mo>
+                     <mo separator="true">.</mo>
                   </math>
         The model has a finite set of parameters,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi mathvariant="normal">Π</mi>
+                     <mo mathvariant="normal">Π</mo>
                      <mo>=</mo>
-                     <mo>{</mo>
+                     <mfenced open="{" close="}">
                      <msub>
-                        <mrow>
-                           <mi>p</mi>
-                        </mrow>
-                        <mrow>
-                           <mn>1</mn>
-                        </mrow>
+                       <mi>p</mi>
+                       <mn>1</mn>
                      </msub>
-                     <mo>,</mo>
-                     <mi> </mi>
                      <msub>
-                        <mrow>
-                           <mi>p</mi>
-                        </mrow>
-                        <mrow>
-                           <mn>2</mn>
-                        </mrow>
+                       <mi>p</mi>
+                       <mn>2</mn>
                      </msub>
-                     <mo>,</mo>
                      <mo>…</mo>
                      <msub>
-                        <mrow>
-                           <mi>p</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>n</mi>
-                        </mrow>
+                       <mi>p</mi>
+                       <mi>n</mi>
                      </msub>
-                     <mo>}</mo>
-                     <mo>.</mo>
+                     </mfenced>
+                     <mo separator="true">.</mo>
                   </math>
         The parameters,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>p</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>p</mi>
+                       <mi>i</mi>
                      </msub>
-                     <mo>,</mo>
+                     <mo separator="true">,</mo>
                   </math>
         represent features of agents, environments, and the interactions among
         them or others.
@@ -625,57 +563,41 @@
         system, it can be described as
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi mathvariant="normal">Σ</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>t</mi>
-                           <mo>+</mo>
-                           <mn>1</mn>
-                        </mrow>
+                       <mo mathvariant="normal">Σ</mo>
+                       <mrow>
+                         <mi>t</mi>
+                         <mo>+</mo>
+                         <mn>1</mn>
+                       </mrow>
                      </msub>
                      <mo>=</mo>
                      <mi>F</mi>
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <msub>
-                        <mrow>
-                           <mi mathvariant="normal">Σ</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>t</mi>
-                        </mrow>
+                       <mo mathvariant="normal">Σ</mo>
+                       <mi>t</mi>
                      </msub>
-                     <mo>,</mo>
-                     <mi> </mi>
                      <msub>
-                        <mrow>
-                           <mi mathvariant="normal">Π</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>t</mi>
-                        </mrow>
+                       <mo mathvariant="normal">Π</mo>
+                       <mi>t</mi>
                      </msub>
-                     <mo>)</mo>
-                     <mo>.</mo>
+                     </mfenced>
+                     <mo separator="true">.</mo>
                   </math>
       </p>
       <p>
         H3:(validness of system) When subsystems,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>S</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>S</mi>
+                       <mi>i</mi>
                      </msup>
-                     <mo>,</mo>
+                     <mo separator="true">,</mo>
                   </math>
         are well defined, then the system,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi mathvariant="normal">Σ</mi>
-                     <mo>,</mo>
+                     <mo mathvariant="normal">Σ</mo>
+                     <mo separator="true">,</mo>
                   </math>
         may be well designed and expanding or refining parameters and functions
         can cover more phenomena.
@@ -683,81 +605,56 @@
       <p>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>T</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>p</mi>
-                        </mrow>
+                       <mi>T</mi>
+                       <mi>p</mi>
                      </msub>
                   </math>
         which represents emergency situations that arise from various factors
         and human behaviors are involved in computing<em> </em>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>Σ</mi>
-                     <mo>.</mo>
+                     <mo mathvariant="normal">Σ</mo>
+                     <mo separator="true">.</mo>
                   </math>
         The result of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>Σ</mi>
+                     <mo mathvariant="normal">Σ</mo>
                   </math>
         are also compared with the precedent cases to verify the simulation
         results. The mitigation planning during future emergencies is formalized
         as finding conditions
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>c</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         (related to damage) to minimize the damages by calculating
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>F</mi>
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <msub>
-                        <mrow>
-                           <mi>s</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>s</mi>
+                       <mi>i</mi>
                      </msub>
-                     <mo>,</mo>
                      <msub>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>c</mi>
+                       <mi>i</mi>
                      </msub>
-                     <mo>)</mo>
-                     <mo>.</mo>
+                     </mfenced>
+                     <mo separator="true">.</mo>
                   </math>
         The
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>c</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         and corresponding situations
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>s</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                       <mi>s</mi>
+                       <mi>i</mi>
                      </msub>
                   </math>
         are stored as manual recipes during an emergency.
@@ -1049,7 +946,7 @@
         The parameter,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>p</mi>
-                          <mo>,</mo>
+                          <mo separator="true">,</mo>
                         </math>
         is implemented in the agent behavior model shown in <a
           href="#_Ref511747742">Figure 2</a>. When agents see new messages, they
@@ -1067,7 +964,7 @@
         and
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>s</mi>
-                          <mo>,</mo>
+                          <mo separator="true">,</mo>
                         </math>
         are parameters of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1075,6 +972,7 @@
                             <mi>E</mi>
                             <mi>n</mi>
                           </msub>
+                          <mo separator="true">.</mo>
                         </math>
       </p>
 
@@ -1088,53 +986,47 @@
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>p</mi>
                         <mo>=</mo>
-                        <mfenced open="{" close="}" separators="|">
+                        <mfenced open="{" close="}">
                            <mrow>
                               <mn>30</mn>
                               <mi>%</mi>
-                              <mo>,</mo>
+                            </mrow>
+                            <mrow>
                               <mn>50</mn>
                               <mi>%</mi>
-                              <mo>,</mo>
+                            </mrow>
+                            <mrow>
                               <mn>70</mn>
                               <mi>%</mi>
-                              <mo>,</mo>
+                            </mrow>
+                            <mrow>
                               <mn>100</mn>
                               <mi>%</mi>
                            </mrow>
                         </mfenced>
-                        <mo>,</mo>
+                        <mo separator="true">,</mo>
                       </math>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>n</mi>
                         <mo>=</mo>
-                        <mfenced open="{" close="}" separators="|">
-                          <mrow>
-                            <mn>1000</mn>
-                            <mo>,</mo>
-                            <mn>4000</mn>
-                            <mo>,</mo>
-                            <mn>7000</mn>
-                            <mo>,</mo>
-                            <mn>10000</mn>
-                          </mrow>
+                        <mfenced open="{" close="}">
+                          <mn>1000</mn>
+                          <mn>4000</mn>
+                          <mn>7000</mn>
+                          <mn>10000</mn>
                         </mfenced>
-                        <mo>,</mo>
+                        <mo separator="true">,</mo>
                      </math>
           and
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>s</mi>
                         <mo>=</mo>
-                        <mfenced open="{" close="}" separators="|">
-                          <mrow>
-                            <mn>4</mn>
-                            <mo>,</mo>
-                            <mn>6</mn>
-                            <mo>,</mo>
-                            <mn>8</mn>
-                          </mrow>
+                        <mfenced open="{" close="}">
+                          <mn>4</mn>
+                          <mn>6</mn>
+                          <mn>8</mn>
                         </mfenced>
-                        <mo>.</mo>
+                        <mo separator="true">.</mo>
                      </math>
         </p>
         <figure class="top" id="_Ref513458319">
@@ -1143,7 +1035,7 @@
             <strong>Figure 6.</strong> Evacuation rates for different
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>n</mi>
-                    <mo>,</mo>
+                    <mo separator="true">,</mo>
                    </math>
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>p</mi>
@@ -1167,25 +1059,19 @@
           three simulations and the horizontal axis is simulation time. For
           example, about 30% of the agents evacuate at 30 time-step in a case of
           <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")" separators="|">
-                          <mrow>
-                            <mi>p</mi>
-                            <mo>,</mo>
-                            <mi>n</mi>
-                            <mo>,</mo>
-                            <mi>s</mi>
-                          </mrow>
+                        <mfenced open="(" close=")">
+                          <mi>p</mi>
+                          <mi>n</mi>
+                          <mi>s</mi>
                         </mfenced>
                         <mo>=</mo>
-                        <mfenced open="(" close=")" separators="|">
+                        <mfenced open="(" close=")">
                           <mrow>
                             <mn>30</mn>
                             <mi>%</mi>
-                            <mo>,</mo>
-                            <mn>1000</mn>
-                            <mo>,</mo>
-                            <mn>4</mn>
                           </mrow>
+                          <mn>1000</mn>
+                          <mn>4</mn>
                         </mfenced>
                      </math>
           of the top left chart in <a href="#_Ref513458319">Figure 6</a>. The
@@ -1196,7 +1082,7 @@
                         <mo>=</mo>
                         <mn>30</mn>
                         <mi>%</mi>
-                        <mo>,</mo>
+                        <mo separator="true">,</mo>
                      </math>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>n</mi>
@@ -1205,25 +1091,19 @@
                      </math>
           correspond to congestions of a midweek afternoon. Hence, the case with
           <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")" separators="|">
-                          <mrow>
-                            <mi>p</mi>
-                            <mo>,</mo>
-                            <mi>n</mi>
-                            <mo>,</mo>
-                            <mi>s</mi>
-                          </mrow>
+                        <mfenced open="(" close=")">
+                          <mi>p</mi>
+                          <mi>n</mi>
+                          <mi>s</mi>
                         </mfenced>
                         <mo>=</mo>
-                        <mfenced open="(" close=")" separators="|">
+                        <mfenced open="(" close=")">
                           <mrow>
                             <mn>30</mn>
                             <mi>%</mi>
-                            <mo>,</mo>
-                            <mn>1000</mn>
-                            <mo>,</mo>
-                            <mn>4</mn>
                           </mrow>
+                          <mn>1000</mn>
+                          <mn>4</mn>
                         </mfenced>
                      </math>
           was selected as a standard case.
@@ -1231,27 +1111,21 @@
         <p>
           The evacuation rate of the case with
           <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")" separators="|">
-                          <mrow>
-                            <mi>p</mi>
-                            <mo>,</mo>
-                            <mi>n</mi>
-                            <mo>,</mo>
-                            <mi>s</mi>
-                          </mrow>
+                        <mfenced open="(" close=")">
+                          <mi>p</mi>
+                          <mi>n</mi>
+                          <mi>s</mi>
                         </mfenced>
                         <mo>=</mo>
-                        <mfenced open="(" close=")" separators="|">
+                        <mfenced open="(" close=")">
                           <mrow>
                             <mn>30</mn>
                             <mi>%</mi>
-                            <mo>,</mo>
-                            <mn>1000</mn>
-                            <mo>,</mo>
-                            <mn>4</mn>
                           </mrow>
+                          <mn>1000</mn>
+                          <mn>4</mn>
                         </mfenced>
-                        <mo>,</mo>
+                        <mo separator="true">,</mo>
                      </math>
           is
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1278,7 +1152,7 @@
           <math xmlns="http://www.w3.org/1998/Math/MathML">
                        <mn>33</mn>
                        <mo>%</mo>
-                       <mo>.</mo>
+                       <mo separator="true">.</mo>
                      </math>
           The evacuation rates at
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1299,7 +1173,7 @@
                        <mi>n</mi>
                        <mo>=</mo>
                        <mn>1000</mn>
-                       <mo>,</mo>
+                       <mo separator="true">,</mo>
                      </math>
           the evacuation rate increases with
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1320,25 +1194,19 @@
                      </math>
           time-steps in a case of
           <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")" separators="|">
-                          <mrow>
-                            <mi>p</mi>
-                            <mo>,</mo>
-                            <mi>n</mi>
-                            <mo>,</mo>
-                            <mi>s</mi>
-                          </mrow>
+                        <mfenced open="(" close=")">
+                          <mi>p</mi>
+                          <mi>n</mi>
+                          <mi>s</mi>
                         </mfenced>
                         <mo>=</mo>
-                        <mfenced open="(" close=")" separators="|">
+                        <mfenced open="(" close=")">
                           <mrow>
                             <mn>30</mn>
                             <mi>%</mi>
-                            <mo>,</mo>
-                            <mn>1000</mn>
-                            <mo>,</mo>
-                            <mn>4</mn>
                           </mrow>
+                          <mn>1000</mn>
+                          <mn>4</mn>
                         </mfenced>
                      </math>
           of the top right chart. However, as the number of people becomes
@@ -1347,11 +1215,9 @@
                        <mi>n</mi>
                        <mo>=</mo>
                        <mn>7000</mn>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                       <mo mathvariant="normal"> and </mo>
                        <mn>10000</mn>
-                       <mo>,</mo>
+                       <mo separator="true">,</mo>
                      </math>
           the evacuation rates at
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1359,9 +1225,7 @@
                        <mo>=</mo>
                        <mn>70</mn>
                        <mo>%</mo>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                       <mo mathvariant="normal"> and </mo>
                        <mn>50</mn>
                        <mo>%</mo>
                      </math>
@@ -1371,7 +1235,7 @@
                        <mo>=</mo>
                        <mn>100</mn>
                        <mo>%</mo>
-                       <mo>.</mo>
+                       <mo separator="true">.</mo>
                      </math>
         </p>
       </section>
@@ -1386,11 +1250,9 @@
                        <mi>n</mi>
                        <mo>=</mo>
                        <mn>7000</mn>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                       <mo mathvariant="normal"> and </mo>
                        <mn>10000</mn>
-                       <mo>.</mo>
+                       <mo separator="true">.</mo>
                      </math>
           Nowadays, security video cameras are commonplace in cities worldwide.
           At places where crowds of hundreds or thousands gather, such
@@ -1463,9 +1325,7 @@
                       <mi>n</mi>
                       <mo>=</mo>
                       <mn>4000</mn>
-                    </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mo mathvariant="normal"> and </mo>
                       <mn>7000</mn>
                     </math>
           seem similar to the cases where
@@ -1504,22 +1364,23 @@
           <figcaption>
             <strong>Figure 8.</strong> Improvement of refuge rate
             <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mo>(</mo>
+                      <mfenced open="(" close=" ">
+                      <mrow>
                       <mi>n</mi>
                       <mo>=</mo>
                       <mn>4000</mn>
-                      <mo>,</mo>
-                    </math>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      </mrow>
                       <mn>7000</mn>
-                    </math>
-            and
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      </mfenced>
+                      <mo mathvariant="normal"> and </mo>
+                      <mfenced open=" " close=")">
+                      <mrow>
                       <mi>s</mi>
                       <mo>=</mo>
                       <mn>8</mn>
-                      <mo>)</mo>
-                      <mo>.</mo>
+                      </mrow>
+                      </mfenced>
+                      <mo separator="true">.</mo>
                     </math>
           </figcaption>
         </figure>
@@ -1581,102 +1442,74 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>P</mi>
                      <mi>S</mi>
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <mi>C</mi>
-                     <mo>,</mo>
-                     <mi> </mi>
                      <mi>N</mi>
-                     <mo>)</mo>
-                     <mo>,</mo>
+                     </mfenced>
+                     <mo separator="true">,</mo>
                   </math>
         one simulation results, is involved in
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>P</mi>
                      <mi>R</mi>
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <mi>C</mi>
-                     <mo>,</mo>
-                     <mi> </mi>
                      <mi>E</mi>
-                     <mo>)</mo>
+                     </mfenced>
                   </math>
         where
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>C</mi>
                      <mo>=</mo>
-                     <mo>{</mo>
+                     <mfenced open="{" close="}">
                      <msub>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>c</mi>
+                     <mi>i</mi>
                      </msub>
-                     <mo>}</mo>
-                     <mo>,</mo>
+                     </mfenced>
+                     <mo separator="true">,</mo>
                   </math>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>E</mi>
                      <mo>=</mo>
-                     <mo>{</mo>
+                     <mfenced open="{" close="}">
                      <msub>
-                        <mrow>
-                           <mi>e</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>e</mi>
+                     <mi>i</mi>
                      </msub>
-                     <mo>}</mo>
-                     <mo>,</mo>
+                     </mfenced>
+                     <mo separator="true">,</mo>
                   </math>
         and
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>N</mi>
                      <mo>=</mo>
-                     <mo>{</mo>
+                     <mfenced open="{" close="}">
                      <msub>
-                        <mrow>
-                           <mi>n</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>n</mi>
+                     <mi>i</mi>
                      </msub>
-                     <mo>}</mo>
+                     </mfenced>
                   </math>
         (<a href="#_Ref513459952">Figure 9</a>);
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>c</mi>
+                     <mi>i</mi>
                      </msup>
                   </math>
         are parameters that users can control,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>e</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>e</mi>
+                     <mi>i</mi>
                      </msup>
                   </math>
         are parameters that users do not notice or cannot specify,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
-                        <mrow>
-                           <mi>n</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>n</mi>
+                     <mi>i</mi>
                      </msup>
                   </math>
         are parameters that are introduced in the process of simulations, such
@@ -1687,13 +1520,11 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mi>P</mi>
                      <mi>S</mi>
-                     <mo>(</mo>
+                     <mfenced open="(" close=")">
                      <mi>C</mi>
-                     <mo>,</mo>
-                     <mi> </mi>
                      <mi>N</mi>
-                     <mo>)</mo>
-                     <mo>,</mo>
+                     </mfenced>
+                     <mo separator="true">,</mo>
                   </math>
         we accept the calculations as correct when their behaviors agree with
         our intuitions or are within probability laws. For example, think of
@@ -1702,12 +1533,8 @@
         when they follow law of great numbers instead of specifying all
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
-                        <mrow>
-                           <mi>c</mi>
-                        </mrow>
-                        <mrow>
-                           <mi>i</mi>
-                        </mrow>
+                     <mi>c</mi>
+                     <mi>i</mi>
                      </msub>
                   </math>
         to fit the calculation within some errors. In the field of computer
@@ -1830,12 +1657,10 @@
                          <mi>n</mi>
                          <mo>=</mo>
                          <mn>1000</mn>
-                       </math>
-            and
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                         <mo mathvariant="normal"> and </mo>
                          <mn>4000</mn>
                        </math>
-            4000 show the evacuation rates increase as
+            show the evacuation rates increase as
             <math xmlns="http://www.w3.org/1998/Math/MathML">
                          <mi>p</mi>
                        </math>
@@ -1850,11 +1675,9 @@
                          <mi>n</mi>
                          <mo>=</mo>
                          <mn>7000</mn>
-                       </math>
-            and
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                         <mo mathvariant="normal"> and </mo>
                          <mn>10000</mn>
-                         <mo>,</mo>
+                         <mo separator="true">,</mo>
                        </math>
             the evacuation rates do not necessarily increase as
             <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1889,7 +1712,7 @@
       and related themes of simulating social incidents have been discussed;
       however, many validation ways of simulations are based on comparison with
       real or experimental data (<a role="doc-biblioref" href="#Hea09">Heath,
-        Hill, &amp; Ciarallo, 2009</a>) . Comparing with data is essential in the
+        Hill, &amp; Ciarallo, 2009</a>). Comparing with data is essential in the
       fields of the first class applications, but for the fields of the second
       and the third classes, where there are little data and it is difficult to
       perform experiments, alternative validation methods are required.
@@ -2104,6 +1927,5 @@
     </ul>
   </section>
   </main>
-  <!-- <script src="../../jsime.js"></script> -->
 </body>
 </html>
