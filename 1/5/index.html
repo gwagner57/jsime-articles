@@ -567,7 +567,7 @@ td.border_left_right {
       <mi>D</mi>
       <mo>&rarr;</mo>
       <mi>D</mi>
-      <mo>.</mo>
+      <mo>,</mo>
       </math>
       where
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -604,9 +604,9 @@ td.border_left_right {
       <mi>D</mi>
       <mo>.</mo>
       </math>
-      To this end, a fixed point iteration is performed such that
+      To this end, a fixed point iteration is performed, such that
     </p>
-    <p>$$x^{k+1} = G \left( x^{k} \right),\label{b}\tag{2}$$</p>
+    <p>$$x^{k+1} = G \left( x^{k} \right)\label{b}\tag{2}$$</p>
     <p>
       and a fixed point is declared if
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -670,7 +670,7 @@ td.border_left_right {
       \in D \longrightarrow G\left( x \right) &=& G\left( x_{1}, x_{2}, \ldots,
       x_{m} \right)\label{c}\tag{3} \\ &=& \left( G_{1}\left(x \right),
       G_{2}\left(x \right), \ldots, G_{m}\left(x \right) \right) \in
-      D\label{d}\tag{4} \end{eqnarray} $$</p>
+      D.\label{d}\tag{4} \end{eqnarray} $$</p>
     <p>
       As a concrete example, let each
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -776,7 +776,7 @@ td.border_left_right {
       <mo>,</mo>
       <msub>
       <mi>P</mi>
-      <mn>p</mn>
+      <mi>p</mi>
       </msub>
       </math>
       each of which is assigned to a block
@@ -1077,7 +1077,7 @@ td.border_left_right {
       </p>
       <p>Relaxation methods can be expressed as general fixed point
         iterations of the form</p>
-      <p>$$ x^{k+1} = Cx^{k} + d \label{e}\tag{5} $$
+      <p>$$ x^{k+1} = Cx^{k} + d, \label{e}\tag{5} $$
       <p>
         where
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1111,7 +1111,7 @@ td.border_left_right {
       </p>
       <p>The Jacobi method is an asynchronous relaxation method built for
         solving linear systems of the form</p>
-      <p>$$ Ax = b,\label{f}\tag{6} $$
+      <p>$$ Ax = b\label{f}\tag{6} $$
       <p>
         and following the methodology put forth in (<a role="doc-biblioref"
           href="#BT89">Bertsekas, &amp; Tsitsiklis, 1989</a>), this can be
@@ -1128,7 +1128,7 @@ td.border_left_right {
         <mo>,</mo>
         </math>
       </p>
-      <p>$$ \sum^{n}_{j=1} a_{ij}x_{j} = b_{i},\label{g}\tag{7} $$</p>
+      <p>$$ \sum^{n}_{j=1} a_{ij}x_{j} = b_{i}\label{g}\tag{7} $$</p>
       <p>
         and this equation can be solved for the
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1141,7 +1141,7 @@ td.border_left_right {
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <msub>
         <mi>x</mi>
-        <mo>i</mo>
+        <mi>i</mi>
         </msub>
         <mo>,</mo>
         </math>
@@ -1156,7 +1156,7 @@ td.border_left_right {
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <msub>
         <mi>x</mi>
-        <mo>i</mo>
+        <mi>i</mi>
         </msub>
         <mo>,</mo>
         </math>
@@ -1165,7 +1165,7 @@ td.border_left_right {
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <msub>
         <mi>x</mi>
-        <mo>j</mo>
+        <mi>j</mi>
         </msub>
         <mo>,</mo>
         </math>
@@ -1277,7 +1277,7 @@ td.border_left_right {
           href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref"
           title="Footnote 1: Throughout the text, vector notation is occasionally adopted to emphasize when functions take all components of x as opposed to a single component, such as x1.">1</a></sup></span>
     </p>
-    <p>$$ \vec{x} = G \left( \vec{x} \right),\label{k}\tag{11} $$</p>
+    <p>$$ \vec{x} = G \left( \vec{x} \right)\label{k}\tag{11} $$</p>
     <p>
       for some
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1894,7 +1894,7 @@ td.border_left_right {
         with 49,600 non-zeros with an average of 4.96 non-zeros per row. The
         vector b from the resulting linear system,
       </p>
-      <p>$$ Ax = b,\label{t}\tag{20} $$</p>
+      <p>$$ Ax = b\label{t}\tag{20} $$</p>
       <p>
         is initialized such that the final solution vector has
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2892,7 +2892,7 @@ td.border_left_right {
         is less than 1. In the case of the Jacobi method, the iteration matrix
         is given by
       </p>
-      <p>$$ C = -D^{-1}\left( L + U \right)\label{u}\tag{21} $$</p>
+      <p>$$ C = -D^{-1}\left( L + U \right).\label{u}\tag{21} $$</p>
       <p>
         Note that in the two dimensional discretization of the Laplacian, the
         spectral radius of the Jacobian is less than l, which says that both the
