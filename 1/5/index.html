@@ -48,10 +48,6 @@
 <!--Stylesheets-->
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
-<link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
-  integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH"
-  crossorigin="anonymous" />
 <link rel="stylesheet" href="https://articles.jsime.org/pseudocode.min.css" />
 <link rel="stylesheet" href="../../jsime.css" />
 <!-- Style -->
@@ -65,14 +61,18 @@
   text-align: center;
 }
 
+.tab-figure caption {
+  caption-side: bottom;
+  text-align: left;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
 .tab-figure td {
   border-style: hidden;
   text-align: center;
   caption-side: bottom;
-}
-
-.tab-figure caption {
-  caption-side: bottom;
+  padding: 5px;
 }
 
 tr.border_top_bottom td {
@@ -86,12 +86,8 @@ td.border_left_right {
 }
 </style>
 <!--Scripts-->
-<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
-  integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
-  crossorigin="anonymous"></script>
 <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="https://articles.jsime.org/pseudocode.min.js"></script>
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=MML_SVG"></script>
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
 {
@@ -314,7 +310,27 @@ td.border_left_right {
       specific area of interest is on techniques that utilize fixed point
       iteration, i.e., those techniques that solve equations of the form
     </p>
-    <p>$$x = G\left( x \right)\label{a}\tag{1}$$</p>
+    <div id="Eq1">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(1)</mtext>
+          </mtd>
+          <mtd columnalign="center">
+            <mrow>
+            <mi>x</mi>
+            <mo>=</mo>
+            <mi>G</mi>
+            <mfenced open="(" close=")">
+            <mi>x</mi>
+            </mfenced>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+      </math>
+    </div>
     <p>
       for some vector
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -329,7 +345,7 @@ td.border_left_right {
       <mi>D</mi>
       <mo>&rarr;</mo>
       <mi>D</mi>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       These techniques are well suited for fine-grained computation and they can
       be executed either synchronously or asynchronously, which helps tolerate
@@ -567,7 +583,7 @@ td.border_left_right {
       <mi>D</mi>
       <mo>&rarr;</mo>
       <mi>D</mi>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       where
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -593,7 +609,7 @@ td.border_left_right {
       <mi>D</mi>
       <mi>m</mi>
       </msub>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       The goal is to find a fixed point of the function
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -602,11 +618,43 @@ td.border_left_right {
       inside of the domain
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>D</mi>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       To this end, a fixed point iteration is performed, such that
     </p>
-    <p>$$x^{k+1} = G \left( x^{k} \right)\label{b}\tag{2}$$</p>
+    <div id="Eq2">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(2)</mtext>
+          </mtd>
+          <mtd columnalign="center">
+            <mrow>
+            <msup>
+            <mi>x</mi>
+            <mrow>
+            <mi>k</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+            </mrow>
+            </msup>
+            <mo>=</mo>
+            <mi>G</mi>
+            <mfenced open="(" close=")">
+            <mrow>
+            <msup>
+            <mi>x</mi>
+            <mi>k</mi>
+            </msup>
+            </mrow>
+            </mfenced>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+      </math>
+    </div>
     <p>
       and a fixed point is declared if
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -623,7 +671,7 @@ td.border_left_right {
       <mi>x</mi>
       <mi>k</mi>
       </msup>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       Note that the function
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -642,12 +690,12 @@ td.border_left_right {
       <mi>D</mi>
       <mi>i</mi>
       </msub>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       in the product space,
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>D</mi>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       In particular,
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -662,46 +710,140 @@ td.border_left_right {
       <mi>D</mi>
       <mi>i</mi>
       </msub>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       which gives that
     </p>
-    <p>$$ \begin{eqnarray} x = \left( x_{1}, x_{2}, \ldots, x_{m} \right)
-      \in D \longrightarrow G\left( x \right) &=& G\left( x_{1}, x_{2}, \ldots,
-      x_{m} \right)\label{c}\tag{3} \\ &=& \left( G_{1}\left(x \right),
-      G_{2}\left(x \right), \ldots, G_{m}\left(x \right) \right) \in
-      D.\label{d}\tag{4} \end{eqnarray} $$</p>
-    <p>
-      As a concrete example, let each
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <div id="Eq3-4">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"
+        linebreakstyle="before">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(3)</mtext>
+          </mtd>
+          <mtd columnalign="right">
+            <mrow>
+            <mi>x</mi>
+            <mo>=</mo>
+            <mfenced open="(" close=")">
+            <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+            </msub>
+            <msub>
+            <mi>x</mi>
+            <mn>2</mn>
+            </msub>
+            <mo>&hellip;</mo>
+            <msub>
+            <mi>x</mi>
+            <mi>m</mi>
+            </msub>
+            </mfenced>
+            <mo>&isin;</mo>
+            <mi>D</mi>
+            <mo>&rarr;</mo>
+            <mi>G</mi>
+            <mfenced open="(" close=")">
+            <mi>x</mi>
+            </mfenced>
+            <mo>=</mo>
+            <mi>G</mi>
+            <mfenced open="(" close=")">
+            <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+            </msub>
+            <msub>
+            <mi>x</mi>
+            <mn>2</mn>
+            </msub>
+            <mo>&hellip;</mo>
+            <msub>
+            <mi>x</mi>
+            <mi>m</mi>
+            </msub>
+            </mfenced>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(4)</mtext>
+          </mtd>
+          <mtd columnalign="right">
+            <mrow>
+            <mo>=</mo>
+            <mfenced open="(" close=")">
+            <mrow>
+            <msub>
+            <mi>G</mi>
+            <mn>1</mn>
+            </msub>
+            <mfenced open="(" close=")">
+            <mi>x</mi>
+            </mfenced>
+            </mrow>
+            <mrow>
+            <msub>
+            <mi>G</mi>
+            <mn>2</mn>
+            </msub>
+            <mfenced open="(" close=")">
+            <mi>x</mi>
+            </mfenced>
+            </mrow>
+            <mo>&hellip;</mo>
+            <mrow>
+            <msub>
+            <mi>G</mi>
+            <mi>m</mi>
+            </msub>
+            <mfenced open="(" close=")">
+            <mi>x</mi>
+            </mfenced>
+            </mrow>
+            </mfenced>
+            <mo>&isin;</mo>
+            <mi>D</mi>
+            <mo separator="true">.</mo>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+      </math>
+    </div>
+    As a concrete example, let each
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mi>D</mi>
       <mi>i</mi>
       </msub>
       <mo>=</mo>
-      <mo>&reals;</mo>
-      <mo>.</mo>
+      <mi>&reals;</mi>
+      <mo separator="true">.</mo>
       </math>
-      Forming the product space of each of these
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    Forming the product space of each of these
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mi>D</mi>
       <mi>i</mi>
       </msub>
       <mo>'s</mo>
       </math>
-      gives that
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    gives that
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>D</mi>
       <mo>=</mo>
       <msup>
-      <mo>&reals;</mo>
+      <mi>&reals;</mi>
       <mi>m</mi>
       </msup>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
-      This leads to the more formal functional mapping,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    This leads to the more formal functional mapping,
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>f</mi>
       <mo>:</mo>
       <msup>
@@ -713,31 +855,40 @@ td.border_left_right {
       <mi>&reals;</mi>
       <mi>m</mi>
       </msup>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
-      Additionally, let
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    Additionally, let
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>f</mi>
       <mfenced open="(" close=")">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </mfenced>
       <mo>=</mo>
       <mn>2</mn>
-      <mi>x&#8407;</mi>
-      <mo>.</mo>
+      <mover accent="true">
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
+      <mo separator="true">.</mo>
       </math>
-      In this case, each of the individual
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    In this case, each of the individual
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <msub>
       <mi>f</mi>
       <mi>i</mi>
       </msub>
       </math>
-      component functions is defined by
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+    component functions is defined by
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>f</mi>
       <mfenced open="(" close=")">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </mfenced>
       <mo>=</mo>
       <mn>2</mn>
@@ -745,18 +896,24 @@ td.border_left_right {
       <mi>x</mi>
       <mi>i</mi>
       </msub>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
-      Note that each component functions operates on all of the vector
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x&#8407;</mi>
+    Note that each component functions operates on all of the vector
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </math>
-      even if the individual function definition does not require all of the
-      components of
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x&#8407;</mi>
+    even if the individual function definition does not require all of the
+    components of
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </math>
-      to perform its specific update.
+    to perform its specific update.
     </p>
     <p>
       The assumption is also made that there is some finite number of processing
@@ -766,14 +923,14 @@ td.border_left_right {
       <mi>P</mi>
       <mn>1</mn>
       </msub>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       <msub>
       <mi>P</mi>
       <mn>2</mn>
       </msub>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       <mo>&hellip;</mo>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       <msub>
       <mi>P</mi>
       <mi>p</mi>
@@ -789,14 +946,14 @@ td.border_left_right {
       <mi>B</mi>
       <mn>1</mn>
       </msub>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       <msub>
       <mi>B</mi>
       <mn>2</mn>
       </msub>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       <mo>&hellip;</mo>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       <msub>
       <mi>B</mi>
       <mn>m</mn>
@@ -814,28 +971,123 @@ td.border_left_right {
       of blocks to update. With these assumptions, the computational model can
       be stated in <a href="#Alg1">Algorithm 1</a>.
     </p>
-    <div id="Alg1">
-      <pre id="Alg1t" style="display: none">
-        \begin{algorithm}
-        \caption{General computational model}
-        \begin{algorithmic}
-          \FOR{each processing element $P_{l}$}
-            \FOR{$i = 1, 2, \ldots$ until convergence}
-              \STATE Read $x$ from common memory
-              \STATE Compute $x_{j}^{i+1} = G_{j}(x)$ for all  $j \in \text{\ss}_{l}$
-              \STATE Update $x_{j}$ in common memory with $x_{j}^{i+1}$ for all $j \in \text{\ss}_{l}$
-            \ENDFOR
-          \ENDFOR
-        \end{algorithmic}
-        \end{algorithm}
-      </pre>
+    <div id="Alg1" class="column-top">
+      <div class="ps-root">
+        <div class="ps-algorithm with-caption">
+          <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
+            <span class="ps-keyword">Algorithm 1 </span>General computational
+            model
+          </p>
+          <div class="ps-algorithmic with-linenum">
+            <div class="ps-block" style="margin-left: 1.7999999999999998em;">
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">1:</span><span
+                  class="ps-keyword">for </span>each processing element
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>P</mi>
+                    <mi>l</mi></msub>
+                  </math>
+                <span class="ps-keyword"> do</span>
+              </p>
+              <div class="ps-block" style="margin-left: 1.2em;">
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: -1.5em;">2:</span><span
+                    class="ps-keyword">for </span>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>i</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mo separator="true">,</mo>
+                    <mn>2</mn>
+                    <mo separator="true">,</mo>
+                    <mo>…</mo>
+                  </math>
+                  until convergence<span class="ps-keyword"> do</span>
+                </p>
+                <div class="ps-block" style="margin-left: 1.2em;">
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -3em;">3:</span>Read
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>x</mi>
+                    </math>
+                    from common memory
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -3em;">4:</span>Compute
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msubsup>
+                      <mi>x</mi>
+                      <mi>j</mi>
+                      <mrow>
+                      <mi>i</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                      </mrow>
+                      </msubsup>
+                      <mo>=</mo>
+                      <msub>
+                      <mi>G</mi>
+                      <mi>j</mi>
+                      </msub>
+                      <mfenced open="(" close=")">
+                      <mi>x</mi>
+                      </mfenced>
+                    </math>
+                    for all
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>j</mi>
+                      <mo>∈</mo>
+                      <msub>
+                      <mtext>ß</mtext>
+                      <mi>l</mi>
+                      </msub>
+                    </math>
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -3em;">5:</span>Update
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                      <mi>x</mi>
+                      <mi>j</mi></msub>
+                    </math>
+                    in common memory with
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msubsup>
+                      <mi>x</mi>
+                      <mi>j</mi>
+                      <mrow>
+                      <mi>i</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                      </mrow>
+                      </msubsup>
+                    </math>
+                    for all
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>j</mi>
+                      <mo>∈</mo>
+                      <msub>
+                      <mtext>ß</mtext>
+                      <mi>l</mi>
+                      </msub>
+                    </math>
+                  </p>
+                </div>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: -1.5em;">6:</span><span
+                    class="ps-keyword">end for</span>
+                </p>
+              </div>
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">7:</span><span
+                  class="ps-keyword">end for</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-          var alg = document.getElementById( "Alg1t" ).textContent;
-          pseudocode.render( alg, document.getElementById( "Alg1" ), {
-            lineNumber: true
-          } );
-        </script>
     <p>
       This computational model has each processing element read all pertinent
       data from global memory that is accessible by each of the processors,
@@ -860,7 +1112,7 @@ td.border_left_right {
       <mi>l</mi>
       </msub>
       <mo>s</mo>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       then an asynchronous form of computation arises.
     </p>
@@ -872,13 +1124,16 @@ td.border_left_right {
       </math>
       that increases <em>every</em> time any processor reads
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </math>
       from common memory. At the end of the work done by any individual
       processor,
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>p</mi>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       the components associated with the block
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -889,7 +1144,10 @@ td.border_left_right {
       </math>
       will be updated. This results in a vector,
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       <mo>=</mo>
       <mfenced open="(" close=")">
       <msubsup>
@@ -951,7 +1209,7 @@ td.border_left_right {
       <mi>I</mi>
       <mi>k</mi>
       </msup>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       that contains all of the components that were updated on the
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -982,7 +1240,7 @@ td.border_left_right {
       <mi>k</mi>
       <mo>-</mo>
       <mn>1</mn>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math> i.e., only components that have finished computing are used in the
           current approximation.</li>
         <li><math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1003,7 +1261,7 @@ td.border_left_right {
       </mfenced>
       <mo>=</mo>
       <mn>&infin;</mn>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math> i.e., the newest updates for each component are used.</li>
         <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <mfenced open="|" close="|">
@@ -1022,24 +1280,81 @@ td.border_left_right {
       </mfenced>
       <mo>=</mo>
       <mn>&infin;</mn>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math> i.e., all components will continue to be updated.</li>
       </ol>
       <p>
         Then given an initial
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msup>
-      <mi>x&#8407;</mi>
-      <mn>0</mn>
-      </msup>
-      <mo>&isin;</mo>
-      <mi>D</mi>
-      <mo>,</mo>
-      </math>
+          <msup>
+          <mover>
+          <mi>x</mi>
+          <mo style="font-size: small;">&rarr;</mo>
+          </mover>
+          <mn>0</mn>
+          </msup>
+          <mo>&isin;</mo>
+          <mi>D</mi>
+          <mo separator="true">,</mo>
+          </math>
         the iterative update process defined by
       </p>
-      <p>$$ x^{k}_{i} = \begin{cases} x^{k-1}_{i} & i \notin I_{k} \\
-        G_{i}\left( \vec{x} \right) & i \in I_{k} \end{cases} $$</p>
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <msubsup>
+          <mi>x</mi>
+          <mi>i</mi>
+          <mi>k</mi>
+          </msubsup>
+          <mo>=</mo>
+          <mrow>
+          <mo>&lcub;</mo>
+          <mtable>
+          <mtr>
+            <mtd>
+            <msubsup>
+            <mi>x</mi>
+            <mi>i</mi>
+            <mrow>
+            <mi>k</mi>
+            <mo>-</mo>
+            <mn>1</mn>
+            </mrow>
+            </msubsup>
+            </mtd>
+            <mtd>
+            <mi>i</mi>
+            <mo>&notin;</mo>
+            <msub>
+            <mi>I</mi>
+            <mi>k</mi>
+            </msub>
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+            <msub>
+            <mi>G</mi>
+            <mi>i</mi>
+            </msub>
+            <mfenced open="(" close=")">
+            <mover>
+            <mi>x</mi>
+            <mo style="font-size: small;">&rarr;</mo>
+            </mover>
+            </mfenced>
+            </mtd>
+            <mtd>
+            <mi>i</mi>
+            <mo>&isin;</mo>
+            <msub>
+            <mi>I</mi>
+            <mi>k</mi>
+            </msub>
+            </mtd>
+          </mtr>
+          </mtable>
+          </mrow>
+        </math>
       <p>
         where the function
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1048,7 +1363,10 @@ td.border_left_right {
       <mi>i</mi>
       </msub>
       <mfenced open="(" close=")">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </mfenced>
       </math>
         uses the latest updates available is called an asynchronous iteration.
@@ -1077,7 +1395,38 @@ td.border_left_right {
       </p>
       <p>Relaxation methods can be expressed as general fixed point
         iterations of the form</p>
-      <p>$$ x^{k+1} = Cx^{k} + d, \label{e}\tag{5} $$
+      <div id="Eq5">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(5)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <msup>
+                  <mi>x</mi>
+                  <mrow>
+                  <mi>k</mi>
+                  <mo>+</mo>
+                  <mn>1</mn>
+                  </mrow>
+                  </msup>
+                  <mo>=</mo>
+                  <mi>C</mi>
+                  <msup>
+                  <mi>x</mi>
+                  <mi>k</mi>
+                  </msup>
+                  <mo>+</mo>
+                  <mi>d</mi>
+                  <mo separator="true">,</mo>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>
         where
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1096,7 +1445,7 @@ td.border_left_right {
         is an
         <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>x</mi>
-      <mtext>-dimensional</mtext>
+      <mtext mathvariant="normal">-dimensional</mtext>
       </math>
         vector that represents the solution, and
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1105,13 +1454,31 @@ td.border_left_right {
         is another
         <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>x</mi>
-      <mtext>-dimensional</mtext>
+      <mtext mathvariant="normal">-dimensional</mtext>
       </math>
         vector that can be used to help define the particular problem at hand.
       </p>
       <p>The Jacobi method is an asynchronous relaxation method built for
         solving linear systems of the form</p>
-      <p>$$ Ax = b\label{f}\tag{6} $$
+      <div id="Eq6">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(6)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mi>A</mi>
+                  <mi>x</mi>
+                  <mo>=</mo>
+                  <mi>b</mi>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>
         and following the methodology put forth in (<a role="doc-biblioref"
           href="#BT89">Bertsekas, &amp; Tsitsiklis, 1989</a>), this can be
@@ -1125,10 +1492,51 @@ td.border_left_right {
         - of the matrix
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>A</mi>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
       </p>
-      <p>$$ \sum^{n}_{j=1} a_{ij}x_{j} = b_{i}\label{g}\tag{7} $$</p>
+      <div id="Eq7">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(7)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mstyle displaystyle="true">
+                  <munderover>
+                  <mo>&sum;</mo>
+                  <mrow>
+                  <mi>j</mi>
+                  <mo>=</mo>
+                  <mn>1</mn>
+                  </mrow>
+                  <mi>n</mi>
+                  </munderover>
+                  </mstyle>
+                  <msub>
+                  <mi>a</mi>
+                  <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                  </mrow>
+                  </msub>
+                  <msub>
+                  <mi>x</mi>
+                  <mi>j</mi>
+                  </msub>
+                  <mo>=</mo>
+                  <msub>
+                  <mi>b</mi>
+                  <mi>i</mi>
+                  </msub>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>
         and this equation can be solved for the
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1143,12 +1551,70 @@ td.border_left_right {
         <mi>x</mi>
         <mi>i</mi>
         </msub>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         to give,
       </p>
-      <p>$$ x_{i} = \frac{-1}{a_{ii}} \left[ \sum_{j \neq i} a_{ij}x_{j} -
-        b_{i} \right].\label{h}\tag{8} $$</p>
+      <div id="Eq8">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mtable>
+          <mlabeledtr>
+            <mtd>
+              <mtext>(8)</mtext>
+            </mtd>
+            <mtd columnalign="center">
+              <mrow>
+              <msub>
+              <mi>x</mi>
+              <mi>i</mi>
+              </msub>
+              <mo>=</mo>
+              <mfrac>
+              <mn>-1</mn>
+              <mrow>
+              <msub>
+              <mi>a</mi>
+              <mrow>
+              <mi>i</mi>
+              <mi>i</mi>
+              </mrow>
+              </msub>
+              </mrow>
+              </mfrac>
+              <mfenced open="[" close="]">
+              <mrow>
+              <msub>
+              <mo>&sum;</mo>
+              <mrow>
+              <mi>j</mi>
+              <mo>&ne;</mo>
+              <mi>i</mi>
+              </mrow>
+              </msub>
+              <msub>
+              <mi>a</mi>
+              <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+              </mrow>
+              </msub>
+              <msub>
+              <mi>x</mi>
+              <mi>j</mi>
+              </msub>
+              <mo>-</mo>
+              <msub>
+              <mi>b</mi>
+              <mi>i</mi>
+              </msub>
+              </mrow>
+              </mfenced>
+              <mo separator="true">.</mo>
+              </mrow>
+            </mtd>
+          </mlabeledtr>
+        </math>
+      </div>
       <p>
         This equation can then be computed in an iterative manner in order to
         give successive updates to the solution vector. In synchronous computing
@@ -1158,7 +1624,7 @@ td.border_left_right {
         <mi>x</mi>
         <mi>i</mi>
         </msub>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         is computed sequentially using the same data for the other components of
         the solution vector (i.e., the
@@ -1167,42 +1633,110 @@ td.border_left_right {
         <mi>x</mi>
         <mi>j</mi>
         </msub>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
-        in Eq. \eqref{h}). Conversely, in an asynchronous computing environment,
-        each update to an element of the solution vector occurs when the
-        computing element responsible for updating that component is ready to
-        write the update to memory and the other components used are simply the
-        latest ones available to the computing element.
+        in Eq. (<a href="#Eq8">8</a>). Conversely, in an asynchronous computing
+        environment, each update to an element of the solution vector occurs
+        when the computing element responsible for updating that component is
+        ready to write the update to memory and the other components used are
+        simply the latest ones available to the computing element.
       </p>
-      <p>Expressing Eq. \eqref{h} in a block matrix form more similar to the
-        original form of the iteration expressed in Eq. \eqref{e},</p>
-      <p>$$ \begin{eqnarray} x &=& -D^{-1} \left( \left( L + U \right) x - b
-        \right)\label{i}\tag{9} \\ &=& -D^{-1} \left( L + U \right) x + D^{-1}
-        b,\label{j}\tag{10} \end{eqnarray} $$</p>
       <p>
-        where
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        Expressing Eq. (<a href="#Eq8">8</a>) in a block matrix form more
+        similar to the original form of the iteration expressed in Eq. (<a
+          href="#Eq5">5</a>),
+      </p>
+      <div id="Eq9-10">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(9)</mtext>
+          </mtd>
+          <mtd columnalign="left">
+            <mrow>
+            <mi>x</mi>
+            <mo>=</mo>
+            <mo>-</mo>
+            <msup>
+            <mi>D</mi>
+            <mn>-1</mn>
+            </msup>
+            <mfenced open="(" close=")">
+            <mrow>
+            <mfenced open="(" close=")">
+            <mrow>
+            <mi>L</mi>
+            <mo>+</mo>
+            <mi>U</mi>
+            </mrow>
+            </mfenced>
+            <mi>x</mi>
+            <mo>-</mo>
+            <mi>b</mi>
+            </mrow>
+            </mfenced>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(10)</mtext>
+          </mtd>
+          <mtd columnalign="left">
+            <mrow>
+            <mi>x</mi>
+            <mo>=</mo>
+            <mo>-</mo>
+            <msup>
+            <mi>D</mi>
+            <mn>-1</mn>
+            </msup>
+            <mfenced open="(" close=")">
+            <mrow>
+            <mi>L</mi>
+            <mo>+</mo>
+            <mi>U</mi>
+            </mrow>
+            </mfenced>
+            <mi>x</mi>
+            <mo>+</mo>
+            <msup>
+            <mi>D</mi>
+            <mn>-1</mn>
+            </msup>
+            <mi>b</mi>
+            <mo separator="true">.</mo>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+      </math>
+        </p>
+        <p>
+          where
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>D</mi>
         </math>
-        is the diagonal portion of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          is the diagonal portion of
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>A</mi>
+        <mo separator="true">,</mo>
         </math>
-        , and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          and
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>L</mi>
         </math>
-        and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          and
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>U</mi>
         </math>
-        are the strictly lower and upper triangular portions of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          are the strictly lower and upper triangular portions of
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>A</mi>
         </math>
-        respectively. This gives an iteration matrix of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          respectively. This gives an iteration matrix of
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>D</mi>
         <mo>=</mo>
         <mo>-</mo>
@@ -1220,22 +1754,22 @@ td.border_left_right {
         <mi>U</mi>
         </mrow>
         </mfenced>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
-      </p>
-      <p>
-        Convergence of asynchronous fixed point methods of the form presented in
-        Eq. \eqref{e} is determined by the spectral radius of the iteration
-        matrix, C, and dates back to the pioneering work done by both (<a
-          role="doc-biblioref" href="#CM69">Chazan, &amp; Miranker, 1969</a>)
-        and (<a role="doc-biblioref" href="#Bau78">Baudet, 1978</a>):
-      </p>
-      <p id="Theo1">
-        <strong>Theorem 1.</strong> <em>For a fixed point iteration of the
-          form given in Eq. \eqref{e} that adheres to the asynchronous
-          computational model provided by <a href="#Alg1">Algorithm 1</a> and <a
-          href="#Def1">Definition 1</a>, if the spectral radius of <math
-            xmlns="http://www.w3.org/1998/Math/MathML">
+        </p>
+        <p>
+          Convergence of asynchronous fixed point methods of the form presented
+          in Eq. (<a href="#Eq5">5</a>) is determined by the spectral radius of
+          the iteration matrix, C, and dates back to the pioneering work done by
+          both (<a role="doc-biblioref" href="#CM69">Chazan, &amp; Miranker,
+            1969</a>) and (<a role="doc-biblioref" href="#Bau78">Baudet, 1978</a>):
+        </p>
+        <p id="Theo1">
+          <strong>Theorem 1.</strong> <em>For a fixed point iteration of
+            the form given in Eq. (<a href="#Eq5">5</a>) that adheres to the
+            asynchronous computational model provided by <a href="#Alg1">Algorithm
+              1</a> and <a href="#Def1">Definition 1</a>, if the spectral radius of
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
             <mi>C</mi>
             </math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
             <mi>&rho;</mi>
@@ -1244,26 +1778,26 @@ td.border_left_right {
             <mi>C</mi>
             </mfenced>
             </mfenced>
-            <mo>,</mo>
+            <mo separator="true">,</mo>
             </math> is less than one, then the iterative method will converge to the
-          fixed point solution
-        </em>.
-      </p>
-      <p>
-        As noted in (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
-          &amp; Chow, 2016</a>), the iteration matrix
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            fixed point solution
+          </em>.
+        </p>
+        <p>
+          As noted in (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
+            &amp; Chow, 2016</a>), the iteration matrix
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>C</mi>
         </math>
-        that is used in the Jacobi relaxation method serves as a worst case for
-        relaxation methods of the form discussed here. However, because of the
-        ubiquitous use of the Jacobi method in parallel solutions of large
-        problems in many different domains in science and engineering we use the
-        Asynchronous (Block) Jacobi method predominantly throughout the
-        remainder of this study. Note that many of the concepts and ideas
-        expressed in this paper can be easily adapted to more complex
-        algorithms.
-      </p>
+          that is used in the Jacobi relaxation method serves as a worst case
+          for relaxation methods of the form discussed here. However, because of
+          the ubiquitous use of the Jacobi method in parallel solutions of large
+          problems in many different domains in science and engineering we use
+          the Asynchronous (Block) Jacobi method predominantly throughout the
+          remainder of this study. Note that many of the concepts and ideas
+          expressed in this paper can be easily adapted to more complex
+          algorithms.
+        </p>
     </section>
   </section>
 
@@ -1277,17 +1811,48 @@ td.border_left_right {
           href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref"
           title="Footnote 1: Throughout the text, vector notation is occasionally adopted to emphasize when functions take all components of x as opposed to a single component, such as x1.">1</a></sup></span>
     </p>
-    <p>$$ \vec{x} = G \left( \vec{x} \right)\label{k}\tag{11} $$</p>
+    <div id="Eq11">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(11)</mtext>
+          </mtd>
+          <mtd columnalign="center">
+            <mrow>
+            <mover>
+            <mi>x</mi>
+            <mo style="font-size: small;">&rarr;</mo>
+            </mover>
+            <mo>=</mo>
+            <mi>G</mi>
+            <mfenced open="(" close=")">
+            <mrow>
+            <mover>
+            <mi>x</mi>
+            <mo style="font-size: small;">&rarr;</mo>
+            </mover>
+            </mrow>
+            </mfenced>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+        </mtable>
+        </math>
+    </div>
     <p>
       for some
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       <mo>&isin;</mo>
       <msup>
       <mi>&reals;</mi>
       <mi>n</mi>
       </msup>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       In the framework, certain components are assigned (possibly distinct)
       times for performing an update to their components, and the effects of
@@ -1310,7 +1875,7 @@ td.border_left_right {
       underlying mathematical model, parallel implementation type and
       environment, or, eventually, in the expected performance.
     </p>
-    <figure id="Fig1">
+    <figure id="Fig1" class="top">
       <img src="./img/image1.png" />
       <figcaption>
         <strong>Figure 1.</strong> Stages in the proposed framework development.
@@ -1327,11 +1892,14 @@ td.border_left_right {
       <mi>n</mi>
       <mo>=</mo>
       <mn>2</mn>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       Then
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       <mo>=</mo>
       <mfenced open="(" close=")">
       <msub>
@@ -1351,10 +1919,90 @@ td.border_left_right {
       </math>
       and, using the terminology of <a href="#Sect3">Section 3</a>,
     </p>
-    <p>$$ \begin{eqnarray} x_{1} &=& G_{1} \left( \vec{x} \right) = G_{1}
-      \left( x_{1}, x_{2} \right),\label{l}\tag{12} \\ x_{2} &=& G_{2} \left(
-      \vec{x} \right) = G_{2} \left( x_{1}, x_{2} \right).\label{m}\tag{13}
-      \end{eqnarray} $$</p>
+    <div id="Eq12-13">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(12)</mtext>
+          </mtd>
+          <mtd columnalign="center">
+            <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+            </msub>
+            <mo>=</mo>
+            <msub>
+            <mi>G</mi>
+            <mn>1</mn>
+            </msub>
+            <mfenced open="(" close=")">
+            <mover>
+            <mi>x</mi>
+            <mo style="font-size: small;">&rarr;</mo>
+            </mover>
+            </mfenced>
+            <mo>=</mo>
+            <msub>
+            <mi>G</mi>
+            <mn>1</mn>
+            </msub>
+            <mfenced open="(" close=")">
+            <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+            </msub>
+            <msub>
+            <mi>x</mi>
+            <mn>2</mn>
+            </msub>
+            </mfenced>
+            <mo separator="true">,</mo>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(13)</mtext>
+          </mtd>
+          <mtd columnalign="center">
+            <msub>
+            <mi>x</mi>
+            <mn>2</mn>
+            </msub>
+            <mo>=</mo>
+            <msub>
+            <mi>G</mi>
+            <mn>2</mn>
+            </msub>
+            <mfenced open="(" close=")">
+            <mover>
+            <mi>x</mi>
+            <mo style="font-size: small;">&rarr;</mo>
+            </mover>
+            </mfenced>
+            <mo>=</mo>
+            <msub>
+            <mi>G</mi>
+            <mn>2</mn>
+            </msub>
+            <mfenced open="(" close=")">
+            <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+            </msub>
+            <msub>
+            <mi>x</mi>
+            <mn>2</mn>
+            </msub>
+            </mfenced>
+            <mo separator="true">.</mo>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+      </math>
+    </div>
     <p>
       In a traditional fully synchronous environment, both functions,
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1369,7 +2017,7 @@ td.border_left_right {
     <mi>G</mi>
     <mn>2</mn>
     </msub>
-    <mo>,</mo>
+    <mo separator="true">,</mo>
     </math>
       would be called simultaneously and no subsequent calls would be executed
       until both functions had returned and <em>synchronized</em> all results.
@@ -1392,7 +2040,10 @@ td.border_left_right {
       may be updated more frequently than the other. Per <a href="#Def1">Definition
         1</a>, both functions use the latest values of
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi>x&#8407;</mi>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
     </math>
       that are available to them when the function call is initiated. For
       instance, if the processing element that was assigned to update the
@@ -1409,7 +2060,7 @@ td.border_left_right {
     <mi>x</mi>
     <mn>2</mn>
     </msub>
-    <mo>,</mo>
+    <mo separator="true">,</mo>
     </math>
       then in the amount of time needed to update
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1454,10 +2105,28 @@ td.border_left_right {
       in <a href="#Fig2">Figure 2</a>. The framework models the performance of
       methods that solve the linear system
     </p>
-    <p>$$ Ax = b\label{n}\tag{14} $$</p>
+    <div id="Eq14">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(14)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mi>A</mi>
+                  <mi>x</mi>
+                  <mo>=</mo>
+                  <mi>b</mi>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+    </div>
     <p>using relaxation methods in either a synchronous or asynchronous
       manner.</p>
-    <figure id="Fig2">
+    <figure id="Fig2" class="top">
       <img src="./img/image2.png" />
       <figcaption>
         <strong>Figure 2.</strong> Block diagram of the simulation framework.
@@ -1467,7 +2136,7 @@ td.border_left_right {
       The simulation requires as input the matrix
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>A</mi>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       the right hand side
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1479,16 +2148,16 @@ td.border_left_right {
       <mi>x</mi>
       <mn>0</mn>
       </msub>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
       The important pieces of the simulation are all passed as functions to the
       tool. There are three functions required:
     </p>
     <ol>
       <li>An update function that specifies how to perform the relaxation.
-        A common technique for this is given by Eq. \eqref{h}. It is certainly
-        possible to modify this equation to obtain different updates, as
-        described, e.g., in (<a role="doc-biblioref" href="#Saa03">Saad,
+        A common technique for this is given by Eq. (<a href="#Eq8">8</a>). It
+        is certainly possible to modify this equation to obtain different
+        updates, as described, e.g., in (<a role="doc-biblioref" href="#Saa03">Saad,
           2003</a>).
       </li>
       <li>An update pattern function that determines which elements of the
@@ -1548,39 +2217,240 @@ td.border_left_right {
       framework for simulated asynchronous Jacobi is given in <a href="#Alg2">Algorithm
         2</a>.
     </p>
-    <div id="Alg2">
-      <pre id="Alg2t" style="display: none">
-        \begin{algorithm}
-        \caption{Asynchronous Jacobi simulation}
-        \begin{algorithmic}
-          \STATE \textbf{Input:} $a_{ij} \in A$, initial guess for $x_{0}$, a number of processing elements $p$, an input random number distribution
-          \STATE \textbf{Output:} Solution vector $x$
-          
-          \STATE Assign processor update times. $\tau_{1}, \tau_{2}, \ldots, \tau_{p}$  by sampling from an appropriate random number distribution
-          
-          \STATE Assign elements $x_{i} \in x$ to each simulated processing element
-          
-          \FOR{$t = 1, 2, \ldots$ until convergence}
-            \FOR{each processing element $P_{l}$}
-              \IF{$\tau_{l} = t$}
-                \FOR{each element $x_{i} \in x$ assigned to $P_{l}$}
-                  \STATE $x_{i} = \frac{-1}{a_{ii}} \left[ \sum_{j \neq i} a_{ij} x_{j} - b_{i} \right]$
-                \ENDFOR
-                \STATE Retrieve a new update time $\tau_{l}$ by sampling from the input distribution
-              \ENDIF
-            \ENDFOR
-            \STATE Calculate the residual as in Eq. (18) and check termination conditions
-          \ENDFOR
-        \end{algorithmic}
-        \end{algorithm}
-      </pre>
+    <div id="Alg2" class="column-top">
+      <div class="ps-root">
+        <div class="ps-algorithm with-caption">
+          <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
+            <span class="ps-keyword">Algorithm 2 </span>Asynchronous Jacobi
+            simulation
+          </p>
+          <div class="ps-algorithmic with-linenum">
+            <div class="ps-block" style="margin-left: 1.7999999999999998em;">
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">1:</span><span
+                  style="font-weight: bold;">Input:</span>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>a</mi>
+                    <mrow>
+                    <mi>i</mi>
+                    <mi>j</mi>
+                    </mrow>
+                    </msub>
+                    <mo>∈</mo>
+                    <mi>A</mi>
+                    <mo separator="true">,</mo>
+                  </math>
+                initial guess for
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>x</mi>
+                    <mn>0</mn>
+                    </msub>
+                    <mo separator="true">,</mo>
+                  </math>
+                a number of processing elements
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                  <mi>p</mi>
+                  <mo separator="true">,</mo>
+                </math>
+                an input random number distribution
+              </p>
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">2:</span><span
+                  style="font-weight: bold;">Output:</span> Solution vector
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                  <mi>x</mi>
+                </math>
+              </p>
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">3:</span>Assign
+                processor update times.
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                  <msub>
+                  <mi>τ</mi>
+                  <mn>1</mn></msub>
+                  <mo separator="true">,</mo>
+                  <msub>
+                  <mi>τ</mi>
+                  <mn>2</mn></msub>
+                  <mo separator="true">,</mo>
+                  <mo>…</mo>
+                  <mo separator="true">,</mo>
+                  <msub>
+                  <mi>τ</mi>
+                  <mi>p</mi>
+                  </msub>
+                </math>
+                by sampling from an appropriate random number distribution
+              </p>
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">4:</span>Assign
+                elements
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                  <msub>
+                  <mi>x</mi>
+                  <mi>i</mi>
+                  </msub>
+                  <mo>∈</mo>
+                  <mi>x</mi>
+                </math>
+                to each simulated processing element
+              </p>
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">5:</span><span
+                  class="ps-keyword">for </span>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>t</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mo separator="true">,</mo>
+                    <mn>2</mn>
+                    <mo separator="true">,</mo>
+                    <mo>…</mo>
+                  </math>
+                until convergence<span class="ps-keyword"> do</span>
+              </p>
+              <div class="ps-block" style="margin-left: 1.2em;">
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: -1.5em;">6:</span><span
+                    class="ps-keyword">for </span>each processing element
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                      <mi>P</mi>
+                      <mi>l</mi>
+                      </msub>
+                    </math>
+                  <span class="ps-keyword"> do</span>
+                </p>
+                <div class="ps-block" style="margin-left: 1.2em;">
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -3em;">7:</span><span
+                      class="ps-keyword">if </span>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                        <mi>τ</mi>
+                        <mi>l</mi>
+                        </msub>
+                        <mo>=</mo>
+                        <mi>t</mi>
+                      </math>
+                    <span class="ps-keyword">then</span>
+                  </p>
+                  <div class="ps-block" style="margin-left: 1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -4.5em;">8:</span><span
+                        class="ps-keyword">for </span>each element
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                          <mi>x</mi>
+                          <mi>i</mi>
+                          </msub>
+                          <mo>∈</mo>
+                          <mi>x</mi>
+                        </math>
+                      assigned to
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                        <mi>P</mi>
+                        <mi>l</mi>
+                        </msub>
+                    </math>
+                      <span class="ps-keyword"> do</span>
+                    </p>
+                    <div class="ps-block" style="margin-left: 1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -6em;">9:</span>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                          <mi>x</mi>
+                          <mi>i</mi>
+                          </msub>
+                          <mo>=</mo>
+                          <mfrac>
+                          <mrow>
+                          <mo>−</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          <msub>
+                          <mi>a</mi>
+                          <mrow>
+                          <mi>i</mi>
+                          <mi>i</mi>
+                          </mrow>
+                          </msub>
+                          </mfrac>
+                          <mrow>
+                          <mfenced open="[" close="]">
+                          <mrow>
+                          <msub>
+                          <mo>∑</mo>
+                          <mrow>
+                          <mi>j</mi>
+                          <mo>&ne;</mo>
+                          <mi>i</mi>
+                          </mrow>
+                          </msub>
+                          <msub>
+                          <mi>a</mi>
+                          <mrow>
+                          <mi>i</mi>
+                          <mi>j</mi>
+                          </mrow>
+                          </msub>
+                          <msub>
+                          <mi>x</mi>
+                          <mi>j</mi></msub>
+                          <mo>−</mo>
+                          <msub>
+                          <mi>b</mi>
+                          <mi>i</mi>
+                          </msub>
+                          </mrow>
+                          </mfenced>
+                          </mrow>
+                        </math>
+                      </p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -4.5em;">10:</span><span
+                        class="ps-keyword">end for</span>
+                    </p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -4.5em;">11:</span>Retrieve
+                      a new update time
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                        <mi>τ</mi>
+                        <mi>l</mi>
+                        </msub>
+                    </math>
+                      by sampling from the input distribution
+                    </p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -3em;">12:</span><span
+                      class="ps-keyword">end if</span>
+                  </p>
+                </div>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: -1.5em;">13:</span><span
+                    class="ps-keyword">end for</span>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: -1.5em;">14:</span>Calculate
+                  the residual as in Eq. (18) and check termination conditions
+                </p>
+              </div>
+              <p class="ps-line ps-code">
+                <span class="ps-linenum" style="left: 0em;">15:</span><span
+                  class="ps-keyword">end for</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-          var alg = document.getElementById( "Alg2t" ).textContent;
-          pseudocode.render( alg, document.getElementById( "Alg2" ), {
-            lineNumber: true
-          } );
-        </script>
     <p>
       In <a href="#Alg2">Algorithm 2</a>, a given update time
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1657,7 +2527,7 @@ td.border_left_right {
       <mtext>final</mtext>
       <mtext>old</mtext>
       </msubsup>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math></li>
     </ol>
     <p>
@@ -1675,7 +2545,7 @@ td.border_left_right {
       <mn>10</mn>
       <mn>2</mn>
       </msup>
-      <mo>,</mo>
+      <mo separator="true">,</mo>
       </math>
       and the sampled value
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1686,9 +2556,43 @@ td.border_left_right {
       </math>
       becomes
     </p>
-    <p>$$ \begin{eqnarray} \tau_{l} &=& 1.234 - \text{initial sample} \\
-      \tau_{l} &=& 123.4 - \text{apply scale factor} \\ \tau_{l} &=& 123 -
-      \text{round to nearest integer}. \end{eqnarray} $$</p>
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mtable columnalign="left">
+          <mtr>
+            <mtd>
+            <msub>
+            <mi>&tau;</mi>
+            <mi>l</mi>
+            </msub>
+            <mo>=</mo>
+            <mn>1.234</mn>
+            <mtext mathvariant="normal">&nbsp;- initial sample</mtext>
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+            <msub>
+            <mi>&tau;</mi>
+            <mi>l</mi>
+            </msub>
+            <mo>=</mo>
+            <mn>123.4</mn>
+            <mtext mathvariant="normal">&nbsp;- apply scale factor</mtext>
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+            <msub>
+            <mi>&tau;</mi>
+            <mi>l</mi>
+            </msub>
+            <mo>=</mo>
+            <mn>123</mn>
+            <mtext mathvariant="normal">&nbsp;- round to the nearest integer.</mtext>
+            </mtd>
+          </mtr>
+          </mtable>
+        </math>
     <p>
     <p>Inside of the simulation framework, time is abstracted away to "units
       of time", and then the final time is scaled back into the appropriate
@@ -1723,15 +2627,77 @@ td.border_left_right {
         </math>
         matrix with an average of 4.6 non-zero entries per row. The Laplacian
       </p>
-      <p>$$ \begin{eqnarray} \Delta u &=& g,\label{o}\tag{15} \\ u_{xx} +
-        u_{yy} &=& g\label{p}\tag{16} \end{eqnarray} $$</p>
+      <div id="Eq15-16">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <mtable>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(15)</mtext>
+          </mtd>
+          <mtd columnalign="left">
+            <mrow>
+            <mo>&Delta;</mo>
+            <mi>u</mi>
+            <mo>=</mo>
+            <mi>g</mi>
+            <mo separator="true">,</mo>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+        <mlabeledtr>
+          <mtd>
+            <mtext>(16)</mtext>
+          </mtd>
+          <mtd columnalign="left">
+            <mrow>
+            <msub>
+            <mi>u</mi>
+            <mrow>
+            <mi>x</mi>
+            <mi>x</mi>
+            </mrow>
+            </msub>
+            <mo>+</mo>
+            <msub>
+            <mi>u</mi>
+            <mrow>
+            <mi>y</mi>
+            <mi>y</mi>
+            </mrow>
+            </msub>
+            <mo>=</mo>
+            <mi>g</mi>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+      </math>
+      </div>
       <p>is a partial differential equation (PDE) commonly found in both
         science and engineering. The example problems taken in this study can be
         thought of as simulating the diffusion of heat across a two dimensional
         surface given some heat source along the boundary of the problem.</p>
       <p>Once the PDE is discretized over the desired grid using finite
         differences, typically central finite differences, the linear system</p>
-      <p>$$ Ax = b\label{q}\tag{17} $$</p>
+      <div id="Eq17">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(17)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mi>A</mi>
+                  <mi>x</mi>
+                  <mo>=</mo>
+                  <mi>b</mi>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>is set up to be solved for a random right-hand side b that
         represents the desired boundary conditions. All problems considered in
         this study use Dirichlet boundary conditions. For the examples in this
@@ -1739,7 +2705,27 @@ td.border_left_right {
         component sampled as a uniform random number between −0:5 and 0:5, and
         then normalizing the resultant vector. The iterative Jacobi method
         proceeds until the residual</p>
-      <p>$$ r = b - Ax\label{r}\tag{18} $$</p>
+      <div id="Eq18">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(18)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mi>r</mi>
+                  <mo>=</mo>
+                  <mi>b</mi>
+                  <mo>-</mo>
+                  <mi>A</mi>
+                  <mi>x</mi>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>is reduced past some desired threshold.</p>
       <p>
         To begin with, an example of nominal performance of the solution of the
@@ -1858,7 +2844,26 @@ td.border_left_right {
       implementations and two corresponding use cases of the simulation
       framework. For both implementations, the test problem is a two dimensional
       discretization of the Laplacian</p>
-    <p>$$ \Delta u = b,\label{s}\tag{19} $$</p>
+    <div id="Eq19">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(19)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mo>&Delta;</mo>
+                  <mi>u</mi>
+                  <mo>=</mo>
+                  <mi>b</mi>
+                  <mo separator="true">,</mo>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+    </div>
     <p>
       where the right-hand side is initialized with Dirichlet boundary
       conditions. Both implementations use OpenMP<sup>&reg;</sup> for
@@ -1894,7 +2899,25 @@ td.border_left_right {
         with 49,600 non-zeros with an average of 4.96 non-zeros per row. The
         vector b from the resulting linear system,
       </p>
-      <p>$$ Ax = b\label{t}\tag{20} $$</p>
+      <div id="Eq20">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(20)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mi>A</mi>
+                  <mi>x</mi>
+                  <mo>=</mo>
+                  <mi>b</mi>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>
         is initialized such that the final solution vector has
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1908,7 +2931,7 @@ td.border_left_right {
         for all
         <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>i</mi>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
         The initial guess
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1970,7 +2993,7 @@ td.border_left_right {
         </mrow>
         </mfenced>
         </msup>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
         Pseudocode for this process is given in <a href="#Alg3">Algorithm 3</a>,
         where bold upper-case text indicates that OpenMP<sup>&reg;</sup> locks
@@ -1978,39 +3001,332 @@ td.border_left_right {
         identical to <a href="#Alg3">Algorithm 3</a>, with the exception that
         locks are omitted.
       </p>
-      <div id="Alg3">
-        <pre id="Alg3t" style="display: none">
-        \begin{algorithm}
-        \caption{OpenMP Implementation 1 (a) \textsc{Safe}}
-        \begin{algorithmic}
-          \STATE \textbf{Input:} $a_{ij} \in A$, $b$, initial guess for $X_{0}$, $n$ processing elements $p$
-          \STATE \textbf{Output:} Solution vector $X$
-          
-          \STATE Assign elements $X_i \in X$ to $n-1$ processing elements, i = $[\alpha, \omega]$
-          
-          \FOR{\textbf{parallel} each processing element in $p_{1} \ldots p_{n}$}
-            \WHILE{residual norm $>$ tolerance}
-              \STATE \textbf{COPY} global $X^{\left(t\right)}$ from shared memory to local $x^{\left(t\right)}$
-              \IF{$p_{1}$}
-                \STATE Compute residual norm $||b - Ax||_2$
-              \ELSIF{$p_{2} \ldots p_{n}$}
-                \FOR{$x$ index $i = \alpha \ldots \omega$}
-                  \STATE Compute $x^{\left(t + 1\right)}_{i} = \frac{-1}{a_{ii}}\left[\sum_{j \neq i} a_{ij}x^{\left(t\right)}_{j} - b_{i} \right]$
-                \ENDFOR
-                \STATE \textbf{UPDATE} $X^{\left(t+1\right)}_{i}$ in shared memory with $x_{i}^{\left(t + 1\right)}$ for all $i$ belonging to processing element
-              \ENDIF
-            \ENDWHILE
-          \ENDFOR
-        \end{algorithmic}
-        \end{algorithm}
-      </pre>
+      <div id="Alg3" class="column-top">
+        <div class="ps-root">
+          <div class="ps-algorithm with-caption">
+            <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
+              <span class="ps-keyword">Algorithm 3 </span>OpenMP Implementation
+              1 (a) <span style="font-style: normal; font-variant: small-caps;">Safe</span>
+            </p>
+            <div class="ps-algorithmic with-linenum">
+              <div class="ps-block" style="margin-left: 1.7999999999999998em;">
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">1:</span><span
+                    style="font-weight: bold;">Input:</span>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>a</mi>
+                    <mrow>
+                    <mi>i</mi>
+                    <mi>j</mi>
+                    </mrow>
+                    </msub>
+                    <mo>∈</mo>
+                    <mi>A</mi>
+                    <mo separator="true">,</mo>
+                  </math>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>b</mi>
+                    <mo separator="true">,</mo>
+                  </math>
+                  initial guess for
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>X</mi>
+                    <mn>0</mn>
+                    </msub>
+                    <mo separator="true">,</mo>
+                  </math>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>n</mi>
+                    <mo separator="true">,</mo>
+                  </math>
+                  processing elements
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>p</mi>
+                   </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">2:</span><span
+                    style="font-weight: bold;">Output:</span> Solution vector
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>X</mi>
+                   </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">3:</span>Assign
+                  elements
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>X</mi>
+                    <mi>i</mi>
+                    </msub>
+                    <mo>∈</mo>
+                    <mi>X</mi>
+                  </math>
+                  to
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>n</mi>
+                    <mo>−</mo>
+                    <mn>1</mn>
+                  </math>
+                  processing elements,
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>i</mi>
+                    <mo>=</mo>
+                    <mfenced open="[" close="]">
+                    <mi>α</mi>
+                    <mi>ω</mi>
+                    </mfenced>
+                  </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">4:</span><span
+                    class="ps-keyword">for </span><span
+                    style="font-weight: bold;">parallel</span> each processing
+                  element in
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>p</mi>
+                    <mn>1</mn>
+                    </msub>
+                    <mo>…</mo>
+                    <msub>
+                    <mi>p</mi>
+                    <mi>n</mi>
+                    </msub>
+                  </math>
+                  <span class="ps-keyword"> do</span>
+                </p>
+                <div class="ps-block" style="margin-left: 1.2em;">
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">5:</span><span
+                      class="ps-keyword">while </span>residual norm
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mo>&gt;</mo>
+                    </math>
+                    tolerance <span class="ps-keyword">do</span>
+                  </p>
+                  <div class="ps-block" style="margin-left: 1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">6:</span><span
+                        style="font-weight: bold;">COPY</span> global
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msup>
+                          <mi>X</mi>
+                          <mrow>
+                          <mfenced open="(" close=")">
+                          <mi>t</mi>
+                          </mfenced>
+                          </mrow>
+                          </msup>
+                        </math>
+                      from shared memory to local
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msup>
+                          <mi>x</mi>
+                          <mrow>
+                          <mfenced open="(" close=")">
+                          <mi>t</mi>
+                          </mfenced>
+                          </mrow>
+                          </msup>
+                        </math>
+                    </p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">7:</span><span
+                        class="ps-keyword">if </span>
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                          <mi>p</mi>
+                          <mi>1</mi>
+                          </msub>
+                        </math>
+                      <span class="ps-keyword"> then</span>
+                    </p>
+                    <div class="ps-block" style="margin-left: 1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">8:</span>Compute
+                        residual norm
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mrow>
+                          <mfenced open="||" close="||">
+                          <mrow>
+                          <mi>b</mi>
+                          <mo>−</mo>
+                          <mi>A</mi>
+                          <mi>x</mi>
+                          </mrow>
+                          </mfenced>
+                          </mrow>
+                          <mn>2</mn>
+                        </math>
+                      </p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">9:</span><span
+                        class="ps-keyword">else if </span>
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                          <mi>p</mi>
+                          <mn>2</mn>
+                          </msub>
+                          <mo>…</mo>
+                          <msub>
+                          <mi>p</mi>
+                          <mi>n</mi>
+                          </msub>
+                        </math>
+                      <span class="ps-keyword"> then</span>
+                    </p>
+                    <div class="ps-block" style="margin-left: 1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">10:</span><span
+                          class="ps-keyword">for </span>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>x</mi>
+                          </math>
+                        index
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>=</mo>
+                            <mi>α</mi>
+                            <mo>…</mo>
+                            <mi>ω</mi>
+                          </math>
+                        <span class="ps-keyword"> do</span>
+                      </p>
+                      <div class="ps-block" style="margin-left: 1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum" style="left: -6em;">11:</span>Compute
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msubsup>
+                            <mi>x</mi>
+                            <mi>i</mi>
+                            <mfenced open="(" close=")">
+                            <mrow>
+                            <mi>t</mi>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                            </mrow>
+                            </mfenced>
+                            </msubsup>
+                            <mo>=</mo>
+                            <mfrac>
+                            <mrow>
+                            <mo>−</mo>
+                            <mn>1</mn>
+                            </mrow>
+                            <msub>
+                            <mi>a</mi>
+                            <mrow>
+                            <mi>i</mi>
+                            <mi>i</mi>
+                            </mrow>
+                            </msub>
+                            </mfrac>
+                            <mrow>
+                            <mfenced open="[" close="]">
+                            <mrow>
+                            <msub>
+                            <mo>∑</mo>
+                            <mrow>
+                            <mi>j</mi>
+                            <mo>&ne;</mo>
+                            <mi>i</mi>
+                            </mrow>
+                            </msub>
+                            <msub>
+                            <mi>a</mi>
+                            <mrow>
+                            <mi>i</mi>
+                            <mi>j</mi>
+                            </mrow>
+                            </msub>
+                            <msubsup>
+                            <mi>x</mi>
+                            <mi>j</mi>
+                            <mrow>
+                            <mfenced open="(" close=")">
+                            <mi>t</mi>
+                            </mfenced>
+                            </mrow>
+                            </msubsup>
+                            <mo>−</mo>
+                            <msub>
+                            <mi>b</mi>
+                            <mi>i</mi>
+                            </msub>
+                            </mrow>
+                            </mfenced>
+                            </mrow>
+                          </math>
+                        </p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">12:</span><span
+                          class="ps-keyword">end for</span>
+                      </p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">13:</span><span
+                          style="font-weight: bold;">UPDATE</span>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msubsup>
+                            <mi>X</mi>
+                            <mi>i</mi>
+                            <mrow>
+                            <mfenced open="(" close=")">
+                            <mrow>
+                            <mi>t</mi>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                            </mrow>
+                            </mfenced>
+                            </mrow>
+                            </msubsup>
+                          </math>
+                        in shared memory with
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msubsup>
+                          <mi>x</mi>
+                          <mi>i</mi>
+                          <mrow>
+                          <mfenced open="(" close=")">
+                          <mrow>
+                          <mi>t</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          </mfenced>
+                          </mrow>
+                          </msubsup>
+                        </math>
+                        for all
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>i</mi>
+                        </math>
+                        belonging to processing element
+                      </p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">14:</span><span
+                        class="ps-keyword">end if</span>
+                    </p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">15:</span><span
+                      class="ps-keyword">end while</span>
+                  </p>
+                </div>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">16:</span><span
+                    class="ps-keyword">end for</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <script>
-              var alg = document.getElementById( "Alg3t" ).textContent;
-              pseudocode.render( alg, document.getElementById( "Alg3" ), {
-                lineNumber: true
-              } );
-            </script>
       <p>
         <a href="#Fig6">Figure 6</a> compares <span class="small-caps">Safe</span>
         and <span class="small-caps">Race</span> calculation times and number of
@@ -2031,7 +3347,7 @@ td.border_left_right {
         outperforms <span class="small-caps">Race</span> in terms of calculation
         time.
       </p>
-      <table id="Fig6" class="tab-figure">
+      <table id="Fig6" class="tab-figure top">
         <tr>
           <td><figure id="Fig6a">
               <img src="./img/image6a.png" />
@@ -2100,83 +3416,17 @@ td.border_left_right {
             <th colspan="3"><span class="small-caps">Race</span></th>
           </tr>
           <tr>
-            <th>Copy<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-          <mfenced open="(" close=")">
-          <mrow>
-          <msup>
-          <mn>10</mn>
-          <mn>-5</mn>
-          </msup>
-          <mi>s</mi>
-          </mrow>
-          </mfenced>
-          </math>
+            <th>Copy<br /> (10<sup>-5</sup>s)
             </th>
-            <th>Compute<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-          <mfenced open="(" close=")">
-          </mrow>
-          <msup>
-          <mn>10</mn>
-          <mn>-4</mn>
-          </msup>
-          <mi>s</mi>
-          </mrow>
-          </mfenced>
-          </math>
+            <th>Compute<br /> (10<sup>-4</sup>s)
             </th>
-            <th>Update<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-          <mfenced open="(" close=")">
-          </mrow>
-          <msup>
-          <mn>10</mn>
-          <mn>-6</mn>
-          </msup>
-          <mi>s</mi>
-          </mrow>
-          </mfenced>
-          </math>
+            <th>Update<br /> (10<sup>-6</sup>s)
             </th>
-            <th>Copy<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-          <mfenced open="(" close=")">
-          </mrow>
-          <msup>
-          <mn>10</mn>
-          <mn>-5</mn>
-          </msup>
-          <mi>s</mi>
-          </mrow>
-          </mfenced>
-          </math>
+            <th>Copy<br /> (10<sup>-5</sup>s)
             </th>
-            <th>Compute<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-          <mfenced open="(" close=")">
-          </mrow>
-          <msup>
-          <mn>10</mn>
-          <mn>-4</mn>
-          </msup>
-          <mi>s</mi>
-          </mrow>
-          </mfenced>
-          </math>
+            <th>Compute<br /> (10<sup>-4</sup>s)
             </th>
-            <th>Update<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-          <mfenced open="(" close=")">
-          </mrow>
-          <msup>
-          <mn>10</mn>
-          <mn>-6</mn>
-          </msup>
-          <mi>s</mi>
-          </mrow>
-          </mfenced>
-          </math>
+            <th>Update<br /> (10<sup>-6</sup>s)
             </th>
           </tr>
         </thead>
@@ -2474,7 +3724,7 @@ td.border_left_right {
         opposed to explicitly forming the matrix
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>A</mi>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         and in a sense implements a <em>matrix-free</em> solution. For this
         implementation, the Laplacian was discretized over a
@@ -2486,7 +3736,7 @@ td.border_left_right {
         grid with boundary conditions set according to <a href="#Tab2">Table
           2</a>.
       </p>
-      <table id="Tab2" class="tab-matrix">
+      <table id="Tab2" class="tab-matrix bottom">
         <tbody>
           <tr class="border_top_bottom">
             <td class="border_left_right">0</td>
@@ -2563,7 +3813,7 @@ td.border_left_right {
         <mi>u</mi>
         <mn>1</mn>
         </msub>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         store grid point values that each thread reads, e.g., from
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2571,7 +3821,7 @@ td.border_left_right {
         <mi>u</mi>
         <mn>1</mn>
         </msub>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         to compute newer values to write, e.g., to
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2579,7 +3829,7 @@ td.border_left_right {
         <mi>u</mi>
         <mn>0</mn>
         </msub>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
         As the method is asynchronous, each thread independently determines
         which matrix stores its newer
@@ -2672,39 +3922,397 @@ td.border_left_right {
         complete an iteration. Thread counts of 10, 25, 50, 75, 100, and 150
         were used in these series of experiments. The average total iteration
         time for the varying.</p>
-      <div id="Alg4">
-        <pre id="Alg4t" style="display: none">
-        \begin{algorithm}
-        \caption{OpenMP Implementation 2}
-        \begin{algorithmic}
-          \STATE \textbf{Input:} Initial guess for $u^{\left(0\right)}(i,j)$, $n$ processing elements $p$
-          \STATE \textbf{Output:} Solution vector $u(i,j)$
-          
-          \STATE Assign rows $u(i) \in u$ to each processing element, i = $[\alpha, \omega]$
-          
-          \FOR{\textbf{parallel} each processing element in $p_{1} \ldots p_{n}$}
-            \WHILE{residual norm $>$ tolerance}
-              \FOR{row index $i = \alpha \ldots \omega$}
-                \IF{$i \neq 1$ AND $i \neq N$  $i = \alpha$ OR $i=\omega$}
-                  \STATE \textbf{COPY} neighbor $p_{n-1}$ or $p_{n+1}$ boundary row values $u^{\left(t\right)}(i,j)$ for $u^{\left(t+1\right)}(i,j)$
-                \ENDIF
-                \STATE Compute $u^{\left(t + 1\right)}(i,j) = 1/4*(u^{\left(t\right)}(i+1,j) + u^{\left(t\right)}(i-1,j) + u^{\left(t\right)}(i,j+1) + u^{\left(t\right)}(i, j-1)$
-                \IF{$i \neq 1$ AND $i\neq N$  $i = \alpha$ OR $i = \omega$}
-                  \STATE \textbf{UPDATE} own $p_{n}$ boundary row values $u_{j}^{\left(t\right)}(i,j)$ in shared memory with $u_{j}^{\left(t + 1\right)}(i,j)$
-                \ENDIF
-              \ENDFOR
-            \ENDWHILE
-          \ENDFOR
-        \end{algorithmic}
-        \end{algorithm}
-      </pre>
+      <div id="Alg4" class="top">
+        <div class="ps-root">
+          <div class="ps-algorithm with-caption">
+            <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
+              <span class="ps-keyword">Algorithm 4 </span>OpenMP Implementation
+              2
+            </p>
+            <div class="ps-algorithmic with-linenum">
+              <div class="ps-block" style="margin-left: 1.7999999999999998em;">
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">1:</span><span
+                    style="font-weight: bold;">Input:</span> Initial guess for
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msup>
+                      <mi>u</mi>
+                      <mfenced open="(" close=")">
+                      <mn>0</mn>
+                      </mfenced>
+                      </msup>
+                      <mfenced open="(" close=")">
+                      <mi>i</mi>
+                      <mi>j</mi>
+                      </mfenced>
+                      <mo separator="true">,</mo>
+                    </math>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>n</mi>
+                    </math>
+                  processing elements
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>p</mi>
+                    </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">2:</span><span
+                    style="font-weight: bold;">Output:</span> Solution vector
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>u</mi>
+                      <mfenced open="(" close=")">
+                      <mi>i</mi>
+                      <mi>j</mi>
+                      </mfenced>
+                    </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">3:</span>Assign
+                  rows
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>u</mi>
+                    <mfenced open="(" close=")">
+                    <mi>i</mi>
+                    </mfenced>
+                    <mo>∈</mo>
+                    <mi>u</mi>
+                  </math>
+                  to each processing element,
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>i</mi>
+                    <mo>=</mo>
+                    <mfenced open="[" close="]">
+                    <mi>α</mi>
+                    <mi>ω</mi>
+                    </mfenced>
+                  </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">4:</span><span
+                    class="ps-keyword">for </span><span
+                    style="font-weight: bold;">parallel</span> each processing
+                  element in
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>p</mi>
+                    <mn>1</mn>
+                    </msub>
+                    <mo>…</mo>
+                    <msub>
+                    <mi>p</mi>
+                    <mi>n</mi>
+                    </msub>
+                  </math>
+                  <span class="ps-keyword"> do</span>
+                </p>
+                <div class="ps-block" style="margin-left: 1.2em;">
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">5:</span><span
+                      class="ps-keyword">while </span>residual norm
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mo>&gt;</mo>
+                    </math>
+                    tolerance<span class="ps-keyword"> do</span>
+                  </p>
+                  <div class="ps-block" style="margin-left: 1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">6:</span><span
+                        class="ps-keyword">for </span>row index
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>i</mi>
+                          <mo>=</mo>
+                          <mi>α</mi>
+                          <mo>…</mo>
+                          <mi>ω</mi>
+                        </math>
+                      <span class="ps-keyword"> do</span>
+                    </p>
+                    <div class="ps-block" style="margin-left: 1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">7:</span><span
+                          class="ps-keyword">if </span>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>&ne;</mo>
+                            <mn>1</mn>
+                          </math>
+                        AND
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>&ne;</mo>
+                            <mn>N</mn>
+                          </math>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>=</mo>
+                            <mn>α</mn>
+                          </math>
+                        OR
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>=</mo>
+                            <mn>ω</mn>
+                          </math>
+                        <span class="ps-keyword"> then</span>
+                      </p>
+                      <div class="ps-block" style="margin-left: 1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum" style="left: -6em;">8:</span><span
+                            style="font-weight: bold;">COPY</span> neighbor
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                              <msub>
+                              <mi>p</mi>
+                              <mrow>
+                              <mi>n</mi>
+                              <mo>−</mo>
+                              <mn>1</mn>
+                              </mrow>
+                              </msub>
+                            </math>
+                          or
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                              <msub>
+                              <mi>p</mi>
+                              <mrow>
+                              <mi>n</mi>
+                              <mo>+</mo>
+                              <mn>1</mn>
+                              </mrow>
+                              </msub>
+                            </math>
+                          boundary row values
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                              <msup>
+                              <mi>u</mi>
+                              <mfenced open="(" close=")">
+                              <mi>t</mi>
+                              </mfenced>
+                              </msup>
+                              <mfenced open="(" close=")">
+                              <mi>i</mi>
+                              <mi>j</mi>
+                              </mfenced>
+                            </math>
+                          for
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                              <msup>
+                              <mi>u</mi>
+                              <mfenced open="(" close=")">
+                              <mrow>
+                              <mi>t</mi>
+                              <mo>+</mo>
+                              <mn>1</mn>
+                              </mrow>
+                              </mfenced>
+                              </msup>
+                              <mfenced open="(" close=")">
+                              <mi>i</mi>
+                              <mi>j</mi>
+                              </mfenced>
+                            </math>
+                        </p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">9:</span><span
+                          class="ps-keyword">end if</span>
+                      </p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">10:</span>Compute
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mrow>
+                          <msup>
+                          <mi>u</mi>
+                          <mfenced open="(" close=")">
+                          <mrow>
+                          <mi>t</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          </mfenced>
+                          </msup>
+                          <mfenced open="(" close=")">
+                          <mi>i</mi>
+                          <mi>j</mi>
+                          </mfenced>
+                          <mo>=</mo>
+                          <mfrac>
+                          <mn>1</mn>
+                          <mn>4</mn>
+                          </mfrac>
+                          <mo>∗</mo>
+                          <mfenced open="(" close=")">
+                          <mrow>
+                          <mrow>
+                          <msup>
+                          <mi>u</mi>
+                          <mfenced open="(" close=")">
+                          <mi>t</mi>
+                          </mfenced>
+                          </msup>
+                          <mfenced open="(" close=")">
+                          <mrow>
+                          <mi>i</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          <mi>j</mi>
+                          </mfenced>
+                          </mrow>
+                          <mo>+</mo>
+                          <mrow>
+                          <msup>
+                          <mi>u</mi>
+                          <mfenced open="(" close=")">
+                          <mi>t</mi>
+                          </mfenced>
+                          </msup>
+                          <mfenced open="(" close=")">
+                          <mrow>
+                          <mi>i</mi>
+                          <mo>-</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          <mi>j</mi>
+                          </mfenced>
+                          </mrow>
+                          <mo>+</mo>
+                          <mrow>
+                          <msup>
+                          <mi>u</mi>
+                          <mfenced open="(" close=")">
+                          <mi>t</mi>
+                          </mfenced>
+                          </msup>
+                          <mfenced open="(" close=")">
+                          <mi>i</mi>
+                          <mrow>
+                          <mi>j</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          </mfenced>
+                          </mrow>
+                          <mo>+</mo>
+                          <mrow>
+                          <msup>
+                          <mi>u</mi>
+                          <mfenced open="(" close=")">
+                          <mi>t</mi>
+                          </mfenced>
+                          </msup>
+                          <mfenced open="(" close=")">
+                          <mi>i</mi>
+                          <mrow>
+                          <mi>j</mi>
+                          <mo>-</mo>
+                          <mn>1</mn>
+                          </mrow>
+                          </mfenced>
+                          </mrow>
+                          </mrow>
+                          </mfenced>
+                          </mrow>
+                        </math>
+                      </p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">11:</span><span
+                          class="ps-keyword">if </span>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>&ne;</mo>
+                            <mn>1</mn>
+                          </math>
+                        AND
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>&ne;</mo>
+                            <mn>N</mn>
+                          </math>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>=</mo>
+                            <mn>α</mn>
+                          </math>
+                        OR
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>i</mi>
+                            <mo>=</mo>
+                            <mn>ω</mn>
+                          </math>
+                        <span class="ps-keyword"> then</span>
+                      </p>
+                      <div class="ps-block" style="margin-left: 1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum" style="left: -6em;">12:</span><span
+                            style="font-weight: bold;">UPDATE</span> own
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                            <mi>p</mi>
+                            <mi>n</mi>
+                            </msub>
+                          </math>
+                          boundary row values
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msubsup>
+                            <mi>u</mi>
+                            <mi>j</mi>
+                            <mrow>
+                            <mfenced open="(" close=")">
+                            <mi>t</mi>
+                            </mfenced>
+                            </mrow>
+                            </msubsup>
+                            <mfenced open="(" close=")">
+                            <mi>i</mi>
+                            <mi>j</mi>
+                            </mfenced>
+                          </math>
+                          in shared memory with
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msubsup>
+                            <mi>u</mi>
+                            <mi>j</mi>
+                            <mrow>
+                            <mfenced open="(" close=")">
+                            <mrow>
+                            <mi>t</mi>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                            </mrow>
+                            </mfenced>
+                            </mrow>
+                            </msubsup>
+                            <mfenced open="(" close=")">
+                            <mi>i</mi>
+                            <mi>j</mi>
+                            </mfenced>
+                          </math>
+                        </p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">13:</span><span
+                          class="ps-keyword">end if</span>
+                      </p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">14:</span><span
+                        class="ps-keyword">end for</span>
+                    </p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">15:</span><span
+                      class="ps-keyword">end while</span>
+                  </p>
+                </div>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">16:</span><span
+                    class="ps-keyword">end for</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <script>
-              var alg = document.getElementById( "Alg4t" ).textContent;
-              pseudocode.render( alg, document.getElementById( "Alg4" ), {
-                lineNumber: true
-              } );
-            </script>
       <p>
         <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
         each of the thread counts. <a href="#Tab3">Table 3</a> and <a
@@ -2713,77 +4321,8 @@ td.border_left_right {
         increase in iteration time variation may result from increased
         opportunities for lock collisions with greater thread counts.
       </p>
-      <table id="Tab3">
-        <thead>
-          <tr>
-            <th>Threads</th>
-            <th>Mean<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-            <mfenced open="(" close=")">
-            <mrow>
-            <msup>
-            <mn>10</mn>
-            <mn>-5</mn>
-            </msup>
-            <mi>s</mi>
-            </mrow>
-            </mfenced>
-            </math>
-            </th>
-            <th>Std.<br /> <math
-                xmlns="http://www.w3.org/1998/Math/MathML">
-            <mfenced open="(" close=")">
-            <mrow>
-            <msup>
-            <mn>10</mn>
-            <mn>-6</mn>
-            </msup>
-            <mi>s</mi>
-            </mrow>
-            </mfenced>
-            </math>
-            </th>
-          </tr>
-        </thead>
-        <tbody style="text-align: right">
-          <tr>
-            <td style="text-align: center">10</td>
-            <td>8.86</td>
-            <td>3.87</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">25</td>
-            <td>3.92</td>
-            <td>2.08</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">50</td>
-            <td>2.55</td>
-            <td>2.34</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">75</td>
-            <td>2.53</td>
-            <td>5.80</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">100</td>
-            <td>2.61</td>
-            <td>5.95</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">150</td>
-            <td>2.64</td>
-            <td>5.76</td>
-          </tr>
-        </tbody>
-        <caption>
-          <strong>Table 3.</strong> Mean iteration time and standard deviation
-          by thread count.
-        </caption>
-      </table>
 
-      <table id="Fig9" class="tab-figure">
+      <table id="Fig9" class="tab-figure top">
         <tr>
           <td><figure id="Fig9a">
               <img src="./img/image9a.png" />
@@ -2829,14 +4368,6 @@ td.border_left_right {
         </caption>
       </table>
       <p>
-        <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
-        each of the thread counts. <a href="#Tab3">Table 3</a> and <a
-          href="#Fig9">Figure 9</a> show that with increasing thread count, mean
-        iteration time decreases, but iteration times variance increases. This
-        increase in iteration time variation may result from increased
-        opportunities for lock collisions with greater thread counts.
-      </p>
-      <p>
         Since this implementation is even more compute bound than the first one,
         <a href="#Tab3">Table 3</a> shows a general decrease in the time for
         each iteration as the thread count is increased. While there is no
@@ -2850,6 +4381,54 @@ td.border_left_right {
         Laplacian is a very sparse matrix that does not require much data
         movement.
       </p>
+
+      <table id="Tab3" class="bottom">
+        <thead>
+          <tr>
+            <th>Threads</th>
+            <th>Mean<br /> (10<sup>-5</sup>s)
+            </th>
+            <th>Std.<br /> (10<sup>-6</sup>s)
+            </th>
+          </tr>
+        </thead>
+        <tbody style="text-align: right">
+          <tr>
+            <td style="text-align: center">10</td>
+            <td>8.86</td>
+            <td>3.87</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">25</td>
+            <td>3.92</td>
+            <td>2.08</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">50</td>
+            <td>2.55</td>
+            <td>2.34</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">75</td>
+            <td>2.53</td>
+            <td>5.80</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">100</td>
+            <td>2.61</td>
+            <td>5.95</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">150</td>
+            <td>2.64</td>
+            <td>5.76</td>
+          </tr>
+        </tbody>
+        <caption>
+          <strong>Table 3.</strong> Mean iteration time and standard deviation
+          by thread count.
+        </caption>
+      </table>
     </section>
 
     <section id="Sect5.3">
@@ -2880,19 +4459,50 @@ td.border_left_right {
         generalizes further to any sparse matrix,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>A</mi>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         with which the Jacobi method can be used. According to <a href="#Theo1">Theorem
           1</a>, convergence will occur if the spectral radius of the iteration
         matrix,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>C</mi>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         is less than 1. In the case of the Jacobi method, the iteration matrix
         is given by
       </p>
-      <p>$$ C = -D^{-1}\left( L + U \right).\label{u}\tag{21} $$</p>
+      <div id="Eq21">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(21)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <mi>C</mi>
+                  <mo>=</mo>
+                  <msup>
+                  <mrow>
+                  <mo>-</mo>
+                  <mi>D</mi>
+                  </mrow>
+                  <mn>-1</mn>
+                  </msup>
+                  <mfenced open="(" close=")">
+                  <mrow>
+                  <mi>L</mi>
+                  <mo>+</mo>
+                  <mi>U</mi>
+                  </mrow>
+                  </mfenced>
+                  <mo separator="true">.</mo>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>
         Note that in the two dimensional discretization of the Laplacian, the
         spectral radius of the Jacobian is less than l, which says that both the
@@ -2927,7 +4537,7 @@ td.border_left_right {
         <mn>400</mn>
         <mo>&times;</mo>
         <mn>400</mn>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
         Similarly to the process in <a href="#Sect5.1">Section 5.1</a>,
         distributions were fit to the output of the OpenMP<sup>&reg;</sup>
@@ -3015,7 +4625,7 @@ td.border_left_right {
       achieved by passing in another function handle that performs the fault
       tolerance check and recovery work.
     </p>
-    <figure id="Fig10">
+    <figure id="Fig10" class="top">
       <img src="./img/image10.png" />
       <figcaption>
         <strong>Figure 10.</strong> Block diagram of the simulation framework
@@ -3073,25 +4683,59 @@ td.border_left_right {
         <mo>-&epsilon;</mo>
         <mo>&epsilon;</mo>
         </mfenced>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         using a uniform distribution, and then set
       </p>
-      <p>$$ \hat x_{i} = x_{i} + r_{i}\label{v}\tag{22} $$</p>
+      <div id="Eq22">
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(22)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                  <msub>
+                  <mover>
+                  <mi>x</mi>
+                  <mo>&Hat;</mo>
+                  </mover>
+                  <mi>i</mi>
+                  </msub>
+                  <mo>=</mo>
+                  <msub>
+                  <mi>x</mi>
+                  <mi>i</mi>
+                  </msub>
+                  <mo>+</mo>
+                  <msub>
+                  <mi>r</mi>
+                  <mi>i</mi>
+                  </msub>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+      </div>
       <p>
         for all values of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>i</mi>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
         The resultant vector
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mo>x&#770;</mo>
+      <mover>
+      <mi>x</mi>
+      <mo style="font-size: small;">&rarr;</mo>
+      </mover>
       </math>
         is then perturbed away from the original vector
         <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>x</mi>
-      <mo>.</mo>
+      <mo separator="true">.</mo>
       </math>
         Other similar perturbation-based fault models have sampled the
         components
@@ -3137,7 +4781,7 @@ td.border_left_right {
         </mfenced>
         </mrow>
         </msup>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
       </p>
       <p>
@@ -3185,54 +4829,336 @@ td.border_left_right {
         simulation provided by <a href="#Alg2">Algorithm 2</a>) is provided in <a
           href="#Alg5">Algorithm 5</a>.
       </p>
-      <div id="Alg5">
-        <pre id="Alg5t" style="display: none">
-        \begin{algorithm}
-        \caption{Asynchronous Jacobi simulation with checkpointing}
-        \begin{algorithmic}
-          \STATE \textbf{Input:} $a_{ij} \in A$; initial guess $x_{0}$; number of processing elements $p$;  input random number distribution;
-                                 checkpointing tolerance $\alpha$;
-                                 checkpointing frequency $\omega$
-          \STATE \textbf{Input:} Solution vector $x$
-          
-          \STATE Assign processor update times $\tau_{1}, \tau_{2}, \ldots, \tau_{p}$  by sampling from an appropriate random number distribution
-
-          \STATE Assign a part of $x$ to each processing element
-          
-          \STATE Initialize $r_{old}$ to a large value
-          
-          \FOR{$t = 1, 2, \ldots$, until convergence}
-            \FOR{each processing element, $P_{l}$}
-              \IF{$\tau_{k} = t$}
-                \FOR{each element $x_{i} \in x$ assigned to $P_{l}$}
-                  \STATE $x_i = \frac{-1}{a_{ii}}\left[\sum_{j\neq i} a_{ij}x_j - b_i \right]$
-                \ENDFOR
-                \STATE Retrieve a new update time $\tau_{k}$ by sampling from the input distribution
-              \ENDIF
-            \ENDFOR
-            \STATE Inject a fault if appropriate
-            \STATE Calculate the residual $r_{new}$ as in Eq. (18)
-            
-            \IF{$r_{new} > \alpha \times r_{old}$}
-              \STATE $x \leftarrow x_{cp}$
-            \ENDIF
-            
-            \IF{$\mod(t, \omega) == 0$}
-              \STATE $x_{cp} \leftarrow x$
-            \ENDIF
-            
-            \STATE Check termination conditions
-          \ENDFOR
-        \end{algorithmic}
-        \end{algorithm}
-      </pre>
+      <div id="Alg5" class="column-top">
+        <div class="ps-root">
+          <div class="ps-algorithm with-caption">
+            <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
+              <span class="ps-keyword">Algorithm 5 </span>Asynchronous Jacobi
+              simulation with checkpointing
+            </p>
+            <div class="ps-algorithmic with-linenum">
+              <div class="ps-block" style="margin-left: 1.7999999999999998em;">
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">1:</span><span
+                    style="font-weight: bold;">Input:</span>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                      <mi>a</mi>
+                      <mrow>
+                      <mi>i</mi>
+                      <mi>j</mi>
+                      </mrow>
+                      </msub>
+                      <mo>∈</mo>
+                      <mi>A</mi>
+                      <mo separator="true">;</mo>
+                    </math>
+                  initial guess
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                      <mi>x</mi>
+                      <mn>0</mn>
+                      </msub>
+                      <mo separator="true">;</mo>
+                    </math>
+                  number of processing elements
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>p</mi>
+                    <mo separator="true">;</mo>
+                  </math>
+                  input random number distribution; checkpointing tolerance
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>α</mi>
+                    <mo separator="true">;</mo>
+                  </math>
+                  checkpointing frequency
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>ω</mi>
+                  </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">2:</span><span
+                    style="font-weight: bold;">Outpu:</span> Solution vector
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>x</mi>
+                  </math>
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">3:</span>Assign
+                  processor update times
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>τ</mi>
+                    <mn>1</mn>
+                    </msub>
+                    <mo separator="true">,</mo>
+                    <msub>
+                    <mi>τ</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo separator="true">,</mo>
+                    <mo>…</mo>
+                    <mo separator="true">,</mo>
+                    <msub>
+                    <mi>τ</mi>
+                    <mi>p</mi>
+                    </msub>
+                  </math>
+                  by sampling from an appropriate random number distribution
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">4:</span>Assign a
+                  part of
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>x</mi>
+                  </math>
+                  to each processing element
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">5:</span>Initialize
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                    <mi>r</mi>
+                    <mtext>old</mtext>
+                    </msub>
+                  </math>
+                  to a large value
+                </p>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">6:</span><span
+                    class="ps-keyword">for </span>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mi>t</mi>
+                      <mo>=</mo>
+                      <mn>1</mn>
+                      <mo separator="true">,</mo>
+                      <mn>2</mn>
+                      <mo separator="true">,</mo>
+                      <mo>…</mo>
+                      <mo separator="true">,</mo>
+                    </math>
+                  until convergence<span class="ps-keyword"> do</span>
+                </p>
+                <div class="ps-block" style="margin-left: 1.2em;">
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">7:</span><span
+                      class="ps-keyword">for </span>each processing element,
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                        <mi>P</mi>
+                        <mi>l</mi>
+                        </msub>
+                      </math>
+                    <span class="ps-keyword"> do</span>
+                  </p>
+                  <div class="ps-block" style="margin-left: 1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">8:</span><span
+                        class="ps-keyword">if </span>
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                        <mi>τ</mi>
+                        <mi>k</mi>
+                        </msub>
+                        <mo>=</mo>
+                        <mi>t</mi>
+                      </math>
+                      <span class="ps-keyword"> then</span>
+                    </p>
+                    <div class="ps-block" style="margin-left: 1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">9:</span><span
+                          class="ps-keyword">for </span>each element
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                            <mi>x</mi>
+                            <mi>i</mi>
+                            </msub>
+                            <mo>∈</mo>
+                            <mi>x</mi>
+                          </math>
+                        assigned to
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                            <mi>P</mi>
+                            <mi>l</mi>
+                            </msub>
+                          </math>
+                        <span class="ps-keyword"> do</span>
+                      </p>
+                      <div class="ps-block" style="margin-left: 1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum" style="left: -6em;">10:</span>
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <msub>
+                                <mi>x</mi>
+                                <mi>i</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                <mrow>
+                                <mo>−</mo>
+                                <mn>1</mn>
+                                </mrow>
+                                <msub>
+                                <mi>a</mi>
+                                <mrow>
+                                <mi>i</mi>
+                                <mi>i</mi>
+                                </mrow>
+                                </msub>
+                                </mfrac>
+                                <mfenced open="[" close="]">
+                                <mrow>
+                                <msub>
+                                <mo>∑</mo>
+                                <mrow>
+                                <mi>j</mi>
+                                <mo>&ne;</mo>
+                                <mi>i</mi>
+                                </mrow>
+                                </msub>
+                                <msub>
+                                <mi>a</mi>
+                                <mrow>
+                                <mi>i</mi>
+                                <mi>j</mi>
+                                </mrow>
+                                </msub>
+                                <msub>
+                                <mi>x</mi>
+                                <mi>j</mi>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                <mi>b</mi>
+                                <mi>i</mi>
+                                </msub>
+                                </mrow>
+                                </mfenced>
+                              </math>
+                        </p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">11:</span><span
+                          class="ps-keyword">end for</span>
+                      </p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum" style="left: -4.5em;">12:</span>Retrieve
+                        a new update time
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                          <mi>τ</mi>
+                          <mi>k</mi>
+                          </msub>
+                      </math>
+                        by sampling from the input distribution
+                      </p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">13:</span><span
+                        class="ps-keyword">end if</span>
+                    </p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">14:</span><span
+                      class="ps-keyword">end for</span>
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">15:</span>Inject
+                    a fault if appropriate
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">16:</span>Calculate
+                    the residual
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                      <mi>r</mi>
+                      <mtext>new</mtext>
+                      </msub>
+                    </math>
+                    as in Eq. (18)
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">17:</span><span
+                      class="ps-keyword">if </span>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                      <mi>r</mi>
+                      <mtext>new</mtext>
+                      </msub>
+                      <mo>&gt;</mo>
+                      <mi>α</mi>
+                      <mo>×</mo>
+                      <msub>
+                      <mi>r</mi>
+                      <mtext>old</mtext>
+                      </msub>
+                    </math>
+                    <span class="ps-keyword"> then</span>
+                  </p>
+                  <div class="ps-block" style="margin-left: 1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">18:</span>
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>x</mi>
+                        <mo>←</mo>
+                        <msub>
+                        <mi>x</mi>
+                        <mtext>cp</mtext>
+                        </msub>
+                      </math>
+                    </p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">19:</span><span
+                      class="ps-keyword">end if</span>
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">20:</span><span
+                      class="ps-keyword">if </span>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>mod</mtext>
+                        <mfenced open="(" close=")">
+                        <mi>t</mi>
+                        <mi>ω</mi>
+                        </mfenced>
+                        <mo>==</mo>
+                        <mn>0</mn>
+                      </math>
+                    <span class="ps-keyword"> then</span>
+                  </p>
+                  <div class="ps-block" style="margin-left: 1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left: -3em;">21:</span>
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                        <mi>x</mi>
+                        <mtext>cp</mtext>
+                        </msub>
+                        <mo>←</mo>
+                        <mi>x</mi>
+                      </math>
+                    </p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">22:</span><span
+                      class="ps-keyword">end if</span>
+                  </p>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left: -1.5em;">23:</span>Check
+                    termination conditions
+                  </p>
+                </div>
+                <p class="ps-line ps-code">
+                  <span class="ps-linenum" style="left: 0em;">24:</span><span
+                    class="ps-keyword">end for</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <script>
-              var alg = document.getElementById( "Alg5t" ).textContent;
-              pseudocode.render( alg, document.getElementById( "Alg5" ), {
-                lineNumber: true
-              } );
-            </script>
       <p>
         Note that the asynchronous nature of the iterative method means that a
         strict check on the decrease of the residual (i.e., expecting monotonic
@@ -3245,7 +5171,7 @@ td.border_left_right {
         <mi>&alpha;</mi>
         <mo>&gt;</mo>
         <mn>1</mn>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
         However, the expected manifestation of faults as rare, transient events
         allows α to be taken fairly large. Taking
@@ -3264,25 +5190,58 @@ td.border_left_right {
           <td>
             <figure id="Fig11a">
               <img src="./img/image11a.png" />
+              <figcaption>
+                <strong>(a)</strong> Effect of fault - no checkpointing.
+              </figcaption>
             </figure>
           </td>
           <td><figure id="Fig11b">
               <img src="./img/image11b.png" />
+              <figcaption>
+                <strong>(b)</strong> Effect of fault -
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>&alpha;</mi>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo separator="true">.</mo>
+          </math>
+              </figcaption>
             </figure></td>
         </tr>
         <tr>
           <td>
             <figure id="Fig11c">
               <img src="./img/image11c.png" />
+              <figcaption>
+                <strong>(c)</strong> Effect of fault -
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>&alpha;</mi>
+                <mo>=</mo>
+                <mn>2</mn>
+                <mo separator="true">.</mo>
+          </math>
+              </figcaption>
             </figure>
           </td>
           <td><figure id="Fig11d">
               <img src="./img/image11d.png" />
+              <figcaption>
+                <strong>(d)</strong> Effect of fault -
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>&alpha;</mi>
+                <mo>=</mo>
+                <mn>10</mn>
+                <mo separator="true">.</mo>
+          </math>
+              </figcaption>
             </figure></td>
         </tr>
         <caption>
-          <strong>Figure 11.</strong> Effect of differing values of α on the
-          progression of the residual.
+          <strong>Figure 11.</strong> Effect of differing values of
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mi>&alpha;</mi>
+          </math>
+          on the progression of the residual.
         </caption>
       </table>
       <p>
@@ -3298,7 +5257,7 @@ td.border_left_right {
         <mi>&alpha;</mi>
         <mo>=</mo>
         <mn>10</mn>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math>
         The size of the fault selected in this study,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -3311,7 +5270,7 @@ td.border_left_right {
         <mn>-100</mn>
         <mn>100</mn>
         </mfenced>
-        <mo>,</mo>
+        <mo separator="true">,</mo>
         </math>
         which may be reflective of an exponent or sign bit flip (<a
           role="doc-biblioref" href="#CS18">Coleman, &amp; Sosonkina, 2018</a>),
@@ -3440,7 +5399,7 @@ td.border_left_right {
         <mi>x</mi>
         <mn>1</mn>
         </msub>
-        <mo>.</mo>
+        <mo separator="true">.</mo>
         </math><sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup>
       </li>
       <li id="ftn2" role="doc-endnote">Rulfo is a part of computing
