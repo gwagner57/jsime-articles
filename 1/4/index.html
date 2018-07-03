@@ -51,64 +51,169 @@
 </script>
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
   "@graph": [
     {
-      "@id": "#jsime",
-      "@type": "Periodical",
-      "name": "Journal of Simulation Engineering",
-      "issn": "2569-9466",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Consortium for True Open Access in Modeling and Simulation"
-      },
-      "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
-    },
-    {
-      "@id": "#volume-1",
-      "@type": "PublicationVolume",
-      "datePublished": "2018-06-28",
-      "volumeNumber": "1",
-      "isPartOf": {"@id": "#jsime"},
-    },
-    {
-      "@id": "#affiliation-1",
-      "@type": "Organization",
-      "address": "Institute of Informatics, Brandenburg University of Technology, Germany"
-    },
-    { "@id":"#author-1", "@type":"Person", "name":"Alexis Drogoul", "email":"alexis.drogoul@ird.fr", "affiliation":"UMMISCO, IRD, France and Vietnam"},
-    { "@id":"#author-2", "@type":"Person", "name":"Paul Fishwick", "email":"paul.fishwick@utdallas.edu", "affiliation":"University of Texas at Dallas, USA"},
-    { "@id":"#author-3", "@type":"Person", "name":"Nigel Gilbert", "email":"n.gilbert@surrey.ac.uk", "affiliation":"University of Surrey, England"},
-    { "@id":"#author-4", "@type":"Person", "name":"Dennis Pegden", "email":"cdpegden@simio.com", "affiliation":" Simio LLC, USA"},
-    { "@id":"#author-5", "@type":"Person", "name":"Levent Yilmaz", "email":"yilmale@auburn.edu", "affiliation":"Auburn University, USA"},
-    { "@id":"#author-6", "@type":"Person", "name":"Gerd Wagner", "email":"G.Wagner@b-tu.de", "affiliation":"#affiliation-1"},
-    {
-      "@id": "#artcile-1-4",
       "@type": "ScholarlyArticle",
-      "isPartOf": {"@id": "#volume-1"},
       "name": "On the Unity and Diversity of Computer Simulation",
-      "author": ["#author-1", "#author-2", "#author-3", "#author-4", "#author-5", "#author-6"],
+      "author": [
+        { "@id": "/1/4/author-1" },
+        { "@id": "/1/4/author-2" },
+        { "@id": "/1/4/author-3" },
+        { "@id": "/1/4/author-4" },
+        { "@id": "/1/4/author-5" },
+        { "@id": "/1/4/author-6" }
+      ],
       "keywords": [],
       "description": "The term Computer Simulation subsumes different simulation paradigms, languages and implementation technologies as well as many different application areas each with its own scientific communities. So, there is clearly a lot of conceptual, methodological, technological and application diversity in the area of Computer Simulation. From its start in 1967, the Winter Simulation Conference managed to get four scientific communities involved: computer scientists, electrical engineers, industrial engineers and mathematicians (operations researchers). Only later, in 2011 and 2012, an attempt was made to get environmental and social scientists involved who have been adopting the idea of 'individual-based' or 'agent-based' simulation. Today, two American, a European and an Asian social simulation conference have been established. How much unity exists between the scientific areas and communities represented by the Winter Simulation Conference? How much unity exists between the scientific areas and communities represented by the newer social science simulation conferences? And how much unity exists between Discrete Event Simulation and the newer forms of social science simulation? These and other questions about the unity and diversity of Computer Simulation have been discussed via email from April 17 to May 17, 2018, by five leading experts: Alexis Drogoul, Paul Fishwick, Nigel Gilbert, Dennis Pegden and Levent Yilmaz, moderated by Gerd Wagner.",
       "url": "https://articles.jsime.org/1/4/Unity-and-Diversity-of-Simulation",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "copyrightHolder": ["#author-1", "#author-2", "#author-3", "#author-4", "#author-5", "#author-6"],
+      "copyrightHolder": [
+        { "@id": "/1/4/author-1" },
+        { "@id": "/1/4/author-2" },
+        { "@id": "/1/4/author-3" },
+        { "@id": "/1/4/author-4" },
+        { "@id": "/1/4/author-5" },
+        { "@id": "/1/4/author-6" }
+      ],
       "copyrightYear": "2018",
       "dateCreated": "2018-06-15",
-      "dateModified": "2018-06-28",
-      "datePublished": "2018-06-26"
+      "dateModified": "2018-07-03",
+      "datePublished": "2018-06-26",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2018-06-28",
+        "volumeNumber": "1",
+        "url": "https://articles.jsime.org/1/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": []
     },
     {
-      "@type": "CategoryCodeSet",
-      "@id": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)",
-      "name": "The 2012 ACM Computing Classification System"
+      "@id": "/1/4/author-1",
+      "@type": "Person",
+      "name": "Alexis Drogoul",
+      "email": "alexis.drogoul@ird.fr",
+      "affiliation": [
+        { "@id": "/1/4/affiliation-1" }
+      ]
     },
     {
-      "@type": "CategoryCode",
-      "identifier": "",
-      "codeValue": "",
-      "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+      "@id": "/1/4/author-2",
+      "@type": "Person",
+      "name": "Paul Fishwick",
+      "email": "paul.fishwick@utdallas.edu",
+      "affiliation": [
+        { "@id": "/1/4/affiliation-2" }
+      ]
+    },
+    {
+      "@id": "/1/4/author-3",
+      "@type": "Person",
+      "name": "Nigel Gilbert",
+      "email": "n.gilbert@surrey.ac.uk",
+      "affiliation": [
+        { "@id": "/1/4/affiliation-3" }
+      ]
+    },
+    {
+      "@id": "/1/4/author-4",
+      "@type": "Person",
+      "name": "Dennis Pegden",
+      "email": "cdpegden@simio.com",
+      "affiliation": [
+        { "@id": "/1/4/affiliation-4" }
+      ]
+    },
+    {
+      "@id": "/1/4/author-5",
+      "@type": "Person",
+      "name": "Levent Yilmaz",
+      "email": "yilmale@auburn.edu",
+      "affiliation": [
+        { "@id": "/1/4/affiliation-5" }
+      ]
+    },
+    {
+      "@id": "/1/4/author-6",
+      "@type": "Person",
+      "name": "Gerd Wagner",
+      "email": "G.Wagner@b-tu.de",
+      "affiliation": [
+        { "@id": "/1/4/affiliation-6" }
+      ]
+    },
+    {
+      "@id": "/1/4/affiliation-1",
+      "@type": "Organization",
+      "name": "UMMISCO, IRD",
+      "address": {
+        "addressCountry": [ "France", "Vietnam" ]
+      }
+    },
+    {
+      "@id": "/1/4/affiliation-2",
+      "@type": "Organization",
+      "name": "University of Texas at Dallas",
+      "address": {
+        "addressLocality": "Dallas",
+        "addressRegion": "Texas",
+        "addressCountry": "United States"
+      }
+    },
+    {
+      "@id": "/1/4/affiliation-3",
+      "@type": "Organization",
+      "name": "University of Surrey",
+      "address": {
+        "addressLocality": "Surrey",
+        "addressCountry": "United Kingdom"
+      }
+    },
+    {
+      "@id": "/1/4/affiliation-4",
+      "@type": "Organization",
+      "name": "Simio LLC",
+      "address": {
+        "addressLocality": "Pittsburgh",
+        "addressRegion": " Pennsylvania",
+        "addressCountry": "United States"
+      }
+    },
+    {
+      "@id": "/1/4/affiliation-5",
+      "@type": "Organization",
+      "name": "Auburn University",
+      "address": {
+        "addressLocality": "Auburn",
+        "addressRegion": " Alabama",
+        "addressCountry": "United States"
+      }
+    },
+    {
+      "@id": "/1/4/affiliation-6",
+      "@type": "Organization",
+      "name": "Brandenburg University of Technology",
+      "department": "Department of Informatics",
+      "address": {
+        "addressLocality": "Cottbus",
+        "addressCountry": "Germany"
+      }
     }
   ]
 }
@@ -124,7 +229,7 @@
    <button type=button onclick="document.body.classList.add('feedbackMode')">Ask questions? Provide comments!</button>
    <form name="Feedback-1-4" method="POST" netlify-honeypot="bot-field" netlify>
     <p class="hidden">
-      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
     </p>
     <div class="close-btn" onclick="document.body.classList.remove('feedbackMode')">X</div>
 	<h1>Ask questions or provide comments</h1>
@@ -144,7 +249,7 @@
 	  <textarea name="feedback" required="required"></textarea></label>
     </div>
     <div>
-      <button type=”submit”>Send</button>
+      <button type="submit">Send</button>
     </div>
   </form>
  </aside>
@@ -212,9 +317,9 @@
 <p><b>Paul Fishwick</b>: One of the things that drew me toward modeling and simulation (M&amp;S) as a field in the late 1980s was that M&amp;S had a significant variety of theorists and practitioners. I found this refreshing compared to other communities that I <q>tested</q> during the same period. One of the reasons for the variety seems to come from modeling as an interdisciplinary subject &ndash; everyone models, but we may define <q>model</q> differently.</p>
 
 <blockquote class="float-right stylish">Can too much diversity impede meaningful and useful progress?</blockquote>
-<p><b>Levent Yilmaz</b>: I find the Modeling and Simulation (M&amp;S) discipline unique in terms of both the degree and the types of diversity that it affords. Given the transdisciplinary nature of model-building, there is always the opportunity to have cross-disciplinary interactions with others from a wide range of scientific and engineering fields. In my experience, there also appears to be sustained diversity even within specific fields of the M&amp;S discipline. For instance, at a recent Winter Simulation Conference, two different tracks focused on the use of computational agents, yet with distinct objectives. The cross-fertilization of ideas among the members of both the Social Behavioral Simulation and the Agent-Directed Simulation communities were noteworthy. Such diversity merits attention, at least subjectively, because it makes the interactions more interesting. Afterall, if members of a scientific community offer similar views and have the same preferences, no one would have the incentive to trade ideas. On the other hand, diversity, alone though, may not be sufficient. Interestingness requires some level of uniformity to sustain meaningful communication.</p><p>The Summer Simulation Conference, which is organized by the Society for Modeling and Simulation International, has been sustainable for over six decades. Similarly, in 2017, the Winter Simulation Conference celebrated its 50th anniversary. Can the diversity afforded by the M&amp;S discipline explain the resilience of these conference series? Why do we see diversity within the M&amp;S discipline? Is it merely because of the transdisciplinary nature of the discipline, or are there other mechanisms in play? On the other hand, can too much diversity impede meaningful and useful progress?</p>
+<p><b>Levent Yilmaz</b>: I find the Modeling and Simulation (M&amp;S) discipline unique in terms of both the degree and the types of diversity that it affords. Given the transdisciplinary nature of model-building, there is always the opportunity to have cross-disciplinary interactions with others from a wide range of scientific and engineering fields. In my experience, there also appears to be sustained diversity even within specific fields of the M&amp;S discipline. For instance, at a recent Winter Simulation Conference, two different tracks focused on the use of computational agents, yet with distinct objectives. The cross-fertilization of ideas among the members of both the Social Behavioral Simulation and the Agent-Directed Simulation communities were noteworthy. Such diversity merits attention, at least subjectively, because it makes the interactions more interesting. After all, if members of a scientific community offer similar views and have the same preferences, no one would have the incentive to trade ideas. On the other hand, diversity, alone though, may not be sufficient. Interestingness requires some level of uniformity to sustain meaningful communication.</p><p>The Summer Simulation Conference, which is organized by the Society for Modeling and Simulation International, has been sustainable for over six decades. Similarly, in 2017, the Winter Simulation Conference celebrated its 50th anniversary. Can the diversity afforded by the M&amp;S discipline explain the resilience of these conference series? Why do we see diversity within the M&amp;S discipline? Is it merely because of the transdisciplinary nature of the discipline, or are there other mechanisms in play? On the other hand, can too much diversity impede meaningful and useful progress?</p>
 
-<p><b>Gerd Wagner</b>: Like Paul, I also find the <q>richness</q> of M&amp;S fascinating. But as noted by Levent, meaningful communication among researchers from different disiplines requires some degree of shared understanding of issues, or conceptualization, of problem domains and methodological approaches. For those of you who have attended multi-disciplinary simulation conferences like the Winter (or Summer) Simulation Conference, did you experience sufficient shared understanding or have you experienced situations where researchers live/work in parallel worlds?</p>
+<p><b>Gerd Wagner</b>: Like Paul, I also find the <q>richness</q> of M&amp;S fascinating. But as noted by Levent, meaningful communication among researchers from different disciplines requires some degree of shared understanding of issues, or conceptualization, of problem domains and methodological approaches. For those of you who have attended multi-disciplinary simulation conferences like the Winter (or Summer) Simulation Conference, did you experience sufficient shared understanding or have you experienced situations where researchers live/work in parallel worlds?</p>
 
 <blockquote class="float-right stylish">Researchers from different domains seem to live in parallel worlds &ndash; while they actually talk about the same abstractions of structures and phenomena.</blockquote>
 <p><b>Alexis Drogoul</b>: As a computer scientist building and maintaining a simulation platform, whose role is mainly to operationalise and <q>objectify</q> the concepts manipulated by different disciplines in order for these <q>objects</q> to be later manipulated easily by modellers, I am constantly facing situations (in conferences, projects, panels, etc.) where researchers from different domains seem to live in parallel worlds &ndash; while they actually (in my biased perception) talk about the same things, at least the same abstractions of structures and phenomena. I find it normal, as I see my role as that of a <q>facilitator</q> or <q>translator</q>: i.e. someone who does not force people to use the same language but instead builds and provides abstractions that help them to express their own concepts in models. Diversity is therefore more a necessity than a problem, at least for me. And this is what makes this field so interesting to work in.</p>
@@ -265,7 +370,7 @@
 
 <p><b>Levent Yilmaz</b>: Our students use UML in their Software Modeling and Design class. They find the provision of different UML model types (i.e., class, state, interaction models) quite useful in describing the distinct aspects of both the structure and the behavior of systems. On the other hand, achieving consistency and coherence across multiple models (e.g., system sequence diagrams versus statecharts) continues to be a challenge in practice. Also, the lack of a consensus on the formal semantics of UML models appears to stifle progress in developing executable UML models.</p>
 
-<p><b>Gerd Wagner</b>: Nigel, the paper by Hugues Bersini rightly argues that UML provides useful diagram languages, not only for modeling OO software systems, but also for making (platform-indepependent) agent-based models at a higher abstraction level than OO programming languages like Java and NetLogo. However, he doesn't explain that the most important/useful types of models are class models/diagrams, which allow modeling the state structure of a discrete dynamic system, and which can be directly transformed into class definitions of a target OOP language (Java classes or NetLogo breeds). UML Class Diagrams are widely used in the IT industry, especially for model-driven software development. The process/behavior modeling languages (Sequence Diagrams, State Machine Diagrams and Activity Diagrams) are not as widely used and they have a fundamental weakness: unlike BPMN, they do not include a general concept of events. This is the reason why only BPMN can be viewed as an extension of Event Graphs, which makes BPMN especialy suitable for modeling discrete event processes like discrete manufacturing processes or message-based inter-agent communication processes.</p>
+<p><b>Gerd Wagner</b>: Nigel, the paper by Hugues Bersini rightly argues that UML provides useful diagram languages, not only for modeling OO software systems, but also for making (platform-independent) agent-based models at a higher abstraction level than OO programming languages like Java and NetLogo. However, he doesn't explain that the most important/useful types of models are class models/diagrams, which allow modeling the state structure of a discrete dynamic system, and which can be directly transformed into class definitions of a target OOP language (Java classes or NetLogo breeds). UML Class Diagrams are widely used in the IT industry, especially for model-driven software development. The process/behavior modeling languages (Sequence Diagrams, State Machine Diagrams and Activity Diagrams) are not as widely used and they have a fundamental weakness: unlike BPMN, they do not include a general concept of events. This is the reason why only BPMN can be viewed as an extension of Event Graphs, which makes BPMN especialy suitable for modeling discrete event processes like discrete manufacturing processes or message-based inter-agent communication processes.</p>
 <blockquote class="stylish">BPMN can be viewed as an extension of Event Graphs, which makes it suitable for modeling discrete event processes.</blockquote>
 <p>@Levent: UML Class Diagrams do have a formal semantics. In fact, they can be transformed into OWL Ontologies, which are a formal logic representation.</p>
 
