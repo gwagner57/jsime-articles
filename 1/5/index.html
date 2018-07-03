@@ -144,7 +144,8 @@ td.border_left_right {
       "name": "Evan Christopher Coleman",
       "email": "evanccoleman@gmail.com",
       "affiliation": [
-        { "@id": "/1/5/affiliation-1" }
+        { "@id": "/1/5/affiliation-1" },
+        { "@id": "/1/5/affiliation-2" }
       ]
     },
     {
@@ -153,7 +154,7 @@ td.border_left_right {
       "name": "Erik Jensen",
       "email": "ejens005@odu.edu",
       "affiliation": [
-        { "@id": "/1/5/affiliation-1" }
+        { "@id": "/1/5/affiliation-2" }
       ]
     },
     {
@@ -162,16 +163,27 @@ td.border_left_right {
       "name": "Masha Sosonkina",
       "email": "msosonki@odu.edu",
       "affiliation": [
-        { "@id": "/1/5/affiliation-1" }
+        { "@id": "/1/5/affiliation-2" }
       ]
     },
     {
       "@id": "/1/5/affiliation-1",
       "@type": "Organization",
+      "name": "Naval Surface Warfare Center",
+      "department": "Dahlgren Division",
+      "address": {
+        "addressLocality": "Dahlgren",
+        "addressRegion": "Virginia",
+        "addressCountry": "United States"
+      }
+    },
+    {
+      "@id": "/1/5/affiliation-2",
+      "@type": "Organization",
       "name": "Old Dominion University",
       "address": {
         "addressLocality": "Norfolk",
-        "addressRegion": "VA",
+        "addressRegion": "Virginia",
         "addressCountry": "United States"
       }
     }
@@ -234,26 +246,35 @@ td.border_left_right {
     <div id="authors">
       <address typeof="Person">
         <div property="name">
-          Evan C. Coleman<sup><img src="../../icons/envelope.png"></sup>
+          Evan C. Coleman<sup>1,2<img src="../../icons/envelope.png"></sup>
         </div>
         <div property="email">
           <a href="mailto:evanccoleman@gmail.com">evanccoleman@gmail.com</a>
         </div>
       </address>
       <address typeof="Person">
-        <div property="name">Erik Jensen</div>
+        <div property="name">
+          Erik Jensen<sup>2</sup>
+        </div>
         <div property="email">
           <a href="mailto:ejens005@odu.edu">ejens005@odu.edu</a>
         </div>
       </address>
       <address style="display: block; margin: 0.5em auto" typeof="Person">
-        <div property="name">Masha Sosonkina</div>
+        <div property="name">
+          Masha Sosonkina<sup>2</sup>
+        </div>
         <div property="email">
           <a href="mailto:msosonki@odu.edu">msosonki@odu.edu</a>
         </div>
       </address>
-      <div class="affiliation">Old Dominion University, Norfolk, VA,
-        United States</div>
+      <div class="affiliation">
+        <sup>1</sup> Naval Surface Warfare Center, Dahlgren Division, Dahlgren,
+        VA, United States
+      </div>
+      <div class="affiliation">
+        <sup>2</sup> Old Dominion University, Norfolk, VA, United States
+      </div>
     </div>
     <!--     <div id="acm-subject-categories">
       <h1>ACM Subject Categories</h1>
@@ -319,12 +340,12 @@ td.border_left_right {
           </mtd>
           <mtd columnalign="center">
             <mrow>
-            <mi>x</mi>
-            <mo>=</mo>
-            <mi>G</mi>
-            <mfenced open="(" close=")">
-            <mi>x</mi>
-            </mfenced>
+              <mi>x</mi>
+              <mo>=</mo>
+              <mi>G</mi>
+              <mo maxsize="1">(</mo>
+              <mi>x</mi>
+              <mo maxsize="1">)</mo>
             </mrow>
           </mtd>
         </mlabeledtr>
@@ -631,24 +652,29 @@ td.border_left_right {
           </mtd>
           <mtd columnalign="center">
             <mrow>
-            <msup>
-            <mi>x</mi>
-            <mrow>
-            <mi>k</mi>
-            <mo>+</mo>
-            <mn>1</mn>
-            </mrow>
-            </msup>
-            <mo>=</mo>
-            <mi>G</mi>
-            <mfenced open="(" close=")">
-            <mrow>
-            <msup>
-            <mi>x</mi>
-            <mi>k</mi>
-            </msup>
-            </mrow>
-            </mfenced>
+              <msup>
+                <mrow>
+                  <mi>x</mi>
+                </mrow>
+                <mrow>
+                  <mi>k</mi>
+                  <mo>+</mo>
+                  <mn>1</mn>
+                </mrow>
+              </msup>
+              <mo>=</mo>
+              <mi>G</mi>
+              <mo maxsize="1">(</mo>
+              <msup>
+                <mrow>
+                  <mi>x</mi>
+                </mrow>
+                <mrow>
+                  <mi>k</mi>
+                </mrow>
+              </msup>
+              <mo maxsize="1">)</mo>
+              <mo>,</mo>
             </mrow>
           </mtd>
         </mlabeledtr>
@@ -745,12 +771,12 @@ td.border_left_right {
             <mi>D</mi>
             <mo>&rarr;</mo>
             <mi>G</mi>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mi>x</mi>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             <mo>=</mo>
             <mi>G</mi>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <msub>
             <mi>x</mi>
             <mn>1</mn>
@@ -764,7 +790,7 @@ td.border_left_right {
             <mi>x</mi>
             <mi>m</mi>
             </msub>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             </mrow>
           </mtd>
         </mlabeledtr>
@@ -781,18 +807,18 @@ td.border_left_right {
             <mi>G</mi>
             <mn>1</mn>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mi>x</mi>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             </mrow>
             <mrow>
             <msub>
             <mi>G</mi>
             <mn>2</mn>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mi>x</mi>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             </mrow>
             <mo>&hellip;</mo>
             <mrow>
@@ -800,9 +826,9 @@ td.border_left_right {
             <mi>G</mi>
             <mi>m</mi>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mi>x</mi>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             </mrow>
             </mfenced>
             <mo>&isin;</mo>
@@ -860,12 +886,12 @@ td.border_left_right {
     Additionally, let
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>f</mi>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mover>
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       <mo>=</mo>
       <mn>2</mn>
       <mover accent="true">
@@ -884,12 +910,12 @@ td.border_left_right {
     component functions is defined by
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mi>f</mi>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mover>
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       <mo>=</mo>
       <mn>2</mn>
       <msub>
@@ -1030,9 +1056,9 @@ td.border_left_right {
                       <mi>G</mi>
                       <mi>j</mi>
                       </msub>
-                      <mfenced open="(" close=")">
+                      <mo maxsize="1">(</mo>
                       <mi>x</mi>
-                      </mfenced>
+                      <mo maxsize="1">)</mo>
                     </math>
                     for all
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1158,9 +1184,9 @@ td.border_left_right {
       <mi>s</mi>
       <mn>1</mn>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mo>x</mo>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       </mrow>
       </msubsup>
       <msubsup>
@@ -1171,9 +1197,9 @@ td.border_left_right {
       <mi>s</mi>
       <mn>2</mn>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mo>x</mo>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       </mrow>
       </msubsup>
       <mo>&hellip;</mo>
@@ -1185,9 +1211,9 @@ td.border_left_right {
       <mi>s</mi>
       <mi>m</mi>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mo>x</mo>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       </mrow>
       </msubsup>
       </mfenced>
@@ -1198,9 +1224,9 @@ td.border_left_right {
       <mi>s</mi>
       <mi>l</mi>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mo>k</mo>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       </math>
       indicates how many times an specific component has been updated. Finally,
       a set of individual components can be grouped into a set,
@@ -1233,9 +1259,9 @@ td.border_left_right {
       <mi>s</mi>
       <mi>i</mi>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mi>k</mi>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       <mo>&le;</mo>
       <mi>k</mi>
       <mo>-</mo>
@@ -1256,9 +1282,9 @@ td.border_left_right {
       <mi>s</mi>
       <mi>i</mi>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mi>k</mi>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       <mo>=</mo>
       <mn>&infin;</mn>
       <mo separator="true">,</mo>
@@ -1336,12 +1362,12 @@ td.border_left_right {
             <mi>G</mi>
             <mi>i</mi>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mover>
             <mi>x</mi>
             <mo style="font-size: small;">&rarr;</mo>
             </mover>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             </mtd>
             <mtd>
             <mi>i</mi>
@@ -1362,12 +1388,12 @@ td.border_left_right {
       <mi>G</mi>
       <mi>i</mi>
       </msub>
-      <mfenced open="(" close=")">
+      <mo maxsize="1">(</mo>
       <mover>
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
-      </mfenced>
+      <mo maxsize="1">)</mo>
       </math>
         uses the latest updates available is called an asynchronous iteration.
       </p>
@@ -1826,14 +1852,14 @@ td.border_left_right {
             </mover>
             <mo>=</mo>
             <mi>G</mi>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mrow>
             <mover>
             <mi>x</mi>
             <mo style="font-size: small;">&rarr;</mo>
             </mover>
             </mrow>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             </mrow>
           </mtd>
         </mlabeledtr>
@@ -1936,27 +1962,28 @@ td.border_left_right {
             <mi>G</mi>
             <mn>1</mn>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mover>
             <mi>x</mi>
             <mo style="font-size: small;">&rarr;</mo>
             </mover>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             <mo>=</mo>
             <msub>
             <mi>G</mi>
             <mn>1</mn>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <msub>
             <mi>x</mi>
             <mn>1</mn>
             </msub>
+            <mo separator="true">,</mo>
             <msub>
             <mi>x</mi>
             <mn>2</mn>
             </msub>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             <mo separator="true">,</mo>
             </mrow>
           </mtd>
@@ -1975,27 +2002,28 @@ td.border_left_right {
             <mi>G</mi>
             <mn>2</mn>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <mover>
             <mi>x</mi>
             <mo style="font-size: small;">&rarr;</mo>
             </mover>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             <mo>=</mo>
             <msub>
             <mi>G</mi>
             <mn>2</mn>
             </msub>
-            <mfenced open="(" close=")">
+            <mo maxsize="1">(</mo>
             <msub>
             <mi>x</mi>
             <mn>1</mn>
             </msub>
+            <mo separator="true">,</mo>
             <msub>
             <mi>x</mi>
             <mn>2</mn>
             </msub>
-            </mfenced>
+            <mo maxsize="1">)</mo>
             <mo separator="true">.</mo>
             </mrow>
           </mtd>
@@ -2773,13 +2801,14 @@ td.border_left_right {
         </msub>
         <mo>&sim;</mo>
         <mi>N</mi>
-        <mfenced open="(" close=")">
+        <mo maxsize="1">(</mo>
         <mo>&mu;</mo>
+        <mo separator="true">,</mo>
         <msup>
         <mo>&sigma;</mo>
         <mn>2</mn>
         </msup>
-        </mfenced>
+        <mo maxsize="1">)</mo>
         </math>
         where the mean is set to 10 units of time and the variance is different
         for each curve depicted in the plot. An increase in the variance of
@@ -2952,9 +2981,11 @@ td.border_left_right {
         <mi>A</mi>
         <msup>
         <mi>x</mi>
-        <mfenced open="(" close=")">
+        <mrow>
+        <mo maxsize="1">(</mo>
         <mi>t</mi>
-        </mfenced>
+        <mo maxsize="1">)</mo>
+        </mrow>
         </msup>
         </math>
         that determines satisfactory convergence. Each thread retrieves the data
@@ -2976,9 +3007,11 @@ td.border_left_right {
         <math xmlns="http://www.w3.org/1998/Math/MathML">
         <msup>
         <mi>x</mi>
-        <mfenced open="(" close=")">
+        <mrow>
+        <mo maxsize="1">(</mo>
         <mi>t</mi>
-        </mfenced>
+        <mo maxsize="1">)</mo>
+        </mrow>
         </msup>
         </math>
         safely from shared memory and to update
@@ -3846,10 +3879,11 @@ td.border_left_right {
         </mfenced>
         </mrow>
         </msup>
-        <mfenced open="(" close=")">
+        <mo maxsize="1">(</mo>
         <mi>i</mi>
+        <mo separator="true">,</mo>
         <mi>j</mi>
-        </mfenced>
+        <mo maxsize="1">)</mo>
         </math>
         values and older
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -3861,10 +3895,11 @@ td.border_left_right {
         </mfenced>
         </mrow>
         </msup>
-        <mfenced open="(" close=")">
+        <mo maxsize="1">(</mo>
         <mi>i</mi>
+        <mo separator="true">,</mo>
         <mi>j</mi>
-        </mfenced>
+        <mo maxsize="1">)</mo>
         </math>
         values. For an
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -3941,10 +3976,11 @@ td.border_left_right {
                       <mn>0</mn>
                       </mfenced>
                       </msup>
-                      <mfenced open="(" close=")">
+                      <mo maxsize="1">(</mo>
                       <mi>i</mi>
+                      <mo separator="true">,</mo>
                       <mi>j</mi>
-                      </mfenced>
+                      <mo maxsize="1">)</mo>
                       <mo separator="true">,</mo>
                     </math>
                   <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -3960,10 +3996,11 @@ td.border_left_right {
                     style="font-weight: bold;">Output:</span> Solution vector
                   <math xmlns="http://www.w3.org/1998/Math/MathML">
                       <mi>u</mi>
-                      <mfenced open="(" close=")">
+                      <mo maxsize="1">(</mo>
                       <mi>i</mi>
+                      <mo separator="true">,</mo>
                       <mi>j</mi>
-                      </mfenced>
+                      <mo maxsize="1">)</mo>
                     </math>
                 </p>
                 <p class="ps-line ps-code">
@@ -3971,9 +4008,9 @@ td.border_left_right {
                   rows
                   <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>u</mi>
-                    <mfenced open="(" close=")">
+                    <mo maxsize="1">(</mo>
                     <mi>i</mi>
-                    </mfenced>
+                    <mo maxsize="1">)</mo>
                     <mo>∈</mo>
                     <mi>u</mi>
                   </math>
@@ -4088,10 +4125,11 @@ td.border_left_right {
                               <mi>t</mi>
                               </mfenced>
                               </msup>
-                              <mfenced open="(" close=")">
+                              <mo maxsize="1">(</mo>
                               <mi>i</mi>
+                              <mo separator="true">,</mo>
                               <mi>j</mi>
-                              </mfenced>
+                              <mo maxsize="1">)</mo>
                             </math>
                           for
                           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -4105,10 +4143,11 @@ td.border_left_right {
                               </mrow>
                               </mfenced>
                               </msup>
-                              <mfenced open="(" close=")">
+                              <mo maxsize="1">(</mo>
                               <mi>i</mi>
+                              <mo separator="true">,</mo>
                               <mi>j</mi>
-                              </mfenced>
+                              <mo maxsize="1">)</mo>
                             </math>
                         </p>
                       </div>
@@ -4130,10 +4169,11 @@ td.border_left_right {
                           </mrow>
                           </mfenced>
                           </msup>
-                          <mfenced open="(" close=")">
+                          <mo maxsize="1">(</mo>
                           <mi>i</mi>
+                          <mo separator="true">,</mo>
                           <mi>j</mi>
-                          </mfenced>
+                          <mo maxsize="1">)</mo>
                           <mo>=</mo>
                           <mfrac>
                           <mn>1</mn>
@@ -4149,14 +4189,15 @@ td.border_left_right {
                           <mi>t</mi>
                           </mfenced>
                           </msup>
-                          <mfenced open="(" close=")">
+                          <mo maxsize="1">(</mo>
                           <mrow>
                           <mi>i</mi>
                           <mo>+</mo>
                           <mn>1</mn>
                           </mrow>
+                          <mo separator="true">,</mo>
                           <mi>j</mi>
-                          </mfenced>
+                          <mo maxsize="1">)</mo>
                           </mrow>
                           <mo>+</mo>
                           <mrow>
@@ -4166,14 +4207,15 @@ td.border_left_right {
                           <mi>t</mi>
                           </mfenced>
                           </msup>
-                          <mfenced open="(" close=")">
+                          <mo maxsize="1">(</mo>
                           <mrow>
                           <mi>i</mi>
                           <mo>-</mo>
                           <mn>1</mn>
                           </mrow>
+                          <mo separator="true">,</mo>
                           <mi>j</mi>
-                          </mfenced>
+                          <mo maxsize="1">)</mo>
                           </mrow>
                           <mo>+</mo>
                           <mrow>
@@ -4183,14 +4225,15 @@ td.border_left_right {
                           <mi>t</mi>
                           </mfenced>
                           </msup>
-                          <mfenced open="(" close=")">
+                          <mo maxsize="1">(</mo>
                           <mi>i</mi>
+                          <mo separator="true">,</mo>
                           <mrow>
                           <mi>j</mi>
                           <mo>+</mo>
                           <mn>1</mn>
                           </mrow>
-                          </mfenced>
+                          <mo maxsize="1">)</mo>
                           </mrow>
                           <mo>+</mo>
                           <mrow>
@@ -4200,14 +4243,15 @@ td.border_left_right {
                           <mi>t</mi>
                           </mfenced>
                           </msup>
-                          <mfenced open="(" close=")">
+                          <mo maxsize="1">(</mo>
                           <mi>i</mi>
+                          <mo separator="true">,</mo>
                           <mrow>
                           <mi>j</mi>
                           <mo>-</mo>
                           <mn>1</mn>
                           </mrow>
-                          </mfenced>
+                          <mo maxsize="1">)</mo>
                           </mrow>
                           </mrow>
                           </mfenced>
@@ -4262,10 +4306,11 @@ td.border_left_right {
                             </mfenced>
                             </mrow>
                             </msubsup>
-                            <mfenced open="(" close=")">
+                            <mo maxsize="1">(</mo>
                             <mi>i</mi>
+                            <mo separator="true">,</mo>
                             <mi>j</mi>
-                            </mfenced>
+                            <mo maxsize="1">)</mo>
                           </math>
                           in shared memory with
                           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -4282,10 +4327,11 @@ td.border_left_right {
                             </mfenced>
                             </mrow>
                             </msubsup>
-                            <mfenced open="(" close=")">
+                            <mo maxsize="1">(</mo>
                             <mi>i</mi>
+                            <mo separator="true">,</mo>
                             <mi>j</mi>
-                            </mfenced>
+                            <mo maxsize="1">)</mo>
                           </math>
                         </p>
                       </div>
@@ -5118,11 +5164,12 @@ td.border_left_right {
                     <span class="ps-linenum" style="left: -1.5em;">20:</span><span
                       class="ps-keyword">if </span>
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mtext>mod</mtext>
-                        <mfenced open="(" close=")">
+                        <mtext mathvariant="">mod</mtext>
+                        <mo maxsize="1">(</mo>
                         <mi>t</mi>
+                        <mo separator="true">,</mo>
                         <mi>ω</mi>
-                        </mfenced>
+                        <mo maxsize="1">)</mo>
                         <mo>==</mo>
                         <mn>0</mn>
                       </math>
