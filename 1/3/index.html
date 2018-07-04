@@ -7,12 +7,19 @@
   Disaster Prevention Planning</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--Google Scholar-->
+<meta name="citation_publisher"
+  content="Consortium for True Open Access in Modeling and Simulation" />
 <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
+<meta name="citation_journal_abbrev" content="JSimE" />
 <meta name="citation_issn" content="2569-9466" />
 <meta name="citation_volume" content="1" />
+<meta name="citation_firstpage" content="3:1" />
+<meta name="citation_lastpage" content="3:10" />
 <meta name="citation_title"
   content="Assessments of Introducing New Technologies in Disaster Prevention Planning" />
-<meta name="citation_publication_date" content="2018-05-11" />
+<meta name="citation_article_type" content="Article" />
+<meta name="citation_online_date" content="2018/5/11" />
+<meta name="citation_publication_date" content="2018/6/28" />
 <meta name="citation_author" content="Tomoichi Takahashi" />
 <meta name="citation_author_email" content="ttaka@meijo-u.ac.jp" />
 <meta name="citation_author_institution"
@@ -21,6 +28,8 @@
   content="https://jsime.org/index.php/jsimeng/article/view/3" />
 <meta name="citation_pdf_url"
   content="https://articles.jsime.org/1/jsime-article-1-3.pdf" />
+<meta name="citation_fulltext_html_url"
+  content="https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention" />
 <!--Canonical URL-->
 <link rel="canonical"
   href="https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention" />
@@ -39,7 +48,7 @@
 </script>
 <!--Stylesheets-->
 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
 <link rel="stylesheet" href="../../jsime.css" />
 <!--Scripts-->
 <script
@@ -330,9 +339,8 @@
                        <mi>s</mi>
                        <mi>i</mi>
                      </msup>
-                     <mo separator="true">.</mo>
                   </math>
-        Modeling of phenomena involves extracting parameters
+        . Modeling of phenomena involves extracting parameters
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mfenced open="(" close=")">
                      <msub>
@@ -387,7 +395,7 @@
       </p>
       <figure class="column-top" id="_Ref511746582">
         <img src="./img/image1.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 1.</strong> Modeling process of physical phenomena
           (white and black arrows show modeling process and calculation,
           respectively).
@@ -458,7 +466,7 @@
       </p>
       <figure class="column-top" id="_Ref511747742">
         <img src="./img/image2.png" />
-        <figcaption>
+        <figcaption class="multi-line-pdf">
           <strong>Figure 2.</strong> Modeling process and flowchart of emergency
           simulation system (white and black arrows show modeling process and
           calculation, respectively).
@@ -480,9 +488,8 @@
           <mi>F</mi>
           <mi>n</mi>
           </msup>
-          <mo separator="true">,</mo>
         </math>
-        respectively. Pedestrian dynamics calculate the movements of humans in
+        , respectively. Pedestrian dynamics calculate the movements of humans in
         these areas. Each
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <mi>F</mi>
@@ -503,29 +510,23 @@
         entanglement is based on the following hypotheses.
       </p>
       <p>
-        H1:(whole-part relation) A social system,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                     <mo separator="true">,</mo>
-                  </math>
-        may be composed of subsystems,
+        H1:(whole-part relation) A social system, Σ, may be composed of
+        subsystems,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
                        <mi>S</mi>
                        <mi>i</mi>
                      </msup>
-                     <mo separator="true">.</mo>
                   </math>
-        Everyone has some knowledge on phenomena; social systems simulate this,
-        and the knowledge is implemented in
+        . Everyone has some knowledge on phenomena; social systems simulate
+        this, and the knowledge is implemented in
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msup>
                        <mi>S</mi>
                        <mi>i</mi>
                      </msup>
-                     <mo separator="true">.</mo>
                   </math>
-        The model has a finite set of parameters,
+        . The model has a finite set of parameters,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <mo mathvariant="normal">Π</mo>
                      <mo>=</mo>
@@ -544,17 +545,15 @@
                        <mi>n</mi>
                      </msub>
                      </mfenced>
-                     <mo separator="true">.</mo>
                   </math>
-        The parameters,
+        . The parameters,
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
                        <mi>p</mi>
                        <mi>i</mi>
                      </msub>
-                     <mo separator="true">,</mo>
                   </math>
-        represent features of agents, environments, and the interactions among
+        , represent features of agents, environments, and the interactions among
         them or others.
       </p>
       <p>
@@ -583,8 +582,8 @@
                        <mi>t</mi>
                      </msub>
                      <mo maxsize="1">)</mo>
-                     <mo separator="true">.</mo>
                   </math>
+        .
       </p>
       <p>
         H3:(validness of system) When subsystems,
@@ -593,15 +592,9 @@
                        <mi>S</mi>
                        <mi>i</mi>
                      </msup>
-                     <mo separator="true">,</mo>
                   </math>
-        are well defined, then the system,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                     <mo separator="true">,</mo>
-                  </math>
-        may be well designed and expanding or refining parameters and functions
-        can cover more phenomena.
+        , are well defined, then the system, Σ may be well designed and
+        expanding or refining parameters and functions can cover more phenomena.
       </p>
       <p>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -611,18 +604,10 @@
                      </msub>
                   </math>
         which represents emergency situations that arise from various factors
-        and human behaviors are involved in computing<em> </em>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                     <mo separator="true">.</mo>
-                  </math>
-        The result of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                  </math>
-        are also compared with the precedent cases to verify the simulation
-        results. The mitigation planning during future emergencies is formalized
-        as finding conditions
+        and human behaviors are involved in computing Σ. The result of Σ are
+        also compared with the precedent cases to verify the simulation results.
+        The mitigation planning during future emergencies is formalized as
+        finding conditions
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
                        <mi>c</mi>
@@ -643,9 +628,8 @@
                        <mi>i</mi>
                      </msub>
                      <mo maxsize="1">)</mo>
-                     <mo separator="true">.</mo>
                   </math>
-        The
+        . The
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                      <msub>
                        <mi>c</mi>
@@ -681,7 +665,7 @@
       </p>
       <figure class="column-top" id="_Ref511749734">
         <img src="./img/image3.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 3.</strong> Evacuation guidance media and promotional
           signage (PS) at a terminal. (Left: exit sign (ES). Middle: evacuation
           plan. Right: evacuation map on the wall.).
@@ -718,7 +702,7 @@
       </p>
       <figure class="column-top" id="_Ref513457664">
         <img src="./img/image4.png" />
-        <figcaption>
+        <figcaption class="multi-line-pdf">
           <strong>Figure 4.</strong> New usage of PS as ES and first responder
           during emergencies.
         </figcaption>
@@ -747,13 +731,13 @@
         and digital PS that they spotted. In test A, participants were
         subsequently asked to retrace their path and count the number
         attentively; this corresponds to real emergency situations when we look
-        for ES during evacuation. A shopping event was held while preforming
+        for ES during evacuation. A shopping event was held while performing
         test B, therefore, seven more PS were displayed than there was in test
         A.
       </p>
       <figure class="column-top" id="_Ref513457790">
         <img src="./img/image5.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 5.</strong> Underground shopping mall of 300m length in
           Nagoya. Black line is a route assigned in the survey. Triangles show
           the directions in which photos were taken.
@@ -794,12 +778,12 @@
             <th>Attentive (back)</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: right;">
           <tr>
-            <td rowspan="2">
+            <td rowspan="2" style="text-align: center;">
               <p>A</p>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p>ES</p>
             </td>
             <td>
@@ -813,7 +797,7 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: center;">
               <p>PS</p>
             </td>
             <td>
@@ -827,10 +811,10 @@
             </td>
           </tr>
           <tr>
-            <td rowspan="2">
+            <td rowspan="2" style="text-align: center;">
               <p>B</p>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p>ES</p>
             </td>
             <td>
@@ -844,7 +828,7 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: center;">
               <p>PS</p>
             </td>
             <td>
@@ -858,7 +842,7 @@
             </td>
           </tr>
         </tbody>
-        <caption>
+        <caption class="multi-line-html multi-line-pdf">
           <strong>Table 1.</strong> Survey on emergency-sign awareness (* Seven
           PS were added for an unexpected event).
         </caption>
@@ -911,71 +895,42 @@
       <ul>
         <li>
           <p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>p</mi>
-                        </math>
-            is the rate of agents who follow the guidance. We observed that some
-            agents evacuated immediately, while others did not even though they
-            heard the announcements of evacuation (<a role="doc-biblioref"
-              href="#Cab11">Cabinet Office Government of Japan, 2011</a>).
+            <em>p</em> is the rate of agents who follow the guidance. We
+            observed that some agents evacuated immediately, while others did
+            not even though they heard the announcements of evacuation (<a
+              role="doc-biblioref" href="#Cab11">Cabinet Office Government
+              of Japan, 2011</a>).
           </p>
         </li>
         <li>
           <p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>n</mi>
-                        </math>
-            is the number of people who are at the mall. Crowd density for
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>n</mi>
-                          <mo>=</mo>
-                          <mn>7000</mn>
-                        </math>
-            corresponds roughly to one person per 1m<sup>2</sup>.
+            <em>n</em> is the number of people who are at the mall. Crowd
+            density for <em>n</em> = 7000 corresponds roughly to one person per
+            1m<sup>2</sup>.
           </p>
         </li>
         <li>
           <p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>s</mi>
-                        </math>
-            is the number of PS that is used as ES in emergencies. PS was
-            selected in order of the amount recognized in the surveys.
+            <em>s</em> is the number of PS that is used as ES in emergencies. PS
+            was selected in order of the amount recognized in the surveys.
           </p>
         </li>
       </ul>
       <p>
-        The parameter,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>p</mi>
-                          <mo separator="true">,</mo>
-                        </math>
-        is implemented in the agent behavior model shown in <a
-          href="#_Ref511747742">Figure 2</a>. When agents see new messages, they
-        change their goal according to the messages with probability
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>p</mi>
-                        </math>
-        <span class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1"
-            role="doc-noteref"
+        The parameter, <em>p</em>, is implemented in the agent behavior model
+        shown in <a href="#_Ref511747742">Figure 2</a>. When agents see new
+        messages, they change their goal according to the messages with
+        probability <em>p</em><span class="fn"><sup><a href="#ftn1"
+            id="fn_pointer_ftn1" role="doc-noteref"
             title="Footnote 1: We calculate a uniform random number for each agent. When the random number is smaller than p, the agents change the goal to the new one. This process and the way in which each agent is implemented as a thread cause stochastic factors in simulations.">1</a></sup></span>.
-        The number of people and PS,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>n</mi>
-                        </math>
-        and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>s</mi>
-                          <mo separator="true">,</mo>
-                        </math>
-        are parameters of
+        The number of people and PS, <em>n</em> and <em>s</em> are parameters of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <msub>
                             <mi>E</mi>
                             <mi>n</mi>
                           </msub>
-                          <mo separator="true">.</mo>
                         </math>
+        .
       </p>
 
       <section id="Sect3.3.1">
@@ -984,73 +939,17 @@
         </h1>
         <p>
           <a href="#_Ref513458319">Figure 6</a> presents the results of
-          simulations. The simulations were performed three times for
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>p</mi>
-                        <mo>=</mo>
-                        <mfenced open="{" close="}">
-                           <mrow>
-                              <mn>30</mn>
-                              <mi>%</mi>
-                            </mrow>
-                            <mrow>
-                              <mn>50</mn>
-                              <mi>%</mi>
-                            </mrow>
-                            <mrow>
-                              <mn>70</mn>
-                              <mi>%</mi>
-                            </mrow>
-                            <mrow>
-                              <mn>100</mn>
-                              <mi>%</mi>
-                           </mrow>
-                        </mfenced>
-                        <mo separator="true">,</mo>
-                      </math>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>n</mi>
-                        <mo>=</mo>
-                        <mfenced open="{" close="}">
-                          <mn>1000</mn>
-                          <mn>4000</mn>
-                          <mn>7000</mn>
-                          <mn>10000</mn>
-                        </mfenced>
-                        <mo separator="true">,</mo>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>s</mi>
-                        <mo>=</mo>
-                        <mfenced open="{" close="}">
-                          <mn>4</mn>
-                          <mn>6</mn>
-                          <mn>8</mn>
-                        </mfenced>
-                        <mo separator="true">.</mo>
-                     </math>
+          simulations. The simulations were performed three times for <em>p</em>
+          = {30%, 50%, 70%, 100%}, <em>n</em> = {1000,4000, 7000, 10000}, and <em>s</em>
+          = {4, 6, 8}.
         </p>
         <figure class="top" id="_Ref513458319">
           <img src="./img/image6.png" />
-          <figcaption>
-            <strong>Figure 6.</strong> Evacuation rates for different
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>n</mi>
-                    <mo separator="true">,</mo>
-                   </math>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>p</mi>
-                   </math>
-            and number of signs (the numbers in the legends are p-s, e.g., 30-4
-            corresponds to the simulation of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                       <mo>=</mo>
-                       <mn>30</mn>
-                       <mo>%</mo>
-                     </math>
-            with four PS locations.).
+          <figcaption class="multi-line-html multi-line-pdf">
+            <strong>Figure 6.</strong> Evacuation rates for different <em>n</em>,
+            <em>p</em> and number of signs (the numbers in the legends are p-s,
+            e.g., 30-4 corresponds to the simulation of <em>p</em> = 30% with
+            four PS locations.).
           </figcaption>
         </figure>
         <p>
@@ -1060,185 +959,29 @@
           The vertical axis of each graph is the average of evacuation rates of
           three simulations and the horizontal axis is simulation time. For
           example, about 30% of the agents evacuate at 30 time-step in a case of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                     </math>
-          of the top left chart in <a href="#_Ref513458319">Figure 6</a>. The
-          survey results shown in <a href="#_Ref511750109">Table 1</a> indicated
-          30% of ES were recognized, the cases of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>p</mi>
-                        <mo>=</mo>
-                        <mn>30</mn>
-                        <mi>%</mi>
-                        <mo separator="true">,</mo>
-                     </math>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>n</mi>
-                        <mo>=</mo>
-                        <mn>1000</mn>
-                     </math>
+          (<em>p</em>, <em>n</em>, <em>s</em>) = (30%, 1000, 4) of the top left
+          chart in <a href="#_Ref513458319">Figure 6</a>. The survey results
+          shown in <a href="#_Ref511750109">Table 1</a> indicated 30% of ES were
+          recognized, the cases of <em>p</em> = 30%, <em>n</em> = 1000
           correspond to congestions of a midweek afternoon. Hence, the case with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                     </math>
-          was selected as a standard case.
+          (<em>p</em>, <em>n</em>, <em>s</em>) = (30%, 1000, 4) was selected as
+          a standard case.
         </p>
         <p>
-          The evacuation rate of the case with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                        <mo separator="true">,</mo>
-                     </math>
-          is
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30.3</mn>
-                       <mo>±</mo>
-                       <mn>2</mn>
-                       <mo>%</mo>
-                     </math>
-          at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30</mn>
-                     </math>
-          time-step, and the
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>95</mn>
-                       <mo>%</mo>
-                       </math>
-          confidence interval of the t-test becomes from
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>28</mn>
-                       <mo>%</mo>
-                     </math>
-          to
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>33</mn>
-                       <mo>%</mo>
-                       <mo separator="true">.</mo>
-                     </math>
-          The evacuation rates at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30</mn>
-                     </math>
-          time-steps for the other 15 cases with different
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>s</mi>
-                     </math>
-          are outside of the confidence intervals, so they are statistically
-          significant different among each other. <a href="#_Ref513458319">Figure
-            6</a> indicates that in simulations with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>1000</mn>
-                       <mo separator="true">,</mo>
-                     </math>
-          the evacuation rate increases with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                     </math>
-          and the number of signs
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>s</mi>
-                     </math>
-          increases. For example, approximately
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>90</mn>
-                       <mo>%</mo>
-                     </math>
-          of the agents evacuate at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30</mn>
-                     </math>
-          time-steps in a case of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                     </math>
-          of the top right chart. However, as the number of people becomes
-          larger, this trend changes; when
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                       <mo mathvariant="normal"> and </mo>
-                       <mn>10000</mn>
-                       <mo separator="true">,</mo>
-                     </math>
-          the evacuation rates at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                       <mo>=</mo>
-                       <mn>70</mn>
-                       <mo>%</mo>
-                       <mo mathvariant="normal"> and </mo>
-                       <mn>50</mn>
-                       <mo>%</mo>
-                     </math>
-          become better than at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                       <mo>=</mo>
-                       <mn>100</mn>
-                       <mo>%</mo>
-                       <mo separator="true">.</mo>
-                     </math>
+          The evacuation rate of the case with (<em>p</em>, <em>n</em>, <em>s</em>)
+          = (30%, 1000, 4) is 30.3 ± 2% at 30 time-step, and the 95% confidence
+          interval of the t-test becomes from 28% to 33%. The evacuation rates
+          at 30 time-steps for the other 15 cases with different <em>n</em> and
+          <em>s</em> are outside of the confidence intervals, so they are
+          statistically significant different among each other. <a
+            href="#_Ref513458319">Figure 6</a> indicates that in simulations
+          with <em>n</em> = 1000, the evacuation rate increases with <em>p</em>
+          and the number of signs <em>s</em> increases. For example,
+          approximately 90% of the agents evacuate at 30 time-steps in a case of
+          (<em>p</em>, <em>n</em>, <em>s</em>) = (30%, 1000, 4) of the top right
+          chart. However, as the number of people becomes larger, this trend
+          changes; when <em>n</em> = 7000 and 10000, the evacuation rates at <em>p</em>
+          = 70% and 50% become better than at <em>p</em> = 100%.
         </p>
       </section>
 
@@ -1247,22 +990,14 @@
         <p>
           By analyzing the differences in the changes of evacuation rates of
           Experiment 1, we found that congestion at some areas causes the change
-          in the trend for
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                       <mo mathvariant="normal"> and </mo>
-                       <mn>10000</mn>
-                       <mo separator="true">.</mo>
-                     </math>
-          Nowadays, security video cameras are commonplace in cities worldwide.
-          At places where crowds of hundreds or thousands gather, such
-          monitoring is important for safety and security purposes and human
-          operators are generally employed for the task at large events (<a
-            role="doc-biblioref" href="#Moo11">Moore, Ali, Mehran, &amp;
-            Shah, 2011</a>). As a result, camera monitoring system could be used as
-          a component of CCEG management system using PS.
+          in the trend for <em>n</em> = 7000 and 10000. Nowadays, security video
+          cameras are commonplace in cities worldwide. At places where crowds of
+          hundreds or thousands gather, such monitoring is important for safety
+          and security purposes and human operators are generally employed for
+          the task at large events (<a role="doc-biblioref" href="#Moo11">Moore,
+            Ali, Mehran, &amp; Shah, 2011</a>). As a result, camera monitoring
+          system could be used as a component of CCEG management system using
+          PS.
         </p>
         <figure class="column-top" id="_Ref513459437">
           <figure id="_Ref513459437a">
@@ -1277,7 +1012,7 @@
               <strong>(b)</strong> two types of Usage.
             </figcaption>
           </figure>
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 7.</strong> Crowd control management system using PS.
           </figcaption>
         </figure>
@@ -1322,68 +1057,29 @@
           congestion considered improves the refuge rate. The left figures are
           graphs from <a href="#_Ref513458319">Figure 6</a>. The right figures
           show graphs of experiment 2 results for the corresponding scenarios
-          and indicate better evacuation rates. The trends of rescue rates for
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mi>n</mi>
-                      <mo>=</mo>
-                      <mn>4000</mn>
-                      <mo mathvariant="normal"> and </mo>
-                      <mn>7000</mn>
-                    </math>
-          seem similar to the cases where
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mi>n</mi>
-                    </math>
-          is small.
+          and indicate better evacuation rates. The trends of rescue rates for <em>n</em>
+          = 4000 and 7000 seem similar to the cases where <em>n</em> is small.
         </p>
         <figure class="top" id="_Ref513459770">
           <figure id="_Ref513459770a">
             <img src="./img/image9.png" />
             <figcaption>
-              <strong>(a)</strong> graphs for
-              <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>4000</mn>
-                     </math>
-              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
-              considering congestion.
+              <strong>(a)</strong> graphs for <em>n</em> = 4000 from <a
+                href="#_Ref513458319">Figure 6</a> and refuge rate considering
+              congestion.
             </figcaption>
           </figure>
           <figure id="_Ref513459770b">
             <img src="./img/image10.png" />
             <figcaption>
-              <strong>(b)</strong> graphs from
-              <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                     </math>
-              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
-              considering congestion.
+              <strong>(b)</strong> graphs from <em>n</em> = 7000 from <a
+                href="#_Ref513458319">Figure 6</a> and refuge rate considering
+              congestion.
             </figcaption>
           </figure>
           <figcaption>
-            <strong>Figure 8.</strong> Improvement of refuge rate
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mfenced open="(" close=" ">
-                      <mrow>
-                      <mi>n</mi>
-                      <mo>=</mo>
-                      <mn>4000</mn>
-                      </mrow>
-                      <mn>7000</mn>
-                      </mfenced>
-                      <mo mathvariant="normal"> and </mo>
-                      <mfenced open=" " close=")">
-                      <mrow>
-                      <mi>s</mi>
-                      <mo>=</mo>
-                      <mn>8</mn>
-                      </mrow>
-                      </mfenced>
-                      <mo separator="true">.</mo>
-                    </math>
+            <strong>Figure 8.</strong> Improvement of refuge rate (<em>n</em> =
+            4000, 7000 and <em>s</em> = 8).
           </figcaption>
         </figure>
       </section>
@@ -1550,7 +1246,7 @@
       </p>
       <figure class="column-top" id="_Ref513459952">
         <img src="./img/image11.png" />
-        <figcaption>
+        <figcaption class="multi-line-pdf">
           <strong>Figure 9.</strong> Errors introduced in modeling and
           computation phases.
         </figcaption>
@@ -1653,45 +1349,20 @@
       <ul>
         <li>
           <p>
-            The number of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>s</mi>
-                       </math>
-            is related to evacuation guidance information. In every case, more
-            information on exits increases evacuations rates. Simulations for
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>n</mi>
-                         <mo>=</mo>
-                         <mn>1000</mn>
-                         <mo mathvariant="normal"> and </mo>
-                         <mn>4000</mn>
-                       </math>
-            show the evacuation rates increase as
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>p</mi>
-                       </math>
-            increases; the increased rates are consistent with our knowledge on
-            crowd behaviors.
+            The number of <em>s</em> is related to evacuation guidance
+            information. In every case, more information on exits increases
+            evacuations rates. Simulations for <em>n</em> = 1000 and 4000 show
+            the evacuation rates increase as <em>p</em> increases; the increased
+            rates are consistent with our knowledge on crowd behaviors.
           </p>
         </li>
         <li>
           <p>
-            In some cases of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>n</mi>
-                         <mo>=</mo>
-                         <mn>7000</mn>
-                         <mo mathvariant="normal"> and </mo>
-                         <mn>10000</mn>
-                         <mo separator="true">,</mo>
-                       </math>
-            the evacuation rates do not necessarily increase as
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>p</mi>
-                       </math>
-            increases. The decrease is caused by the congestion in some areas,
-            and it is shown the information adaptively guided to the crowd
-            status lead people to evacuate smoothly.
+            In some cases of <em>n</em> = 7000 and 10000, the evacuation rates
+            do not necessarily increase as <em>p</em> increases. The decrease is
+            caused by the congestion in some areas, and it is shown the
+            information adaptively guided to the crowd status lead people to
+            evacuate smoothly.
           </p>
         </li>
         <li>
@@ -1931,6 +1602,17 @@
           src="../../icons/pdf.png" /></a>
       </li>
     </ul>
+  </section>
+  <section id="copyright-info" class="no-counter">
+    <h1>Copyright Information</h1>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+        alt="Creative Commons License"
+        src="http://i.creativecommons.org/l/by/4.0/88x31.png"></a> Copyright ©
+      2018 Tomoichi Takahashi. This article is licensed under a <a
+        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+        Attribution 4.0 International License</a>.
+    </p>
   </section>
   </main>
 </body>

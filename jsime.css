@@ -135,7 +135,7 @@ textarea {
     display: none;
   }
   main {
-    columns: 2; 
+    columns: 2;
     column-gap: 0.25in;
   }
   #front-matter,
@@ -199,10 +199,6 @@ textarea {
   code[class*="language-"], pre[class*="language-"] {
     font-size: smaller;
     line-height: 1.2;
-  /* NOT NEEDED?
-    word-wrap: normal;
-    white-space: pre-wrap;
-  */
   }
   
   ::footnote-call {
@@ -232,7 +228,7 @@ textarea {
   .bottom { float: bottom;  margin-top: 2em }
   .top figcaption,
   .bottom figcaption {
-    text-align: left;
+    text-align: center;
     margin-left: 2em;
     margin-right: 2em
   }

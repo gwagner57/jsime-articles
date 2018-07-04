@@ -13,11 +13,11 @@
 <meta name="citation_journal_abbrev" content="JSimE" />
 <meta name="citation_issn" content="2569-9466" />
 <meta name="citation_volume" content="1" />
-<meta name="citation_firstpage" content="1:1"/>
-<meta name="citation_lastpage" content="1:25"/>
+<meta name="citation_firstpage" content="1:1" />
+<meta name="citation_lastpage" content="1:25" />
 <meta name="citation_title"
   content="Information and Process Modeling for Simulation – Part I" />
-<meta name="citation_article_type" content="Article" />
+<meta name="citation_article_type" content="Tutorial" />
 <meta name="citation_online_date" content="2017/10/5" />
 <meta name="citation_publication_date" content="2018/6/28" />
 <meta name="citation_author" content="Gerd Wagner" />
@@ -28,12 +28,12 @@
   content="https://jsime.org/index.php/jsimeng/article/view/2" />
 <meta name="citation_pdf_url"
   content="https://articles.jsime.org/1/jsime-article-1-1.pdf" />
-  <meta name="citation_fulltext_html_url" content="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
+<meta name="citation_fulltext_html_url"
+  content="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
 <!--Canonical URL-->
 <link rel="canonical"
   href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--
 <script async="async"
   src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
 <script>
@@ -46,7 +46,6 @@
     'anonymize_ip': true
   } );
 </script>
--->
 <!--Stylesheets-->
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
@@ -78,10 +77,10 @@
       "copyrightHolder": [
         { "@id": "/1/1/author-1" }
       ],
-      "copyrightYear": "2017",
+      "copyrightYear": "2018",
       "dateCreated": "2017-10-05",
       "dateModified": "2018-06-30",
-      "datePublished": "2017-10-05",
+      "datePublished": "2018-06-28",
       "isPartOf": {
         "@type": "PublicationVolume",
         "datePublished": "2018-06-28",
@@ -790,7 +789,7 @@
     </p>
     <figure id="_Ref493014282">
       <img src="./img/IntroUML3.svg" width="500" />
-      <figcaption>
+      <figcaption class="multi-line-pdf">
         <strong>Figure 5.</strong> Adding a property constraint and an operation
         constraint.
       </figcaption>
@@ -805,7 +804,7 @@
     </p>
     <figure id="_Ref493015782">
       <img src="./img/IntroUML4.svg" width="500" />
-      <figcaption>
+      <figcaption class="multi-line-pdf">
         <strong>Figure 6.</strong> Object and event types as two different
         categories of entity types.
       </figcaption>
@@ -1849,7 +1848,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
         </figure>
         <figure id="_Ref494386620" class="column-bottom-corner">
           <img src="./img/Delivery_RDM.svg" />
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 16.</strong> A rule design model for the event type <i>Delivery</i>.
           </figcaption>
         </figure>
@@ -2112,7 +2111,7 @@ var DailyDemand = new cLASS({
         </p>
         <figure id="_Ref494399720">
           <img src="./img/ServiceDesk-1_IDM.svg" width="400" />
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 20.</strong> An information design model for
             answering research question 1.
           </figcaption>
@@ -2393,7 +2392,7 @@ ServiceDesk.serviceDuration = function () {
         </p>
         <figure id="_Ref494405660">
           <img src="./img/Service_CPM.svg" />
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 24.</strong> A conceptual process model integrating
             the event rule diagrams of <a href="#_Ref494404037">Table 4</a>.
           </figcaption>
@@ -2407,7 +2406,7 @@ ServiceDesk.serviceDuration = function () {
         </p>
         <figure id="_Ref499542494" class="column-top">
           <img src="./img/Service-with-Activity_CPM.svg" />
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 25.</strong> The model of <a href="#_Ref494405660">Figure
               24</a> with an activity replacing the start/end event pair.
           </figcaption>
@@ -2471,14 +2470,14 @@ sd.waitingCustomers.<b>pop</b>()
         </p>
         <figure id="_Ref499542497">
           <img src="./img/Service-Arrival_RDM.svg" />
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 26.</strong> A DPMN design model for the customer
             arrival event rule.
           </figcaption>
         </figure>
         <figure id="_Ref499542498">
           <img src="./img/Service-Departure_RDM.svg" />
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 27.</strong> A DPMN design model for the customer
             departure event rule.
           </figcaption>
@@ -2783,8 +2782,16 @@ var CustomerDeparture = new cLASS({
       </li>
     </ul>
   </section>
-  <section id="copyright-info" class="no-counter"><h1>Copyright Information</h1>
-   <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/4.0/88x31.png"></a> Copyright © 2018 Gerd Wagner. This article is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+  <section id="copyright-info" class="no-counter">
+    <h1>Copyright Information</h1>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+        alt="Creative Commons License"
+        src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Copyright ©
+      2018 Gerd Wagner. This article is licensed under a <a
+        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+        Attribution 4.0 International License</a>.
+    </p>
   </section>
   </main>
 </body>
