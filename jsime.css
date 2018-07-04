@@ -357,6 +357,13 @@ section[role="doc-bibliography"] li {
   margin-bottom: 3px;
 }
 
+#copyright-info {
+  font-size: smaller;
+}
+#copyright-info > h1 {
+  font-size: 1.2em;
+}
+
 table {
   border-collapse: collapse;
   margin: 1em auto;
@@ -411,11 +418,15 @@ blockquote.float-right {
   margin-left: 2em;
 }
 
-aside#feedback {
+#PDF {
   display: none;
 }
+#feedback {
+  display: none;
+}
+
 @media only screen and (min-width: 1200px) {
-  body > aside#feedback {
+  #feedback {
     display: block;
     position: fixed;
     top: 17%; right: 3%;
@@ -464,6 +475,10 @@ aside#feedback {
   }
   body.feedbackMode > aside#feedback > button {
     display: none;
+  }
+
+  #PDF {
+    display: inline;
   }
 }
 .hidden {
