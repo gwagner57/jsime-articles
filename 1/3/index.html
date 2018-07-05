@@ -7,12 +7,19 @@
   Disaster Prevention Planning</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--Google Scholar-->
+<meta name="citation_publisher"
+  content="Consortium for True Open Access in Modeling and Simulation" />
 <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
+<meta name="citation_journal_abbrev" content="JSimE" />
 <meta name="citation_issn" content="2569-9466" />
 <meta name="citation_volume" content="1" />
+<meta name="citation_firstpage" content="3:1" />
+<meta name="citation_lastpage" content="3:10" />
 <meta name="citation_title"
   content="Assessments of Introducing New Technologies in Disaster Prevention Planning" />
-<meta name="citation_publication_date" content="2018-05-11" />
+<meta name="citation_article_type" content="Article" />
+<meta name="citation_online_date" content="2018/5/11" />
+<meta name="citation_publication_date" content="2018/6/28" />
 <meta name="citation_author" content="Tomoichi Takahashi" />
 <meta name="citation_author_email" content="ttaka@meijo-u.ac.jp" />
 <meta name="citation_author_institution"
@@ -21,6 +28,8 @@
   content="https://jsime.org/index.php/jsimeng/article/view/3" />
 <meta name="citation_pdf_url"
   content="https://articles.jsime.org/1/jsime-article-1-3.pdf" />
+<meta name="citation_fulltext_html_url"
+  content="https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention" />
 <!--Canonical URL-->
 <link rel="canonical"
   href="https://articles.jsime.org/1/3/Assessment-Technologies-for-Disaster-Prevention" />
@@ -170,6 +179,7 @@
   <div id="front-matter">
     <div id="release-status">In feedback phase. Some contents may still
       change.</div>
+    <div id="article-number">3</div>
     <h1 id="article-title">Assessments of Introducing New Technologies in
       Disaster Prevention Planning</h1>
     <address typeof="Person">
@@ -297,83 +307,17 @@
         in terms of text or data in documents. The third class is a combination
         of the first and the second. <a href="#_Ref511746582">Figure 1</a> shows
         a process of modeling phenomena that belong in the first class. The
-        phenomena are observed and represented as
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>D</mi>
-                       <msup>
-                         <mi>s</mi>
-                         <mi>i</mi>
-                       </msup>
-                     </msub>
-                     <mo>=</mo>
-                     <mfenced open="(" close=")">
-                     <msup>
-                       <mi>s</mi>
-                       <mi>i</mi>
-                     </msup>
-                     <msup>
-                       <mi>d</mi>
-                       <mi>i</mi>
-                     </msup>
-                     </mfenced>
-                  </math>
-        where
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>d</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        is the data of the <em>ith</em> observation at situation
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                       <mi>s</mi>
-                       <mi>i</mi>
-                     </msup>
-                     <mo separator="true">.</mo>
-                  </math>
-        Modeling of phenomena involves extracting parameters
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mfenced open="(" close=")">
-                     <msub>
-                       <mi>c</mi>
-                       <mi>i</mi>
-                     </msub>
-                     </mfenced>
-                  </math>
-        and the relationships among them,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>F</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        calculates the phenomena from
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>D</mi>
-                       <msup>
-                         <mi>s</mi>
-                         <mi>i</mi>
-                       </msup>
-                     </msub>
-                  </math>
+        phenomena are observed and represented as <span class="math-span">𝐷
+          <sub>𝑠<sup>𝑖</sup></sub> = (𝑠<sup>𝑖</sup>, 𝑑<sup>𝑖</sup>)
+        </span> where <span class="math-span">𝑑<sub>𝑖</sub></span> is the data of the
+        <span class="math-span">𝑖<sup>th</sup></span> observation at situation
+        <span class="math-span">𝑠<sup>𝑖</sup></span>. Modeling of phenomena
+        involves extracting parameters <span class="math-span">𝑐<sub>𝑖</sub></span>
+        and the relationships among them, <span class="math-span">𝐹<sub>𝑖</sub></span>
+        calculates the phenomena from <span class="math-span">𝐷<sub>𝑠<sup>𝑖</sup></sub></span>
         and the validity is checked. To check validity, we determine whether the
-        derived outputs from
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>F</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        correspond to observed data,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                       <mi>d</mi>
-                       <mi>i</mi>
-                     </msup>
-                  </math>
+        derived outputs from <span class="math-span">𝐹<sub>𝑖</sub></span>
+        correspond to observed data, <span class="math-span">𝑑<sup>𝑖</sup></span>
         (<a role="doc-biblioref" href="#MFa">Faraday, 1848</a>).
       </p>
       <p>
@@ -388,7 +332,7 @@
       </p>
       <figure class="column-top" id="_Ref511746582">
         <img src="./img/image1.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 1.</strong> Modeling process of physical phenomena
           (white and black arrows show modeling process and calculation,
           respectively).
@@ -459,7 +403,7 @@
       </p>
       <figure class="column-top" id="_Ref511747742">
         <img src="./img/image2.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 2.</strong> Modeling process and flowchart of emergency
           simulation system (white and black arrows show modeling process and
           calculation, respectively).
@@ -468,199 +412,56 @@
       <p>
         In the event of an earthquake and consequent fire, the spread of fires
         and the collapse of buildings, roads and other infrastructures are
-        simulated by
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <msup>
-          <mi>F</mi>
-          <mn>1</mn>
-          </msup>
-        </math>
-        and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <msup>
-          <mi>F</mi>
-          <mi>n</mi>
-          </msup>
-          <mo separator="true">,</mo>
-        </math>
-        respectively. Pedestrian dynamics calculate the movements of humans in
-        these areas. Each
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>F</mi>
-        </math>
-        is a model of a disaster case that is derived according to the process
-        of <a href="#_Ref511746582">Figure 1</a>. The superscript corresponds to
-        the disaster and the subscript represents the situation. For example,
-        even if the fires occur in the same area, the damages from the disasters
-        are different depending on when they occur or how many people are
-        present. The damages from
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>F</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        are integrated to simulate composite disaster situations. The
-        entanglement is based on the following hypotheses.
+        simulated by <span class="math-span">𝐹<sup>1</sup></span> and <span
+          class="math-span">𝐹<sup>𝑛</sup></span>, respectively. Pedestrian
+        dynamics calculate the movements of humans in these areas. Each <span
+          class="math-span">𝐹</span> is a model of a disaster case that is
+        derived according to the process of <a href="#_Ref511746582">Figure
+          1</a>. The superscript corresponds to the disaster and the subscript
+        represents the situation. For example, even if the fires occur in the
+        same area, the damages from the disasters are different depending on
+        when they occur or how many people are present. The damages from <span
+          class="math-span">𝐹<sup>𝑖</sup></span> are integrated to simulate
+        composite disaster situations. The entanglement is based on the
+        following hypotheses.
       </p>
       <p>
-        H1:(whole-part relation) A social system,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                     <mo separator="true">,</mo>
-                  </math>
-        may be composed of subsystems,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                       <mi>S</mi>
-                       <mi>i</mi>
-                     </msup>
-                     <mo separator="true">.</mo>
-                  </math>
+        H1:(whole-part relation) A social system, <span class="math-span">𝛴</span>,
+        may be composed of subsystems, <span class="math-span">𝑆<sup>𝑖</sup></span>.
         Everyone has some knowledge on phenomena; social systems simulate this,
-        and the knowledge is implemented in
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                       <mi>S</mi>
-                       <mi>i</mi>
-                     </msup>
-                     <mo separator="true">.</mo>
-                  </math>
-        The model has a finite set of parameters,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Π</mo>
-                     <mo>=</mo>
-                     <mfenced open="{" close="}">
-                     <msub>
-                       <mi>p</mi>
-                       <mn>1</mn>
-                     </msub>
-                     <msub>
-                       <mi>p</mi>
-                       <mn>2</mn>
-                     </msub>
-                     <mo>…</mo>
-                     <msub>
-                       <mi>p</mi>
-                       <mi>n</mi>
-                     </msub>
-                     </mfenced>
-                     <mo separator="true">.</mo>
-                  </math>
-        The parameters,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>p</mi>
-                       <mi>i</mi>
-                     </msub>
-                     <mo separator="true">,</mo>
-                  </math>
+        and the knowledge is implemented in <span class="math-span">𝑆<sup>𝑖</sup></span>.
+        The model has a finite set of parameters, <span class="math-span">𝛱
+          = {𝑝<sub>1</sub>, 𝑝<sub>2</sub>, …, 𝑝<sub>𝑛</sub>}
+        </span>. The parameters, <span class="math-span">𝑝<sub>𝑖</sub></span>,
         represent features of agents, environments, and the interactions among
         them or others.
       </p>
       <p>
         H2:(causality of system) The procedure followed in the system is
         described by formulas or rules. In the case of a discrete-time dynamic
-        system, it can be described as
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mo mathvariant="normal">Σ</mo>
-                       <mrow>
-                         <mi>t</mi>
-                         <mo>+</mo>
-                         <mn>1</mn>
-                       </mrow>
-                     </msub>
-                     <mo>=</mo>
-                     <mi>F</mi>
-                     <mo maxsize="1">(</mo>
-                     <msub>
-                       <mo mathvariant="normal">Σ</mo>
-                       <mi>t</mi>
-                     </msub>
-                     <mo separator="true">,</mo>
-                     <msub>
-                       <mo mathvariant="normal">Π</mo>
-                       <mi>t</mi>
-                     </msub>
-                     <mo maxsize="1">)</mo>
-                     <mo separator="true">.</mo>
-                  </math>
+        system, it can be described as <span class="math-span">𝛴<sub>t+1</sub>
+          = 𝐹(𝛴<sub>t</sub>, 𝛱<sub>t</sub>)
+        </span>.
       </p>
       <p>
-        H3:(validness of system) When subsystems,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                       <mi>S</mi>
-                       <mi>i</mi>
-                     </msup>
-                     <mo separator="true">,</mo>
-                  </math>
-        are well defined, then the system,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                     <mo separator="true">,</mo>
-                  </math>
-        may be well designed and expanding or refining parameters and functions
-        can cover more phenomena.
+        H3:(validness of system) When subsystems, <span class="math-span">𝑆<sup>𝑖</sup></span>,
+        are well defined, then the system, <span class="math-span">𝛴</span> may
+        be well designed and expanding or refining parameters and functions can
+        cover more phenomena.
       </p>
       <p>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>T</mi>
-                       <mi>p</mi>
-                     </msub>
-                  </math>
-        which represents emergency situations that arise from various factors
-        and human behaviors are involved in computing<em> </em>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                     <mo separator="true">.</mo>
-                  </math>
-        The result of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mo mathvariant="normal">Σ</mo>
-                  </math>
-        are also compared with the precedent cases to verify the simulation
-        results. The mitigation planning during future emergencies is formalized
-        as finding conditions
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>c</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        (related to damage) to minimize the damages by calculating
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>F</mi>
-                     <mo maxsize="1">(</mo>
-                     <msub>
-                       <mi>s</mi>
-                       <mi>i</mi>
-                     </msub>
-                     <mo separator="true">,</mo>
-                     <msub>
-                       <mi>c</mi>
-                       <mi>i</mi>
-                     </msub>
-                     <mo maxsize="1">)</mo>
-                     <mo separator="true">.</mo>
-                  </math>
-        The
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>c</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        and corresponding situations
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                       <mi>s</mi>
-                       <mi>i</mi>
-                     </msub>
-                  </math>
-        are stored as manual recipes during an emergency.
+        <span class="math-span">𝑇<sub>𝑝</sub></span> which represents
+        emergency situations that arise from various factors and human behaviors
+        are involved in computing <span class="math-span">𝛴</span>. The result
+        of <span class="math-span">𝛴</span> are also compared with the
+        precedent cases to verify the simulation results. The mitigation
+        planning during future emergencies is formalized as finding conditions <span
+          class="math-span">𝑐<sub>𝑖</sub></span> (related to damage) to
+        minimize the damages by calculating <span class="math-span">𝐹(𝑠<sub>𝑖</sub>,
+          𝑐<sub>𝑖</sub>)
+        </span>. <span class="math-span">𝑐<sub>𝑖</sub></span> and corresponding
+        situations <span class="math-span">𝑠<sub>𝑖</sub></span> are stored as
+        manual recipes during an emergency.
       </p>
     </section>
   </section>
@@ -682,7 +483,7 @@
       </p>
       <figure class="column-top" id="_Ref511749734">
         <img src="./img/image3.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 3.</strong> Evacuation guidance media and promotional
           signage (PS) at a terminal. (Left: exit sign (ES). Middle: evacuation
           plan. Right: evacuation map on the wall.).
@@ -719,7 +520,7 @@
       </p>
       <figure class="column-top" id="_Ref513457664">
         <img src="./img/image4.png" />
-        <figcaption>
+        <figcaption class="multi-line-pdf">
           <strong>Figure 4.</strong> New usage of PS as ES and first responder
           during emergencies.
         </figcaption>
@@ -748,13 +549,13 @@
         and digital PS that they spotted. In test A, participants were
         subsequently asked to retrace their path and count the number
         attentively; this corresponds to real emergency situations when we look
-        for ES during evacuation. A shopping event was held while preforming
+        for ES during evacuation. A shopping event was held while performing
         test B, therefore, seven more PS were displayed than there was in test
         A.
       </p>
       <figure class="column-top" id="_Ref513457790">
         <img src="./img/image5.png" />
-        <figcaption>
+        <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 5.</strong> Underground shopping mall of 300m length in
           Nagoya. Black line is a route assigned in the survey. Triangles show
           the directions in which photos were taken.
@@ -795,12 +596,12 @@
             <th>Attentive (back)</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: right;">
           <tr>
-            <td rowspan="2">
+            <td rowspan="2" style="text-align: center;">
               <p>A</p>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p>ES</p>
             </td>
             <td>
@@ -814,7 +615,7 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: center;">
               <p>PS</p>
             </td>
             <td>
@@ -828,10 +629,10 @@
             </td>
           </tr>
           <tr>
-            <td rowspan="2">
+            <td rowspan="2" style="text-align: center;">
               <p>B</p>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p>ES</p>
             </td>
             <td>
@@ -845,7 +646,7 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: center;">
               <p>PS</p>
             </td>
             <td>
@@ -859,7 +660,7 @@
             </td>
           </tr>
         </tbody>
-        <caption>
+        <caption class="multi-line-html multi-line-pdf">
           <strong>Table 1.</strong> Survey on emergency-sign awareness (* Seven
           PS were added for an unexpected event).
         </caption>
@@ -912,71 +713,38 @@
       <ul>
         <li>
           <p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>p</mi>
-                        </math>
-            is the rate of agents who follow the guidance. We observed that some
-            agents evacuated immediately, while others did not even though they
-            heard the announcements of evacuation (<a role="doc-biblioref"
-              href="#Cab11">Cabinet Office Government of Japan, 2011</a>).
+            <span class="math-span">𝑝</span> is the rate of agents who follow
+            the guidance. We observed that some agents evacuated immediately,
+            while others did not even though they heard the announcements of
+            evacuation (<a role="doc-biblioref" href="#Cab11">Cabinet Office
+              Government of Japan, 2011</a>).
           </p>
         </li>
         <li>
           <p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>n</mi>
-                        </math>
-            is the number of people who are at the mall. Crowd density for
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>n</mi>
-                          <mo>=</mo>
-                          <mn>7000</mn>
-                        </math>
-            corresponds roughly to one person per 1m<sup>2</sup>.
+            <span class="math-span">𝑛</span> is the number of people who are at
+            the mall. Crowd density for <span class="math-span">𝑛 = 7000</span>
+            corresponds roughly to one person per <span class="math-span">1m<sup>2</sup></span>.
           </p>
         </li>
         <li>
           <p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>s</mi>
-                        </math>
-            is the number of PS that is used as ES in emergencies. PS was
-            selected in order of the amount recognized in the surveys.
+            <span class="math-span">𝑠</span> is the number of PS that is used
+            as ES in emergencies. PS was selected in order of the amount
+            recognized in the surveys.
           </p>
         </li>
       </ul>
       <p>
-        The parameter,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>p</mi>
-                          <mo separator="true">,</mo>
-                        </math>
-        is implemented in the agent behavior model shown in <a
-          href="#_Ref511747742">Figure 2</a>. When agents see new messages, they
-        change their goal according to the messages with probability
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>p</mi>
-                        </math>
-        <span class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1"
+        The parameter, <span class="math-span">𝑝</span>, is implemented in the
+        agent behavior model shown in <a href="#_Ref511747742">Figure 2</a>.
+        When agents see new messages, they change their goal according to the
+        messages with probability <span class="math-span">𝑝</span><span
+          class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1"
             role="doc-noteref"
             title="Footnote 1: We calculate a uniform random number for each agent. When the random number is smaller than p, the agents change the goal to the new one. This process and the way in which each agent is implemented as a thread cause stochastic factors in simulations.">1</a></sup></span>.
-        The number of people and PS,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>n</mi>
-                        </math>
-        and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <mi>s</mi>
-                          <mo separator="true">,</mo>
-                        </math>
-        are parameters of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                          <msub>
-                            <mi>E</mi>
-                            <mi>n</mi>
-                          </msub>
-                          <mo separator="true">.</mo>
-                        </math>
+        The number of people and PS, <span class="math-span">𝑛</span> and <span
+          class="math-span">𝑠</span> are parameters of <span class="math-span">𝛦<sub>𝑛</sub></span>.
       </p>
 
       <section id="Sect3.3.1">
@@ -985,73 +753,20 @@
         </h1>
         <p>
           <a href="#_Ref513458319">Figure 6</a> presents the results of
-          simulations. The simulations were performed three times for
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>p</mi>
-                        <mo>=</mo>
-                        <mfenced open="{" close="}">
-                           <mrow>
-                              <mn>30</mn>
-                              <mi>%</mi>
-                            </mrow>
-                            <mrow>
-                              <mn>50</mn>
-                              <mi>%</mi>
-                            </mrow>
-                            <mrow>
-                              <mn>70</mn>
-                              <mi>%</mi>
-                            </mrow>
-                            <mrow>
-                              <mn>100</mn>
-                              <mi>%</mi>
-                           </mrow>
-                        </mfenced>
-                        <mo separator="true">,</mo>
-                      </math>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>n</mi>
-                        <mo>=</mo>
-                        <mfenced open="{" close="}">
-                          <mn>1000</mn>
-                          <mn>4000</mn>
-                          <mn>7000</mn>
-                          <mn>10000</mn>
-                        </mfenced>
-                        <mo separator="true">,</mo>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>s</mi>
-                        <mo>=</mo>
-                        <mfenced open="{" close="}">
-                          <mn>4</mn>
-                          <mn>6</mn>
-                          <mn>8</mn>
-                        </mfenced>
-                        <mo separator="true">.</mo>
-                     </math>
+          simulations. The simulations were performed three times for <span
+            class="math-span">𝑝 = {30%, 50%, 70%, 100%}</span>, <span
+            class="math-span">𝑛 = {1000,4000, 7000, 10000}</span>, and <span
+            class="math-span">𝑠 = {4, 6, 8}</span>.
         </p>
         <figure class="top" id="_Ref513458319">
           <img src="./img/image6.png" />
-          <figcaption>
-            <strong>Figure 6.</strong> Evacuation rates for different
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>n</mi>
-                    <mo separator="true">,</mo>
-                   </math>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>p</mi>
-                   </math>
-            and number of signs (the numbers in the legends are p-s, e.g., 30-4
-            corresponds to the simulation of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                       <mo>=</mo>
-                       <mn>30</mn>
-                       <mo>%</mo>
-                     </math>
-            with four PS locations.).
+          <figcaption class="multi-line-html multi-line-pdf">
+            <strong>Figure 6.</strong> Evacuation rates for different <span
+              class="math-span">𝑛</span>, <span class="math-span">𝑝</span> and
+            number of signs (the numbers in the legends are <span
+              class="math-span">𝑝</span>-<span class="math-span">𝑠</span>,
+            e.g., 30-4 corresponds to the simulation of <span class="math-span">𝑝
+              = 30%</span> with four PS locations.).
           </figcaption>
         </figure>
         <p>
@@ -1061,185 +776,33 @@
           The vertical axis of each graph is the average of evacuation rates of
           three simulations and the horizontal axis is simulation time. For
           example, about 30% of the agents evacuate at 30 time-step in a case of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                     </math>
-          of the top left chart in <a href="#_Ref513458319">Figure 6</a>. The
-          survey results shown in <a href="#_Ref511750109">Table 1</a> indicated
-          30% of ES were recognized, the cases of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>p</mi>
-                        <mo>=</mo>
-                        <mn>30</mn>
-                        <mi>%</mi>
-                        <mo separator="true">,</mo>
-                     </math>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>n</mi>
-                        <mo>=</mo>
-                        <mn>1000</mn>
-                     </math>
-          correspond to congestions of a midweek afternoon. Hence, the case with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                     </math>
-          was selected as a standard case.
+          <span class="math-span">(𝑝, 𝑛, 𝑠) = (30%, 1000, 4)</span> of the
+          top left chart in <a href="#_Ref513458319">Figure 6</a>. The survey
+          results shown in <a href="#_Ref511750109">Table 1</a> indicated 30% of
+          ES were recognized, the cases of <span class="math-span">𝑝 =
+            30%</span>, <span class="math-span">𝑛 = 1000</span> correspond to
+          congestions of a midweek afternoon. Hence, the case with <span
+            class="math-span">(𝑝, 𝑛, 𝑠) = (30%, 1000, 4)</span> was selected
+          as a standard case.
         </p>
         <p>
-          The evacuation rate of the case with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                        <mo separator="true">,</mo>
-                     </math>
-          is
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30.3</mn>
-                       <mo>±</mo>
-                       <mn>2</mn>
-                       <mo>%</mo>
-                     </math>
-          at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30</mn>
-                     </math>
-          time-step, and the
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>95</mn>
-                       <mo>%</mo>
-                       </math>
-          confidence interval of the t-test becomes from
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>28</mn>
-                       <mo>%</mo>
-                     </math>
-          to
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>33</mn>
-                       <mo>%</mo>
-                       <mo separator="true">.</mo>
-                     </math>
-          The evacuation rates at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30</mn>
-                     </math>
-          time-steps for the other 15 cases with different
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                     </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>s</mi>
-                     </math>
-          are outside of the confidence intervals, so they are statistically
-          significant different among each other. <a href="#_Ref513458319">Figure
-            6</a> indicates that in simulations with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>1000</mn>
-                       <mo separator="true">,</mo>
-                     </math>
-          the evacuation rate increases with
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                     </math>
-          and the number of signs
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>s</mi>
-                     </math>
-          increases. For example, approximately
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>90</mn>
-                       <mo>%</mo>
-                     </math>
-          of the agents evacuate at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mn>30</mn>
-                     </math>
-          time-steps in a case of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mfenced open="(" close=")">
-                          <mi>p</mi>
-                          <mi>n</mi>
-                          <mi>s</mi>
-                        </mfenced>
-                        <mo>=</mo>
-                        <mfenced open="(" close=")">
-                          <mrow>
-                            <mn>30</mn>
-                            <mi>%</mi>
-                          </mrow>
-                          <mn>1000</mn>
-                          <mn>4</mn>
-                        </mfenced>
-                     </math>
-          of the top right chart. However, as the number of people becomes
-          larger, this trend changes; when
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                       <mo mathvariant="normal"> and </mo>
-                       <mn>10000</mn>
-                       <mo separator="true">,</mo>
-                     </math>
-          the evacuation rates at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                       <mo>=</mo>
-                       <mn>70</mn>
-                       <mo>%</mo>
-                       <mo mathvariant="normal"> and </mo>
-                       <mn>50</mn>
-                       <mo>%</mo>
-                     </math>
-          become better than at
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>p</mi>
-                       <mo>=</mo>
-                       <mn>100</mn>
-                       <mo>%</mo>
-                       <mo separator="true">.</mo>
-                     </math>
+          The evacuation rate of the case with <span class="math-span">(𝑝,
+            𝑛, 𝑠) = (30%, 1000, 4)</span> is <span class="math-span">30.3 ± 2%</span>
+          at 30 time-step, and the 95% confidence interval of the t-test becomes
+          from 28% to 33%. The evacuation rates at 30 time-steps for the other
+          15 cases with different <span class="math-span">𝑛</span> and <span
+            class="math-span">𝑠</span> are outside of the confidence intervals,
+          so they are statistically significant different among each other. <a
+            href="#_Ref513458319">Figure 6</a> indicates that in simulations
+          with <span class="math-span">𝑛 = 1000</span>, the evacuation rate
+          increases with <span class="math-span">𝑝</span> and the number of
+          signs <span class="math-span">𝑠</span> increases. For example,
+          approximately 90% of the agents evacuate at 30 time-steps in a case of
+          <span class="math-span">(𝑝, 𝑛, 𝑠) = (30%, 1000, 4)</span> of the
+          top right chart. However, as the number of people becomes larger, this
+          trend changes; when <span class="math-span">𝑛 = 7000 and 10000</span>,
+          the evacuation rates at <span class="math-span">𝑝 = 70% and
+            50%</span> become better than at <span class="math-span">𝑝 = 100%</span>.
         </p>
       </section>
 
@@ -1248,15 +811,7 @@
         <p>
           By analyzing the differences in the changes of evacuation rates of
           Experiment 1, we found that congestion at some areas causes the change
-          in the trend for
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                       <mo mathvariant="normal"> and </mo>
-                       <mn>10000</mn>
-                       <mo separator="true">.</mo>
-                     </math>
+          in the trend for <span class="math-span">𝑛 = 7000 and 10000</span>.
           Nowadays, security video cameras are commonplace in cities worldwide.
           At places where crowds of hundreds or thousands gather, such
           monitoring is important for safety and security purposes and human
@@ -1278,7 +833,7 @@
               <strong>(b)</strong> two types of Usage.
             </figcaption>
           </figure>
-          <figcaption>
+          <figcaption class="multi-line-pdf">
             <strong>Figure 7.</strong> Crowd control management system using PS.
           </figcaption>
         </figure>
@@ -1305,7 +860,8 @@
             <p>
               Congestions: PS agents calculate population density around them at
               every simulation step and check whether congestion status is over
-              a pre-specified density value (this time 4 persons/m<sup>2</sup>).
+              a pre-specified density value (this time 4 persons/<span
+                class="math-span">m<sup>2</sup></span>).
             </p>
           </li>
           <li>
@@ -1323,68 +879,31 @@
           congestion considered improves the refuge rate. The left figures are
           graphs from <a href="#_Ref513458319">Figure 6</a>. The right figures
           show graphs of experiment 2 results for the corresponding scenarios
-          and indicate better evacuation rates. The trends of rescue rates for
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mi>n</mi>
-                      <mo>=</mo>
-                      <mn>4000</mn>
-                      <mo mathvariant="normal"> and </mo>
-                      <mn>7000</mn>
-                    </math>
-          seem similar to the cases where
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mi>n</mi>
-                    </math>
-          is small.
+          and indicate better evacuation rates. The trends of rescue rates for <span
+            class="math-span">𝑛 = 4000 and 7000</span> seem similar to the
+          cases where <span class="math-span">𝑛</span> is small.
         </p>
         <figure class="top" id="_Ref513459770">
           <figure id="_Ref513459770a">
             <img src="./img/image9.png" />
             <figcaption>
-              <strong>(a)</strong> graphs for
-              <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>4000</mn>
-                     </math>
-              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
-              considering congestion.
+              <strong>(a)</strong> graphs for <span class="math-span">𝑛
+                = 4000</span> from <a href="#_Ref513458319">Figure 6</a> and refuge
+              rate considering congestion.
             </figcaption>
           </figure>
           <figure id="_Ref513459770b">
             <img src="./img/image10.png" />
             <figcaption>
-              <strong>(b)</strong> graphs from
-              <math xmlns="http://www.w3.org/1998/Math/MathML">
-                       <mi>n</mi>
-                       <mo>=</mo>
-                       <mn>7000</mn>
-                     </math>
-              from <a href="#_Ref513458319">Figure 6</a> and refuge rate
-              considering congestion.
+              <strong>(b)</strong> graphs from <span class="math-span">𝑛
+                = 7000</span> from <a href="#_Ref513458319">Figure 6</a> and refuge
+              rate considering congestion.
             </figcaption>
           </figure>
           <figcaption>
-            <strong>Figure 8.</strong> Improvement of refuge rate
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                      <mfenced open="(" close=" ">
-                      <mrow>
-                      <mi>n</mi>
-                      <mo>=</mo>
-                      <mn>4000</mn>
-                      </mrow>
-                      <mn>7000</mn>
-                      </mfenced>
-                      <mo mathvariant="normal"> and </mo>
-                      <mfenced open=" " close=")">
-                      <mrow>
-                      <mi>s</mi>
-                      <mo>=</mo>
-                      <mn>8</mn>
-                      </mrow>
-                      </mfenced>
-                      <mo separator="true">.</mo>
-                    </math>
+            <strong>Figure 8.</strong> Improvement of refuge rate (<span
+              class="math-span">𝑛 = 4000, 7000</span> and <span
+              class="math-span">𝑠 = 8</span>).
           </figcaption>
         </figure>
       </section>
@@ -1441,117 +960,33 @@
           role="doc-biblioref" href="#Ryo16">Kikuuwe, 2016</a>). The first type
         of error is associated with the modeling process and the second type is
         associated with the computations involved in the model; the process is
-        formulated such that an occurrence in
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>P</mi>
-                     <mi>S</mi>
-                     <mo maxsize="1">(</mo>
-                     <mi>C</mi>
-                     <mo separator="true">,</mo>
-                     <mi>N</mi>
-                     <mo maxsize="1">)</mo>
-                     <mo separator="true">,</mo>
-                  </math>
-        one simulation results, is involved in
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>P</mi>
-                     <mi>R</mi>
-                     <mo maxsize="1">(</mo>
-                     <mi>C</mi>
-                     <mo separator="true">,</mo>
-                     <mi>E</mi>
-                     <mo maxsize="1">)</mo>
-                     </mfenced>
-                  </math>
-        where
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>C</mi>
-                     <mo>=</mo>
-                     <mfenced open="{" close="}">
-                     <msub>
-                     <mi>c</mi>
-                     <mi>i</mi>
-                     </msub>
-                     </mfenced>
-                     <mo separator="true">,</mo>
-                  </math>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>E</mi>
-                     <mo>=</mo>
-                     <mfenced open="{" close="}">
-                     <msub>
-                     <mi>e</mi>
-                     <mi>i</mi>
-                     </msub>
-                     </mfenced>
-                     <mo separator="true">,</mo>
-                  </math>
-        and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>N</mi>
-                     <mo>=</mo>
-                     <mfenced open="{" close="}">
-                     <msub>
-                     <mi>n</mi>
-                     <mi>i</mi>
-                     </msub>
-                     </mfenced>
-                  </math>
-        (<a href="#_Ref513459952">Figure 9</a>);
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                     <mi>c</mi>
-                     <mi>i</mi>
-                     </msup>
-                  </math>
-        are parameters that users can control,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                     <mi>e</mi>
-                     <mi>i</mi>
-                     </msup>
-                  </math>
-        are parameters that users do not notice or cannot specify,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msup>
-                     <mi>n</mi>
-                     <mi>i</mi>
-                     </msup>
-                  </math>
-        are parameters that are introduced in the process of simulations, such
-        as numerical errors and distributed computations.
+        formulated such that an occurrence in <span class="math-span">𝑃𝑆(𝐶,
+          𝑁)</span>, one simulation results, is involved in <span class="math-span">𝑃𝑅(𝐶,
+          𝐸)</span> where <span class="math-span">𝐶 = {𝑐<sub>𝑖</sub>}
+        </span>, <span class="math-span">𝐸 = {𝑒<sub>𝑖</sub>}
+        </span>, and <span class="math-span">𝑁 = {𝑛<sub>𝑖</sub>}
+        </span> (<a href="#_Ref513459952">Figure 9</a>); <span class="math-span">𝑐<sub>𝑖</sub></span>
+        are parameters that users can control, <span class="math-span">𝑒<sub>𝑖</sub></span>
+        are parameters that users do not notice or cannot specify, <span
+          class="math-span">𝑛<sub>𝑖</sub></span> are parameters that are
+        introduced in the process of simulations, such as numerical errors and
+        distributed computations.
       </p>
       <p>
-        In calculating of some occurrences in
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <mi>P</mi>
-                     <mi>S</mi>
-                     <mo maxsize="1">(</mo>
-                     <mi>C</mi>
-                     <mo separator="true">,</mo>
-                     <mi>N</mi>
-                     <mo maxsize="1">)</mo>
-                     <mo separator="true">,</mo>
-                  </math>
-        we accept the calculations as correct when their behaviors agree with
-        our intuitions or are within probability laws. For example, think of
-        Buffon's Needle, the dropped positions are different at every trial in
-        real world and the prediction of the positions are taken to be correct
-        when they follow law of great numbers instead of specifying all
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-                     <msub>
-                     <mi>c</mi>
-                     <mi>i</mi>
-                     </msub>
-                  </math>
-        to fit the calculation within some errors. In the field of computer
-        graphics, the idea of a plausible simulation presents such situations (<a
-          role="doc-biblioref" href="#Bar96">Barzel, Hughes, &amp; Wood,
-          1996</a>).
+        In calculating of some occurrences in <span class="math-span">𝑃𝑆(𝐶,
+          𝑁)</span>, we accept the calculations as correct when their behaviors agree
+        with our intuitions or are within probability laws. For example, think
+        of Buffon's Needle, the dropped positions are different at every trial
+        in real world and the prediction of the positions are taken to be
+        correct when they follow law of great numbers instead of specifying all
+        <span class="math-span">𝑐<sub>𝑖</sub></span> to fit the calculation
+        within some errors. In the field of computer graphics, the idea of a
+        plausible simulation presents such situations (<a role="doc-biblioref"
+          href="#Bar96">Barzel, Hughes, &amp; Wood, 1996</a>).
       </p>
       <figure class="column-top" id="_Ref513459952">
         <img src="./img/image11.png" />
-        <figcaption>
+        <figcaption class="multi-line-pdf">
           <strong>Figure 9.</strong> Errors introduced in modeling and
           computation phases.
         </figcaption>
@@ -1654,45 +1089,23 @@
       <ul>
         <li>
           <p>
-            The number of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>s</mi>
-                       </math>
-            is related to evacuation guidance information. In every case, more
-            information on exits increases evacuations rates. Simulations for
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>n</mi>
-                         <mo>=</mo>
-                         <mn>1000</mn>
-                         <mo mathvariant="normal"> and </mo>
-                         <mn>4000</mn>
-                       </math>
-            show the evacuation rates increase as
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>p</mi>
-                       </math>
-            increases; the increased rates are consistent with our knowledge on
-            crowd behaviors.
+            The number of <span class="math-span">𝑠</span> is related to
+            evacuation guidance information. In every case, more information on
+            exits increases evacuations rates. Simulations for <span
+              class="math-span">𝑛 = 1000 and 4000</span> show the evacuation
+            rates increase as <span class="math-span">𝑝</span> increases; the
+            increased rates are consistent with our knowledge on crowd
+            behaviors.
           </p>
         </li>
         <li>
           <p>
-            In some cases of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>n</mi>
-                         <mo>=</mo>
-                         <mn>7000</mn>
-                         <mo mathvariant="normal"> and </mo>
-                         <mn>10000</mn>
-                         <mo separator="true">,</mo>
-                       </math>
-            the evacuation rates do not necessarily increase as
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                         <mi>p</mi>
-                       </math>
-            increases. The decrease is caused by the congestion in some areas,
-            and it is shown the information adaptively guided to the crowd
-            status lead people to evacuate smoothly.
+            In some cases of <span class="math-span">𝑛 = 7000 and 10000</span>,
+            the evacuation rates do not necessarily increase as <span
+              class="math-span">𝑝</span> increases. The decrease is caused by
+            the congestion in some areas, and it is shown the information
+            adaptively guided to the crowd status lead people to evacuate
+            smoothly.
           </p>
         </li>
         <li>
@@ -1724,14 +1137,18 @@
       and the third classes, where there are little data and it is difficult to
       perform experiments, alternative validation methods are required.
     </p>
-    <p>In this paper, a CCEG management system was proposed based on the
-      surveys on ES and PS. PS is a new device and is thought to show the same
-      effect as ES during emergency. PS’s effect of evacuation rate was
-      simulated by ABSS and the validating ways of assessing the adoption of new
+    <p>
+      In this paper, a CCEG management system was proposed based on the surveys
+      on <span class="math-span">𝐸𝑆</span> and <span class="math-span">𝑃𝑆</span>.
+      <span class="math-span">𝑃𝑆</span> is a new device and is thought to show
+      the same effect as <span class="math-span">𝐸𝑆</span> during emergency. <span
+        class="math-span">𝑃𝑆</span>'s effect of evacuation rate was simulated
+      by ABSS and the validating ways of assessing the adoption of new
       technology were discussed. This validation provides an example to assess
       simulations in the fields of the second and third classes of applications
       that involves human behaviors, and acts as an explanatory data for
-      adopting of new technology against future disasters.</p>
+      adopting of new technology against future disasters.
+    </p>
   </section>
   <section role="doc-acknowledgements">
     <h1>Acknowledgements</h1>
@@ -1741,10 +1158,11 @@
     <h1>Footnotes</h1>
     <ol>
       <li id="ftn1" role="doc-endnote">We calculate a uniform random number
-        for each agent. When the random number is smaller than <em>p</em>, the
-        agents change the goal to the new one. This process and the way in which
-        each agent is implemented as a thread cause stochastic factors in
-        simulations.<sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup>
+        for each agent. When the random number is smaller than <span
+        class="math-span">𝑝</span>, the agents change the goal to the new one.
+        This process and the way in which each agent is implemented as a thread
+        cause stochastic factors in simulations.<sup><a
+          role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup>
       </li>
       <li id="ftn2" role="doc-endnote">According to WHO, insufficient
         capacity of response for hazard situations is one component to cause
@@ -1932,6 +1350,17 @@
           src="../../icons/pdf.png" /></a>
       </li>
     </ul>
+  </section>
+  <section id="copyright-info" class="no-counter">
+    <h1>Copyright Information</h1>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+        alt="Creative Commons License"
+        src="http://i.creativecommons.org/l/by/4.0/88x31.png"></a> Copyright ©
+      2018 Tomoichi Takahashi. This article is licensed under a <a
+        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+        Attribution 4.0 International License</a>.
+    </p>
   </section>
   </main>
 </body>
