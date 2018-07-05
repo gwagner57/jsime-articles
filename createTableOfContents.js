@@ -7,55 +7,28 @@
  * @author Gerd Wagner
  */
 function createTableOfContents() {
-  var tocNavEl = document.getElementById("toc"),
-      tblOfContEl=null, headingEl=null,
-      topLevelSectElems = document.querySelectorAll("main > section"),
-      topLevelSectListEl=null;
-	
-  function createOneLevelSectionList( sectEl, sectHierarchySelector, listEl) {
-    var headingEl=null, el=null,
-        nextLevelListEl=null, listItemEl=null,
-        subsubSectElems=[],
-        subsectElems = sectEl.querySelectorAll( sectHierarchySelector);
-    for (let subsectEl of subsectElems) {
-      headingEl = subsectEl.querySelector("h1");
-      subsectEl.id = headingEl.textContent;
-      listItemEl = document.createElement("li");
-      el = document.createElement("a");
-      el.innerHTML = headingEl.innerHTML;
-      el.href = "#" + headingEl.textContent;
-      listItemEl.appendChild( el);
-      listEl.appendChild( listItemEl);
-      subsubSectElems = subsectEl.querySelectorAll( sectHierarchySelector + ">section");
-      if (subsubSectElems.length > 0) {
-        nextLevelListEl = document.createElement("ul");
-        listItemEl.appendChild( nextLevelListEl);
-        createOneLevelSectionList( subsectEl, sectHierarchySelector + ">section", nextLevelListEl);
-      }
-    }
-  }
-
-  if (tocNavEl) {
-    tblOfContEl = tocNavEl.lastElementChild;
-    tblOfContEl.innerHTML = "";
-  } else {
-    tocNavEl =  document.createElement("nav");
+  var sectCtr=0,
+      topLevelSectElems = document.querySelectorAll("main > section");
+  if (!document.getElementById("toc")) {
+    let tocNavEl =  document.createElement("nav");
+    let headingEl = document.createElement("h1");
+    let tblOfContEl = document.createElement("ol");
+    headingEl.textContent = "Table of Contents";
     tocNavEl.id = "toc";
-    headingEl = document.createElement("h1");
-    headingEl.textContent = "Contents";
     tocNavEl.appendChild( headingEl);
-    tblOfContEl = document.createElement("ul");
     tocNavEl.appendChild( tblOfContEl);
     document.body.appendChild( tocNavEl);
-  }
-  for (let topLevelSectEl of topLevelSectElems) {
-    headingEl = document.createElement("h1");
-    headingEl.textContent = "Contents";
-    tocNavEl.appendChild( headingEl);
-    if (topLevelSectElems.length > 0) {
-      topLevelSectListEl = document.createElement("ul");
-      partTocItemEl.appendChild( topLevelSectListEl);
-      createOneLevelSectionList( partEl, "main > section", topLevelSectListEl);
+
+    for (let topLevelSectEl of topLevelSectElems) {
+      let headingEl = topLevelSectEl.querySelector("h1");
+      let tocEntryEl = document.createElement("li");
+      let el = document.createElement("a");
+      topLevelSectEl.id = "sect" + String( sectCtr++);
+      el.innerHTML = headingEl.innerHTML;
+      el.href = "#" + topLevelSectEl.id;
+      tocEntryEl.appendChild( el);
+      tblOfContEl.appendChild( tocEntryEl);
     }
   }
 }
+window.addEventListener("load", createTableOfContents);

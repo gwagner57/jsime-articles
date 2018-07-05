@@ -426,6 +426,20 @@ blockquote.float-right {
 }
 
 @media only screen and (min-width: 1200px) {
+  #toc {  /* table of contents */
+    display: block;
+    position: fixed;
+    top: 12%; left: 3%;
+    width: 15em;
+	font-size: smaller;
+  }
+  #toc > h1 {  
+	font-size: 1.2em;
+  }
+  #toc > ol {  
+    padding-left: 0;
+  }
+
   #feedback {
     display: block;
     position: fixed;
