@@ -54,8 +54,6 @@
 </script>
 <!--Scripts-->
 <!-- <script src="../../createTableOfContents.js"></script> -->
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=MML_SVG"></script>
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
 {
@@ -130,656 +128,6 @@
   ]
 }
 </script>
-<style type="text/css">
-.MathJax_Hover_Frame {
-  border-radius: .25em;
-  -webkit-border-radius: .25em;
-  -moz-border-radius: .25em;
-  -khtml-border-radius: .25em;
-  box-shadow: 0px 0px 15px #83A;
-  -webkit-box-shadow: 0px 0px 15px #83A;
-  -moz-box-shadow: 0px 0px 15px #83A;
-  -khtml-box-shadow: 0px 0px 15px #83A;
-  border: 1px solid #A6D ! important;
-  display: inline-block;
-  position: absolute
-}
-
-.MathJax_Menu_Button .MathJax_Hover_Arrow {
-  position: absolute;
-  cursor: pointer;
-  display: inline-block;
-  border: 2px solid #AAA;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -khtml-border-radius: 4px;
-  font-family: 'Courier New', Courier;
-  font-size: 9px;
-  color: #F0F0F0
-}
-
-.MathJax_Menu_Button .MathJax_Hover_Arrow span {
-  display: block;
-  background-color: #AAA;
-  border: 1px solid;
-  border-radius: 3px;
-  line-height: 0;
-  padding: 4px
-}
-
-.MathJax_Hover_Arrow:hover {
-  color: white !important;
-  border: 2px solid #CCC !important
-}
-
-.MathJax_Hover_Arrow:hover span {
-  background-color: #CCC !important
-}
-</style>
-<style type="text/css">
-#MathJax_About {
-  position: fixed;
-  left: 50%;
-  width: auto;
-  text-align: center;
-  border: 3px outset;
-  padding: 1em 2em;
-  background-color: #DDDDDD;
-  color: black;
-  cursor: default;
-  font-family: message-box;
-  font-size: 120%;
-  font-style: normal;
-  text-indent: 0;
-  text-transform: none;
-  line-height: normal;
-  letter-spacing: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  float: none;
-  z-index: 201;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -khtml-border-radius: 15px;
-  box-shadow: 0px 10px 20px #808080;
-  -webkit-box-shadow: 0px 10px 20px #808080;
-  -moz-box-shadow: 0px 10px 20px #808080;
-  -khtml-box-shadow: 0px 10px 20px #808080;
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray',
-    Positive='true')
-}
-
-#MathJax_About.MathJax_MousePost {
-  outline: none
-}
-
-.MathJax_Menu {
-  position: absolute;
-  background-color: white;
-  color: black;
-  width: auto;
-  padding: 2px;
-  border: 1px solid #CCCCCC;
-  margin: 0;
-  cursor: default;
-  font: menu;
-  text-align: left;
-  text-indent: 0;
-  text-transform: none;
-  line-height: normal;
-  letter-spacing: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  float: none;
-  z-index: 201;
-  box-shadow: 0px 10px 20px #808080;
-  -webkit-box-shadow: 0px 10px 20px #808080;
-  -moz-box-shadow: 0px 10px 20px #808080;
-  -khtml-box-shadow: 0px 10px 20px #808080;
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray',
-    Positive='true')
-}
-
-.MathJax_MenuItem {
-  padding: 2px 2em;
-  background: transparent
-}
-
-.MathJax_MenuArrow {
-  position: absolute;
-  right: .5em;
-  padding-top: .25em;
-  color: #666666;
-  font-size: .75em
-}
-
-.MathJax_MenuActive .MathJax_MenuArrow {
-  color: white
-}
-
-.MathJax_MenuArrow.RTL {
-  left: .5em;
-  right: auto
-}
-
-.MathJax_MenuCheck {
-  position: absolute;
-  left: .7em
-}
-
-.MathJax_MenuCheck.RTL {
-  right: .7em;
-  left: auto
-}
-
-.MathJax_MenuRadioCheck {
-  position: absolute;
-  left: 1em
-}
-
-.MathJax_MenuRadioCheck.RTL {
-  right: 1em;
-  left: auto
-}
-
-.MathJax_MenuLabel {
-  padding: 2px 2em 4px 1.33em;
-  font-style: italic
-}
-
-.MathJax_MenuRule {
-  border-top: 1px solid #CCCCCC;
-  margin: 4px 1px 0px
-}
-
-.MathJax_MenuDisabled {
-  color: GrayText
-}
-
-.MathJax_MenuActive {
-  background-color: Highlight;
-  color: HighlightText
-}
-
-.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {
-  background-color: #E8E8E8
-}
-
-.MathJax_ContextMenu:focus {
-  outline: none
-}
-
-.MathJax_ContextMenu .MathJax_MenuItem:focus {
-  outline: none
-}
-
-#MathJax_AboutClose {
-  top: .2em;
-  right: .2em
-}
-
-.MathJax_Menu .MathJax_MenuClose {
-  top: -10px;
-  left: -10px
-}
-
-.MathJax_MenuClose {
-  position: absolute;
-  cursor: pointer;
-  display: inline-block;
-  border: 2px solid #AAA;
-  border-radius: 18px;
-  -webkit-border-radius: 18px;
-  -moz-border-radius: 18px;
-  -khtml-border-radius: 18px;
-  font-family: 'Courier New', Courier;
-  font-size: 24px;
-  color: #F0F0F0
-}
-
-.MathJax_MenuClose span {
-  display: block;
-  background-color: #AAA;
-  border: 1.5px solid;
-  border-radius: 18px;
-  -webkit-border-radius: 18px;
-  -moz-border-radius: 18px;
-  -khtml-border-radius: 18px;
-  line-height: 0;
-  padding: 8px 0 6px
-}
-
-.MathJax_MenuClose:hover {
-  color: white !important;
-  border: 2px solid #CCC !important
-}
-
-.MathJax_MenuClose:hover span {
-  background-color: #CCC !important
-}
-
-.MathJax_MenuClose:hover:focus {
-  outline: none
-}
-</style>
-<style type="text/css">
-.MathJax_Preview .MJXf-math {
-  color: inherit !important
-}
-</style>
-<style type="text/css">
-.MJX_Assistive_MathML {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 1px 0 0 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden !important;
-  display: block !important;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none
-}
-
-.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {
-  width: 100% !important
-}
-</style>
-<style type="text/css">
-#MathJax_Zoom {
-  position: absolute;
-  background-color: #F0F0F0;
-  overflow: auto;
-  display: block;
-  z-index: 301;
-  padding: .5em;
-  border: 1px solid black;
-  margin: 0;
-  font-weight: normal;
-  font-style: normal;
-  text-align: left;
-  text-indent: 0;
-  text-transform: none;
-  line-height: normal;
-  letter-spacing: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  float: none;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  box-shadow: 5px 5px 15px #AAAAAA;
-  -webkit-box-shadow: 5px 5px 15px #AAAAAA;
-  -moz-box-shadow: 5px 5px 15px #AAAAAA;
-  -khtml-box-shadow: 5px 5px 15px #AAAAAA;
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray',
-    Positive='true')
-}
-
-#MathJax_ZoomOverlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 300;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background-color: white;
-  opacity: 0;
-  filter: alpha(opacity = 0)
-}
-
-#MathJax_ZoomFrame {
-  position: relative;
-  display: inline-block;
-  height: 0;
-  width: 0
-}
-
-#MathJax_ZoomEventTrap {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 302;
-  display: inline-block;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background-color: white;
-  opacity: 0;
-  filter: alpha(opacity = 0)
-}
-</style>
-<style type="text/css">
-.MathJax_Preview {
-  color: #888
-}
-
-#MathJax_Message {
-  position: fixed;
-  left: 1px;
-  bottom: 2px;
-  background-color: #E6E6E6;
-  border: 1px solid #959595;
-  margin: 0px;
-  padding: 2px 8px;
-  z-index: 102;
-  color: black;
-  font-size: 80%;
-  width: auto;
-  white-space: nowrap
-}
-
-#MathJax_MSIE_Frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0px;
-  z-index: 101;
-  border: 0px;
-  margin: 0px;
-  padding: 0px
-}
-
-.MathJax_Error {
-  color: #CC0000;
-  font-style: italic
-}
-</style>
-<style type="text/css">
-.MJXp-script {
-  font-size: .8em
-}
-
-.MJXp-right {
-  -webkit-transform-origin: right;
-  -moz-transform-origin: right;
-  -ms-transform-origin: right;
-  -o-transform-origin: right;
-  transform-origin: right
-}
-
-.MJXp-bold {
-  font-weight: bold
-}
-
-.MJXp-italic {
-  font-style: italic
-}
-
-.MJXp-scr {
-  font-family: MathJax_Script, 'Times New Roman', Times, STIXGeneral, serif
-}
-
-.MJXp-frak {
-  font-family: MathJax_Fraktur, 'Times New Roman', Times, STIXGeneral, serif
-}
-
-.MJXp-sf {
-  font-family: MathJax_SansSerif, 'Times New Roman', Times, STIXGeneral, serif
-}
-
-.MJXp-cal {
-  font-family: MathJax_Caligraphic, 'Times New Roman', Times, STIXGeneral, serif
-}
-
-.MJXp-mono {
-  font-family: MathJax_Typewriter, 'Times New Roman', Times, STIXGeneral, serif
-}
-
-.MJXp-largeop {
-  font-size: 150%
-}
-
-.MJXp-largeop.MJXp-int {
-  vertical-align: -.2em
-}
-
-.MJXp-math {
-  display: inline-block;
-  line-height: 1.2;
-  text-indent: 0;
-  font-family: 'Times New Roman', Times, STIXGeneral, serif;
-  white-space: nowrap;
-  border-collapse: collapse
-}
-
-.MJXp-display {
-  display: block;
-  text-align: center;
-  margin: 1em 0
-}
-
-.MJXp-math span {
-  display: inline-block
-}
-
-.MJXp-box {
-  display: block !important;
-  text-align: center
-}
-
-.MJXp-box:after {
-  content: " "
-}
-
-.MJXp-rule {
-  display: block !important;
-  margin-top: .1em
-}
-
-.MJXp-char {
-  display: block !important
-}
-
-.MJXp-mo {
-  margin: 0 .15em
-}
-
-.MJXp-mfrac {
-  margin: 0 .125em;
-  vertical-align: .25em
-}
-
-.MJXp-denom {
-  display: inline-table !important;
-  width: 100%
-}
-
-.MJXp-denom &gt ; * {
-  display: table-row !important
-}
-
-.MJXp-surd {
-  vertical-align: top
-}
-
-.MJXp-surd &gt ; * {
-  display: block !important
-}
-
-.MJXp-script-box &gt ; * {
-  display: table !important;
-  height: 50%
-}
-
-.MJXp-script-box &gt ; * &gt ; * {
-  display: table-cell !important;
-  vertical-align: top
-}
-
-.MJXp-script-box &gt ; *:last-child &gt ; * {
-  vertical-align: bottom
-}
-
-.MJXp-script-box &gt ; * &gt ; * &gt ; * {
-  display: block !important
-}
-
-.MJXp-mphantom {
-  visibility: hidden
-}
-
-.MJXp-munderover {
-  display: inline-table !important
-}
-
-.MJXp-over {
-  display: inline-block !important;
-  text-align: center
-}
-
-.MJXp-over &gt ; * {
-  display: block !important
-}
-
-.MJXp-munderover &gt ; * {
-  display: table-row !important
-}
-
-.MJXp-mtable {
-  vertical-align: .25em;
-  margin: 0 .125em
-}
-
-.MJXp-mtable &gt ; * {
-  display: inline-table !important;
-  vertical-align: middle
-}
-
-.MJXp-mtr {
-  display: table-row !important
-}
-
-.MJXp-mtd {
-  display: table-cell !important;
-  text-align: center;
-  padding: .5em 0 0 .5em
-}
-
-.MJXp-mtr &gt ; .MJXp-mtd:first-child {
-  padding-left: 0
-}
-
-.MJXp-mtr:first-child &gt ; .MJXp-mtd {
-  padding-top: 0
-}
-
-.MJXp-mlabeledtr {
-  display: table-row !important
-}
-
-.MJXp-mlabeledtr &gt ; .MJXp-mtd:first-child {
-  padding-left: 0
-}
-
-.MJXp-mlabeledtr:first-child &gt ; .MJXp-mtd {
-  padding-top: 0
-}
-
-.MJXp-merror {
-  background-color: #FFFF88;
-  color: #CC0000;
-  border: 1px solid #CC0000;
-  padding: 1px 3px;
-  font-style: normal;
-  font-size: 90%
-}
-
-.MJXp-scale0 {
-  -webkit-transform: scaleX(.0);
-  -moz-transform: scaleX(.0);
-  -ms-transform: scaleX(.0);
-  -o-transform: scaleX(.0);
-  transform: scaleX(.0)
-}
-
-.MJXp-scale1 {
-  -webkit-transform: scaleX(.1);
-  -moz-transform: scaleX(.1);
-  -ms-transform: scaleX(.1);
-  -o-transform: scaleX(.1);
-  transform: scaleX(.1)
-}
-
-.MJXp-scale2 {
-  -webkit-transform: scaleX(.2);
-  -moz-transform: scaleX(.2);
-  -ms-transform: scaleX(.2);
-  -o-transform: scaleX(.2);
-  transform: scaleX(.2)
-}
-
-.MJXp-scale3 {
-  -webkit-transform: scaleX(.3);
-  -moz-transform: scaleX(.3);
-  -ms-transform: scaleX(.3);
-  -o-transform: scaleX(.3);
-  transform: scaleX(.3)
-}
-
-.MJXp-scale4 {
-  -webkit-transform: scaleX(.4);
-  -moz-transform: scaleX(.4);
-  -ms-transform: scaleX(.4);
-  -o-transform: scaleX(.4);
-  transform: scaleX(.4)
-}
-
-.MJXp-scale5 {
-  -webkit-transform: scaleX(.5);
-  -moz-transform: scaleX(.5);
-  -ms-transform: scaleX(.5);
-  -o-transform: scaleX(.5);
-  transform: scaleX(.5)
-}
-
-.MJXp-scale6 {
-  -webkit-transform: scaleX(.6);
-  -moz-transform: scaleX(.6);
-  -ms-transform: scaleX(.6);
-  -o-transform: scaleX(.6);
-  transform: scaleX(.6)
-}
-
-.MJXp-scale7 {
-  -webkit-transform: scaleX(.7);
-  -moz-transform: scaleX(.7);
-  -ms-transform: scaleX(.7);
-  -o-transform: scaleX(.7);
-  transform: scaleX(.7)
-}
-
-.MJXp-scale8 {
-  -webkit-transform: scaleX(.8);
-  -moz-transform: scaleX(.8);
-  -ms-transform: scaleX(.8);
-  -o-transform: scaleX(.8);
-  transform: scaleX(.8)
-}
-
-.MJXp-scale9 {
-  -webkit-transform: scaleX(.9);
-  -moz-transform: scaleX(.9);
-  -ms-transform: scaleX(.9);
-  -o-transform: scaleX(.9);
-  transform: scaleX(.9)
-}
-</style>
 </head>
 <body vocab="http://schema.org/">
   <div id="MathJax_Message" style="display: none;"></div>
@@ -938,12 +286,13 @@
       remainder of this paper is set out as follows: In <a href="#Sect2">Section
         2</a>, the steps to model phenomena in the real world are presented. <a
         href="#Sect3">Section 3</a> describes a new evacuation guidance system
-      using digital promotional signage (PS) that has been recently used in
-      public and commercial areas. The effects of evacuation guidance on human
-      evacuation flow control are tested using simulation, and the experimental
-      results are discussed. In <a href="#Sect4">Section 4</a>, the ways of
-      assessment of simulation results are discussed. <a href="#Sect5">Section
-        5</a> provides a descriptive summary of our paper.
+      using digital promotional signage (<span class="math-span">𝑃𝑆</span>)
+      that has been recently used in public and commercial areas. The effects of
+      evacuation guidance on human evacuation flow control are tested using
+      simulation, and the experimental results are discussed. In <a
+        href="#Sect4">Section 4</a>, the ways of assessment of simulation
+      results are discussed. <a href="#Sect5">Section 5</a> provides a
+      descriptive summary of our paper.
     </p>
   </section>
 
@@ -1080,12 +429,12 @@
         following hypotheses.
       </p>
       <p>
-        H1:(whole-part relation) A social system, <span class="math-span">𝛴</span>,
+        H1:(whole-part relation) A social system, <span class="math-span">&Sum;</span>,
         may be composed of subsystems, <span class="math-span">𝑆<sup>𝑖</sup></span>.
         Everyone has some knowledge on phenomena; social systems simulate this,
         and the knowledge is implemented in <span class="math-span">𝑆<sup>𝑖</sup></span>.
-        The model has a finite set of parameters, <span class="math-span">𝛱
-          = {𝑝<sub>1</sub>, 𝑝<sub>2</sub>, …, 𝑝<sub>𝑛</sub>}
+        The model has a finite set of parameters, <span class="math-span">&prod;
+          = {𝑝<sub>1</sub>, 𝑝<sub>2</sub>, &hellip;, 𝑝<sub>𝑛</sub>}
         </span>. The parameters, <span class="math-span">𝑝<sub>𝑖</sub></span>,
         represent features of agents, environments, and the interactions among
         them or others.
@@ -1093,22 +442,22 @@
       <p>
         H2:(causality of system) The procedure followed in the system is
         described by formulas or rules. In the case of a discrete-time dynamic
-        system, it can be described as <span class="math-span">𝛴<sub>t+1</sub>
-          = 𝐹(𝛴<sub>t</sub>, 𝛱<sub>t</sub>)
+        system, it can be described as <span class="math-span">&Sum;<sub>t+1</sub>
+          = 𝐹(&Sum;<sub>t</sub>, &prod;<sub>t</sub>)
         </span>.
       </p>
       <p>
         H3:(validness of system) When subsystems, <span class="math-span">𝑆<sup>𝑖</sup></span>,
-        are well defined, then the system, <span class="math-span">𝛴</span> may
-        be well designed and expanding or refining parameters and functions can
-        cover more phenomena.
+        are well defined, then the system, <span class="math-span">&Sum;</span>
+        may be well designed and expanding or refining parameters and functions
+        can cover more phenomena.
       </p>
       <p>
         <span class="math-span">𝑇<sub>𝑝</sub></span> which represents
         emergency situations that arise from various factors and human behaviors
-        are involved in computing <span class="math-span">𝛴</span>. The result
-        of <span class="math-span">𝛴</span> are also compared with the
-        precedent cases to verify the simulation results. The mitigation
+        are involved in computing <span class="math-span">&Sum;</span>. The
+        result of <span class="math-span">&Sum;</span> are also compared with
+        the precedent cases to verify the simulation results. The mitigation
         planning during future emergencies is formalized as finding conditions <span
           class="math-span">𝑐<sub>𝑖</sub></span> (related to damage) to
         minimize the damages by calculating <span class="math-span">𝐹(𝑠<sub>𝑖</sub>,
@@ -1139,17 +488,19 @@
         <img src="./img/image3.png" />
         <figcaption class="multi-line-html multi-line-pdf">
           <strong>Figure 3.</strong> Evacuation guidance media and promotional
-          signage (PS) at a terminal. (Left: exit sign (ES). Middle: evacuation
+          signage (<span class="math-span">𝑃𝑆</span>) at a terminal. (Left:
+          exit sign (<span class="math-span">𝐸𝑆</span>). Middle: evacuation
           plan. Right: evacuation map on the wall.).
         </figcaption>
       </figure>
       <p>
         <a href="#_Ref511749734">Figure 3</a> shows the signs that we see in
-        public spaces all over the world. The left picture shows exit signs (ES)
-        indicating the direction of emergency exits. The middle image shows an
-        evacuation plan with a map on the wall. The ES and the map are assumed
-        to be suitable media to prompt evacuations in public space. In 1986 and
-        2011, questionnaire surveys were conducted on individuals asking, <q>What
+        public spaces all over the world. The left picture shows exit signs (<span
+          class="math-span">𝐸𝑆</span>) indicating the direction of emergency
+        exits. The middle image shows an evacuation plan with a map on the wall.
+        The <span class="math-span">𝐸𝑆</span> and the map are assumed to be
+        suitable media to prompt evacuations in public space. In 1986 and 2011,
+        questionnaire surveys were conducted on individuals asking, <q>What
           points do you feel anxious about in emergency situations?</q>, and <q>How
           do you behave when a fire occurs?</q> (<a role="doc-biblioref"
           href="#Abe88">Abe, Misumi, &amp; Okabe, 1988</a>; <a
@@ -1163,20 +514,24 @@
         We propose a crowd control and evacuation guidance (CCEG) management
         system based on the knowledge obtained from these surveys. <a
           href="#_Ref513457664">Figure 4</a> shows shots of promotional signage
-        (PS) in everyday life (on the left). PS has recently been used for
-        promotion and advertising in public spaces. The contents of PS change
-        every few seconds. The right-side of <a href="#_Ref513457664">Figure
-          4</a> shows an image of PS during an emergency. The CCEG system uses PS in
-        the same way as ES during emergencies to guide people to safety. The
-        guidance displayed on PS adaptively provides nearby people with the
-        information to help them evacuate to safety or to control their movement
-        as first responders guide them.
+        (<span class="math-span">𝑃𝑆</span>) in everyday life (on the left). <span
+          class="math-span">𝑃𝑆</span> has recently been used for promotion and
+        advertising in public spaces. The contents of <span class="math-span">𝑃𝑆</span>
+        change every few seconds. The right-side of <a href="#_Ref513457664">Figure
+          4</a> shows an image of <span class="math-span">𝑃𝑆</span> during an
+        emergency. The CCEG system uses <span class="math-span">𝑃𝑆</span> in
+        the same way as <span class="math-span">𝐸𝑆</span> during emergencies
+        to guide people to safety. The guidance displayed on <span
+          class="math-span">𝑃𝑆</span> adaptively provides nearby people with
+        the information to help them evacuate to safety or to control their
+        movement as first responders guide them.
       </p>
       <figure class="column-top" id="_Ref513457664">
         <img src="./img/image4.png" />
         <figcaption class="multi-line-pdf">
-          <strong>Figure 4.</strong> New usage of PS as ES and first responder
-          during emergencies.
+          <strong>Figure 4.</strong> New usage of <span class="math-span">𝑃𝑆</span>
+          as <span class="math-span">𝐸𝑆</span> and first responder during
+          emergencies.
         </figcaption>
       </figure>
     </section>
@@ -1199,13 +554,14 @@
         students at our university, who were asked to walk normally to exit
         number 7 in the mall along the route displayed in <a
           href="#_Ref513457790">Figure 5</a> on different days. At the end of
-        the route, they were asked to recall the number and the locations of ES
-        and digital PS that they spotted. In test A, participants were
-        subsequently asked to retrace their path and count the number
-        attentively; this corresponds to real emergency situations when we look
-        for ES during evacuation. A shopping event was held while performing
-        test B, therefore, seven more PS were displayed than there was in test
-        A.
+        the route, they were asked to recall the number and the locations of <span
+          class="math-span">𝐸𝑆</span> and digital <span class="math-span">𝑃𝑆</span>
+        that they spotted. In test A, participants were subsequently asked to
+        retrace their path and count the number attentively; this corresponds to
+        real emergency situations when we look for <span class="math-span">𝐸𝑆</span>
+        during evacuation. A shopping event was held while performing test B,
+        therefore, seven more <span class="math-span">𝑃𝑆</span> were displayed
+        than there was in test A.
       </p>
       <figure class="column-top" id="_Ref513457790">
         <img src="./img/image5.png" />
@@ -1222,21 +578,31 @@
       </p>
       <ul>
         <li>
-          <p>People noticed at most 30% of ES when they walked unaware of
-            these and detected about thrice the number of signs when they were
-            attentive.</p>
+          <p>
+            People noticed at most 30% of <span class="math-span">𝐸𝑆</span>
+            when they walked unaware of these and detected about thrice the
+            number of signs when they were attentive.
+          </p>
         </li>
         <li>
-          <p>There was little difference in the perception rates between the
-            proportion of ES and PS noticed.</p>
+          <p>
+            There was little difference in the perception rates between the
+            proportion of <span class="math-span">𝐸𝑆</span> and <span
+              class="math-span">𝑃𝑆</span> noticed.
+          </p>
         </li>
         <li>
-          <p>People unconsciously noticed a higher proportion of PS during
-            an unexpected event.</p>
+          <p>
+            People unconsciously noticed a higher proportion of <span
+              class="math-span">𝑃𝑆</span> during an unexpected event.
+          </p>
         </li>
       </ul>
-      <p>This indicates that PS is assumed to function as ES in an emergency
-        and more signs can guide more people to evacuate properly.</p>
+      <p>
+        This indicates that <span class="math-span">𝑃𝑆</span> is assumed to
+        function as <span class="math-span">𝐸𝑆</span> in an emergency and more
+        signs can guide more people to evacuate properly.
+      </p>
       <table id="_Ref511750109" class="bottom">
         <thead>
           <tr>
@@ -1256,7 +622,9 @@
               <p>A</p>
             </td>
             <td style="text-align: center;">
-              <p>ES</p>
+              <p>
+                <span class="math-span">𝐸𝑆</span>
+              </p>
             </td>
             <td>
               <p>36</p>
@@ -1270,7 +638,9 @@
           </tr>
           <tr>
             <td style="text-align: center;">
-              <p>PS</p>
+              <p>
+                <span class="math-span">𝑃𝑆</span>
+              </p>
             </td>
             <td>
               <p>5</p>
@@ -1287,7 +657,9 @@
               <p>B</p>
             </td>
             <td style="text-align: center;">
-              <p>ES</p>
+              <p>
+                <span class="math-span">𝐸𝑆</span>
+              </p>
             </td>
             <td>
               <p>36</p>
@@ -1301,7 +673,9 @@
           </tr>
           <tr>
             <td style="text-align: center;">
-              <p>PS</p>
+              <p>
+                <span class="math-span">𝑃𝑆</span>
+              </p>
             </td>
             <td>
               <p>12*</p>
@@ -1316,7 +690,8 @@
         </tbody>
         <caption class="multi-line-html multi-line-pdf">
           <strong>Table 1.</strong> Survey on emergency-sign awareness (* Seven
-          PS were added for an unexpected event).
+          <span class="math-span">𝑃𝑆</span> were added for an unexpected
+          event).
         </caption>
       </table>
     </section>
@@ -1383,8 +758,10 @@
         </li>
         <li>
           <p>
-            <span class="math-span">𝑠</span> is the number of PS that is used
-            as ES in emergencies. PS was selected in order of the amount
+            <span class="math-span">𝑠</span> is the number of <span
+              class="math-span">𝑃𝑆</span> that is used as <span
+              class="math-span">𝐸𝑆</span> in emergencies. <span
+              class="math-span">𝑃𝑆</span> was selected in order of the amount
             recognized in the surveys.
           </p>
         </li>
@@ -1397,8 +774,9 @@
           class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1"
             role="doc-noteref"
             title="Footnote 1: We calculate a uniform random number for each agent. When the random number is smaller than p, the agents change the goal to the new one. This process and the way in which each agent is implemented as a thread cause stochastic factors in simulations.">1</a></sup></span>.
-        The number of people and PS, <span class="math-span">𝑛</span> and <span
-          class="math-span">𝑠</span> are parameters of <span class="math-span">𝛦<sub>𝑛</sub></span>.
+        The number of people and <span class="math-span">𝑃𝑆</span>, <span
+          class="math-span">𝑛</span> and <span class="math-span">𝑠</span> are
+        parameters of <span class="math-span">𝛦<sub>𝑛</sub></span>.
       </p>
 
       <section id="Sect3.3.1">
@@ -1420,7 +798,7 @@
             number of signs (the numbers in the legends are <span
               class="math-span">𝑝</span>-<span class="math-span">𝑠</span>,
             e.g., 30-4 corresponds to the simulation of <span class="math-span">𝑝
-              = 30%</span> with four PS locations.).
+              = 30%</span> with four <span class="math-span">𝑃𝑆</span> locations.).
           </figcaption>
         </figure>
         <p>
@@ -1433,11 +811,11 @@
           <span class="math-span">(𝑝, 𝑛, 𝑠) = (30%, 1000, 4)</span> of the
           top left chart in <a href="#_Ref513458319">Figure 6</a>. The survey
           results shown in <a href="#_Ref511750109">Table 1</a> indicated 30% of
-          ES were recognized, the cases of <span class="math-span">𝑝 =
-            30%</span>, <span class="math-span">𝑛 = 1000</span> correspond to
-          congestions of a midweek afternoon. Hence, the case with <span
-            class="math-span">(𝑝, 𝑛, 𝑠) = (30%, 1000, 4)</span> was selected
-          as a standard case.
+          <span class="math-span">𝐸𝑆</span> were recognized, the cases of <span
+            class="math-span">𝑝 = 30%</span>, <span class="math-span">𝑛
+            = 1000</span> correspond to congestions of a midweek afternoon. Hence, the
+          case with <span class="math-span">(𝑝, 𝑛, 𝑠) = (30%, 1000, 4)</span>
+          was selected as a standard case.
         </p>
         <p>
           The evacuation rate of the case with <span class="math-span">(𝑝,
@@ -1472,13 +850,14 @@
           operators are generally employed for the task at large events (<a
             role="doc-biblioref" href="#Moo11">Moore, Ali, Mehran, &amp;
             Shah, 2011</a>). As a result, camera monitoring system could be used as
-          a component of CCEG management system using PS.
+          a component of CCEG management system using <span class="math-span">𝑃𝑆</span>.
         </p>
         <figure class="column-top" id="_Ref513459437">
           <figure id="_Ref513459437a">
             <img src="./img/image7.png" />
             <figcaption>
-              <strong>(a)</strong> PS as promotional media.
+              <strong>(a)</strong> <span class="math-span">𝑃𝑆</span> as
+              promotional media.
             </figcaption>
           </figure>
           <figure id="_Ref513459437b">
@@ -1488,19 +867,23 @@
             </figcaption>
           </figure>
           <figcaption class="multi-line-pdf">
-            <strong>Figure 7.</strong> Crowd control management system using PS.
+            <strong>Figure 7.</strong> Crowd control management system using <span
+              class="math-span">𝑃𝑆</span>.
           </figcaption>
         </figure>
         <p>
-          <a href="#_Ref513459437a">Figure 7(a)</a> shows the present usage of
-          PS where PS displays promotional contents; <a href="#_Ref513459437b">Figure
-            7(b)</a> shows CCEG images of PS when PS changes its role to that of ES
-          and displays preplanned messages during emergencies. The part circled
-          as type I in <a href="#_Ref513459437b">Figure 7(b)</a> corresponds to
-          Experiment 1 when manuals based guidance is displayed on PS. The
-          camera monitors the behavior of people, and this case (type II)
-          corresponds to Experiment 2 where PS displays contents suitable to
-          current situations.
+          <a href="#_Ref513459437a">Figure 7(a)</a> shows the present usage of <span
+            class="math-span">𝑃𝑆</span> where <span class="math-span">𝑃𝑆</span>
+          displays promotional contents; <a href="#_Ref513459437b">Figure
+            7(b)</a> shows CCEG images of <span class="math-span">𝑃𝑆</span> when <span
+            class="math-span">𝑃𝑆</span> changes its role to that of <span
+            class="math-span">𝐸𝑆</span> and displays preplanned messages
+          during emergencies. The part circled as type I in <a
+            href="#_Ref513459437b">Figure 7(b)</a> corresponds to Experiment 1
+          when manuals based guidance is displayed on <span class="math-span">𝑃𝑆</span>.
+          The camera monitors the behavior of people, and this case (type II)
+          corresponds to Experiment 2 where <span class="math-span">𝑃𝑆</span>
+          displays contents suitable to current situations.
         </p>
         <p>
           <a href="#_Ref513459770">Figure 8</a> shows the comparison of the
@@ -1512,19 +895,21 @@
         <ul>
           <li>
             <p>
-              Congestions: PS agents calculate population density around them at
-              every simulation step and check whether congestion status is over
-              a pre-specified density value (this time 4 persons/<span
-                class="math-span">m<sup>2</sup></span>).
+              Congestions: <span class="math-span">𝑃𝑆</span> agents calculate
+              population density around them at every simulation step and check
+              whether congestion status is over a pre-specified density value
+              (this time 4 persons/<span class="math-span">m<sup>2</sup></span>).
             </p>
           </li>
           <li>
             <p>
-              Display contents: When PS agents perceive congestion status, they
-              change their PS messages from <q>Go to the nearest exit. The
-                number is X</q> to <q>Go to uncrowded exit. The number is Y</q>. Y
-              is determined serially by the distances from PS located in
-              evacuating direction.
+              Display contents: When <span class="math-span">𝑃𝑆</span> agents
+              perceive congestion status, they change their <span
+                class="math-span">𝑃𝑆</span> messages from <q>Go to the
+                nearest exit. The number is X</q> to <q>Go to uncrowded exit.
+                The number is Y</q>. Y is determined serially by the distances from
+              <span class="math-span">𝑃𝑆</span> located in evacuating
+              direction.
             </p>
           </li>
         </ul>

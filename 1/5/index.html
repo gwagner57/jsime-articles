@@ -1514,7 +1514,7 @@ td.border_left_right {
     </p>
     <p>
       The development of the present computational framework is shown by the
-      flow diagram in <a href="#Fig1">Figure 1</a>, which is typical for
+      flow diagram in <a href="#fig1">Figure 1</a>, which is typical for
       computation frameworks, except for the third Timing Distributions stage. A
       mathematical formulation of a problem (e.g., as a set of equations) is
       presented first (Mathematical Model stage). The mathematical model is then
@@ -1529,7 +1529,7 @@ td.border_left_right {
       underlying mathematical model, parallel implementation type and
       environment, or, eventually, in the expected performance.
     </p>
-    <figure id="Fig1" class="top">
+    <figure id="fig1" class="top">
       <img src="./img/image1.png" />
       <figcaption>
         <strong>Figure 1.</strong> Stages in the proposed framework development.
@@ -1675,7 +1675,7 @@ td.border_left_right {
     </p>
     <p>
       A block diagram showing the flow of the simulation framework is provided
-      in <a href="#Fig2">Figure 2</a>. The framework models the performance of
+      in <a href="#fig2">Figure 2</a>. The framework models the performance of
       methods that solve the linear system
     </p>
     <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1694,7 +1694,7 @@ td.border_left_right {
           </math>
     <p>using relaxation methods in either a synchronous or asynchronous
       manner.</p>
-    <figure id="Fig2" class="top">
+    <figure id="fig2" class="top">
       <img src="./img/image2.png" />
       <figcaption>
         <strong>Figure 2.</strong> Block diagram of the simulation framework.
@@ -1756,7 +1756,7 @@ td.border_left_right {
       the three required functions are passed as function handles.
     </p>
     <p>
-      The simulation itself (see <em>Simulation</em> block in <a href="#Fig2">Figure
+      The simulation itself (see <em>Simulation</em> block in <a href="#fig2">Figure
         2</a>) progresses by reading in the user provided input data, assigning an
       initial update pattern and time to each processor, and then beginning the
       main loop. Inside of the main loop, the time increments and a check is
@@ -2069,7 +2069,7 @@ td.border_left_right {
     </ol>
     <p>
       where <span class="math-span">𝑠</span> referenced is the <q>scale_factor</q>
-      defined in the block diagram given by <a href="#Fig2">Figure 2</a>. For
+      defined in the block diagram given by <a href="#fig2">Figure 2</a>. For
       example, if the desired precision is hundredths of a second, <span
         class="math-span">𝑠 = 10<sup>2</sup></span>, and the sampled value <span
         class="math-span">&tau;<sub>𝑙</sub></span> becomes
@@ -2223,9 +2223,9 @@ td.border_left_right {
       <p>
         To begin with, an example of nominal performance of the solution of the
         two dimensional Laplacian in a synchronous environment is provided by <a
-          href="#Fig3">Figure 3</a>.
+          href="#fig3">Figure 3</a>.
       </p>
-      <figure id="Fig3">
+      <figure id="fig3">
         <img src="./img/image3.png" />
         <figcaption class="multi-line-pdf">
           <strong>Figure 3.</strong> Example of nominal performance of the
@@ -2234,7 +2234,7 @@ td.border_left_right {
       </figure>
       <p>
         Next, consider the same problem from above, but in two slightly more
-        complicated scenarios. In <a href="#Fig4">Figure 4</a> one of the ten
+        complicated scenarios. In <a href="#fig4">Figure 4</a> one of the ten
         processors involved in updating blocks of components of <span
           class="math-span">𝑥</span> is provided updates more slowly than the
         other processors. This could reflect the scenario where updates are
@@ -2245,7 +2245,7 @@ td.border_left_right {
         progression of the (global) residual subject to having a single slower
         processor with different degrees of slowdown (from zero to 11x).
       </p>
-      <figure id="Fig4">
+      <figure id="fig4">
         <img src="./img/image4.png" />
         <figcaption class="multi-line-pdf">
           <strong>Figure 4.</strong> Example of experiments within the
@@ -2253,7 +2253,7 @@ td.border_left_right {
         </figcaption>
       </figure>
       <p>
-        In <a href="#Fig5">Figure 5</a> the processor updates are not restricted
+        In <a href="#fig5">Figure 5</a> the processor updates are not restricted
         to occur synchronously. Instead, the processors are assumed to have
         similar performance and perform their updates in time <span
           class="math-span">𝑡<sub>𝑖</sub> &sim; 𝑁(&mu;, &sigma;<sup>2</sup>)
@@ -2265,7 +2265,7 @@ td.border_left_right {
         designed to address the challenges in creating very large scale HPC
         environments.
       </p>
-      <figure id="Fig5">
+      <figure id="fig5">
         <img src="./img/image5.png" />
         <figcaption class="multi-line-pdf">
           <strong>Figure 5.</strong> Example of experiments within the
@@ -2278,7 +2278,7 @@ td.border_left_right {
   <section id="sect5">
     <h1>Asynchronous Jacobi Implementations for the Framework</h1>
     <p>
-      <a href="#Fig4">Figure 4</a> and <a href="#Fig5">Figure 5</a> show
+      <a href="#fig4">Figure 4</a> and <a href="#fig5">Figure 5</a> show
       relative differences in compute times among sharedmemory computing
       elements for a specific problem and a specific asynchronous iterative
       method. A more general simulation framework, which can be used for
@@ -2732,32 +2732,32 @@ td.border_left_right {
         </div>
       </div>
       <p>
-        <a href="#Fig6">Figure 6</a> compares <span class="small-caps">Safe</span>
+        <a href="#fig6">Figure 6</a> compares <span class="small-caps">Safe</span>
         and <span class="small-caps">Race</span> calculation times and number of
         iterations. Calculation times and average iteration counts are similar
         for thread counts up to 81, but behavior diverges beyond that. For
         thread counts 101 through 501, <span class="small-caps">Race</span>
         requires more iterations, perhaps to compensate for threads reading and
         computing with inaccurate <span class="math-span">𝑥</span> vectors.
-        Despite this, <a href="#Fig6a">Figure 6a</a> shows that <span
+        Despite this, <a href="#fig6a">Figure 6a</a> shows that <span
           class="small-caps">Race</span> is still quicker for the largest thread
         counts, perhaps because threads do not use locks to access data and
-        eliminate that overhead cost. <a href="#Fig6a">Figure 6a</a> also shows
+        eliminate that overhead cost. <a href="#fig6a">Figure 6a</a> also shows
         that perhaps locks are not too costly for intermediate thread counts
         101, 201, and 251, where <span class="small-caps">Safe</span>
         outperforms <span class="small-caps">Race</span> in terms of calculation
         time.
       </p>
-      <table id="Fig6" class="table-figure top">
+      <table id="fig6" class="table-figure top">
         <tbody>
           <tr>
-            <td><figure id="Fig6a">
+            <td><figure id="fig6a">
                 <img src="./img/image6a.png" />
                 <figcaption>
                   <strong>(a)</strong> Calculation time.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig6b">
+            <td><figure id="fig6b">
                 <img src="./img/image6b.png" />
                 <figcaption>
                   <strong>(b)</strong> Number of iterations, average per thread.
@@ -2786,13 +2786,13 @@ td.border_left_right {
         the HPC architecture. <a href="#Alg2">Algorithm 2</a> demonstrates the
         use of a time distribution in the framework. Thread counts of 11, 21,
         41, 81, 101, 201, 251, and 401 were used to collect data for the
-        generation of distributions, some of which are in <a href="#Fig7">Figure
-          7</a> and <a href="#Fig8">Figure 8</a>. For 201 threads, <span
-          class="small-caps">Safe</span> in <a href="#Fig7d">Figure 7d</a> and <a
-          href="#Fig7f">Figure 7f</a> shows the tendency of locks to stratify
+        generation of distributions, some of which are in <a href="#fig7">Figure
+          7</a> and <a href="#fig8">Figure 8</a>. For 201 threads, <span
+          class="small-caps">Safe</span> in <a href="#fig7d">Figure 7d</a> and <a
+          href="#fig7f">Figure 7f</a> shows the tendency of locks to stratify
         copy and update times, compared with <span class="small-caps">Race</span>
-        in <a href="#Fig8d">Figure 8d</a> and <a href="#Fig8f">Figure 8f</a>,
-        which are less uniform. These findings are mirrored in <a href="#Tab1">Table
+        in <a href="#fig8d">Figure 8d</a> and <a href="#fig8f">Figure 8f</a>,
+        which are less uniform. These findings are mirrored in <a href="#tab1">Table
           1</a>, which provides mean times for each of the three operations that
         were benchmarked in this implementation, for <span class="small-caps">Safe</span>
         and <span class="small-caps">Race</span>. <span class="small-caps">Race</span>
@@ -2800,7 +2800,7 @@ td.border_left_right {
         comparable <span class="small-caps">Safe</span> times. Compute times
         typically dominate total iteration time, except for <span
           class="small-caps">Safe</span> copy and update times for threads 201,
-        251, and 401. <a href="#Tab1">Table 1</a> shows that increasing the
+        251, and 401. <a href="#tab1">Table 1</a> shows that increasing the
         number of threads decreases <span class="small-caps">Race</span> copy,
         compute, and update times until cores are sufficiently over-subscribed:
         at 201 threads, these operations have become significantly more costly,
@@ -2811,7 +2811,7 @@ td.border_left_right {
         validate the performance of the time distributions, so that the
         framework provides results comparable to the HPC hardware.
       </p>
-      <table id="Tab1" class="top">
+      <table id="tab1" class="top">
         <thead>
           <tr>
             <th rowspan="2">Threads</th>
@@ -2912,24 +2912,24 @@ td.border_left_right {
           operations.
         </caption>
       </table>
-      <table id="Fig7" class="table-figure top">
+      <table id="fig7" class="table-figure top">
         <tbody>
           <tr>
-            <td><figure id="Fig7a">
+            <td><figure id="fig7a">
                 <img src="./img/image7a.png" />
                 <figcaption>
                   <strong>(a)</strong> <span class="math-span">𝑥</span> copy,
                   11 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig7b">
+            <td><figure id="fig7b">
                 <img src="./img/image7b.png" />
                 <figcaption>
                   <strong>(b)</strong> <span class="math-span">𝑥</span>
                   compute, 11 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig7c">
+            <td><figure id="fig7c">
                 <img src="./img/image7c.png" />
                 <figcaption>
                   <strong>(c)</strong> <span class="math-span">𝑥</span> update,
@@ -2938,21 +2938,21 @@ td.border_left_right {
               </figure></td>
           </tr>
           <tr>
-            <td><figure id="Fig7d">
+            <td><figure id="fig7d">
                 <img src="./img/image7d.png" />
                 <figcaption>
                   <strong>(d)</strong> <span class="math-span">𝑥</span> copy,
                   81 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig7e">
+            <td><figure id="fig7e">
                 <img src="./img/image7e.png" />
                 <figcaption>
                   <strong>(e)</strong> <span class="math-span">𝑥</span>
                   compute, 81 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig7f">
+            <td><figure id="fig7f">
                 <img src="./img/image7f.png" />
                 <figcaption>
                   <strong>(f)</strong> <span class="math-span">𝑥</span> update,
@@ -2961,21 +2961,21 @@ td.border_left_right {
               </figure></td>
           </tr>
           <tr>
-            <td><figure id="Fig7g">
+            <td><figure id="fig7g">
                 <img src="./img/image7g.png" />
                 <figcaption>
                   <strong>(g)</strong> <span class="math-span">𝑥</span> copy,
                   201 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig7h">
+            <td><figure id="fig7h">
                 <img src="./img/image7h.png" />
                 <figcaption>
                   <strong>(h)</strong> <span class="math-span">𝑥</span>
                   compute, 201 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig7i">
+            <td><figure id="fig7i">
                 <img src="./img/image7i.png" />
                 <figcaption>
                   <strong>(i)</strong> <span class="math-span">𝑥</span> update,
@@ -2990,24 +2990,24 @@ td.border_left_right {
         </caption>
       </table>
 
-      <table id="Fig8" class="table-figure top">
+      <table id="fig8" class="table-figure top">
         <tbody>
           <tr>
-            <td><figure id="Fig8a">
+            <td><figure id="fig8a">
                 <img src="./img/image8a.png" />
                 <figcaption>
                   <strong>(a)</strong> <span class="math-span">𝑥</span> copy,
                   11 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig8b">
+            <td><figure id="fig8b">
                 <img src="./img/image8b.png" />
                 <figcaption>
                   <strong>(b)</strong> <span class="math-span">𝑥</span>
                   compute, 11 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig8c">
+            <td><figure id="fig8c">
                 <img src="./img/image8c.png" />
                 <figcaption>
                   <strong>(c)</strong> <span class="math-span">𝑥</span> update,
@@ -3016,21 +3016,21 @@ td.border_left_right {
               </figure></td>
           </tr>
           <tr>
-            <td><figure id="Fig8d">
+            <td><figure id="fig8d">
                 <img src="./img/image8d.png" />
                 <figcaption>
                   <strong>(d)</strong> <span class="math-span">𝑥</span> copy,
                   81 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig8e">
+            <td><figure id="fig8e">
                 <img src="./img/image8e.png" />
                 <figcaption>
                   <strong>(e)</strong> <span class="math-span">𝑥</span>
                   compute, 81 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig8f">
+            <td><figure id="fig8f">
                 <img src="./img/image8f.png" />
                 <figcaption>
                   <strong>(f)</strong> <span class="math-span">𝑥</span> update,
@@ -3039,21 +3039,21 @@ td.border_left_right {
               </figure></td>
           </tr>
           <tr>
-            <td><figure id="Fig8g">
+            <td><figure id="fig8g">
                 <img src="./img/image8g.png" />
                 <figcaption>
                   <strong>(g)</strong> <span class="math-span">𝑥</span> copy,
                   201 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig8h">
+            <td><figure id="fig8h">
                 <img src="./img/image8h.png" />
                 <figcaption>
                   <strong>(h)</strong> <span class="math-span">𝑥</span>
                   compute, 201 threads.
                 </figcaption>
               </figure></td>
-            <td><figure id="Fig8i">
+            <td><figure id="fig8i">
                 <img src="./img/image8i.png" />
                 <figcaption>
                   <strong>(i)</strong> <span class="math-span">𝑥</span> update,
@@ -3078,9 +3078,9 @@ td.border_left_right {
         and in a sense implements a <em>matrix-free</em> solution. For this
         implementation, the Laplacian was discretized over a <span
           class="math-span">600 &times; 600</span> grid with boundary conditions
-        set according to <a href="#Tab2">Table 2</a>.
+        set according to <a href="#tab2">Table 2</a>.
       </p>
-      <table id="Tab2" class="table-matrix bottom">
+      <table id="tab2" class="table-matrix bottom">
         <tbody>
           <tr class="border_top_bottom">
             <td class="border_left_right">0</td>
@@ -3581,29 +3581,29 @@ td.border_left_right {
         </div>
       </div>
       <p>
-        <a href="#Fig9">Figure 9</a> provides histograms and kernel fits for
-        each of the thread counts. <a href="#Tab3">Table 3</a> and <a
-          href="#Fig9">Figure 9</a> show that with increasing thread count, mean
+        <a href="#fig9">Figure 9</a> provides histograms and kernel fits for
+        each of the thread counts. <a href="#tab3">Table 3</a> and <a
+          href="#fig9">Figure 9</a> show that with increasing thread count, mean
         iteration time decreases, but iteration times variance increases. This
         increase in iteration time variation may result from increased
         opportunities for lock collisions with greater thread counts.
       </p>
 
-      <table id="Fig9" class="table-figure top">
+      <table id="fig9" class="table-figure top">
         <tr>
-          <td><figure id="Fig9a">
+          <td><figure id="fig9a">
               <img src="./img/image9a.png" />
               <figcaption>
                 <strong>(a)</strong> 10 threads.
               </figcaption>
             </figure></td>
-          <td><figure id="Fig9b">
+          <td><figure id="fig9b">
               <img src="./img/image9b.png" />
               <figcaption>
                 <strong>(b)</strong> 25 threads.
               </figcaption>
             </figure></td>
-          <td><figure id="Fig9c">
+          <td><figure id="fig9c">
               <img src="./img/image9c.png" />
               <figcaption>
                 <strong>(c)</strong> 50 threads.
@@ -3611,19 +3611,19 @@ td.border_left_right {
             </figure></td>
         </tr>
         <tr>
-          <td><figure id="Fig9d">
+          <td><figure id="fig9d">
               <img src="./img/image9d.png" />
               <figcaption>
                 <strong>(d)</strong> 75 threads.
               </figcaption>
             </figure></td>
-          <td><figure id="Fig9e">
+          <td><figure id="fig9e">
               <img src="./img/image9e.png" />
               <figcaption>
                 <strong>(e)</strong> 100 threads.
               </figcaption>
             </figure></td>
-          <td><figure id="Fig9f">
+          <td><figure id="fig9f">
               <img src="./img/image9f.png" />
               <figcaption>
                 <strong>(f)</strong> 150 threads.
@@ -3636,11 +3636,11 @@ td.border_left_right {
       </table>
       <p>
         Since this implementation is even more compute bound than the first one,
-        <a href="#Tab3">Table 3</a> shows a general decrease in the time for
+        <a href="#tab3">Table 3</a> shows a general decrease in the time for
         each iteration as the thread count is increased. While there is no
-        inflection point evident in the data presented in <a href="#Tab3">Table
-          3</a>, compared to <span class="small-caps">Race</span> in <a href="#Tab1">Table
-          1</a>, <a href="#Tab3">Table 3</a> still suggests that once the number of
+        inflection point evident in the data presented in <a href="#tab3">Table
+          3</a>, compared to <span class="small-caps">Race</span> in <a href="#tab1">Table
+          1</a>, <a href="#tab3">Table 3</a> still suggests that once the number of
         threads outnumbers physical cores, performance gains diminish. For
         denser matrices, or for different applications on different systems,
         these trends could change as the memory-based activities become
@@ -3649,7 +3649,7 @@ td.border_left_right {
         movement.
       </p>
 
-      <table id="Tab3" class="bottom">
+      <table id="tab3" class="bottom">
         <thead>
           <tr>
             <th>Threads</th>
@@ -3784,7 +3784,7 @@ td.border_left_right {
         distributions were used in the simulation framework to provide update
         times to the simulated processors that are reflective of the HPC
         hardware that the data was collected on. Output from the average of
-        these runs is provided in <a href="#Tab4">Table 4</a>. The leftmost
+        these runs is provided in <a href="#tab4">Table 4</a>. The leftmost
         column provides the number of threads that were used (or simulated), the
         middle column shows the average over multiple runs of the parallel
         implementation, and the rightmost column shows the average over multiple
@@ -3795,7 +3795,7 @@ td.border_left_right {
         issue that may be improved with framework implementation changes. Future
         work includes model validation for other problems and larger problems.
       </p>
-      <table id="Tab4" class="top">
+      <table id="tab4" class="top">
         <thead>
           <tr>
             <th>Thread<br /> Count
@@ -3860,11 +3860,11 @@ td.border_left_right {
       increase of faults (see the references in <a href="#sect2">Section 2</a>),
       development of fault tolerant algorithms is an important endeavor. A block
       diagram showing the additional functionality dealing with fault-tolerance
-      is shown in <a href="#Fig10">Figure 10</a>. The new functionality is
+      is shown in <a href="#fig10">Figure 10</a>. The new functionality is
       achieved by passing in another function handle that performs the fault
       tolerance check and recovery work.
     </p>
-    <figure id="Fig10" class="bottom">
+    <figure id="fig10" class="bottom">
       <img src="./img/image10.png" />
       <figcaption class="multi-line-html multi-line-pdf">
         <strong>Figure 10.</strong> Block diagram of the simulation framework
@@ -4342,19 +4342,19 @@ td.border_left_right {
         too small causes the algorithm to checkpoint more frequently than
         needed. Examples of the effects of a fault with different values
         selected for <span class="math-span">&alpha;</span> are given by <a
-          href="#Fig11">Figure 11</a>.
+          href="#fig11">Figure 11</a>.
       </p>
-      <table id="Fig11" class="table-figure top">
+      <table id="fig11" class="table-figure top">
         <tr>
           <td>
-            <figure id="Fig11a">
+            <figure id="fig11a">
               <img src="./img/image11a.png" />
               <figcaption>
                 <strong>(a)</strong> Effect of fault - no checkpointing.
               </figcaption>
             </figure>
           </td>
-          <td><figure id="Fig11b">
+          <td><figure id="fig11b">
               <img src="./img/image11b.png" />
               <figcaption>
                 <strong>(b)</strong> Effect of fault - <span class="math-span">&alpha;
@@ -4366,7 +4366,7 @@ td.border_left_right {
       <table class="table-figure top">
         <tr>
           <td>
-            <figure id="Fig11c">
+            <figure id="fig11c">
               <img src="./img/image11c.png" />
               <figcaption>
                 <strong>(c)</strong> Effect of fault - <span class="math-span">&alpha;
@@ -4374,7 +4374,7 @@ td.border_left_right {
               </figcaption>
             </figure>
           </td>
-          <td><figure id="Fig11d">
+          <td><figure id="fig11d">
               <img src="./img/image11d.png" />
               <figcaption>
                 <strong>(d)</strong> Effect of fault - <span class="math-span">&alpha;
@@ -4388,7 +4388,7 @@ td.border_left_right {
         </caption>
       </table>
       <p>
-        Note in <a href="#Fig11">Figure 11</a> that no checkpointing results in
+        Note in <a href="#fig11">Figure 11</a> that no checkpointing results in
         a delay to convergence relative to the use of checkpointing with either
         <span class="math-span">&alpha; = 1</span> or <span class="math-span">&alpha;
           = 10</span>. The size of the fault selected in this study, <span
