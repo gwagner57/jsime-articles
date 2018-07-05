@@ -55,7 +55,7 @@ textarea {
             Pagination and Page Regions
    ------------------------------------------- */
 @page {
-  size: A4 /* A4 US-Letter */ portrait;
+  size: US-Letter /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
 
   @top-center {
@@ -259,6 +259,10 @@ code[class *= "language-"],
   /* multi-line captions */
   .multi-line-pdf {
     text-align: left;
+  }
+  
+  .math-span {
+    font-family: "Cambria Math";
   }
 }
 
