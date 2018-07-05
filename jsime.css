@@ -28,8 +28,8 @@ video {
 }
 
 img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width:100%;
+  max-height:100%;
 }
 
 fieldset {
@@ -57,9 +57,9 @@ textarea {
 @page {
   size: US-Letter /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
-
+  
   @top-center {
-    content: string(articleTitleAbbr);
+    content: string(articleTitleAbbr); 
     font-size: 75%;
   }
   @bottom-right {
@@ -86,17 +86,17 @@ textarea {
     margin: 0 auto;
     padding: 10px;
     max-width: 45em;
-    hyphens: auto; /* does this work? */
+    hyphens: auto;  /* does this work? */
   }
   body.feedbackMode {
     margin-left: 0;
   }
   .two-column {
-    columns: 2;
+    columns: 2; 
     column-gap: 0.25in;
   }
   main > section > h1,
-  section[role = "doc-abstract"] > h1 {
+  section[role="doc-abstract"] > h1 {
     font-size: 1.5rem;
   }
   main > section > section > h1 {
@@ -129,7 +129,7 @@ code[class *= "language-"],
     font: 10pt/1.2 "PT Serif", "TimesNewRoman", "serif";
     text-align: justify;
     hyphens: auto;
-  }
+  } 
   header {
     page-break-after: avoid;
   }
@@ -137,18 +137,18 @@ code[class *= "language-"],
     display: none;
   }
   main {
-    columns: 2;
+    columns: 2; 
     column-gap: 0.25in;
   }
   #front-matter,
   table {
     column-span: all;
   }
-  section[role = "doc-abstract"] {
-    margin-bottom: 1em;
+  section[role="doc-abstract"] {
+    margin-bottom: 1em;  
   }
-  main > section > h1,
-  section[role = "doc-abstract"] > h1 {
+  main > section > h1, 
+  section[role="doc-abstract"] > h1 {
     font-size: 1.1rem;
   }
   main > section > section > h1 {
@@ -191,19 +191,19 @@ code[class *= "language-"],
   li {
     list-style-position: outside;
   }
-
-  img {
+  
+  img { 
     prince-image-resolution: auto;
     prince-background-image-resolution: normal;
   }
-
+  
   /* adjusting prism.css settings */
   code[class *= "language-"],
   pre[class *= "language-"] {
     font-size: smaller;
     line-height: 1.2;
   }
-
+  
   ::footnote-call {
     content: "[" counter(footnote) "]";
     font-size: 75%;
@@ -259,8 +259,8 @@ code[class *= "language-"],
   /* multi-line captions */
   .multi-line-pdf {
     text-align: left;
-  }
-  
+}
+
   .math-span {
     font-family: "Cambria Math";
   }
@@ -292,7 +292,7 @@ h1 {
   string-set: articleNumber content()
 }
 
-#articleURL {
+#articleURL { 
   string-set: articleURL content()
 }
 
@@ -313,14 +313,14 @@ address {
 address > div[property] {
   text-align: center;
 }
-address > div[property = "name"] {
+address > div[property="name"] {
   font-size: 150%;
 }
-address > div[property = "email"] {
+address > div[property="email"] {
   font-size: 100%;
 }
 /* single author */
-#front-matter > address > div[property = "affiliation"] {
+#front-matter > address > div[property="affiliation"] {
   text-align: center;
   font-size: 100%;
   margin-top: 0.5em;
@@ -378,10 +378,10 @@ li > p  {
   content: ",";
 }
 
-section[role = "doc-bibliography"] ul {
+section[role="doc-bibliography"] ul {
   list-style: none;
 }
-section[role = "doc-bibliography"] li {
+section[role="doc-bibliography"] li {
   /* text-indent: 1.5em hanging; */
   text-indent: -1em;
   margin-bottom: 3px;
@@ -414,11 +414,11 @@ table > caption {
 }
 
 figure {
-  margin: 1em auto;
+  margin: 1em auto;  
   text-align: center;
 }
 div.table figure {
-  margin: 0;
+  margin: 0;  
 }
 figcaption {
   margin-top: 0.7em;
@@ -463,7 +463,21 @@ blockquote.float-right {
   display: none;
 }
 
-@media only screen and (min-width : 1200px) {
+@media only screen and (min-width: 1200px) {
+  #toc {  /* table of contents */
+    display: block;
+    position: fixed;
+    top: 12%; left: 3%;
+    width: 15em;
+	font-size: smaller;
+  }
+  #toc > h1 {  
+	font-size: 1.2em;
+  }
+  #toc > ol {  
+    padding-left: 0;
+  }
+
   #feedback {
     display: block;
     position: fixed;
@@ -472,7 +486,7 @@ blockquote.float-right {
     width: 10em;
   }
   body > aside#feedback > form {
-    margin-left: 15em; /* display: none; */
+    margin-left: 15em;  /* display: none; */
     transition: margin-left .5s;
   }
   body.feedbackMode > aside#feedback > form {
@@ -489,12 +503,12 @@ blockquote.float-right {
     position: absolute;
     top: -4.5em;
     right: 0.5em;
-    margin: 0;
-    line-height: 1;
+	margin: 0;
+	line-height: 1;
     background-color: brown;
     color: yellow;
     cursor: pointer;
-  }
+  }  
   body.feedbackMode > aside#feedback > form > h1 {
     margin-top: 1em;
     font-size: 1.4em;
@@ -505,12 +519,12 @@ blockquote.float-right {
   }
   body.feedbackMode > aside#feedback > form > div {
     margin-bottom: 0.5em;
-  }
+  }  
   body.feedbackMode > aside#feedback > form textarea {
     width: 100%;
     height: 5em;
   }
-  body.feedbackMode > aside#feedback > form input:invalid,
+  body.feedbackMode > aside#feedback > form input:invalid, 
   body.feedbackMode > aside#feedback > form textarea:invalid {
     border: dashed red;
   }
@@ -536,7 +550,7 @@ main > section {
 main > section > section {
   counter-reset: sub-sub-sections;
 }
-main > section:not([role = "doc-abstract"]):not([role = "doc-bibliography"]):not([role = "doc-acknowledgements"]):not([role = "doc-endnotes"]):not(.no-counter) > h1:before {
+main > section:not([role="doc-abstract"]):not([role="doc-bibliography"]):not([role="doc-acknowledgements"]):not([role="doc-endnotes"]):not(.no-counter) > h1:before {
   counter-increment: sections;
   content: counter(sections) " "
 }

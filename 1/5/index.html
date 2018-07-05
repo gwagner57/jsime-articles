@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -41,19 +41,6 @@
 <!--Canonical URL-->
 <link rel="canonical"
   href="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="async"
-  src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag () {
-    dataLayer.push( arguments );
-  }
-  gtag( 'js', new Date() );
-  gtag( 'config', 'UA-115543812-1', {
-    'anonymize_ip': true
-  } );
-</script>
 <!--Stylesheets-->
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
@@ -91,7 +78,23 @@ td.border_left_right {
   border-right: 1pt solid black;
 }
 </style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript" async=""
+  src="https://www.google-analytics.com/analytics.js"></script>
+<script async="async"
+  src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag () {
+    dataLayer.push( arguments );
+  }
+  gtag( 'js', new Date() );
+  gtag( 'config', 'UA-115543812-1', {
+    'anonymize_ip': true
+  } );
+</script>
 <!--Scripts-->
+<!-- <script src="../../createTableOfContents.js"></script> -->
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=MML_SVG"></script>
 <!--schema.org JSON-LD-->
@@ -300,7 +303,7 @@ td.border_left_right {
       </ul>
     </div>
   </div>
-  <section role="doc-abstract">
+  <section role="doc-abstract" id="sect0">
     <h1>Abstract</h1>
     <p>
       As high-performance computing (HPC) platforms progress towards exascale,
@@ -315,21 +318,21 @@ td.border_left_right {
       lightweight alternative to existing computational frameworks to allow for
       easy experimentation with various relaxation iterative techniques,
       solution updating schemes, and predicted performance. The simulation
-      framework is implemented in MATLAB<sup>&reg;</sup> using function handles,
+      framework is implemented in MATLAB<sup>®</sup> using function handles,
       which offers a modular and easily extensible design. An example of a case
       study using the simulation framework is presented to examine the efficacy
       of different checkpointing schemes for asynchronous relaxation methods.
     </p>
   </section>
 
-  <section id="Sect1">
+  <section id="sect1">
     <h1>Introduction</h1>
     <p>
       Asynchronous iterative methods are increasing in popularity recently due
       to their ability to be parallelized naturally on modern co-processors such
-      as GPUs and Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup>. Many
-      examples of recent work using fine-grained parallel methods are available
-      (see <a role="doc-biblioref" href="#ADQO16">Anzt, Dongarra, &amp;
+      as GPUs and Intel<sup>®</sup> Xeon Phi<sup>™</sup>. Many examples of
+      recent work using fine-grained parallel methods are available (see <a
+        role="doc-biblioref" href="#ADQO16">Anzt, Dongarra, &amp;
         Quintana-Ortí, 2016</a>, <a role="doc-biblioref" href="#Anz12">Anzt,
         2012</a>, <a role="doc-biblioref" href="#CAD15">Chow, Anzt, &amp;
         Dongarra, 2015</a>, <a role="doc-biblioref" href="#CP15">Chow, &amp;
@@ -436,7 +439,7 @@ td.border_left_right {
     </p>
   </section>
 
-  <section id="Sect2">
+  <section id="sect2">
     <h1>Related Work</h1>
     <p>
       Development of computational frameworks for the purposes of simulating
@@ -566,14 +569,14 @@ td.border_left_right {
     </p>
   </section>
 
-  <section id="Sect3">
+  <section id="sect3">
     <h1>Asynchronous Iterative Methods</h1>
     <p>
       In fine-grained parallel computation, each component of the problem (i.e.,
       a matrix or vector entry) is updated in a manner that does not require
       information from the computations involving other components while the
       update is being made. This allows for each computing element (e.g., for a
-      single processor, CUDA core, or Xeon Phi<sup>&trade;</sup> core) to act
+      single processor, CUDA core, or Xeon Phi<sup>™</sup> core) to act
       independently from all other computing elements. Depending on the size of
       both the problem and the computing environment, each computing element may
       be responsible for updating a single entry to update, or may be assigned a
@@ -585,8 +588,8 @@ td.border_left_right {
       <a role="doc-biblioref" href="#Szy98">Szyld, 1998</a>) among many others.
     </p>
     <p>
-      To keep the mathematical model as general as possible, consider a
-      function, <span class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>, where <span
+      To keep the mathematical model as general as possible, consider a <<<<<<<
+      HEAD function, <span class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>, where <span
         class="math-span">𝐷</span> is a domain that represents a product space
       <span class="math-span">𝐷 = 𝐷<sub>1</sub> &times; 𝐷<sub>2</sub>
         &times; &hellip; &times; 𝐷<sub>2</sub></span>. The goal is to find a fixed
@@ -1455,7 +1458,7 @@ td.border_left_right {
     </section>
   </section>
 
-  <section id="Sect4">
+  <section id="sect4">
     <h1>Design of Simulation Framework</h1>
     <p>
       The simulation framework proposed here is designed to simulate the
@@ -1746,8 +1749,8 @@ td.border_left_right {
       The simulation framework requires some data that specifies parameters
       concerning the particular run of the simulation such as the desired
       tolerance, the number of processors to simulate, and a computational scale
-      factor. The framework itself is developed in MATLAB<sup>&reg;</sup> and
-      the three required functions are passed as function handles.
+      factor. The framework itself is developed in MATLAB<sup>®</sup> and the
+      three required functions are passed as function handles.
     </p>
     <p>
       The simulation itself (see <em>Simulation</em> block in <a href="#Fig2">Figure
@@ -1997,7 +2000,7 @@ td.border_left_right {
       </div>
     </div>
     <p>
-      In <a href="#Alg2">Algorithm 2</a>, a given update time <span
+      <a href="#Alg2">Algorithm 2</a>, a given update time <span
         class="math-span">&tau;<sub>𝑙</sub></span> will often not be sampled as
       an integer. The simulation adjusts for this by scaling the number that is
       sampled by the appropriate order of magnitude, adjusting the maximum value
@@ -2105,7 +2108,6 @@ td.border_left_right {
           </mtr>
           </mtable>
         </math>
-    <p>
     <p>
       Inside of the simulation framework, time is abstracted away to <q>units
         of time</q>, and then the final time is scaled back into the appropriate
@@ -2270,7 +2272,7 @@ td.border_left_right {
     </section>
   </section>
 
-  <section id="Sect5">
+  <section id="sect5">
     <h1>Asynchronous Jacobi Implementations for the Framework</h1>
     <p>
       <a href="#Fig4">Figure 4</a> and <a href="#Fig5">Figure 5</a> show
@@ -2294,7 +2296,7 @@ td.border_left_right {
       specific operations or calculations during method execution, data is
       collected from the application during execution. In the implementation
       code, operations are enclosed within calls to time functions, which
-      measure time to perform the operations. In this work the OpenMP<sup>&reg;</sup>
+      measure time to perform the operations. In this work the OpenMP<sup>®</sup>
       library function
       <code>omp_get_wtime()</code>
       is used to measure wall time. For HPC implementations that use MPI,
@@ -2332,17 +2334,17 @@ td.border_left_right {
           </math>
     <p>
       where the right-hand side is initialized with Dirichlet boundary
-      conditions. Both implementations use OpenMP<sup>&reg;</sup> for
-      shared-memory parallelism and are executed on the shared-memory computing
-      platform nicknamed Rulfo, which is an Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup>
+      conditions. Both implementations use OpenMP<sup>®</sup> for shared-memory
+      parallelism and are executed on the shared-memory computing platform
+      nicknamed Rulfo, which is an Intel<sup>®</sup> Xeon Phi<sup>™</sup>
       Knight's Landing<span class="fn"><sup><a href="#ftn2"
           id="fn_pointer_ftn2" role="doc-noteref"
           title="Footnote 2: Rulfo is a part of computing resources of the Department of Modeling, Simulation and Visualization Engineering at Old Dominion University.">2</a></sup></span>
       having 7210 model processor with 64 cores. Each core may optimally execute
       4 threads for 256 threads total, and runs at 1.30 GHz. The simulation
-      framework and experiments were implemented in MATLAB<sup>&reg;</sup>
-      R2018a, while the Jacobi implementations were written in C/C++ using the
-      Intel C compiler version 17.04 and OpenMP<sup>&reg;</sup> version 4.5.
+      framework and experiments were implemented in MATLAB<sup>®</sup> R2018a,
+      while the Jacobi implementations were written in C/C++ using the Intel C
+      compiler version 17.04 and OpenMP<sup>®</sup> version 4.5.
     </p>
 
     <section id="Sect5.1">
@@ -2744,20 +2746,22 @@ td.border_left_right {
         time.
       </p>
       <table id="Fig6" class="table-figure top">
-        <tr>
-          <td><figure id="Fig6a">
-              <img src="./img/image6a.png" />
-              <figcaption>
-                <strong>(a)</strong> Calculation time.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig6b">
-              <img src="./img/image6b.png" />
-              <figcaption>
-                <strong>(b)</strong> Number of iterations, average per thread.
-              </figcaption>
-            </figure></td>
-        </tr>
+        <tbody>
+          <tr>
+            <td><figure id="Fig6a">
+                <img src="./img/image6a.png" />
+                <figcaption>
+                  <strong>(a)</strong> Calculation time.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig6b">
+                <img src="./img/image6b.png" />
+                <figcaption>
+                  <strong>(b)</strong> Number of iterations, average per thread.
+                </figcaption>
+              </figure></td>
+          </tr>
+        </tbody>
         <caption>
           <strong>Figure 6.</strong> Performance variations between <span
             class="small-caps">Safe</span> and <span class="small-caps">Race</span>
@@ -2771,24 +2775,24 @@ td.border_left_right {
         access the solution in shared memory (Line 6 of <a href="#Alg3">Algorithm
           3</a>), compute the relaxation for the rows assigned to it (Line 11), and
         to update the solution in shared memory (Line 13) were captured. This
-        data was used to generate MATLAB<sup>&reg;</sup> kernel probability
-        density functions for modeling the amount of time a thread takes to
-        complete a copy, compute, or update operation. These distributions may
-        be used in the simulation framework as an input parameter, for the
-        generation of random variables corresponding to key operational times in
-        the HPC architecture. <a href="#Alg2">Algorithm 2</a> demonstrates the
-        use of a time distribution in the framework. Thread counts of 11, 21,
-        41, 81, 101, 201, 251, and 401 were used to collect data for the
-        generation of distributions, some of which are in <a href="#Fig7">Figure
-          7</a> and <a href="#Fig8">Figure 8</a>. For 201 threads, <span
-          class="small-caps">Safe</span> in <a href="#Fig7d">Figure 7d</a> and <a
-          href="#Fig7f">Figure 7f</a> shows the tendency of locks to stratify
-        copy and update times, compared with <span class="small-caps">Race</span>
-        in <a href="#Fig8d">Figure 8d</a> and <a href="#Fig8f">Figure 8f</a>,
-        which are less uniform. These findings are mirrored in <a href="#Tab1">Table
-          1</a>, which provides mean times for each of the three operations that
-        were benchmarked in this implementation, for <span class="small-caps">Safe</span>
-        and <span class="small-caps">Race</span>. <span class="small-caps">Race</span>
+        data was used to generate MATLAB<sup>®</sup> kernel probability density
+        functions for modeling the amount of time a thread takes to complete a
+        copy, compute, or update operation. These distributions may be used in
+        the simulation framework as an input parameter, for the generation of
+        random variables corresponding to key operational times in the HPC
+        architecture. <a href="#Alg2">Algorithm 2</a> demonstrates the use of a
+        time distribution in the framework. Thread counts of 11, 21, 41, 81,
+        101, 201, 251, and 401 were used to collect data for the generation of
+        distributions, some of which are in <a href="#Fig7">Figure 7</a> and <a
+          href="#Fig8">Figure 8</a>. For 201 threads, <span class="small-caps">Safe</span>
+        in <a href="#Fig7d">Figure 7d</a> and <a href="#Fig7f">Figure 7f</a>
+        shows the tendency of locks to stratify copy and update times, compared
+        with <span class="small-caps">Race</span> in <a href="#Fig8d">Figure
+          8d</a> and <a href="#Fig8f">Figure 8f</a>, which are less uniform. These
+        findings are mirrored in <a href="#Tab1">Table 1</a>, which provides
+        mean times for each of the three operations that were benchmarked in
+        this implementation, for <span class="small-caps">Safe</span> and <span
+          class="small-caps">Race</span>. <span class="small-caps">Race</span>
         copy and update times are slightly or significantly quicker than
         comparable <span class="small-caps">Safe</span> times. Compute times
         typically dominate total iteration time, except for <span
@@ -2906,75 +2910,77 @@ td.border_left_right {
         </caption>
       </table>
       <table id="Fig7" class="table-figure top">
-        <tr>
-          <td><figure id="Fig7a">
-              <img src="./img/image7a.png" />
-              <figcaption>
-                <strong>(a)</strong> <span class="math-span">𝑥</span> copy, 11
-                threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig7b">
-              <img src="./img/image7b.png" />
-              <figcaption>
-                <strong>(b)</strong> <span class="math-span">𝑥</span> compute,
-                11 threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig7c">
-              <img src="./img/image7c.png" />
-              <figcaption>
-                <strong>(c)</strong> <span class="math-span">𝑥</span> update,
-                11 threads.
-              </figcaption>
-            </figure></td>
-        </tr>
-        <tr>
-          <td><figure id="Fig7d">
-              <img src="./img/image7d.png" />
-              <figcaption>
-                <strong>(d)</strong> <span class="math-span">𝑥</span> copy, 81
-                threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig7e">
-              <img src="./img/image7e.png" />
-              <figcaption>
-                <strong>(e)</strong> <span class="math-span">𝑥</span> compute,
-                81 threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig7f">
-              <img src="./img/image7f.png" />
-              <figcaption>
-                <strong>(f)</strong> <span class="math-span">𝑥</span> update,
-                81 threads.
-              </figcaption>
-            </figure></td>
-        </tr>
-        <tr>
-          <td><figure id="Fig7g">
-              <img src="./img/image7g.png" />
-              <figcaption>
-                <strong>(g)</strong> <span class="math-span">𝑥</span> copy, 201
-                threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig7h">
-              <img src="./img/image7h.png" />
-              <figcaption>
-                <strong>(h)</strong> <span class="math-span">𝑥</span> compute,
-                201 threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig7i">
-              <img src="./img/image7i.png" />
-              <figcaption>
-                <strong>(i)</strong> <span class="math-span">𝑥</span> update,
-                201 threads.
-              </figcaption>
-            </figure></td>
-        </tr>
+        <tbody>
+          <tr>
+            <td><figure id="Fig7a">
+                <img src="./img/image7a.png" />
+                <figcaption>
+                  <strong>(a)</strong> <span class="math-span">𝑥</span> copy,
+                  11 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig7b">
+                <img src="./img/image7b.png" />
+                <figcaption>
+                  <strong>(b)</strong> <span class="math-span">𝑥</span>
+                  compute, 11 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig7c">
+                <img src="./img/image7c.png" />
+                <figcaption>
+                  <strong>(c)</strong> <span class="math-span">𝑥</span> update,
+                  11 threads.
+                </figcaption>
+              </figure></td>
+          </tr>
+          <tr>
+            <td><figure id="Fig7d">
+                <img src="./img/image7d.png" />
+                <figcaption>
+                  <strong>(d)</strong> <span class="math-span">𝑥</span> copy,
+                  81 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig7e">
+                <img src="./img/image7e.png" />
+                <figcaption>
+                  <strong>(e)</strong> <span class="math-span">𝑥</span>
+                  compute, 81 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig7f">
+                <img src="./img/image7f.png" />
+                <figcaption>
+                  <strong>(f)</strong> <span class="math-span">𝑥</span> update,
+                  81 threads.
+                </figcaption>
+              </figure></td>
+          </tr>
+          <tr>
+            <td><figure id="Fig7g">
+                <img src="./img/image7g.png" />
+                <figcaption>
+                  <strong>(g)</strong> <span class="math-span">𝑥</span> copy,
+                  201 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig7h">
+                <img src="./img/image7h.png" />
+                <figcaption>
+                  <strong>(h)</strong> <span class="math-span">𝑥</span>
+                  compute, 201 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig7i">
+                <img src="./img/image7i.png" />
+                <figcaption>
+                  <strong>(i)</strong> <span class="math-span">𝑥</span> update,
+                  201 threads.
+                </figcaption>
+              </figure></td>
+          </tr>
+        </tbody>
         <caption>
           <strong>Figure 7.</strong> <span class="small-caps">Safe</span> copy,
           compute, and update histograms with kernel fits.
@@ -2982,75 +2988,77 @@ td.border_left_right {
       </table>
 
       <table id="Fig8" class="table-figure top">
-        <tr>
-          <td><figure id="Fig8a">
-              <img src="./img/image8a.png" />
-              <figcaption>
-                <strong>(a)</strong> <span class="math-span">𝑥</span> copy, 11
-                threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig8b">
-              <img src="./img/image8b.png" //>
-              <figcaption>
-                <strong>(b)</strong> <span class="math-span">𝑥</span> compute,
-                11 threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig8c">
-              <img src="./img/image8c.png" />
-              <figcaption>
-                <strong>(c)</strong> <span class="math-span">𝑥</span> update,
-                11 threads.
-              </figcaption>
-            </figure></td>
-        </tr>
-        <tr>
-          <td><figure id="Fig8d">
-              <img src="./img/image8d.png" />
-              <figcaption>
-                <strong>(d)</strong> <span class="math-span">𝑥</span> copy, 81
-                threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig8e">
-              <img src="./img/image8e.png" />
-              <figcaption>
-                <strong>(e)</strong> <span class="math-span">𝑥</span> compute,
-                81 threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig8f">
-              <img src="./img/image8f.png" />
-              <figcaption>
-                <strong>(f)</strong> <span class="math-span">𝑥</span> update,
-                81 threads.
-              </figcaption>
-            </figure></td>
-        </tr>
-        <tr>
-          <td><figure id="Fig8g">
-              <img src="./img/image8g.png" />
-              <figcaption>
-                <strong>(g)</strong> <span class="math-span">𝑥</span> copy, 201
-                threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig8h">
-              <img src="./img/image8h.png" />
-              <figcaption>
-                <strong>(h)</strong> <span class="math-span">𝑥</span> compute,
-                201 threads.
-              </figcaption>
-            </figure></td>
-          <td><figure id="Fig8i">
-              <img src="./img/image8i.png" />
-              <figcaption>
-                <strong>(i)</strong> <span class="math-span">𝑥</span> update,
-                201 threads.
-              </figcaption>
-            </figure></td>
-        </tr>
+        <tbody>
+          <tr>
+            <td><figure id="Fig8a">
+                <img src="./img/image8a.png" />
+                <figcaption>
+                  <strong>(a)</strong> <span class="math-span">𝑥</span> copy,
+                  11 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig8b">
+                <img src="./img/image8b.png" />
+                <figcaption>
+                  <strong>(b)</strong> <span class="math-span">𝑥</span>
+                  compute, 11 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig8c">
+                <img src="./img/image8c.png" />
+                <figcaption>
+                  <strong>(c)</strong> <span class="math-span">𝑥</span> update,
+                  11 threads.
+                </figcaption>
+              </figure></td>
+          </tr>
+          <tr>
+            <td><figure id="Fig8d">
+                <img src="./img/image8d.png" />
+                <figcaption>
+                  <strong>(d)</strong> <span class="math-span">𝑥</span> copy,
+                  81 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig8e">
+                <img src="./img/image8e.png" />
+                <figcaption>
+                  <strong>(e)</strong> <span class="math-span">𝑥</span>
+                  compute, 81 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig8f">
+                <img src="./img/image8f.png" />
+                <figcaption>
+                  <strong>(f)</strong> <span class="math-span">𝑥</span> update,
+                  81 threads.
+                </figcaption>
+              </figure></td>
+          </tr>
+          <tr>
+            <td><figure id="Fig8g">
+                <img src="./img/image8g.png" />
+                <figcaption>
+                  <strong>(g)</strong> <span class="math-span">𝑥</span> copy,
+                  201 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig8h">
+                <img src="./img/image8h.png" />
+                <figcaption>
+                  <strong>(h)</strong> <span class="math-span">𝑥</span>
+                  compute, 201 threads.
+                </figcaption>
+              </figure></td>
+            <td><figure id="Fig8i">
+                <img src="./img/image8i.png" />
+                <figcaption>
+                  <strong>(i)</strong> <span class="math-span">𝑥</span> update,
+                  201 threads.
+                </figcaption>
+              </figure></td>
+          </tr>
+        </tbody>
         <caption>
           <strong>Figure 8.</strong> <span class="small-caps">Race</span> copy,
           compute, and update histograms with kernel fits.
@@ -3063,11 +3071,19 @@ td.border_left_right {
       <p>
         This second implementation performs the Jacobi relaxation on the grid
         directly using the neighboring points required by the 5-point stencil as
-        opposed to explicitly forming the matrix <span class="math-span">𝐴</span>,
-        and in a sense implements a <em>matrix-free</em> solution. For this
-        implementation, the Laplacian was discretized over a <span
-          class="math-span">600 &times; 600</span> grid with boundary conditions
-        set according to <a href="#Tab2">Table 2</a>.
+        opposed to explicitly forming the matrix
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi>
+        </math>
+        , and in a sense implements a <em>matrix-free</em> solution. For this
+        implementation, the Laplacian was discretized over a
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>600</mn>
+        <mo>&times;</mo>
+        <mn>600</mn>
+        </math>
+        grid with boundary conditions set according to <a href="#Tab2">Table
+          2</a>.
       </p>
       <table id="Tab2" class="table-matrix bottom">
         <tbody>
@@ -3812,7 +3828,8 @@ td.border_left_right {
         , is less than 1. In the case of the Jacobi method, the iteration matrix
         is given by
       </p>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <div>
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -3839,6 +3856,7 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
+      </div>
       <p>
         Note that in the two dimensional discretization of the Laplacian, the
         spectral radius of the Jacobian is less than l, which says that both the
@@ -4021,7 +4039,8 @@ td.border_left_right {
         </math>
         , using a uniform distribution, and then set
       </p>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <div>
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -4048,6 +4067,7 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
+      </div>
       <p>
         for all values of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -4731,7 +4751,7 @@ td.border_left_right {
       </li>
     </ol>
   </section>
-  <section role="doc-bibliography">
+  <section role="doc-bibliography" id="sect10">
     <h1>Bibliography</h1>
     <ul>
       <li id="AB05" role="doc-biblioentry">Addou, A., &amp; Benahmed, A.
@@ -4813,7 +4833,7 @@ td.border_left_right {
       <li id="Ben07" role="doc-biblioentry">Benahmed, A. (2007). A
         convergence result for asynchronous algorithms and applications. <em>Proyecciones
           (Antofagasta)</em>, 26(2):219-236. <a
-        href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&pid=S0716-09172007000200005&lng=pt&nrm=iso&tlng=en"><img
+        href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&amp;pid=S0716-09172007000200005&amp;lng=pt&amp;nrm=iso&amp;tlng=en"><img
           src="../../icons/html.png" /></a>
       </li>
       <li id="BT89" role="doc-biblioentry">Bertsekas, D.P., &amp;
@@ -5057,7 +5077,7 @@ td.border_left_right {
         href="https://dx.doi.org/10.1007/s11075-017-0342-9"><img
           src="../../icons/doi.png" /></a>
       </li>
-      <li id="Int16" role="doc-biblioentry">Intel (2016). <em>Intel<sup>&reg;</sup>
+      <li id="Int16" role="doc-biblioentry">Intel (2016). <em>Intel<sup>®</sup>
           64 and IA-32 architectures developer's manual
       </em>. Volume 3B: System Programming Guide, Part 2. <a
         href="https://www.intel.de/content/www/de/de/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3b-part-2-manual.html"><img
@@ -5147,17 +5167,37 @@ td.border_left_right {
       </li>
     </ul>
   </section>
-  <section id="copyright-info" class="no-counter">
+  <section id="sect11" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
       <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
         alt="Creative Commons License"
-        src="http://i.creativecommons.org/l/by/4.0/88x31.png"></a> Copyright ©
+        src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Copyright ©
       2018 Evan C. Coleman, Erik Jensen, Masha Sosonkina. This article is
       licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative
         Commons Attribution 4.0 International License</a>.
     </p>
   </section>
   </main>
+
+  <nav id="toc">
+    <h1>Table of Contents</h1>
+    <ol>
+      <li><a href="#sect0">Abstract</a></li>
+      <li><a href="#sect1">Introduction</a></li>
+      <li><a href="#sect2">Related Work</a></li>
+      <li><a href="#sect3">Asynchronous Iterative Methods</a></li>
+      <li><a href="#sect4">Design of Simulation Framework</a></li>
+      <li><a href="#sect5">Asynchronous Jacobi Implementations for the
+          Framework</a></li>
+      <li><a href="#sect6">Framework Extension for Fault-Tolerance
+          Requirements</a></li>
+      <li><a href="#sect7">Conclusions and Future Work</a></li>
+      <li><a href="#sect8">Acknowledgements</a></li>
+      <li><a href="#sect9">Footnotes</a></li>
+      <li><a href="#sect10">Bibliography</a></li>
+      <li><a href="#sect11">Copyright Information</a></li>
+    </ol>
+  </nav>
 </body>
 </html>
