@@ -41,7 +41,7 @@
 <link rel="stylesheet" href="../../jsime.css" />
 <!--Scripts-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script type="text/javascript" async=""
+<script type="text/javascript" async
   src="https://www.google-analytics.com/analytics.js"></script>
 <script async="async"
   src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
@@ -148,8 +148,7 @@
   <aside id="feedback" class="suppressInPDF">
     <button type="button" onclick="document.body.classList.add('feedbackMode')">Provide
       comments. Report errors</button>
-    <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field"
-      netlify="">
+    <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field" netlify>
       <p class="hidden">
         <label>Don't fill this out if you're human: <input
           name="bot-field" /></label>
@@ -213,7 +212,7 @@
         <li>Process Model</li>
       </ul>
     </div>
-    <section role="doc-abstract">
+    <section role="doc-abstract" id="sect0">
       <h1>Abstract</h1>
       <p>
         In simulation engineering, a system model mainly consists of an <em>information
@@ -242,7 +241,7 @@
       </p>
     </section>
   </div>
-  <section id="sect0">
+  <section id="sect1">
     <h1>Introduction</h1>
     <p>
       The term <em>simulation engineering</em> denotes the scientific
@@ -310,7 +309,7 @@
       in (<a href="#GWa17b">Wagner, 2017b</a>). In particular, the BPMN-based
       process design modeling approach has been revised and refined by using a
       variant of BPMN, called <em>Discrete Event Process Modeling Notation
-        (DPMN)</em>, which is discussed in <a href="#sectPM">Section 5</a>.
+        (DPMN)</em>, which is discussed in <a href="#sect5">Section 5</a>.
     </p>
     <p>
       This first part of the tutorial presents the <em>Object-Event
@@ -377,7 +376,7 @@
       using the JavaScript-based simulation framework OESjs.
     </p>
   </section>
-  <section id="sect1">
+  <section id="sect2">
     <h1>What Is Discrete Event Simulation?</h1>
     <p>
       The term <em>Discrete Event Simulation (DES)</em> has been established as
@@ -510,7 +509,8 @@
       of events.
     </p>
   </section>
-  <section id="sect2">
+  
+  <section id="sect3">
     <h1>Model-Driven Engineering</h1>
     <p>
       <em>Model-Driven Engineering</em> (MDE), also called <em>model-driven
@@ -665,7 +665,8 @@
       requirements for the modeling languages to be used.
     </p>
   </section>
-  <section id="sect3">
+  
+  <section id="sect4">
     <h1>Information Modeling with UML Class Diagrams</h1>
     <p>
       Conceptual information modeling is mainly concerned with describing the
@@ -834,7 +835,7 @@
     </p>
   </section>
 
-  <section id="sect4">
+  <section id="sect5">
     <h1>Process Modeling with BPMN and DPMN</h1>
     <p>
       The <em>Business Process Modeling Notation (BPMN)</em> is an
@@ -1095,7 +1096,7 @@
     </p>
   </section>
 
-  <section id="sect5">
+  <section id="sect6">
     <h1>Example 1: An Inventory System</h1>
     <p>We consider a simple case of inventory management: a shop selling one
       product type (e.g., one model of TVs), such that its in-house inventory
@@ -1519,7 +1520,7 @@
           <code>onEvent</code>
           method of the subclass <em>DailyDemand</em> implements the event
           routine of the <em>DailyDemand</em> event rules, see <a
-            href="#sectEventRoutinesOESjs">Section 6.2.3</a>. The return type
+            href="#sect6.2.3">Section 6.2.3</a>. The return type
           declaration
           <code>eVENT[*]</code>
           means that the
@@ -1542,38 +1543,18 @@
           classes. For instance, the object class <em>SingleProductShop</em> can
           be coded in the following way:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> SingleProductShop <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"SingleProductShop"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"oBJECT"</span><span
-              class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"stockQuantity"</span><span
-              class="token punctuation">:</span> <span class="token punctuation">{</span>range<span
-              class="token punctuation">:</span><span class="token string">"NonNegativeInteger"</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">"reorderPoint"</span><span
-              class="token punctuation">:</span> <span class="token punctuation">{</span>range<span
-              class="token punctuation">:</span><span class="token string">"NonNegativeInteger"</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">"targetInventory"</span><span
-              class="token punctuation">:</span> <span class="token punctuation">{</span>range<span
-              class="token punctuation">:</span><span class="token string">"PositiveInteger"</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">"lostSales"</span><span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>range<span
-              class="token punctuation">:</span><span class="token string">"Percentage"</span><span
-              class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
+        <pre>
+          <code class="language-javascript">
+var SingleProductShop = new cLASS({
+  Name: "SingleProductShop",
+  supertypeName: "oBJECT",
+  properties: {
+    "stockQuantity": {range:"NonNegativeInteger"},
+    "reorderPoint": {range:"NonNegativeInteger"},
+    "targetInventory": {range:"PositiveInteger"},
+    "lostSales": {range:"Percentage"}
+  }
+});
           </code>
         </pre>
         <p>This class just has three simple data-valued properties
@@ -1582,55 +1563,22 @@
           The event class <em>DailyDemand</em> can be coded in the following
           way:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> DailyDemand <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"DailyDemand"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"eVENT"</span><span class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"quantity"</span><span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>range<span
-              class="token punctuation">:</span> <span class="token string">"PositiveInteger"</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">"shop"</span><span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>range<span
-              class="token punctuation">:</span> <span class="token string">"SingleProductShop"</span><span
-              class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"onEvent"</span><span class="token punctuation">:</span> <span
-              class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
-DailyDemand<span class="token punctuation">.</span><span
-              class="token function-variable function">recurrence</span> <span
-              class="token operator">=</span> <span class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span>
-DailyDemand<span class="token punctuation">.</span><span
-              class="token function-variable function">createNextEvent</span> <span
-              class="token operator">=</span> <span class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span>
-DailyDemand<span class="token punctuation">.</span><span
-              class="token function-variable function">demandQuantity</span> <span
-              class="token operator">=</span> <span class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span>
+        <pre>
+          <code class="language-javascript">
+var DailyDemand = new cLASS({
+  Name: "DailyDemand",
+  supertypeName: "eVENT",
+  properties: {
+    "quantity": {range: "PositiveInteger"},
+    "shop": {range: "SingleProductShop"}
+  },
+  methods: {
+    "onEvent": function () {...}
+  }
+});
+DailyDemand.recurrence = function () {...}
+DailyDemand.createNextEvent = function () {...}
+DailyDemand.demandQuantity = function () {...}
           </code>
         </pre>
         <p>
@@ -1850,7 +1798,8 @@ DailyDemand<span class="token punctuation">.</span><span
                   <li>demQ is the daily demand quantity</li>
                 </ul>
               </td>
-              <td><pre>                  <code>
+              <td><pre>
+                  <code>
 <b>var</b> sQ := sh.stockQuantity
 <b>var</b> newSQ := sQ - demQ
 <b>var</b> rP := sh.reorderPoint
@@ -1860,7 +1809,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
     sh.lostSales += demQ - sQ
     newSQ := 0
   <b>var</b> delQ := sh.targetInventory − newSQ
-  <b>schedule</b> Delivery( sh, delQ) @ t + leadTime()</code>
+  <b>schedule</b> Delivery( sh, delQ) @ t + leadTime()
+                  </code>
                 </pre></td>
             </tr>
             <tr>
@@ -1953,7 +1903,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           </figcaption>
         </figure>
       </section>
-      <section>
+      <section id="sect6.2.3">
         <h1>Implementing the Process Design Model with OESjs</h1>
         <p>
           The process design model specifies a set of event rules, each of which
@@ -1963,37 +1913,19 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           instance, the <em>Delivery</em> event rule modeled in <a
             href="#_Ref494386620">Figure 16</a> can be coded as follows:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> Delivery <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"Delivery"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"eVENT"</span><span class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"onEvent"</span><span class="token punctuation">:</span> <span
-              class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span>
-       <span class="token keyword">this</span><span class="token punctuation">.</span>receiver<span
-              class="token punctuation">.</span>stockQuantity <span
-              class="token operator">+=</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>quantity<span
-              class="token punctuation">;</span>
-       <span class="token keyword">return</span> <span class="token punctuation">[</span><span
-              class="token punctuation">]</span><span class="token punctuation">;</span>  <span
-              class="token comment">// no follow-up events</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
+        <pre>
+          <code class="language-javascript">
+var Delivery = new cLASS({
+  Name: "Delivery",
+  supertypeName: "eVENT",
+  properties: {...},
+  methods: {
+    "onEvent": function () {
+       this.receiver.stockQuantity += this.quantity;
+       return [];  // no follow-up events
+    }
+  }
+});
           </code>
         </pre>
         <p>
@@ -2009,90 +1941,37 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
         <p>
           The <em>DailyDemand</em> event rule can be coded like so:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> DailyDemand <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"DailyDemand"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"eVENT"</span><span class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"onEvent"</span><span class="token punctuation">:</span> <span
-              class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span>
-      <span class="token keyword">var</span> sh <span class="token operator">=</span> <span
-              class="token keyword">this</span><span class="token punctuation">.</span>shop<span
-              class="token punctuation">,</span>
-          sQ <span class="token operator">=</span> sh<span
-              class="token punctuation">.</span>stockQuantity<span
-              class="token punctuation">,</span>
-          newSQ <span class="token operator">=</span> sQ <span
-              class="token operator">-</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>quantity<span
-              class="token punctuation">,</span>
-          rP <span class="token operator">=</span> sh<span
-              class="token punctuation">.</span>reorderPoint<span
-              class="token punctuation">;</span>
-      <span class="token comment">// update stockQuantity</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>shop<span
-              class="token punctuation">.</span>stockQuantity <span
-              class="token operator">=</span> Math<span
-              class="token punctuation">.</span><span class="token function">max</span><span
-              class="token punctuation">(</span> <span class="token number">0</span><span
-              class="token punctuation">,</span> newSQ<span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment">// update lostSales if demand &gt; stock</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>newSQ <span
-              class="token operator">&lt;</span> <span class="token number">0</span><span
-              class="token punctuation">)</span> <span class="token punctuation">{</span>
-        sim<span class="token punctuation">.</span>stat<span
-              class="token punctuation">.</span>lostSales <span
-              class="token operator">+=</span> Math<span
-              class="token punctuation">.</span><span class="token function">abs</span><span
-              class="token punctuation">(</span> newSQ<span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-        newSQ <span class="token operator">=</span> <span class="token number">0</span><span
-              class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token comment">// schedule new Delivery if stock</span>
-      <span class="token comment">// falls below reorder point</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>sQ <span
-              class="token operator">&gt;</span> rP <span class="token operator">&amp;&amp;</span> newSQ <span
-              class="token operator">&lt;=</span> rP<span
-              class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span
-              class="token punctuation">[</span><span class="token keyword">new</span> <span
-              class="token class-name">Delivery</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-            occTime<span class="token punctuation">:</span> <span
-              class="token keyword">this</span><span class="token punctuation">.</span>occTime <span
-              class="token operator">+</span> Delivery<span
-              class="token punctuation">.</span><span class="token function">leadTime</span><span
-              class="token punctuation">(</span><span class="token punctuation">)</span><span
-              class="token punctuation">,</span>
-            quantity<span class="token punctuation">:</span> sh<span
-              class="token punctuation">.</span>targetInventory <span
-              class="token operator">-</span> newSQ<span
-              class="token punctuation">,</span>
-            receiver<span class="token punctuation">:</span> sh
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">]</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span
-              class="token keyword">return</span> <span
-              class="token punctuation">[</span><span class="token punctuation">]</span><span
-              class="token punctuation">;</span>  <span class="token comment">// no follow-up events</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
+        <pre>
+          <code class="language-javascript">
+var DailyDemand = new cLASS({
+  Name: "DailyDemand",
+  supertypeName: "eVENT",
+  properties: {...},
+  methods: {
+    "onEvent": function () {
+      var sh = this.shop,
+          sQ = sh.stockQuantity,
+          newSQ = sQ - this.quantity,
+          rP = sh.reorderPoint;
+      // update stockQuantity
+      this.shop.stockQuantity = Math.max( 0, newSQ);
+      // update lostSales if demand > stock
+      if (newSQ &lt; 0) {
+        sim.stat.lostSales += Math.abs( newSQ);
+        newSQ = 0;
+      }
+      // schedule new Delivery if stock 
+      // falls below reorder point
+      if (sQ > rP &amp;&amp; newSQ &lt;= rP) {
+        return [new Delivery({
+            occTime: this.occTime + Delivery.leadTime(),
+            quantity: sh.targetInventory - newSQ,
+            receiver: sh
+        })];
+      } else return [];  // no follow-up events
+    }
+  }
+});
           </code>
         </pre>
         <p>
@@ -2104,7 +1983,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
     </section>
   </section>
 
-  <section id="sect6">
+  <section id="sect7">
     <h1>Example 2: A Service System</h1>
     <p>
       In our basic <a href="https://sim4edu.com/sims/2">service system
@@ -2434,43 +2313,22 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           shown in <a href="#_Ref493094587">Figure 22</a> can be coded as
           follows:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> ServiceDesk <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"ServiceDesk"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"oBJECT"</span><span
-              class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"waitingCustomers"</span><span
-              class="token punctuation">:</span> <span class="token punctuation">{</span>
-       range<span class="token punctuation">:</span> <span class="token string">"Customer"</span><span
-              class="token punctuation">,</span>
-       label<span class="token punctuation">:</span> <span class="token string">"Waiting customers"</span><span
-              class="token punctuation">,</span>
-       minCard<span class="token punctuation">:</span> <span
-              class="token number">0</span><span class="token punctuation">,</span>
-       maxCard<span class="token punctuation">:</span> <span
-              class="token number">Infinity</span><span
-              class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
-ServiceDesk<span class="token punctuation">.</span><span
-              class="token function-variable function">serviceDuration</span> <span
-              class="token operator">=</span> <span class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span>
-  <span class="token keyword">return</span> rand<span class="token punctuation">.</span><span
-              class="token function">exponential</span><span
-              class="token punctuation">(</span> <span class="token number">0.5</span><span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <pre>
+          <code class="language-javascript">
+var ServiceDesk = new cLASS({
+  Name: "ServiceDesk",
+  supertypeName: "oBJECT",
+  properties: {
+    "waitingCustomers": {
+       range: "Customer", 
+       label: "Waiting customers",
+       minCard: 0, 
+       maxCard: Infinity}
+  }
+});
+ServiceDesk.serviceDuration = function () {
+  return rand.exponential( 0.5);
+};
           </code>
         </pre>
       </section>
@@ -2594,12 +2452,14 @@ ServiceDesk<span class="token punctuation">.</span><span
                     new customer arrived</li>
                 </ul>
               </td>
-              <td><pre>                <code>
+              <td><pre>
+                  <code>
 sd.waitingCustomers.<b>push</b>(c)
 <b>if</b> sd.waitingCustomers.length = 1 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
-   (t + ServiceDesk.serviceDuration())</code>
-              </pre></td>
+   (t + ServiceDesk.serviceDuration())
+                  </code>
+                </pre></td>
             </tr>
             <tr>
               <td>
@@ -2609,12 +2469,14 @@ sd.waitingCustomers.<b>push</b>(c)
                     the customer departs</li>
                 </ul>
               </td>
-              <td><pre>                <code>
+              <td><pre>
+                  <code>
 sd.waitingCustomers.<b>pop</b>()
 <b>if</b> sd.waitingCustomers.length &gt; 0 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
-   (t + ServiceDesk.serviceDuration())</code>
-              </pre></td>
+   (t + ServiceDesk.serviceDuration())
+                  </code>
+                </pre></td>
             </tr>
           </tbody>
           <caption>
@@ -2677,150 +2539,66 @@ sd.waitingCustomers.<b>pop</b>()
           instance, the <em>CustomerArrival</em> event rule modeled in <a
             href="#_Ref499542497">Figure 26</a> can be coded as follows:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> CustomerArrival <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"CustomerArrival"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"eVENT"</span><span class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"onEvent"</span><span class="token punctuation">:</span> <span
-              class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span>
-      <span class="token keyword">var</span> srvTm<span class="token operator">=</span><span
-              class="token number">0</span><span class="token punctuation">,</span> followupEvents<span
-              class="token operator">=</span><span class="token punctuation">[</span><span
-              class="token punctuation">]</span><span class="token punctuation">,</span>
-          sd <span class="token operator">=</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>serviceDesk<span
-              class="token punctuation">;</span>
-      <span class="token comment">// create new customer object</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>customer <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">Customer</span><span
-              class="token punctuation">(</span>
-	      <span class="token punctuation">{</span>arrivalTime<span
-              class="token punctuation">:</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>occTime<span
-              class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
-      sim<span class="token punctuation">.</span><span class="token function">addObject</span><span
-              class="token punctuation">(</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>customer<span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment">// push new customer to the queue</span>
-      sd<span class="token punctuation">.</span>waitingCustomers<span
-              class="token punctuation">.</span><span class="token function">push</span><span
-              class="token punctuation">(</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>customer<span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment">// if the service desk is not busy</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>sd<span
-              class="token punctuation">.</span>waitingCustomers<span
-              class="token punctuation">.</span>length <span
-              class="token operator">===</span> <span class="token number">1</span><span
-              class="token punctuation">)</span> <span class="token punctuation">{</span>
-        srvTm <span class="token operator">=</span> ServiceDesk<span
-              class="token punctuation">.</span><span class="token function">serviceDuration</span><span
-              class="token punctuation">(</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
-        followupEvents<span class="token punctuation">.</span><span
-              class="token function">push</span><span class="token punctuation">(</span> <span
-              class="token keyword">new</span> <span class="token class-name">CustomerDeparture</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-          occTime<span class="token punctuation">:</span> <span
-              class="token keyword">this</span><span class="token punctuation">.</span>occTime <span
-              class="token operator">+</span> srvTm<span
-              class="token punctuation">,</span>
-          serviceDesk<span class="token punctuation">:</span> sd
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">return</span> followupEvents<span
-              class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
+        <pre>
+          <code class="language-javascript">
+var CustomerArrival = new cLASS({
+  Name: "CustomerArrival",
+  supertypeName: "eVENT",
+  properties: {...},
+  methods: {
+    "onEvent": function () {
+      var srvTm=0, followupEvents=[],
+          sd = this.serviceDesk;
+      // create new customer object
+      this.customer = new Customer(
+        {arrivalTime: this.occTime});
+      sim.addObject( this.customer);
+      // push new customer to the queue
+      sd.waitingCustomers.push( this.customer);
+      // if the service desk is not busy
+      if (sd.waitingCustomers.length === 1) {
+        srvTm = ServiceDesk.serviceDuration();
+        followupEvents.push( new CustomerDeparture({
+          occTime: this.occTime + srvTm,
+          serviceDesk: sd
+        }));
+      }
+      return followupEvents;
+    }
+  }
+});
           </code>
         </pre>
         <p>
           The <em>CustomerDeparture</em> event rule can be coded like so:
         </p>
-        <pre class=" language-javascript">
-          <code class=" language-javascript">
-            <span class="token keyword">var</span> CustomerDeparture <span
-              class="token operator">=</span> <span class="token keyword">new</span> <span
-              class="token class-name">cLASS</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-  Name<span class="token punctuation">:</span> <span class="token string">"CustomerDeparture"</span><span
-              class="token punctuation">,</span>
-  supertypeName<span class="token punctuation">:</span> <span
-              class="token string">"eVENT"</span><span class="token punctuation">,</span>
-  properties<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span><span class="token operator">...</span><span
-              class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span
-              class="token punctuation">{</span>
-    <span class="token string">"onEvent"</span><span class="token punctuation">:</span> <span
-              class="token keyword">function</span> <span
-              class="token punctuation">(</span><span class="token punctuation">)</span> <span
-              class="token punctuation">{</span>
-      <span class="token keyword">var</span> srvTm<span class="token operator">=</span><span
-              class="token number">0</span><span class="token punctuation">,</span> followupEvents<span
-              class="token operator">=</span><span class="token punctuation">[</span><span
-              class="token punctuation">]</span><span class="token punctuation">,</span>
-          sd <span class="token operator">=</span> <span class="token keyword">this</span><span
-              class="token punctuation">.</span>serviceDesk<span
-              class="token punctuation">;</span>
-      <span class="token comment">// pop customer from FIFO queue</span>
-      <span class="token keyword">var</span> departingCustomer <span
-              class="token operator">=</span> sd<span class="token punctuation">.</span>waitingCustomers<span
-              class="token punctuation">.</span><span class="token function">shift</span><span
-              class="token punctuation">(</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
-      <span class="token comment">// remove customer from simulation</span>
-      sim<span class="token punctuation">.</span><span class="token function">removeObject</span><span
-              class="token punctuation">(</span> departingCustomer<span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment">// if there are still customers waiting</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>sd<span
-              class="token punctuation">.</span>waitingCustomers<span
-              class="token punctuation">.</span>length <span
-              class="token operator">&gt;</span> <span class="token number">0</span><span
-              class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// schedule next departure</span>
-        srvTm <span class="token operator">=</span> ServiceDesk<span
-              class="token punctuation">.</span><span class="token function">serviceDuration</span><span
-              class="token punctuation">(</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
-        followupEvents<span class="token punctuation">.</span><span
-              class="token function">push</span><span class="token punctuation">(</span> <span
-              class="token keyword">new</span> <span class="token class-name">CustomerDeparture</span><span
-              class="token punctuation">(</span><span class="token punctuation">{</span>
-          occTime<span class="token punctuation">:</span> <span
-              class="token keyword">this</span><span class="token punctuation">.</span>occTime <span
-              class="token operator">+</span> srvTm<span
-              class="token punctuation">,</span>
-          serviceDesk<span class="token punctuation">:</span> sd
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">return</span> followupEvents<span
-              class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span
-              class="token punctuation">;</span>
+        <pre>
+          <code class="language-javascript">
+var CustomerDeparture = new cLASS({
+  Name: "CustomerDeparture",
+  supertypeName: "eVENT",
+  properties: {...},
+  methods: {
+    "onEvent": function () {
+      var srvTm=0, followupEvents=[],
+          sd = this.serviceDesk;
+      // pop customer from FIFO queue
+      var departingCustomer = sd.waitingCustomers.shift();
+      // remove customer from simulation
+      sim.removeObject( departingCustomer);
+      // if there are still customers waiting
+      if (sd.waitingCustomers.length > 0) {
+        // schedule next departure
+        srvTm = ServiceDesk.serviceDuration();
+        followupEvents.push( new CustomerDeparture({
+          occTime: this.occTime + srvTm,
+          serviceDesk: sd
+        }));
+      }
+      return followupEvents;
+    }
+  }
+});
           </code>
         </pre>
         <p>
@@ -2831,7 +2609,7 @@ sd.waitingCustomers.<b>pop</b>()
       </section>
     </section>
   </section>
-  <section id="sect7">
+  <section id="sect8">
     <h1>Conclusions</h1>
     <p>Combining UML class diagrams with BPMN and DPMN process diagrams
       allows making visual models for conceptualizing the problem domain of a
@@ -2860,7 +2638,7 @@ sd.waitingCustomers.<b>pop</b>()
     </p>
 
   </section>
-  <section role="doc-bibliography" id="sect8">
+  <section role="doc-bibliography" id="sect9">
     <h1>Bibliography</h1>
     <ul>
       <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML
@@ -3027,7 +2805,7 @@ sd.waitingCustomers.<b>pop</b>()
       </li>
     </ul>
   </section>
-  <section id="sect9" class="no-counter">
+  <section id="sect10" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
       <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
@@ -3043,16 +2821,17 @@ sd.waitingCustomers.<b>pop</b>()
   <nav id="toc">
     <h1>Table of Contents</h1>
     <ol>
-      <li><a href="#sect0">Introduction</a></li>
-      <li><a href="#sect1">What Is Discrete Event Simulation?</a></li>
-      <li><a href="#sect2">Model-Driven Engineering</a></li>
-      <li><a href="#sect3">Information Modeling with UML Class Diagrams</a></li>
-      <li><a href="#sect4">Process Modeling with BPMN and DPMN</a></li>
-      <li><a href="#sect5">Example 1: An Inventory System</a></li>
-      <li><a href="#sect6">Example 2: A Service System</a></li>
-      <li><a href="#sect7">Conclusions</a></li>
-      <li><a href="#sect8">Bibliography</a></li>
-      <li><a href="#sect9">Copyright Information</a></li>
+      <li><a href="#sect0">Abstract</a></li>
+      <li><a href="#sect1">Introduction</a></li>
+      <li><a href="#sect2">What Is Discrete Event Simulation?</a></li>
+      <li><a href="#sect3">Model-Driven Engineering</a></li>
+      <li><a href="#sect4">Information Modeling with UML Class Diagrams</a></li>
+      <li><a href="#sect5">Process Modeling with BPMN and DPMN</a></li>
+      <li><a href="#sect6">Example 1: An Inventory System</a></li>
+      <li><a href="#sect7">Example 2: A Service System</a></li>
+      <li><a href="#sect8">Conclusions</a></li>
+      <li><a href="#sect9">Bibliography</a></li>
+      <li><a href="#sect10">Copyright Information</a></li>
     </ol>
   </nav>
 </body>

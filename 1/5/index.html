@@ -78,15 +78,14 @@ td.border_left_right {
   border-right: 1pt solid black;
 }
 
-#toc > ol > li {
+#toc>ol>li {
   list-style: none;
 }
 </style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script type="text/javascript" async="async"
+<script type="text/javascript" async
   src="https://www.google-analytics.com/analytics.js"></script>
-<script async="async"
-  src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag () {
@@ -98,6 +97,7 @@ td.border_left_right {
   } );
 </script>
 <!--Scripts-->
+<!-- <script src="../../createTableOfContents.js"></script> -->
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=MML_SVG"></script>
 <!--schema.org JSON-LD-->
@@ -802,9 +802,9 @@ td.border_left_right {
       number <span class="math-span">𝑝</span> of processing elements will
       typically be significantly smaller than the number <span class="math-span">𝑚</span>
       of blocks to update. With these assumptions, the computational model can
-      be stated in <a href="#Alg1">Algorithm 1</a>.
+      be stated in <a href="#alg1">Algorithm 1</a>.
     </p>
-    <div id="Alg1" class="column-top">
+    <div id="alg1" class="column-top">
       <div class="ps-root">
         <div class="ps-algorithm with-caption">
           <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
@@ -926,7 +926,7 @@ td.border_left_right {
       data from global memory that is accessible by each of the processors,
       update the pieces of data specific to the component functions that it has
       been assigned, and update those components in the global memory. Note that
-      the computational model presented in <a href="#Alg1">Algorithm 1</a>
+      the computational model presented in <a href="#alg1">Algorithm 1</a>
       allows for either synchronous or asynchronous computation; it only
       prescribes that an update has to be made as an "atomic" operation (in line
       5), i.e., without interleaving of its result. If each processing element <span
@@ -1007,10 +1007,10 @@ td.border_left_right {
       </span> , that contains all of the components that were updated on the <span
         class="math-span">𝑘<sup>th</sup></span> iteration. Given these basic
       definitions, the three following conditions (along with the model
-      presented in <a href="#Alg1">Algorithm 1</a>) provide a working
+      presented in <a href="#alg1">Algorithm 1</a>) provide a working
       mathematical framework for fine-grained asynchronous computation.
     </p>
-    <div id="Def1">
+    <div id="def1">
       <p>
         <strong>Definition 1.</strong> If the following three conditions hold
       </p>
@@ -1156,11 +1156,11 @@ td.border_left_right {
       </p>
     </div>
     <p>
-      This basic computational model (i.e., the combination of <a href="#Alg1">Algorithm
-        1</a> and <a href="#Def1">Definition 1</a> together) allows for many
+      This basic computational model (i.e., the combination of <a href="#alg1">Algorithm
+        1</a> and <a href="#def1">Definition 1</a> together) allows for many
       different results on fine-grained iterative methods that are both
       synchronous and asynchronous, though the three conditions given in <a
-        href="#Def1">Definition 1</a> are unnecessary in the synchronous case.
+        href="#def1">Definition 1</a> are unnecessary in the synchronous case.
     </p>
 
     <section id="sect3.1">
@@ -1168,7 +1168,7 @@ td.border_left_right {
 
       <p>
         Relaxation methods have been the focus of many of the works mentioned in
-        <a href="sect2">Section 2</a> such as (<a role="doc-biblioref"
+        <a href="#sect2">Section 2</a> such as (<a role="doc-biblioref"
           href="#CM69">Chazan, &amp; Miranker, 1969</a>) and (<a
           role="doc-biblioref" href="#Bau78">Baudet, 1978</a>); a much more
         detailed description can be found in (<a role="doc-biblioref"
@@ -1178,7 +1178,7 @@ td.border_left_right {
       </p>
       <p>Relaxation methods can be expressed as general fixed point
         iterations of the form</p>
-      <div id="Eq1">
+      <div id="eq1">
         <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mlabeledtr>
@@ -1282,7 +1282,7 @@ td.border_left_right {
         component of the solution, <span class="math-span">𝑥<sub>𝑖</sub></span>,
         to give,
       </p>
-      <div id="Eq2">
+      <div id="eq2">
         <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
           <mtable>
           <mlabeledtr>
@@ -1349,16 +1349,16 @@ td.border_left_right {
           class="math-span">𝑥<sub>𝑖</sub></span> is computed sequentially
         using the same data for the other components of the solution vector
         (i.e., the <span class="math-span">𝑥<sub>𝑗</sub></span>, in <a
-          href="#Eq2">Equation (2)</a>. Conversely, in an asynchronous computing
+          href="#eq2">Equation (2)</a>. Conversely, in an asynchronous computing
         environment, each update to an element of the solution vector occurs
         when the computing element responsible for updating that component is
         ready to write the update to memory and the other components used are
         simply the latest ones available to the computing element.
       </p>
       <p>
-        Expressing <a href="#Eq2">Equation (2)</a> in a block matrix form more
+        Expressing <a href="#eq2">Equation (2)</a> in a block matrix form more
         similar to the original form of the iteration expressed in <a
-          href="#Eq1">Equation (1)</a>,
+          href="#eq1">Equation (1)</a>,
       </p>
       <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
@@ -1430,17 +1430,17 @@ td.border_left_right {
       </p>
       <p>
         Convergence of asynchronous fixed point methods of the form presented in
-        <a href="#Eq1">Equation (1)</a> is determined by the spectral radius of
+        <a href="#eq1">Equation (1)</a> is determined by the spectral radius of
         the iteration matrix, <span class="math-span">𝐶</span>, and dates back
         to the pioneering work done by both (<a role="doc-biblioref"
           href="#CM69">Chazan, &amp; Miranker, 1969</a>) and (<a
           role="doc-biblioref" href="#Bau78">Baudet, 1978</a>):
       </p>
-      <p id="Theo1">
+      <p id="theo1">
         <strong>Theorem 1.</strong> <em>For a fixed point iteration of the
-          form given in <a href="#Eq1">Equation (1)</a> that adheres to the
-          asynchronous computational model provided by <a href="#Alg1">Algorithm
-            1</a> and <a href="#Def1">Definition 1</a>, if the spectral radius of <span
+          form given in <a href="#eq1">Equation (1)</a> that adheres to the
+          asynchronous computational model provided by <a href="#alg1">Algorithm
+            1</a> and <a href="#def1">Definition 1</a>, if the spectral radius of <span
           class="math-span">𝐶</span>, <span class="math-span">&rho;(|𝐶|)</span>,
           is less than one, then the iterative method will converge to the fixed
           point solution
@@ -1653,7 +1653,7 @@ td.border_left_right {
       execute again immediately upon their own return, leading to a case where
       one of <span class="math-span">𝑥<sub>1</sub></span> or <span
         class="math-span">𝑥<sub>2</sub></span> may be updated more frequently
-      than the other. Per <a href="#Def1">Definition 1</a>, both functions use
+      than the other. Per <a href="#def1">Definition 1</a>, both functions use
       the latest values of
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
@@ -1709,7 +1709,7 @@ td.border_left_right {
     </p>
     <ol>
       <li>An update function that specifies how to perform the relaxation.
-        A common technique for this is given by <a href="#Eq2">Equation (2)</a>.
+        A common technique for this is given by <a href="#eq2">Equation (2)</a>.
         It is certainly possible to modify this equation to obtain different
         updates, as described, e.g., in (<a role="doc-biblioref" href="#Saa03">Saad,
           2003</a>).
@@ -1767,10 +1767,10 @@ td.border_left_right {
       changed. After this, a check is performed on the size of the residual to
       determine if the exit criteria is met before the time is incremented again
       and the loop starts over. A pseudocode representation of the simulation
-      framework for simulated asynchronous Jacobi is given in <a href="#Alg2">Algorithm
+      framework for simulated asynchronous Jacobi is given in <a href="#alg2">Algorithm
         2</a>.
     </p>
-    <div id="Alg2" class="column-top">
+    <div id="alg2" class="column-top">
       <div class="ps-root">
         <div class="ps-algorithm with-caption">
           <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
@@ -1989,7 +1989,7 @@ td.border_left_right {
                 </p>
                 <p class="ps-line ps-code">
                   <span class="ps-linenum" style="left: -1.5em;">14:</span>Calculate
-                  the residual as in <a href="#Eq3">Equation (3)</a> and check
+                  the residual as in <a href="#eq3">Equation (3)</a> and check
                   termination conditions
                 </p>
               </div>
@@ -2003,7 +2003,7 @@ td.border_left_right {
       </div>
     </div>
     <p>
-      <a href="#Alg2">Algorithm 2</a>, a given update time <span
+      <a href="#alg2">Algorithm 2</a>, a given update time <span
         class="math-span">&tau;<sub>𝑙</sub></span> will often not be sampled as
       an integer. The simulation adjusts for this by scaling the number that is
       sampled by the appropriate order of magnitude, adjusting the maximum value
@@ -2198,7 +2198,7 @@ td.border_left_right {
         component sampled as a uniform random number between −0:5 and 0:5, and
         then normalizing the resultant vector. The iterative Jacobi method
         proceeds until the residual</p>
-      <div id="Eq3">
+      <div id="eq3">
         <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mlabeledtr>
@@ -2401,13 +2401,13 @@ td.border_left_right {
         which permits race conditions. <span class="small-caps">Safe</span> uses
         OpenMP<sup>&reg;</sup> locks to copy <span class="math-span">𝑥<sup>(𝑡)</sup></span>
         safely from shared memory and to update <span class="math-span">𝑥<sup>(𝑡+1)</sup></span>.
-        Pseudocode for this process is given in <a href="#Alg3">Algorithm 3</a>,
+        Pseudocode for this process is given in <a href="#alg3">Algorithm 3</a>,
         where bold upper-case text indicates that OpenMP<sup>&reg;</sup> locks
         are employed. The algorithm for <span class="small-caps">Race</span> is
-        identical to <a href="#Alg3">Algorithm 3</a>, with the exception that
+        identical to <a href="#alg3">Algorithm 3</a>, with the exception that
         locks are omitted.
       </p>
-      <div id="Alg3" class="column-top">
+      <div id="alg3" class="column-top">
         <div class="ps-root">
           <div class="ps-algorithm with-caption">
             <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
@@ -2739,12 +2739,12 @@ td.border_left_right {
         thread counts 101 through 501, <span class="small-caps">Race</span>
         requires more iterations, perhaps to compensate for threads reading and
         computing with inaccurate <span class="math-span">𝑥</span> vectors.
-        Despite this, <a href="#fig6a">Figure 6a</a> shows that <span
+        Despite this, <a href="#fig6a">Figure 6(a)</a> shows that <span
           class="small-caps">Race</span> is still quicker for the largest thread
         counts, perhaps because threads do not use locks to access data and
-        eliminate that overhead cost. <a href="#fig6a">Figure 6a</a> also shows
-        that perhaps locks are not too costly for intermediate thread counts
-        101, 201, and 251, where <span class="small-caps">Safe</span>
+        eliminate that overhead cost. <a href="#fig6a">Figure 6(a)</a> also
+        shows that perhaps locks are not too costly for intermediate thread
+        counts 101, 201, and 251, where <span class="small-caps">Safe</span>
         outperforms <span class="small-caps">Race</span> in terms of calculation
         time.
       </p>
@@ -2775,7 +2775,7 @@ td.border_left_right {
         Both <span class="small-caps">Safe</span> and <span class="small-caps">Race</span>
         were executed over several trials and varying thread counts on the
         experimental HPC platform. For each trial, the times for a thread to
-        access the solution in shared memory (Line 6 of <a href="#Alg3">Algorithm
+        access the solution in shared memory (Line 6 of <a href="#alg3">Algorithm
           3</a>), compute the relaxation for the rows assigned to it (Line 11), and
         to update the solution in shared memory (Line 13) were captured. This
         data was used to generate MATLAB<sup>&reg;</sup> kernel probability
@@ -2783,15 +2783,15 @@ td.border_left_right {
         complete a copy, compute, or update operation. These distributions may
         be used in the simulation framework as an input parameter, for the
         generation of random variables corresponding to key operational times in
-        the HPC architecture. <a href="#Alg2">Algorithm 2</a> demonstrates the
+        the HPC architecture. <a href="#alg2">Algorithm 2</a> demonstrates the
         use of a time distribution in the framework. Thread counts of 11, 21,
         41, 81, 101, 201, 251, and 401 were used to collect data for the
         generation of distributions, some of which are in <a href="#fig7">Figure
           7</a> and <a href="#fig8">Figure 8</a>. For 201 threads, <span
-          class="small-caps">Safe</span> in <a href="#fig7d">Figure 7d</a> and <a
-          href="#fig7f">Figure 7f</a> shows the tendency of locks to stratify
+          class="small-caps">Safe</span> in <a href="#fig7d">Figure 7(d)</a> and
+        <a href="#fig7f">Figure 7(f)</a> shows the tendency of locks to stratify
         copy and update times, compared with <span class="small-caps">Race</span>
-        in <a href="#fig8d">Figure 8d</a> and <a href="#fig8f">Figure 8f</a>,
+        in <a href="#fig8d">Figure 8(d)</a> and <a href="#fig8f">Figure 8(f)</a>,
         which are less uniform. These findings are mirrored in <a href="#tab1">Table
           1</a>, which provides mean times for each of the three operations that
         were benchmarked in this implementation, for <span class="small-caps">Safe</span>
@@ -3169,7 +3169,7 @@ td.border_left_right {
         from the previous iteration. A single thread checks for convergence with
         an atomic capture operation, and updates a shared flag variable if the
         criterion is satisfied. Pseudocode for this implementation is provided
-        in <a href="#Alg4">Algorithm 4</a>, where bold upper-case text indicates
+        in <a href="#alg4">Algorithm 4</a>, where bold upper-case text indicates
         that OpenMP<sup>&reg;</sup> locks are employed. Locks are used only with
         interior boundary rows, meaning they are unnecessary for the first and
         last rows in the domain.
@@ -3178,7 +3178,7 @@ td.border_left_right {
         complete an iteration. Thread counts of 10, 25, 50, 75, 100, and 150
         were used in these series of experiments. The average total iteration
         time for the varying.</p>
-      <div id="Alg4" class="top">
+      <div id="alg4" class="top">
         <div class="ps-root">
           <div class="ps-algorithm with-caption">
             <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
@@ -3719,7 +3719,7 @@ td.border_left_right {
         difference discretizations of partial differential equations over
         rectangular grids. Implementation 1 generalizes further to any sparse
         matrix, <span class="math-span">𝐴</span> with which the Jacobi method
-        can be used. According to <a href="#Theo1">Theorem 1</a>, convergence
+        can be used. According to <a href="#theo1">Theorem 1</a>, convergence
         will occur if the spectral radius of the iteration matrix, <span
           class="math-span">𝐶</span>, is less than 1. In the case of the Jacobi
         method, the iteration matrix is given by
@@ -3999,10 +3999,10 @@ td.border_left_right {
         While eventual convergence may be guaranteed, greatly accelerated
         convergence is possible through a simple checkpointing scheme. An
         example of such a scheme (as an extension of the asynchronous Jacobi
-        simulation provided by <a href="#Alg2">Algorithm 2</a>) is provided in <a
-          href="#Alg5">Algorithm 5</a>.
+        simulation provided by <a href="#alg2">Algorithm 2</a>) is provided in <a
+          href="#alg5">Algorithm 5</a>.
       </p>
-      <div id="Alg5" class="column-top">
+      <div id="alg5" class="column-top">
         <div class="ps-root">
           <div class="ps-algorithm with-caption">
             <p class="ps-line" style="text-indent: -1.2em; padding-left: 1.2em;">
@@ -4245,7 +4245,7 @@ td.border_left_right {
                       <mtext>new</mtext>
                       </msub>
                     </math>
-                    as in <a href="#Eq3">Equation (3)</a>
+                    as in <a href="#eq3">Equation (3)</a>
                   </p>
                   <p class="ps-line ps-code">
                     <span class="ps-linenum" style="left: -1.5em;">17:</span><span
@@ -4932,8 +4932,8 @@ td.border_left_right {
       <li><a href="#sect2">Related Work</a></li>
       <li><a href="#sect3">Asynchronous Iterative Methods</a></li>
       <li><a href="#sect4">Design of Simulation Framework</a></li>
-      <li><a href="#sect5">Asynchronous Jacobi Implementations for
-          the Framework</a></li>
+      <li><a href="#sect5">Asynchronous Jacobi Implementations for the
+          Framework</a></li>
       <li><a href="#sect6">Framework Extension for Fault-Tolerance
           Requirements</a></li>
       <li><a href="#sect7">Conclusions and Future Work</a></li>
