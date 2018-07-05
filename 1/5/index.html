@@ -338,8 +338,7 @@ td.border_left_right {
       specific area of interest is on techniques that utilize fixed point
       iteration, i.e., those techniques that solve equations of the form
     </p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
         <mtr>
           <mtd>
@@ -355,32 +354,19 @@ td.border_left_right {
         </mtr>
       </mtable>
       </math>
-    </div>
     <p>
-      for some vector
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi>x</mi>
-    <mo>&isin;</mo>
-    <mi>D</mi>
-    </math>
-      and some map
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>G</mi>
-      <mo>:</mo>
-      <mi>D</mi>
-      <mo>&rarr;</mo>
-      <mi>D</mi>
-      </math>
-      . These techniques are well suited for fine-grained computation and they
-      can be executed either synchronously or asynchronously, which helps
-      tolerate latency in high-performance computing (HPC) environments. Looking
-      forward to the future of HPC, it is important to prioritize the develop of
-      algorithms that are resilient to faults since on future platforms, the
-      rate at which faults occur is expected to increase dramatically (<a
-        role="doc-biblioref" href="#CGG+09">Cappello, et al., 2009</a>; <a
-        role="doc-biblioref" href="#CGG+14">Cappello, et al., 2014</a>; <a
-        role="doc-biblioref" href="#ABC+06">Asanović, et al., 2006</a>; <a
-        role="doc-biblioref" href="#GL09">Geist, &amp; Lucas, 2009</a>).
+      for some vector <span class="math-span">𝑥 &isin; 𝐷</span> and some map <span
+        class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>. These techniques are well
+      suited for fine-grained computation and they can be executed either
+      synchronously or asynchronously, which helps tolerate latency in
+      high-performance computing (HPC) environments. Looking forward to the
+      future of HPC, it is important to prioritize the develop of algorithms
+      that are resilient to faults since on future platforms, the rate at which
+      faults occur is expected to increase dramatically (<a role="doc-biblioref"
+        href="#CGG+09">Cappello, et al., 2009</a>; <a role="doc-biblioref"
+        href="#CGG+14">Cappello, et al., 2014</a>; <a role="doc-biblioref"
+        href="#ABC+06">Asanović, et al., 2006</a>; <a role="doc-biblioref"
+        href="#GL09">Geist, &amp; Lucas, 2009</a>).
     </p>
     <p>
       While many asynchronous methods are designed for shared memory
@@ -600,51 +586,15 @@ td.border_left_right {
     </p>
     <p>
       To keep the mathematical model as general as possible, consider a
-      function,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>G</mi>
-      <mo>:</mo>
-      <mi>D</mi>
-      <mo>&rarr;</mo>
-      <mi>D</mi>
-      </math>
-      , where
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>D</mi>
-      </math>
-      is a domain that represents a product space
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>D</mi>
-      <mo>=</mo>
-      <msub>
-      <mi>D</mi>
-      <mn>1</mn>
-      </msub>
-      <mo>&times;</mo>
-      <msub>
-      <mi>D</mi>
-      <mn>2</mn>
-      </msub>
-      <mo>&times;</mo>
-      <mo>&hellip;</mo>
-      <mo>&times;</mo>
-      <msub>
-      <mi>D</mi>
-      <mi>m</mi>
-      </msub>
-      </math>
-      . The goal is to find a fixed point of the function
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>G</mi>
-      </math>
-      inside of the domain
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>D</mi>
-      </math>
-      . To this end, a fixed point iteration is performed, such that
+      function, <span class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>, where <span
+        class="math-span">𝐷</span> is a domain that represents a product space
+      <span class="math-span">𝐷 = 𝐷<sub>1</sub> &times; 𝐷<sub>2</sub>
+        &times; &hellip; &times; 𝐷<sub>2</sub></span>. The goal is to find a fixed
+      point of the function <span class="math-span">𝐺</span> inside of the
+      domain <span class="math-span">𝐷</span>. To this end, a fixed point
+      iteration is performed, such that
     </p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
         <mtr>
           <mtd>
@@ -677,64 +627,16 @@ td.border_left_right {
         </mtr>
       </mtable>
       </math>
-    </div>
     <p>
-      and a fixed point is declared if
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msup>
-      <mi>x</mi>
-      <mrow>
-      <mi>k</mi>
-      <mo>+</mo>
-      <mn>1</mn>
-      </mrow>
-      </msup>
-      <mo>&asymp;</mo>
-      <msup>
-      <mi>x</mi>
-      <mi>k</mi>
-      </msup>
-      </math>
-      . Note that the function
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>G</mi>
-      </math>
-      has internal component functions
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>G</mi>
-      <mi>i</mi>
-      </msub>
-      </math>
-      for each sub-domain,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>D</mi>
-      <mi>i</mi>
-      </msub>
-      </math>
-      , in the product space,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>D</mi>
-      </math>
-      . In particular,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>G</mi>
-      <mi>i</mi>
-      </msub>
-      <mo>:</mo>
-      <mi>D</mi>
-      <mo>&rarr;</mo>
-      <msub>
-      <mi>D</mi>
-      <mi>i</mi>
-      </msub>
-      </math>
-      , which gives that
+      and a fixed point is declared if <span class="math-span">𝑥<sup>𝑘+1</sup>
+        &asymp; 𝑥<sup>𝑘</sup></span>. Note that the function <span class="math-span">𝐺</span>
+      has internal component functions <span class="math-span">𝐺<sub>𝑖</sub></span>
+      for each sub-domain, <span class="math-span">𝐷<sub>𝑖</sub></span>, in
+      the product space, <span class="math-span">𝐷</span>. In particular, <span
+        class="math-span">𝐺<sub>𝑖</sub> : 𝐷 &rarr; 𝐷<sub>𝑖</sub></span>,
+      which gives that
     </p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
         <mtr>
           <mtd>
@@ -763,9 +665,7 @@ td.border_left_right {
             <mo maxsize="1">(</mo>
             <mi>x</mi>
             <mo maxsize="1">)</mo>
-            <maligngroup />
             <mo>=</mo>
-            <maligngroup />
             <mi>G</mi>
             <mo maxsize="1">(</mo>
             <msub>
@@ -791,9 +691,7 @@ td.border_left_right {
         <mtr>
           <mtd>
             <mrow>
-            <maligngroup />
             <mo>=</mo>
-            <maligngroup />
             <mfenced open="(" close=")">
             <mrow>
             <msub>
@@ -832,51 +730,18 @@ td.border_left_right {
         </mtr>
       </mtable>
       </math>
-    </div>
-    As a concrete example, let each
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>D</mi>
-      <mi>i</mi>
-      </msub>
-      <mo>=</mo>
-      <mi>&reals;</mi>
-      </math>
-    . Forming the product space of each of these
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>D</mi>
-      <mi>i</mi>
-      </msub>
-      </math>
-    's gives that
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>D</mi>
-      <mo>=</mo>
-      <msup>
-      <mi>&reals;</mi>
-      <mi>m</mi>
-      </msup>
-      </math>
-    . This leads to the more formal functional mapping,
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>f</mi>
-      <mo>:</mo>
-      <msup>
-      <mi>&reals;</mi>
-      <mi>m</mi>
-      </msup>
-      <mo>&rarr;</mo>
-      <msup>
-      <mi>&reals;</mi>
-      <mi>m</mi>
-      </msup>
-      </math>
-    . Additionally, let
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>f</mi>
-      <mo maxsize="1">(</mo>
-      <mover>
+    <p>
+      As a concrete example, let each <span class="math-span">𝐷<sub>𝑖</sub>
+        = &reals;
+      </span>. Forming the product space of each of these <span class="math-span">𝐷<sub>𝑖</sub></span>'s
+      gives that <span class="math-span">𝐷 = &reals;<sup>𝑚</sup>
+      </span>. This leads to the more formal functional mapping, <span
+        class="math-span">𝑓 : &reals;<sup>𝑚</sup> &rarr; &reals;<sup>𝑚</sup>
+      </span>. Additionally, let
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>f</mi>
+        <mo maxsize="1">(</mo>
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
@@ -887,19 +752,13 @@ td.border_left_right {
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
-      </math>
-    . In this case, each of the individual
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>f</mi>
-      <mi>i</mi>
-      </msub>
-      </math>
-    component functions is defined by
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>f</mi>
-      <mo maxsize="1">(</mo>
-      <mover>
+    </math>
+      . In this case, each of the individual <span class="math-span">𝑓<sub>𝑖</sub></span>
+      component functions is defined by
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>f</mi>
+        <mo maxsize="1">(</mo>
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
@@ -910,77 +769,32 @@ td.border_left_right {
       <mi>x</mi>
       <mi>i</mi>
       </msub>
-      </math>
-    . Note that each component functions operates on all of the vector
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mover>
+    </math>
+      . Note that each component functions operates on all of the vector
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
       </math>
-    even if the individual function definition does not require all of the
-    components of
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mover>
+      even if the individual function definition does not require all of the
+      components of
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
       </math>
-    to perform its specific update.
+      to perform its specific update.
     </p>
     <p>
       The assumption is also made that there is some finite number of processing
-      elements
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>P</mi>
-      <mn>1</mn>
-      </msub>
-      <mo separator="true">,</mo>
-      <msub>
-      <mi>P</mi>
-      <mn>2</mn>
-      </msub>
-      <mo separator="true">,</mo>
-      <mo>&hellip;</mo>
-      <mo separator="true">,</mo>
-      <msub>
-      <mi>P</mi>
-      <mi>p</mi>
-      </msub>
-      </math>
-      each of which is assigned to a block
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>B</mi>
-      </math>
-      of components
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>B</mi>
-      <mn>1</mn>
-      </msub>
-      <mo separator="true">,</mo>
-      <msub>
-      <mi>B</mi>
-      <mn>2</mn>
-      </msub>
-      <mo separator="true">,</mo>
-      <mo>&hellip;</mo>
-      <mo separator="true">,</mo>
-      <msub>
-      <mi>B</mi>
-      <mn>m</mn>
-      </msub>
-      </math>
-      to update. Note that the number
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>p</mi>
-      </math>
-      of processing elements will typically be significantly smaller than the
-      number
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>m</mi>
-      </math>
+      elements <span class="math-span">𝑃<sub>1</sub>, 𝑃<sub>2</sub>,
+        &hellip;, 𝑃<sub>𝑝</sub></span> each of which is assigned to a block <span
+        class="math-span">𝐵</span> of components <span class="math-span">𝐵<sub>1</sub>,
+        𝐵<sub>2</sub>, &hellip;, 𝐵<sub>𝑚</sub></span> to update. Note that the
+      number <span class="math-span">𝑝</span> of processing elements will
+      typically be significantly smaller than the number <span class="math-span">𝑚</span>
       of blocks to update. With these assumptions, the computational model can
       be stated in <a href="#Alg1">Algorithm 1</a>.
     </p>
@@ -1109,32 +923,18 @@ td.border_left_right {
       the computational model presented in <a href="#Alg1">Algorithm 1</a>
       allows for either synchronous or asynchronous computation; it only
       prescribes that an update has to be made as an "atomic" operation (in line
-      5), i.e., without interleaving of its result. If each processing element
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>P</mi>
-      <mi>l</mi>
-      </msub>
-      </math>
-      is to wait for the other processors to finish each update, then the model
-      describes a parallel synchronous form of computation. On the other hand,
-      if no order is established for
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>P</mi>
-      <mi>l</mi>
-      </msub>
-      <mo>s</mo>
-      </math>
-      , then an asynchronous form of computation arises.
+      5), i.e., without interleaving of its result. If each processing element <span
+        class="math-span">𝑃<sub>𝑙</sub></span> is to wait for the other
+      processors to finish each update, then the model describes a parallel
+      synchronous form of computation. On the other hand, if no order is
+      established for <span class="math-span">𝑃<sub>𝑙</sub></span>s, then an
+      asynchronous form of computation arises.
     </p>
     <p>
       To continue formalizing this computational model a few more definitions
-      are necessary. First, set a global iteration counter
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>k</mi>
-      </math>
-      that increases <em>every</em> time any processor reads
+      are necessary. First, set a global iteration counter <span
+        class="math-span">𝑘</span> that increases <em>every</em> time any
+      processor reads
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover>
       <mi>x</mi>
@@ -1142,20 +942,11 @@ td.border_left_right {
       </mover>
       </math>
       from common memory. At the end of the work done by any individual
-      processor,
+      processor, <span class="math-span">𝑝</span>, the components associated
+      with the block <span class="math-span">𝐵<sub>𝑝</sub></span> will be
+      updated. This results in a vector,
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>p</mi>
-      </math>
-      , the components associated with the block
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>B</mi>
-      <mi>p</mi>
-      </msub>
-      </math>
-      will be updated. This results in a vector,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mover>
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
@@ -1203,36 +994,15 @@ td.border_left_right {
       </msubsup>
       </mfenced>
       </math>
-      where the function
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>s</mi>
-      <mi>l</mi>
-      </msub>
-      <mo maxsize="1">(</mo>
-      <mo>k</mo>
-      <mo maxsize="1">)</mo>
-      </math>
-      indicates how many times an specific component has been updated. Finally,
-      a set of individual components can be grouped into a set,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msup>
-      <mi>I</mi>
-      <mi>k</mi>
-      </msup>
-      <mo separator="true">,</mo>
-      </math>
-      that contains all of the components that were updated on the
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msup>
-      <mi>k</mi>
-      <mi>th</mi>
-      </msup>
-      </math>
-      iteration. Given these basic definitions, the three following conditions
-      (along with the model presented in <a href="#Alg1">Algorithm 1</a>)
-      provide a working mathematical framework for fine-grained asynchronous
-      computation.
+      where the function <span class="math-span">𝑠<sub>𝑙</sub>(𝑘)
+      </span> indicates how many times an specific component has been updated. Finally,
+      a set of individual components can be grouped into a set, <span
+        class="math-span">𝐼<sup>𝑘</sup>
+      </span> , that contains all of the components that were updated on the <span
+        class="math-span">𝑘<sup>th</sup></span> iteration. Given these basic
+      definitions, the three following conditions (along with the model
+      presented in <a href="#Alg1">Algorithm 1</a>) provide a working
+      mathematical framework for fine-grained asynchronous computation.
     </p>
     <div id="Def1">
       <p>
@@ -1435,40 +1205,16 @@ td.border_left_right {
           </math>
       </div>
       <p>
-        where
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>C</mi>
-      </math>
-        is the
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>n</mi>
-      <mo>&times;</mo>
-      <mi>n</mi>
-      </math>
-        iteration matrix,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x</mi>
-      </math>
-        is an
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x</mi>
-      <mtext mathvariant="normal">-dimensional</mtext>
-      </math>
-        vector that represents the solution, and
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>d</mi>
-      </math>
-        is another
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>x</mi>
-      <mtext mathvariant="normal">-dimensional</mtext>
-      </math>
-        vector that can be used to help define the particular problem at hand.
+        where <span class="math-span">𝐶</span> is the <span class="math-span">𝑛
+          &times; 𝑛</span> iteration matrix, <span class="math-span">𝑥</span> is an <span
+          class="math-span">𝑥-dimensional</span> vector that represents the
+        solution, and <span class="math-span">𝑑</span> is another <span
+          class="math-span">𝑥-dimensional</span> vector that can be used to
+        help define the particular problem at hand.
       </p>
       <p>The Jacobi method is an asynchronous relaxation method built for
         solving linear systems of the form</p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -1482,25 +1228,13 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-      </div>
       <p>
         and following the methodology put forth in (<a role="doc-biblioref"
           href="#BT89">Bertsekas, &amp; Tsitsiklis, 1989</a>), this can be
-        broken down to view a specific row - say the
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msup>
-        <mi>i</mi>
-        <mo>th</mo>
-        </msup>
-        </math>
-        - of the matrix
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>A</mi>
-        </math>
-        ,
+        broken down to view a specific row - say the <span class="math-span">𝑖<sup>th</sup></span>
+        - of the matrix <span class="math-span">𝐴</span>,
       </p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -1537,23 +1271,10 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-      </div>
       <p>
-        and this equation can be solved for the
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msup>
-        <mi>i</mi>
-        <mo>th</mo>
-        </msup>
-        </math>
-        component of the solution,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msub>
-        <mi>x</mi>
-        <mi>i</mi>
-        </msub>
-        </math>
-        , to give,
+        and this equation can be solved for the <span class="math-span">𝑖<sup>th</sup></span>
+        component of the solution, <span class="math-span">𝑥<sub>𝑖</sub></span>,
+        to give,
       </p>
       <div id="Eq2">
         <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1618,35 +1339,22 @@ td.border_left_right {
       <p>
         This equation can then be computed in an iterative manner in order to
         give successive updates to the solution vector. In synchronous computing
-        environments, each update to an element of the solution vector,
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msub>
-        <mi>x</mi>
-        <mi>i</mi>
-        </msub>
-        </math>
-        is computed sequentially using the same data for the other components of
-        the solution vector (i.e., the
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msub>
-        <mi>x</mi>
-        <mi>j</mi>
-        </msub>
-        </math>
-        , in <a href="#Eq2">Equation (2)</a>. Conversely, in an asynchronous
-        computing environment, each update to an element of the solution vector
-        occurs when the computing element responsible for updating that
-        component is ready to write the update to memory and the other
-        components used are simply the latest ones available to the computing
-        element.
+        environments, each update to an element of the solution vector, <span
+          class="math-span">𝑥<sub>𝑖</sub></span> is computed sequentially
+        using the same data for the other components of the solution vector
+        (i.e., the <span class="math-span">𝑥<sub>𝑗</sub></span>, in <a
+          href="#Eq2">Equation (2)</a>. Conversely, in an asynchronous computing
+        environment, each update to an element of the solution vector occurs
+        when the computing element responsible for updating that component is
+        ready to write the update to memory and the other components used are
+        simply the latest ones available to the computing element.
       </p>
       <p>
         Expressing <a href="#Eq2">Equation (2)</a> in a block matrix form more
         similar to the original form of the iteration expressed in <a
           href="#Eq1">Equation (1)</a>,
       </p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
         <mtr>
           <mtd>
@@ -1705,91 +1413,45 @@ td.border_left_right {
         </mlabeledtr>
       </mtable>
       </math>
-        </p>
-        <p>
-          where
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>D</mi>
-        </math>
-          is the diagonal portion of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>A</mi>
-        </math>
-          , and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>L</mi>
-        </math>
-          and
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>U</mi>
-        </math>
-          are the strictly lower and upper triangular portions of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>A</mi>
-        </math>
-          respectively. This gives an iteration matrix of
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>D</mi>
-        <mo>=</mo>
-        <mo>-</mo>
-        <msup>
-        <mi>D</mi>
-        <mrow>
-        <mo>-</mo>
-        <mn>1</mn>
-        </mrow>
-        </msup>
-        <mfenced open="(" close=")">
-        <mrow>
-        <mi>L</mi>
-        <mo>+</mo>
-        <mi>U</mi>
-        </mrow>
-        </mfenced>
-        </math>
-          .
-        </p>
-        <p>
-          Convergence of asynchronous fixed point methods of the form presented
-          in <a href="#Eq1">Equation (1)</a> is determined by the spectral
-          radius of the iteration matrix, C, and dates back to the pioneering
-          work done by both (<a role="doc-biblioref" href="#CM69">Chazan,
-            &amp; Miranker, 1969</a>) and (<a role="doc-biblioref" href="#Bau78">Baudet,
-            1978</a>):
-        </p>
-        <p id="Theo1">
-          <strong>Theorem 1.</strong> <em>For a fixed point iteration of
-            the form given in <a href="#Eq1">Equation (1)</a> that adheres to
-            the asynchronous computational model provided by <a href="#Alg1">Algorithm
-              1</a> and <a href="#Def1">Definition 1</a>, if the spectral radius of
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <mi>C</mi>
-            </math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <mi>&rho;</mi>
-            <mfenced open="(" close=")">
-            <mfenced open="|" close="|">
-            <mi>C</mi>
-            </mfenced>
-            </mfenced>
-            </math>, is less than one, then the iterative method will converge to the
-            fixed point solution
-          </em>.
-        </p>
-        <p>
-          As noted in (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
-            &amp; Chow, 2016</a>), the iteration matrix
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>C</mi>
-        </math>
-          that is used in the Jacobi relaxation method serves as a worst case
-          for relaxation methods of the form discussed here. However, because of
-          the ubiquitous use of the Jacobi method in parallel solutions of large
-          problems in many different domains in science and engineering we use
-          the Asynchronous (Block) Jacobi method predominantly throughout the
-          remainder of this study. Note that many of the concepts and ideas
-          expressed in this paper can be easily adapted to more complex
-          algorithms.
-        </p>
+      <p>
+        where <span class="math-span">𝐷</span> is the diagonal portion of <span
+          class="math-span">𝐴</span>, and <span class="math-span">𝐿</span> and
+        <span class="math-span">𝑈</span> are the strictly lower and upper
+        triangular portions of <span class="math-span">𝐴</span> respectively.
+        This gives an iteration matrix of <span class="math-span">𝐷 =
+          -𝐷<sup>-1</sup>(𝐿 + 𝑈)
+        </span>.
+      </p>
+      <p>
+        Convergence of asynchronous fixed point methods of the form presented in
+        <a href="#Eq1">Equation (1)</a> is determined by the spectral radius of
+        the iteration matrix, <span class="math-span">𝐶</span>, and dates back
+        to the pioneering work done by both (<a role="doc-biblioref"
+          href="#CM69">Chazan, &amp; Miranker, 1969</a>) and (<a
+          role="doc-biblioref" href="#Bau78">Baudet, 1978</a>):
+      </p>
+      <p id="Theo1">
+        <strong>Theorem 1.</strong> <em>For a fixed point iteration of the
+          form given in <a href="#Eq1">Equation (1)</a> that adheres to the
+          asynchronous computational model provided by <a href="#Alg1">Algorithm
+            1</a> and <a href="#Def1">Definition 1</a>, if the spectral radius of <span
+          class="math-span">𝐶</span>, <span class="math-span">&rho;(|𝐶|)</span>,
+          is less than one, then the iterative method will converge to the fixed
+          point solution
+        </em>.
+      </p>
+      <p>
+        As noted in (<a role="doc-biblioref" href="#WPC16">Wolfson-Pou,
+          &amp; Chow, 2016</a>), the iteration matrix <span class="math-span">𝐶</span>
+        that is used in the Jacobi relaxation method serves as a worst case for
+        relaxation methods of the form discussed here. However, because of the
+        ubiquitous use of the Jacobi method in parallel solutions of large
+        problems in many different domains in science and engineering we use the
+        Asynchronous (Block) Jacobi method predominantly throughout the
+        remainder of this study. Note that many of the concepts and ideas
+        expressed in this paper can be easily adapted to more complex
+        algorithms.
+      </p>
     </section>
   </section>
 
@@ -1803,8 +1465,7 @@ td.border_left_right {
           href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref"
           title="Footnote 1: Throughout the text, vector notation is occasionally adopted to emphasize when functions take all components of x as opposed to a single component, such as x1.">1</a></sup></span>
     </p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
         <mtr>
           <mtd>
@@ -1828,11 +1489,10 @@ td.border_left_right {
         </mtr>
         </mtable>
         </math>
-    </div>
     <p>
       for some
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mover>
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
@@ -1875,15 +1535,9 @@ td.border_left_right {
       changes in the environment, or else can be utilized to demonstrate the
       effectiveness of algorithmic modifications.</p>
     <p>
-      As a simple example, take
+      As a simple example, take <span class="math-span">𝑛 = 2</span>. Then
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>n</mi>
-      <mo>=</mo>
-      <mn>2</mn>
-      </math>
-      . Then
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mover>
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
@@ -1906,8 +1560,7 @@ td.border_left_right {
       </math>
       and, using the terminology of <a href="#Sect3">Section 3</a>,
     </p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
         <mtr>
           <mtd>
@@ -1985,100 +1638,33 @@ td.border_left_right {
         </mtr>
       </mtable>
       </math>
-    </div>
     <p>
-      In a traditional fully synchronous environment, both functions,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>G</mi>
-    <mn>1</mn>
-    </msub>
-    </math>
-      and
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>G</mi>
-    <mn>2</mn>
-    </msub>
-    </math>
-      , would be called simultaneously and no subsequent calls would be executed
+      In a traditional fully synchronous environment, both functions, <span
+        class="math-span">𝐺<sub>1</sub></span> and <span class="math-span">𝐺<sub>2</sub></span>,
+      would be called simultaneously and no subsequent calls would be executed
       until both functions had returned and <em>synchronized</em> all results.
       In a fully asynchronous environment, both functions would be allowed to
       execute again immediately upon their own return, leading to a case where
-      one of
+      one of <span class="math-span">𝑥<sub>1</sub></span> or <span
+        class="math-span">𝑥<sub>2</sub></span> may be updated more frequently
+      than the other. Per <a href="#Def1">Definition 1</a>, both functions use
+      the latest values of
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>1</mn>
-    </msub>
-    </math>
-      or
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>2</mn>
-    </msub>
-    </math>
-      may be updated more frequently than the other. Per <a href="#Def1">Definition
-        1</a>, both functions use the latest values of
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mover>
+      <mover accent="true">
       <mi>x</mi>
       <mo style="font-size: small;">&rarr;</mo>
       </mover>
     </math>
       that are available to them when the function call is initiated. For
       instance, if the processing element that was assigned to update the
-      component
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>1</mn>
-    </msub>
-    </math>
-      was ten times as fast as the processing element assigned to update
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>2</mn>
-    </msub>
-    </math>
-      , then in the amount of time needed to update
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>2</mn>
-    </msub>
-    </math>
-      once, the component
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>1</mn>
-    </msub>
-    </math>
-      will have been updated ten times, and when
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>G</mi>
-    <mn>2</mn>
-    </msub>
-    </math>
+      component <span class="math-span">𝑥<sub>1</sub></span> was ten times as
+      fast as the processing element assigned to update <span class="math-span">𝑥<sub>2</sub></span>,
+      then in the amount of time needed to update <span class="math-span">𝑥<sub>2</sub></span>
+      once, the component <span class="math-span">𝑥<sub>1</sub></span> will
+      have been updated ten times, and when <span class="math-span">𝐺<sub>2</sub></span>
       is called for the second time it will be called using the latest component
-      of
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>1</mn>
-    </msub>
-    </math>
-      (which has been updated 10 times), and the latest component of
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <msub>
-    <mi>x</mi>
-    <mn>2</mn>
-    </msub>
-    </math>
+      of <span class="math-span">𝑥<sub>1</sub></span> (which has been updated
+      10 times), and the latest component of <span class="math-span">𝑥<sub>2</sub></span>
       (which has only been updated once).
     </p>
     <p>
@@ -2086,8 +1672,7 @@ td.border_left_right {
       in <a href="#Fig2">Figure 2</a>. The framework models the performance of
       methods that solve the linear system
     </p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -2101,7 +1686,6 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-    </div>
     <p>using relaxation methods in either a synchronous or asynchronous
       manner.</p>
     <figure id="Fig2" class="top">
@@ -2111,23 +1695,11 @@ td.border_left_right {
       </figcaption>
     </figure>
     <p>
-      The simulation requires as input the matrix
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>A</mi>
-      </math>
-      , the right hand side
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>b</mi>
-      </math>
-      and an initial guess at the solution,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>x</mi>
-      <mn>0</mn>
-      </msub>
-      </math>
-      . The important pieces of the simulation are all passed as functions to
-      the tool. There are three functions required:
+      The simulation requires as input the matrix <span class="math-span">𝐴</span>,
+      the right hand side <span class="math-span">𝑏</span> and an initial guess
+      at the solution, <span class="math-span">𝑥<sub>0</sub></span>. The
+      important pieces of the simulation are all passed as functions to the
+      tool. There are three functions required:
     </p>
     <ol>
       <li>An update function that specifies how to perform the relaxation.
@@ -2137,16 +1709,15 @@ td.border_left_right {
           2003</a>).
       </li>
       <li>An update pattern function that determines which elements of the
-        matrix <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>A</mi>
-      </math> are assigned to each simulated processor. A common technique for this
-        assignment, is to evenly divide the work among all of the available
-        processors, however other patterns are also possible. For example, the
-        use of randomization in the solution of linear systems via relaxation
-        methods has gained some popularity in the fields of optimization and
-        machine learning (see, e.g., (<a role="doc-biblioref" href="#ADG15">Avron,
-          Druinsky, &amp; Gupta, 2015</a>) and references therein) and update
-        patterns such as this are easy to implement inside of this framework.
+        matrix <span class="math-span">𝐴</span> are assigned to each simulated
+        processor. A common technique for this assignment, is to evenly divide
+        the work among all of the available processors, however other patterns
+        are also possible. For example, the use of randomization in the solution
+        of linear systems via relaxation methods has gained some popularity in
+        the fields of optimization and machine learning (see, e.g., (<a
+        role="doc-biblioref" href="#ADG15">Avron, Druinsky, &amp; Gupta,
+          2015</a>) and references therein) and update patterns such as this are
+        easy to implement inside of this framework.
       </li>
       <li>An update time function that captures the empirical information
         that was captured from parallel performance runs on the HPC hardware.
@@ -2426,30 +1997,16 @@ td.border_left_right {
       </div>
     </div>
     <p>
-      In <a href="#Alg2">Algorithm 2</a>, a given update time
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>&tau;</mi>
-      <mi>l</mi>
-      </msub>
-      </math>
-      will often not be sampled as an integer. The simulation adjusts for this
-      by scaling the number that is sampled by the appropriate order of
-      magnitude, adjusting the maximum value allowed for
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>t</mi>
-      </math>
-      accordingly, and then scaling back the final time calculated by the
-      simulation. For example, if the desired time precision is hundredths of a
-      second, and the time resulting for the first sampling of
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>&tau;</mi>
-      <mi>l</mi>
-      </msub>
-      </math>
-      was 1.234<em>s</em>, then the simulation would perform the following
-      steps:
+      In <a href="#Alg2">Algorithm 2</a>, a given update time <span
+        class="math-span">&tau;<sub>𝑙</sub></span> will often not be sampled as
+      an integer. The simulation adjusts for this by scaling the number that is
+      sampled by the appropriate order of magnitude, adjusting the maximum value
+      allowed for <span class="math-span">𝑡</span> accordingly, and then
+      scaling back the final time calculated by the simulation. For example, if
+      the desired time precision is hundredths of a second, and the time
+      resulting for the first sampling of <span class="math-span">&tau;<sub>𝑙</sub></span>
+      was 1.234<span class="math-span">𝑠</span>, then the simulation would
+      perform the following steps:
     </p>
     <ol>
       <li><math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2501,32 +2058,15 @@ td.border_left_right {
       <mtext>final</mtext>
       <mtext>old</mtext>
       </msubsup>
+      <mtext maxsize="1" mathvariant="normal">,</mtext>
       </math></li>
     </ol>
     <p>
-      , where
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>s</mi>
-      </math>
-      referenced is the "scale_factor" defined in the block diagram given by <a
-        href="#Fig2">Figure 2</a>. For example, if the desired precision is
-      hundredths of a second,
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>s</mi>
-      <mo>=</mo>
-      <msup>
-      <mn>10</mn>
-      <mn>2</mn>
-      </msup>
-      </math>
-      , and the sampled value
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>&tau;</mi>
-      <mi>l</mi>
-      </msub>
-      </math>
-      becomes
+      where <span class="math-span">𝑠</span> referenced is the <q>scale_factor</q>
+      defined in the block diagram given by <a href="#Fig2">Figure 2</a>. For
+      example, if the desired precision is hundredths of a second, <span
+        class="math-span">𝑠 = 10<sup>2</sup></span>, and the sampled value <span
+        class="math-span">&tau;<sub>𝑙</sub></span> becomes
     </p>
     <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
           <mtable columnalign="left">
@@ -2566,8 +2106,9 @@ td.border_left_right {
           </mtable>
         </math>
     <p>
-    <p>Inside of the simulation framework, time is abstracted away to "units
-      of time", and then the final time is scaled back into the appropriate
+    <p>
+      Inside of the simulation framework, time is abstracted away to <q>units
+        of time</q>, and then the final time is scaled back into the appropriate
       units. This allows the framework to be adapted to future HPC environments,
       as well as examining the impact of the standard variance of single core
       performance on multi-core hardware elements if the method that is used is
@@ -2575,34 +2116,21 @@ td.border_left_right {
       removing appropriate communication penalties - to simulate the performance
       of different memory architectures (e.g., distributed or cloud computing
       environments). This is left as future work although the method for doing
-      this inside of the proposed framework is straightforward.</p>
+      this inside of the proposed framework is straightforward.
+    </p>
 
     <section id="Sect4.1">
       <h1>Sample Use-Cases for the Framework</h1>
       <p>
-        Let the matrix
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>A</mi>
-      </math>
-        result from a simple two dimensional finite-difference discretization of
-        the Laplacian over a
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mn>10</mn>
-        <mo>&times;</mo>
-        <mn>10</mn>
-        </math>
-        grid, resulting in a
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mn>100</mn>
-        <mo>&times;</mo>
-        <mn>100</mn>
-        </math>
-        matrix with an average of 4.6 non-zero entries per row. The Laplacian
+        Let the matrix <span class="math-span">𝐴</span> result from a simple
+        two dimensional finite-difference discretization of the Laplacian over a
+        <span class="math-span">10 &times; 10</span> grid, resulting in a <span
+          class="math-span">100 &times; 100</span> matrix with an average of 4.6
+        non-zero entries per row. The Laplacian
       </p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
       <mtable>
-        <mtr>
+        <mtr columnalign="right">
           <mtd>
             <mrow>
             <mo>&Delta;</mo>
@@ -2638,15 +2166,13 @@ td.border_left_right {
         </mtr>
       </mtable>
       </math>
-      </div>
       <p>is a partial differential equation (PDE) commonly found in both
         science and engineering. The example problems taken in this study can be
         thought of as simulating the diffusion of heat across a two dimensional
         surface given some heat source along the boundary of the problem.</p>
       <p>Once the PDE is discretized over the desired grid using finite
         differences, typically central finite differences, the linear system</p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -2660,7 +2186,6 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-      </div>
       <p>is set up to be solved for a random right-hand side b that
         represents the desired boundary conditions. All problems considered in
         this study use Dirichlet boundary conditions. For the examples in this
@@ -2705,18 +2230,15 @@ td.border_left_right {
       <p>
         Next, consider the same problem from above, but in two slightly more
         complicated scenarios. In <a href="#Fig4">Figure 4</a> one of the ten
-        processors involved in updating blocks of components of
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>x</mi>
-        </math>
-        is provided updates more slowly than the other processors. This could
-        reflect the scenario where updates are either performed synchronously or
-        asynchronously where the effect of variance in performance is
-        negligible, and a single processor has degraded performance. This can
-        also be viewed as a look at the impact of asynchronous behavior on the
-        Jacobi algorithm. Each curve shows the progression of the (global)
-        residual subject to having a single slower processor with different
-        degrees of slowdown (from zero to 11x).
+        processors involved in updating blocks of components of <span
+          class="math-span">𝑥</span> is provided updates more slowly than the
+        other processors. This could reflect the scenario where updates are
+        either performed synchronously or asynchronously where the effect of
+        variance in performance is negligible, and a single processor has
+        degraded performance. This can also be viewed as a look at the impact of
+        asynchronous behavior on the Jacobi algorithm. Each curve shows the
+        progression of the (global) residual subject to having a single slower
+        processor with different degrees of slowdown (from zero to 11x).
       </p>
       <figure id="Fig4">
         <img src="./img/image4.png" />
@@ -2728,24 +2250,9 @@ td.border_left_right {
       <p>
         In <a href="#Fig5">Figure 5</a> the processor updates are not restricted
         to occur synchronously. Instead, the processors are assumed to have
-        similar performance and perform their updates in time
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msub>
-        <mi>t</mi>
-        <mi>i</mi>
-        </msub>
-        <mo>&sim;</mo>
-        <mi>N</mi>
-        <mo maxsize="1">(</mo>
-        <mo>&mu;</mo>
-        <mo separator="true">,</mo>
-        <msup>
-        <mo>&sigma;</mo>
-        <mn>2</mn>
-        </msup>
-        <mo maxsize="1">)</mo>
-        </math>
-        where the mean is set to 10 units of time and the variance is different
+        similar performance and perform their updates in time <span
+          class="math-span">𝑡<sub>𝑖</sub> &sim; 𝑁(&mu;, &sigma;<sup>2</sup>)
+        </span> where the mean is set to 10 units of time and the variance is different
         for each curve depicted in the plot. An increase in the variance of
         processor performance, regardless of the timing distribution, could come
         about for a variety of reasons; an example of a scenario in the future
@@ -2808,8 +2315,7 @@ td.border_left_right {
       implementations and two corresponding use cases of the simulation
       framework. For both implementations, the test problem is a two dimensional
       discretization of the Laplacian</p>
-    <div>
-      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -2824,7 +2330,6 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-    </div>
     <p>
       where the right-hand side is initialized with Dirichlet boundary
       conditions. Both implementations use OpenMP<sup>&reg;</sup> for
@@ -2845,23 +2350,12 @@ td.border_left_right {
       <p>
         In this case, the heat problem is represented mathematically by a sparse
         matrix, which is solved by an asynchronous general Jacobi method. The
-        Laplacian is generated over a
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mn>100</mn>
-        <mo>&times;</mo>
-        <mn>100</mn>
-        </math>
-        grid resulting in a matrix of size
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mn>10,000</mn>
-        <mo>&times;</mo>
-        <mn>10,000</mn>
-        </math>
-        with 49,600 non-zeros with an average of 4.96 non-zeros per row. The
-        vector b from the resulting linear system,
+        Laplacian is generated over a <span class="math-span">100 &times;
+          100</span> grid resulting in a matrix of size <span class="math-span">10,000
+          &times; 10,000</span> with 49,600 non-zeros with an average of 4.96 non-zeros
+        per row. The vector b from the resulting linear system,
       </p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -2875,50 +2369,19 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-      </div>
       <p>
-        is initialized such that the final solution vector has
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>x</mi>
-      <mi>i</mi>
-      </msub>
-      <mo>=</mo>
-      <mn>1</mn>
-      </math>
-        for all
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <mi>i</mi>
-      </math>
-        . The initial guess
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <msub>
-      <mi>x</mi>
-      <mn>0</mn>
-      </msub>
-      </math>
-        is all zeros.
+        is initialized such that the final solution vector has <span
+          class="math-span">𝑥<sub>𝑖</sub> = 1
+        </span> for all <span class="math-span">𝑖</span>. The initial guess <span
+          class="math-span">𝑥<sub>0</sub></span> is all zeros.
       </p>
       <p>
         In this implementation, all threads but one perform relaxations on
         assigned components, and a dedicated thread computes the global residual
-        norm value
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>b</mi>
-        <mo>-</mo>
-        <mi>A</mi>
-        <msup>
-        <mi>x</mi>
-        <mrow>
-        <mo maxsize="1">(</mo>
-        <mi>t</mi>
-        <mo maxsize="1">)</mo>
-        </mrow>
-        </msup>
-        </math>
-        that determines satisfactory convergence. Each thread retrieves the data
-        it needs from shared memory, performs the necessary computations, and,
-        in the case of the relaxation threads, writes the result back to shared
+        norm value <span class="math-span">𝑏 - 𝐴𝑥<sup>(𝑡)</sup></span> that
+        determines satisfactory convergence. Each thread retrieves the data it
+        needs from shared memory, performs the necessary computations, and, in
+        the case of the relaxation threads, writes the result back to shared
         memory. Synchronous shared-memory implementations of all classes of
         algorithms commonly use mutex locks to avoid race conditions with read
         and write operations. However, this type of asynchronous relaxation
@@ -2931,34 +2394,12 @@ td.border_left_right {
         has two varieties: (a) <span class="small-caps">Safe</span> which uses
         mutex locks to avoid race conditions, and (b) <span class="small-caps">Race</span>
         which permits race conditions. <span class="small-caps">Safe</span> uses
-        OpenMP<sup>&reg;</sup> locks to copy
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msup>
-        <mi>x</mi>
-        <mrow>
-        <mo maxsize="1">(</mo>
-        <mi>t</mi>
-        <mo maxsize="1">)</mo>
-        </mrow>
-        </msup>
-        </math>
-        safely from shared memory and to update
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msup>
-        <mi>x</mi>
-        <mfenced open="(" close=")">
-        <mrow>
-        <mi>t</mi>
-        <mo>+</mo>
-        <mn>1</mn>
-        </mrow>
-        </mfenced>
-        </msup>
-        </math>
-        . Pseudocode for this process is given in <a href="#Alg3">Algorithm
-          3</a>, where bold upper-case text indicates that OpenMP<sup>&reg;</sup>
-        locks are employed. The algorithm for <span class="small-caps">Race</span>
-        is identical to <a href="#Alg3">Algorithm 3</a>, with the exception that
+        OpenMP<sup>&reg;</sup> locks to copy <span class="math-span">𝑥<sup>(𝑡)</sup></span>
+        safely from shared memory and to update <span class="math-span">𝑥<sup>(𝑡+1)</sup></span>.
+        Pseudocode for this process is given in <a href="#Alg3">Algorithm 3</a>,
+        where bold upper-case text indicates that OpenMP<sup>&reg;</sup> locks
+        are employed. The algorithm for <span class="small-caps">Race</span> is
+        identical to <a href="#Alg3">Algorithm 3</a>, with the exception that
         locks are omitted.
       </p>
       <div id="Alg3" class="column-top">
@@ -3292,11 +2733,8 @@ td.border_left_right {
         for thread counts up to 81, but behavior diverges beyond that. For
         thread counts 101 through 501, <span class="small-caps">Race</span>
         requires more iterations, perhaps to compensate for threads reading and
-        computing with inaccurate
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>x</mi>
-        </math>
-        vectors. Despite this, <a href="#Fig6a">Figure 6a</a> shows that <span
+        computing with inaccurate <span class="math-span">𝑥</span> vectors.
+        Despite this, <a href="#Fig6a">Figure 6a</a> shows that <span
           class="small-caps">Race</span> is still quicker for the largest thread
         counts, perhaps because threads do not use locks to access data and
         eliminate that overhead cost. <a href="#Fig6a">Figure 6a</a> also shows
@@ -3472,31 +2910,22 @@ td.border_left_right {
           <td><figure id="Fig7a">
               <img src="./img/image7a.png" />
               <figcaption>
-                <strong>(a)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                copy, 11 threads.
+                <strong>(a)</strong> <span class="math-span">𝑥</span> copy, 11
+                threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig7b">
               <img src="./img/image7b.png" />
               <figcaption>
-                <strong>(b)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                compute, 11 threads.
+                <strong>(b)</strong> <span class="math-span">𝑥</span> compute,
+                11 threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig7c">
               <img src="./img/image7c.png" />
               <figcaption>
-                <strong>(c)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                update, 11 threads.
+                <strong>(c)</strong> <span class="math-span">𝑥</span> update,
+                11 threads.
               </figcaption>
             </figure></td>
         </tr>
@@ -3504,31 +2933,22 @@ td.border_left_right {
           <td><figure id="Fig7d">
               <img src="./img/image7d.png" />
               <figcaption>
-                <strong>(d)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                copy, 81 threads.
+                <strong>(d)</strong> <span class="math-span">𝑥</span> copy, 81
+                threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig7e">
               <img src="./img/image7e.png" />
               <figcaption>
-                <strong>(e)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                compute, 81 threads.
+                <strong>(e)</strong> <span class="math-span">𝑥</span> compute,
+                81 threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig7f">
               <img src="./img/image7f.png" />
               <figcaption>
-                <strong>(f)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                update, 81 threads.
+                <strong>(f)</strong> <span class="math-span">𝑥</span> update,
+                81 threads.
               </figcaption>
             </figure></td>
         </tr>
@@ -3536,31 +2956,22 @@ td.border_left_right {
           <td><figure id="Fig7g">
               <img src="./img/image7g.png" />
               <figcaption>
-                <strong>(g)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                copy, 201 threads.
+                <strong>(g)</strong> <span class="math-span">𝑥</span> copy, 201
+                threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig7h">
               <img src="./img/image7h.png" />
               <figcaption>
-                <strong>(h)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                compute, 201 threads.
+                <strong>(h)</strong> <span class="math-span">𝑥</span> compute,
+                201 threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig7i">
               <img src="./img/image7i.png" />
               <figcaption>
-                <strong>(i)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                update, 201 threads.
+                <strong>(i)</strong> <span class="math-span">𝑥</span> update,
+                201 threads.
               </figcaption>
             </figure></td>
         </tr>
@@ -3575,31 +2986,22 @@ td.border_left_right {
           <td><figure id="Fig8a">
               <img src="./img/image8a.png" />
               <figcaption>
-                <strong>(a)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                copy, 11 threads.
+                <strong>(a)</strong> <span class="math-span">𝑥</span> copy, 11
+                threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig8b">
               <img src="./img/image8b.png" //>
               <figcaption>
-                <strong>(b)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                compute, 11 threads.
+                <strong>(b)</strong> <span class="math-span">𝑥</span> compute,
+                11 threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig8c">
               <img src="./img/image8c.png" />
               <figcaption>
-                <strong>(c)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                update, 11 threads.
+                <strong>(c)</strong> <span class="math-span">𝑥</span> update,
+                11 threads.
               </figcaption>
             </figure></td>
         </tr>
@@ -3607,31 +3009,22 @@ td.border_left_right {
           <td><figure id="Fig8d">
               <img src="./img/image8d.png" />
               <figcaption>
-                <strong>(d)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                copy, 81 threads.
+                <strong>(d)</strong> <span class="math-span">𝑥</span> copy, 81
+                threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig8e">
               <img src="./img/image8e.png" />
               <figcaption>
-                <strong>(e)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                compute, 81 threads.
+                <strong>(e)</strong> <span class="math-span">𝑥</span> compute,
+                81 threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig8f">
               <img src="./img/image8f.png" />
               <figcaption>
-                <strong>(f)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                update, 81 threads.
+                <strong>(f)</strong> <span class="math-span">𝑥</span> update,
+                81 threads.
               </figcaption>
             </figure></td>
         </tr>
@@ -3639,31 +3032,22 @@ td.border_left_right {
           <td><figure id="Fig8g">
               <img src="./img/image8g.png" />
               <figcaption>
-                <strong>(g)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                copy, 201 threads.
+                <strong>(g)</strong> <span class="math-span">𝑥</span> copy, 201
+                threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig8h">
               <img src="./img/image8h.png" />
               <figcaption>
-                <strong>(h)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                compute, 201 threads.
+                <strong>(h)</strong> <span class="math-span">𝑥</span> compute,
+                201 threads.
               </figcaption>
             </figure></td>
           <td><figure id="Fig8i">
               <img src="./img/image8i.png" />
               <figcaption>
-                <strong>(i)</strong>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>x</mi>
-                </math>
-                update, 201 threads.
+                <strong>(i)</strong> <span class="math-span">𝑥</span> update,
+                201 threads.
               </figcaption>
             </figure></td>
         </tr>
@@ -3679,19 +3063,11 @@ td.border_left_right {
       <p>
         This second implementation performs the Jacobi relaxation on the grid
         directly using the neighboring points required by the 5-point stencil as
-        opposed to explicitly forming the matrix
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mi>A</mi>
-        </math>
-        , and in a sense implements a <em>matrix-free</em> solution. For this
-        implementation, the Laplacian was discretized over a
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mn>600</mn>
-        <mo>&times;</mo>
-        <mn>600</mn>
-        </math>
-        grid with boundary conditions set according to <a href="#Tab2">Table
-          2</a>.
+        opposed to explicitly forming the matrix <span class="math-span">𝐴</span>,
+        and in a sense implements a <em>matrix-free</em> solution. For this
+        implementation, the Laplacian was discretized over a <span
+          class="math-span">600 &times; 600</span> grid with boundary conditions
+        set according to <a href="#Tab2">Table 2</a>.
       </p>
       <table id="Tab2" class="table-matrix bottom">
         <tbody>
@@ -4436,8 +3812,7 @@ td.border_left_right {
         , is less than 1. In the case of the Jacobi method, the iteration matrix
         is given by
       </p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -4464,7 +3839,6 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-      </div>
       <p>
         Note that in the two dimensional discretization of the Laplacian, the
         spectral radius of the Jacobian is less than l, which says that both the
@@ -4647,8 +4021,7 @@ td.border_left_right {
         </math>
         , using a uniform distribution, and then set
       </p>
-      <div>
-        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
             <mtable>
               <mtr>
                 <mtd>
@@ -4675,7 +4048,6 @@ td.border_left_right {
               </mtr>
             </mtable>
           </math>
-      </div>
       <p>
         for all values of
         <math xmlns="http://www.w3.org/1998/Math/MathML">
