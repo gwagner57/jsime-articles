@@ -313,7 +313,8 @@
         <li>SES</li>
       </ul>
     </div>
-    <section role="doc-abstract" id="sect0">
+    
+    <section id="sect0" role="doc-abstract">
       <h1>Abstract</h1>
       <p>The first step in designing a domain-specific simulation scenario
         definition language is constructing its ontology. The recently published
@@ -332,6 +333,7 @@
         from these two approaches converge to the same result.</p>
     </section>
   </div>
+  
   <section id="sect1">
     <h1>Introduction</h1>
     <p>
@@ -507,9 +509,11 @@
       using both OWL ontology and SES based approaches.
     </p>
   </section>
+  
   <section id="sect2">
     <h1>Background</h1>
-    <section>
+    
+    <section id="sect2.1">
       <h1>Domain-Specific Languages</h1>
       <p>Domain-specific languages (DSLs) are computer languages tailored to
         a specific application domain. As a result, DSLs are often more
@@ -526,7 +530,8 @@
           href="#Mer05">Mernik, Heering, &amp; Sloane, 2005</a>).
       </p>
     </section>
-    <section>
+    
+    <section id="sect2.2">
       <h1>Ontology</h1>
       <p>
         An ontology describes the concepts and relationships that are important
@@ -552,7 +557,8 @@
           href="#Bec09">Bechhofer, 2009</a>).
       </p>
     </section>
-    <section>
+    
+    <section id="sect2.3">
       <h1>Aviation Scenario Definition Language</h1>
       <p>
         First proposed by Jafer et. al. in 2016 (<a role="doc-biblioref"
@@ -592,7 +598,8 @@
         training simulators.
       </p>
     </section>
-    <section>
+    
+    <section  id="sect2.4">
       <h1>SES</h1>
       <p>
         A fundamental representation of Discrete Event System Specification
@@ -648,6 +655,7 @@
       </ol>
     </section>
   </section>
+  
   <section id="sect3">
     <h1>ASDL Ontology</h1>
     <p>
@@ -782,7 +790,8 @@
       suggests that future ASDL extensions can be added faster than previous
       extensions, given the future additions remain in a similar domain and/or
       subject area as the previous ones.</p>
-    <section>
+      
+    <section id="sect3.1">
       <h1>Departure Extension Ontology</h1>
       <p>The departure extension was similar to the original ASDL
         implementation in that both phases of flight involved an aircraft,
@@ -823,7 +832,8 @@
         </figcaption>
       </figure>
     </section>
-    <section>
+    
+    <section id="sect3.2">
       <h1>En Route Extension Ontology</h1>
       <p>The en route extension introduced the concept of airspace and how
         aircraft move through different parts of an airspace. This required a
@@ -877,6 +887,7 @@
       </figure>
     </section>
   </section>
+  
   <section id="sect4">
     <h1>SES for Ontological Representation</h1>
     <p>
@@ -977,6 +988,7 @@
       model it using both approaches to scenario definition, that is, by using
       the EMF metamodel of ASDL, and the SES definition of ASDL.</p>
   </section>
+  
   <section id="sect5">
     <h1>Sample En Route Scenario</h1>
     <p>The use of both forms of the ASDL Ontology can be illustrated by
@@ -1014,7 +1026,8 @@
         <strong>Figure 17.</strong> En Route Scenario State Diagram.
       </figcaption>
     </figure>
-    <section>
+    
+    <section id="sect5.1">
       <h1>EMF En Route Scenario Implementation</h1>
       <p>
         <a href="#_Ref509500567">Figure 18</a> shows the EMF runtime
@@ -1067,7 +1080,8 @@
         </code>
       </pre>
     </section>
-    <section>
+    
+    <section id="sect5.2">
       <h1>SES En Route Scenario Implementation</h1>
       <p>
         The SES implementation allows for the same information to be entered
@@ -1154,6 +1168,7 @@
         ontology.</p>
     </section>
   </section>
+  
   <section id="sect6">
     <h1>ASDL Standardization</h1>
     <p>A well-known problem in the aviation simulation community is the
@@ -1167,7 +1182,8 @@
       standard providing a general, stable, and supported means of defining
       scenarios for use in aviation in ways that are not limited to a specific
       simulator design.</p>
-    <section>
+      
+    <section id="sect6.1">
       <h1>SISO Standardization Process</h1>
       <p>
         SISO is an international organization dedicated to the promotion of
@@ -1227,7 +1243,8 @@
         standardization and content verification. This definition of ASDL should
         be used towards applying for SISO standardization.</p>
     </section>
-    <section>
+    
+    <section id="sect6.2">
       <h1>DSL Standardization Challenges</h1>
       <p>
         In addition to being incredibly difficult to create, DSLs are also
@@ -1269,6 +1286,7 @@
       </p>
     </section>
   </section>
+  
   <section id="sect7">
     <h1>Discussion and Future Work</h1>
     <p>
@@ -1379,7 +1397,8 @@
       scenarios. The process for standardizing such a language has been
       described here along with some of the challenges facing this effort.</p>
   </section>
-  <section role="doc-bibliography" id="sect8">
+  
+  <section id="sect8" role="doc-bibliography">
     <h1>Bibliography</h1>
     <ul>
       <li id="Abb11" role="doc-biblioentry">Abbot, J., Pullen, J, &amp; S.,
@@ -1546,6 +1565,7 @@
       </li>
     </ul>
   </section>
+  
   <section id="sect9" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
@@ -1560,7 +1580,7 @@
   </section>
   </main>
 
-  <nav id="toc">
+  <nav id="toc" class="suppressInPDF">
     <h1>Table of Contents</h1>
     <ol>
       <li><a href="#sect0">Abstract</a></li>

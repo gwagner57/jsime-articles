@@ -82,7 +82,7 @@
       ],
       "copyrightYear": "2018",
       "dateCreated": "2017-10-05",
-      "dateModified": "2018-06-30",
+      "dateModified": "2018-07-06",
       "datePublished": "2018-06-28",
       "isPartOf": {
         "@type": "PublicationVolume",
@@ -212,7 +212,7 @@
         <li>Process Model</li>
       </ul>
     </div>
-    <section role="doc-abstract" id="sect0">
+    <section id="sect0" role="doc-abstract">
       <h1>Abstract</h1>
       <p>
         In simulation engineering, a system model mainly consists of an <em>information
@@ -241,6 +241,7 @@
       </p>
     </section>
   </div>
+
   <section id="sect1">
     <h1>Introduction</h1>
     <p>
@@ -376,6 +377,7 @@
       using the JavaScript-based simulation framework OESjs.
     </p>
   </section>
+
   <section id="sect2">
     <h1>What Is Discrete Event Simulation?</h1>
     <p>
@@ -1109,7 +1111,8 @@
     <p>When the stock quantity falls below the reorder point, a
       replenishment order is sent to the vendor for restocking the inventory,
       and the ordered quantity is delivered 1-3 days later.</p>
-    <section>
+
+    <section id="sect6.1">
       <h1>Information Modeling</h1>
       <p>
         How should we start the information modeling process? Should we first
@@ -1217,7 +1220,8 @@
           </p>
         </li>
       </ol>
-      <section>
+
+      <section id="sect6.1.1">
         <h1>Conceptual Information Model</h1>
         <p>
           We can extract the following candidates for object types from the
@@ -1253,7 +1257,6 @@
           implementation. This approach results in a model that can be re-used
           in other simulation projects with the same problem domain, but with
           different research questions.
-
         </p>
         <p>Notice that we have also modeled the following associations
           between these five object types:</p>
@@ -1334,7 +1337,7 @@
         </p>
       </section>
 
-      <section>
+      <section id="sect6.1.2">
         <h1>Information Design Model</h1>
         <p>
           We now derive an information design model from the
@@ -1458,7 +1461,8 @@
           day, while we define <em>Delivery</em> as a caused event type.
         </p>
       </section>
-      <section>
+
+      <section id="sect6.1.3">
         <h1>Deriving Platform-Specific Class Models from the Information
           Design Model</h1>
         <p>
@@ -1534,7 +1538,8 @@
           whenever a <em>DailyDemand</em> event has occurred.
         </p>
       </section>
-      <section>
+
+      <section id="sect6.1.4">
         <h1>Coding a Platform-Specific Class Model</h1>
         <p>
           The classes defined in the OESjs class model shown in <a
@@ -1597,7 +1602,8 @@ DailyDemand.demandQuantity = function () {...}
         </p>
       </section>
     </section>
-    <section>
+
+    <section id="sect6.2">
       <h1>Process Modeling</h1>
       <p>
         We make a conceptual process model and a process design model for the
@@ -1617,7 +1623,8 @@ DailyDemand.demandQuantity = function () {...}
       <p>For simplicity, we may merge those types of events, which can be
         considered to temporally coincide. This is the case whenever an event
         unconditionally causes an immediately succeeding follow-up event.</p>
-      <section>
+
+      <section id="sect6.2.1">
         <h1>Making a Conceptual Process Model</h1>
         <p>
           Since inventory management is part of a business system, it is natural
@@ -1761,7 +1768,8 @@ DailyDemand.demandQuantity = function () {...}
           </caption>
         </table>
       </section>
-      <section>
+
+      <section id="sect6.2.2">
         <h1>Process Design Model</h1>
         <p>
           A process design model needs to provide a computationally complete
@@ -1822,7 +1830,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                 </ul>
               </td>
               <td><pre>
-                  <code>rec.stockQuantity += delQ</code>
+                  <code>
+rec.stockQuantity += delQ</code>
                 </pre></td>
             </tr>
           </tbody>
@@ -1902,6 +1911,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           </figcaption>
         </figure>
       </section>
+
       <section id="sect6.2.3">
         <h1>Implementing the Process Design Model with OESjs</h1>
         <p>
@@ -1994,9 +2004,11 @@ var DailyDemand = new cLASS({
       completed, the next customer from the queue, if there is any, is invited
       for the service.
     </p>
-    <section>
+
+    <section id="sect7.1">
       <h1>Information Modeling</h1>
-      <section>
+
+      <section id="sect7.1.1">
         <h1>Conceptual Information Model</h1>
         <p>It is straight-forward to extract four object types from the
           problem description above by analyzing the noun phrases:</p>
@@ -2066,7 +2078,7 @@ var DailyDemand = new cLASS({
           one service desk as its participants.
         </p>
         <figure id="_Ref494398925" class="top">
-          <img src="./img/Service_CIM.svg" width="550" />
+          <img src="./img/Service_CIM.svg" width="600" />
           <figcaption>
             <strong>Figure 19.</strong> Adding event types to the conceptual
             information model.
@@ -2092,7 +2104,8 @@ var DailyDemand = new cLASS({
           <q>service end</q> with the activity type <q>perform service</q>.
         </p>
       </section>
-      <section>
+
+      <section id="sect7.1.2">
         <h1>Information Design Model</h1>
         <p>
           We now derive platform-independent <em>information design models</em>
@@ -2156,7 +2169,7 @@ var DailyDemand = new cLASS({
             href="#_Ref494399721">Figure 21</a>.
         </p>
         <figure id="_Ref494399721" class="top">
-          <img src="./img/ServiceDesk-2_IDM.svg" width="550" />
+          <img src="./img/ServiceDesk-2_IDM.svg" width="600" />
           <figcaption>
             <strong>Figure 21.</strong> An information design model for research
             question 2.
@@ -2277,7 +2290,8 @@ var DailyDemand = new cLASS({
           queue.
         </p>
       </section>
-      <section>
+
+      <section id="sect7.1.3">
         <h1>Deriving an OESjs Class Model from an Information Design Model</h1>
         <p>
           We derive an OESjs class model, shown in <a href="#_Ref493094587">Figure
@@ -2305,7 +2319,8 @@ var DailyDemand = new cLASS({
           and <em>CustomerArrival::serviceDesk)</em>.
         </p>
       </section>
-      <section>
+
+      <section id="sect7.1.4">
         <h1>Coding the OESjs Class Model</h1>
         <p>
           The object class <em>ServiceDesk</em> defined in the OESjs class model
@@ -2332,9 +2347,11 @@ ServiceDesk.serviceDuration = function () {
         </pre>
       </section>
     </section>
-    <section>
+
+    <section id="sect7.2">
       <h1>Process Modeling</h1>
-      <section>
+
+      <section id="sect7.2.1">
         <h1>Conceptual Process Model</h1>
         <p>For brevity, we show the conceptual event rule models only for a
           selection of the event types from the conceptual information model.</p>
@@ -2428,7 +2445,8 @@ ServiceDesk.serviceDuration = function () {
           </figcaption>
         </figure>
       </section>
-      <section>
+
+      <section id="sect7.2.2">
         <h1>Making a Process Design Model</h1>
         <p>
           In the process design model, we only need to include two event rules,
@@ -2437,11 +2455,13 @@ ServiceDesk.serviceDuration = function () {
           information design model in <a href="#_Ref494399721">Figure 21</a>.
         </p>
         <table class="top">
-          <tbody>
+          <thead>
             <tr>
               <th>ON (event expr.)</th>
               <th>DO (event routine)</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
               <td>
                 <p>CustomerArrival( c, sd) @ t</p>
@@ -2528,7 +2548,7 @@ sd.waitingCustomers.<b>pop</b>()
         </p>
       </section>
 
-      <section>
+      <section id="sect7.2.3">
         <h1>Implementing the Process Design Model with OESjs</h1>
         <p>
           The event rules specified by the process design model can be
@@ -2608,6 +2628,7 @@ var CustomerDeparture = new cLASS({
       </section>
     </section>
   </section>
+
   <section id="sect8">
     <h1>Conclusions</h1>
     <p>Combining UML class diagrams with BPMN and DPMN process diagrams
@@ -2635,9 +2656,9 @@ var CustomerDeparture = new cLASS({
       modeling and simulation by adding the concepts of agents with perceptions,
       actions and beliefs.
     </p>
-
   </section>
-  <section role="doc-bibliography" id="sect9">
+
+  <section id="sect9" role="doc-bibliography">
     <h1>Bibliography</h1>
     <ul>
       <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML
@@ -2804,6 +2825,7 @@ var CustomerDeparture = new cLASS({
       </li>
     </ul>
   </section>
+
   <section id="sect10" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
@@ -2817,7 +2839,7 @@ var CustomerDeparture = new cLASS({
   </section>
   </main>
 
-  <nav id="toc">
+  <nav id="toc" class="suppressInPDF">
     <h1>Table of Contents</h1>
     <ol>
       <li><a href="#sect0">Abstract</a></li>

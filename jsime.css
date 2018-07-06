@@ -55,7 +55,7 @@ textarea {
             Pagination and Page Regions
    ------------------------------------------- */
 @page {
-  size: US-Letter /* A4 US-Letter */ portrait;
+  size: A4 /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
   
   @top-center {
@@ -114,7 +114,7 @@ textarea {
   code,
   pre,
   /* adjusting prism.css settings */
-code[class *= "language-"],
+  code[class *= "language-"],
   pre[class *= "language-"] {
     font-size: 90%;
     line-height: 1.3;
@@ -139,6 +139,9 @@ code[class *= "language-"],
   main {
     columns: 2; 
     column-gap: 0.25in;
+  }
+  h1#article-title {
+    hyphens: none;
   }
   #front-matter,
   table {
@@ -192,9 +195,14 @@ code[class *= "language-"],
     list-style-position: outside;
   }
   
+  h1,
+  table,
+  figure {
+    page-break-inside: avoid;
+  }
+  
   img { 
     prince-image-resolution: auto;
-    prince-background-image-resolution: normal;
   }
   
   /* adjusting prism.css settings */
@@ -410,7 +418,7 @@ th {
   background: silver;
 }
 table > caption {
-  margin-bottom: 1em;
+  margin-bottom: 0.7em;
 }
 
 figure {

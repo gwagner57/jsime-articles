@@ -77,10 +77,6 @@ td.border_left_right {
   border-left: 1pt solid black;
   border-right: 1pt solid black;
 }
-
-#toc>ol>li {
-  list-style: none;
-}
 </style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script type="text/javascript" async
@@ -306,7 +302,8 @@ td.border_left_right {
       </ul>
     </div>
   </div>
-  <section role="doc-abstract" id="sect0">
+
+  <section id="sect0" role="doc-abstract">
     <h1>Abstract</h1>
     <p>
       As high-performance computing (HPC) platforms progress towards exascale,
@@ -591,8 +588,8 @@ td.border_left_right {
       <a role="doc-biblioref" href="#Szy98">Szyld, 1998</a>) among many others.
     </p>
     <p>
-      To keep the mathematical model as general as possible, consider a <<<<<<<
-      HEAD function, <span class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>, where <span
+      To keep the mathematical model as general as possible, consider a
+      function, <span class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>, where <span
         class="math-span">𝐷</span> is a domain that represents a product space
       <span class="math-span">𝐷 = 𝐷<sub>1</sub> &times; 𝐷<sub>2</sub>
         &times; &hellip; &times; 𝐷<sub>2</sub></span>. The goal is to find a fixed
@@ -2989,7 +2986,6 @@ td.border_left_right {
           compute, and update histograms with kernel fits.
         </caption>
       </table>
-
       <table id="fig8" class="table-figure top">
         <tbody>
           <tr>
@@ -3588,7 +3584,6 @@ td.border_left_right {
         increase in iteration time variation may result from increased
         opportunities for lock collisions with greater thread counts.
       </p>
-
       <table id="fig9" class="table-figure top">
         <tr>
           <td><figure id="fig9a">
@@ -3648,7 +3643,6 @@ td.border_left_right {
         Laplacian is a very sparse matrix that does not require much data
         movement.
       </p>
-
       <table id="tab3" class="bottom">
         <thead>
           <tr>
@@ -4462,7 +4456,7 @@ td.border_left_right {
     </p>
   </section>
 
-  <section role="doc-acknowledgements" id="sect8">
+  <section id="sect8" role="doc-acknowledgements">
     <h1>Acknowledgements</h1>
     <p>
       This work was supported in part by the Air Force Office of Scientific
@@ -4479,7 +4473,7 @@ td.border_left_right {
     </p>
   </section>
 
-  <section class="suppressInPDF" role="doc-endnotes" id="sect9">
+  <section id="sect9" class="suppressInPDF" role="doc-endnotes">
     <h1>Footnotes</h1>
     <ol>
       <li id="ftn1" role="doc-endnote">Throughout the text, vector notation
@@ -4495,7 +4489,8 @@ td.border_left_right {
       </li>
     </ol>
   </section>
-  <section role="doc-bibliography" id="sect10">
+  
+  <section id="sect10" role="doc-bibliography">
     <h1>Bibliography</h1>
     <ul>
       <li id="AB05" role="doc-biblioentry">Addou, A., &amp; Benahmed, A.
@@ -4911,20 +4906,21 @@ td.border_left_right {
       </li>
     </ul>
   </section>
+  
   <section id="sect11" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
       <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img
         alt="Creative Commons License"
-        src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Copyright &copy;
-      2018 Evan C. Coleman, Erik Jensen, Masha Sosonkina. This article is
+        src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Copyright
+      &copy; 2018 Evan C. Coleman, Erik Jensen, Masha Sosonkina. This article is
       licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative
         Commons Attribution 4.0 International License</a>.
     </p>
   </section>
   </main>
 
-  <nav id="toc">
+  <nav id="toc" class="suppressInPDF">
     <h1>Table of Contents</h1>
     <ol>
       <li><a href="#sect0">Abstract</a></li>
