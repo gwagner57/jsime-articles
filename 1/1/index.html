@@ -1,50 +1,37 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>JSimE 1/1 - Information and Process Modeling for Simulation –
   Part I</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--Google Scholar-->
-<meta name="citation_publisher"
-  content="Consortium for True Open Access in Modeling and Simulation" />
-<meta name="citation_journal_title" content="Journal of Simulation Engineering" />
-<meta name="citation_journal_abbrev" content="JSimE" />
-<meta name="citation_issn" content="2569-9466" />
-<meta name="citation_volume" content="1" />
-<meta name="citation_firstpage" content="1:1" />
-<meta name="citation_lastpage" content="1:25" />
-<meta name="citation_title"
-  content="Information and Process Modeling for Simulation – Part I" />
-<meta name="citation_article_type" content="Tutorial" />
-<meta name="citation_online_date" content="2017/10/5" />
-<meta name="citation_publication_date" content="2018/6/28" />
-<meta name="citation_author" content="Gerd Wagner" />
-<meta name="citation_author_email" content="G.Wagner@b-tu.de" />
-<meta name="citation_author_institution"
-  content="Dept. of Informatics, Brandenburg University of Technology, Cottbus, Germany" />
-<meta name="citation_abstract_html_url"
-  content="https://jsime.org/index.php/jsimeng/article/view/2" />
-<meta name="citation_pdf_url"
-  content="https://articles.jsime.org/1/jsime-article-1-1.pdf" />
-<meta name="citation_fulltext_html_url"
-  content="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
+<meta name="citation_publisher" content="Consortium for True Open Access in Modeling and Simulation">
+<meta name="citation_journal_title" content="Journal of Simulation Engineering">
+<meta name="citation_journal_abbrev" content="JSimE">
+<meta name="citation_issn" content="2569-9466">
+<meta name="citation_volume" content="1">
+<meta name="citation_firstpage" content="1:1">
+<meta name="citation_lastpage" content="1:25">
+<meta name="citation_title" content="Information and Process Modeling for Simulation – Part I">
+<meta name="citation_article_type" content="Tutorial">
+<meta name="citation_online_date" content="2017/10/5">
+<meta name="citation_publication_date" content="2018/6/28">
+<meta name="citation_author" content="Gerd Wagner">
+<meta name="citation_author_email" content="G.Wagner@b-tu.de">
+<meta name="citation_author_institution" content="Dept. of Informatics, Brandenburg University of Technology, Cottbus, Germany">
+<meta name="citation_abstract_html_url" content="https://jsime.org/index.php/jsimeng/article/view/2">
+<meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-1.pdf">
+<meta name="citation_fulltext_html_url" content="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I">
 <!--Canonical URL-->
-<link rel="canonical"
-  href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
+<link rel="canonical" href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I">
 <!--Stylesheets-->
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
-<link rel="stylesheet" href="../../jsime.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+<link rel="stylesheet" href="../../jsime.css">
 <!--Scripts-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script type="text/javascript" async
-  src="https://www.google-analytics.com/analytics.js"></script>
-<script async="async"
-  src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag () {
@@ -57,8 +44,7 @@
 </script>
 <!-- <script src="../../createTableOfContents.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script> -->
 <script type="application/ld+json">
 {
   "@context": {
@@ -136,44 +122,32 @@
 </head>
 <body vocab="http://schema.org/">
   <header>
-    <small><a href="https://jsime.org"><img src="../../JSimE.svg"
-        style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of
-        Simulation Engineering</i>, Volume 1. Article URL: <a
-      href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I"
-      id="articleURL">https://articles.jsime.org/1/1</a> <a id="PDF"
-      class="suppressInPDF"
-      href="https://jsime.org/index.php/jsimeng/article/view/2"
-      style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
+    <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height: 24px; margin-right: 0.7em;"></a><i>Journal of
+        Simulation Engineering</i>, Volume 1. Article URL: <a href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" id="articleURL">https://articles.jsime.org/1/1</a> <a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/2" style="position: relative; left: 1em"><img src="../../icons/pdf.png"></a></small>
   </header>
   <aside id="feedback" class="suppressInPDF">
     <button type="button" onclick="document.body.classList.add('feedbackMode')">Provide
       comments. Report errors</button>
-    <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field" netlify>
+    <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field" netlify="">
       <p class="hidden">
-        <label>Don't fill this out if you're human: <input
-          name="bot-field" /></label>
+        <label>Don't fill this out if you're human: <input name="bot-field"></label>
       </p>
-      <div class="close-btn"
-        onclick="document.body.classList.remove('feedbackMode')">X</div>
+      <div class="close-btn" onclick="document.body.classList.remove('feedbackMode')">X</div>
       <h1>Provide comments and report errors</h1>
       <p>During a 4-week feedback period ending on July 26, anyone may
         provide comments and report errors, which will be taken into
         consideration by the author(s).</p>
       <div>
-        <label>Your name: <input name="name" size="30"
-          required="required" type="text" /></label>
+        <label>Your name: <input name="name" size="30" required="required" type="text"></label>
       </div>
       <div>
-        <label>Email address: <input name="emailAddress" size="30"
-          required="required" type="email" /></label>
+        <label>Email address: <input name="emailAddress" size="30" required="required" type="email"></label>
       </div>
       <div>
-        <label>Affiliation: <input name="affiliation" size="30"
-          type="text" /></label>
+        <label>Affiliation: <input name="affiliation" size="30" type="text"></label>
       </div>
       <div>
-        <label>Comments/hints:<br /> <textarea name="feedback"
-            required="required"></textarea></label>
+        <label>Comments/hints:<br> <textarea name="feedback" required="required"></textarea></label>
       </div>
       <div>
         <button type="submit">Send</button>
@@ -267,8 +241,7 @@
       methodologies and model quality assurance methods have been established.
     </p>
     <p>
-      The standard view in the simulation literature, see, e.g., (<a
-        href="#Himmelspach2009">Himmelspach, 2009</a>), is that a <em>simulation
+      The standard view in the simulation literature, see, e.g., (<a href="#Himmelspach2009">Himmelspach, 2009</a>), is that a <em>simulation
         model</em> can be expressed either in a general purpose programming language
       or in a specialized simulation language. However, the term <q>model</q> in
       <em>simulation model</em> typically refers to a low-level computer program
@@ -296,8 +269,7 @@
       have proposed to use BPMN for Discrete Event Simulation (DES) modeling and
       for agent-based modeling. However, process modeling in general is much
       less understood than information modeling, and there are no guidelines and
-      no best practices how to use BPMN for simulation modeling. Schruben (<a
-        href="#LSch83">1983</a>), with his <em>Event Graph</em> diagram
+      no best practices how to use BPMN for simulation modeling. Schruben (<a href="#LSch83">1983</a>), with his <em>Event Graph</em> diagram
       language, has pioneered the research on process modeling languages for DES
       based on the modeling concept of <em>event types</em> and the operational
       semantics concept of <em>event scheduling</em> with a <em>future
@@ -362,8 +334,7 @@
         2017a</a>). Such a model can, in principle, be implemented with any
       object-oriented (OO) simulation technology. However, a straightforward
       implementation can only be expected from a technology that implements the
-      <em>Object-Event Simulation (OES)</em> paradigm proposed in (<a
-        href="#GWa17a">Wagner, 2017a</a>), such as the <em>OES JavaScript
+      <em>Object-Event Simulation (OES)</em> paradigm proposed in (<a href="#GWa17a">Wagner, 2017a</a>), such as the <em>OES JavaScript
         (OESjs)</em> framework presented in (<a href="#GWa17c">Wagner, 2017c</a>).
     </p>
     <p>
@@ -562,7 +533,7 @@
         1</a>.
     </p>
     <figure id="_Ref493009969" class="top">
-      <img src="./img/MDD.svg" width="600" />
+      <img src="./img/MDD.svg" width="600">
       <figcaption>
         <strong>Figure 1.</strong> From a conceptual model via design models to
         implementation models.
@@ -626,7 +597,7 @@
       levels only. For instance, Petri Nets cannot be used for conceptual
       process modeling, since they lack the required expressiveness.</p>
     <figure id="_Ref493010044" class="top">
-      <img src="./img/MDD-Example.svg" width="800" />
+      <img src="./img/MDD-Example.svg" width="800">
       <figcaption>
         <strong>Figure 2.</strong> From a conceptual information model via a
         design model to OO and C++ class models.
@@ -737,7 +708,7 @@
       </li>
     </ol>
     <figure id="_Ref493010135">
-      <img src="./img/IntroUML1.svg" width="400" />
+      <img src="./img/IntroUML1.svg" width="400">
       <figcaption>
         <strong>Figure 3.</strong> The entity types Shop and Delivery.
       </figcaption>
@@ -757,7 +728,7 @@
       </li>
     </ol>
     <figure id="_Ref493071591">
-      <img src="./img/IntroUML2.svg" width="450" />
+      <img src="./img/IntroUML2.svg" width="450">
       <figcaption>
         <strong>Figure 4.</strong> Adding properties and operations.
       </figcaption>
@@ -796,7 +767,7 @@
       probability distribution function with event rate 0.5.
     </p>
     <figure id="_Ref493014282">
-      <img src="./img/IntroUML3.svg" width="500" />
+      <img src="./img/IntroUML3.svg" width="500">
       <figcaption class="multi-line-pdf">
         <strong>Figure 5.</strong> Adding a property constraint and an operation
         constraint.
@@ -807,11 +778,10 @@
       For instance, for distinguishing between <b><i>object types</i></b> and <b><i>event
           types</i></b> as two different categories of entity types we can define
       corresponding stereotypes of UML classes («object type» and «event type»)
-      and use them for categorizing classes in class models, as shown in <a
-        href="#_Ref493015782">Figure 6</a>.
+      and use them for categorizing classes in class models, as shown in <a href="#_Ref493015782">Figure 6</a>.
     </p>
     <figure id="_Ref493015782">
-      <img src="./img/IntroUML4.svg" width="500" />
+      <img src="./img/IntroUML4.svg" width="500">
       <figcaption class="multi-line-pdf">
         <strong>Figure 6.</strong> Object and event types as two different
         categories of entity types.
@@ -832,8 +802,7 @@
     <p>
       For a short introduction to UML Class Diagrams, the reader is referred to
       (<a href="#Ambler2010">Ambler, 2010</a>). A good overview of the most
-      recent version of UML (UML 2.5) is provided by <a
-        href="https://www.uml-diagrams.org/uml-25-diagrams.html">www.uml-diagrams.org/uml-25-diagrams.html</a>
+      recent version of UML (UML 2.5) is provided by <a href="https://www.uml-diagrams.org/uml-25-diagrams.html">www.uml-diagrams.org/uml-25-diagrams.html</a>
     </p>
   </section>
 
@@ -847,14 +816,13 @@
       based on Petri-net-style <em>token flows</em>.
     </p>
     <p>
-      The most important elements of a BPMN process model are listed in <a
-        href="#_Ref463198942">Table 1</a>.
+      The most important elements of a BPMN process model are listed in <a href="#_Ref463198942">Table 1</a>.
     </p>
     <table class="top" id="_Ref463198942">
       <colgroup>
-        <col span="1" />
-        <col span="1" />
-        <col style="width: 30%;" span="1" />
+        <col span="1">
+        <col span="1">
+        <col style="width: 30%;" span="1">
       </colgroup>
       <thead>
         <tr>
@@ -879,7 +847,7 @@
               line and an <em>End Event</em> has a thick border line.
             </p>
           </td>
-          <td><img src="./img/Events.svg" /></td>
+          <td><img src="./img/Events.svg"></td>
         </tr>
         <tr>
           <td>
@@ -896,7 +864,7 @@
               shows its internal process structure.
             </p>
           </td>
-          <td><img src="./img/Activity.svg" /></td>
+          <td><img src="./img/Activity.svg"></td>
         </tr>
         <tr>
           <td>
@@ -912,7 +880,7 @@
               or more input flows. A Gateway can have both input and output
               flows.</p>
           </td>
-          <td><img src="./img/Gateways.svg" /></td>
+          <td><img src="./img/Gateways.svg"></td>
         </tr>
         <tr>
           <td>
@@ -925,8 +893,7 @@
               diamond and is annotated with a condition (in brackets).
             </p>
           </td>
-          <td><img src="./img/image11.png" /> <img
-            src="./img/ConditionalSequenceFlow.svg" /></td>
+          <td><img src="./img/image11.png"> <img src="./img/ConditionalSequenceFlow.svg"></td>
         </tr>
         <tr>
           <td>
@@ -938,7 +905,7 @@
               dashed arrow denotes reading, while a bidirectional dashed arrow
               denotes reading/writing.</p>
           </td>
-          <td><img src="./img/DataObject.svg" /></td>
+          <td><img src="./img/DataObject.svg"></td>
         </tr>
         <!--
          <tr>
@@ -993,10 +960,8 @@
       general basis for deriving platform-specific process automation models.
     </p>
     <p>
-      For an introductory BPMN tutorial, the reader is referred to (<a
-        href="#Camunda2017">BPMN 2.0 Tutorial, 2017</a>). A good modeling tool,
-      with the advantages of an online solution, is the <a
-        href="https://www.signavio.com/bpm-academic-initiative/"><em>Signavio
+      For an introductory BPMN tutorial, the reader is referred to (<a href="#Camunda2017">BPMN 2.0 Tutorial, 2017</a>). A good modeling tool,
+      with the advantages of an online solution, is the <a href="https://www.signavio.com/bpm-academic-initiative/"><em>Signavio
           Process Editor</em></a>, which is free for academic use.
     </p>
     <p>
@@ -1031,8 +996,7 @@
       modify them for a number of modeling elements. The resulting BPMN variant,
       which is fully described in (<a href="#GWa18">Wagner, 2018</a>), is called
       <em>Discrete Event Process Modeling Notation (DPMN)</em>. It may be viewed
-      as a BPMN-based generalization of the <em>Event Graph</em> diagrams of (<a
-        href="#LSch83">Schruben 1983</a>).
+      as a BPMN-based generalization of the <em>Event Graph</em> diagrams of (<a href="#LSch83">Schruben 1983</a>).
     </p>
     <p>
       <em>DPMN</em> adopts and adapts the syntax and semantics of BPMN in the
@@ -1119,8 +1083,7 @@
         model object types and then event types, or the other way around? Here,
         the right order is dictated by informational dependencies. Since <b><i>events
             are always associated with objects that participate in them</i></b>, which
-        is an ontological pattern that is fundamental for DES, see, e.g., (<a
-          href="#GuizzardiW2010b">Guizzardi &amp; Wagner, 2010b</a>), we first
+        is an ontological pattern that is fundamental for DES, see, e.g., (<a href="#GuizzardiW2010b">Guizzardi &amp; Wagner, 2010b</a>), we first
         model object types, together with their associations, and then add event
         types on top of them.
       </p>
@@ -1238,7 +1201,7 @@
             7</a>.
         </p>
         <figure id="_Ref493083679" class="top">
-          <img src="./img/Inventory-ObjectTypes_CIM.svg" width="600" />
+          <img src="./img/Inventory-ObjectTypes_CIM.svg" width="600">
           <figcaption>
             <strong>Figure 7.</strong> A first version conceptual information
             model, describing object types, only.
@@ -1302,8 +1265,7 @@
           We add these event types to our model, together with their
           participation associations with involved object types, now
           distinguishing class rectangles that denote event types from those
-          denoting object types with the help of UML stereotypes, as shown in <a
-            href="#_Ref493084409">Figure 8</a>. For visual clarity, we use
+          denoting object types with the help of UML stereotypes, as shown in <a href="#_Ref493084409">Figure 8</a>. For visual clarity, we use
           classes without a stereotype for representing object types (so we can
           omit the stereotype «object type» since it is the default).
         </p>
@@ -1313,7 +1275,7 @@
           vice versa, an object of that type typically participates in many
           events of that type.</p>
         <figure id="_Ref493084409" class="top">
-          <img src="./img/Inventory_CIM.svg" width="800" />
+          <img src="./img/Inventory_CIM.svg" width="800">
           <figcaption>
             <strong>Figure 8.</strong> The complete conceptual information
             model.
@@ -1341,8 +1303,7 @@
         <h1>Information Design Model</h1>
         <p>
           We now derive an information design model from the
-          solution-independent conceptual information model shown in <a
-            href="#_Ref493084409">Figure 8</a>. Our design model is
+          solution-independent conceptual information model shown in <a href="#_Ref493084409">Figure 8</a>. Our design model is
           solution-specific because it is a computational design for the
           following specific research question: compute the average percentage
           of <em>lost sales</em> (if an order quantity is greater than the
@@ -1402,7 +1363,7 @@
           model as shown in <a href="#_Ref493086068">Figure 9</a>.
         </p>
         <figure id="_Ref493086068" class="top">
-          <img src="./img/Inventory_IDM-1.svg" width="500" />
+          <img src="./img/Inventory_IDM-1.svg" width="500">
           <figcaption>
             <strong>Figure 9.</strong> The initial information design model with
             attributes and associations (Step 1).
@@ -1430,11 +1391,10 @@
           <code>PositiveInteger</code>
           , instead of plain
           <code>Integer</code>
-          , for the quantity of a delivery), as shown in <a
-            href="#_Ref493087168">Figure 10</a>.
+          , for the quantity of a delivery), as shown in <a href="#_Ref493087168">Figure 10</a>.
         </p>
         <figure id="_Ref493087168" class="top">
-          <img src="./img/Inventory_IDM-2.svg" width="500" />
+          <img src="./img/Inventory_IDM-2.svg" width="500">
           <figcaption>
             <strong>Figure 10.</strong> Adding the range of attributes and
             random variables (Step 2).
@@ -1469,10 +1429,7 @@
           After choosing an object-oriented simulation platform based on the
           object-event paradigm (e.g., the JavaScript-based platform <em>OESjs</em>
           available from <a href="https://sim4edu.com/">Sim4edu</a>, or one of
-          the Java-based platforms <a
-            href="http://desmoj.sourceforge.net/home.html">DESMO-J</a>, <a
-            href="https://jaamsim.com/">JaamSim</a> or <a
-            href="https://www.anylogic.com/">AnyLogic</a>), we can derive a
+          the Java-based platforms <a href="http://desmoj.sourceforge.net/home.html">DESMO-J</a>, <a href="https://jaamsim.com/">JaamSim</a> or <a href="https://www.anylogic.com/">AnyLogic</a>), we can derive a
           platform-specific class model for this platform from the information
           design model.
         </p>
@@ -1488,13 +1445,13 @@
             11</a> and <a href="#_Ref493094586">Figure 12</a>.
         </p>
         <figure id="_Ref493094582">
-          <img src="./img/Inventory-ObjTypes_OESjs.svg" width="320" />
+          <img src="./img/Inventory-ObjTypes_OESjs.svg" width="320">
           <figcaption>
             <strong>Figure 11.</strong> Defining an object class in OESjs.
           </figcaption>
         </figure>
         <figure id="_Ref493094586" class="column-bottom">
-          <img src="./img/Inventory-EvtTypes_OESjs.svg" width="450" />
+          <img src="./img/Inventory-EvtTypes_OESjs.svg" width="450">
           <figcaption>
             <strong>Figure 12.</strong> Defining event classes in OESjs.
           </figcaption>
@@ -1523,8 +1480,7 @@
           instance, the
           <code>onEvent</code>
           method of the subclass <em>DailyDemand</em> implements the event
-          routine of the <em>DailyDemand</em> event rules, see <a
-            href="#sect6.2.3">Section 6.2.3</a>. The return type declaration
+          routine of the <em>DailyDemand</em> event rules, see <a href="#sect6.2.3">Section 6.2.3</a>. The return type declaration
           <code>eVENT[*]</code>
           means that the
           <code>onEvent</code>
@@ -1542,25 +1498,10 @@
       <section id="sect6.1.4">
         <h1>Coding a Platform-Specific Class Model</h1>
         <p>
-          The classes defined in the OESjs class model shown in <a
-            href="#_Ref493094586">Figure 12</a> can be directly coded as OESjs
+          The classes defined in the OESjs class model shown in <a href="#_Ref493094586">Figure 12</a> can be directly coded as OESjs
           classes. For instance, the object class <em>SingleProductShop</em> can
           be coded in the following way:
         </p>
-<!--        <pre>
-          <code class="language-javascript">
-var SingleProductShop = new cLASS({
-  Name: "SingleProductShop",
-  supertypeName: "oBJECT",
-  properties: {
-    "stockQuantity": {range:"NonNegativeInteger"},
-    "reorderPoint": {range:"NonNegativeInteger"},
-    "targetInventory": {range:"PositiveInteger"},
-    "lostSales": {range:"Percentage"}
-  }
-});
-          </code>
-        </pre> -->
         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> SingleProductShop <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"SingleProductShop"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"oBJECT"</span><span class="token punctuation">,</span>
@@ -1577,25 +1518,7 @@ var SingleProductShop = new cLASS({
           The event class <em>DailyDemand</em> can be coded in the following
           way:
         </p>
-<!--         <pre>
-          <code class="language-javascript">
-var DailyDemand = new cLASS({
-  Name: "DailyDemand",
-  supertypeName: "eVENT",
-  properties: {
-    "quantity": {range: "PositiveInteger"},
-    "shop": {range: "SingleProductShop"}
-  },
-  methods: {
-    "onEvent": function () {...}
-  }
-});
-DailyDemand.recurrence = function () {...}
-DailyDemand.createNextEvent = function () {...}
-DailyDemand.demandQuantity = function () {...}
-          </code>
-        </pre> -->
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> DailyDemand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> DailyDemand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"DailyDemand"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"eVENT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -1653,12 +1576,11 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
         <p>
           Since inventory management is part of a business system, it is natural
           to make a kind of business process (BP) model describing actors and
-          their activities, typically in response to events, as shown in <a
-            href="#_Ref493109665">Figure 13</a>, where we model the two actors <em>Customer</em>
+          their activities, typically in response to events, as shown in <a href="#_Ref493109665">Figure 13</a>, where we model the two actors <em>Customer</em>
           and <em>SingleProductShop</em>, together with their interactions.
         </p>
         <figure id="_Ref493109665" class="top">
-          <img src="./img/Inventory_BPM.svg" />
+          <img src="./img/Inventory_BPM.svg">
           <figcaption>
             <strong>Figure 13.</strong> A business process model.
           </figcaption>
@@ -1694,8 +1616,7 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
           rather a special form of BPMN models, without activities and without
           actors/swimlanes. Below, in our discussion of a service desk model, we
           will show an example of activity modeling, which requires an extended
-          form of DES by adding an activity concept, as proposed in (<a
-            href="#Wag09">Wagner, Nicolae, &amp; Werner, 2009</a>).
+          form of DES by adding an activity concept, as proposed in (<a href="#Wag09">Wagner, Nicolae, &amp; Werner, 2009</a>).
         </p>
         <p>
           The purpose of a conceptual process model for simulation is to
@@ -1709,7 +1630,7 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
           process model, as shown in <a href="#_Ref493110214">Figure 14</a>.
         </p>
         <figure id="_Ref493110214" class="top">
-          <img src="./img/CRM.svg" />
+          <img src="./img/CRM.svg">
           <figcaption>
             <strong>Figure 14.</strong> The conceptual process model integrating
             all event rule models.
@@ -1720,9 +1641,9 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
           the integrated model.</p>
         <table class="top" id="_Ref494382666">
           <colgroup>
-            <col span="1" />
-            <col span="1" />
-            <col style="width: 35%;" span="1" />
+            <col span="1">
+            <col span="1">
+            <col style="width: 35%;" span="1">
           </colgroup>
           <thead>
             <tr>
@@ -1738,11 +1659,11 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
               </td>
               <td>
                 <p>
-                  check inventory;<br />if there is sufficient inventory, then
+                  check inventory;<br>if there is sufficient inventory, then
                   product handover, else customer departure
                 </p>
               </td>
-              <td><img src="./img/CustomerOrder_CRM.svg" /></td>
+              <td><img src="./img/CustomerOrder_CRM.svg"></td>
             </tr>
             <tr>
               <td>
@@ -1750,10 +1671,10 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
               </td>
               <td>
                 <p>
-                  decrement (get product from) inventory;<br />customer payment
+                  decrement (get product from) inventory;<br>customer payment
                 </p>
               </td>
-              <td><img src="./img/ProductHandover_CRM.svg" /></td>
+              <td><img src="./img/ProductHandover_CRM.svg"></td>
             </tr>
             <tr>
               <td>
@@ -1764,7 +1685,7 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
                   describe the increase of the shop's cash balance due to the
                   payment, because we focus on inventory.]</small>
               </td>
-              <td><img src="./img/CustomerPayment_CRM.svg" /></td>
+              <td><img src="./img/CustomerPayment_CRM.svg"></td>
             </tr>
             <tr>
               <td>
@@ -1773,7 +1694,7 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
               <td>
                 <p>delivery</p>
               </td>
-              <td><img src="./img/ReplenishmentOrder_CRM.svg" /></td>
+              <td><img src="./img/ReplenishmentOrder_CRM.svg"></td>
             </tr>
             <tr>
               <td>
@@ -1781,10 +1702,10 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
               </td>
               <td>
                 <p>
-                  increment inventory;<br />payment
+                  increment inventory;<br>payment
                 </p>
               </td>
-              <td><img src="./img/Delivery_CRM.svg" /></td>
+              <td><img src="./img/Delivery_CRM.svg"></td>
             </tr>
           </tbody>
           <caption>
@@ -1808,8 +1729,7 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
           Since our information design model (tailored to the given research
           question of computing the lost sales statistics) only includes two
           event types, <em>DailyDemand</em> and <em>Delivery</em>, we need to
-          model the two corresponding event rules, as in the event rule design <a
-            href="#_Ref494385925">Table 3</a>, where these rules are modeled
+          model the two corresponding event rules, as in the event rule design <a href="#_Ref494385925">Table 3</a>, where these rules are modeled
           textually using pseudo-code.
         </p>
         <table class="bottom" id="_Ref494385925">
@@ -1829,8 +1749,7 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
                   <li>demQ is the daily demand quantity</li>
                 </ul>
               </td>
-              <td><pre>
-                  <code>
+              <td><pre>                  <code>
 <b>var</b> sQ := sh.stockQuantity
 <b>var</b> newSQ := sQ - demQ
 <b>var</b> rP := sh.reorderPoint
@@ -1853,8 +1772,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                   <li>delQ is the delivered quantity</li>
                 </ul>
               </td>
-              <td><pre>
-                  <code>
+              <td><pre>                  <code>
 rec.stockQuantity += delQ</code>
                 </pre></td>
             </tr>
@@ -1881,17 +1799,16 @@ rec.stockQuantity += delQ</code>
         <p>
           We can also express these two rules visually using the BPMN-based <em>Discrete
             Event Process Modeling Notation (DPMN)</em> defined in (<a href="#GWa18">Wagner,
-            2018</a>), as shown in <a href="#_Ref493110215">Figure 15</a> and <a
-            href="#_Ref494386620">Figure 16</a>.
+            2018</a>), as shown in <a href="#_Ref493110215">Figure 15</a> and <a href="#_Ref494386620">Figure 16</a>.
         </p>
         <figure id="_Ref493110215" class="top">
-          <img src="./img/DailyDemand_RDM.svg" />
+          <img src="./img/DailyDemand_RDM.svg">
           <figcaption>
             <strong>Figure 15.</strong> A rule design model for the event type <i>DailyDemand</i>.
           </figcaption>
         </figure>
         <figure id="_Ref494386620" class="column-bottom-corner">
-          <img src="./img/Delivery_RDM.svg" />
+          <img src="./img/Delivery_RDM.svg">
           <figcaption class="multi-line-pdf">
             <strong>Figure 16.</strong> A rule design model for the event type <i>Delivery</i>.
           </figcaption>
@@ -1916,8 +1833,7 @@ rec.stockQuantity += delQ</code>
           defined by adding a delay time <i>Δ</i> to the occurrence time <i>t</i>
           of the triggering event. In a DPMN diagram, the occurrence time
           assignment annotation <i>t' = t + Δ</i> can be abbreviated by the
-          expression <i>+Δ</i>, like <i>+Delivery.leadTime()</i> in <a
-            href="#_Ref493110215">Figure 15</a> above.
+          expression <i>+Δ</i>, like <i>+Delivery.leadTime()</i> in <a href="#_Ref493110215">Figure 15</a> above.
         </p>
         <p>
           Notice that <i>Delivery</i> events trigger a state change, but no
@@ -1928,7 +1844,7 @@ rec.stockQuantity += delQ</code>
           model shown in <a href="#_Ref493110216">Figure 17</a>.
         </p>
         <figure id="_Ref493110216" class="bottom">
-          <img src="./img/Inventory_PDM.svg" />
+          <img src="./img/Inventory_PDM.svg">
           <figcaption>
             <strong>Figure 17.</strong> A process design model in the form of a
             DPMN diagram.
@@ -1943,25 +1859,9 @@ rec.stockQuantity += delQ</code>
           can be implemented with OESjs by coding its event routine in the
           <code>onEvent</code>
           method of the class that represents the triggering event type. For
-          instance, the <em>Delivery</em> event rule modeled in <a
-            href="#_Ref494386620">Figure 16</a> can be coded as follows:
+          instance, the <em>Delivery</em> event rule modeled in <a href="#_Ref494386620">Figure 16</a> can be coded as follows:
         </p>
-<!--         <pre>
-          <code class="language-javascript">
-var Delivery = new cLASS({
-  Name: "Delivery",
-  supertypeName: "eVENT",
-  properties: {...},
-  methods: {
-    "onEvent": function () {
-       this.receiver.stockQuantity += this.quantity;
-       return [];  // no follow-up events
-    }
-  }
-});
-          </code>
-        </pre> -->
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> Delivery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> Delivery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"Delivery"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"eVENT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -1985,40 +1885,7 @@ var Delivery = new cLASS({
         <p>
           The <em>DailyDemand</em> event rule can be coded like so:
         </p>
-<!--         <pre>
-          <code class="language-javascript">
-var DailyDemand = new cLASS({
-  Name: "DailyDemand",
-  supertypeName: "eVENT",
-  properties: {...},
-  methods: {
-    "onEvent": function () {
-      var sh = this.shop,
-          sQ = sh.stockQuantity,
-          newSQ = sQ - this.quantity,
-          rP = sh.reorderPoint;
-      // update stockQuantity
-      this.shop.stockQuantity = Math.max( 0, newSQ);
-      // update lostSales if demand > stock
-      if (newSQ &lt; 0) {
-        sim.stat.lostSales += Math.abs( newSQ);
-        newSQ = 0;
-      }
-      // schedule new Delivery if stock 
-      // falls below reorder point
-      if (sQ > rP &amp;&amp; newSQ &lt;= rP) {
-        return [new Delivery({
-            occTime: this.occTime + Delivery.leadTime(),
-            quantity: sh.targetInventory - newSQ,
-            receiver: sh
-        })];
-      } else return [];  // no follow-up events
-    }
-  }
-});
-          </code>
-        </pre> -->
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> DailyDemand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> DailyDemand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"DailyDemand"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"eVENT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -2087,7 +1954,7 @@ var DailyDemand = new cLASS({
           system may look as shown in <a href="#_Ref494397234">Figure 18</a>.
         </p>
         <figure id="_Ref494397234" class="top">
-          <img src="./img/Service-ObjectTypes_CIM.svg" width="600" />
+          <img src="./img/Service-ObjectTypes_CIM.svg" width="600">
           <figcaption>
             <strong>Figure 18.</strong> A first version conceptual information
             model of a service system.
@@ -2142,7 +2009,7 @@ var DailyDemand = new cLASS({
           one service desk as its participants.
         </p>
         <figure id="_Ref494398925" class="top">
-          <img src="./img/Service_CIM.svg" width="600" />
+          <img src="./img/Service_CIM.svg" width="600">
           <figcaption>
             <strong>Figure 19.</strong> Adding event types to the conceptual
             information model.
@@ -2200,7 +2067,7 @@ var DailyDemand = new cLASS({
           call <em>design model 1</em>.
         </p>
         <figure id="_Ref494399720">
-          <img src="./img/ServiceDesk-1_IDM.svg" width="400" />
+          <img src="./img/ServiceDesk-1_IDM.svg" width="400">
           <figcaption class="multi-line-pdf">
             <strong>Figure 20.</strong> An information design model for
             answering research question 1.
@@ -2229,11 +2096,10 @@ var DailyDemand = new cLASS({
           event, we record it along with the customer data, so we add a
           corresponding attribute to the
           <code>Customer</code>
-          class. The resulting <em>design model 2</em> is shown in <a
-            href="#_Ref494399721">Figure 21</a>.
+          class. The resulting <em>design model 2</em> is shown in <a href="#_Ref494399721">Figure 21</a>.
         </p>
         <figure id="_Ref494399721" class="top">
-          <img src="./img/ServiceDesk-2_IDM.svg" width="600" />
+          <img src="./img/ServiceDesk-2_IDM.svg" width="600">
           <figcaption>
             <strong>Figure 21.</strong> An information design model for research
             question 2.
@@ -2360,19 +2226,16 @@ var DailyDemand = new cLASS({
         <p>
           We derive an OESjs class model, shown in <a href="#_Ref493094587">Figure
             22</a> and <a href="#_Ref493094588">Figure 23</a>, for the object types
-          and event types defined in the design model of <a
-            href="#_Ref494399721">Figure 21</a>.
+          and event types defined in the design model of <a href="#_Ref494399721">Figure 21</a>.
         </p>
         <figure id="_Ref493094587">
-          <img src="./img/ServiceSystem-ObjTypes_OESjs.svg"
-            alt="Defining OESjs object types" width="400" />
+          <img src="./img/ServiceSystem-ObjTypes_OESjs.svg" alt="Defining OESjs object types" width="400">
           <figcaption>
             <strong>Figure 22.</strong> Defining object types in OESjs.
           </figcaption>
         </figure>
         <figure id="_Ref493094588">
-          <img src="./img/ServiceSystem-EvtTypes_OESjs.svg"
-            alt="Defining OESjs object types" width="400" />
+          <img src="./img/ServiceSystem-EvtTypes_OESjs.svg" alt="Defining OESjs object types" width="400">
           <figcaption>
             <strong>Figure 23.</strong> Defining event types in OESjs.
           </figcaption>
@@ -2391,25 +2254,7 @@ var DailyDemand = new cLASS({
           shown in <a href="#_Ref493094587">Figure 22</a> can be coded as
           follows:
         </p>
-<!--         <pre>
-          <code class="language-javascript">
-var ServiceDesk = new cLASS({
-  Name: "ServiceDesk",
-  supertypeName: "oBJECT",
-  properties: {
-    "waitingCustomers": {
-       range: "Customer", 
-       label: "Waiting customers",
-       minCard: 0, 
-       maxCard: Infinity}
-  }
-});
-ServiceDesk.serviceDuration = function () {
-  return rand.exponential( 0.5);
-};
-          </code>
-        </pre> -->
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> ServiceDesk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> ServiceDesk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"ServiceDesk"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"oBJECT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -2435,9 +2280,9 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
           selection of the event types from the conceptual information model.</p>
         <table id="_Ref494404037" class="top">
           <colgroup>
-            <col span="1" />
-            <col span="1" />
-            <col style="width: 35%;" span="1" />
+            <col span="1">
+            <col span="1">
+            <col style="width: 35%;" span="1">
           </colgroup>
           <thead>
             <tr>
@@ -2451,12 +2296,12 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
               <td><p>customer arrival</p></td>
               <td>
                 <p>
-                  the queue (length) is incremented;<br />if there is no one
+                  the queue (length) is incremented;<br>if there is no one
                   else in the queue (queue length = 1), the service for the
                   newly arrived customer starts
                 </p>
               </td>
-              <td><img src="./img/Service-Arrival_CRM.svg" /></td>
+              <td><img src="./img/Service-Arrival_CRM.svg"></td>
             </tr>
             <tr>
               <td>
@@ -2465,7 +2310,7 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
               <td>
                 <p>service end</p>
               </td>
-              <td><img src="./img/image30.png" /></td>
+              <td><img src="./img/image30.png"></td>
             </tr>
             <tr>
               <td>
@@ -2474,7 +2319,7 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
               <td>
                 <p>customer departure</p>
               </td>
-              <td><img src="./img/Service-ServiceEnd_CRM.svg" /></td>
+              <td><img src="./img/Service-ServiceEnd_CRM.svg"></td>
             </tr>
             <tr>
               <td>
@@ -2485,7 +2330,7 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
                   someone in the queue (queue length &gt; 0), the next service
                   starts</p>
               </td>
-              <td><img src="./img/Service-Departure_CRM.svg" /></td>
+              <td><img src="./img/Service-Departure_CRM.svg"></td>
             </tr>
           </tbody>
           <caption>
@@ -2495,14 +2340,13 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
         </table>
         <p>
           The individual event rule models shown in <a href="#_Ref494404037">Table
-            4</a> can be integrated with each other as shown in <a
-            href="#_Ref494405660">Figure 24</a> where we have to express the
+            4</a> can be integrated with each other as shown in <a href="#_Ref494405660">Figure 24</a> where we have to express the
           event types <q>service start</q>, <q>service end</q> and <q>customer
             departure</q> in the form of BPMN’s <em>intermediate events</em> for
           complying with the BPMN syntax.
         </p>
         <figure id="_Ref494405660">
-          <img src="./img/Service_CPM.svg" />
+          <img src="./img/Service_CPM.svg">
           <figcaption class="multi-line-pdf">
             <strong>Figure 24.</strong> A conceptual process model integrating
             the event rule diagrams of <a href="#_Ref494404037">Table 4</a>.
@@ -2516,7 +2360,7 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
           model depicted in <a href="#_Ref499542494">Figure 25</a>.
         </p>
         <figure id="_Ref499542494" class="column-top">
-          <img src="./img/Service-with-Activity_CPM.svg" />
+          <img src="./img/Service-with-Activity_CPM.svg">
           <figcaption class="multi-line-pdf">
             <strong>Figure 25.</strong> The model of <a href="#_Ref494405660">Figure
               24</a> with an activity replacing the start/end event pair.
@@ -2549,8 +2393,7 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
                     new customer arrived</li>
                 </ul>
               </td>
-              <td><pre>
-                  <code>
+              <td><pre>                  <code>
 sd.waitingCustomers.<b>push</b>(c)
 <b>if</b> sd.waitingCustomers.length = 1 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
@@ -2566,8 +2409,7 @@ sd.waitingCustomers.<b>push</b>(c)
                     the customer departs</li>
                 </ul>
               </td>
-              <td><pre>
-                  <code>
+              <td><pre>                  <code>
 sd.waitingCustomers.<b>pop</b>()
 <b>if</b> sd.waitingCustomers.length &gt; 0 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
@@ -2583,18 +2425,17 @@ sd.waitingCustomers.<b>pop</b>()
         </table>
         <p>
           These two event rule design models are visually expressed in the DPMN
-          diagrams shown in <a href="#_Ref499542497">Figure 26</a> and <a
-            href="#_Ref499542498">Figure 27</a>.
+          diagrams shown in <a href="#_Ref499542497">Figure 26</a> and <a href="#_Ref499542498">Figure 27</a>.
         </p>
         <figure id="_Ref499542497">
-          <img src="./img/Service-Arrival_RDM.svg" />
+          <img src="./img/Service-Arrival_RDM.svg">
           <figcaption class="multi-line-pdf">
             <strong>Figure 26.</strong> A DPMN design model for the customer
             arrival event rule.
           </figcaption>
         </figure>
         <figure id="_Ref499542498">
-          <img src="./img/Service-Departure_RDM.svg" />
+          <img src="./img/Service-Departure_RDM.svg">
           <figcaption class="multi-line-pdf">
             <strong>Figure 27.</strong> A DPMN design model for the customer
             departure event rule.
@@ -2605,7 +2446,7 @@ sd.waitingCustomers.<b>pop</b>()
           model shown in <a href="#_Ref499542496">Figure 28</a>.
         </p>
         <figure id="_Ref499542496" class="top">
-          <img src="./img/Service_PDM.svg" width="550" />
+          <img src="./img/Service_PDM.svg" width="550">
           <figcaption>
             <strong>Figure 28.</strong> A DPMN process design model integrating
             the two rule design models.
@@ -2633,40 +2474,9 @@ sd.waitingCustomers.<b>pop</b>()
           implemented with OESjs by coding its event routine in the
           <code>onEvent</code>
           method of the class that represents the triggering event type. For
-          instance, the <em>CustomerArrival</em> event rule modeled in <a
-            href="#_Ref499542497">Figure 26</a> can be coded as follows:
+          instance, the <em>CustomerArrival</em> event rule modeled in <a href="#_Ref499542497">Figure 26</a> can be coded as follows:
         </p>
-<!--         <pre>
-          <code class="language-javascript">
-var CustomerArrival = new cLASS({
-  Name: "CustomerArrival",
-  supertypeName: "eVENT",
-  properties: {...},
-  methods: {
-    "onEvent": function () {
-      var srvTm=0, followupEvents=[],
-          sd = this.serviceDesk;
-      // create new customer object
-      this.customer = new Customer(
-        {arrivalTime: this.occTime});
-      sim.addObject( this.customer);
-      // push new customer to the queue
-      sd.waitingCustomers.push( this.customer);
-      // if the service desk is not busy
-      if (sd.waitingCustomers.length === 1) {
-        srvTm = ServiceDesk.serviceDuration();
-        followupEvents.push( new CustomerDeparture({
-          occTime: this.occTime + srvTm,
-          serviceDesk: sd
-        }));
-      }
-      return followupEvents;
-    }
-  }
-});
-          </code>
-        </pre> -->
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> CustomerArrival <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> CustomerArrival <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"CustomerArrival"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"eVENT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -2695,36 +2505,7 @@ var CustomerArrival = new cLASS({
         <p>
           The <em>CustomerDeparture</em> event rule can be coded like so:
         </p>
-<!--         <pre>
-          <code class="language-javascript">
-var CustomerDeparture = new cLASS({
-  Name: "CustomerDeparture",
-  supertypeName: "eVENT",
-  properties: {...},
-  methods: {
-    "onEvent": function () {
-      var srvTm=0, followupEvents=[],
-          sd = this.serviceDesk;
-      // pop customer from FIFO queue
-      var departingCustomer = sd.waitingCustomers.shift();
-      // remove customer from simulation
-      sim.removeObject( departingCustomer);
-      // if there are still customers waiting
-      if (sd.waitingCustomers.length > 0) {
-        // schedule next departure
-        srvTm = ServiceDesk.serviceDuration();
-        followupEvents.push( new CustomerDeparture({
-          occTime: this.occTime + srvTm,
-          serviceDesk: sd
-        }));
-      }
-      return followupEvents;
-    }
-  }
-});
-          </code>
-        </pre> -->
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> CustomerDeparture <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> CustomerDeparture <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"CustomerDeparture"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"eVENT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -2791,16 +2572,13 @@ var CustomerDeparture = new cLASS({
     <h1>Bibliography</h1>
     <ul>
       <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML
-          2 Class Diagrams</em>. <a
-        href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img
-          src="../../icons/html.png" /></a></li>
+          2 Class Diagrams</em>. <a href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img src="../../icons/html.png"></a></li>
       <li id="BankCNN2009" role="doc-biblioentry">Banks, J., Carson, J.S.,
         Nelson, B.L., &amp; Nicol, D.M. (2009). <em>Discrete-Event System
           Simulation</em>. Upper Saddle River, NJ: Prentice Hall.
       </li>
       <li id="Camunda2017" role="doc-biblioentry">BPMN 2.0 Tutorial.
-        (2017). <em>Camunda</em>. <a href="https://camunda.com/bpmn/"><img
-          src="../../icons/link.png" /></a>
+        (2017). <em>Camunda</em>. <a href="https://camunda.com/bpmn/"><img src="../../icons/link.png"></a>
       </li>
       <li id="CetinkayaVS2011" role="doc-biblioentry">Cetinkaya, D.,
         Verbraeck, A., &amp; Seck, M. (2011). MDD4MS: A Model Driven Development
@@ -2811,17 +2589,11 @@ var CustomerDeparture = new cLASS({
       <li id="Cet11" role="doc-biblioentry">Cetinkaya, D., &amp; Verbraeck,
         A. (2011). Metamodeling and Model Transformations in Modeling and
         Simulation. In <em>Proceedings of the 2011 Winter Simulation
-          Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a
-        href="http://www.informs-sim.org/wsc11papers/271.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/271.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="DahlNygaard66" role="doc-biblioentry">Dahl, O.-J., &amp;
         Nygaard, K. (1966). Simula – an ALGOL-Based Simulation Language. <em>Communications
-          of the ACM</em>. 9(9):671-678. <a
-        href="https://dx.doi.org/10.1145/365813.365819"><img
-          src="../../icons/doi.png" /></a> <a
-        href="http://simula67.at.ifi.uio.no/Archive/artikkel1966cacm.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          of the ACM</em>. 9(9):671-678. <a href="https://dx.doi.org/10.1145/365813.365819"><img src="../../icons/doi.png"></a> <a href="http://simula67.at.ifi.uio.no/Archive/artikkel1966cacm.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Gordon61" role="doc-biblioentry">Gordon, G. (1961). A General
         Purpose Systems Simulation Program. In <em>Proceedings of the
@@ -2831,103 +2603,73 @@ var CustomerDeparture = new cLASS({
         Wagner, G. (2010a). Using the Unified Foundational Ontology (UFO) as a
         Foundation for General Conceptual Modeling Languages. In Poli R., Healy
         M., Kameas A. (eds) <em>Theory and Applications of Ontology:
-          Computer Applications</em> (pp. 175-196). Dordrecht: Springer. <a
-        href="https://dx.doi.org/10.1007/978-90-481-8847-5_8"><img
-          src="../../icons/doi.png" /></a> <a
-        href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          Computer Applications</em> (pp. 175-196). Dordrecht: Springer. <a href="https://dx.doi.org/10.1007/978-90-481-8847-5_8"><img src="../../icons/doi.png"></a> <a href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GuizzardiW2010b" role="doc-biblioentry">Guizzardi, G., &amp;
         Wagner, G. (2010b). Towards an Ontological Foundation of Discrete Event
         Simulation. In <em>Proceedings of the 2010 Winter Simulation
-          Conference</em> (pp. 652-664). Piscataway, NJ: IEEE. <a
-        href="http://www.informs-sim.org/wsc10papers/059.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          Conference</em> (pp. 652-664). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/059.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GuizzardiW2012" role="doc-biblioentry">Guizzardi, G., &amp;
         Wagner, G. (2012). Tutorial: Conceptual Simulation Modeling with
         Onto-UML. In <em>Proceedings of the 2012 Winter Simulation
-          Conference</em>. Piscataway, NJ: IEEE. <a
-        href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          Conference</em>. Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GuizzardiW2013" role="doc-biblioentry">Guizzardi, G., &amp;
         Wagner, G. (2013). Dispositions and Causal Laws as the Ontological
         Foundation of Transition Rules in Simulation Models. In <em>Proceedings
           of the 2013 Winter Simulation Conference</em> (pp. 1335-1346). Piscataway,
-        NJ: IEEE. <a
-        href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Himmelspach2009" role="doc-biblioentry">Himmelspach, J.
         (2009). Toward a Collection of Principles, Techniques and Elements of
         Modeling and Simulation Software. In <em>Proc. of the 2009
           International Conference on Advances in System Simulation</em> (pp. 56–61).
-        IEEE Computer Society. <a
-        href="https://dx.doi.org/10.1109/SIMUL.2009.19"><img
-          src="../../icons/doi.png" /></a> <a
-        href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img
-          src="../../icons/html.png" /></a>
+        IEEE Computer Society. <a href="https://dx.doi.org/10.1109/SIMUL.2009.19"><img src="../../icons/doi.png"></a> <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../icons/html.png"></a>
       </li>
       <li id="MarkHK62" role="doc-biblioentry">Markowitz, H., Hausner, B.,
         &amp; Karr, H. (1962). <em>SIMSCRIPT: A Simulation Programming
           Language</em>. (Report No. RM-3310-PR). Santa Monica, CA: The RAND
-        Corporation. <a
-        href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2009/RM3310.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        Corporation. <a href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2009/RM3310.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Ong11" role="doc-biblioentry">Onggo, B., &amp; Karpat, O.
         (2011). Agent-Based Conceptual Model Representation Using BPMN. In <em>Proceedings
           of the 2011 Winter Simulation Conference</em> (pp. 671-682). Piscataway,
-        NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Peg92" role="doc-biblioentry">Pegden, C.D., &amp; Davis, D.A.
         (1992). Arena: a SIMAN/Cinema-Based Hierarchical Modeling System. In <em>Proceedings
           of the 1992 Winter Simulation Conference</em> (pp. 390-399). Piscataway,
-        NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Peg10" role="doc-biblioentry">Pegden, C.D. (2010). Advanced
         Tutorial: Overview of Simulation World Views. In <em>Proceedings of
           the 2010 Winter Simulation Conference</em> (pp. 643-651). Piscataway, NJ:
-        IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Rob13" role="doc-biblioentry">Robinson, S. (2013). Conceptual
         Modeling for Simulation. In <em>Proceedings of the 2013 Winter
-          Simulation Conference</em> (pp. 377-388). Piscataway, NJ: IEEE. <a
-        href="http://informs-sim.org/wsc13papers/includes/files/032.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          Simulation Conference</em> (pp. 377-388). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/032.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="LSch83" role="doc-biblioentry">Schruben, L. (1983).
         Simulation Modeling with Event Graphs. <em>Communications of the
-          ACM</em> 26(11):957-963. <a href="https://dx.doi.org/10.1145/182.358460"><img
-          src="../../icons/doi.png" /></a> <a
-        href="https://dl.acm.org/citation.cfm?id=358460"><img
-          src="../../icons/pdf.png" /></a>
+          ACM</em> 26(11):957-963. <a href="https://dx.doi.org/10.1145/182.358460"><img src="../../icons/doi.png"></a> <a href="https://dl.acm.org/citation.cfm?id=358460"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Tak10" role="doc-biblioentry">Tako, A.A., Kotiadis, K., &amp;
         Vasilakis, C. (2010). A Participative Modeling Framework for Developing
         Conceptual Models in Healthcare Simulation Studies. In <em>Proceedings
           of the 2010 Winter Simulation Conference</em> (pp. 500-512). Piscataway,
-        NJ: IEEE. <a href="https://dx.doi.org/10.1109/WSC.2010.5679135"><img
-          src="../../icons/doi.png" /></a> <a
-        href="http://www.informs-sim.org/wsc10papers/045.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="https://dx.doi.org/10.1109/WSC.2010.5679135"><img src="../../icons/doi.png"></a> <a href="http://www.informs-sim.org/wsc10papers/045.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Wag09" role="doc-biblioentry">Wagner, G., Nicolae, O., &amp;
         Werner, J. (2009). Extending Discrete Event Simulation by Adding an
         Activity Concept for Business Process Modeling and Simulation. In <em>Proceedings
           of Winter Simulation Conference</em> (pp. 2951−2962). Piscataway, NJ: IEEE.
-        <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img
-          src="../../icons/pdf.png" /></a>
+        <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GWa17a" role="doc-biblioentry">Wagner, G. (2017a). An
         Abstract State Machine Semantics For Discrete Event Simulation. In <em>Proceedings
-          of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a
-        href="https://www.informs-sim.org/wsc17papers/includes/files/056.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/056.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GWa17b" role="doc-biblioentry">Wagner, G. (2017b).
         Introduction to Information and Process Modeling for Simulation. In <em>Proceedings
@@ -2935,22 +2677,16 @@ var CustomerDeparture = new cLASS({
       </li>
       <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c).
         Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings
-          of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a
-        href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete
-        Event Process Modeling Notation (DPMN). <a
-        href="https://sim4edu.com/reading/DPMN.pdf"><img
-          src="../../icons/pdf.png" /></a>.
+        Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/reading/DPMN.pdf"><img src="../../icons/pdf.png"></a>.
       </li>
       <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako,
         A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel
         Discussion: Education on Conceptual Modeling for Simulation –
         Challenging the Art. In <em>Proceedings of the 2010 Winter
-          Simulation Conference</em> (pp. 290-304). Piscataway, NJ: IEEE. <a
-        href="http://www.informs-sim.org/wsc10papers/026.pdf"><img
-          src="../../icons/pdf.png" /></a>
+          Simulation Conference</em> (pp. 290-304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png"></a>
       </li>
     </ul>
   </section>
@@ -2958,11 +2694,8 @@ var CustomerDeparture = new cLASS({
   <section id="sect10" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
-      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img
-        alt="Creative Commons License"
-        src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Copyright ©
-      2018 Gerd Wagner. This article is licensed under a <a
-        href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a> Copyright ©
+      2018 Gerd Wagner. This article is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
         Attribution 4.0 International License</a>.
     </p>
   </section>
@@ -2984,5 +2717,5 @@ var CustomerDeparture = new cLASS({
       <li><a href="#sect10">Copyright Information</a></li>
     </ol>
   </nav>
-</body>
-</html>
+
+</body></html>
