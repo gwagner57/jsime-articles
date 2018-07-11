@@ -42,8 +42,7 @@
     'anonymize_ip': true
   } );
 </script>
-<!--
-<script src="../../createTableOfContents.js"></script> 
+<!-- <script src="../../createTableOfContents.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script> -->
 <script type="application/ld+json">
@@ -69,7 +68,7 @@
       ],
       "copyrightYear": "2018",
       "dateCreated": "2017-10-05",
-      "dateModified": "2018-06-30",
+      "dateModified": "2018-07-11",
       "datePublished": "2018-06-28",
       "isPartOf": {
         "@type": "PublicationVolume",
@@ -123,14 +122,15 @@
 </head>
 <body vocab="http://schema.org/">
   <header>
-    <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of
-        Simulation Engineering</i>, Volume 1. Article URL: <a href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" id="articleURL">https://articles.jsime.org/1/1</a> <a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/2" style="position: relative; left: 1em"><img src="../../icons/pdf.png" /></a></small>
+    <small><a href="https://jsime.org"><img src="../../JSimE.svg" style="height: 24px; margin-right: 0.7em;"></a><i>Journal of
+        Simulation Engineering</i>, Volume 1. Article URL: <a href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" id="articleURL">https://articles.jsime.org/1/1</a> <a id="PDF" class="suppressInPDF" href="https://jsime.org/index.php/jsimeng/article/view/2" style="position: relative; left: 1em"><img src="../../icons/pdf.png"></a></small>
   </header>
   <aside id="feedback" class="suppressInPDF">
-    <button type="button" onclick="document.body.classList.add('feedbackMode')">Provide comments. Report errors</button>
-    <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field" netlify="netlify">
+    <button type="button" onclick="document.body.classList.add('feedbackMode')">Provide
+      comments. Report errors</button>
+    <form name="Feedback-1-1" method="POST" netlify-honeypot="bot-field" netlify="">
       <p class="hidden">
-        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        <label>Don't fill this out if you're human: <input name="bot-field"></label>
       </p>
       <div class="close-btn" onclick="document.body.classList.remove('feedbackMode')">X</div>
       <h1>Provide comments and report errors</h1>
@@ -138,16 +138,16 @@
         provide comments and report errors, which will be taken into
         consideration by the author(s).</p>
       <div>
-        <label>Your name: <input name="name" size="30" required="required" type="text" /></label>
+        <label>Your name: <input name="name" size="30" required="required" type="text"></label>
       </div>
       <div>
-        <label>Email address: <input name="emailAddress" size="30" required="required" type="email" /></label>
+        <label>Email address: <input name="emailAddress" size="30" required="required" type="email"></label>
       </div>
       <div>
-        <label>Affiliation: <input name="affiliation" size="30" type="text" /></label>
+        <label>Affiliation: <input name="affiliation" size="30" type="text"></label>
       </div>
       <div>
-        <label>Comments/hints:<br /> <textarea name="feedback" required="required"></textarea></label>
+        <label>Comments/hints:<br> <textarea name="feedback" required="required"></textarea></label>
       </div>
       <div>
         <button type="submit">Send</button>
@@ -186,7 +186,7 @@
         <li>Process Model</li>
       </ul>
     </div>
-    <section role="doc-abstract">
+    <section id="sect0" role="doc-abstract">
       <h1>Abstract</h1>
       <p>
         In simulation engineering, a system model mainly consists of an <em>information
@@ -215,7 +215,8 @@
       </p>
     </section>
   </div>
-  <section id="sect0">
+
+  <section id="sect1">
     <h1>Introduction</h1>
     <p>
       The term <em>simulation engineering</em> denotes the scientific
@@ -230,7 +231,7 @@
       step in a simulation project, it is also thought to be the least
       understood part of simulation engineering (<a href="#Tak10">Tako,
         Kotiadis, &amp; Vasilakis, 2010</a>). In a panel discussion on conceptual
-      simulation modeling (<a href="#Dur10">Zee, et al., 2010</a>), the
+      simulation modeling (<a href="#Dur10">Zee et al., 2010</a>), the
       participants agreed that there is a lack of <q>standards, on
         procedures, notation, and model qualities</q>. On the other hand, there is
       no such lack in the field of <em>Information Systems and Software
@@ -281,7 +282,7 @@
       in (<a href="#GWa17b">Wagner, 2017b</a>). In particular, the BPMN-based
       process design modeling approach has been revised and refined by using a
       variant of BPMN, called <em>Discrete Event Process Modeling Notation
-        (DPMN)</em>, which is discussed in <a href="#sectPM">Section 5</a>.
+        (DPMN)</em>, which is discussed in <a href="#sect5">Section 5</a>.
     </p>
     <p>
       This first part of the tutorial presents the <em>Object-Event
@@ -347,7 +348,8 @@
       using the JavaScript-based simulation framework OESjs.
     </p>
   </section>
-  <section id="sect1">
+
+  <section id="sect2">
     <h1>What Is Discrete Event Simulation?</h1>
     <p>
       The term <em>Discrete Event Simulation (DES)</em> has been established as
@@ -480,7 +482,8 @@
       of events.
     </p>
   </section>
-  <section id="sect2">
+
+  <section id="sect3">
     <h1>Model-Driven Engineering</h1>
     <p>
       <em>Model-Driven Engineering</em> (MDE), also called <em>model-driven
@@ -635,7 +638,8 @@
       requirements for the modeling languages to be used.
     </p>
   </section>
-  <section id="sect3">
+
+  <section id="sect4">
     <h1>Information Modeling with UML Class Diagrams</h1>
     <p>
       Conceptual information modeling is mainly concerned with describing the
@@ -786,7 +790,8 @@
     <p>
       Another example of using UML’s stereotype feature is the designation of an
       operation as a function that represents a <em>random variable</em> using
-      the operation stereotype «rv» in the diagram of <a href="#_Ref493015782">Figure 6</a>.
+      the operation stereotype «rv» in the diagram of <a href="#_Ref493015782">Figure
+        6</a>.
     </p>
     <p>
       A class may be defined as <em>abstract</em> by writing its name in
@@ -801,7 +806,7 @@
     </p>
   </section>
 
-  <section id="sect4">
+  <section id="sect5">
     <h1>Process Modeling with BPMN and DPMN</h1>
     <p>
       The <em>Business Process Modeling Notation (BPMN)</em> is an
@@ -888,7 +893,7 @@
               diamond and is annotated with a condition (in brackets).
             </p>
           </td>
-          <td><img src="./img/image11.png" /> <img src="./img/ConditionalSequenceFlow.svg" /></td>
+          <td><img src="./img/image11.png"> <img src="./img/ConditionalSequenceFlow.svg"></td>
         </tr>
         <tr>
           <td>
@@ -1057,7 +1062,7 @@
     </p>
   </section>
 
-  <section id="sect5">
+  <section id="sect6">
     <h1>Example 1: An Inventory System</h1>
     <p>We consider a simple case of inventory management: a shop selling one
       product type (e.g., one model of TVs), such that its in-house inventory
@@ -1070,7 +1075,8 @@
     <p>When the stock quantity falls below the reorder point, a
       replenishment order is sent to the vendor for restocking the inventory,
       and the ordered quantity is delivered 1-3 days later.</p>
-    <section>
+
+    <section id="sect6.1">
       <h1>Information Modeling</h1>
       <p>
         How should we start the information modeling process? Should we first
@@ -1130,14 +1136,13 @@
             Certain simulation variables may be subject to random variation, so
             they can be considered to be <em>random variables</em> with an
             underlying probability distribution that is sampled by a
-            corresponding method stereotyped «rv» for categorizing
-            it as a <em>random variate sampling method</em>. The underlying
-            probability distribution can be indicated in the model diagram by
-            appending a symbolic expression, denoting a distribution (with
-            parameter values), to the method definition clause. For instance, <i>U(1,6)</i>
-            may denote the uniform distribution with lower bound 1 and upper
-            bound 6, while <i>Exp(1.5)</i> may denote the exponential
-            distribution with event rate 1.5.
+            corresponding method stereotyped «rv» for categorizing it as a <em>random
+              variate sampling method</em>. The underlying probability distribution
+            can be indicated in the model diagram by appending a symbolic
+            expression, denoting a distribution (with parameter values), to the
+            method definition clause. For instance, <i>U(1,6)</i> may denote the
+            uniform distribution with lower bound 1 and upper bound 6, while <i>Exp(1.5)</i>
+            may denote the exponential distribution with event rate 1.5.
           </p>
         </li>
         <li>
@@ -1178,7 +1183,8 @@
           </p>
         </li>
       </ol>
-      <section>
+
+      <section id="sect6.1.1">
         <h1>Conceptual Information Model</h1>
         <p>
           We can extract the following candidates for object types from the
@@ -1214,7 +1220,6 @@
           implementation. This approach results in a model that can be re-used
           in other simulation projects with the same problem domain, but with
           different research questions.
-
         </p>
         <p>Notice that we have also modeled the following associations
           between these five object types:</p>
@@ -1294,7 +1299,7 @@
         </p>
       </section>
 
-      <section>
+      <section id="sect6.1.2">
         <h1>Information Design Model</h1>
         <p>
           We now derive an information design model from the
@@ -1416,7 +1421,8 @@
           day, while we define <em>Delivery</em> as a caused event type.
         </p>
       </section>
-      <section>
+
+      <section id="sect6.1.3">
         <h1>Deriving Platform-Specific Class Models from the Information
           Design Model</h1>
         <p>
@@ -1488,7 +1494,8 @@
           whenever a <em>DailyDemand</em> event has occurred.
         </p>
       </section>
-      <section>
+
+      <section id="sect6.1.4">
         <h1>Coding a Platform-Specific Class Model</h1>
         <p>
           The classes defined in the OESjs class model shown in <a href="#_Ref493094586">Figure 12</a> can be directly coded as OESjs
@@ -1542,7 +1549,8 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
         </p>
       </section>
     </section>
-    <section>
+
+    <section id="sect6.2">
       <h1>Process Modeling</h1>
       <p>
         We make a conceptual process model and a process design model for the
@@ -1562,7 +1570,8 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
       <p>For simplicity, we may merge those types of events, which can be
         considered to temporally coincide. This is the case whenever an event
         unconditionally causes an immediately succeeding follow-up event.</p>
-      <section>
+
+      <section id="sect6.2.1">
         <h1>Making a Conceptual Process Model</h1>
         <p>
           Since inventory management is part of a business system, it is natural
@@ -1704,7 +1713,8 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
           </caption>
         </table>
       </section>
-      <section>
+
+      <section id="sect6.2.2">
         <h1>Process Design Model</h1>
         <p>
           A process design model needs to provide a computationally complete
@@ -1749,7 +1759,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
     sh.lostSales += demQ - sQ
     newSQ := 0
   <b>var</b> delQ := sh.targetInventory − newSQ
-  <b>schedule</b> Delivery( sh, delQ) @ t + leadTime()</code>
+  <b>schedule</b> Delivery( sh, delQ) @ t + leadTime()
+                  </code>
                 </pre></td>
             </tr>
             <tr>
@@ -1761,7 +1772,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
                   <li>delQ is the delivered quantity</li>
                 </ul>
               </td>
-              <td><pre><code>rec.stockQuantity += delQ</code>
+              <td><pre>                  <code>
+rec.stockQuantity += delQ</code>
                 </pre></td>
             </tr>
           </tbody>
@@ -1818,10 +1830,10 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           represent <em>event scheduling</em> control flows. They must be
           annotated with event attribute assignments and an assignment of the
           scheduled event's future occurrence time <i>t'</i>, which is typically
-          defined by adding a delay time <i>&Delta;</i> to the occurrence time <i>t</i>
+          defined by adding a delay time <i>Δ</i> to the occurrence time <i>t</i>
           of the triggering event. In a DPMN diagram, the occurrence time
-          assignment annotation <i>t' = t + &Delta;</i> can be abbreviated by the
-          expression <i>+&Delta;</i>, like <i>+Delivery.leadTime()</i> in <a href="#_Ref493110215">Figure 15</a> above.
+          assignment annotation <i>t' = t + Δ</i> can be abbreviated by the
+          expression <i>+Δ</i>, like <i>+Delivery.leadTime()</i> in <a href="#_Ref493110215">Figure 15</a> above.
         </p>
         <p>
           Notice that <i>Delivery</i> events trigger a state change, but no
@@ -1839,7 +1851,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           </figcaption>
         </figure>
       </section>
-      <section>
+
+      <section id="sect6.2.3">
         <h1>Implementing the Process Design Model with OESjs</h1>
         <p>
           The process design model specifies a set of event rules, each of which
@@ -1872,7 +1885,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
         <p>
           The <em>DailyDemand</em> event rule can be coded like so:
         </p>
-        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> DailyDemand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> DailyDemand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cLASS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   Name<span class="token punctuation">:</span> <span class="token string">"DailyDemand"</span><span class="token punctuation">,</span>
   supertypeName<span class="token punctuation">:</span> <span class="token string">"eVENT"</span><span class="token punctuation">,</span>
   properties<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -1903,17 +1916,17 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
         <p>
           The full code of this simulation model is available by loading the
-          web-based simulation <a href="https://sim4edu.com/sims/4">https://sim4edu.com/sims/4</a>
+          web-based simulation <a href="https://sim4edu.com/sims/4/">https://sim4edu.com/sims/4/</a>
           and inspecting its JavaScript code in the browser.
         </p>
       </section>
     </section>
   </section>
 
-  <section id="sect6">
+  <section id="sect7">
     <h1>Example 2: A Service System</h1>
     <p>
-      In our basic <a href="https://sim4edu.com/sims/2">service system
+      In our basic <a href="https://sim4edu.com/sims/2/">service system
         example</a>, as implemented in the <a href="https://sim4edu.com">Sim4edu</a>
       simulation library, customers arrive at random times at a service desk
       where they have to wait in a queue when the service desk is busy.
@@ -1922,9 +1935,11 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
       completed, the next customer from the queue, if there is any, is invited
       for the service.
     </p>
-    <section>
+
+    <section id="sect7.1">
       <h1>Information Modeling</h1>
-      <section>
+
+      <section id="sect7.1.1">
         <h1>Conceptual Information Model</h1>
         <p>It is straight-forward to extract four object types from the
           problem description above by analyzing the noun phrases:</p>
@@ -1994,7 +2009,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           one service desk as its participants.
         </p>
         <figure id="_Ref494398925" class="top">
-          <img src="./img/Service_CIM.svg" width="600" />
+          <img src="./img/Service_CIM.svg" width="600">
           <figcaption>
             <strong>Figure 19.</strong> Adding event types to the conceptual
             information model.
@@ -2020,7 +2035,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           <q>service end</q> with the activity type <q>perform service</q>.
         </p>
       </section>
-      <section>
+
+      <section id="sect7.1.2">
         <h1>Information Design Model</h1>
         <p>
           We now derive platform-independent <em>information design models</em>
@@ -2083,7 +2099,7 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           class. The resulting <em>design model 2</em> is shown in <a href="#_Ref494399721">Figure 21</a>.
         </p>
         <figure id="_Ref494399721" class="top">
-          <img src="./img/ServiceDesk-2_IDM.svg" width="600" />
+          <img src="./img/ServiceDesk-2_IDM.svg" width="600">
           <figcaption>
             <strong>Figure 21.</strong> An information design model for research
             question 2.
@@ -2204,7 +2220,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           queue.
         </p>
       </section>
-      <section>
+
+      <section id="sect7.1.3">
         <h1>Deriving an OESjs Class Model from an Information Design Model</h1>
         <p>
           We derive an OESjs class model, shown in <a href="#_Ref493094587">Figure
@@ -2212,13 +2229,13 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           and event types defined in the design model of <a href="#_Ref494399721">Figure 21</a>.
         </p>
         <figure id="_Ref493094587">
-          <img src="./img/ServiceSystem-ObjTypes_OESjs.svg" alt="Defining OESjs object types" width="400" />
+          <img src="./img/ServiceSystem-ObjTypes_OESjs.svg" alt="Defining OESjs object types" width="400">
           <figcaption>
             <strong>Figure 22.</strong> Defining object types in OESjs.
           </figcaption>
         </figure>
         <figure id="_Ref493094588">
-          <img src="./img/ServiceSystem-EvtTypes_OESjs.svg" alt="Defining OESjs object types" width="400" />
+          <img src="./img/ServiceSystem-EvtTypes_OESjs.svg" alt="Defining OESjs object types" width="400">
           <figcaption>
             <strong>Figure 23.</strong> Defining event types in OESjs.
           </figcaption>
@@ -2229,7 +2246,8 @@ sh.stockQuantity := <b>max</b>( 0, newSQ)
           and <em>CustomerArrival::serviceDesk)</em>.
         </p>
       </section>
-      <section>
+
+      <section id="sect7.1.4">
         <h1>Coding the OESjs Class Model</h1>
         <p>
           The object class <em>ServiceDesk</em> defined in the OESjs class model
@@ -2252,9 +2270,11 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
       </section>
     </section>
-    <section>
+
+    <section id="sect7.2">
       <h1>Process Modeling</h1>
-      <section>
+
+      <section id="sect7.2.1">
         <h1>Conceptual Process Model</h1>
         <p>For brevity, we show the conceptual event rule models only for a
           selection of the event types from the conceptual information model.</p>
@@ -2347,7 +2367,8 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
           </figcaption>
         </figure>
       </section>
-      <section>
+
+      <section id="sect7.2.2">
         <h1>Making a Process Design Model</h1>
         <p>
           In the process design model, we only need to include two event rules,
@@ -2392,10 +2413,12 @@ sd.waitingCustomers.<b>push</b>(c)
 sd.waitingCustomers.<b>pop</b>()
 <b>if</b> sd.waitingCustomers.length &gt; 0 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
-   (t + ServiceDesk.serviceDuration())</code>
-              </pre></td>
-          </tr>
-          </tbody><caption>
+   (t + ServiceDesk.serviceDuration())
+                  </code>
+                </pre></td>
+            </tr>
+          </tbody>
+          <caption>
             <strong>Table 5.</strong> The event rule design table for the
             service system.
           </caption>
@@ -2444,7 +2467,7 @@ sd.waitingCustomers.<b>pop</b>()
         </p>
       </section>
 
-      <section>
+      <section id="sect7.2.3">
         <h1>Implementing the Process Design Model with OESjs</h1>
         <p>
           The event rules specified by the process design model can be
@@ -2463,7 +2486,7 @@ sd.waitingCustomers.<b>pop</b>()
           sd <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>serviceDesk<span class="token punctuation">;</span>
       <span class="token comment">// create new customer object</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>customer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>
-	      <span class="token punctuation">{</span>arrivalTime<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>occTime<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">{</span>arrivalTime<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>occTime<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       sim<span class="token punctuation">.</span><span class="token function">addObject</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>customer<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">// push new customer to the queue</span>
       sd<span class="token punctuation">.</span>waitingCustomers<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>customer<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2509,13 +2532,14 @@ sd.waitingCustomers.<b>pop</b>()
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
         <p>
           The full code of this simulation model is available by loading the
-          web-based simulation <a href="https://sim4edu.com/sims/2">https://sim4edu.com/sims/2</a>
+          web-based simulation <a href="https://sim4edu.com/sims/2/">https://sim4edu.com/sims/2/</a>
           and inspecting its JavaScript code in the browser.
         </p>
       </section>
     </section>
   </section>
-  <section id="sect7">
+
+  <section id="sect8">
     <h1>Conclusions</h1>
     <p>Combining UML class diagrams with BPMN and DPMN process diagrams
       allows making visual models for conceptualizing the problem domain of a
@@ -2542,19 +2566,19 @@ sd.waitingCustomers.<b>pop</b>()
       modeling and simulation by adding the concepts of agents with perceptions,
       actions and beliefs.
     </p>
-
   </section>
-  <section role="doc-bibliography" id="sect8">
+
+  <section id="sect9" role="doc-bibliography">
     <h1>Bibliography</h1>
     <ul>
       <li id="Ambler2010" role="doc-biblioentry">Ambler, S.W. (2010). <em>UML
-          2 Class Diagrams</em>. <a href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img src="../../icons/html.png" /></a></li>
+          2 Class Diagrams</em>. <a href="http://www.agilemodeling.com/artifacts/classDiagram.htm"><img src="../../icons/html.png"></a></li>
       <li id="BankCNN2009" role="doc-biblioentry">Banks, J., Carson, J.S.,
         Nelson, B.L., &amp; Nicol, D.M. (2009). <em>Discrete-Event System
           Simulation</em>. Upper Saddle River, NJ: Prentice Hall.
       </li>
       <li id="Camunda2017" role="doc-biblioentry">BPMN 2.0 Tutorial.
-        (2017). <em>Camunda</em>. <a href="https://camunda.com/bpmn/"><img src="../../icons/link.png" /></a>
+        (2017). <em>Camunda</em>. <a href="https://camunda.com/bpmn/"><img src="../../icons/link.png"></a>
       </li>
       <li id="CetinkayaVS2011" role="doc-biblioentry">Cetinkaya, D.,
         Verbraeck, A., &amp; Seck, M. (2011). MDD4MS: A Model Driven Development
@@ -2565,7 +2589,7 @@ sd.waitingCustomers.<b>pop</b>()
       <li id="Cet11" role="doc-biblioentry">Cetinkaya, D., &amp; Verbraeck,
         A. (2011). Metamodeling and Model Transformations in Modeling and
         Simulation. In <em>Proceedings of the 2011 Winter Simulation
-          Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/271.pdf"><img src="../../icons/pdf.png" /></a>
+          Conference</em> (3048−3058). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/271.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="DahlNygaard66" role="doc-biblioentry">Dahl, O.-J., &amp;
         Nygaard, K. (1966). Simula – an ALGOL-Based Simulation Language. <em>Communications
@@ -2579,69 +2603,69 @@ sd.waitingCustomers.<b>pop</b>()
         Wagner, G. (2010a). Using the Unified Foundational Ontology (UFO) as a
         Foundation for General Conceptual Modeling Languages. In Poli R., Healy
         M., Kameas A. (eds) <em>Theory and Applications of Ontology:
-          Computer Applications</em> (pp. 175-196). Dordrecht: Springer. <a href="https://dx.doi.org/10.1007/978-90-481-8847-5_8"><img src="../../icons/doi.png" /></a> <a href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img src="../../icons/pdf.png" /></a>
+          Computer Applications</em> (pp. 175-196). Dordrecht: Springer. <a href="https://dx.doi.org/10.1007/978-90-481-8847-5_8"><img src="../../icons/doi.png"></a> <a href="http://www.inf.ufes.br/~gguizzardi/TAO-CR.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GuizzardiW2010b" role="doc-biblioentry">Guizzardi, G., &amp;
         Wagner, G. (2010b). Towards an Ontological Foundation of Discrete Event
         Simulation. In <em>Proceedings of the 2010 Winter Simulation
-          Conference</em> (pp. 652-664). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/059.pdf"><img src="../../icons/pdf.png" /></a>
+          Conference</em> (pp. 652-664). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/059.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GuizzardiW2012" role="doc-biblioentry">Guizzardi, G., &amp;
         Wagner, G. (2012). Tutorial: Conceptual Simulation Modeling with
         Onto-UML. In <em>Proceedings of the 2012 Winter Simulation
-          Conference</em>. Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img src="../../icons/pdf.png" /></a>
+          Conference</em>. Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc12papers/includes/files/inv284.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GuizzardiW2013" role="doc-biblioentry">Guizzardi, G., &amp;
         Wagner, G. (2013). Dispositions and Causal Laws as the Ontological
         Foundation of Transition Rules in Simulation Models. In <em>Proceedings
           of the 2013 Winter Simulation Conference</em> (pp. 1335-1346). Piscataway,
-        NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/117.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Himmelspach2009" role="doc-biblioentry">Himmelspach, J.
         (2009). Toward a Collection of Principles, Techniques and Elements of
         Modeling and Simulation Software. In <em>Proc. of the 2009
           International Conference on Advances in System Simulation</em> (pp. 56–61).
-        IEEE Computer Society. <a href="https://dx.doi.org/10.1109/SIMUL.2009.19"><img src="../../icons/doi.png" /></a> <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../icons/html.png" /></a>
+        IEEE Computer Society. <a href="https://dx.doi.org/10.1109/SIMUL.2009.19"><img src="../../icons/doi.png"></a> <a href="https://www.computer.org/csdl/proceedings/simul/2009/3773/00/3773a056-abs.html"><img src="../../icons/html.png"></a>
       </li>
       <li id="MarkHK62" role="doc-biblioentry">Markowitz, H., Hausner, B.,
         &amp; Karr, H. (1962). <em>SIMSCRIPT: A Simulation Programming
           Language</em>. (Report No. RM-3310-PR). Santa Monica, CA: The RAND
-        Corporation. <a href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2009/RM3310.pdf"><img src="../../icons/pdf.png" /></a>
+        Corporation. <a href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2009/RM3310.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Ong11" role="doc-biblioentry">Onggo, B., &amp; Karpat, O.
         (2011). Agent-Based Conceptual Model Representation Using BPMN. In <em>Proceedings
           of the 2011 Winter Simulation Conference</em> (pp. 671-682). Piscataway,
-        NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="http://www.informs-sim.org/wsc11papers/060.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Peg92" role="doc-biblioentry">Pegden, C.D., &amp; Davis, D.A.
         (1992). Arena: a SIMAN/Cinema-Based Hierarchical Modeling System. In <em>Proceedings
           of the 1992 Winter Simulation Conference</em> (pp. 390-399). Piscataway,
-        NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="http://informs-sim.org/wsc92papers/1992_0050.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Peg10" role="doc-biblioentry">Pegden, C.D. (2010). Advanced
         Tutorial: Overview of Simulation World Views. In <em>Proceedings of
           the 2010 Winter Simulation Conference</em> (pp. 643-651). Piscataway, NJ:
-        IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img src="../../icons/pdf.png" /></a>
+        IEEE. <a href="http://www.informs-sim.org/wsc10papers/019.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Rob13" role="doc-biblioentry">Robinson, S. (2013). Conceptual
         Modeling for Simulation. In <em>Proceedings of the 2013 Winter
-          Simulation Conference</em> (pp. 377-388). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/032.pdf"><img src="../../icons/pdf.png" /></a>
+          Simulation Conference</em> (pp. 377-388). Piscataway, NJ: IEEE. <a href="http://informs-sim.org/wsc13papers/includes/files/032.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="LSch83" role="doc-biblioentry">Schruben, L. (1983).
         Simulation Modeling with Event Graphs. <em>Communications of the
-          ACM</em> 26(11):957-963. <a href="https://dx.doi.org/10.1145/182.358460"><img src="../../icons/doi.png" /></a> <a href="https://dl.acm.org/citation.cfm?id=358460"><img src="../../icons/pdf.png" /></a>
+          ACM</em> 26(11):957-963. <a href="https://dx.doi.org/10.1145/182.358460"><img src="../../icons/doi.png"></a> <a href="https://dl.acm.org/citation.cfm?id=358460"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Tak10" role="doc-biblioentry">Tako, A.A., Kotiadis, K., &amp;
         Vasilakis, C. (2010). A Participative Modeling Framework for Developing
         Conceptual Models in Healthcare Simulation Studies. In <em>Proceedings
           of the 2010 Winter Simulation Conference</em> (pp. 500-512). Piscataway,
-        NJ: IEEE. <a href="https://dx.doi.org/10.1109/WSC.2010.5679135"><img src="../../icons/doi.png"></a> <a href="http://www.informs-sim.org/wsc10papers/045.pdf"><img src="../../icons/pdf.png" /></a>
+        NJ: IEEE. <a href="https://dx.doi.org/10.1109/WSC.2010.5679135"><img src="../../icons/doi.png"></a> <a href="http://www.informs-sim.org/wsc10papers/045.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="Wag09" role="doc-biblioentry">Wagner, G., Nicolae, O., &amp;
         Werner, J. (2009). Extending Discrete Event Simulation by Adding an
         Activity Concept for Business Process Modeling and Simulation. In <em>Proceedings
           of Winter Simulation Conference</em> (pp. 2951−2962). Piscataway, NJ: IEEE.
-        <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img src="../../icons/pdf.png" /></a>
+        <a href="http://www.informs-sim.org/wsc09papers/286.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GWa17a" role="doc-biblioentry">Wagner, G. (2017a). An
         Abstract State Machine Semantics For Discrete Event Simulation. In <em>Proceedings
@@ -2653,20 +2677,21 @@ sd.waitingCustomers.<b>pop</b>()
       </li>
       <li id="GWa17c" role="doc-biblioentry">Wagner, G. (2017c).
         Sim4edu.com – Web-Based Simulation for Education. In <em>Proceedings
-          of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png" /></a>
+          of the 2017 Winter Simulation Conference</em>. Piscataway, NJ: IEEE. <a href="https://www.informs-sim.org/wsc17papers/includes/files/360.pdf"><img src="../../icons/pdf.png"></a>
       </li>
       <li id="GWa18" role="doc-biblioentry">Wagner, G. (2018). Discrete
-        Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/reading/DPMN.pdf"><img src="../../icons/pdf.png" /></a>.
+        Event Process Modeling Notation (DPMN). <a href="https://sim4edu.com/reading/DPMN.pdf"><img src="../../icons/pdf.png"></a>.
       </li>
       <li id="Dur10" role="doc-biblioentry">Zee, D., Kotiadis, K., Tako,
         A.A., Pidd, M., Balci, O., Tolk, A., &amp; Elder, M. (2010). Panel
         Discussion: Education on Conceptual Modeling for Simulation –
         Challenging the Art. In <em>Proceedings of the 2010 Winter
-          Simulation Conference</em> (pp. 290-304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png" /></a>
+          Simulation Conference</em> (pp. 290-304). Piscataway, NJ: IEEE. <a href="http://www.informs-sim.org/wsc10papers/026.pdf"><img src="../../icons/pdf.png"></a>
       </li>
     </ul>
   </section>
-  <section id="sect9" class="no-counter">
+
+  <section id="sect10" class="no-counter">
     <h1>Copyright Information</h1>
     <p>
       <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a> Copyright ©
@@ -2677,18 +2702,19 @@ sd.waitingCustomers.<b>pop</b>()
   </main>
 
   <nav id="toc" class="suppressInPDF">
-    <h1>Outline</h1>
+    <h1>Table of Contents</h1>
     <ol>
-      <li><a href="#sect0">Introduction</a></li>
-      <li><a href="#sect1">What Is Discrete Event Simulation?</a></li>
-      <li><a href="#sect2">Model-Driven Engineering</a></li>
-      <li><a href="#sect3">Information Modeling with UML Class Diagrams</a></li>
-      <li><a href="#sect4">Process Modeling with BPMN and DPMN</a></li>
-      <li><a href="#sect5">Example 1: An Inventory System</a></li>
-      <li><a href="#sect6">Example 2: A Service System</a></li>
-      <li><a href="#sect7">Conclusions</a></li>
-      <li><a href="#sect8">Bibliography</a></li>
-      <li><a href="#sect9">Copyright Information</a></li>
+      <li><a href="#sect0">Abstract</a></li>
+      <li><a href="#sect1">Introduction</a></li>
+      <li><a href="#sect2">What Is Discrete Event Simulation?</a></li>
+      <li><a href="#sect3">Model-Driven Engineering</a></li>
+      <li><a href="#sect4">Information Modeling with UML Class Diagrams</a></li>
+      <li><a href="#sect5">Process Modeling with BPMN and DPMN</a></li>
+      <li><a href="#sect6">Example 1: An Inventory System</a></li>
+      <li><a href="#sect7">Example 2: A Service System</a></li>
+      <li><a href="#sect8">Conclusions</a></li>
+      <li><a href="#sect9">Bibliography</a></li>
+      <li><a href="#sect10">Copyright Information</a></li>
     </ol>
   </nav>
 
