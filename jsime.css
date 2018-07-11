@@ -170,13 +170,12 @@ textarea {
     margin: 0;
   }
   p + p,
-  figure.top + p,
-  figure.column-top + p,
-  figure.column-top-corner + p,
-  figure.bottom + p,
-  figure.column-bottom + p,
-  figure.column-bottom-corner + p
-  {
+  .top + p,
+  .column-top + p,
+  .column-top-corner + p,
+  .bottom + p,
+  .column-bottom + p,
+  .column-bottom-corner + p {
     text-indent: 1.5em;
   }
   ol {
@@ -269,12 +268,13 @@ textarea {
     margin-left: 2em;
     margin-right: 2em
   }
-
-  /* multi-line captions */
+  
+  /* multi-line table and figure captions */
   .multi-line-pdf {
     text-align: left;
 }
 
+  /* mathematical content */
   .math-span {
     font-family: "Cambria Math";
   }
@@ -439,6 +439,12 @@ figcaption {
 }
 .multi-line-html {
   text-align: left;
+}
+
+.definition,
+.theorem {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 blockquote.stylish {
