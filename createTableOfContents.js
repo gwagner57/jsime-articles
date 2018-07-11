@@ -8,7 +8,7 @@
  */
 function createTableOfContents() {
   var sectCtr=0,
-      topLevelSectElems = document.querySelectorAll("main > section");
+      topLevelSectElems = document.querySelectorAll("main > section:not([role='doc-abstract'])");
   if (!document.getElementById("toc")) {
     let tocNavEl =  document.createElement("nav");
     let headingEl = document.createElement("h1");
