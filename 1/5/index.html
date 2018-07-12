@@ -123,7 +123,7 @@ td.border_left_right {
       ],
       "copyrightYear": "2018",
       "dateCreated": "2018-06-25",
-      "dateModified": "2018-07-11",
+      "dateModified": "2018-07-12",
       "datePublished": "2018-06-28",
       "isPartOf": {
         "@type": "PublicationVolume",
@@ -298,7 +298,7 @@ td.border_left_right {
         <li>Fault Tolerance</li>
         <li>Asynchronous Simulation</li>
         <li>Shared Memory</li>
-        <li>Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup></li>
+        <li>Intel<sup>®</sup> Xeon Phi<sup>™</sup></li>
       </ul>
     </div>
   </div>
@@ -318,7 +318,7 @@ td.border_left_right {
       lightweight alternative to existing computational frameworks to allow for
       easy experimentation with various relaxation iterative techniques,
       solution updating schemes, and predicted performance. The simulation
-      framework is implemented in MATLAB<sup>&reg;</sup> using function handles,
+      framework is implemented in MATLAB<sup>®</sup> using function handles,
       which offers a modular and easily extensible design. An example of a case
       study using the simulation framework is presented to examine the efficacy
       of different checkpointing schemes for asynchronous relaxation methods.
@@ -330,9 +330,9 @@ td.border_left_right {
     <p>
       Asynchronous iterative methods are increasing in popularity recently due
       to their ability to be parallelized naturally on modern co-processors such
-      as GPUs and Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup>. Many
-      examples of recent work using fine-grained parallel methods are available
-      (see <a role="doc-biblioref" href="#ADQO16">Anzt, Dongarra, &amp;
+      as GPUs and Intel<sup>®</sup> Xeon Phi<sup>™</sup>. Many examples of
+      recent work using fine-grained parallel methods are available (see <a
+        role="doc-biblioref" href="#ADQO16">Anzt, Dongarra, &amp;
         Quintana-Ortí, 2016</a>, <a role="doc-biblioref" href="#Anz12">Anzt,
         2012</a>, <a role="doc-biblioref" href="#CAD15">Chow, Anzt, &amp;
         Dongarra, 2015</a>, <a role="doc-biblioref" href="#CP15">Chow &amp;
@@ -360,18 +360,17 @@ td.border_left_right {
       </math>
     </div>
     <p>
-      for some vector <span class="math-span">𝑥 &isin; 𝐷</span> and some map <span
-        class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>. These techniques are well
-      suited for fine-grained computation and they can be executed either
-      synchronously or asynchronously, which helps tolerate latency in
-      high-performance computing (HPC) environments. Looking forward to the
-      future of HPC, it is important to prioritize the develop of algorithms
-      that are resilient to faults since on future platforms, the rate at which
-      faults occur is expected to increase dramatically (<a role="doc-biblioref"
-        href="#CGG+09">Cappello et al., 2009</a>; <a role="doc-biblioref"
-        href="#CGG+14">Cappello et al., 2014</a>; <a role="doc-biblioref"
-        href="#ABC+06">Asanović et al., 2006</a>; <a role="doc-biblioref"
-        href="#GL09">Geist &amp; Lucas, 2009</a>).
+      for some vector <span class="math-span">𝑥 ∈ 𝐷</span> and some map <span
+        class="math-span">𝐺 : 𝐷 → 𝐷</span>. These techniques are well suited
+      for fine-grained computation and they can be executed either synchronously
+      or asynchronously, which helps tolerate latency in high-performance
+      computing (HPC) environments. Looking forward to the future of HPC, it is
+      important to prioritize the develop of algorithms that are resilient to
+      faults since on future platforms, the rate at which faults occur is
+      expected to increase dramatically (<a role="doc-biblioref" href="#CGG+09">Cappello
+        et al., 2009</a>; <a role="doc-biblioref" href="#CGG+14">Cappello et
+        al., 2014</a>; <a role="doc-biblioref" href="#ABC+06">Asanović et al.,
+        2006</a>; <a role="doc-biblioref" href="#GL09">Geist &amp; Lucas, 2009</a>).
     </p>
     <p>
       While many asynchronous methods are designed for shared memory
@@ -581,7 +580,7 @@ td.border_left_right {
       a matrix or vector entry) is updated in a manner that does not require
       information from the computations involving other components while the
       update is being made. This allows for each computing element (e.g., for a
-      single processor, CUDA core, or Xeon Phi<sup>&trade;</sup> core) to act
+      single processor, CUDA core, or Xeon Phi<sup>™</sup> core) to act
       independently from all other computing elements. Depending on the size of
       both the problem and the computing environment, each computing element may
       be responsible for updating a single entry to update, or may be assigned a
@@ -594,13 +593,12 @@ td.border_left_right {
     </p>
     <p>
       To keep the mathematical model as general as possible, consider a
-      function, <span class="math-span">𝐺 : 𝐷 &rarr; 𝐷</span>, where <span
+      function, <span class="math-span">𝐺 : 𝐷 → 𝐷</span>, where <span
         class="math-span">𝐷</span> is a domain that represents a product space
-      <span class="math-span">𝐷 = 𝐷<sub>1</sub> &times; 𝐷<sub>2</sub>
-        &times; &hellip; &times; 𝐷<sub>2</sub></span>. The goal is to find a fixed
-      point of the function <span class="math-span">𝐺</span> inside of the
-      domain <span class="math-span">𝐷</span>. To this end, a fixed point
-      iteration is performed, such that
+      <span class="math-span">𝐷 = 𝐷<sub>1</sub> × 𝐷<sub>2</sub> × … ×
+        𝐷<sub>2</sub></span>. The goal is to find a fixed point of the function <span
+        class="math-span">𝐺</span> inside of the domain <span class="math-span">𝐷</span>.
+      To this end, a fixed point iteration is performed, such that
     </p>
     <div class="equation">
       <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -643,8 +641,8 @@ td.border_left_right {
       has internal component functions <span class="math-span">𝐺<sub>𝑖</sub></span>
       for each sub-domain, <span class="math-span">𝐷<sub>𝑖</sub></span>, in
       the product space, <span class="math-span">𝐷</span>. In particular, <span
-        class="math-span">𝐺<sub>𝑖</sub> : 𝐷 &rarr; 𝐷<sub>𝑖</sub></span>,
-      which gives that
+        class="math-span">𝐺<sub>𝑖</sub> : 𝐷 → 𝐷<sub>𝑖</sub></span>, which
+      gives that
     </p>
     <div class="equation">
       <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -665,15 +663,15 @@ td.border_left_right {
               <mi>x</mi>
               <mn>2</mn>
               </msub>
-              <mo>&hellip;</mo>
+              <mo>…</mo>
               <msub>
               <mi>x</mi>
               <mi>m</mi>
               </msub>
               </mfenced>
-              <mo>&isin;</mo>
+              <mo>∈</mo>
               <mi>D</mi>
-              <mo>&rarr;</mo>
+              <mo>→</mo>
             </mtd>
           </mtr>
           <mtr>
@@ -697,7 +695,7 @@ td.border_left_right {
               <mn>2</mn>
               </msub>
               <mo separator="true">,</mo>
-              <mo>&hellip;</mo>
+              <mo>…</mo>
               <mo separator="true">,</mo>
               <msub>
               <mi>x</mi>
@@ -730,7 +728,7 @@ td.border_left_right {
               <mi>x</mi>
               <mo maxsize="1">)</mo>
               </mrow>
-              <mo>&hellip;</mo>
+              <mo>…</mo>
               <mrow>
               <msub>
               <mi>G</mi>
@@ -741,7 +739,7 @@ td.border_left_right {
               <mo maxsize="1">)</mo>
               </mrow>
               </mfenced>
-              <mo>&isin;</mo>
+              <mo>∈</mo>
               <mi>D</mi>
               <mo separator="true">.</mo>
             </mtd>
@@ -751,25 +749,25 @@ td.border_left_right {
     </div>
     <p>
       As a concrete example, let each <span class="math-span">𝐷<sub>𝑖</sub>
-        = &reals;
+        = ℝ
       </span>. Forming the product space of each of these <span class="math-span">𝐷<sub>𝑖</sub></span>'s
-      gives that <span class="math-span">𝐷 = &reals;<sup>𝑚</sup>
+      gives that <span class="math-span">𝐷 = ℝ<sup>𝑚</sup>
       </span>. This leads to the more formal functional mapping, <span
-        class="math-span">𝑓 : &reals;<sup>𝑚</sup> &rarr; &reals;<sup>𝑚</sup>
+        class="math-span">𝑓 : ℝ<sup>𝑚</sup> → ℝ<sup>𝑚</sup>
       </span>. Additionally, let
       <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>f</mi>
         <mo maxsize="1">(</mo>
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       <mo maxsize="1">)</mo>
       <mo>=</mo>
       <mn>2</mn>
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
     </math>
       . In this case, each of the individual <span class="math-span">𝑓<sub>𝑖</sub></span>
@@ -779,7 +777,7 @@ td.border_left_right {
         <mo maxsize="1">(</mo>
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       <mo maxsize="1">)</mo>
       <mo>=</mo>
@@ -793,7 +791,7 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       </math>
       even if the individual function definition does not require all of the
@@ -801,21 +799,21 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       </math>
       to perform its specific update.
     </p>
     <p>
       The assumption is also made that there is some finite number of processing
-      elements <span class="math-span">𝑃<sub>1</sub>, 𝑃<sub>2</sub>,
-        &hellip;, 𝑃<sub>𝑝</sub></span> each of which is assigned to a block <span
+      elements <span class="math-span">𝑃<sub>1</sub>, 𝑃<sub>2</sub>, …,
+        𝑃<sub>𝑝</sub></span> each of which is assigned to a block <span
         class="math-span">𝐵</span> of components <span class="math-span">𝐵<sub>1</sub>,
-        𝐵<sub>2</sub>, &hellip;, 𝐵<sub>𝑚</sub></span> to update. Note that the
-      number <span class="math-span">𝑝</span> of processing elements will
-      typically be significantly smaller than the number <span class="math-span">𝑚</span>
-      of blocks to update. With these assumptions, the computational model can
-      be stated in <a href="#alg1">Algorithm 1</a>.
+        𝐵<sub>2</sub>, …, 𝐵<sub>𝑚</sub></span> to update. Note that the number <span
+        class="math-span">𝑝</span> of processing elements will typically be
+      significantly smaller than the number <span class="math-span">𝑚</span> of
+      blocks to update. With these assumptions, the computational model can be
+      stated in <a href="#alg1">Algorithm 1</a>.
     </p>
     <div id="alg1" class="algorithm column-top">
       <div class="ps-root">
@@ -847,7 +845,7 @@ td.border_left_right {
                     <mo separator="true">,</mo>
                     <mn>2</mn>
                     <mo separator="true">,</mo>
-                    <mo>&hellip;</mo>
+                    <mo>…</mo>
                   </math>
                   until convergence<span class="ps-keyword"> do</span>
                 </p>
@@ -883,7 +881,7 @@ td.border_left_right {
                     for all
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
                       <mi>j</mi>
-                      <mo>&isin;</mo>
+                      <mo>∈</mo>
                       <msub>
                       <mi>𝐵</mi>
                       <mi>l</mi>
@@ -912,7 +910,7 @@ td.border_left_right {
                     for all
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
                       <mi>j</mi>
-                      <mo>&isin;</mo>
+                      <mo>∈</mo>
                       <msub>
                       <mi>𝐵</mi>
                       <mi>l</mi>
@@ -957,7 +955,7 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       </math>
       from common memory. At the end of the work done by any individual
@@ -967,7 +965,7 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       <mo>=</mo>
       <mfenced open="(" close=")">
@@ -997,7 +995,7 @@ td.border_left_right {
       <mo maxsize="1">)</mo>
       </mrow>
       </msubsup>
-      <mo>&hellip;</mo>
+      <mo>…</mo>
       <msubsup>
       <mi>x</mi>
       <mi>m</mi>
@@ -1036,9 +1034,9 @@ td.border_left_right {
       <mo maxsize="1">(</mo>
       <mi>k</mi>
       <mo maxsize="1">)</mo>
-      <mo>&le;</mo>
+      <mo>≤</mo>
       <mi>k</mi>
-      <mo>-</mo>
+      <mo>−</mo>
       <mn>1</mn>
       </math>, i.e., only components that have finished computing are used in the
           current approximation.</li>
@@ -1047,8 +1045,8 @@ td.border_left_right {
       <mtext>lim</mtext>
       <mrow>
       <mi>k</mi>
-      <mo>&rarr;</mo>
-      <mn>&infin;</mn>
+      <mo>→</mo>
+      <mn>∞</mn>
       </mrow>
       </msub>
       <msub>
@@ -1059,17 +1057,17 @@ td.border_left_right {
       <mi>k</mi>
       <mo maxsize="1">)</mo>
       <mo>=</mo>
-      <mn>&infin;</mn>
+      <mn>∞</mn>
       </math>, i.e., the newest updates for each component are used.</li>
         <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <mfenced open="|" close="|">
       <mrow>
       <mi>k</mi>
-      <mo>&isin;</mo>
-      <mo>&naturals;</mo>
+      <mo>∈</mo>
+      <mo>ℕ</mo>
       <mo>:</mo>
       <mi>i</mi>
-      <mo>&isin;</mo>
+      <mo>∈</mo>
       <msup>
       <mi>I</mi>
       <mi>k</mi>
@@ -1077,7 +1075,7 @@ td.border_left_right {
       </mrow>
       </mfenced>
       <mo>=</mo>
-      <mn>&infin;</mn>
+      <mn>∞</mn>
       </math>, i.e., all components will continue to be updated.</li>
       </ol>
       <p>
@@ -1086,11 +1084,11 @@ td.border_left_right {
           <msup>
           <mover accent="true">
           <mi>x</mi>
-          <mo style="font-size: small;">&rarr;</mo>
+          <mo style="font-size: small;">→</mo>
           </mover>
           <mn>0</mn>
           </msup>
-          <mo>&isin;</mo>
+          <mo>∈</mo>
           <mi>D</mi>
           </math>
         , the iterative update process defined by
@@ -1103,7 +1101,7 @@ td.border_left_right {
           </msubsup>
           <mo>=</mo>
           <mrow>
-          <mo>&lcub;</mo>
+          <mo>{</mo>
           <mtable>
           <mtr>
             <mtd>
@@ -1112,14 +1110,14 @@ td.border_left_right {
             <mi>i</mi>
             <mrow>
             <mi>k</mi>
-            <mo>-</mo>
+            <mo>−</mo>
             <mn>1</mn>
             </mrow>
             </msubsup>
             </mtd>
             <mtd>
             <mi>i</mi>
-            <mo>&notin;</mo>
+            <mo>∉</mo>
             <msub>
             <mi>I</mi>
             <mi>k</mi>
@@ -1135,13 +1133,13 @@ td.border_left_right {
             <mo maxsize="1">(</mo>
             <mover accent="true">
             <mi>x</mi>
-            <mo style="font-size: small;">&rarr;</mo>
+            <mo style="font-size: small;">→</mo>
             </mover>
             <mo maxsize="1">)</mo>
             </mtd>
             <mtd>
             <mi>i</mi>
-            <mo>&isin;</mo>
+            <mo>∈</mo>
             <msub>
             <mi>I</mi>
             <mi>k</mi>
@@ -1161,7 +1159,7 @@ td.border_left_right {
       <mo maxsize="1">(</mo>
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       <mo maxsize="1">)</mo>
       </math>
@@ -1225,7 +1223,7 @@ td.border_left_right {
       </div>
       <p>
         where <span class="math-span">𝐶</span> is the <span class="math-span">𝑛
-          &times; 𝑛</span> iteration matrix, <span class="math-span">𝑥</span> is an <span
+          × 𝑛</span> iteration matrix, <span class="math-span">𝑥</span> is an <span
           class="math-span">𝑥-dimensional</span> vector that represents the
         solution, and <span class="math-span">𝑑</span> is another <span
           class="math-span">𝑥-dimensional</span> vector that can be used to
@@ -1252,8 +1250,8 @@ td.border_left_right {
       <p>
         and following the methodology put forth in (<a role="doc-biblioref"
           href="#BT89">Bertsekas &amp; Tsitsiklis, 1989</a>), this can be broken
-        down to view a specific row - say the <span class="math-span">𝑖<sup>th</sup></span>
-        - of the matrix <span class="math-span">𝐴</span>,
+        down to view a specific row — say the <span class="math-span">𝑖<sup>th</sup></span>
+        — of the matrix <span class="math-span">𝐴</span>,
       </p>
       <div class="equation">
         <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1263,7 +1261,7 @@ td.border_left_right {
                 <mrow>
                 <mstyle displaystyle="true">
                 <munderover>
-                <mo>&sum;</mo>
+                <mo>∑</mo>
                 <mrow>
                 <mi>j</mi>
                 <mo>=</mo>
@@ -1314,7 +1312,7 @@ td.border_left_right {
                 </msub>
                 <mo>=</mo>
                 <mfrac>
-                <mn>-1</mn>
+                <mn>−1</mn>
                 <mrow>
                 <msub>
                 <mi>a</mi>
@@ -1328,10 +1326,10 @@ td.border_left_right {
                 <mfenced open="[" close="]">
                 <mrow>
                 <msub>
-                <mo>&sum;</mo>
+                <mo>∑</mo>
                 <mrow>
                 <mi>j</mi>
-                <mo>&ne;</mo>
+                <mo>≠</mo>
                 <mi>i</mi>
                 </mrow>
                 </msub>
@@ -1346,7 +1344,7 @@ td.border_left_right {
                 <mi>x</mi>
                 <mi>j</mi>
                 </msub>
-                <mo>-</mo>
+                <mo>−</mo>
                 <msub>
                 <mi>b</mi>
                 <mi>i</mi>
@@ -1388,10 +1386,10 @@ td.border_left_right {
               </mtd>
               <mtd>
                 <mo>=</mo>
-                <mo>-</mo>
+                <mo>−</mo>
                 <msup>
                 <mi>D</mi>
-                <mn>-1</mn>
+                <mn>−1</mn>
                 </msup>
                 <mfenced open="(" close=")">
                 <mrow>
@@ -1403,7 +1401,7 @@ td.border_left_right {
                 </mrow>
                 </mfenced>
                 <mi>x</mi>
-                <mo>-</mo>
+                <mo>−</mo>
                 <mi>b</mi>
                 </mrow>
                 </mfenced>
@@ -1415,10 +1413,10 @@ td.border_left_right {
               </mtd>
               <mtd>
                 <mo>=</mo>
-                <mo>-</mo>
+                <mo>−</mo>
                 <msup>
                 <mi>D</mi>
-                <mn>-1</mn>
+                <mn>−1</mn>
                 </msup>
                 <mfenced open="(" close=")">
                 <mrow>
@@ -1431,7 +1429,7 @@ td.border_left_right {
                 <mo>+</mo>
                 <msup>
                 <mi>D</mi>
-                <mn>-1</mn>
+                <mn>−1</mn>
                 </msup>
                 <mi>b</mi>
                 <mo separator="true">.</mo>
@@ -1446,7 +1444,7 @@ td.border_left_right {
         <span class="math-span">𝑈</span> are the strictly lower and upper
         triangular portions of <span class="math-span">𝐴</span> respectively.
         This gives an iteration matrix of <span class="math-span">𝐶 =
-          -𝐷<sup>-1</sup>(𝐿 + 𝑈)
+          -𝐷<sup>−1</sup>(𝐿 + 𝑈)
         </span>.
       </p>
       <p>
@@ -1462,7 +1460,7 @@ td.border_left_right {
           form given in <a href="#eq1">Equation (1)</a> that adheres to the
           asynchronous computational model provided by <a href="#alg1">Algorithm
             1</a> and <a href="#def1">Definition 1</a>, if the spectral radius of <span
-          class="math-span">𝐶</span>, <span class="math-span">&rho;(|𝐶|)</span>,
+          class="math-span">𝐶</span>, <span class="math-span">ρ(|𝐶|)</span>,
           is less than one, then the iterative method will converge to the fixed
           point solution.
         </em>
@@ -1500,7 +1498,7 @@ td.border_left_right {
               <mrow>
               <mover accent="true">
               <mi>x</mi>
-              <mo style="font-size: small;">&rarr;</mo>
+              <mo style="font-size: small;">→</mo>
               </mover>
               <mo>=</mo>
               <mi>G</mi>
@@ -1508,7 +1506,7 @@ td.border_left_right {
               <mrow>
               <mover accent="true">
               <mi>x</mi>
-              <mo style="font-size: small;">&rarr;</mo>
+              <mo style="font-size: small;">→</mo>
               </mover>
               </mrow>
               <mo maxsize="1">)</mo>
@@ -1523,11 +1521,11 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
-      <mo>&isin;</mo>
+      <mo>∈</mo>
       <msup>
-      <mi>&reals;</mi>
+      <mi>ℝ</mi>
       <mi>n</mi>
       </msup>
       </math>
@@ -1568,7 +1566,7 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       <mo>=</mo>
       <mfenced open="(" close=")">
@@ -1581,9 +1579,9 @@ td.border_left_right {
       <mn>2</mn>
       </msub>
       </mfenced>
-      <mo>&isin;</mo>
+      <mo>∈</mo>
       <msup>
-      <mi>&reals;</mi>
+      <mi>ℝ</mi>
       <mn>2</mn>
       </msup>
       </math>
@@ -1609,7 +1607,7 @@ td.border_left_right {
               <mo maxsize="1">(</mo>
               <mover accent="true">
               <mi>x</mi>
-              <mo style="font-size: small;">&rarr;</mo>
+              <mo style="font-size: small;">→</mo>
               </mover>
               <mo maxsize="1">)</mo>
               <mo>=</mo>
@@ -1647,7 +1645,7 @@ td.border_left_right {
               <mo maxsize="1">(</mo>
               <mover accent="true">
               <mi>x</mi>
-              <mo style="font-size: small;">&rarr;</mo>
+              <mo style="font-size: small;">→</mo>
               </mover>
               <mo maxsize="1">)</mo>
               <mo>=</mo>
@@ -1686,7 +1684,7 @@ td.border_left_right {
       <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
     </math>
       that are available to them when the function call is initiated. For
@@ -1782,8 +1780,8 @@ td.border_left_right {
       The simulation framework requires some data that specifies parameters
       concerning the particular run of the simulation such as the desired
       tolerance, the number of processors to simulate, and a computational scale
-      factor. The framework itself is developed in MATLAB<sup>&reg;</sup> and
-      the three required functions are passed as function handles.
+      factor. The framework itself is developed in MATLAB<sup>®</sup> and the
+      three required functions are passed as function handles.
     </p>
     <p>
       The simulation itself (see <em>Simulation</em> block in <a href="#fig2">Figure
@@ -1820,7 +1818,7 @@ td.border_left_right {
                     <mi>j</mi>
                     </mrow>
                     </msub>
-                    <mo>&isin;</mo>
+                    <mo>∈</mo>
                     <mi>A</mi>
                   </math>
                 , initial guess for
@@ -1848,17 +1846,17 @@ td.border_left_right {
                 processor update times.
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                   <msub>
-                  <mi>&tau;</mi>
+                  <mi>τ</mi>
                   <mn>1</mn></msub>
                   <mo separator="true">,</mo>
                   <msub>
-                  <mi>&tau;</mi>
+                  <mi>τ</mi>
                   <mn>2</mn></msub>
                   <mo separator="true">,</mo>
-                  <mo>&hellip;</mo>
+                  <mo>…</mo>
                   <mo separator="true">,</mo>
                   <msub>
-                  <mi>&tau;</mi>
+                  <mi>τ</mi>
                   <mi>p</mi>
                   </msub>
                 </math>
@@ -1872,7 +1870,7 @@ td.border_left_right {
                   <mi>x</mi>
                   <mi>i</mi>
                   </msub>
-                  <mo>&isin;</mo>
+                  <mo>∈</mo>
                   <mi>x</mi>
                 </math>
                 to each simulated processing element
@@ -1887,7 +1885,7 @@ td.border_left_right {
                     <mo separator="true">,</mo>
                     <mn>2</mn>
                     <mo separator="true">,</mo>
-                    <mo>&hellip;</mo>
+                    <mo>…</mo>
                   </math>
                 until convergence<span class="ps-keyword"> do</span>
               </p>
@@ -1909,7 +1907,7 @@ td.border_left_right {
                       class="ps-keyword">if </span>
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <msub>
-                        <mi>&tau;</mi>
+                        <mi>τ</mi>
                         <mi>l</mi>
                         </msub>
                         <mo>=</mo>
@@ -1926,7 +1924,7 @@ td.border_left_right {
                           <mi>x</mi>
                           <mi>i</mi>
                           </msub>
-                          <mo>&isin;</mo>
+                          <mo>∈</mo>
                           <mi>x</mi>
                         </math>
                       assigned to
@@ -1964,10 +1962,10 @@ td.border_left_right {
                           <mfenced open="[" close="]">
                           <mrow>
                           <msub>
-                          <mo>&sum;</mo>
+                          <mo>∑</mo>
                           <mrow>
                           <mi>j</mi>
-                          <mo>&ne;</mo>
+                          <mo>≠</mo>
                           <mi>i</mi>
                           </mrow>
                           </msub>
@@ -2001,7 +1999,7 @@ td.border_left_right {
                       a new update time
                       <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <msub>
-                        <mi>&tau;</mi>
+                        <mi>τ</mi>
                         <mi>l</mi>
                         </msub>
                     </math>
@@ -2034,50 +2032,50 @@ td.border_left_right {
     </div>
     <p>
       <a href="#alg2">Algorithm 2</a>, a given update time <span
-        class="math-span">&tau;<sub>𝑙</sub></span> will often not be sampled as
-      an integer. The simulation adjusts for this by scaling the number that is
+        class="math-span">τ<sub>𝑙</sub></span> will often not be sampled as an
+      integer. The simulation adjusts for this by scaling the number that is
       sampled by the appropriate order of magnitude, adjusting the maximum value
       allowed for <span class="math-span">𝑡</span> accordingly, and then
       scaling back the final time calculated by the simulation. For example, if
       the desired time precision is hundredths of a second, and the time
-      resulting for the first sampling of <span class="math-span">&tau;<sub>𝑙</sub></span>
+      resulting for the first sampling of <span class="math-span">τ<sub>𝑙</sub></span>
       was 1.234<span class="math-span">𝑠</span>, then the simulation would
       perform the following steps:
     </p>
     <ol>
       <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <msubsup>
-      <mi>&tau;</mi>
+      <mi>τ</mi>
       <mi>l</mi>
       <mtext>new</mtext>
       </msubsup>
       <mo>=</mo>
       <mi>s</mi>
-      <mo>&times;</mo>
+      <mo>×</mo>
       <msubsup>
-      <mi>&tau;</mi>
+      <mi>τ</mi>
       <mi>l</mi>
       <mtext>old</mtext>
       </msubsup>
       </math></li>
       <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <msubsup>
-      <mi>&tau;</mi>
+      <mi>τ</mi>
       <mtext>max</mtext>
       <mtext>new</mtext>
       </msubsup>
       <mo>=</mo>
       <mi>s</mi>
-      <mo>&times;</mo>
+      <mo>×</mo>
       <msubsup>
-      <mi>&tau;</mi>
+      <mi>τ</mi>
       <mtext>max</mtext>
       <mtext>old</mtext>
       </msubsup>
       </math></li>
       <li><math xmlns="http://www.w3.org/1998/Math/MathML">
       <msubsup>
-      <mi>&tau;</mi>
+      <mi>τ</mi>
       <mtext>final</mtext>
       <mtext>new</mtext>
       </msubsup>
@@ -2088,9 +2086,9 @@ td.border_left_right {
       <mi>s</mi>
       </mfrac>
       </mfenced>
-      <mo>&times;</mo>
+      <mo>×</mo>
       <msubsup>
-      <mi>&tau;</mi>
+      <mi>τ</mi>
       <mtext>final</mtext>
       <mtext>old</mtext>
       </msubsup>
@@ -2102,7 +2100,7 @@ td.border_left_right {
       defined in the block diagram given by <a href="#fig2">Figure 2</a>. For
       example, if the desired precision is hundredths of a second, <span
         class="math-span">𝑠 = 10<sup>2</sup></span>, and the sampled value <span
-        class="math-span">&tau;<sub>𝑙</sub></span> becomes
+        class="math-span">τ<sub>𝑙</sub></span> becomes
     </p>
     <div class="equation">
       <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2110,34 +2108,34 @@ td.border_left_right {
         <mtr>
           <mtd>
           <msub>
-          <mi>&tau;</mi>
+          <mi>τ</mi>
           <mi>l</mi>
           </msub>
           <mo>=</mo>
           <mn>1.234</mn>
-          <mtext mathvariant="normal">&nbsp;- initial sample</mtext>
+          <mtext mathvariant="normal"> – initial sample</mtext>
           </mtd>
         </mtr>
         <mtr>
           <mtd>
           <msub>
-          <mi>&tau;</mi>
+          <mi>τ</mi>
           <mi>l</mi>
           </msub>
           <mo>=</mo>
           <mn>123.4</mn>
-          <mtext mathvariant="normal">&nbsp;- apply scale factor</mtext>
+          <mtext mathvariant="normal"> – apply scale factor</mtext>
           </mtd>
         </mtr>
         <mtr>
           <mtd>
           <msub>
-          <mi>&tau;</mi>
+          <mi>τ</mi>
           <mi>l</mi>
           </msub>
           <mo>=</mo>
           <mn>123</mn>
-          <mtext mathvariant="normal">&nbsp;- round to the nearest integer.</mtext>
+          <mtext mathvariant="normal"> – round to the nearest integer.</mtext>
           </mtd>
         </mtr>
         </mtable>
@@ -2149,8 +2147,8 @@ td.border_left_right {
       units. This allows the framework to be adapted to future HPC environments,
       as well as examining the impact of the standard variance of single core
       performance on multi-core hardware elements if the method that is used is
-      tuned to be completely asynchronous. It should be possible - by adding or
-      removing appropriate communication penalties - to simulate the performance
+      tuned to be completely asynchronous. It should be possible — by adding or
+      removing appropriate communication penalties — to simulate the performance
       of different memory architectures (e.g., distributed or cloud computing
       environments). This is left as future work although the method for doing
       this inside of the proposed framework is straightforward.
@@ -2161,8 +2159,8 @@ td.border_left_right {
       <p>
         Let the matrix <span class="math-span">𝐴</span> result from a simple
         two dimensional finite-difference discretization of the Laplacian over a
-        <span class="math-span">10 &times; 10</span> grid, resulting in a <span
-          class="math-span">100 &times; 100</span> matrix with an average of 4.6
+        <span class="math-span">10 × 10</span> grid, resulting in a <span
+          class="math-span">100 × 100</span> matrix with an average of 4.6
         non-zero entries per row. The Laplacian
       </p>
       <div class="equation">
@@ -2171,7 +2169,7 @@ td.border_left_right {
             displaystyle="true">
             <mtr>
               <mtd>
-                <mo>&Delta;</mo>
+                <mo>Δ</mo>
                 <mi>u</mi>
               </mtd>
               <mtd>
@@ -2247,7 +2245,7 @@ td.border_left_right {
                 <mi>r</mi>
                 <mo>=</mo>
                 <mi>b</mi>
-                <mo>-</mo>
+                <mo>−</mo>
                 <mi>A</mi>
                 <mi>x</mi>
                 </mrow>
@@ -2293,7 +2291,7 @@ td.border_left_right {
         In <a href="#fig5">Figure 5</a> the processor updates are not restricted
         to occur synchronously. Instead, the processors are assumed to have
         similar performance and perform their updates in time <span
-          class="math-span">𝑡<sub>𝑖</sub> &sim; 𝑁(&mu;, &sigma;<sup>2</sup>)
+          class="math-span">𝑡<sub>𝑖</sub> ∼ 𝑁(u, σ<sup>2</sup>)
         </span> where the mean is set to 10 units of time and the variance is different
         for each curve depicted in the plot. An increase in the variance of
         processor performance, regardless of the timing distribution, could come
@@ -2336,7 +2334,7 @@ td.border_left_right {
       specific operations or calculations during method execution, data is
       collected from the application during execution. In the implementation
       code, operations are enclosed within calls to time functions, which
-      measure time to perform the operations. In this work the OpenMP<sup>&reg;</sup>
+      measure time to perform the operations. In this work the OpenMP<sup>®</sup>
       library function
       <code>omp_get_wtime()</code>
       is used to measure wall time. For HPC implementations that use MPI,
@@ -2363,7 +2361,7 @@ td.border_left_right {
           <mtr>
             <mtd>
               <mrow>
-              <mo>&Delta;</mo>
+              <mo>Δ</mo>
               <mi>u</mi>
               <mo>=</mo>
               <mi>b</mi>
@@ -2376,17 +2374,17 @@ td.border_left_right {
     </div>
     <p>
       where the right-hand side is initialized with Dirichlet boundary
-      conditions. Both implementations use OpenMP<sup>&reg;</sup> for
-      shared-memory parallelism and are executed on the shared-memory computing
-      platform nicknamed Rulfo, which is an Intel<sup>&reg;</sup> Xeon Phi<sup>&trade;</sup>
+      conditions. Both implementations use OpenMP<sup>®</sup> for shared-memory
+      parallelism and are executed on the shared-memory computing platform
+      nicknamed Rulfo, which is an Intel<sup>®</sup> Xeon Phi<sup>™</sup>
       Knight's Landing<span class="fn"><sup><a href="#ftn2"
           id="fn_pointer_ftn2" role="doc-noteref"
           title="Footnote 2: Rulfo is a part of computing resources of the Department of Modeling, Simulation and Visualization Engineering at Old Dominion University.">2</a></sup></span>
       having 7210 model processor with 64 cores. Each core may optimally execute
       4 threads for 256 threads total, and runs at 1.30 GHz. The simulation
-      framework and experiments were implemented in MATLAB<sup>&reg;</sup>
-      R2018a, while the Jacobi implementations were written in C/C++ using the
-      Intel C compiler version 17.04 and OpenMP<sup>&reg;</sup> version 4.5.
+      framework and experiments were implemented in MATLAB<sup>®</sup> R2018a,
+      while the Jacobi implementations were written in C/C++ using the Intel C
+      compiler version 17.04 and OpenMP<sup>®</sup> version 4.5.
     </p>
 
     <section id="sect5.1">
@@ -2394,10 +2392,10 @@ td.border_left_right {
       <p>
         In this case, the heat problem is represented mathematically by a sparse
         matrix, which is solved by an asynchronous general Jacobi method. The
-        Laplacian is generated over a <span class="math-span">100 &times;
-          100</span> grid resulting in a matrix of size <span class="math-span">10,000
-          &times; 10,000</span> with 49,600 non-zeros with an average of 4.96 non-zeros
-        per row. The vector b from the resulting linear system,
+        Laplacian is generated over a <span class="math-span">100 × 100</span>
+        grid resulting in a matrix of size <span class="math-span">10,000
+          × 10,000</span> with 49,600 non-zeros with an average of 4.96 non-zeros per
+        row. The vector b from the resulting linear system,
       </p>
       <div class="equation">
         <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2424,7 +2422,7 @@ td.border_left_right {
       <p>
         In this implementation, all threads but one perform relaxations on
         assigned components, and a dedicated thread computes the global residual
-        norm value <span class="math-span">𝑏 - 𝐴𝑥<sup>(𝑡)</sup></span> that
+        norm value <span class="math-span">𝑏−𝐴𝑥<sup>(𝑡)</sup></span> that
         determines satisfactory convergence. Each thread retrieves the data it
         needs from shared memory, performs the necessary computations, and, in
         the case of the relaxation threads, writes the result back to shared
@@ -2440,11 +2438,11 @@ td.border_left_right {
         has two varieties: (a) <span class="small-caps">Safe</span> which uses
         mutex locks to avoid race conditions, and (b) <span class="small-caps">Race</span>
         which permits race conditions. <span class="small-caps">Safe</span> uses
-        OpenMP<sup>&reg;</sup> locks to copy <span class="math-span">𝑥<sup>(𝑡)</sup></span>
+        OpenMP<sup>®</sup> locks to copy <span class="math-span">𝑥<sup>(𝑡)</sup></span>
         safely from shared memory and to update <span class="math-span">𝑥<sup>(𝑡+1)</sup></span>.
         Pseudocode for this process is given in <a href="#alg3">Algorithm 3</a>,
-        where bold upper-case text indicates that OpenMP<sup>&reg;</sup> locks
-        are employed. The algorithm for <span class="small-caps">Race</span> is
+        where bold upper-case text indicates that OpenMP<sup>®</sup> locks are
+        employed. The algorithm for <span class="small-caps">Race</span> is
         identical to <a href="#alg3">Algorithm 3</a>, with the exception that
         locks are omitted.
       </p>
@@ -2468,7 +2466,7 @@ td.border_left_right {
                     <mi>j</mi>
                     </mrow>
                     </msub>
-                    <mo>&isin;</mo>
+                    <mo>∈</mo>
                     <mi>A</mi>
                   </math>
                   ,
@@ -2506,7 +2504,7 @@ td.border_left_right {
                     <mi>X</mi>
                     <mi>i</mi>
                     </msub>
-                    <mo>&isin;</mo>
+                    <mo>∈</mo>
                     <mi>X</mi>
                   </math>
                   to
@@ -2520,8 +2518,8 @@ td.border_left_right {
                     <mi>i</mi>
                     <mo>=</mo>
                     <mfenced open="[" close="]">
-                    <mi>&alpha;</mi>
-                    <mi>&omega;</mi>
+                    <mi>α</mi>
+                    <mi>ω</mi>
                     </mfenced>
                   </math>
                 </p>
@@ -2535,7 +2533,7 @@ td.border_left_right {
                     <mi>p</mi>
                     <mn>1</mn>
                     </msub>
-                    <mo>&hellip;</mo>
+                    <mo>…</mo>
                     <msub>
                     <mi>p</mi>
                     <mi>n</mi>
@@ -2616,7 +2614,7 @@ td.border_left_right {
                           <mi>p</mi>
                           <mn>2</mn>
                           </msub>
-                          <mo>&hellip;</mo>
+                          <mo>…</mo>
                           <msub>
                           <mi>p</mi>
                           <mi>n</mi>
@@ -2635,9 +2633,9 @@ td.border_left_right {
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
                             <mo>=</mo>
-                            <mi>&alpha;</mi>
-                            <mo>&hellip;</mo>
-                            <mi>&omega;</mi>
+                            <mi>α</mi>
+                            <mo>…</mo>
+                            <mi>ω</mi>
                           </math>
                         <span class="ps-keyword"> do</span>
                       </p>
@@ -2674,10 +2672,10 @@ td.border_left_right {
                             <mfenced open="[" close="]">
                             <mrow>
                             <msub>
-                            <mo>&sum;</mo>
+                            <mo>∑</mo>
                             <mrow>
                             <mi>j</mi>
-                            <mo>&ne;</mo>
+                            <mo>≠</mo>
                             <mi>i</mi>
                             </mrow>
                             </msub>
@@ -2819,23 +2817,23 @@ td.border_left_right {
         access the solution in shared memory (Line 6 of <a href="#alg3">Algorithm
           3</a>), compute the relaxation for the rows assigned to it (Line 11), and
         to update the solution in shared memory (Line 13) were captured. This
-        data was used to generate MATLAB<sup>&reg;</sup> kernel probability
-        density functions for modeling the amount of time a thread takes to
-        complete a copy, compute, or update operation. These distributions may
-        be used in the simulation framework as an input parameter, for the
-        generation of random variables corresponding to key operational times in
-        the HPC architecture. <a href="#alg2">Algorithm 2</a> demonstrates the
-        use of a time distribution in the framework. Thread counts of 11, 21,
-        41, 81, 101, 201, 251, and 401 were used to collect data for the
-        generation of distributions, some of which are in <a href="#fig7">Figure
-          7</a> and <a href="#fig8">Figure 8</a>. For 201 threads, <span
-          class="small-caps">Safe</span> in <a href="#fig7d">Figure 7(d)</a> and
-        <a href="#fig7f">Figure 7(f)</a> shows the tendency of locks to stratify
-        copy and update times, compared with <span class="small-caps">Race</span>
-        in <a href="#fig8d">Figure 8(d)</a> and <a href="#fig8f">Figure 8(f)</a>,
-        which are less uniform. These findings are mirrored in <a href="#tab1">Table
-          1</a>, which provides mean times for each of the three operations that
-        were benchmarked in this implementation, for <span class="small-caps">Safe</span>
+        data was used to generate MATLAB<sup>®</sup> kernel probability density
+        functions for modeling the amount of time a thread takes to complete a
+        copy, compute, or update operation. These distributions may be used in
+        the simulation framework as an input parameter, for the generation of
+        random variables corresponding to key operational times in the HPC
+        architecture. <a href="#alg2">Algorithm 2</a> demonstrates the use of a
+        time distribution in the framework. Thread counts of 11, 21, 41, 81,
+        101, 201, 251, and 401 were used to collect data for the generation of
+        distributions, some of which are in <a href="#fig7">Figure 7</a> and <a
+          href="#fig8">Figure 8</a>. For 201 threads, <span class="small-caps">Safe</span>
+        in <a href="#fig7d">Figure 7(d)</a> and <a href="#fig7f">Figure 7(f)</a>
+        shows the tendency of locks to stratify copy and update times, compared
+        with <span class="small-caps">Race</span> in <a href="#fig8d">Figure
+          8(d)</a> and <a href="#fig8f">Figure 8(f)</a>, which are less uniform.
+        These findings are mirrored in <a href="#tab1">Table 1</a>, which
+        provides mean times for each of the three operations that were
+        benchmarked in this implementation, for <span class="small-caps">Safe</span>
         and <span class="small-caps">Race</span>. <span class="small-caps">Race</span>
         copy and update times are slightly or significantly quicker than
         comparable <span class="small-caps">Safe</span> times. Compute times
@@ -2860,17 +2858,17 @@ td.border_left_right {
             <th colspan="3"><span class="small-caps">Race</span></th>
           </tr>
           <tr>
-            <th>Copy<br /> (10<sup>-5</sup>s)
+            <th>Copy<br /> (10<sup>−5</sup>s)
             </th>
-            <th>Compute<br /> (10<sup>-4</sup>s)
+            <th>Compute<br /> (10<sup>−4</sup>s)
             </th>
-            <th>Update<br /> (10<sup>-6</sup>s)
+            <th>Update<br /> (10<sup>−6</sup>s)
             </th>
-            <th>Copy<br /> (10<sup>-5</sup>s)
+            <th>Copy<br /> (10<sup>−5</sup>s)
             </th>
-            <th>Compute<br /> (10<sup>-4</sup>s)
+            <th>Compute<br /> (10<sup>−4</sup>s)
             </th>
-            <th>Update<br /> (10<sup>-6</sup>s)
+            <th>Update<br /> (10<sup>−6</sup>s)
             </th>
           </tr>
         </thead>
@@ -3117,56 +3115,56 @@ td.border_left_right {
         opposed to explicitly forming the matrix <span class="math-span">𝐴</span>,
         and in a sense implements a <em>matrix-free</em> solution. For this
         implementation, the Laplacian was discretized over a <span
-          class="math-span">600 &times; 600</span> grid with boundary conditions
-        set according to <a href="#tab2">Table 2</a>.
+          class="math-span">600 × 600</span> grid with boundary conditions set
+        according to <a href="#tab2">Table 2</a>.
       </p>
       <table id="tab2" class="table-matrix bottom">
         <tbody>
           <tr class="border_top_bottom">
             <td class="border_left_right">0</td>
             <td class="border_left_right">100</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
+            <td>…</td>
+            <td>…</td>
             <td class="border_left_right">100</td>
             <td class="border_left_right">0</td>
           </tr>
           <tr class="border_top_bottom">
             <td class="border_left_right">75</td>
             <td class="border_left_right">XXX</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
+            <td>…</td>
+            <td>…</td>
             <td class="border_left_right">XXX</td>
             <td class="border_left_right">50</td>
           </tr>
           <tr>
-            <td class="border_left_right">&vellip;</td>
+            <td class="border_left_right">⋮</td>
             <td class="border_left_right">XXX</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
+            <td>…</td>
+            <td>…</td>
             <td class="border_left_right">XXX</td>
-            <td class="border_left_right">&vellip;</td>
+            <td class="border_left_right">⋮</td>
           </tr>
           <tr>
-            <td class="border_left_right">&vellip;</td>
+            <td class="border_left_right">⋮</td>
             <td class="border_left_right">XXX</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
+            <td>…</td>
+            <td>…</td>
             <td class="border_left_right">XXX</td>
-            <td class="border_left_right">&vellip;</td>
+            <td class="border_left_right">⋮</td>
           </tr>
           <tr class="border_top_bottom">
             <td class="border_left_right">75</td>
             <td class="border_left_right">XXX</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
+            <td>…</td>
+            <td>…</td>
             <td class="border_left_right">XXX</td>
             <td class="border_left_right">50</td>
           </tr>
           <tr class="border_top_bottom">
             <td class="border_left_right">0</td>
             <td class="border_left_right">0</td>
-            <td>&hellip;</td>
-            <td>&hellip;</td>
+            <td>…</td>
+            <td>…</td>
             <td class="border_left_right">0</td>
             <td class="border_left_right">0</td>
           </tr>
@@ -3199,19 +3197,19 @@ td.border_left_right {
           class="math-span">𝑁<sup>2</sup></span> grid points divided by <span
           class="math-span">𝑛</span> processing elements, such that the grid is
         evenly divided along the y-axis. When a thread copies grid point values
-        above or below its domain for the computation, OpenMP<sup>&reg;</sup>
-        locks are employed to ensure that data is safely captured from a single
+        above or below its domain for the computation, OpenMP<sup>®</sup> locks
+        are employed to ensure that data is safely captured from a single
         iteration. Further, locks are used when updating values on domain
         boundaries. Each thread <span class="math-span">𝑝<sub>𝑛</sub></span>
         computes its local residual value every <span class="math-span">𝑘<sup>th</sup></span>
         iteration, which it contributes to the global residual value using an
-        OpenMP<sup>&reg;</sup> atomic operation, such that it adds the local
+        OpenMP<sup>®</sup> atomic operation, such that it adds the local
         residual from the current iteration and subtracts the local residual
         from the previous iteration. A single thread checks for convergence with
         an atomic capture operation, and updates a shared flag variable if the
         criterion is satisfied. Pseudocode for this implementation is provided
         in <a href="#alg4">Algorithm 4</a>, where bold upper-case text indicates
-        that OpenMP<sup>&reg;</sup> locks are employed. Locks are used only with
+        that OpenMP<sup>®</sup> locks are employed. Locks are used only with
         interior boundary rows, meaning they are unnecessary for the first and
         last rows in the domain.
       </p>
@@ -3273,7 +3271,7 @@ td.border_left_right {
                     <mo maxsize="1">(</mo>
                     <mi>i</mi>
                     <mo maxsize="1">)</mo>
-                    <mo>&isin;</mo>
+                    <mo>∈</mo>
                     <mi>u</mi>
                   </math>
                   to each processing element,
@@ -3281,8 +3279,8 @@ td.border_left_right {
                     <mi>i</mi>
                     <mo>=</mo>
                     <mfenced open="[" close="]">
-                    <mi>&alpha;</mi>
-                    <mi>&omega;</mi>
+                    <mi>α</mi>
+                    <mi>ω</mi>
                     </mfenced>
                   </math>
                 </p>
@@ -3296,7 +3294,7 @@ td.border_left_right {
                     <mi>p</mi>
                     <mn>1</mn>
                     </msub>
-                    <mo>&hellip;</mo>
+                    <mo>…</mo>
                     <msub>
                     <mi>p</mi>
                     <mi>n</mi>
@@ -3320,9 +3318,9 @@ td.border_left_right {
                       <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <mi>i</mi>
                           <mo>=</mo>
-                          <mi>&alpha;</mi>
-                          <mo>&hellip;</mo>
-                          <mi>&omega;</mi>
+                          <mi>α</mi>
+                          <mo>…</mo>
+                          <mi>ω</mi>
                         </math>
                       <span class="ps-keyword"> do</span>
                     </p>
@@ -3332,25 +3330,25 @@ td.border_left_right {
                           class="ps-keyword">if </span>
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
-                            <mo>&ne;</mo>
+                            <mo>≠</mo>
                             <mn>1</mn>
                           </math>
                         AND
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
-                            <mo>&ne;</mo>
+                            <mo>≠</mo>
                             <mn>N</mn>
                           </math>
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
                             <mo>=</mo>
-                            <mn>&alpha;</mn>
+                            <mn>α</mn>
                           </math>
                         OR
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
                             <mo>=</mo>
-                            <mn>&omega;</mn>
+                            <mn>ω</mn>
                           </math>
                         <span class="ps-keyword"> then</span>
                       </p>
@@ -3472,7 +3470,7 @@ td.border_left_right {
                           <mo maxsize="1">(</mo>
                           <mrow>
                           <mi>i</mi>
-                          <mo>-</mo>
+                          <mo>−</mo>
                           <mn>1</mn>
                           </mrow>
                           <mo separator="true">,</mo>
@@ -3510,7 +3508,7 @@ td.border_left_right {
                           <mo separator="true">,</mo>
                           <mrow>
                           <mi>j</mi>
-                          <mo>-</mo>
+                          <mo>−</mo>
                           <mn>1</mn>
                           </mrow>
                           <mo maxsize="1">)</mo>
@@ -3525,25 +3523,25 @@ td.border_left_right {
                           class="ps-keyword">if </span>
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
-                            <mo>&ne;</mo>
+                            <mo>≠</mo>
                             <mn>1</mn>
                           </math>
                         AND
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
-                            <mo>&ne;</mo>
+                            <mo>≠</mo>
                             <mn>N</mn>
                           </math>
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
                             <mo>=</mo>
-                            <mn>&alpha;</mn>
+                            <mn>α</mn>
                           </math>
                         OR
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                             <mi>i</mi>
                             <mo>=</mo>
-                            <mn>&omega;</mn>
+                            <mn>ω</mn>
                           </math>
                         <span class="ps-keyword"> then</span>
                       </p>
@@ -3692,9 +3690,9 @@ td.border_left_right {
         <thead>
           <tr>
             <th>Threads</th>
-            <th>Mean<br /> (10<sup>-5</sup>s)
+            <th>Mean<br /> (10<sup>−5</sup>s)
             </th>
-            <th>Std.<br /> (10<sup>-6</sup>s)
+            <th>Std.<br /> (10<sup>−6</sup>s)
             </th>
           </tr>
         </thead>
@@ -3773,10 +3771,10 @@ td.border_left_right {
                   <mo>=</mo>
                   <msup>
                   <mrow>
-                  <mo>-</mo>
+                  <mo>−</mo>
                   <mi>D</mi>
                   </mrow>
-                  <mn>-1</mn>
+                  <mn>−1</mn>
                   </msup>
                   <mfenced open="(" close=")">
                   <mrow>
@@ -3816,23 +3814,23 @@ td.border_left_right {
         was considered. Data was collected for a smaller problem size only in
         order to facilitate the collection of data over a large number of runs.
         Specifically, the Laplacian was discretized over a <span
-          class="math-span">20 &times; 20</span> grid resulting in a matrix of
-        size <span class="math-span">400 &times; 400</span>. Similarly to the
-        process in <a href="#sect5.1">Section 5.1</a>, distributions were fit to
-        the output of the OpenMP<sup>&reg;</sup> implementation, and these
-        distributions were used in the simulation framework to provide update
-        times to the simulated processors that are reflective of the HPC
-        hardware that the data was collected on. Output from the average of
-        these runs is provided in <a href="#tab4">Table 4</a>. The leftmost
-        column provides the number of threads that were used (or simulated), the
-        middle column shows the average over multiple runs of the parallel
-        implementation, and the rightmost column shows the average over multiple
-        runs of the simulation generated by the simulation framework. In the
-        case of this small problem, the similarity of actual and simulated run
-        times helps to validate the model. Running multiple trials of larger
-        problems in the framework is currently time-prohibitive, which is an
-        issue that may be improved with framework implementation changes. Future
-        work includes model validation for other problems and larger problems.
+          class="math-span">20 × 20</span> grid resulting in a matrix of size <span
+          class="math-span">400 × 400</span>. Similarly to the process in <a
+          href="#sect5.1">Section 5.1</a>, distributions were fit to the output
+        of the OpenMP<sup>®</sup> implementation, and these distributions were
+        used in the simulation framework to provide update times to the
+        simulated processors that are reflective of the HPC hardware that the
+        data was collected on. Output from the average of these runs is provided
+        in <a href="#tab4">Table 4</a>. The leftmost column provides the number
+        of threads that were used (or simulated), the middle column shows the
+        average over multiple runs of the parallel implementation, and the
+        rightmost column shows the average over multiple runs of the simulation
+        generated by the simulation framework. In the case of this small
+        problem, the similarity of actual and simulated run times helps to
+        validate the model. Running multiple trials of larger problems in the
+        framework is currently time-prohibitive, which is an issue that may be
+        improved with framework implementation changes. Future work includes
+        model validation for other problems and larger problems.
       </p>
       <table id="tab4" class="top">
         <thead>
@@ -3943,9 +3941,9 @@ td.border_left_right {
         structure is targeted and a small random perturbation is injected into
         each component transiently. For example, if the targeted data structure
         is a vector <span class="math-span">𝑥</span> and the maximum size of
-        the perturbation-based fault is <span class="math-span">&epsilon;</span>
-        then proceed as follows: sample a random number <span class="math-span">𝑟<sub>𝑖</sub>
-          &isin; (-&epsilon;, &epsilon;)
+        the perturbation-based fault is <span class="math-span">ε</span> then
+        proceed as follows: sample a random number <span class="math-span">𝑟<sub>𝑖</sub>
+          ∈ (-ε, ε)
         </span>, using a uniform distribution, and then set
       </p>
       <div class="equation">
@@ -3957,7 +3955,7 @@ td.border_left_right {
                   <msub>
                   <mover accent="true">
                   <mi>x</mi>
-                  <mo>&Hat;</mo>
+                  <mo>^</mo>
                   </mover>
                   <mi>i</mi>
                   </msub>
@@ -3983,7 +3981,7 @@ td.border_left_right {
         <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mover accent="true">
       <mi>x</mi>
-      <mo style="font-size: small;">&rarr;</mo>
+      <mo style="font-size: small;">→</mo>
       </mover>
       </math>
         is then perturbed away from the original vector <span class="math-span">𝑥</span>.
@@ -3997,8 +3995,8 @@ td.border_left_right {
         Due to the relatively short execution time of the asynchronous Jacobi
         algorithm on the given test problems, a fault is induced only once
         during each run, and the fault is designated to occur at a random
-        iteration number before convergence. To be precise - since "iteration"
-        loses some meaning in an asynchronous iterative algorithm - the fault is
+        iteration number before convergence. To be precise — since "iteration"
+        loses some meaning in an asynchronous iterative algorithm — the fault is
         injected on a single simulated time before the algorithm terminates. It
         is not necessary for the program to have an update scheduled on the same
         simulated time for the fault to be injected.</p>
@@ -4061,7 +4059,7 @@ td.border_left_right {
                       <mi>j</mi>
                       </mrow>
                       </msub>
-                      <mo>&isin;</mo>
+                      <mo>∈</mo>
                       <mi>A</mi>
                     </math>
                   ; initial guess
@@ -4077,11 +4075,11 @@ td.border_left_right {
                   </math>
                   ; input random number distribution; checkpointing tolerance
                   <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>&alpha;</mi>
+                    <mi>α</mi>
                   </math>
                   ; checkpointing frequency
                   <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>&omega;</mi>
+                    <mi>ω</mi>
                   </math>
                 </p>
                 <p class="ps-line ps-code">
@@ -4096,19 +4094,19 @@ td.border_left_right {
                   processor update times
                   <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <msub>
-                    <mi>&tau;</mi>
+                    <mi>τ</mi>
                     <mn>1</mn>
                     </msub>
                     <mo separator="true">,</mo>
                     <msub>
-                    <mi>&tau;</mi>
+                    <mi>τ</mi>
                     <mn>2</mn>
                     </msub>
                     <mo separator="true">,</mo>
-                    <mo>&hellip;</mo>
+                    <mo>…</mo>
                     <mo separator="true">,</mo>
                     <msub>
-                    <mi>&tau;</mi>
+                    <mi>τ</mi>
                     <mi>p</mi>
                     </msub>
                   </math>
@@ -4142,7 +4140,7 @@ td.border_left_right {
                       <mo separator="true">,</mo>
                       <mn>2</mn>
                       <mo separator="true">,</mo>
-                      <mo>&hellip;</mo>
+                      <mo>…</mo>
                     </math>
                   , until convergence<span class="ps-keyword"> do</span>
                 </p>
@@ -4164,7 +4162,7 @@ td.border_left_right {
                         class="ps-keyword">if </span>
                       <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <msub>
-                        <mi>&tau;</mi>
+                        <mi>τ</mi>
                         <mi>k</mi>
                         </msub>
                         <mo>=</mo>
@@ -4181,7 +4179,7 @@ td.border_left_right {
                             <mi>x</mi>
                             <mi>i</mi>
                             </msub>
-                            <mo>&isin;</mo>
+                            <mo>∈</mo>
                             <mi>x</mi>
                           </math>
                         assigned to
@@ -4218,10 +4216,10 @@ td.border_left_right {
                                 <mfenced open="[" close="]">
                                 <mrow>
                                 <msub>
-                                <mo>&sum;</mo>
+                                <mo>∑</mo>
                                 <mrow>
                                 <mi>j</mi>
-                                <mo>&ne;</mo>
+                                <mo>≠</mo>
                                 <mi>i</mi>
                                 </mrow>
                                 </msub>
@@ -4255,7 +4253,7 @@ td.border_left_right {
                         a new update time
                         <math xmlns="http://www.w3.org/1998/Math/MathML">
                           <msub>
-                          <mi>&tau;</mi>
+                          <mi>τ</mi>
                           <mi>k</mi>
                           </msub>
                       </math>
@@ -4295,7 +4293,7 @@ td.border_left_right {
                       <mtext>new</mtext>
                       </msub>
                       <mo>&gt;</mo>
-                      <mi>&alpha;</mi>
+                      <mi>α</mi>
                       <mo>x</mo>
                       <msub>
                       <mi>r</mi>
@@ -4309,7 +4307,7 @@ td.border_left_right {
                       <span class="ps-linenum" style="left: -3em;">18:</span>
                       <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mi>x</mi>
-                        <mo>&larr;</mo>
+                        <mo>←</mo>
                         <msub>
                         <mi>x</mi>
                         <mtext>cp</mtext>
@@ -4329,7 +4327,7 @@ td.border_left_right {
                         <mo maxsize="1">(</mo>
                         <mi>t</mi>
                         <mo separator="true">,</mo>
-                        <mi>&omega;</mi>
+                        <mi>ω</mi>
                         <mo maxsize="1">)</mo>
                         <mo>==</mo>
                         <mn>0</mn>
@@ -4344,7 +4342,7 @@ td.border_left_right {
                         <mi>x</mi>
                         <mtext>cp</mtext>
                         </msub>
-                        <mo>&larr;</mo>
+                        <mo>←</mo>
                         <mi>x</mi>
                       </math>
                     </p>
@@ -4371,17 +4369,16 @@ td.border_left_right {
         Note that the asynchronous nature of the iterative method means that a
         strict check on the decrease of the residual (i.e., expecting monotonic
         decrease) is not possible. In particular, the checkpointing tolerance <span
-          class="math-span">&alpha;</span> needs to be taken such that <span
-          class="math-span">&alpha; &gt; 1</span>. However, the expected
-        manifestation of faults as rare, transient events allows &alpha; to be
-        taken fairly large. Taking <span class="math-span">&alpha;</span> too
-        large results in a fault having a substantial impact on the convergence
-        rate of algorithm since large faults will be allowed to impact the
-        algorithm with no correction. Conversely, taking <span class="math-span">&alpha;</span>
-        too small causes the algorithm to checkpoint more frequently than
-        needed. Examples of the effects of a fault with different values
-        selected for <span class="math-span">&alpha;</span> are given by <a
-          href="#fig11">Figure 11</a>.
+          class="math-span">α</span> needs to be taken such that <span
+          class="math-span">α &gt; 1</span>. However, the expected manifestation
+        of faults as rare, transient events allows α to be taken fairly large.
+        Taking <span class="math-span">α</span> too large results in a fault
+        having a substantial impact on the convergence rate of algorithm since
+        large faults will be allowed to impact the algorithm with no correction.
+        Conversely, taking <span class="math-span">α</span> too small causes the
+        algorithm to checkpoint more frequently than needed. Examples of the
+        effects of a fault with different values selected for <span
+          class="math-span">α</span> are given by <a href="#fig11">Figure 11</a>.
       </p>
       <table id="fig11" class="table-figure top">
         <tr>
@@ -4389,14 +4386,14 @@ td.border_left_right {
             <figure id="fig11a">
               <img src="./img/image11a.png" />
               <figcaption>
-                <strong>(a)</strong> Effect of fault - no checkpointing.
+                <strong>(a)</strong> Effect of fault — no checkpointing.
               </figcaption>
             </figure>
           </td>
           <td><figure id="fig11b">
               <img src="./img/image11b.png" />
               <figcaption>
-                <strong>(b)</strong> Effect of fault - <span class="math-span">&alpha;
+                <strong>(b)</strong> Effect of fault — <span class="math-span">α
                   = 1</span>.
               </figcaption>
             </figure></td>
@@ -4406,7 +4403,7 @@ td.border_left_right {
             <figure id="fig11c">
               <img src="./img/image11c.png" />
               <figcaption>
-                <strong>(c)</strong> Effect of fault - <span class="math-span">&alpha;
+                <strong>(c)</strong> Effect of fault — <span class="math-span">α
                   = 2</span>.
               </figcaption>
             </figure>
@@ -4414,41 +4411,41 @@ td.border_left_right {
           <td><figure id="fig11d">
               <img src="./img/image11d.png" />
               <figcaption>
-                <strong>(d)</strong> Effect of fault - <span class="math-span">&alpha;
+                <strong>(d)</strong> Effect of fault — <span class="math-span">α
                   = 10</span>.
               </figcaption>
             </figure></td>
         </tr>
         <caption>
           <strong>Figure 11.</strong> Effect of differing values of <span
-            class="math-span">&alpha;</span> on the progression of the residual.
+            class="math-span">α</span> on the progression of the residual.
         </caption>
       </table>
       <p>
         Note in <a href="#fig11">Figure 11</a> that no checkpointing results in
         a delay to convergence relative to the use of checkpointing with either
-        <span class="math-span">&alpha; = 1</span> or <span class="math-span">&alpha;
+        <span class="math-span">α = 1</span> or <span class="math-span">α
           = 10</span>. The size of the fault selected in this study, <span
-          class="math-span">𝑟<sub>𝑖</sub> &isin; (-100, 100)
+          class="math-span">𝑟<sub>𝑖</sub> ∈ (-100, 100)
         </span>, which may be reflective of an exponent or sign bit flip (<a
           role="doc-biblioref" href="#CS18">Coleman &amp; Sosonkina, 2018</a>),
-        results in the values <span class="math-span">&alpha; = 1</span> and <span
-          class="math-span">&alpha; = 10</span> having the same performance
-        since the error induced by the fault is sufficiently large that the new
-        residual is more than <span class="math-span">&alpha; = 10</span> times
-        the prior residual. Faults that induce a smaller error may be detected
-        by certain values of <span class="math-span">&alpha;</span> and not by
-        others which would lead to differing performance.
+        results in the values <span class="math-span">α = 1</span> and <span
+          class="math-span">α = 10</span> having the same performance since the
+        error induced by the fault is sufficiently large that the new residual
+        is more than <span class="math-span">α = 10</span> times the prior
+        residual. Faults that induce a smaller error may be detected by certain
+        values of <span class="math-span">α</span> and not by others which would
+        lead to differing performance.
       </p>
       <p>
         The residual progress in the plot showing the effects of using <span
-          class="math-span">&alpha; = 1</span> can be explained by the updates
+          class="math-span">α = 1</span> can be explained by the updates
         provided by certain simulated processing elements being rejected despite
         being necessary for the convergence of the algorithm. This can be seen
         in the small, momentary jumps in the progression of the residual visible
         in the other graphs. These rejections lead to stagnation in the
         progression of the algorithm and show why the value of <span
-          class="math-span">&alpha; = 1</span> should not be selected for a
+          class="math-span">α = 1</span> should not be selected for a
         checkpointing scheme for an asynchronous iterative method.
       </p>
     </section>
@@ -4492,7 +4489,7 @@ td.border_left_right {
       without direct input from the user could aid in the development of
       algorithms. Furthermore, the simulation framework is intended to be
       augmented with runtime simulation measurements, such those provided by
-      Intel<sup>&reg;</sup> Running Average Power Limit (RAPL) interface (<a
+      Intel<sup>®</sup> Running Average Power Limit (RAPL) interface (<a
         role="doc-biblioref" href="#Int16">Intel, 2016</a>), to obtain simulated
       application execution traces in order to model application performance and
       energy consumption.
@@ -4510,9 +4507,9 @@ td.border_left_right {
       DE-AC00-07CH11358, by the U.S. Department of Defense High Performance
       Computing Modernization Program, through a HASI grant, the High
       Performance Computing facilities at Old Dominion University, and through
-      the ILIR/IAR program at the Naval Surface Warfare Center - Dahlgren
-      Division. Edmond Chow provided the MATLAB<sup>&reg;</sup> script that
-      evolved into part of the proposed simulation framework.
+      the ILIR/IAR program at the Naval Surface Warfare Center — Dahlgren
+      Division. Edmond Chow provided the MATLAB<sup>®</sup> script that evolved
+      into part of the proposed simulation framework.
     </p>
   </section>
 
@@ -4539,7 +4536,7 @@ td.border_left_right {
       <li id="AB05" role="doc-biblioentry">Addou, A., &amp; Benahmed, A.
         (2005). Parallel Synchronous Algorithm for Nonlinear Fixed Point
         Problems. <em>International Journal of Mathematics and Mathematical
-          Sciences</em>. 2005(19):3175-3183. <a
+          Sciences</em>. 2005(19), 3175–3183. <a
         href="https://dx.doi.org/10.1155/IJMMS.2005.3175"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4553,7 +4550,7 @@ td.border_left_right {
       <li id="ACD15" role="doc-biblioentry">Anzt, H., Chow, E., &amp;
         Dongarra, J. (2015). Iterative Sparse Triangular Solves for
         Preconditioning. In Träff, J., Hunold, S., &amp; Versaci, F. (eds) <em>Euro-Par
-          2015: Parallel Processing. Euro-Par 2015</em> (pp. 650-661). Lecture Notes
+          2015: Parallel Processing. Euro-Par 2015</em> (pp. 650–661). Lecture Notes
         in Computer Science, vol 9233. Berlin, Heidelberg: Springer. <a
         href="https://dx.doi.org/10.1007/978-3-662-48096-0_50"><img
           src="../../icons/doi.png" /></a>
@@ -4561,7 +4558,7 @@ td.border_left_right {
       <li id="ADQO15" role="doc-biblioentry">Anzt, H., Dongarra, J., &amp;
         Quintana-Ortí, E.S. (2015). Tuning Stationary Iterative Solvers for
         Fault Resilience. In <em>Proceedings of the 6th Workshop on Latest
-          Advances in Scalable Algorithms for Large-Scale Systems</em> (pp. 1:1-1:8).
+          Advances in Scalable Algorithms for Large-Scale Systems</em> (pp. 1:1–1:8).
         New York, NY: ACM. <a href="https://dx.doi.org/10.1145/2832080.2832081"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4575,7 +4572,7 @@ td.border_left_right {
         Dongarra, J., &amp; Heuveline, V. (2012). GPU-Accelerated Asynchronous
         Error Correction for Mixed Precision Iterative Refinement. In
         Kaklamanis, C., Papatheodorou, T., &amp; Spirakis, P.G. (eds) <em>Euro-Par
-          2012 Parallel Processing</em> (pp. 908-919). Lecture Notes in Computer
+          2012 Parallel Processing</em> (pp. 908–919). Lecture Notes in Computer
         Science, vol 7484. Berlin, Heidelberg: Springer. <a
         href="https://dx.doi.org/10.1007/978-3-642-32820-6_89"><img
           src="../../icons/doi.png" /></a>
@@ -4603,18 +4600,18 @@ td.border_left_right {
       <li id="ADG15" role="doc-biblioentry">Avron, H., Druinsky, A. &amp;
         Gupta, A. (2015). Revisiting Asynchronous Linear Solvers: Provable
         Convergence Rate through Randomization. <em>Journal of the ACM</em>,
-        62(6):51:1-51:27. <a href="https://dx.doi.org/10.1145/2814566"><img
+        62(6), 51:1–51:27. <a href="https://dx.doi.org/10.1145/2814566"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="Bau78" role="doc-biblioentry">Baudet, G.M. (1978).
         Asynchronous Iterative Methods for Multiprocessors. <em>Journal of
-          the ACM</em>, 25(2):226-244. <a
+          the ACM</em>, 25(2), 226–244. <a
         href="https://dx.doi.org/10.1145/322063.322067"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="Ben07" role="doc-biblioentry">Benahmed, A. (2007). A
         Convergence Result for Asynchronous Algorithms and Applications. <em>Proyecciones
-          (Antofagasta)</em>, 26(2):219-236. <a
+          (Antofagasta)</em>, 26(2), 219–236. <a
         href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&amp;pid=S0716-09172007000200005&amp;lng=pt&amp;nrm=iso&amp;tlng=en"><img
           src="../../icons/html.png" /></a>
       </li>
@@ -4634,15 +4631,15 @@ td.border_left_right {
       <li id="BBDH14" role="doc-biblioentry">Bethune, I., Bull, J.M.,
         Dingle, N.J., &amp; Higham, N.J. (2014). Performance Analysis of
         Asynchronous Jacobi's Method Implemented in MPI, SHMEM and OpenMP. <em>International
-          Journal of High Performance Computing Applications</em>, 28(1):97-111. <a
+          Journal of High Performance Computing Applications</em>, 28(1), 97–111. <a
         href="https://dx.doi.org/10.1177/1094342013493123"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="BPC+11" role="doc-biblioentry">Boyd, S., Parikh, N., Chu, E.,
         Peleato, B., &amp; Eckstein, J. (2011). Distributed Optimization and
         Statistical Learning via the Alternating Direction Method of
-        Multipliers. <em>Foundations and Trends in Machine Learning</em>,
-        3(1):1-122. <a
+        Multipliers. <em>Foundations and Trends in Machine Learning</em>, 3(1),
+        1–122. <a
         href="https://web.stanford.edu/~boyd/papers/admm_distr_stats.html"><img
           src="../../icons/html.png" /></a>
       </li>
@@ -4655,7 +4652,7 @@ td.border_left_right {
       <li id="BM02" role="doc-biblioentry">Buyya, R. &amp; Murshed, M.
         (2002). Gridsim: A Toolkit for the Modeling and Simulation of
         Distributed Resource Management and Scheduling for Grid Computing. <em>Concurrency
-          and Computation: Practice and Experience</em>, 14(13-15):1175-1220. <a
+          and Computation: Practice and Experience</em>, 14(13–15), 1175–1220. <a
         href="https://dx.doi.org/10.1002/cpe.710"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4663,7 +4660,7 @@ td.border_left_right {
         Beloglazov, A., De Rose, C.A.F., &amp; Buyya, R. (2011). CloudSim: A
         Toolkit for Modeling and Simulation of Cloud Computing Environments and
         Evaluation of Resource Provisioning Algorithms. <em>Software:
-          Practice and Experience</em>, 41(1):23-50. <a
+          Practice and Experience</em>, 41(1), 23–50. <a
         href="https://dx.doi.org/10.1002/spe.995"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4677,7 +4674,7 @@ td.border_left_right {
       <li id="CGG+09" role="doc-biblioentry">Cappello, F., Geist, A.,
         Gropp, B., Kale, L., Kramer, B., &amp; Snir, M. (2009). Toward Exascale
         Resilience. <em>International Journal of High Performance Computing
-          Applications</em>, 23(4):374-388. <a
+          Applications</em>, 23(4), 374–388. <a
         href="https://dx.doi.org/10.1177/1094342009347767"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4690,7 +4687,7 @@ td.border_left_right {
       <li id="Cas01" role="doc-biblioentry">Casanova, H. (2001). Simgrid: A
         Toolkit for the Simulation of Application Scheduling. In <em>Proceedings
           of the First IEEE/ACM International Symposium on Cluster Computing and
-          the Grid</em> (pp. 430-437). Piscataway, NJ: IEEE Press. <a
+          the Grid</em> (pp. 430–437). Piscataway, NJ: IEEE Press. <a
         href="https://dx.doi.org/10.1109/CCGRID.2001.923223"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4698,13 +4695,13 @@ td.border_left_right {
         &amp; Quinson, M. (2008). Simgrid: A Generic Framework for Large-Scale
         Distributed Experiments. In <em>Proceedings of the Tenth
           International Conference on Computer Modeling and Simulation (UKSIM
-          2008)</em> (pp. 126-131). Piscataway, NJ: IEEE Press. <a
+          2008)</em> (pp. 126–131). Piscataway, NJ: IEEE Press. <a
         href="https://dx.doi.org/10.1109/UKSIM.2008.28"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="CM69" role="doc-biblioentry">Chazan, D., &amp; Miranker, W.
         (2014). Chaotic Relaxation. <em>Linear Algebra and its Applications</em>,
-        2(2):199-222. <a href="https://dx.doi.org/10.1016/0024-3795(69)90028-7"><img
+        2(2), 199–222. <a href="https://dx.doi.org/10.1016/0024-3795(69)90028-7"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="CC16" role="doc-biblioentry">Cheung, Y.K. &amp; Cole, R.
@@ -4723,7 +4720,7 @@ td.border_left_right {
       </li>
       <li id="CP15" role="doc-biblioentry">Chow, E., &amp; Patel, A.
         (2015). Fine-Grained Parallel Incomplete LU Factorization. <em>SIAM
-          Journal on Scientific Computing</em>, 37(2):C169-C193. <a
+          Journal on Scientific Computing</em>, 37(2), C169–C193. <a
         href="https://dx.doi.org/10.1137/140968896"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4731,7 +4728,7 @@ td.border_left_right {
         Baboulin, M., Khabou, A., &amp; Sosonkina, M. (2018). A Comparison of
         Soft-Fault Error Models in the Parallel Preconditioned Flexible GMRES.
         In Wyrzykowski, R., Dongarra, J., Deelman, E., Karczewski, K. (eds) <em>Parallel
-          Processing and Applied Mathematics. PPAM 2017.</em> (pp. 36-46). Lecture
+          Processing and Applied Mathematics. PPAM 2017.</em> (pp. 36–46). Lecture
         Notes in Computer Science, vol 10777. Cham: Springer. <a
         href="https://dx.doi.org/10.1007/978-3-319-78024-5_4"><img
           src="../../icons/doi.png" /></a>
@@ -4739,14 +4736,14 @@ td.border_left_right {
       <li id="CS16a" role="doc-biblioentry">Coleman, E.C., &amp; Sosonkina,
         M. (2016a). A Comparison and Analysis of Soft-Fault Error Models using
         FGMRES. In <em>Proceedings of the 6th Annual Virginia Modeling,
-          Simulation, and Analysis Center Capstone Conference</em> (pp. 135-142).
+          Simulation, and Analysis Center Capstone Conference</em> (pp. 135–142).
         Norfolk, VA: Virginia Modeling, Simulation, and Analysis Center.
       </li>
       <li id="CS16b" role="doc-biblioentry">Coleman, E.C., &amp; Sosonkina,
         M. (2016b). Evaluating a Persistent Soft Fault Model on Preconditioned
         Iterative Methods. In <em>Proceedings of the 22nd Annual
           International Conference on Parallel and Distributed Processing
-          Techniques and Applications</em> (pp. 98-104). Athens: The Steering
+          Techniques and Applications</em> (pp. 98–104). Athens: The Steering
         Committee of The World Congress in Computer Science, Computer
         Engineering and Applied Computing (WorldComp). <a
         href="http://worldcomp-proceedings.com/proc/p2016/PDP3831.pdf"><img
@@ -4783,26 +4780,26 @@ td.border_left_right {
       <li id="DF05" role="doc-biblioentry">Dumitrescu, C.L., &amp; Foster,
         I. (2005). GangSim: A Simulator for Grid Scheduling Studies. In <em>CCGrid
           2005. IEEE International Symposium on Cluster Computing and the Grid</em>
-        (pp. 1151-1158, vol 2). Piscataway, NJ: IEEE Press. <a
+        (pp. 1151–1158, vol 2). Piscataway, NJ: IEEE Press. <a
         href="https://dx.doi.org/10.1109/CCGRID.2005.1558689"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="EHM15" role="doc-biblioentry">Elliott, J., Hoemmen, M., &amp;
         Mueller, F. (2015). A Numerical Soft Fault Model for Iterative Linear
         Solvers. In <em>Proceedings of the 24th International Symposium on
-          High-Performance Parallel and Distributed Computing</em> (pp. 271-274). New
+          High-Performance Parallel and Distributed Computing</em> (pp. 271–274). New
         York, NY: ACM. <a href="https://dx.doi.org/10.1145/2749246.2749254"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="FS00" role="doc-biblioentry">Frommer, A. &amp; Szyld, D. B.
         (2000). On Asynchronous Iterations. <em>Journal of Computational
-          and Applied Mathematics</em>, 123(1):201-216. <a
+          and Applied Mathematics</em>, 123(1), 201–216. <a
         href="https://dx.doi.org/10.1016/S0377-0427(00)00409-X"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="Gär99" role="doc-biblioentry">Gärtner, F.C. (1999).
         Fundamentals of Fault-Tolerant Distributed Computing in Asynchronous
-        Environments. <em>ACM Computing Surveys</em>, 31(1):1-26. <a
+        Environments. <em>ACM Computing Surveys</em>, 31(1), 1–26. <a
         href="https://dx.doi.org/10.1145/311531.311532"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4813,24 +4810,24 @@ td.border_left_right {
       </li>
       <li id="Gei12" role="doc-biblioentry">Geist, A. (2012). Exascale
         Monster in the Closet. In <em>2012 IEEE Workshop on Silicon Errors
-          in Logic-System Effects, Champaign-Urbana, IL, March</em> (pp. 27-28).
+          in Logic-System Effects, Champaign-Urbana, IL, March</em> (pp. 27–28).
         Piscataway, NJ: IEEE Press.
       </li>
       <li id="Gei16" role="doc-biblioentry">Geist, A. (2016).
-        Supercomputing's Monster in the Closet. <em>IEEE Spectrum</em>.
-        53(3):30-35. <a href="https://doi.org/10.1109/MSPEC.2016.7420396"><img
+        Supercomputing's Monster in the Closet. <em>IEEE Spectrum</em>. 53(3),
+        30–35. <a href="https://doi.org/10.1109/MSPEC.2016.7420396"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="GL09" role="doc-biblioentry">Geist, A., &amp; Lucas, R.
         (2009). Major Computer Science Challenges at Exascale. <em>International
-          Journal of High Performance Computing Applications</em>. 23(4):427-436. <a
+          Journal of High Performance Computing Applications</em>. 23(4), 427–436. <a
         href="https://doi.org/10.1177%2F1094342009347445"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="GBH14" role="doc-biblioentry">Gerstenberger, R., Besta, M.,
         &amp; Hoefler, T. (2014). Enabling Highly-Scalable Remote Memory Access
         Programming with MPI-3 One Sided. <em>Scientific Programming</em>,
-        22(2):75-91. <a href="https://dx.doi.org/10.3233/SPR-140383"><img
+        22(2), 75–91. <a href="https://dx.doi.org/10.3233/SPR-140383"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="HW10" role="doc-biblioentry">Hager, G., &amp; Wellein, G.
@@ -4854,11 +4851,11 @@ td.border_left_right {
       </li>
       <li id="HD18" role="doc-biblioentry">Hook, J., &amp; Dingle, N.
         (2018). Performance Analysis of Asynchronous Parallel Jacobi. <em>Numerical
-          Algorithms</em>. 77(3):831-866. <a
+          Algorithms</em>. 77(3), 831–866. <a
         href="https://dx.doi.org/10.1007/s11075-017-0342-9"><img
           src="../../icons/doi.png" /></a>
       </li>
-      <li id="Int16" role="doc-biblioentry">Intel (2016). <em>Intel<sup>&reg;</sup>
+      <li id="Int16" role="doc-biblioentry">Intel (2016). <em>Intel<sup>®</sup>
           64 and IA-32 Architectures Developer's Manual
       </em>. Volume 3B: System Programming Guide, Part 2. <a
         href="https://www.intel.de/content/www/de/de/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3b-part-2-manual.html"><img
@@ -4868,7 +4865,7 @@ td.border_left_right {
         Ciblat, P., &amp; Hachem, W. (2013). Asynchronous Distributed
         Optimization using a Randomized Alternating Direction Method of
         Multipliers. In <em>Decision and Control (CDC), 2013 IEEE 52nd
-          Annual Conference on</em> (pp. 3671-3676). Piscataway, NJ: IEEE Press. <a
+          Annual Conference on</em> (pp. 3671–3676). Piscataway, NJ: IEEE Press. <a
         href="https://dx.doi.org/10.1109/CDC.2013.6760448"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4886,7 +4883,7 @@ td.border_left_right {
       <li id="SV13" role="doc-biblioentry">Sao, P. &amp; Vuduc, R. (2013).
         Self-Stabilizing Iterative Solvers. In <em>Proceedings of the
           Workshop on Latest Advances in Scalable Algorithms for Large-Scale
-          Systems</em> (pp. 4:1-4:8). New York, NY: ACM. <a
+          Systems</em> (pp. 4:1–4:8). New York, NY: ACM. <a
         href="https://dx.doi.org/10.1145/2530268.2530272"><img
           src="../../icons/doi.png" /></a>
       </li>
@@ -4897,52 +4894,52 @@ td.border_left_right {
         Johnson, F., Krishnamoorthy, S., Leyffer, S., Liberty, D., Mitra, S.,
         Munson, T., Schreiber, R., Stearley, J., &amp; van Hensbergen, E.
         (2014). Addressing Failures in Exascale Computing. <em>International
-          Journal of High Performance Computing Applications</em>. 28(2):129-173. <a
+          Journal of High Performance Computing Applications</em>. 28(2), 129–173. <a
         href="https://dx.doi.org/10.1177/1094342014522573"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="SN11" role="doc-biblioentry">Srivastava, K., &amp; Nedic, A.
         (2011). Distributed Asynchronous Constrained Stochastic Optimization. <em>IEEE
-          Journal of Selected Topics in Signal Processing</em>. 5(4):772-790. <a
+          Journal of Selected Topics in Signal Processing</em>. 5(4), 772–790. <a
         href="https://dx.doi.org/10.1109/JSTSP.2011.2118740"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="SW15" role="doc-biblioentry">Stoyanov, M. &amp; Webster, C.
         (2015). Numerical Analysis of Fixed Point Algorithms in the Presence of
-        Hardware Faults. <em>SIAM Journal on Scientific Computing</em>.
-        37(5):C532-C553. <a href="https://dx.doi.org/10.1137/140991406"><img
+        Hardware Faults. <em>SIAM Journal on Scientific Computing</em>. 37(5),
+        C532–C553. <a href="https://dx.doi.org/10.1137/140991406"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="Szy98" role="doc-biblioentry">Szyld, D.B. (1998). Different
         Models of Parallel Asynchronous Iterations with Overlapping Blocks. <em>Computational
-          and Applied Mathematics</em>. 17:101-115. <a
+          and Applied Mathematics</em>. 17, 101–115. <a
         href="https://dx.doi.org/10.1137/140991406"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="TBA86" role="doc-biblioentry">Tsitsiklis, J., Bertsekas, D.,
         &amp; Athans, M. (1986). Distributed Asynchronous Deterministic and
         Stochastic Gradient Optimization Algorithms. <em>IEEE Transactions
-          on Automatic Control</em>. 31(9):803-812. <a
+          on Automatic Control</em>. 31(9), 803–812. <a
         href="https://dx.doi.org/10.1137/140991406"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="VV09" role="doc-biblioentry">Venkatasubramanian, S., &amp;
         Vuduc, R.W. (2009). Tuned and Wildly Asynchronous Stencil Kernels for
         Hybrid CPU/GPU Systems. In <em>Proceedings of the 23rd
-          International Conference on Supercomputing</em> (pp. 244-255). New York,
+          International Conference on Supercomputing</em> (pp. 244–255). New York,
         NY: ACM. <a href="https://dx.doi.org/10.1145/1542275.1542312"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="WPC16" role="doc-biblioentry">Wolfson-Pou, J., &amp; Chow, E.
         (2016). Reducing Communication in Distributed Asynchronous Iterative
-        Methods. <em>Procedia Computer Science</em>. 80:1906-1916. <a
+        Methods. <em>Procedia Computer Science</em>. 80, 1906–1916. <a
         href="https://dx.doi.org/10.1016/j.procs.2016.05.501"><img
           src="../../icons/doi.png" /></a>
       </li>
       <li id="ZC10" role="doc-biblioentry">Zhong, M., &amp; Cassandras, C.
         G. (2010). Distributed Asynchronous Deterministic and Stochastic
         Gradient Optimization Algorithms. <em>IEEE Transactions on
-          Automatic Control</em>. 55(12):2735-2750. <a
+          Automatic Control</em>. 55(12), 2735–2750. <a
         href="https://dx.doi.org/10.1109/TAC.2010.2049518"><img
           src="../../icons/doi.png" /></a>
       </li>
