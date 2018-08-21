@@ -86,7 +86,7 @@ textarea {
     margin: 0 auto;
     padding: 10px;
     max-width: 45em;
-    hyphens: auto;  /* does this work? */
+    hyphens: auto;
   }
   body.feedbackMode {
     margin-left: 0;
