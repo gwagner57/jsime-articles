@@ -503,7 +503,7 @@ blockquote.float-right {
 .iframe-container {
     position: relative;
     overflow: hidden;
-    padding-top: 75%;  /* aspect ratio = height / width */
+    padding-top: 66%;  /* aspect ratio = height / width */
 	background: aliceblue;
 }
 .iframe-container iframe {
