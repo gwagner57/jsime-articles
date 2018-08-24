@@ -54,6 +54,11 @@ textarea {
 /* -------------------------------------------
             Pagination and Page Regions
    ------------------------------------------- */
+@page:first {
+  @top-center {
+    content: none;
+  }
+}
 @page {
   size: A4 /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
@@ -67,11 +72,13 @@ textarea {
     font-size: 75%;
     padding-top: 1em;
   }
+  /*
   @bottom-left {
     content: string(articleURL);
     font-size: 75%;
     padding-top: 1em;
   }
+   */
   @footnotes {
     border-top: thin solid black;
     border-clip: 100px;
@@ -85,7 +92,7 @@ textarea {
     font: 1.1rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
     margin: 0 auto;
     padding: 10px;
-    max-width: 45em;
+    max-width: 47em;
     hyphens: auto;
   }
   body.feedbackMode {
@@ -94,6 +101,9 @@ textarea {
   .two-column {
     columns: 2; 
     column-gap: 0.25in;
+  }
+  h1#article-title {
+    hyphens: none;
   }
   main > section > h1,
   section[role="doc-abstract"] > h1 {
@@ -209,6 +219,9 @@ textarea {
   img { 
     prince-image-resolution: auto;
   }
+  blockquote.stylish {
+    display: none;
+  }
   
   /* adjusting prism.css settings */
   code[class *= "language-"],
@@ -272,8 +285,8 @@ textarea {
   /* multi-line table and figure captions */
   .multi-line-pdf {
     text-align: left;
-}
-
+  }
+  
   /* mathematical content */
   .math-span {
     font-family: "Cambria Math";
