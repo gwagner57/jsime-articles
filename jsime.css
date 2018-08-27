@@ -149,7 +149,8 @@ textarea {
   header {
     page-break-after: avoid;
   }
-  .suppressInPDF {
+  .suppressInPDF,
+  .iframe-container {
     display: none;
   }
   main {
