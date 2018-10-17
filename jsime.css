@@ -530,11 +530,11 @@ main > section:not([role="doc-abstract"]):not([role="doc-bibliography"]):not([ro
   counter-increment: sections;
   content: counter(sections) " "
 }
-main > section > section > h1:before {
+main > section > section:not(.no-counter) > h1:before {
   counter-increment: sub-sections;
   content: counter(sections) "." counter(sub-sections) " ";
 }
-main > section > section > section > h1:before {
+main > section > section > section:not(.no-counter) > h1:before {
   counter-increment: sub-sub-sections;
   content: counter(sections) "." counter(sub-sections) "." counter(sub-sub-sections) " ";
 }
