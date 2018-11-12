@@ -1044,7 +1044,7 @@
       and the ordered quantity is delivered 1–3 days later.</p>
     <p>Below, a simulation of this system, based on OESjs, can be run.</p>
     <div class="iframe-container">
-     <iframe src="https://sim4edu.com/sims/4/"></iframe>
+     <iframe id="iframe-sim4" src=""></iframe>
     </div>
 
     <section id="sect6.1">
@@ -2688,5 +2688,9 @@ sd.waitingCustomers.<b>pop</b>()
       <li><a href="#sect10">Copyright Information</a></li>
     </ol>
   </nav>
-
-</body></html>
+<script>
+// load iframe only after loading the page
+document.getElementById("iframe-sim4").src = "https://sim4edu.com/sims/4/";
+</script>
+</body>
+</html>
