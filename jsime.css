@@ -539,7 +539,7 @@ main > section > section > section:not(.no-counter) > h1:before {
   content: counter(sections) "." counter(sub-sections) "." counter(sub-sub-sections) " ";
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1400px) {
   #toc {  /* table of contents */
     display: block;
     position: fixed;
