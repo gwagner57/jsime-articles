@@ -298,8 +298,8 @@ body {
   color: black;
   background-color: white;
 }
-body > header > small {
-  display: block;
+body > header {
+  font-size: 80%;
   text-align: center;
 }
 
