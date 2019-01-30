@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html prefix="og: http://ogp.me/ns#" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
@@ -45,6 +45,15 @@
 
     <meta content="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" name="citation_fulltext_html_url" />
 
+<!--Open Graph-->
+<meta property="og:title" content="Information and Process Modeling for Simulation – Part I" />
+<meta property="og:type" content="tutorial" />
+<meta property="og:description" content="In simulation engineering, a system model mainly consists of an information model and a process model. In the fields of Information Systems and Software Engineering (IS/SE) there are widely used standards such as the Class Diagrams of the Unified Modeling Language (UML) for making information models, and the Business Process Modeling Notation (BPMN) for making process models. This tutorial presents a general approach how to use UML class diagrams and BPMN process diagrams at all three levels of model-driven simulation engineering: for making conceptual domain models, for making platform-independent simulation design models, and for making platform-specific, executable simulation models. In our Object-Event Modeling (OEM) approach, object and event types are modeled as stereotyped classes, random variables are modeled as stereotyped operations constrained to comply with a specific probability distribution, and queues are modeled as ordered association ends, while event rules/routines are modeled both as BPMN process diagrams and in pseudo-code. In Part II, we will discuss the more advanced modeling concepts of activities and GPSS/SIMAN/Arena-style processing networks, while in Part III we will further extend the OEM framework by adding the concepts of agents with perceptions, actions and beliefs." />
+<meta property="og:url" content="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" />
+<meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
+<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:alt" content="JSimE" />
+<meta property="og:site_name" content="Journal of Simulation Engineering" />
     <!--Canonical URL-->
 
     <link href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" rel="canonical" />
@@ -105,7 +114,7 @@
       ],
       "copyrightYear": "2018",
       "dateCreated": "2017-10-05",
-      "dateModified": "2018-08-24",
+      "dateModified": "2019-01-29",
       "datePublished": "2018-06-28",
       "isPartOf": {
         "@type": "PublicationVolume",
@@ -164,7 +173,8 @@
   href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" id="articleURL">https://articles.jsime.org/1/1</a> <a class="suppressInPDF"
       href="https://jsime.org/index.php/jsimeng/article/view/2" id="PDF" style="position: relative; left: 1em">
       <img src="../../icons/pdf.png" />
-    </a> </header> <main>
+    </a> </header> 
+	<main>
       <div id="front-matter">
         <div id="article-number">1</div>
 
@@ -1355,8 +1365,8 @@ DailyDemand<span class="token punctuation">.</span><span class="token function-v
                   <td>
                     <p>customer departure</p>
 
-                    <small>[Notice that we do not describe the increase of the shop's cash balance due to the payment, because we focus on
-                    inventory.]</small>
+                    [Notice that we do not describe the increase of the shop's cash balance due to the payment, because we focus on
+                    inventory.]
                   </td>
 
                   <td>
@@ -2324,61 +2334,28 @@ sd.waitingCustomers.<b>pop</b>()
         </ul>
       </section>
 
-      <section class="no-counter" id="sect10">
-        <h1>Copyright Information</h1>
+  <section id="sect10" class="no-counter">
+    <h1>Copyright Information</h1>
+    <p prefix="cc: http://creativecommons.org/ns#">
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" target="_blank"></a> Copyright © 2018 <span property="cc:attributionName">Gerd Wagner</span>. This article is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
+    </p>
+  </section>
+  </main>
 
-        <p><a href="https://creativecommons.org/licenses/by/4.0/" rel="license">
-            <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
-          </a> Copyright © 2018 Gerd Wagner. This article is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
-        Attribution 4.0 International License</a>.</p>
-      </section>
-    </main> <nav class="suppressInPDF" id="toc">
-      <h1>Outline</h1>
-
-      <ol>
-        <li>
-          <a href="#sect0">Abstract</a>
-        </li>
-
-        <li>
-          <a href="#sect1">Introduction</a>
-        </li>
-
-        <li>
-          <a href="#sect2">What Is Discrete Event Simulation?</a>
-        </li>
-
-        <li>
-          <a href="#sect3">Model-Driven Engineering</a>
-        </li>
-
-        <li>
-          <a href="#sect4">Information Modeling with UML Class Diagrams</a>
-        </li>
-
-        <li>
-          <a href="#sect5">Process Modeling with BPMN and DPMN</a>
-        </li>
-
-        <li>
-          <a href="#sect6">Example 1: An Inventory System</a>
-        </li>
-
-        <li>
-          <a href="#sect7">Example 2: A Service System</a>
-        </li>
-
-        <li>
-          <a href="#sect8">Conclusions</a>
-        </li>
-
-        <li>
-          <a href="#sect9">Bibliography</a>
-        </li>
-
-        <li>
-          <a href="#sect10">Copyright Information</a>
-        </li>
+  <nav id="toc" class="suppressInPDF">
+    <h1>Outline</h1>
+    <ol>
+      <li><a href="#sect0">Abstract</a></li>
+      <li><a href="#sect1">Introduction</a></li>
+      <li><a href="#sect2">What Is Discrete Event Simulation?</a></li>
+      <li><a href="#sect3">Model-Driven Engineering</a></li>
+      <li><a href="#sect4">Information Modeling with UML Class Diagrams</a></li>
+      <li><a href="#sect5">Process Modeling with BPMN and DPMN</a></li>
+      <li><a href="#sect6">Example 1: An Inventory System</a></li>
+      <li><a href="#sect7">Example 2: A Service System</a></li>
+      <li><a href="#sect8">Conclusions</a></li>
+      <li><a href="#sect9">Bibliography</a></li>
+      <li><a href="#sect10">Copyright Information</a></li>
       </ol>
     </nav> <script>/*<![CDATA[*/
 // load iframe only after loading the page

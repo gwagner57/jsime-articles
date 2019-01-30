@@ -42,7 +42,7 @@ textarea {
   resize: vertical;
 }
 
-/* added to HTML5 Boilerplate 
+/* added to HTML5 Boilerplate
    It means that width/height includes padding, border and margin */
 * {
   box-sizing: border-box;
@@ -62,9 +62,9 @@ textarea {
 @page {
   size: A4 /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
-  
+
   @top-center {
-    content: string(articleTitleAbbr); 
+    content: string(articleTitleAbbr);
     font-size: 75%;
   }
   @bottom-right {
@@ -99,7 +99,7 @@ textarea {
     margin-left: 0;
   }
   .two-column {
-    columns: 2; 
+    columns: 2;
     column-gap: 0.25in;
   }
   h1#article-title {
@@ -145,7 +145,7 @@ textarea {
     font: 10pt/1.2 "PT Serif", "TimesNewRoman", "serif";
     text-align: justify;
     hyphens: auto;
-  } 
+  }
   header {
     page-break-after: avoid;
   }
@@ -154,7 +154,7 @@ textarea {
     display: none;
   }
   main {
-    columns: 2; 
+    columns: 2;
     column-gap: 0.25in;
   }
   h1#article-title {
@@ -165,9 +165,9 @@ textarea {
     column-span: all;
   }
   section[role="doc-abstract"] {
-    margin-bottom: 1em;  
+    margin-bottom: 1em;
   }
-  main > section > h1, 
+  main > section > h1,
   section[role="doc-abstract"] > h1 {
     font-size: 1.1rem;
   }
@@ -210,27 +210,27 @@ textarea {
   li {
     list-style-position: outside;
   }
-  
+
   h1,
   table,
   figure {
     page-break-inside: avoid;
   }
-  
-  img { 
+
+  img {
     prince-image-resolution: auto;
   }
   blockquote.stylish {
     display: none;
   }
-  
+
   /* adjusting prism.css settings */
   code[class *= "language-"],
   pre[class *= "language-"] {
     font-size: smaller;
     line-height: 1.2;
   }
-  
+
   ::footnote-call {
     content: "[" counter(footnote) "]";
     font-size: 75%;
@@ -282,15 +282,15 @@ textarea {
     margin-left: 2em;
     margin-right: 2em
   }
-  
+
   /* multi-line table and figure captions */
   .multi-line-pdf {
     text-align: left;
   }
-  
+
   /* mathematical content */
   .math-span {
-    font-family: "Cambria Math";
+    font-family: "Latin Modern Math";
   }
 }
 
@@ -320,7 +320,7 @@ h1 {
   string-set: articleNumber content()
 }
 
-#articleURL { 
+#articleURL {
   string-set: articleURL content()
 }
 
@@ -442,11 +442,11 @@ table > caption {
 }
 
 figure {
-  margin: 1em auto;  
+  margin: 1em auto;
   text-align: center;
 }
 div.table figure {
-  margin: 0;  
+  margin: 0;
 }
 figcaption {
   margin-top: 0.7em;
@@ -539,7 +539,7 @@ main > section > section > section:not(.no-counter) > h1:before {
   content: counter(sections) "." counter(sub-sections) "." counter(sub-sub-sections) " ";
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1400px) {
   #toc {  /* table of contents */
     display: block;
     position: fixed;
@@ -547,10 +547,10 @@ main > section > section > section:not(.no-counter) > h1:before {
     width: 15em;
 	font-size: smaller;
   }
-  #toc > h1 {  
+  #toc > h1 {
 	font-size: 1.2em;
   }
-  #toc > ol {  
+  #toc > ol {
     padding-left: 0;
   }
 
@@ -584,7 +584,7 @@ main > section > section > section:not(.no-counter) > h1:before {
     background-color: brown;
     color: yellow;
     cursor: pointer;
-  }  
+  }
   body.feedbackMode > aside#feedback > form > h1 {
     margin-top: 1em;
     font-size: 1.4em;
@@ -595,12 +595,12 @@ main > section > section > section:not(.no-counter) > h1:before {
   }
   body.feedbackMode > aside#feedback > form > div {
     margin-bottom: 0.5em;
-  }  
+  }
   body.feedbackMode > aside#feedback > form textarea {
     width: 100%;
     height: 5em;
   }
-  body.feedbackMode > aside#feedback > form input:invalid, 
+  body.feedbackMode > aside#feedback > form input:invalid,
   body.feedbackMode > aside#feedback > form textarea:invalid {
     border: dashed red;
   }
