@@ -167,9 +167,10 @@
 /*]]>*/</script>
   </head>
 
-  <body vocab="http://schema.org/"><header> <a href="https://jsime.org">
-      <img src="../../JSimE.svg" style="height: 24px; margin-right: 0.7em;" />
-    </a> <i>Journal of Simulation Engineering</i>, Volume 1 (2018). Article URL: <a
+  <body vocab="http://schema.org/">
+   <header> 
+    <a href="https://jsime.org"><img src="../../JSimE.svg" style="height: 24px; margin-right: 0.7em;" /></a> 
+	<i>Journal of Simulation Engineering</i>, Volume 1 (2018). Article URL: <a
   href="https://articles.jsime.org/1/1/Modeling-for-Simulation-Part-I" id="articleURL">https://articles.jsime.org/1/1</a> <a class="suppressInPDF"
       href="https://jsime.org/index.php/jsimeng/article/view/2" id="PDF" style="position: relative; left: 1em">
       <img src="../../icons/pdf.png" />
@@ -321,11 +322,7 @@
         &amp; Davis, 1992</a>). However, this paradigm characterizes a special (yet important) class of DES only, it does not apply to all discrete
         dynamic systems.</p>
 
-        <p>In Ontology, which is the philosophical study of what there is, <b>
-            <i>entities</i>
-          </b> (also called <em>individuals</em>) are distinguished from <b>
-            <i>entity types</i>
-          </b> (called <em>universals</em>). There are three fundamental categories of entities:</p>
+        <p>In Ontology, which is the philosophical study of what there is, <b><i>entities</i></b> (also called <em>individuals</em>) are distinguished from <b><i>entity types</i></b> (called <em>universals</em>). There are three fundamental categories of entities:</p>
 
         <ol>
           <li><b>
@@ -388,24 +385,18 @@
         href="#DahlNygaard66">1966</a>) pioneered the <em>object worldview</em> with <em>Simula</em>. Pegden characterizes these paradigms in the
         following way:</p>
 
-        <p><b>
-            <i>Event worldview</i>
-          </b>: The system is viewed as a series of instantaneous events that change the state of the system over time. The modeler defines the events
+        <p><b><i>Event worldview</i></b>: The system is viewed as a series of instantaneous events that change the state of the system over time. The modeler defines the events
         in the system and models the state changes that take place when those events occur. According to Pegden, the event worldview is the most
         fundamental worldview since the other worldviews also use events, at least implicitly.</p>
 
-        <p><b>
-            <i>Processing Network worldview</i>
-          </b>: The system under investigation is described as a processing network where <q>entities flow through the system</q> (or, more precisely,
+        <p><b><i>Processing Network worldview</i></b>: The system under investigation is described as a processing network where <q>entities flow through the system</q> (or, more precisely,
         work objects are routed through the network) and are subject to a series of processing steps performed at processing nodes through processing
         activities, possibly requiring resources and inducing queues of work objects waiting for the availability of resources (processing networks
         have been called <q>queueing networks</q> in Operations Research). This approach allows high-level modeling with semi-visual languages and is
         therefore the most widely used DES approach nowadays, in particular in manufacturing industries and service industries. Simulation platforms
         based on this worldview may or may not support object-oriented modeling and programming.</p>
 
-        <p><b>
-            <i>Object worldview</i>
-          </b>: The system is modeled by describing the objects that make up the system. The system behavior emerges from the <q>interaction</q> of
+        <p><b><i>Object worldview</i></b>: The system is modeled by describing the objects that make up the system. The system behavior emerges from the <q>interaction</q> of
         these objects.</p>
 
         <p>All three worldviews lack important conceptual elements. The event worldview does not consider objects with their (categorical and
@@ -529,45 +520,27 @@
       <section id="sect4">
         <h1>Information Modeling with UML Class Diagrams</h1>
 
-        <p>Conceptual information modeling is mainly concerned with describing the relevant <b>
-            <i>entity types</i>
-          </b> of a real-world domain and the relationships between them, while information design and implementation modeling is concerned with
-        describing the <em>logical</em> (or <em>platform-independent</em>) and <em>platform-specific</em> data structures (in the form of <b>
-            <i>classes</i>
-          </b>) for designing and implementing a software system or simulation. The most important kinds of relationships between entity types to be
-        described in an information model are <b>
-            <i>associations</i>
-          </b>, which are called <q>relationship types</q> in <em>ER modeling</em>, and <b>
-            <i>subtype</i>
-          </b>/<em>supertype</em> relationships, which are called <q>generalizations</q> in <em>UML</em>. In addition, one may model various kinds of
+        <p>Conceptual information modeling is mainly concerned with describing the relevant <b><i>entity types</i></b> of a real-world domain and the relationships between them, while information design and implementation modeling is concerned with
+        describing the <em>logical</em> (or <em>platform-independent</em>) and <em>platform-specific</em> data structures (in the form of <b><i>classes</i></b>) for designing and implementing a software system or simulation. The most important kinds of relationships between entity types to be
+        described in an information model are <b><i>associations</i></b>, which are called <q>relationship types</q> in <em>ER modeling</em>, and 
+		<b><i>subtype</i></b>/<em>supertype</em> relationships, which are called <q>generalizations</q> in <em>UML</em>. In addition, one may model various kinds of
         <em>part-whole</em> relationships between different kinds of aggregate entities and component entities, but this is an advanced topic that is
         not covered in this tutorial.</p>
 
         <p>As explained in the introduction, we are using the visual modeling language of UML Class Diagrams for information modeling. In this
-        language, an entity type is described with a name, and possibly with a list of <b>
-            <i>properties</i>
-          </b> and <b>
-            <i>operations</i>
-          </b> (called <em>methods</em> when implemented), in the form of a <em>class rectangle</em> with one, two or three compartments, depending on
-        the presence of properties and operations. <b>
-            <i>Integrity constraints</i>
-          </b>, which are conditions that must be satisfied by the instances of a type, can be expressed in special ways when defining properties or
-        they can be explicitly attached to an entity type in the form of an <em>invariant</em> box.</p>
+        language, an entity type is described with a name, and possibly with a list of <b><i>properties</i></b> and <b><i>operations</i></b> (called <em>methods</em> when implemented), in the form of a <em>class rectangle</em> with one, two or three compartments, depending on
+        the presence of properties and operations. <b><i>Integrity constraints</i></b>, which are conditions that must be satisfied by the instances of a type, can be expressed in special ways when defining properties or they can be explicitly attached to an entity type in the form of an <em>invariant</em> box.</p>
 
-        <p>An <b>
-            <i>association</i>
-          </b> between two entity types is expressed as a connection line between the two class rectangles representing the entity types. The
-        connection line is annotated with <em>multiplicity</em> expressions at both ends. A <b>
-            <i>multiplicity</i>
-          </b> expression has the form <code>m..n</code> where <em>m</em> is a non-negative natural number denoting the <em>minimum cardinality</em>,
-        and <em>n</em> is a positive natural number (or the special symbol * standing for <em>unbounded)</em> denoting the maximum cardinality, of the
+        <p>An <b><i>association</i></b> between two entity types is expressed as a connection line between the two class rectangles representing the entity types. The
+        connection line is annotated with <em>multiplicity</em> expressions at both ends. A <b><i>multiplicity</i></b> expression has the form <code>m..n</code> where <i>m</i> is a non-negative natural number denoting the <em>minimum cardinality</em>,
+        and <i>n</i> is a positive natural number (or the special symbol * standing for <em>unbounded)</em> denoting the maximum cardinality, of the
         sets of associated entities. Typically, a multiplicity expression states an integrity constraint. For instance, the multiplicity expression
         <code>1..3</code> means that there are at least 1 and at most 3 associated entities. However, the special multiplicity expression
         <code>0..*</code> (also expressed as <code>*</code> ) means that there is no constraint since the minimum cardinality is zero and the maximum
         cardinality is unbounded.</p>
 
         <p>For instance, the model shown in <a href="#_Ref493010135">Figure 3</a> describes the entity types <code>Shop</code> and
-        <code>Delivery</code> , and it states that</p>
+        <code>Delivery</code>, and it states that</p>
 
         <ol>
           <li>there are two classes: <code>Shop</code> and <code>Delivery</code>, representing entity types;</li>
@@ -602,7 +575,7 @@
         <p>Notice that in <a href="#_Ref493071591">Figure 4</a>, each property is declared together with a datatype as its <em>range</em>. Likewise,
         operations are declared with a (possibly empty) list of parameters, and with an optional return value type. When an operation (or property)
         declaration is underlined, this means that it is class-level instead of instance-level. For instance, the underlined operation declaration
-        <code>leadTime() : Decimal</code> indicates that <em>leadTime</em> is a class-level operation that does not take any argument and returns a
+        <u><code>leadTime(): Decimal</code></u> indicates that <em>leadTime</em> is a class-level operation that does not take any argument and returns a
         decimal number.</p>
 
         <p>We may want to define various types of integrity constraints for better capturing the semantics of entity types, properties and operations.
@@ -619,11 +592,7 @@
           <figcaption class="multi-line-pdf"><strong>Figure 5.</strong> Adding a property constraint and an operation constraint.</figcaption>
         </figure>
 
-        <p>UML allows defining special categories of modeling elements called <q>stereotypes</q>. For instance, for distinguishing between <b>
-            <i>object types</i>
-          </b> and <b>
-            <i>event types</i>
-          </b> as two different categories of entity types we can define corresponding stereotypes of UML classes («object type» and «event type») and
+        <p>UML allows defining special categories of modeling elements called <q>stereotypes</q>. For instance, for distinguishing between <b><i>object types</i></b> and <b><i>event types</i></b> as two different categories of entity types we can define corresponding stereotypes of UML classes («object type» and «event type») and
         use them for categorizing classes in class models, as shown in <a href="#_Ref493015782">Figure 6</a>.</p>
 
         <figure id="_Ref493015782" data-enlarge-by="0.5">
@@ -814,9 +783,8 @@
         platform-specific process automation models.</p>
 
         <p>For an introductory BPMN tutorial, the reader is referred to (<a href="#Camunda2017">BPMN 2.0 Tutorial, 2017</a>). A good modeling tool,
-        with the advantages of an online solution, is the <a href="https://www.signavio.com/bpm-academic-initiative/">
-            <em>Signavio Process Editor</em>
-          </a>, which is free for academic use.</p>
+        with the advantages of an online solution, is the <a href="https://www.signavio.com/bpm-academic-initiative/"><em>Signavio Process Editor</em></a>, 
+		which is free for academic use.</p>
 
         <p>Ontologically, BPMN <em>activities</em> (or, more precisely, <em>activity types</em>) are special event types. However, the subsumption of
         activities under events is not supported by the standard semantics of BPMN.</p>
@@ -903,9 +871,7 @@
           <h1>Information Modeling</h1>
 
           <p>How should we start the information modeling process? Should we first model object types and then event types, or the other way around?
-          Here, the right order is dictated by informational dependencies. Since <b>
-              <i>events are always associated with objects that participate in them</i>
-            </b>, which is an ontological pattern that is fundamental for DES, see, e.g., (<a href="#GuizzardiW2010b">Guizzardi &amp; Wagner,
+          Here, the right order is dictated by informational dependencies. Since <b><i>events are always associated with objects that participate in them</i></b>, which is an ontological pattern that is fundamental for DES, see, e.g., (<a href="#GuizzardiW2010b">Guizzardi &amp; Wagner,
           2010b</a>), we first model object types, together with their associations, and then add event types on top of them.</p>
 
           <p>A <b>
