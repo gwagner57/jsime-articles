@@ -88,6 +88,9 @@ textarea {
 }
 
 @media screen {
+  html {
+    --transition-duration: 0.3s;
+  }
   body {
     font: 1.1rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
     margin: 0 auto;
@@ -101,6 +104,9 @@ textarea {
   .two-column {
     columns: 2;
     column-gap: 0.25in;
+  }
+  #toc {
+    display: none;
   }
   h1#article-title {
     hyphens: none;
@@ -138,6 +144,110 @@ textarea {
     background-image: none;
     background-color: lightgreen;
   }
+
+  /*****************************************************************************
+  * Replace these multiple CSS entries by a single entry when the attr()
+  * function supports the definition of number type and fallback features.
+  *
+  * Replace
+  * figure[data-enlarge-by]:hover {
+  *   --scale: 1.5;
+  * ...
+  * }
+  *
+  * by
+  *
+  * figure:hover {
+  *   --scale: calc(1 + attr(data-enlarge-by number, 0);
+  *   ...
+  * }
+  *
+  * Remove all other entries
+  *****************************************************************************/
+  figure[data-enlarge-by="0.5"]:hover {
+    --scale: 1.5;
+    transform: scale(var(--scale));
+    transition-duration: var(--transition-duration);
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  figure[data-enlarge-by="0.5"][data-move-x="right"]:hover {
+    --scale: 1.5;
+    transform: scale(var(--scale)) translateX(33%);
+    transition-duration: var(--transition-duration);
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  figure[data-enlarge-by="0.5"][data-move-x="left"]:hover {
+    --scale: 1.5;
+    transform: scale(var(--scale)) translateX(-33%);
+    transition-duration: var(--transition-duration);
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+
+  figure[data-enlarge-by="1"]:hover {
+    --scale: 2;
+    transform: scale(var(--scale));
+    transition-duration: 0.5s;
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  figure[data-enlarge-by="1"][data-move-x="right"]:hover {
+    --scale: 2;
+    transform: scale(var(--scale)) translateX(33%);
+    transition-duration: 0.5s;
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  figure[data-enlarge-by="1"][data-move-x="left"]:hover {
+    --scale: 2;
+    transform: scale(var(--scale)) translateX(-33%);
+    transition-duration: 0.5s;
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+
+  figure[data-enlarge-by="1.5"]:hover {
+    --scale: 2.5;
+    transform: scale(var(--scale));
+    transition-duration: 0.5s;
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  figure[data-enlarge-by="1.5"][data-move-x="right"]:hover {
+    --scale: 2.5;
+    transform: scale(var(--scale)) translateX(33%);
+    transition-duration: 0.5s;
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  figure[data-enlarge-by="1.5"][data-move-x="left"]:hover {
+    --scale: 2.5;
+    transform: scale(var(--scale)) translateX(-33%);
+    transition-duration: 0.5s;
+    padding: 1px;
+    background-color: white;
+    border: 2px solid #021a40;
+    z-index: 999;
+  }
+  /****************************************************************************/
 }
 
 @media print {
@@ -389,11 +499,6 @@ address > div[property="email"] {
 p.indented {
   margin-left: 2em;
 }
-/*
-li > p  {
-  text-indent: 0;
-}
-*/
 .list-inline {
   padding-left: 0;
   list-style: none;
@@ -410,7 +515,6 @@ section[role="doc-bibliography"] ul {
   list-style: none;
 }
 section[role="doc-bibliography"] li {
-  /* text-indent: 1.5em hanging; */
   text-indent: -1em;
   margin-bottom: 3px;
 }
