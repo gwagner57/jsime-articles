@@ -1,0 +1,3623 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JSimE 2/1 - Implementing Asynchronous Linear Solvers Using
+      Non-Uniform Distributions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Google Scholar-->
+    <meta name="citation_publisher"
+          content="Consortium for True Open Access in Modeling and Simulation" />
+    <meta name="citation_journal_title"
+          content="Journal of Simulation Engineering" />
+    <meta name="citation_journal_abbrev" content="JSimE" />
+    <meta name="citation_issn" content="2569-9466" />
+    <meta name="citation_volume" content="2" />
+    <meta name="citation_firstpage" content="6:1" />
+    <meta name="citation_lastpage" content="6:18" />
+    <meta name="citation_title"
+          content="Implementing Asynchronous Linear Solvers Using Non-Uniform Distributions" />
+    <meta name="citation_article_type" content="Article" />
+    <meta name="citation_online_date" content="2020/7/31" />
+    <meta name="citation_publication_date" content="2020/7/31" />
+    <meta name="citation_author" content="Erik Jensen" />
+    <meta name="citation_author_email" content="ejens005@odu.edu" />
+    <meta name="citation_author_institution"
+          content="Old Dominion University, Norfolk, VA, United States" />
+    <meta name="citation_author" content="Evan Christopher Coleman" />
+    <meta name="citation_author_email" content="evanccoleman@gmail.com" />
+    <meta name="citation_author_institution"
+          content="Old Dominion University, Norfolk, VA, United States" />
+    <meta name="citation_author" content="Masha Sosonkina" />
+    <meta name="citation_author_email" content="msosonki@odu.edu" />
+    <meta name="citation_author_institution"
+          content="Old Dominion University, Norfolk, VA, United States" />
+    <meta name="citation_abstract_html_url"
+          content="https://jsime.org/index.php/jsimeng/article/view/9" />
+    <meta name="citation_pdf_url"
+          content="https://articles.jsime.org/2/jsime-article-2-1.pdf" />
+    <meta name="citation_fulltext_html_url"
+          content="https://articles.jsime.org/2/1/Implementing-Asynchronous-Linear-Solvers-Using-Non-Uniform-Distributions" />
+    <!--Open Graph-->
+    <meta property="og:title"
+          content="Implementing Asynchronous Linear Solvers Using Non-Uniform Distributions" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+          content="Asynchronous iterative methods may improve the time-to-solution of their synchronous counterparts on highly parallel computational platforms. This paper considers asynchronous iterative linear system solvers that employ non-uniform randomization and develops a new implementation for such methods. Experiments with a two-dimensional finite-difference discrete Laplacian problem are presented. The new finer grain implementation is compared with an existing, block-based, one and shown to be superior in terms of the convergence speed and accuracy. In general, using non-uniform distributions in selecting components to update may lead to faster convergence. In particular, the new implementation convergences up to 10% faster when it uses a non-uniform distribution." />
+    <meta property="og:url"
+          content="https://articles.jsime.org/2/1/Implementing-Asynchronous-Linear-Solvers-Using-Non-Uniform-Distributions" />
+    <meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="JSimE" />
+    <meta property="og:site_name" content="Journal of Simulation Engineering" />
+    <!--Twitter-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title"
+          content="Implementing Asynchronous Linear Solvers Using Non-Uniform Distributions" />
+    <!--Canonical URL-->
+    <link rel="canonical"
+          href="https://articles.jsime.org/2/1/Implementing-Asynchronous-Linear-Solvers-Using-Non-Uniform-Distributions" />
+    <!--Stylesheets-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="../../pseudocode.min.css" />
+    <link rel="stylesheet" href="../../jsime.css" />
+    <!-- Style -->
+    <style>
+      .small-caps {
+        font-variant: small-caps;
+      }
+
+      .table-matrix td {
+        border-style: hidden;
+        text-align: center;
+      }
+
+      .table-figure caption {
+        caption-side: bottom;
+      }
+
+      .table-figure td {
+        border-style: hidden;
+        text-align: center;
+        caption-side: bottom;
+        padding: 5px;
+      }
+
+      tr.border_top_bottom td {
+        border-top: 1pt solid black;
+        border-bottom: 1pt solid black;
+      }
+
+      td.border_left_right {
+        border-left: 1pt solid black;
+        border-right: 1pt solid black;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="async"
+            src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push( arguments );
+      }
+      gtag( 'js', new Date() );
+      gtag( 'config', 'UA-115543812-1', {
+        'anonymize_ip': true
+      } );
+    </script>
+    <!--Scripts-->
+    <script defer src="../../jsime.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML"></script>
+    <!--schema.org JSON-LD-->
+    <script type="application/ld+json">
+{
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Implementing Asynchronous Linear Solvers Using Non-Uniform
+      Distributions",
+      "author": [
+        { "@id": "/2/1/author-1" },
+        { "@id": "/2/1/author-2" },
+        { "@id": "/2/1/author-3" }
+      ],
+      "keywords": [ "Asynchronous iterative methods may improve the time-to-solution of their synchronous counterparts on highly parallel computational platforms. This paper considers asynchronous iterative linear system solvers that employ non-uniform randomization and develops a new implementation for such methods. Experiments with a two-dimensional finite-difference discrete Laplacian problem are presented. The new finer grain implementation is compared with an existing, block-based, one and shown to be superior in terms of the convergence speed and accuracy. In general, using non-uniform distributions in selecting components to update may lead to faster convergence. In particular, the new implementation convergences up to 10% faster when it uses a non-uniform distribution.",
+      "url": "https://articles.jsime.org/2/1/Implementing-Asynchronous-Linear-Solvers-Using-Non-Uniform-Distributions",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [
+        { "@id": "/2/1/author-1" },
+        { "@id": "/2/1/author-2" },
+        { "@id": "/2/1/author-3" }
+      ],
+      "copyrightYear": "2020",
+      "dateCreated": "2020-07-15",
+      "dateModified": "2020-07-18",
+      "datePublished": "2020-07-31",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2020-07-31",
+        "volumeNumber": "2",
+        "url": "https://articles.jsime.org/2/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": [
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010147.10010148.10010149.10010158",
+          "codeValue": "Computing methodologies~Linear algebra algorithms",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10011007.10010940.10010971.10010980.10010986",
+          "codeValue": "Computing methodologies~Massively parallel algorithms",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010405.10010432.10010442",
+          "codeValue": "Applied computing~Mathematics and statistics",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        }
+      ]
+    },
+    {
+      "@id": "/2/1/author-1",
+      "@type": "Person",
+      "name": "Erik Jensen",
+      "email": "ejens005@odu.edu",
+      "affiliation": [
+        { "@id": "/2/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/2/1/author-2",
+      "@type": "Person",
+      "name": "Evan Christopher Coleman",
+      "email": "evanccoleman@gmail.com",
+      "affiliation": [
+        { "@id": "/2/1/affiliation-2" }
+      ]
+    },
+    {
+      "@id": "/2/1/author-3",
+      "@type": "Person",
+      "name": "Masha Sosonkina",
+      "email": "msosonki@odu.edu",
+      "affiliation": [
+        { "@id": "/2/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/2/1/affiliation-1",
+      "@type": "Organization",
+      "name": "Old Dominion University",
+      "address": {
+        "addressLocality": "Norfolk",
+        "addressRegion": "Virginia",
+        "addressCountry": "United States"
+      }
+    },
+    {
+      "@id": "/2/1/affiliation-2",
+      "@type": "Organization",
+      "name": "Naval Surface Warfare Center",
+      "department": "Dahlgren Division",
+      "address": {
+        "addressLocality": "Dahlgren",
+        "addressRegion": "Virginia",
+        "addressCountry": "United States"
+      }
+    }
+  ]
+}
+</script>
+  </head>
+
+  <body vocab="http://schema.org/">
+    <header>
+      <a href="https://jsime.org" target="_blank"><img src="../../JSimE.svg"
+             style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of
+        Simulation Engineering</i>, Volume 2 (2020/2021). Article URL: <a
+         href="https://articles.jsime.org/2/1/Implementing-Asynchronous-Linear-Solvers-Using-Non-Uniform-Distributions"
+         id="articleURL" target="_blank">https://articles.jsime.org/2/1</a><a
+         id="PDF" class="suppressInPDF"
+         href="https://jsime.org/index.php/jsimeng/article/view/9"
+         style="position: relative; left: 1em" target="_blank"><img
+             src="../../icons/pdf.png" /></a>
+    </header>
+    <main>
+      <div id="front-matter">
+        <div id="article-number">6</div>
+        <h1 id="article-title">Implementing Asynchronous Linear Solvers Using
+          Non-Uniform Distributions</h1>
+        <div id="article-title-abbr">Randomized Asynchronous Linear Solvers
+        </div>
+        <div id="authors">
+          <address typeof="Person">
+            <div property="name">
+              Erik Jensen<sup>1<img src="../../icons/envelope.png" /></sup>
+            </div>
+            <div property="email">
+              <a href="mailto:ejens005@odu.edu">ejens005@odu.edu</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Evan C. Coleman<sup>2</sup>
+            </div>
+            <div property="email">
+              <a href="mailto:evanccoleman@gmail.com">evanccoleman@gmail.com</a>
+            </div>
+          </address>
+          <address style="display: block; margin: 0.5em auto" typeof="Person">
+            <div property="name">
+              Masha Sosonkina<sup>1</sup>
+            </div>
+            <div property="email">
+              <a href="mailto:msosonki@odu.edu">msosonki@odu.edu</a>
+            </div>
+          </address>
+          <div class="affiliation">
+            <sup>1</sup> Old Dominion University, Norfolk, VA, United States
+          </div>
+          <div class="affiliation">
+            <sup>2</sup> Naval Surface Warfare Center, Dahlgren Division,
+            Dahlgren,
+            VA, United States
+          </div>
+        </div>
+        <div id="acm-subject-categories">
+          <h1>ACM Subject Categories</h1>
+          <ul>
+            <li><code>Computing methodologies~Linear algebra algorithms</code>
+            </li>
+            <li>
+              <code>Computing methodologies~Massively parallel algorithms</code>
+            </li>
+            <li><code>Applied computing~Mathematics and statistics</code></li>
+          </ul>
+        </div>
+        <div id="keywords">
+          <h1>Keywords</h1>
+          <ul class="list-inline comma-separated">
+            <li>Asynchronous Iteration</li>
+            <li>Linear Solvers</li>
+            <li>Randomized Linear Algebra</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="sect0" role="doc-abstract">
+        <h1>Abstract</h1>
+
+        <p>
+          Asynchronous iterative methods may improve the time-to-solution of
+          their synchronous counterparts on highly parallel computational
+          platforms. This paper considers asynchronous iterative linear system
+          solvers that employ non-uniform randomization and develops a new
+          implementation for such methods. Experiments with a two-dimensional
+          finite-difference discrete Laplacian problem are presented. The new
+          finer grain implementation is compared with an existing block-based
+          one and shown to be superior in terms of the convergence speed and
+          accuracy. In general, using non-uniform distributions in selecting
+          components to update may lead to faster convergence. In particular,
+          the new implementation converges up to 10% faster when it uses a
+          non-uniform distribution.
+        </p>
+      </section>
+
+      <section id="sect1">
+        <h1>Introduction</h1>
+
+        <p>Asynchronous iterative methods describe a class of parallel iterative
+          algorithms where each computing element is allowed to perform its task
+          without waiting for updates from any of the other processes. These
+          methods are often applied to the parallel solution of fixed-point
+          problems and have been used in a wide variety of applications
+          including: the fault-tolerant solution of linear systems (<a
+             role="doc-biblioref" href="#anzt2019fine">Anzt, Dongarra, &amp;
+            Quintana-Ortı́, 2019</a>), the preconditioning of linear solvers (<a
+             role="doc-biblioref" href="#chow2015fine">Chow &amp; Patel,
+            2015</a>), and optimization (<a role="doc-biblioref"
+             href="#recht2011hogwild">Recht et al., 2011</a>), among many
+          others. These solvers tend not to converge to high precision as
+          quickly as their Krylov subspace counterparts; however, they can
+          converge very quickly to a low level of accuracy (<a
+             role="doc-biblioref" href="#avron2015revisiting">Avron, Druinsky,
+            &amp; Gupta, 2015</a>). This loss of accuracy may cause the use of
+          asynchronous linear solvers to be suboptimal for some applications,
+          but the fact that they are able to reach an approximate solution
+          quickly opens up several other application areas. Possible use cases
+          include preconditioning to a Krylov method, solving systems that may
+          not need a high level of accuracy (e.g., big data and machine
+          learning), or smoothing a multigrid method.</p>
+
+        <p>Here we study asynchronous iterative methods for solving linear
+          systems of the form <span class="math-span">𝐴𝑥 = 𝑏</span>, such as
+          asynchronous Jacobi. One way to attempt to improve
+          the performance of asynchronous linear solvers is to have each
+          processor select randomly the (block of) components it updates next,
+          as opposed to fixing an update order <em>a priori</em>. This approach
+          has been studied previously by Avron, Druinsky, and Gupta (<a
+             role="doc-biblioref" href="#avron2015revisiting">2015</a>) for the
+          case where the random selection is done uniformly. Our work continues
+          to investigate the potential performance increase of
+          <em>dynamically</em> weighting the random selection of the next
+          component to update. In the synchronous case, weighting the selection
+          using the norm of the row of <span class="math-span">𝐴</span>
+          associated with the selected component has been done
+          previously (<a role="doc-biblioref"
+             href="#strohmer2009randomized">Strohmer &amp; Vershynin, 2009</a>;
+          <a role="doc-biblioref" href="#leventhal2010randomized">Leventhal
+            &amp; Lewis, 2010</a>; <a role="doc-biblioref"
+             href="#griebel2012greedy">Griebel &amp; Oswald 2012</a>). However,
+          the idea employed here is to periodically sort and rank the residuals
+          associated with each component and make the random selection using a
+          non-uniform distribution that is more likely to select components with
+          a larger contribution to the residual. This is motivated by the
+          success of weighted stationary solvers, such as the Southwell
+          iteration, which typically converge in fewer iterations than
+          traditional Jacobi or Gauss-Seidel relaxation schemes (see e.g.,
+          Southwell (<a role="doc-biblioref"
+             href="#southwell1946relaxation">1946</a>) and Wolfson-Pou and Chow
+          (<a role="doc-biblioref" href="#wolfson2017distributed">2017</a>)).
+        </p>
+
+        <p>In a previous work, we have already studied the use of non-uniform
+          distributions for selecting components to update (<a
+             role="doc-biblioref" href="#coleman2019enhancing">Coleman, Jensen,
+            &amp; Sosonkina, 2019</a>). The present work extends that work by
+          making the following new contributions:</p>
+
+        <ul>
+          <li>Propose a new row-based randomized asynchronous linear solver
+            with a significantly different approach to the selection of
+            components to update;</li>
+          <li>Develop an alternative component ordering criterion that uses
+            component differences instead of residuals;</li>
+          <li>Observe experimentally that new row-based solver exhibits
+            convergence in fewer component relaxations than serial
+            Gauss-Seidel;</li>
+          <li>Compare the performance of the block- and row-based solvers and
+            demonstrates that the proposed new row-based solver improves upon
+            the block-based one.</li>
+        </ul>
+
+        <p>The structure of the rest of the paper is as follows. <a
+             href="#sect2">Section 2</a> provides information on related
+          studies. <a href="#sect3">Section 3</a> gives an overview of
+          asynchronous iterative methods. <a href="#sect4">Section 4</a>
+          provides the design of randomized asynchronous iterative solvers that
+          use non-uniform distributions. <a href="#sect5">Section 5</a> presents
+          the experimental results of the two implementations considered in this
+          work and their comparisons. <a href="#sect6">Section 6</a> concludes
+          and proposes some future works.</p>
+      </section>
+
+      <section id="sect2">
+        <h1>Related Work</h1>
+
+        <p>The Department of Energy has commissioned two very detailed reports
+          about the progression towards exascale level computing; one from a
+          general computing standpoint conducted by Ashby et al. (<a
+             role="doc-biblioref" href="#ashby2010ascac">2010</a>), and a
+          report aimed specifically at applied mathematics for exascale
+          computing by Dongarra et al. (<a role="doc-biblioref"
+             href="#dongarra2014applied">2014</a>); both of which emphasize the
+          importance of developing scalable algorithms moving forward towards
+          exascale platforms. Development of scalable applications on a large
+          scale starts with modifying algorithms that form the basis for those
+          applications, and the stationary iterative methods examined here
+          (e.g., Jacobi, Gauss-Seidel, block variants) form an important aspect
+          of many preconditioning techniques for Krylov subspace methods, as
+          well as commonly acting as smoother in multigrid methods.</p>
+
+        <p>Several recent studies focus on improving scalability by attempting
+          to remove the synchronization delay: a fine-grained algorithm for
+          computing incomplete LU factors for the purposes of preconditioning of
+          linear solvers was created by Chow and Patel (<a role="doc-biblioref"
+             href="#chow2015fine">2015</a>), an optimization
+          technique based upon an asynchronous approach to stochastic gradient
+          descent was created by Recht et al. (<a role="doc-biblioref"
+             href="#recht2011hogwild">2011</a>), and the efficacy of
+          asynchronous multigrid smoothers was explored for Computational Fluid
+          Dynamics (CFD) applications in (<a role="doc-biblioref"
+             href="#kashi2018asynchronous">Kashi, Vangara, &amp; Nadarajah,
+            2018</a>).</p>
+
+        <p>The use of randomization in linear algebra has found use in a variety
+          of areas including transforming linear systems using Random Butterfly
+          Transformations to eliminate (with probability 1) the need for
+          pivoting. This has been used to aid in the performance of direct
+          solvers for dense matrices by Parker (<a role="doc-biblioref"
+             href="#parker1995random">1995</a>), and later adopted for sparse
+          matrices by Baboulin, Li, and Rouet (<a role="doc-biblioref"
+             href="#baboulin2015using">2015</a>). Other examples include the
+          random component selection in stochastic gradient descent methods,
+          including an early study in Srivastava and Nedic (<a
+             role="doc-biblioref" href="#srivastava2011distributed">2011</a>)
+          that incorporates asynchronous computation. More pertinent to the
+          topic studied here, randomized linear relaxation based solvers have
+          been studied in the past by Strikwerda (<a role="doc-biblioref"
+             href="#strikwerda2002probabilistic">2002</a>) who extend the
+          original asynchronous model presented by Chazan and Miranker (<a
+             role="doc-biblioref" href="#chazan1969chaotic">1969</a>) to allow
+          component choice and (theoretical) delay to be based upon probability
+          distributions.</p>
+
+        <p>The present work follows a greedy approach, similar in spirit to the
+          Southwell iteration. Wolfson-Pou and Chow (<a role="doc-biblioref"
+             href="#wolfson2017distributed">2017</a>) extend a
+          Southwell-oriented approach to the case of parallel asynchronous
+          solvers, whereby an equation is relaxed if it has the largest residual
+          among all coupled equations.</p>
+      </section>
+
+      <section id="sect3">
+        <h1>Overview of Asynchronous Iterative Methods</h1>
+
+        <p>In asynchronous computation, each part of the problem is updated such
+          that no information from other parts is needed while each individual
+          computation is performed. This allows each processor to act
+          independently. The model that is shown here to provide a basis for
+          asynchronous computation comes mainly from Frommer and Szyld (<a
+             role="doc-biblioref" href="#frommer2000asynchronous">2000</a>). To
+          start, consider a fixed point iteration with the function, <span
+                class="math-span">𝐺: 𝐷 → 𝐷</span>. Given a finite number of
+          processors <span class="math-span">𝑃<sub>1</sub>, 𝑃<sub>2</sub>, …,
+            𝑃<sub>𝑝</sub></span> each assigned to a block <span
+                class="math-span">𝐵</span> of components <span
+                class="math-span">𝐵<sub>1</sub>, 𝐵<sub>2</sub>, …,
+            𝐵<sub>𝑚</sub></span>, the computational model can be stated as
+          shown in <a href="#alg1">Algorithm 1</a>.
+        </p>
+
+        <div id="alg1" class="algorithm column-top">
+          <div class="ps-root">
+            <div class="ps-algorithm with-caption">
+              <p class="ps-line" style="text-indent:-1.2em;padding-left:1.2em;">
+                <span class="ps-keyword">Algorithm 1 </span>General
+                Computational
+                Model</p>
+              <div class="ps-algorithmic with-linenum">
+                <div class="ps-block" style="margin-left:1.7999999999999998em;">
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left:0em;">1:</span><span
+                          class="ps-keyword">for </span>each processing element
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <msub>
+                        <mi>P</mi>
+                        <mi>l</mi>
+                      </msub>
+                    </math>
+                    <script type="math/tex" id="MathJax-Element-1"></script>
+                    <span class="ps-keyword"> do</span></p>
+                  <div class="ps-block" style="margin-left:1.2em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum"
+                            style="left:-1.5em;">2:</span><span
+                            class="ps-keyword">for </span><math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>i</mi>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        <mo>,</mo>
+                        <mn>2</mn>
+                        <mo>,</mo>
+                        <mo>…</mo>
+                        <mo>,</mo>
+                      </math>
+                      until convergence<span class="ps-keyword"> do</span></p>
+                    <div class="ps-block" style="margin-left:1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-3em;">3:</span>Read
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>x</mi>
+                        </math>
+                        from shared memory</p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-3em;">4:</span>Compute <math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msubsup>
+                            <mi>x</mi>
+                            <mi>j</mi>
+                            <mrow>
+                              <mi>i</mi>
+                              <mo>+</mo>
+                              <mn>1</mn>
+                            </mrow>
+                          </msubsup>
+                          <mo>=</mo>
+                          <msub>
+                            <mi>G</mi>
+                            <mi>j</mi>
+                          </msub>
+                          <mfenced open="(" close=")">
+                            <mi>x</mi>
+                          </mfenced>
+                        </math>
+                        for all <math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>j</mi>
+                          <mo>∈</mo>
+                          <msub>
+                            <mi>B</mi>
+                            <mrow>
+                              <msub>
+                                <mi>P</mi>
+                                <mi>l</mi>
+                              </msub>
+                            </mrow>
+                          </msub>
+                        </math>
+                      </p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-3em;">5:</span>Update <math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                            <mi>x</mi>
+                            <mi>j</mi>
+                          </msub>
+                        </math>
+                        in common memory with <math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msubsup>
+                            <mi>x</mi>
+                            <mi>j</mi>
+                            <mrow>
+                              <mi>i</mi>
+                              <mo>+</mo>
+                              <mn>1</mn>
+                            </mrow>
+                          </msubsup>
+                        </math>
+                        for all <math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>j</mi>
+                          <mo>∈</mo>
+                          <msub>
+                            <mi>B</mi>
+                            <mrow>
+                              <msub>
+                                <mi>P</mi>
+                                <mi>l</mi>
+                              </msub>
+                            </mrow>
+                          </msub>
+                        </math>
+                      </p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum"
+                            style="left:-1.5em;">6:</span><span
+                            class="ps-keyword">end for</span></p>
+                  </div>
+                  <p class="ps-line ps-code">
+                    <span class="ps-linenum" style="left:0em;">7:</span><span
+                          class="ps-keyword">end for</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>If each processor (<span class="math-span">𝑃<sub>𝑙</sub>) waits for
+            the other processors to finish each update, then the model describes
+            a parallel synchronous form of computation. If no order is
+            established for the processors, then the computation is
+            asynchronous.</p>
+
+        <p>At the end of an update by processor <span
+                class="math-span">𝑃<sub>𝑙</sub>, the components associated
+            with the block <span
+                  class="math-span">𝐵<sub>𝑃<sub>𝑙</sub></sub></span> will be
+            updated. This results in a vector, <math display="inline"
+                  xmlns="http://www.w3.org/1998/Math/MathML">
+              <mrow>
+                <mi>x</mi>
+                <mo>=</mo>
+                <mfenced open="(" close=")">
+                  <msubsup>
+                    <mi>x</mi>
+                    <mn>1</mn>
+                    <mrow>
+                      <msub>
+                        <mi>s</mi>
+                        <mn>1</mn>
+                      </msub>
+                      <mfenced open="(" close=")">
+                        <mi>k</mi>
+                      </mfenced>
+                    </mrow>
+                  </msubsup>
+                  <msubsup>
+                    <mi>x</mi>
+                    <mn>2</mn>
+                    <mrow>
+                      <msub>
+                        <mi>s</mi>
+                        <mn>2</mn>
+                      </msub>
+                      <mfenced open="(" close=")">
+                        <mi>k</mi>
+                      </mfenced>
+                    </mrow>
+                  </msubsup>
+                  <mi>…</mi>
+                  <msubsup>
+                    <mi>x</mi>
+                    <mi>m</mi>
+                    <mrow>
+                      <msub>
+                        <mi>s</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mfenced open="(" close=")">
+                        <mi>k</mi>
+                      </mfenced>
+                    </mrow>
+                  </msubsup>
+                </mfenced>
+              </mrow>
+            </math>, where <span class="math-span">𝑠<sub>𝑙</sub>(𝑘)</span>
+            indicates how many times component <span class="math-span">𝑙</span>
+            has been updated, and <span class="math-span">𝑘</span> is a global
+            iteration counter that is updated every time that any processing
+            element makes an update. A set of indices <span
+                  class="math-span">𝐼<sup>𝑘</sup></span> contains the
+            components that were updated on the <span
+                  class="math-span">𝑘<sup>th</sup></span> iteration. Given
+            these definitions, the three following
+            conditions provide a framework for asynchronous computation:</p>
+
+        <div id="def1" class="definition">
+          <p>
+            <strong>Definition 1.</strong> If the following three conditions
+            hold
+          </p>
+          <ol>
+            <li>
+              <p><math display="inline"
+                      xmlns="http://www.w3.org/1998/Math/MathML">
+                  <mrow>
+                    <msub>
+                      <mi>s</mi>
+                      <mi>l</mi>
+                    </msub>
+                    <mfenced open="(" close=")">
+                      <mi>k</mi>
+                    </mfenced>
+                    <mo>≤</mo>
+                    <mi>k</mi>
+                    <mo>−</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </math>, i.e., only components that have finished computing are
+                used in the current approximation.
+              </p>
+            </li>
+            <li>
+              <p><math display="inline"
+                      xmlns="http://www.w3.org/1998/Math/MathML">
+                  <mrow>
+                    <msub>
+                      <mo>lim</mo>
+                      <mrow>
+                        <mi>k</mi>
+                        <mo>→</mo>
+                        <mi>∞</mi>
+                      </mrow>
+                    </msub>
+                    <msub>
+                      <mi>s</mi>
+                      <mi>l</mi>
+                    </msub>
+                    <mfenced open="(" close=")">
+                      <mi>k</mi>
+                    </mfenced>
+                    <mo>=</mo>
+                    <mi>∞</mi>
+                  </mrow>
+                </math>, i.e., the newest updates for each component are used.
+              </p>
+            </li>
+            <li>
+              <p><math display="inline"
+                      xmlns="http://www.w3.org/1998/Math/MathML">
+                  <mrow>
+                    <mfenced open="|" close="|">
+                      <mrow>
+                        <mi>k</mi>
+                        <mo>∈</mo>
+                        <mi>ℕ</mi>
+                        <mo>:</mo>
+                        <mi>l</mi>
+                        <mo>∈</mo>
+                        <msup>
+                          <mi>I</mi>
+                          <mi>k</mi>
+                        </msup>
+                      </mrow>
+                    </mfenced>
+                    <mo>=</mo>
+                    <mi>∞</mi>
+                  </mrow>
+                </math>, i.e., all components will continue to be updated.</p>
+            </li>
+          </ol>
+        </div>
+        <p>Then given an initial <math display="inline"
+                xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow>
+              <msup>
+                <mi>x</mi>
+                <mn>0</mn>
+              </msup>
+              <mo>∈</mo>
+              <mi>D</mi>
+            </mrow>
+          </math>, the iterative update process defined by,
+
+        <div class="equation">
+          <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <msubsup>
+                      <mi>x</mi>
+                      <mi>l</mi>
+                      <mrow>
+                        <mfenced open="(" close=")">
+                          <mi>k</mi>
+                        </mfenced>
+                      </mrow>
+                    </msubsup>
+                    <mo>=</mo>
+                    <mrow>
+                      <mfenced open="{" close="">
+                        <mtable>
+                          <mtr>
+                            <mtd columnalign="left">
+                              <msubsup>
+                                <mi>x</mi>
+                                <mi>l</mi>
+                                <mrow>
+                                  <mfenced open="(" close=")">
+                                    <mi>k</mi>
+                                    <mo>−</mo>
+                                    <mn>1</mn>
+                                  </mfenced>
+                                </mrow>
+                              </msubsup>
+                            </mtd>
+                            <mtd columnalign="left">
+                              <mi>l</mi>
+                              <mo>∉</mo>
+                              <msup>
+                                <mi>I</mi>
+                                <mi>k</mi>
+                              </msup>
+                            </mtd>
+                          </mtr>
+                          <mtr>
+                            <mtd columnalign="left">
+                              <msub>
+                                <mi>G</mi>
+                                <mi>l</mi>
+                              </msub>
+                              <mfenced open="(" close=")">
+                                <msup>
+                                  <mi>x</mi>
+                                  <mrow>
+                                    <mfenced open="(" close=")">
+                                      <mi>k</mi>
+                                    </mfenced>
+                                  </mrow>
+                                </msup>
+                              </mfenced>
+                            </mtd>
+                            <mtd columnalign="left">
+                              <mi>l</mi>
+                              <mo>∈</mo>
+                              <msup>
+                                <mi>I</mi>
+                                <mi>k</mi>
+                              </msup>
+                              <mtext mathvariant="normal">,</mtext>
+                            </mtd>
+                          </mtr>
+                        </mtable>
+                    </mrow>
+                  </mrow>
+                </mtd>
+              </mtr>
+            </mtable>
+          </math>
+        </div>
+        where each <math display="inline"
+              xmlns="http://www.w3.org/1998/Math/MathML">
+          <mrow>
+            <msub>
+              <mi>G</mi>
+              <mi>i</mi>
+            </msub>
+            <mfenced open="(" close=")">
+              <mi>x</mi>
+            </mfenced>
+          </mrow>
+        </math> uses the latest updates available, is called an asynchronous
+        iteration.</p>
+
+        <p>This basic computational model provided by the combination of <a
+             href="#alg1">Algorithm 1</a> and <a href="#def1">Definition 1</a>
+          allows for many different results on fine-grained iterative methods.
+          In particular, our earlier work (<a role="doc-biblioref"
+             href="#coleman2019enhancing">Coleman, Jensen, &amp; Sosonkina,
+            2019</a>) introduced a block-based randomized asynchronous
+          linear solver that uses non-uniform distributions for dynamically
+          prioritizing components to update.</p>
+
+        <p>Relaxation methods have been the focus of many studies related to
+          asynchronous iterations starting with Chazan and Miranker (<a
+             role="doc-biblioref" href="#chazan1969chaotic">1969</a>). They are
+          typically used to solve linear systems of the form <span
+                class="math-span">𝐴𝑥 = 𝑏</span> and can be written as fixed
+          point iterations that can be expressed as
+        <div id="eq1" class="equation">
+          <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(1)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                    <msup>
+                      <mi>x</mi>
+                      <mrow>
+                        <mi>k</mi>
+                        <mo>+</mo>
+                        <mn>1</mn>
+                      </mrow>
+                    </msup>
+                    <mo>=</mo>
+                    <mi>C</mi>
+                    <msup>
+                      <mi>x</mi>
+                      <mi>k</mi>
+                    </msup>
+                    <mo>+</mo>
+                    <mi>d</mi>
+                    <mtext mathvariant="normal">,</mtext>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+        </div>
+        where <span class="math-span">𝐶</span> is the <span
+              class="math-span">𝑛 × 𝑛</span> iteration matrix, <span
+              class="math-span">𝑥</span> is an <span
+              class="math-span">𝑛</span>-dimensional vector that represents the
+        solution, and <span class="math-span">𝑑</span> is another <span
+              class="math-span">𝑛</span>-dimensional vector that can be used to
+        help define the particular problem at hand. The Jacobi method is a
+        relaxation method that can be used in an asynchronous manner and the
+        update for a given component <span
+              class="math-span">𝑥<sub>𝑖</sub></span> can be expressed as
+
+        <div id="eq2" class="equation">
+          <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+              <mlabeledtr>
+                <mtd>
+                  <mtext>(2)</mtext>
+                </mtd>
+                <mtd columnalign="center">
+                  <mrow>
+                    <msub>
+                      <mi>x</mi>
+                      <mi>i</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mrow>
+                        <mo>−</mo>
+                        <mn>1</mn>
+                      </mrow>
+                      <msub>
+                        <mi>a</mi>
+                        <mrow>
+                          <mi>i</mi>
+                          <mi>i</mi>
+                        </mrow>
+                      </msub>
+                    </mfrac>
+                    <mrow>
+                      <mfenced open="[" close="]">
+                        <mrow>
+                          <munder>
+                            <mo>∑</mo>
+                            <mrow>
+                              <mi>j</mi>
+                              <mo>≠</mo>
+                              <mi>i</mi>
+                            </mrow>
+                          </munder>
+                          <msub>
+                            <mi>a</mi>
+                            <mrow>
+                              <mi>i</mi>
+                              <mi>j</mi>
+                            </mrow>
+                          </msub>
+                          <msub>
+                            <mi>x</mi>
+                            <mi>j</mi>
+                          </msub>
+                          <mo>−</mo>
+                          <msub>
+                            <mi>b</mi>
+                            <mi>i</mi>
+                          </msub>
+                        </mrow>
+                      </mfenced>
+                    </mrow>
+                    <mtext mathvariant="normal">.</mtext>
+                  </mrow>
+                </mtd>
+              </mlabeledtr>
+            </mtable>
+          </math>
+        </div>
+
+        <p>This iteration can give successive updates to the <span
+                class="math-span">𝑥<sub>𝑖</sub></span> component in the
+          solution vector. In synchronous computing environments, each update to
+          an element of the solution vector, <span
+                class="math-span">𝑥<sub>𝑖</sub></span>, is computed
+          sequentially using the same data for the other components of the
+          solution vector (i.e., the values for <span
+                class="math-span">𝑥<sub>𝑗</sub></span> in <a
+             href="#eq2">Equation (2)</a>). Conversely, in an
+          asynchronous computing environment, each update to an element of the
+          solution vector occurs when the computing element responsible for
+          updating that component is ready to write the update to memory and the
+          other components used are simply the latest ones available to the
+          computing element. Expressing <a href="#eq2">Equation (2)</a> in a
+          block form similar to <a href="#eq1">Equation (1)</a> gives an
+          iteration matrix of <span class="math-span">𝐶 = –𝐷<sup>–1</sup>(𝐿 +
+            𝑈)</span> where <span class="math-span">𝐷</span> is the diagonal
+          portion of <span class="math-span">𝐴</span>, and <span
+                class="math-span">𝐿</span> and <span
+                class="math-span">𝑈</span> are the strictly lower and upper
+          triangular portions of <span class="math-span">𝐴</span> respectively.
+          Convergence of asynchronous fixed point methods
+          of the form presented in <a href="#eq1">Equation (1)</a> is determined
+          by the spectral radius of the iteration matrix, <span
+                class="math-span">𝐶</span>.</p>
+
+        <p id="theo1" class="theorem">
+          <strong>Theorem 1.</strong> <em>For a fixed point iteration of the
+            form given in <a href="#eq1">Equation (1)</a> that adheres to the
+            asynchronous computational model provided by <a
+               href="#alg1">Algorithm 1</a> and <a href="#def1">Definition
+              1</a>, if the spectral radius of </em><span
+                  class="math-span">𝐶</span><em>,</em> <span
+                  class="math-span">ρ(|𝐶|)</span> <em>, is less than one, then the iterative method will converge to the fixed point solution.</em>
+        </p>
+
+        <p>If <span class="math-span">𝑥<sup>*</sup></span> is the fixed point
+          of the iteration defined by the matrix
+          <span class="math-span">𝐶</span>, then convergence is given by
+          ensuring that the error at a given iteration, <span
+                class="math-span">‖ 𝑥<sup>(𝑚)</sup> – 𝑥<sup>*</sup> ‖</span>,
+          is sufficiently small. In practice, this is accomplished by
+          verifying that the residual, <span class="math-span">𝑟<sup>(𝑘)</sup>
+            = 𝑏 – 𝐴𝑥<sup>(𝑘)</sup></span>, is beneath a given threshold.
+          Asymptotic results such as this, i.e., that guarantee eventual
+          convergence but offer no guarantee as to the rate of that convergence,
+          exist for many variants of the iteration described above (see Frommer
+          and Szyld (<a role="doc-biblioref"
+             href="#frommer2000asynchronous">2000</a>) for a summary).</p>
+
+        <section id="sect3.1">
+          <h1>Randomized Linear Solvers</h1>
+
+          <p>The use of randomization in asynchronous linear solvers allows for
+            the possibility of statements concerning the rate of convergence to
+            be made. A randomized Gauss-Seidel method was introduced by
+            Leventhal and Lewis (<a role="doc-biblioref"
+               href="#leventhal2010randomized">2010</a>) building off of the
+            randomized Kaczmarz algorithm proposed by Strohmer and Vershynin (<a
+               role="doc-biblioref" href="#strohmer2009randomized">2009</a>),
+            whereby the decrease in the expected value of the error at each step
+            is bounded. The analysis was generalized by Griebel and Oswald (<a
+               role="doc-biblioref" href="#griebel2012greedy">2012</a>) who also
+            added a new parameter that allows for both over and under
+            relaxation. Both of these studies weight the random selection of
+            row <span class="math-span">𝑖</span> by the size of the element
+            <span class="math-span">𝑎<sub>𝑖𝑖</sub> ∈ 𝐴</span>. In the case
+            that <span class="math-span">𝐴</span> has unit diagonal this
+            simplifies to a uniform distribution. More recently, Avron,
+            Druinsky, and Gupta (<a role="doc-biblioref"
+               href="#avron2015revisiting">2015</a>) build upon the analysis by
+            Leventhal and Lewis (<a role="doc-biblioref"
+               href="#leventhal2010randomized">2010</a>) and Griebel and Oswald
+            (<a role="doc-biblioref" href="#griebel2012greedy">2012</a>) and
+            explicitly analyze the case of asynchronous computation with a
+            uniform distribution.</p>
+
+          <p>All of the methods select the vector component to update from a
+            random distribution instead of either sequentially looping through
+            the available components or by tying the updates for a single
+            component to a particular processor (see <a href="#eq2">Equation
+              (2)</a>). In a traditional parallelization of either a synchronous
+            or
+            asynchronous linear solver, processor <span
+                  class="math-span">𝑗</span> is responsible for updating
+            component <span class="math-span">𝑗</span>; the asynchronous
+            variant allows processor <span class="math-span">𝑗</span> to
+            continue to compute relaxations for the component assigned to it
+            regardless of the state of the other processors. The use of
+            randomization in the selection of which component to update
+            allows for the possibility of any processor updating any component.
+            In a randomized asynchronous linear solver, when a processor
+            finishes computing an update to a component, it writes the update to
+            the shared memory and then randomly draws the next component to
+            update from the list of all available components. In the randomized
+            asynchronous linear solvers proposed by others to date, this random
+            selection is always done using either uniform random number
+            generation, or with a probability proportional to a row norm of the
+            matrix <span class="math-span">𝐴</span>. Leventhal and Lewis (<a
+               role="doc-biblioref" href="#leventhal2010randomized">2010</a>)
+            cite Fourier analysis as an application area that can benefit from
+            this type of weighting; however, there is no reason not to expect
+            improved behavior for an arbitrary problem. The authors have
+            proposed in Coleman, Jensen, and Sosonkina (<a role="doc-biblioref"
+               href="#coleman2019enhancing">2019</a>) to use the non-uniform
+            distributions in the asynchronous Jacobi iterative method. In this
+            work, efficient implementations of such an iterative method are
+            investigated.</p>
+        </section>
+
+        <section id="sect3.2">
+          <h1>Southwell Algorithm</h1>
+          <p>The Southwell algorithm (<a role="doc-biblioref"
+               href="#southwell1946relaxation">Southwell, 1946</a>) works
+            similarly to Jacobi by relaxing a single equation at a time,
+            but chooses the equation with the largest local contribution to
+            the residual. For a given row <span class="math-span">𝑖</span>,
+            this local contribution is defined to be</p>
+
+          <div class="equation">
+            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+              <mtable>
+                <mtr>
+                  <mtd>
+                    <mrow>
+                      <msubsup>
+                        <mi>r</mi>
+                        <mi>i</mi>
+                        <mrow>
+                          <mfenced open="(" close=")">
+                            <mi>k</mi>
+                          </mfenced>
+                        </mrow>
+                      </msubsup>
+                      <mo>=</mo>
+                      <msub>
+                        <mi>b</mi>
+                        <mi>i</mi>
+                      </msub>
+                      <mo>−</mo>
+                      <mi>A</mi>
+                      <msubsup>
+                        <mi>x</mi>
+                        <mi>i</mi>
+                        <mrow>
+                          <mfenced open="(" close=")">
+                            <mi>k</mi>
+                          </mfenced>
+                        </mrow>
+                      </msubsup>
+                    </mrow>
+                  </mtd>
+                </mtr>
+              </mtable>
+            </math>
+          </div>
+
+          <p>at iteration <span class="math-span">𝑘</span>. This difference
+            allows the Southwell algorithm to often converge in fewer iterations
+            than Jacobi, but raises the expense of computing an update since the
+            local residuals need to be stored and ranked at each iteration.
+            After a given iteration, the Southwell algorithm chooses the
+            component that contributes the most to the global residual; thus,
+            the algorithm ranks the residuals from largest to smallest. Using
+            the insight from the Southwell algorithm, the idea behind the
+            randomized linear solvers developed here is for each processor to
+            select the next component for updating randomly, using a
+            distribution that more heavily weights selection of components that
+            contribute more to the global residual. Pseudo-code for a randomized
+            variant is provided in <a href="#alg2">Algorithm 2</a>. The key
+            difference of the present work is that here non-uniform
+            distributions in Line 3 of <a href="#alg2">Algorithm 2</a> are
+            investigated.</p>
+
+          <div id="alg2" class="algorithm column-top">
+            <div class="ps-root">
+              <div class="ps-algorithm with-caption">
+                <p class="ps-line"
+                   style="text-indent:-1.2em;padding-left:1.2em;">
+                  <span class="ps-keyword">Algorithm 2 </span>Generic Randomized
+                  Linear Solver</p>
+                <div class="ps-algorithmic with-linenum">
+                  <div class="ps-block"
+                       style="margin-left:1.7999999999999998em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">1:</span><span
+                            class="ps-keyword">for </span>each processing
+                      element <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                          <mi>P</mi>
+                          <mrow>
+                            <mi>l</mi>
+                          </mrow>
+                        </msub>
+                      </math>
+                      <span class="ps-keyword"> do</span></p>
+                    <div class="ps-block" style="margin-left:1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">2:</span><span
+                              class="ps-keyword">for </span><math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>i</mi>
+                          <mo>=</mo>
+                          <mn>1</mn>
+                          <mo>,</mo>
+                          <mn>2</mn>
+                          <mo>,</mo>
+                          <mo>…</mo>
+                          <mo>,</mo>
+                        </math> until
+                        convergence<span class="ps-keyword"> do</span></p>
+                      <div class="ps-block" style="margin-left:1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">3:</span>Pick <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>j</mi>
+                            <mo>∈</mo>
+                            <mfenced open="{" close="}">
+                              <mn>1</mn>
+                              <mn>2</mn>
+                              <mo>…</mo>
+                              <mi>n</mi>
+                            </mfenced>
+                          </math></span></span>
+                          <script type="math/tex"
+                                  id="MathJax-Element-21"></script> using a
+                          given probability distribution</p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">4:</span>Read the
+                          corresponding entries of <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>A</mi>
+                            <mo>,</mo>
+                            <mi>x</mi>
+                            <mo>,</mo>
+                            <mi>b</mi>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">5:</span>Perform the
+                          relaxation for equation <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                              <mi>x</mi>
+                              <mi>j</mi>
+                            </msub>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">6:</span>Update the data for
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                              <mi>x</mi>
+                              <mi>j</mi>
+                            </msub>
+                          </math>
+                        </p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">7:</span><span
+                              class="ps-keyword">end for</span></p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">8:</span><span
+                            class="ps-keyword">end for</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>In an effort to simulate the effect of the Southwell algorithm
+            using randomized asynchronous solvers, the <em>local
+              residuals</em> associated with each equation (or block of
+            equations) are ranked and sorted, and the selection of the next
+            equation (i.e., component) to update is performed using a
+            non-uniform distribution that forces the random selection to pick
+            components with larger local residuals more frequently. The goal
+            behind the proposed modification is that relaxing the components
+            with a more significant contribution to the global residual may
+            reduce the total number of iterations required. Motivation for
+            this comes from a myriad of different studies, see for instance
+            Nutini et al. (<a role="doc-biblioref"
+               href="#nutini2015coordinate">2015</a>) that shows
+            that for some cases (Gauss-)Southwell selection can converge
+            faster than uniform random selection for coordinate descent. In
+            general, the improvement in convergence will have to be shown to
+            be significant enough to offset the extra computational and
+            communication cost associated with storing and ranking all of the
+            local residuals. To help offset the increased computational
+            expense, the periodicity with which the sorting and ranking
+            procedures are done is experimented with since it contributes
+            directly to the overall efficiency of the algorithm.</p>
+        </section>
+      </section>
+
+      <section id="sect4">
+        <h1>Asynchronous Solver Design with Non-Uniform Distributions</h1>
+
+        <p>The focus here is initially on the potential performance of different
+          randomized asynchronous linear solvers through a series of tests in
+          MATLAB<sup>®</sup> (<a href="#sect4.2">Section 4.2</a>), followed by
+          the descriptions of two shared-memory algorithms, a block-based (<a
+             href="#sect4.3">Section 4.3</a>) and a novel row-based (<a
+             href="#sect4.4">Section 4.4</a>).</p>
+
+        <section id="sect4.1">
+          <h1>Problem Description</h1>
+          <p>This work examines the asynchronous Jacobi relaxation algorithm for
+            solving finite-difference discretizations of Partial Differential
+            Equations (PDEs) on a regular grid. In science and engineering,
+            PDEs mathematically model systems in which continuous variables,
+            such as temperature or pressure, change with respect to two or more
+            independent variables, such as time, length, or angle (<a
+               role="doc-biblioref" href="#smith1985numerical">Smith, 1985</a>).
+            The specific problem under study here is Laplace equation in two
+            dimensions:</p>
+
+          <div id="eq3" class="equation">
+            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+              <mtable>
+                <mlabeledtr>
+                  <mtd>
+                    <mtext>(3)</mtext>
+                  </mtd>
+                  <mtd columnalign="center">
+                    <mrow>
+                      <msup>
+                        <mi>∇</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <mi>ϕ</mi>
+                      <mo>=</mo>
+                      <mfrac>
+                        <mrow>
+                          <msup>
+                            <mi>∂</mi>
+                            <mn>2</mn>
+                          </msup>
+                          <mi>ϕ</mi>
+                        </mrow>
+                        <mrow>
+                          <mi>∂</mi>
+                          <msup>
+                            <mi>x</mi>
+                            <mn>2</mn>
+                          </msup>
+                        </mrow>
+                      </mfrac>
+                      <mo>+</mo>
+                      <mfrac>
+                        <mrow>
+                          <msup>
+                            <mi>∂</mi>
+                            <mn>2</mn>
+                          </msup>
+                          <mi>ϕ</mi>
+                        </mrow>
+                        <mrow>
+                          <mi>∂</mi>
+                          <msup>
+                            <mi>y</mi>
+                            <mn>2</mn>
+                          </msup>
+                        </mrow>
+                      </mfrac>
+                      <mo>=</mo>
+                      <mi>b</mi>
+                      <mtext mathvariant="normal">,</mtext>
+                    </mrow>
+                  </mtd>
+                </mlabeledtr>
+              </mtable>
+            </math>
+          </div>
+          <p>where the two-dimensional finite-difference discretization
+            uses Dirichlet boundary conditions. This PDE, which is a fundamental
+            equation for modeling equilibrium and steady state problems, is also
+            used in more complex problems based on PDEs. <a href="#eq3">Equation
+              (3)</a> may be discretized such that a finite difference operator
+            computes difference quotients over a discretized domain. For
+            example, the two-dimensional discrete Laplace operator</p>
+
+          <div class="equation">
+            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+              <mtable>
+                <mtr>
+                  <mtd>
+                    <mrow>
+                      <mfenced open="(" close=")">
+                        <mrow>
+                          <msup>
+                            <mi>∇</mi>
+                            <mn>2</mn>
+                          </msup>
+                          <mi>f</mi>
+                        </mrow>
+                      </mfenced>
+                      <mfenced open="(" close=")">
+                        <mi>x</mi>
+                        <mi>y</mi>
+                      </mfenced>
+                      <mo>=</mo>
+                      <mi>f</mi>
+                      <mfenced open="(" close=")">
+                        <mrow>
+                          <mi>x</mi>
+                          <mo>−</mo>
+                          <mn>1</mn>
+                        </mrow>
+                        <mi>y</mi>
+                      </mfenced>
+                      <mo>+</mo>
+                      <mi>f</mi>
+                      <mfenced open="(" close=")">
+                        <mrow>
+                          <mi>x</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                        </mrow>
+                        <mi>y</mi>
+                      </mfenced>
+                      <mo>+</mo>
+                      <mo linebreak='newline' indentalign='id'
+                          indenttarget='lparen' linebreakstyle='after'></mo>
+                      <mspace width="12em"></mspace>
+                      <mi>f</mi>
+                      <mfenced open="(" close=")">
+                        <mi>x</mi>
+                        <mrow>
+                          <mi>y</mi>
+                          <mo>−</mo>
+                          <mn>1</mn>
+                        </mrow>
+                      </mfenced>
+                      <mo>+</mo>
+                      <mi>f</mi>
+                      <mfenced open="(" close=")">
+                        <mi>x</mi>
+                        <mrow>
+                          <mi>y</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                        </mrow>
+                      </mfenced>
+                      <mo>−</mo>
+                      <mn>4</mn>
+                      <mi>f</mi>
+                      <mfenced open="(" close=")">
+                        <mi>x</mi>
+                        <mi>y</mi>
+                      </mfenced>
+                    </mrow>
+                  </mtd>
+                </mtr>
+              </mtable>
+            </math>
+          </div>
+
+          <p>approximates the two-dimensional continuous Laplacian using a
+            five-point stencil (<a role="doc-biblioref"
+               href="#lindeberg1990scale">Lindeberg, 1990</a>). From this, a
+            discretized version of the Jacobi algorithm</p>
+
+          <div class="equation">
+            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+              <mtable>
+                <mtr>
+                  <mtd>
+                    <mrow>
+                      <msubsup>
+                        <mi>v</mi>
+                        <mrow>
+                          <mi>l</mi>
+                          <mo>,</mo>
+                          <mi>m</mi>
+                        </mrow>
+                        <mrow>
+                          <mi>k</mi>
+                          <mo>+</mo>
+                          <mn>1</mn>
+                        </mrow>
+                      </msubsup>
+                      <mo>=</mo>
+                      <mfrac>
+                        <mn>1</mn>
+                        <mn>4</mn>
+                      </mfrac>
+                      <mfenced open="(" close=")">
+                        <mrow>
+                          <msubsup>
+                            <mi>v</mi>
+                            <mrow>
+                              <mi>l</mi>
+                              <mo>+</mo>
+                              <mn>1</mn>
+                              <mo>,</mo>
+                              <mi>m</mi>
+                            </mrow>
+                            <mi>k</mi>
+                          </msubsup>
+                          <mo>+</mo>
+                          <msubsup>
+                            <mi>v</mi>
+                            <mrow>
+                              <mi>l</mi>
+                              <mo>−</mo>
+                              <mn>1</mn>
+                              <mo>,</mo>
+                              <mi>m</mi>
+                            </mrow>
+                            <mi>k</mi>
+                          </msubsup>
+                          <mo>+</mo>
+                          <msubsup>
+                            <mi>v</mi>
+                            <mrow>
+                              <mi>l</mi>
+                              <mo>,</mo>
+                              <mi>m</mi>
+                              <mo>+</mo>
+                              <mn>1</mn>
+                            </mrow>
+                            <mi>k</mi>
+                          </msubsup>
+                          <mo>+</mo>
+                          <msubsup>
+                            <mi>v</mi>
+                            <mrow>
+                              <mi>l</mi>
+                              <mo>,</mo>
+                              <mi>m</mi>
+                              <mo>−</mo>
+                              <mn>1</mn>
+                            </mrow>
+                            <mi>k</mi>
+                          </msubsup>
+                        </mrow>
+                      </mfenced>
+                    </mrow>
+                  </mtd>
+                </mtr>
+              </mtable>
+            </math>
+          </div>
+          <p>may be applied to solve a two-dimensional sparse linear
+            system of equations (<a role="doc-biblioref"
+               href="#strikwerda2004finite">Strikwerda, 2004</a>). Indices <span
+                  class="math-span">𝑙</span>, <span
+                  class="math-span">𝑚</span>, and <span
+                  class="math-span">𝑘</span> define discrete grid nodes in two
+            dimensions and the iteration number, respectively, for updating the
+            discretized solution vector <span class="math-span">𝑣</span>.</p>
+
+          <p>In the particular instance of this 2D Laplacian problem, as
+            solved with the Jacobi method here, the grid of <span
+                  class="math-span">800 × 800</span> is used to obtain
+            experimental results, the Dirichlet boundary conditions are 100, 0,
+            75, and 50 for the top, bottom, left, and right boundaries,
+            respectively; the solution vector <span class="math-span">𝑣</span>
+            is initilalized to 0 in each non-boundary grid point, and the
+            right-hand side vector <span class="math-span">𝑏</span> is equal to
+            the initial <span class="math-span">𝑣</span>.</p>
+        </section>
+
+        <section id="sect4.2">
+          <h1>Proof-of-Concept</h1>
+
+          <p>Preliminary experiments are performed using MATLAB<sup>®</sup> to
+            demonstrate the improvement in convergence with Southwell and with
+            non-uniform component selection, compared with Jacobi and with
+            uniform component selection, for the problem tested in this work. As
+            an example of potential convergence rates, <a href="#fig1">Figure
+              1</a> shows the progression of the residuals over the first 10,000
+            iterations when solving the two- and three-dimensional
+            finite-difference discretizations of the Laplacian over a <span
+                  class="math-span">10 × 10</span> and <span
+                  class="math-span">10 × 10 × 10</span> grids, respectively.
+            Here, the four solution methods used are the traditional synchronous
+            Jacobi algorithm, a traditional Southwell algorithm, and
+            two randomized linear solvers: one choosing the component to update
+            using a uniform random distribution, and another using an
+            exponential random number distribution with the parameter <span
+                  class="math-span">λ = 2</span>. Note that the convergence of
+            the randomized linear solver using the uniform distribution is
+            slightly inferior to traditional solvers and to the one with
+            exponential distribution. The latter performs on par with the
+            Southwell, both in the 2D (<a href="#fig1a">Figure 1a</a>) and 3D
+            (<a href="#fig1b">Figure 1b</a>) cases.</p>
+
+          <table id="fig1" class="table-figure top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Figure 1.</strong> Residual (<span class="math-span">𝑟 /
+                𝑟<sub>0</sub></span>) progression for the first 10,000
+              iterations of
+              four stationary methods solving the 2D (a) and 3D (b) Laplacian.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig1a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image1a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> 2D problem (5-pt stencil, <span
+                            class="math-span">10 × 10</span> grid).<br />
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig1b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image1b.svg" />
+                    <figcaption>
+                      <strong>(b)</strong> 3D problem (27-pt stencil, <span
+                            class="math-span">10 × 10 × 10</span> grid).
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="sect4.3">
+          <h1>Block-based Algorithm</h1>
+
+          <p>The following block-based algorithm design has been introduced
+            in Coleman, Jensen, and Sosonkina (<a role="doc-biblioref"
+               href="#coleman2019enhancing">2019</a>) and is provided here as
+            the reference for a wider performance analysis and comparison with
+            the novel, row-based, algorithm. In the task-based asynchronous
+            solver, a thread chooses a block of grid rows to update by
+            sampling from a distribution. The number it draws corresponds to
+            an index in a list of blocks, ranked in order of descending
+            component residuals. For example, if a thread draws the number
+            zero from the distribution, it will update the block-row of
+            components with the largest residual, assuming that block is not
+            being updated by another thread. In the case that a thread selects
+            a block that is already being worked on by another thread, the
+            selecting thread searches sequentially either up or down in the
+            rankings until it finds an available block.</p>
+
+          <p>Initially, block residual rankings are assigned via a natural
+            ascending ordering (see <a href="#fig2">Figure 2</a>). A single
+            thread, denoted the residual ranking thread, is tasked with
+            computing the component residuals, sorting the residual rankings,
+            and updating the global ranking list that all the threads use to
+            select blocks for updating. Note that using a single thread leads
+            to a more accurate global ranking list and does not result in a
+            bottleneck for a moderate number of threads. For large-scale
+            distributed implementations, a different ranking procedure has to be
+            developed.</p>
+
+          <figure id="fig2" class="column-top">
+            <img src="./img/image2.svg" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 2.</strong> Block assignment used in the <span
+                    class="math-span">800 × 800</span> grid of the example
+              problem. The blocks consist of all components in a five-row
+              section of the grid. This incorporates 4000 of the 640,000 grid
+              points into each block resulting in <math display="inline"
+                    xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                  <mover>
+                    <mi>n</mi>
+                    <mo>^</mo>
+                  </mover>
+                  <mo>=</mo>
+                  <mn>160</mn>
+                </mrow>
+              </math> blocks.
+            </figcaption>
+          </figure>
+
+          <p>In this work, the residual ranking thread performs ranking and
+            list-updating after every five iterations of the linear system
+            solver. Essentially, <a href="#alg2">Algorithm 2</a> may be modified
+            to include ranking periodicity <span class="math-span">τ</span> as
+            shown in <a href="#alg3">Algorithm 3</a>. This ranking period needs
+            to be chosen judiciously, depending on several factors, such as the
+            number <span class="math-span">𝑚</span> of relaxations performed,
+            the number of threads used, and the number <math display="inline"
+                  xmlns="http://www.w3.org/1998/Math/MathML">
+              <mover>
+                <mi>n</mi>
+                <mo>^</mo>
+              </mover>
+            </math> of block-rows to rank. Here, <span class="math-span">τ =
+              5</span> was found experimentally to mitigate the ranking overhead
+            for the obtained number of iterations to convergence, while the
+            number of relaxations was varied. A more detailed investigation of
+            the ranking periodicity is warranted and left as future work.</p>
+
+          <div id="alg3" class="algorithm column-top">
+            <div class="ps-root">
+              <div class="ps-algorithm with-caption">
+                <p class="ps-line"
+                   style="text-indent:-1.2em;padding-left:1.2em;">
+                  <span class="ps-keyword">Algorithm 3 </span>Block Variant of
+                  Randomized Linear Solver</p>
+                <div class="ps-algorithmic with-linenum">
+                  <div class="ps-block"
+                       style="margin-left:1.7999999999999998em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">1:</span><span
+                            style="font-weight:bold;">Input:</span> ranking
+                      period <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>τ</mi>
+                      </math>,
+                      number of block-rows <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mrow>
+                          <mover>
+                            <mi>n</mi>
+                            <mo stretchy="false">^</mo>
+                          </mover>
+                        </mrow>
+                      </math>,
+                      number of block-relaxations <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>m</mi>
+                      </math>,
+                      probability distribution function <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>f</mi>
+                      </math>
+                    </p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">2:</span>Set
+                      <span class="MathJax_Preview"
+                            style="color: inherit;"></span><math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>c</mi>
+                        <mo>=</mo>
+                        <mn>0</mn>
+                      </math>
+                      counter for all block relaxations</p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">3:</span><span
+                            class="ps-keyword">for </span>each thread<span
+                            class="ps-keyword"> do</span></p>
+                    <div class="ps-block" style="margin-left:1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">4:</span><span
+                              class="ps-keyword">for </span><math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>i</mi>
+                          <mo>=</mo>
+                          <mn>1</mn>
+                          <mo>,</mo>
+                          <mn>2</mn>
+                          <mo>,</mo>
+                          <mo>…</mo>
+                          <mo>,</mo>
+                        </math> until
+                        convergence<span class="ps-keyword"> do</span></p>
+                      <div class="ps-block" style="margin-left:1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">5:</span><span
+                                class="ps-keyword">if </span>thread is <span
+                                style="font-style:italic;font-variant:normal;">master</span>
+                          <span class="ps-keyword">and</span> <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mo stretchy="false">(</mo>
+                            <mi>c</mi>
+                            <mspace width="0.667em"></mspace>
+                            <mi>mod</mi>
+                            <mspace width="thinmathspace"></mspace>
+                            <mspace width="thinmathspace"></mspace>
+                            <mi>τ</mi>
+                            <mo stretchy="false">)</mo>
+                            <mspace width="thickmathspace"></mspace>
+                            <mrow>
+                              <mi mathvariant="normal">i</mi>
+                              <mi mathvariant="normal">s</mi>
+                            </mrow>
+                            <mspace width="thickmathspace"></mspace>
+                            <mn>0</mn>
+                          </math><span class="ps-keyword"> then</span></p>
+                        <div class="ps-block" style="margin-left:1.2em;">
+                          <p class="ps-line ps-code">
+                            <span class="ps-linenum"
+                                  style="left:-4.5em;">6:</span>Rank and sort
+                            block residuals</p>
+                        </div>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">7:</span><span
+                                class="ps-keyword">end if</span></p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">8:</span>Pick <span
+                                class="MathJax_Preview"
+                                style="color: inherit;"></span><math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>j</mi>
+                            <mo>∈</mo>
+                            <mfenced open="{" close="}">
+                              <mn>1</mn>
+                              <mn>2</mn>
+                              <mo>…</mo>
+                              <mrow>
+                                <mover>
+                                  <mi>n</mi>
+                                  <mo stretchy="false">^</mo>
+                                </mover>
+                              </mrow>
+                            </mfenced>
+                          </math> using <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>f</mi>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">9:</span>Perform <span
+                                class="MathJax_Preview"
+                                style="color: inherit;"></span><math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>m</mi>
+                          </math> relaxations
+                          on block <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                              <mi>B</mi>
+                              <mi>j</mi>
+                            </msub>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">10:</span>Update the data for
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                              <mi>B</mi>
+                              <mi>j</mi>
+                            </msub>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">11:</span><math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>c</mi>
+                            <mo>=</mo>
+                            <mi>c</mi>
+                            <mo>+</mo>
+                            <mi>m</mi>
+                          </math>
+                        </p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">12:</span><span
+                              class="ps-keyword">end for</span></p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">13:</span><span
+                            class="ps-keyword">end for</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sect4.4">
+          <h1>Row-based Algorithm</h1>
+
+          <p><a href="#alg4">Algorithm 4</a> illustrates a novel row-based
+            method. Similarly to <a href="#alg3">Algorithm 3</a>, the master
+            thread periodically, every <span class="math-span">τ</span>
+            relaxations, ranks and sorts the rows (line 20). However,
+            there are several important distinctions between the two algorithms,
+            due to which <a href="#alg4">Algorithm 4</a> exhibits
+            better performance. In line 10, a thread uses a probability
+            distribution function <span class="math-span">𝑓</span> to select a
+            <em>single</em> target row to relax instead of a block of rows shown
+            in <a href="#alg3">Algorithm 3</a>, and then transitions from the
+            current (start) row <span class="math-span">r̃</span> to the target
+            row <span class="math-span">𝑟<sub>𝑣</sub></span> by relaxing all
+            the rows between <span class="math-span">r̃</span> and <span
+                  class="math-span">𝑟<sub>𝑣</sub></span> in their natural
+            ordering, instead of jumping to the target row to relax next as done
+            in the block-based implementation (<a href="#alg3">Algorithm 3</a>).
+            Furthermore, while making this transition, a thread may move inward
+            the domain or toward its top or bottom boundary rows, depending on
+            the direction of the shortest distance <span
+                  class="math-span">𝑑<sub>𝑣</sub></span> from the current
+            start row to the target (see <a href="#eq4">Equation (4)</a>).
+
+          <div id="eq4" class="equation">
+            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+              <mtable>
+                <mlabeledtr>
+                  <mtd>
+                    <mtext>(4)</mtext>
+                  </mtd>
+                  <mtd columnalign="center">
+                    <mrow>
+                      <msub>
+                        <mi>d</mi>
+                        <mi>v</mi>
+                      </msub>
+                      <mo>=</mo>
+                      <mo>min</mo>
+                      <mfenced open="(" close=")">
+                        <mrow>
+                          <mi>n</mi>
+                          <mo>−</mo>
+                          <mfenced open="|" close="|">
+                            <mrow>
+                              <mover>
+                                <mi>r</mi>
+                                <mo>~</mo>
+                              </mover>
+                              <mo>−</mo>
+                              <msub>
+                                <mi>r</mi>
+                                <mi>v</mi>
+                              </msub>
+                            </mrow>
+                          </mfenced>
+                        </mrow>
+                        <mfenced open="|" close="|">
+                          <mrow>
+                            <mover>
+                              <mi>r</mi>
+                              <mo>~</mo>
+                            </mover>
+                            <mo>−</mo>
+                            <msub>
+                              <mi>r</mi>
+                              <mi>v</mi>
+                            </msub>
+                          </mrow>
+                        </mfenced>
+                      </mfenced>
+                    </mrow>
+                    <mtext mathvariant="normal">,</mtext>
+                  </mtd>
+                </mlabeledtr>
+              </mtable>
+            </math>
+          </div>
+          <p>where <span class="math-span">𝑛</span> is the total number of rows
+            in the subdomain, and the direction of progression to the target is
+            toward and across the boundary if the first term in <a
+               href="#eq4">Equation (4)</a> is taken as <span
+                  class="math-span">𝑑<sub>𝑣</sub></span>; otherwise, the
+            boundary is not crossed. The former is also chosen when the terms
+            are equal. Then, in line 13, the <code>nextr</code> function assigns
+            the next row number to consider by decrementing or incrementing the
+            row number <span class="math-span">r̃</span> for the boundary or
+            non-boundary progression direction, respectively; and performing
+            circular shift of the row numbers if they reach the boundary. Note
+            that fewer than <span class="math-span">𝑑<sub>𝑣</sub></span> rows
+            may be relaxed if certain rows in the path towards the target row
+            are not <em>free</em>, i.e., they are already being relaxed by
+            another thread at the time of their consideration, as specified by
+            the conditional statement in line 14. A shared array of size <span
+                  class="math-span">𝑛</span> maintains row availability, in
+            which a threads "locks" the row number while it relaxes that row and
+            releases the lock upon finishing the operations in lines 15–20.</p>
+
+          <div id="alg4" class="algorithm column-top">
+            <div class="ps-root">
+              <div class="ps-algorithm with-caption">
+                <p class="ps-line"
+                   style="text-indent:-1.2em;padding-left:1.2em;">
+                  <span class="ps-keyword">Algorithm 4 </span>Row-Based Variant
+                  of Randomized Linear Solver</p>
+                <div class="ps-algorithmic with-linenum">
+                  <div class="ps-block"
+                       style="margin-left:1.7999999999999998em;">
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">1:</span><span
+                            style="font-weight:bold;">Input:</span> probability
+                      distribution function <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>f</mi>
+                      </math>,
+                      ranking period <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>τ</mi>
+                      </math>,
+                      number of rows <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>n</mi>
+                      </math>
+                    </p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">2:</span>Set
+                      row-sum differences <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi mathvariant="normal">Δ</mi>
+                        <mo>=</mo>
+                        <mfenced open="{" close="}">
+                          <mrow>
+                            <msub>
+                              <mi>δ</mi>
+                              <mi>j</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <msub>
+                              <mi>N</mi>
+                              <mrow>
+                                <mo movablelimits="true" form="prefix">max</mo>
+                              </mrow>
+                            </msub>
+                            <mspace width="thickmathspace"></mspace>
+                            <mrow>
+                              <mo stretchy="false">|</mo>
+                            </mrow>
+                            <mspace width="thickmathspace"></mspace>
+                            <mi>j</mi>
+                            <mo>=</mo>
+                            <mn>1</mn>
+                            <mo>,</mo>
+                            <mo>…</mo>
+                            <mo>,</mo>
+                            <mi>n</mi>
+                          </mrow>
+                        </mfenced>
+                      </math>,
+                      where <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                          <mi>δ</mi>
+                          <mi>j</mi>
+                        </msub>
+                      </math>
+                      is row-sum difference between adjacent relaxations of row
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>j</mi>
+                      </math>
+                      and <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <msub>
+                          <mi>N</mi>
+                          <mrow>
+                            <mo movablelimits="true" form="prefix">max</mo>
+                          </mrow>
+                        </msub>
+                      </math>
+                      is the largest double-precision number</p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">3:</span>Set
+                      row ranking <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>R</mi>
+                      </math>
+                      as ascending natural ordering</p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">4:</span>Set
+                      sorted rows <math
+                            xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>S</mi>
+                        <mo>=</mo>
+                        <mfenced open="(" close=")">
+                          <mn>1</mn>
+                          <mn>2</mn>
+                          <mn>3</mn>
+                          <mo>…</mo>
+                          <mi>n</mi>
+                        </mfenced>
+                      </math>
+                    </p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">5:</span>Set
+                      <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>c</mi>
+                        <mo>=</mo>
+                        <mn>0</mn>
+                      </math>
+                      counter for all row relaxations</p>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">6:</span><span
+                            class="ps-keyword">for </span>each thread<span
+                            class="ps-keyword"> do</span></p>
+                    <div class="ps-block" style="margin-left:1.2em;">
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">7:</span>Set <math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <msub>
+                            <mi>r</mi>
+                            <mrow>
+                              <mi>v</mi>
+                            </mrow>
+                          </msub>
+                          <mo>∈</mo>
+                          <mfenced open="{" close="}">
+                            <mn>1</mn>
+                            <mn>2</mn>
+                            <mo>…</mo>
+                            <mi>n</mi>
+                          </mfenced>
+                        </math> for initial
+                        thread target row</p>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">8:</span><span
+                              class="ps-keyword">for </span><math
+                              xmlns="http://www.w3.org/1998/Math/MathML">
+                          <mi>i</mi>
+                          <mo>=</mo>
+                          <mn>1</mn>
+                          <mo>,</mo>
+                          <mn>2</mn>
+                          <mo>,</mo>
+                          <mo>…</mo>
+                          <mo>,</mo>
+                        </math> until
+                        convergence<span class="ps-keyword"> do</span></p>
+                      <div class="ps-block" style="margin-left:1.2em;">
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">9:</span>Set previous target
+                          as new start row <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mrow>
+                              <mover>
+                                <mi>r</mi>
+                                <mo stretchy="false">~</mo>
+                              </mover>
+                            </mrow>
+                            <mo>=</mo>
+                            <msub>
+                              <mi>r</mi>
+                              <mi>v</mi>
+                            </msub>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">10:</span>Set target row
+                          <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                              <mi>r</mi>
+                              <mi>v</mi>
+                            </msub>
+                          </math> from sorted
+                          rows <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>S</mi>
+                          </math> using <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>f</mi>
+                          </math>
+                        </p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">11:</span>Compute shortest
+                          distance <math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <msub>
+                              <mi>d</mi>
+                              <mi>v</mi>
+                            </msub>
+                          </math> as in <a href="#eq4">Equation (4)</a></p>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">12:</span><span
+                                class="ps-keyword">for </span><math
+                                xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>j</mi>
+                            <mo>=</mo>
+                            <mn>1</mn>
+                            <mo>,</mo>
+                            <mo>…</mo>
+                            <mo>,</mo>
+                            <msub>
+                              <mi>d</mi>
+                              <mi>v</mi>
+                            </msub>
+                          </math><span class="ps-keyword"> do</span></p>
+                        <div class="ps-block" style="margin-left:1.2em;">
+                          <p class="ps-line ps-code">
+                            <span class="ps-linenum"
+                                  style="left:-4.5em;">13:</span>Assign next row
+                            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                              <mrow>
+                                <mover>
+                                  <mi>r</mi>
+                                  <mo stretchy="false">~</mo>
+                                </mover>
+                              </mrow>
+                              <mo>=</mo>
+                              <mrow>
+                                <mi mathvariant="monospace">n</mi>
+                                <mi mathvariant="monospace">e</mi>
+                                <mi mathvariant="monospace">x</mi>
+                                <mi mathvariant="monospace">t</mi>
+                                <mi mathvariant="monospace">r</mi>
+                              </mrow>
+                              <mfenced open="(" close=")">
+                                <mrow>
+                                  <mover>
+                                    <mi>r</mi>
+                                    <mo stretchy="false">~</mo>
+                                  </mover>
+                                </mrow>
+                                <mi>j</mi>
+                              </mfenced>
+                            </math> as
+                            described in <a href="#sect4.4">Section 4.4</a></p>
+                          <p class="ps-line ps-code">
+                            <span class="ps-linenum"
+                                  style="left:-4.5em;">14:</span><span
+                                  class="ps-keyword">if </span><math
+                                  xmlns="http://www.w3.org/1998/Math/MathML">
+                              <mrow>
+                                <mover>
+                                  <mi>r</mi>
+                                  <mo stretchy="false">~</mo>
+                                </mover>
+                              </mrow>
+                            </math> is <span
+                                  style="font-style:italic;font-variant:normal;">free</span><span
+                                  class="ps-keyword"> then</span></p>
+                          <div class="ps-block" style="margin-left:1.2em;">
+                            <p class="ps-line ps-code">
+                              <span class="ps-linenum"
+                                    style="left:-6em;">15:</span>Perform a
+                              relaxation of <math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mrow>
+                                  <mover>
+                                    <mi>r</mi>
+                                    <mo stretchy="false">~</mo>
+                                  </mover>
+                                </mrow>
+                              </math>
+                            </p>
+                            <p class="ps-line ps-code">
+                              <span class="ps-linenum"
+                                    style="left:-6em;">16:</span>Update the data
+                              for <math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mrow>
+                                  <mover>
+                                    <mi>r</mi>
+                                    <mo stretchy="false">~</mo>
+                                  </mover>
+                                </mrow>
+                              </math>
+                            </p>
+                            <p class="ps-line ps-code">
+                              <span class="ps-linenum"
+                                    style="left:-6em;">17:</span>Compute row-sum
+                              difference <math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                <msub>
+                                  <mi>δ</mi>
+                                  <mrow>
+                                    <mrow>
+                                      <mover>
+                                        <mi>r</mi>
+                                        <mo stretchy="false">~</mo>
+                                      </mover>
+                                    </mrow>
+                                  </mrow>
+                                </msub>
+                              </math> as in <a href="#eq5">Equation (5)</a></p>
+                            <p class="ps-line ps-code">
+                              <span class="ps-linenum"
+                                    style="left:-6em;">18:</span>Set <math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>c</mi>
+                                <mo>=</mo>
+                                <mi>c</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                              </math>
+                            </p>
+                            <p class="ps-line ps-code">
+                              <span class="ps-linenum"
+                                    style="left:-6em;">19:</span><span
+                                    class="ps-keyword">if </span>thread is <span
+                                    style="font-style:italic;font-variant:normal;">master</span>
+                              <span class="ps-keyword">and</span> <math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mfenced open="(" close=")">
+                                  <mrow>
+                                    <mi>c</mi>
+                                    <mspace width="thinmathspace"></mspace>
+                                    <mi>mod</mi>
+                                    <mspace width="thinmathspace"></mspace>
+                                    <mi>τ</mi>
+                                  </mrow>
+                                </mfenced>
+                                <mspace width="thickmathspace"></mspace>
+                                <mrow>
+                                  <mi mathvariant="normal">i</mi>
+                                  <mi mathvariant="normal">s</mi>
+                                </mrow>
+                                <mspace width="thickmathspace"></mspace>
+                                <mn>0</mn>
+                              </math><span class="ps-keyword"> then</span></p>
+                            <div class="ps-block" style="margin-left:1.2em;">
+                              <p class="ps-line ps-code">
+                                <span class="ps-linenum"
+                                      style="left:-7.5em;">20:</span>Update
+                                ranking <math
+                                      xmlns="http://www.w3.org/1998/Math/MathML">
+                                  <mi>R</mi>
+                                </math> and
+                                sorted rows <math
+                                      xmlns="http://www.w3.org/1998/Math/MathML">
+                                  <mi>S</mi>
+                                </math> based
+                                on <math
+                                      xmlns="http://www.w3.org/1998/Math/MathML">
+                                  <mi mathvariant="normal">Δ</mi>
+                                </math>
+                              </p>
+                            </div>
+                            <p class="ps-line ps-code">
+                              <span class="ps-linenum"
+                                    style="left:-6em;">21:</span><span
+                                    class="ps-keyword">end if</span></p>
+                          </div>
+                          <p class="ps-line ps-code">
+                            <span class="ps-linenum"
+                                  style="left:-4.5em;">22:</span><span
+                                  class="ps-keyword">end if</span></p>
+                        </div>
+                        <p class="ps-line ps-code">
+                          <span class="ps-linenum"
+                                style="left:-3em;">23:</span><span
+                                class="ps-keyword">end for</span></p>
+                      </div>
+                      <p class="ps-line ps-code">
+                        <span class="ps-linenum"
+                              style="left:-1.5em;">24:</span><span
+                              class="ps-keyword">end for</span></p>
+                    </div>
+                    <p class="ps-line ps-code">
+                      <span class="ps-linenum" style="left:0em;">25:</span><span
+                            class="ps-keyword">end for</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>The use of the shortest distance is motivated by an attempt to
+            adhere to the ranking order of rows while also relaxing in the
+            neighborhood of the target row; thereby, making the transition to
+            the target smoother. Additionally, in a distributed-memory
+            environment, the ability to more frequently relax boundary rows may
+            facilitate a better data movement among subdomains possibly leading
+            to a faster convergence. Another distinction between the block-based
+            implementation and the row-based one is that the row-based performs
+            the ranking of rows using row-sum differences instead of residuals.
+            In particular (see line 17), after every row <span
+                  class="math-span">r̃</span> relaxation, a thread performs a
+            summation <span class="math-span">σ<sub>r̃</sub></span> of the
+            absolute values of all the components in <span
+                  class="math-span">r̃</span> and updates the row-sum difference
+            <span class="math-span">σ<sub>r̃</sub></span>
+
+          <div id="eq5" class="equation">
+            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+              <mtable>
+                <mlabeledtr>
+                  <mtd>
+                    <mtext>(5)</mtext>
+                  </mtd>
+                  <mtd columnalign="center">
+                    <mrow>
+                      <msub>
+                        <mi>δ</mi>
+                        <mover>
+                          <mi>r</mi>
+                          <mo>~</mo>
+                        </mover>
+                      </msub>
+                      <mo>=</mo>
+                      <mfenced open="|" close="|">
+                        <mrow>
+                          <msubsup>
+                            <mi>σ</mi>
+                            <mover>
+                              <mi>r</mi>
+                              <mo>~</mo>
+                            </mover>
+                            <mo>−</mo>
+                          </msubsup>
+                          <mo>−</mo>
+                          <msub>
+                            <mi>σ</mi>
+                            <mover>
+                              <mi>r</mi>
+                              <mo>~</mo>
+                            </mover>
+                          </msub>
+                        </mrow>
+                      </mfenced>
+                      <mtext mathvariant="normal">,</mtext>
+                    </mrow>
+                  </mtd>
+                </mlabeledtr>
+              </mtable>
+            </math>
+          </div>
+
+          <p>where <math display="inline"
+                  xmlns="http://www.w3.org/1998/Math/MathML">
+              <msubsup>
+                <mi>σ</mi>
+                <mover>
+                  <mi>r</mi>
+                  <mo>~</mo>
+                </mover>
+                <mo>−</mo>
+              </msubsup>
+            </math> is the sum taken after the previous relaxation of <span
+                  class="math-span">r̃</span>. This difference <span
+                  class="math-span">σ<sub>r̃</sub></span> is assumed to be
+            decreasing between the two adjacent relaxations and arbitrarily
+            small when the algorithm has converged. A strong linear relationship
+            has been observed between the row difference method rank and the row
+            residual rank during the entire convergence process. <a
+               href="#tab1">Table 1</a> presents a small sample of
+            representative correlation coefficients <span
+                  class="math-span">𝑅</span> at regular intervals throughout a
+            sample calculation, which quantify the magnitude and direction of
+            this relationship. Of the hundreds of thousands of computed
+            correlation coefficients, the minimum and mean coefficients are 0.77
+            and 0.96, respectively, with a standard deviation of 0.02. Using
+            this difference instead of residuals decreases the computational
+            overhead of ranking the rows. In particular, finding the row
+            difference requires about 7 times fewer floating point operations
+            per iteration than when using the row residual for this problem.
+            Note, that, while it is shown that the difference-ranking method
+            works for this sample problem, it has not been tested with other
+            types of problems.</p>
+
+          <table id="tab1" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table
+                1.</strong> Comparison of the row difference method rank with
+              the row residual rank, for all rows, at various row ranking
+              iterations during the calculation. Correlation coefficient <span
+                    class="math-span">𝑅</span> quantifies magnitude and
+              direction of relationship.
+            </caption>
+            <tbody style="text-align: right">
+              <tr>
+                <td><span class="small-caps">Row Ranking Iteration</span></td>
+                <td style="text-align: center">0</td>
+                <td style="text-align: center"><span
+                        class="math-span">20𝑒<sup>3</sup></span></td>
+                <td style="text-align: center"><span
+                        class="math-span">40𝑒<sup>3</sup></span></td>
+                <td style="text-align: center"><span
+                        class="math-span">60𝑒<sup>3</sup></span></td>
+                <td style="text-align: center"><span
+                        class="math-span">80𝑒<sup>3</sup></span></td>
+                <td style="text-align: center"><span
+                        class="math-span">100𝑒<sup>3</sup></span></td>
+                <td style="text-align: center"><span
+                        class="math-span">120𝑒<sup>3</sup></span></td>
+                <td style="text-align: center"><span
+                        class="math-span">1400𝑒<sup>3</sup></span></td>
+              </tr>
+              <tr>
+                <td><span class="math-span">𝑅</span></td>
+                <td>0.99</td>
+                <td>0.99</td>
+                <td>0.96</td>
+                <td>0.95</td>
+                <td>0.97</td>
+                <td>0.96</td>
+                <td>0.97</td>
+                <td>0.98</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+      <section id="sect5">
+        <h1>Implementation Results</h1>
+
+        <p>The block-based and row-based algorithms are implemented and tested
+          on two shared-memory computing platforms. For both platforms and both
+          implementations, results show that the calculation time decreases
+          using non-uniform distributions, compared with a uniform distribution.
+          Additionally, the row-based implementation shows a decrease in
+          iterations, compared with Gauss-Seidel.</p>
+
+        <section id="sect5.1">
+          <h1>Experimental Design</h1>
+
+          <p>The experiments using OpenMP<sup>®</sup> are conducted on two
+            computing platforms at Old Dominion University<a href="#ftn1"
+               id="fn_pointer_ftn1" role="doc-noteref"><sup>1</sup></a>. The
+            Rulfo system has an Intel<sup>®</sup> Xeon Phi<sup>™</sup> Knight's
+            Landing 7210 model processor with 64 cores running at 1.30 GHz and
+            112 GB of DDR4 physical memory used as DRAM in these experiments.
+            One thread per core is utilized, with one core reserved for
+            interfacing with the operating system, resulting in 63 computational
+            threads for the experiments in <a href="#sect5.2">Section 5.2</a>.
+            On the Wahab system, a single node of the cluster is utilized,
+            containing two Intel<sup>®</sup> Xeon Gold 6148 CPUs each with 20
+            physical cores and 376 GB of DDR4 memory. The code uses standard C++
+            routines for sorting residuals and generating random numbers, with
+            the default parameters and the built-in distributions. Experimental
+            parameters are presented in <a href="#tab2">Table 2</a>.
+
+          <table id="tab2" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table
+                2.</strong> Experiment parameters for <span
+                    class="small-caps">Block-based</span> and <span
+                    class="small-caps">Row-based</span> implementations run on
+              Rulfo and Wahab platforms (column <code>Hardw</code>). The number
+              of OpenMP<sup>®</sup> threads is shown in column
+              <code>Thrds</code>. The problem (grid) size is shown in column
+              <code>Grid</code>. The number of rows considered by a thread at a
+              time is given in column <code>Block</code>. Input tolerance for
+              the algorithm convergence is provided in column <code>Tol</code>,
+              while the ranges of the normal <span class="math-span">(μ,
+                σ)</span> and exponential <span class="math-span">λ</span>
+              distribution parameters are provided in columns <code>Norm</code>
+              and <code>Expo</code>, respectively.</caption>
+            <thead>
+              <tr style="text-align: center;">
+                <th></th>
+                <th><code>Hardw</code></th>
+                <th><code>Thrds</code></th>
+                <th><code>Grid</code></th>
+                <th><code>Block</code></th>
+                <th><code> Tol</code></th>
+                <th><code>Norm</code></th>
+                <th><code>Expo</code></th>
+              </tr>
+            </thead>
+            <tbody style="text-align: right;">
+              <tr>
+                <td><span class="small-caps">Block-based</span></td>
+                <td>Rulfo</td>
+                <td>63</td>
+                <td><span class="math-span">800 × 800</span></td>
+                <td>5</td>
+                <td><span class="math-span">1𝑒<sup>-3</sup></span></td>
+                <td>(16–54,8)</td>
+                <td>0.01–0.8</td>
+              </tr>
+              <tr>
+                <td><span class="small-caps">Block-based</span></td>
+                <td>Wahab</td>
+                <td>40</td>
+                <td><span class="math-span">800 × 800</span></td>
+                <td>5</td>
+                <td><span class="math-span">1𝑒<sup>-3</sup></span></td>
+                <td>(16–40,8)</td>
+                <td>0.01–0.8</td>
+              </tr>
+              <tr>
+                <td><span class="small-caps">Row-based</span></td>
+                <td>Wahab</td>
+                <td>40</td>
+                <td><span class="math-span">800 × 800</span></td>
+                <td>1</td>
+                <td><span class="math-span">1𝑒<sup>-3</sup></span></td>
+                <td>(80–400,40)</td>
+                <td>0.002–0.16</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
+        </section>
+
+        <section id="sect5.2">
+          <h1>Block-based Implementation on Rulfo</h1>
+
+          <p>For block selection, three different distributions are tested. The
+            <em>uniform</em> distribution is used as a control; a thread may
+            select any block with equal probability. The <em>normal</em>
+            distribution is used to examine the effects of targeting different
+            segments of blocks in the rankings, i.e., blocks with lower ranks
+            and higher residuals versus blocks with higher ranks and lower
+            residuals. This is achieved by varying the mean parameter <span
+                  class="math-span">μ</span> while keeping the standard
+            deviation <span class="math-span">σ</span> fixed in the normal
+            distribution. The <em>exponential</em> distribution, with the mode
+            <span class="math-span">λ</span> close to zero, will tend to sample
+            lower-ranked blocks.</p>
+
+          <p>For both normal and exponential distributions, the algorithm
+            convergence may be observed in <a href="#fig3">Figure 3</a> and <a
+               href="#fig4">Figure 4</a>, respectively. In the figures
+            throughout <a href="#sect5">Section 5</a>, the term <em>Recording
+              Iteration</em> points out that the data is recorded by a thread
+            every 1,000 iterations. For the normal distribution, it may be
+            observed in <a href="#fig3a">Figure 3a</a> that the convergence rate
+            depends strongly on <span class="math-span">μ</span>: Its smaller
+            values (up to <span class="math-span">μ = 46</span>) lead to rapid
+            convergence whereas, at <span class="math-span">μ = 46</span>, the
+            convergence sharply deteriorates. This may be also observed when
+            considering the time-to-solution in <a href="#fig3b">Figure 3b</a>.
+            Due to very slow convergence, at large <span
+                  class="math-span">μ</span> values, the normal distribution
+            becomes extremely non-competitive with the uniform distribution,
+            which timing is shown as red dashed line in <a href="#fig3b">Figure
+              3b</a>. <a href="#fig4a">Figure 4a</a> shows that the parameter
+            <span class="math-span">λ</span> for the exponential distributions
+            does not have as much an impact on performance as the parameter
+            <span class="math-span">μ</span> does so for the normal distribution
+            runs. As <span class="math-span">λ</span> moves farther away from
+            zero, however, it hinders convergence and the exponential
+            distribution results in slower timings than those obtained with the
+            uniform distribution as seen in <a href="#fig4b">Figure 4b</a>. Once
+            the best parameter choices are found for normal and exponential
+            distributions, their performances compare favorably to the uniform
+            distribution (<a href="#fig5">Figure 5</a>), and up to 10% and 13%
+            fewer iterations are observed, respectively.</p>
+
+          <table id="fig3" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 3.</strong> BBI convergence for normal
+              distribution.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig3a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image3a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Convergence history. For a
+                      given <span class="math-span">μ</span>, '-1', …, '-5'
+                      enumerate the runs.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig3b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image3b.svg" />
+                    <figcaption><strong>(b)</strong> Time-to-solution: minimum,
+                      average, and maximum timings over 5 runs.</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table id="fig4" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 4.</strong> BBI convergence for exponential
+              distribution.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig4a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image4a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Convergence history.<br />
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig4b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image4b.svg" />
+                    <figcaption><strong>(b)</strong> Time-to-solution: minimum,
+                      average, and maximum timings over 5 runs.</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <figure id="fig5" class="column-top">
+            <img src="./img/image5.svg" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 5.</strong> BBI convergence history comparisons
+              among distributions in the best case.
+            </figcaption>
+          </figure>
+
+          <p><a href="#fig6">Figure 6</a> provides a more detailed explanation
+            for performance differences based on the selection of <span
+                  class="math-span">μ</span>. In particular, <a
+               href="#fig6a">Figure 6a</a> and <a href="#fig6b">Figure 6b</a>
+            depict that the ordered component residual values for <span
+                  class="math-span">μ</span> equal to 16 and 44 are nearly
+            indistinguishable. However, when <span class="math-span">μ</span>
+            increases to 48 (<a href="#fig6c">Figure 6c</a>) and then again to
+            52 (<a href="#fig6d">Figure 6d</a>) residuals of the lowest-ranked
+            blocks decrease slowly while the residuals of all other blocks
+            decrease more quickly. Note that all the block-based implementation
+            (BBI) experiments use 8 for <span class="math-span">σ</span>, which
+            is appropriate for all the chosen <span class="math-span">μ</span>
+            ranges of 16 to 54 on Rulfo and 16 to 40 on Wahab.</p>
+
+          <table id="fig6" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 6.</strong> Block-row residuals for calculations
+              using normal distributions.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig6a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image6a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> <span class="math-span">μ = 16</span>
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig6b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image6b.svg" />
+                    <figcaption>
+                      <strong>(b)</strong> <span class="math-span">μ = 44</span>
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <figure id="fig6c" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image6c.svg" />
+                    <figcaption>
+                      <strong>(c)</strong> <span class="math-span">μ = 48</span>
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig6d" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image6d.svg" />
+                    <figcaption>
+                      <strong>(d)</strong> <span class="math-span">μ = 52</span>
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="#fig7a">Figure 7a</a> and <a href="#fig7b">Figure
+              7b</a> show that, for the minimum and maximum values of <span
+                  class="math-span">λ</span>, respectively, the component
+            residual decrease is balanced among the component ranks as
+            iterations progress.</p>
+
+          <table id="fig7" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 7.</strong> Block-row residuals for calculations
+              using exponential distributions.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig7a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image7a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> <span class="math-span">λ =
+                        0.01</span></figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig7b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image7b.svg" />
+                    <figcaption><strong>(b)</strong> <span class="math-span">λ =
+                        0.8</span></figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="sect5.3">
+          <h1>Row-based Implementation on Wahab</h1>
+
+          <p>The results of the BBI show that non-uniform probability
+            distribution functions may be used to efficiently select components
+            to update, leading to convergence for the sample problem used in
+            this work. However, relaxing blocks of rows asynchronously tends to
+            cluster errors on block boundaries, and thereby hindering
+            convergence. A row-based implementation (RBI) has been introduced to
+            mitigate this problem. Here, the RBI solves the same sample problem
+            in shared memory as BBI (see <a href="#sect5.2">Section 5.2</a>).
+            Recall that RBI does not consider blocks of rows to be relaxed by a
+            single thread. Instead, a thread selects only a single row to relax
+            at a time.</p>
+
+          <p>For row selection, as with the BBI, the same three distributions
+            are tested. Again, the uniform distribution is used as a baseline
+            for comparison with the normal and exponential distributions.
+            Similar to the BBI experiments, the normal and exponential
+            distributions are geared to consider different ranges of row numbers
+            by, respectively, keeping the standard deviation <span
+                  class="math-span">σ</span> parameter fixed and the parameter
+            <span class="math-span">λ</span> close to zero. <a
+               href="#fig8a">Figure 8a</a> shows the diminishing row differences
+            as the system converges, and the disparity between the rows with the
+            least and greatest differences decreases. In <a href="#fig8b">Figure
+              8b</a>, initially the lowest-index rows have the greatest
+            differences since these are the boundary rows, and in effect, the
+            greatest discontinuity initially is between the top boundary and the
+            first row of grid points (see <a href="#sect4.1">Section 4.1</a>).
+            Conversely, the least discontinuity initially is between the bottom
+            boundary and the last row of grid points. These respective
+            discontinuities are reflected in the row component differences of
+            consecutive iterations, i.e., the top row initially changes quickly,
+            while the bottom row changes slowly. However, as the calculation
+            progresses, the change in the first rows decreases. For most of the
+            calculation, the middle rows experience the most change.</p>
+
+          <table id="fig8" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 8.</strong> Progression of row differences and
+              rankings using a uniform distribution.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig8a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image8a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Row Differences.</figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig8b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image8b.svg" />
+                    <figcaption><strong>(b)</strong> Row Rankings.</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>For the normal distribution, <a href="#fig9">Figure 9</a> shows the
+            effects of choosing appropriate and excessively large values of the
+            normal distribution mean parameter <span class="math-span">μ</span>,
+            values of 80 and 400, respectively. Note that the normal
+            distribution standard deviation parameter <span
+                  class="math-span">σ</span> is kept at 40, which is appropriate
+            for the range of <span class="math-span">μ</span> values considered
+            for RBI here. Compared with <a href="#fig9a">Figure 9a</a>, <a
+               href="#fig9b">Figure 9b</a> shows increased iterations, greater
+            row-difference disparity between bottom and top-ranked rows, and
+            increasing row differences for ranks 300–400 during the first 1,000
+            iterations.</p>
+
+          <table id="fig9" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 9.</strong> Progression of row differences using
+              normal distributions.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig9a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image9a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> <span class="math-span">μ = 80</span>
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig9b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image9b.svg" />
+                    <figcaption>
+                      <strong>(b)</strong> <span class="math-span">μ =
+                        400</span>
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Similarly to <a href="#fig8b">Figure 8b</a>, <a
+               href="#fig10">Figure 10</a> shows the rank changes during the
+            convergence processes albeit here for
+            the normal distribution for the same parameters as in <a
+               href="#fig9">Figure 9</a>. In <a href="#fig10a">Figure 10a</a>
+            with <span class="math-span">μ = 80</span>, the middle rows are
+            targeted so frequently that the ranks of the rows with the greatest
+            differences are pushed outward, toward the first and last ranks,
+            much more than what is observed for the uniform and normal with
+            <span class="math-span">μ = 400</span> distributions (cf. <a
+               href="#fig8b">Figure 8b</a> and <a href="#fig10b">Figure 10b</a>,
+            respectively). For <span class="math-span">μ = 400</span>, because
+            the lower-difference rows are targeted more often, the group of
+            high-ranked rows (shown as the middle yellow band) does not shift
+            ranks to the extent seen with the uniform distribution in <a
+               href="#fig8b">Figure 8b</a>, and hence, is updated fewer times,
+            which leads to inferior convergence. This pattern is expected to
+            continue for <span class="math-span">μ &gt; 400</span>.</p>
+
+          <table id="fig10" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 10.</strong> Progression of row rankings using
+              normal distributions.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig10a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image10a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> <span class="math-span">μ = 80</span>
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig10b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image10b.svg" />
+                    <figcaption>
+                      <strong>(b)</strong> <span class="math-span">μ =
+                        400</span>
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <p>For the exponential distribution, <a href="#fig11">Figure
+              11</a> and <a href="#fig12">Figure 12</a> show the progression of
+            row differences and rankings, respectively. Here, both small and
+            large values of <span class="math-span">λ</span> provide similar
+            results and are equally effective, on par with good values of <span
+                  class="math-span">μ</span> when using the normal distribution.
+            The convergence history is presented in <a href="#fig13">Figure
+              13</a> for the three distributions and their respective parameter
+            choices considered for RBI. As expected, for the exponential
+            distribution and the normal distribution with smaller <span
+                  class="math-span">μ</span> of 80, the residual decreases more
+            quickly than with the
+            uniform distribution, whereas with the normal distribution parameter
+            <span class="math-span">μ = 400</span>, the residual decreases the
+            most slowly (see <a href="#fig13">Figure 13</a>).</p>
+
+          <table id="fig11" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 11.</strong> Progression of row differences using
+              exponential distributions.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig11a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image11a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> <span class="math-span">λ =
+                        0.02</span></figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig11b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image11b.svg" />
+                    <figcaption><strong>(b)</strong> <span class="math-span">λ =
+                        0.16</span></figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table id="fig12" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 12.</strong> Progression of row rankings using
+              exponential distributions.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig11a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image12a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> <span class="math-span">λ =
+                        0.02</span></figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig12b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image12b.svg" />
+                    <figcaption><strong>(b)</strong> <span class="math-span">λ =
+                        0.16</span></figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <figure id="fig13" class="column-top">
+            <img src="./img/image13.svg" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 13.</strong> Change in residual throughout the
+              calculation, for each distribution.</figcaption>
+          </figure>
+        </section>
+
+        <section id="sect5.4">
+          <h1>Performance Comparison of Block- and Row-based Implementations
+          </h1>
+
+          <p>Here, block- and row-based implementations are mutually compared on
+            the same platform, Wahab, as to their number of relaxations and time
+            to converge for a range of non-uniform distribution parameters <span
+                  class="math-span">μ</span> and <span
+                  class="math-span">λ</span>, as shown in <a href="#tab2">Table
+              2</a>.</p>
+
+          <p>Note that the distribution parameters in the row-based
+            implementation differ from those used by the block-based one, which
+            reflects the sorted array sizes and different convergence behavior
+            of the implementations. In particular, for the given test problem,
+            the BBI has 160 entities (blocks) to sort, while there are 800
+            entities (rows) to sort in the case of RBI. The difference in
+            convergence behavior is especially evident when comparing results
+            from the two implementations when both use normal distributions to
+            select components. In <a href="#fig14a">Figure 14a</a>, for BBI,
+            there is a distinct difference in results for <span
+                  class="math-span">μ = 44</span> and <span class="math-span">μ
+              = 46</span>. For RBI, <a href="#fig14b">Figure 14b</a> shows a
+            smoother transition between <em>good</em> and <em>poor</em> normal
+            distribution parameters. Note that <em>good</em> and <em>poor</em>,
+            respectively, are termed so because they yield the calculation times
+            faster and slower than those for the uniform distribution test
+            cases. In particular, the <em>poor</em> distribution parameters are
+            those starting with the first <span class="math-span">μ</span> that
+            yields a significant jump in the calculation time; and this
+            percentage increase for RBI is taken to be comparable with the one
+            in BBI. </span> By comparing the results for the <span
+                  class="math-span">μ</span> values in <a href="#fig14a">Figure
+              14a</a> and <a href="#fig14b">Figure 14b</a>, it is seen that the
+            RBI tolerates a much higher relative value for <span
+                  class="math-span">μ</span> than the BBI does so before
+            significantly degrading the performance. For example, while <span
+                  class="math-span">μ = 46</span> is already a poor choice for
+            the BBI, <span class="math-span">μ = 230</span> (which is equal to
+            <span class="math-span">46 × 5</span> rows in a block) is still well
+            within the range of good parameters for the RBI.</p>
+
+          <table id="fig14" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 14.</strong> The total number of all the
+              grid-component relaxations until convergence, for different
+              probability distributions and parameters. The red lines refer to
+              the number of component relaxations for serial Gauss-Seidel.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig14a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image14a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Block-based implementation.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig14b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image14b.svg" />
+                    <figcaption><strong>(b)</strong> Row-based implementation.
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>In addition, <a href="#fig14a">Figure 14a</a> and <a
+               href="#fig14b">Figure 14b</a> compare the block- and row-based
+            implementation iterations with the iterations of serial Gauss-Seidel
+            (shown as red horizontal lines), respectively, to converge for the
+            sample problem. The BBI cannot converge in fewer than serial
+            Gauss-Seidel component relaxations even with the best distribution
+            parameters. The RBI, however, converges in about 10% fewer component
+            relaxations than serial Gauss-Seidel, using non-uniform
+            distributions with appropriate parameters. This happens
+            consistently, although it has been shown theoretically that more
+            component relaxations may be required when threads update components
+            asynchronously (<a role="doc-biblioref"
+               href="#avron2015revisiting">Avron et al., 2015</a>). A better
+            convergence in the RBI compared with that in BBI may be attributed
+            to the (<em>fine-grained</em>) ranking of rows rather than blocks
+            and to relaxing all the rows on the path from the current and the
+            selected target one. Such a relaxation process leads to a smoother
+            transition between rows and possibly to relaxations of more rows by
+            a thread at a time than those contained in a block of the BBI.
+            Although the row-based implementation ranks and sorts more entries
+            than the BBI does so, the former has faster time-to-solution (see <a
+               href="#fig18">Figure 18</a>) and is not
+            hindered at large scales—where distributed implementations are a
+            must—because ranking and sorting will be performed within each node
+            independently.</p>
+
+          <p>Complementing the convergence comparisons of BBI and RBI from <a
+               href="#fig14">Figure 14</a>, <a href="#fig15">Figure 15</a>
+            demonstrates (as vertical lines in each bar) a greater variability
+            in how often each block in BBI may be relaxed compared with each row
+            relaxation in RBI. This metric bears significance for the
+            non-uniform distributions since they may "neglect" certain
+            components to relax often enough to hinder convergence, as has been
+            shown earlier in <a href="#sect5">Section 5</a>, and thereby making
+            a proof of convergence more difficult.</p>
+
+          <table id="fig15" class="table-figure top" width="100%">
+            <caption>
+              <strong>Figure 15.</strong> The average number of (a) block and
+              (b) row relaxations required to converge for different probability
+              distributions and parameters for the two implementations. The
+              vertical lines in each bar show the standard deviation of the
+              number of row relaxations among all rows.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig15a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image15a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Block-based implementation.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig15b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image15b.svg" />
+                    <figcaption><strong>(b)</strong> Row-based implementation.
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="#fig16">Figure 16</a> and <a href="#fig17">Figure
+              17</a> compare BBI and RBI as to which parts of the problem grid
+            are relaxed more times when <em>good</em> or <em>poor</em> <span
+                  class="math-span">μ</span> is used, respectively. For the
+            former, <a href="#fig16">Figure 16</a> shows not only that both
+            implementations emphasize the relaxation of the middle rows, away
+            from the fixed top and bottom boundaries, but also that the RBI
+            places greater emphasis on the rows near the top and bottom
+            boundaries, and less emphasis on the middle rows, compared to the
+            BBI. In particular, about 15% of component selections result in a
+            boundary-crossing event in the row based implementation, which
+            provides for relaxing all the rows more uniformly. With poor
+            distribution parameters, <a href="#fig17">Figure 17</a>
+            shows a different behavior of the RBI from the one in <a
+               href="#fig16">Figure 16</a>. Now, the RBI relaxes boundary rows
+            more frequently than it does so for the innermost rows. In
+            particular, some of the inner rows are now relaxed about as many
+            times as for good <span class="math-span">μ</span> but the boundary
+            rows are relaxed more frequently leading to
+            an overall higher number of iterations to converge. Generally, the
+            RBI permits more frequent relaxation of boundary rows, compared with
+            the BBI. Note that the frequency of boundary-row relaxation stays
+            low for BBI given either value of <span class="math-span">μ</span>
+            (cf. <a href="#fig16">Figure 16</a> and <a href="#fig17">Figure
+              17</a>). Such a beneficial behavior of RBI
+            is expressed in line 13 of <a href="#alg4">Algorithm 4</a>, in
+            which the <code>nextr</code> function directs a thread to or from
+            a boundary row according to the shortest distance (line 11) as
+            determined by <a href="#eq4">Equation (4)</a>.</p>
+
+          <table class="table-figure top" width="100%">
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig16" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image16.svg" />
+                    <figcaption class="multi-line-pdf">
+                      <strong>Figure 16.</strong> The number of block (a) or row
+                      (b) relaxations required to converge with good normal
+                      distribution parameters.</figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig17" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image17.svg" />
+                    <figcaption class="multi-line-pdf">
+                      <strong>Figure 17.</strong> The number of block (a) or
+                      row (b) relaxations required to converge with
+                      <em>poor</em> normal distribution parameters.</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="#fig18">Figure 18</a> shows that RBI decreases calculation
+            time (<a href="#fig18b">Figure 18b</a>) compared with BBI (<a
+               href="#fig18a">Figure 18a</a>) for all the distributions on the
+            Wahab cluster. Furthermore, a 10% convergence-time reduction is
+            observed for the row-based implementation using normal and
+            exponential distributions with good parameter choices, as compared
+            to a uniform distribution. <a href="#fig18b">Figure 18b</a> shows a
+            gradual increase in calculation time for increasing values of <span
+                  class="math-span">μ</span> beyond 200, similar to the gradual
+            increase in numbers of relaxations seen in <a href="#fig14b">Figure
+              14b</a> and <a href="#fig15b">Figure 15b</a>. For BBI on the Wahab
+            platform (<a href="#fig18a">Figure 18a</a>), the results show a jump
+            in calculation time when the normal distribution is used, which is
+            also observed on Rulfo (cf. <a href="#fig3b">Figure 3b</a>) albeit
+            at a larger <span class="math-span">μ</span> value of 46. On Wahab,
+            the BBI threshold <span class="math-span">μ</span> is 40, which
+            suggests that, for the normal distribution shared-memory
+            implementation, good parameter selection is platform-dependent, as
+            expected. In particular, having more threads results in smaller size
+            blocks, which may mitigate poor <span class="math-span">μ</span>
+            selection in the BBI.</p>
+
+          <table id="fig18" class="table-figure top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Figure 18.</strong> Wahab calculation times for each
+              implementation and all three distributions. Note the <span
+                    class="math-span">λ</span>-labeled axis pertains to the
+              exponential distribution trajectory while the <span
+                    class="math-span">μ</span>-labeled axis refers to the normal
+              distribution trajectory.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig18a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image18a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Block-based implementation.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig18b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image18b.svg" />
+                    <figcaption><strong>(b)</strong> Row-based implementation.
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>In addition to the performance benefit seen with the row-based
+            implementation, <a href="#fig19">Figure 19</a> and <a
+               href="#fig20">Figure 20</a> illustrate that the RBI produces a
+            solution with the residual values more uniformly dispersed among all
+            components. <span>For each implementation, the plots display the two
+              runs with the smallest and largest maximum component residuals,
+              out of a set of ten runs that use the exponential distribution
+              with <span class="math-span">λ = 0.05</span> for BBI and <span
+                    class="math-span">λ = 0.01</span> for RBI. The BBI gives a
+              mean maximum component residual of <span
+                    class="math-span">4.3𝑒<sup>-11</sup></span>, with a
+              standard deviation of <span
+                    class="math-span">2.2𝑒<sup>-11</sup></span>, while the
+              row-based implementation gives a mean of <span
+                    class="math-span">1.0𝑒<sup>-11</sup></span> and a standard
+              deviation of <span class="math-span">1.6𝑒<sup>-12</sup></span>.
+              Note that the largest maximum component residual produced by the
+              RBI, as seen in <a href="#fig20b">Figure 20b</a>, is about half
+              the size of the smallest component residual produced by the BBI,
+              as seen in <a href="#fig19a">Figure 19a</a>. Observe also that the
+              variations between runs are less for RBI than they are for BBI.
+          </p>
+
+          <table id="fig19" class="table-figure top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Figure 19.</strong> BBI solution component residual values
+              from the runs with the smallest and largest maximum component
+              residuals, for exponential distribution, <span class="math-span">λ
+                = 0.05</span>.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig19a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image19a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Smallest.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig19b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image19b.svg" />
+                    <figcaption><strong>(b)</strong> Largest.</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table id="fig20" class="table-figure top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Figure 20.</strong> RBI solution component residual values
+              from the runs with the smallest and largest maximum components
+              residuals, for exponential distribution, <span class="math-span">λ
+                = 0.01</span>.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig20a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image20a.svg" />
+                    <figcaption>
+                      <strong>(a)</strong> Smallest.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig20b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image20b.svg" />
+                    <figcaption><strong>(b)</strong> Largest.</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+      <section id="sect6">
+        <h1>Summary and Future Work</h1>
+
+        <p>This paper develops and tests a novel implementation of a randomized
+          asynchronous iterative solver that uses non-uniform distributions.
+          Complementing a traditional approach of block-row updates, this
+          implementation blends aspects of different solvers and relies on a
+          finer granularity (row-based) of grid component updates. As a result,
+          the row-based implementation (RBI) improves on the block-based one in
+          multiple aspects: solution quality, the number of iterations required
+          for convergence, and the calculation time. The RBI also supports a
+          wider range of parameters that yield fast convergence for the normal
+          distribution.</p>
+
+        <p>For the two asynchronous randomized solver implementations,
+          block-based and novel row-based, this paper demonstrates a benefit of
+          using a non-uniform distribution in prioritizing component updates.
+          Both BBI and RBI with non-uniform distributions converge 10% faster
+          than their counterparts with the uniform distribution do so. The
+          row-based implementation may also converge with 10% fewer iterations
+          than serial Gauss-Seidel, which is not observed for the block-based
+          implementation.</p>
+
+        <p>A further investigation into the ranking periodicity and technique
+          for sorting the residuals is warranted in the scope of studying the
+          overall efficiency of future randomized asynchronous linear solver
+          variants. Continuing to optimize the implementations will improve
+          their ability to be used either in a standalone capacity or as part of
+          another solution scheme, such as preconditioners for Krylov subspace
+          methods or as smoothers in multigrid methods. Additionally, testing on
+          a more diverse problem set may reveal further benefits to the solver
+          by dynamically focusing on the components that are furthest from
+          convergence.</p>
+      </section>
+
+      <section id="sect7" role="doc-acknowledgements">
+        <h1>Acknowledgements</h1>
+
+        <p>
+          This work was supported in part by the U.S. Department of Energy
+          (DOE) Office of Science, Office of Basic Energy Sciences,
+          Computational Chemical Sciences (CCS) Research Program under work
+          proposal number AL-18-380-057 and the Exascale Computing Project
+          (ECP) through the Ames Laboratory, operated by Iowa State
+          University under contract No. DE-AC00-07CH11358, by the U.S.
+          Department of Defense High Performance Computing Modernization
+          Program, through a HASI grant and through the ILIR/IAR program at the
+          Naval Surface Warfare Center, Dahlgren Division and by the National
+          Science Foundation under grant CNS-1828593.
+        </p>
+      </section>
+
+      <section id="sect8" class="suppressInPDF" role="doc-endnotes">
+        <h1>Footnotes</h1>
+        <ol>
+          <li id="ftn1" role="doc-endnote">The code is available from the
+            corresponding author by request.<sup><a role="doc-backlink"
+                 href="#fn_pointer_ftn1">[back]</a></sup></li>
+        </ol>
+      </section>
+
+      <section id="sect9" role="doc-bibliography">
+        <h1>Bibliography</h1>
+        <ul>
+          <li id="anzt2019fine" role="doc-biblioentry">Anzt, H., Dongarra, J.,
+            &amp; Quintana-Ortı́, E. S. (2019). Fine-Grained Bit-Flip Protection
+            for Relaxation Methods. <em>Journal of Computational Science</em>,
+            36, 100583. <a
+               href="https://dx.doi.org/10.1016/j.jocs.2016.11.013"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="ashby2010ascac" role="doc-biblioentry">Ashby, S., Beckman, P.,
+            Chen, J., Colella, P., Collins, B., Crawford, D., Dongarra, J.,
+            Kothe, D., Lusk, R., Messina, P., Mezzacappa, T., Moin, P., Norman,
+            M., Rosner, R., Sarkar, V., Siegel, A., Streitz, F., White, A.,
+            &amp; Wright, M. (2010). <em>The Opportunities and Challenges of
+              Exascale Computing</em>. U.S. Department of Energy. <a
+               href="https://science.osti.gov/-/media/ascr/ascac/pdf/reports/Exascale_subcommittee_report.pdf"><img
+                   src="../../icons/pdf.png" /></a></li>
+          <li id="avron2015revisiting" role="doc-biblioentry">Avron, H.,
+            Druinsky, A., &amp; Gupta, A. (2015). Revisiting Asynchronous Linear
+            Solvers: Provable Convergence Rate Through Randomization.
+            <em>Journal of the ACM</em>, 62(6), 51. <a
+               href="https://dx.doi.org/10.1145/2814566"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="baboulin2015using" role="doc-biblioentry">Baboulin, M., Li, X.
+            S., &amp; Rouet, F-H. (2015). Using Random Butterfly Transformations
+            to Avoid Pivoting in Sparse Direct Methods. In Daydé, M., Marques,
+            O., &amp; Nakajima, K. (eds) <em>High Performance Computing for
+              Computational Science</em> (pp. 135–144). Lecture Notes in
+            Computer Science, vol 8969. Cham: Springer. <a
+               href="https://dx.doi.org/10.1007/978-3-319-17353-5_12"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="chazan1969chaotic" role="doc-biblioentry">Chazan, D. &amp;
+            Miranker, W. (1969). Chaotic relaxation. <em>Linear Algebra and Its
+              Applications</em>, 2(2), 199–222. <a
+               href="https://dx.doi.org/10.1016/0024-3795(69)90028-7"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="chow2015fine" role="doc-biblioentry">Chow, E. &amp; Patel, A.
+            (2015). Fine-Grained Parallel Incomplete LU Factorization. <em>SIAM
+              Journal on Scientific Computing</em>, 37(2), C169–C193. <a
+               href="https://dx.doi.org/10.1137/140968896"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="coleman2019enhancing" role="doc-biblioentry">Coleman, E.,
+            Jensen, E., &amp; Sosonkina, M. (2019). Enhancing Asynchronous
+            Linear Solvers through Randomization. In <em>Proceedings of the High
+              Performance Computing Symposium</em>. San Diego, CA: Society for
+            Computer Simulation International. <a
+               href="https://dl.acm.org/doi/10.5555/3338075.3338085"><img
+                   src="../../icons/html.png" /></a></li>
+          <li id="dongarra2014applied" role="doc-biblioentry">Dongarra, J.,
+            Hittinger, J., Bell, J., Chacon, L., Falgout, R., Heroux, M.,
+            Hovland, P., Ng, E., Webster, C., &amp; Wild, S. (2014). <em>Applied
+              Mathematics Research for Exascale Computing</em>. Livermore, CA:
+            Lawrence Livermore National Laboratory. <a
+               href="https://science.osti.gov/-/media/ascr/pdf/research/am/docs/EMWGreport.pdf"><img
+                   src="../../icons/pdf.png" /></a></li>
+          <li id="frommer2000asynchronous" role="doc-biblioentry">Frommer, A.
+            &amp; Szyld, D. B. (2000). On Asynchronous Iterations. <em>Journal
+              of Computational and Applied Mathematics</em>, 123(1–2), 201–216.
+            <a href="https://dx.doi.org/10.1016/S0377-0427(00)00409-X"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="griebel2012greedy" role="doc-biblioentry">Griebel, M. &amp;
+            Oswald, P. (2012). Greedy and Randomized Versions of the
+            Multiplicative Schwarz Method. <em>Linear Algebra and its
+              Applications</em>, 437(7), 1596–1610. <a
+               href="https://dx.doi.org/10.1016/j.laa.2012.04.052"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="kashi2018asynchronous" role="doc-biblioentry">Kashi, A.,
+            Vangara, S., &amp; Nadarajah, S. (2018). Asynchronous Fine-Grain
+            Parallel Smoothers for Computational Fluid Dynamics. In <em>2018
+              Fluid Dynamics Conference</em>. <a
+               href="https://dx.doi.org/10.2514/6.2018-3558"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="leventhal2010randomized" role="doc-biblioentry">Leventhal, D.
+            &amp; Lewis, A. S. (2010). Randomized Methods for Linear
+            Constraints: Convergence Rates and Conditioning. <em>Mathematics of
+              Operations Research</em>, 35(3), 641–654. <a
+               href="https://dx.doi.org/10.1287/moor.1100.0456"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="lindeberg1990scale" role="doc-biblioentry">Lindeberg, T.
+            (1990). Scale-Space for Discrete Signals. <em>IEEE Transactions on
+              Pattern Analysis and Machine Intelligence</em>, 12(3): 234–254. <a
+               href="https://dx.doi.org/10.1109/34.49051"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="nutini2015coordinate" role="doc-biblioentry">Nutini, J.,
+            Schmidt, M., Laradji, I., Friedlander, M., &amp; Koepke, H. (2015).
+            Coordinate Descent Converges Faster with the Gauss-Southwell Rule
+            Than Random Selection. In <em>Proceedings of the 32nd International
+              Conference on Machine Learning</em>, 1632–1641. <a
+               href="http://proceedings.mlr.press/v37/nutini15.pdf"><img
+                   src="../../icons/pdf.png" /></a></li>
+          <li id="parker1995random" role="doc-biblioentry">Parker, D. S. (1995).
+            <em>Random Butterfly Transformations with Applications in
+              Computational Linear Algebra</em> (Report No. CSD-950023). Los
+            Angeles, CA: University of California. <a
+               href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=AA603566876D2F305CC1D849A91A2908?doi=10.1.1.17.7932&rep=rep1&type=pdf"><img
+                   src="../../icons/pdf.png" /></a></li>
+          <li id="recht2011hogwild" role="doc-biblioentry">Recht, B., Re, C.,
+            Wright, S. &amp; Niu, F. (2011). Hogwild: A Lock-Free Approach to
+            Parallelizing Stochastic Gradient Descent. In Shawe-Taylor, J.,
+            Zemel, R. S., Bartlett, P. L., Pereira, F., &amp; Weinberger, K. Q.
+            (eds) <em>Advances in Neural Information Processing Systems 24</em>
+            (pp. 693–701). Red Hook, NY: Curran Associates. <a
+               href="http://papers.nips.cc/paper/4390-hogwild-a-lock-free-approach-to-parallelizing-stochastic-gradient-descent.pdf"><img
+                   src="../../icons/pdf.png" /></a></li>
+          <li id="smith1985numerical" role="doc-biblioentry">Smith, G. D.
+            (1985). <em>Numerical Solution of Partial Differential Equations:
+              Finite Difference Methods</em>. Oxford: Oxford University Press.
+          </li>
+          <li id="southwell1946relaxation" role="doc-biblioentry">Southwell, R.
+            V. (1946). <em>Relaxation Methods in Theoretical Physics: A
+              Continuation of the Treatise, Relaxation Methods in Engineering
+              Science</em>. Oxford: The Claderon Press.
+          </li>
+          <li id="srivastava2011distributed" role="doc-biblioentry">Srivastava,
+            K. &amp; Nedic, A. (2011). Distributed Asynchronous Constrained
+            Stochastic Optimization. <em>IEEE Journal of Selected Topics in
+              Signal Processing</em>, 5(4), 772-790. <a
+               href="https://dx.doi.org/10.1109/JSTSP.2011.2118740"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="strikwerda2002probabilistic" role="doc-biblioentry">
+            Strikwerda, J. C. (2002). A Probabilistic Analysis of Asynchronous
+            Iteration. <em>Linear Algebra and Its Applications</em>, 349(1-3),
+            125–154. <a
+               href="https://dx.doi.org/10.1016/S0024-3795(02)00258-6"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="strikwerda2004finite" role="doc-biblioentry">Strikwerda, J. C.
+            (2004). <em>Finite Difference Schemes and Partial Differential
+              Equations</em>. Philadelphia, PA: Society for Industrial and
+            Applied Mathematics. <a
+               href="https://1lib.eu/book/2461647/afcd4d?regionChanged=&redirect"><img
+                   src="../../icons/html.png" /></a>
+          </li>
+          <li id="strohmer2009randomized" role="doc-biblioentry">
+            Strohmer, T. &amp; Vershynin, R. (2009). A Randomized Kaczmarz
+            Algorithm with Exponential Convergence. <em>Journal of Fourier
+              Analysis and Applications</em>, 15(2), 262. <a
+               href="https://dx.doi.org/10.1007/s00041-008-9030-4"><img
+                   src="../../icons/doi.png" /></a></li>
+          <li id="wolfson2017distributed" role="doc-biblioentry">Wolfson-Pou, J.
+            &amp; Chow, E. (2017). Distributed Southwell: An Iterative Method
+            with Low Communication Costs. In <em>Proceedings of the
+              International Conference for High Performance Computing,
+              Networking, Storage and Analysis</em>. New York, NY: Association
+            for Computing Machinery. <a
+               href="https://dl.acm.org/doi/10.1145/3126908.3126966"><img
+                   src="../../icons/doi.png" /></a></li>
+        </ul>
+      </section>
+
+      <section id="sect10" class="no-counter">
+        <h1>Copyright Information</h1>
+        <p prefix="cc: http://creativecommons.org/ns#">
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"><img alt="Creative Commons License"
+                 src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+          Copyright © 2020 <span property="cc:attributionName">Erik
+            Jensen</span>, <span property="cc:attributionName">Evan C.
+            Coleman</span>, <span property="cc:attributionName">Masha
+            Sosonkina</span>. This article is licensed under a <a rel="license"
+             href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank">Creative Commons Attribution 4.0 International
+            License</a>.
+        </p>
+      </section>
+    </main>
+
+    <nav id="toc" class="suppressInPDF">
+      <h1>Outline</h1>
+      <ol>
+        <li><a href="#sect0">Abstract</a></li>
+        <li><a href="#sect1">Introduction</a></li>
+        <li><a href="#sect2">Related Work</a></li>
+        <li><a href="#sect3">Overview of Asynchronous Iterative Methods</a></li>
+        <li><a href="#sect4">Asynchronous Solver Design with Non-Uniform
+            Distributions</a></li>
+        <li><a href="#sect5">Implementation Results</a></li>
+        <li><a href="#sect6">Summary and Future Work</a></li>
+        <li><a href="#sect7">Acknowledgements</a></li>
+        <li><a href="#sect8">Footnotes</a></li>
+        <li><a href="#sect9">Bibliography</a></li>
+        <li><a href="#sect10">Copyright Information</a></li>
+      </ol>
+      <div id="share">
+        <button id="share-this" title="Share this">Share...</button>
+        <ul class="links">
+          <li class="share facebook" title="Share on Facebook"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-facebook" viewBox="0 0 18 18">
+                <path
+                      d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-facebook" />
+            </svg></li>
+          <li class="share twitter" title="Share on Twitter"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-twitter" viewBox="0 0 18 18">
+                <path
+                      d="M16.5,4.3c-0.6,0.2-1.1,0.4-1.8,0.5c0.6-0.4,1.1-1,1.4-1.7c-0.6,0.4-1.3,0.6-2,0.8c-0.6-0.6-1.4-1-2.2-1 c-1.7,0-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7C6.3,6.5,4.1,5.3,2.5,3.4C2.3,3.9,2.1,4.4,2.1,5c0,1.1,0.5,2,1.4,2.6 c-0.5,0-1-0.2-1.4-0.4c0,0,0,0,0,0c0,1.5,1.1,2.8,2.5,3.1c-0.3,0.1-0.5,0.1-0.8,0.1c-0.2,0-0.4,0-0.6-0.1c0.4,1.2,1.5,2.1,2.9,2.2 c-1.1,0.8-2.4,1.3-3.8,1.3c-0.2,0-0.5,0-0.7,0c1.4,0.9,3,1.4,4.7,1.4c5.7,0,8.8-4.7,8.8-8.9c0-0.1,0-0.3,0-0.4 C15.6,5.5,16.1,4.9,16.5,4.3">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-twitter" />
+            </svg></li>
+          <li class="share linkedin" title="Share on LinkedIn"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-linkedin" viewBox="0 0 18 18">
+                <path
+                      d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-linkedin" />
+            </svg></li>
+          <li class="share email" title="Share with Email"><a
+               aria-label="Share with Email" href="" target="_blank"><svg
+                   aria-hidden="true" class="icon-social">
+                <symbol id="social-mail" viewBox="0 0 18 18">
+                  <path
+                        d="M9,8.2L3,4.5h12L9,8.2z M15,13.5H3V6l6,3.8L15,6V13.5z M15,3H3C2.2,3,1.5,3.7,1.5,4.5l0,9C1.5,14.3,2.2,15,3,15 h12c0.8,0,1.5-0.7,1.5-1.5v-9C16.5,3.7,15.8,3,15,3z">
+                  </path>
+                </symbol>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#social-mail" />
+              </svg></a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+
+</html>
