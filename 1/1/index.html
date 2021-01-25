@@ -888,7 +888,7 @@
               there is an association between the classes <code>ServiceDesk</code> and <code>Customer</code> with an ordered association end named
               <code>waitingCustomers</code> representing a queue. The annotation <code>{ordered}</code> means that the collection of
               <code>Customer</code> instances associated with a particular <code>ServiceDesk</code> is a linearly ordered set that allows to retrieve
-              (or <q>pop</q>) the next customer from the <code>waitingCustomers</code> queue.</p>
+              (or <em>dequeue</em>) the next customer from the <code>waitingCustomers</code> queue.</p>
             </li>
           </ol>
 
@@ -1855,7 +1855,7 @@ ServiceDesk<span class="token punctuation">.</span><span class="token function-v
 
                   <td>
                     <pre>                  <code>
-sd.waitingCustomers.<b>push</b>(c)
+sd.waitingCustomers.<b>enqueue</b>(c)
 <b>if</b> sd.waitingCustomers.length = 1 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
    (t + ServiceDesk.serviceDuration())
@@ -1875,7 +1875,7 @@ sd.waitingCustomers.<b>push</b>(c)
 
                   <td>
                     <pre>                  <code>
-sd.waitingCustomers.<b>pop</b>()
+sd.waitingCustomers.<b>dequeue</b>()
 <b>if</b> sd.waitingCustomers.length &gt; 0 <b>then</b>
   <b>schedule</b> CustomerDeparture( sd) @
    (t + ServiceDesk.serviceDuration())
@@ -1908,7 +1908,7 @@ sd.waitingCustomers.<b>pop</b>()
               <figcaption><strong>Figure 28.</strong> A DPMN process design model integrating the two rule design models.</figcaption>
             </figure>
 
-            <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>PUSH</em> and <em>POP</em>
+            <p>Notice that since <code>sd.waitingCustomers</code> denotes a <em>queue</em>, we use the queue operations <em>ENQUEUE</em> and <em>DEQUEUE</em>
             in the state change statements within the <code>sd:ServiceDesk</code> object rectangle. Generally, in DPMN, state change statements are
             expressed in a state change language that depends on the state structure of the modeled system. Typically, this will be an object-oriented
             system state structure where basic state changes consist of attribute value changes as well as creations and destructions of links between
@@ -1934,7 +1934,7 @@ sd.waitingCustomers.<b>pop</b>()
       <span class="token keyword">this</span><span class="token punctuation">.</span>customer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>
         <span class="token punctuation">{</span>arrivalTime<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>occTime<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       sim<span class="token punctuation">.</span><span class="token function">addObject</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>customer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment">// push new customer to the queue</span>
+      <span class="token comment">// enqueue new customer</span>
       sd<span class="token punctuation">.</span>waitingCustomers<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>customer<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">// if the service desk is not busy</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>sd<span class="token punctuation">.</span>waitingCustomers<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1959,7 +1959,7 @@ sd.waitingCustomers.<b>pop</b>()
     <span class="token string">"onEvent"</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">var</span> srvTm<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> followupEvents<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
           sd <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>serviceDesk<span class="token punctuation">;</span>
-      <span class="token comment">// pop customer from FIFO queue</span>
+      <span class="token comment">// dequeue customer from FIFO queue</span>
       <span class="token keyword">var</span> departingCustomer <span class="token operator">=</span> sd<span class="token punctuation">.</span>waitingCustomers<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">// remove customer from simulation</span>
       sim<span class="token punctuation">.</span><span class="token function">removeObject</span><span class="token punctuation">(</span> departingCustomer<span class="token punctuation">)</span><span class="token punctuation">;</span>
