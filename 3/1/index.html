@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JSimE 3/1 - A Gamefied Synthetic Environment for Evaluation of Counter-Disinformation Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Google Scholar-->
+    <meta name="citation_publisher"
+          content="Consortium for True Open Access in Modeling and Simulation" />
+    <meta name="citation_journal_title"
+          content="Journal of Simulation Engineering" />
+    <meta name="citation_journal_abbrev" content="JSimE" />
+    <meta name="citation_issn" content="2569-9466" />
+    <meta name="citation_volume" content="3" />
+    <meta name="citation_firstpage" content="7:1" />
+    <meta name="citation_lastpage" content="7:23" />
+    <meta name="citation_title"
+          content="A Gamefied Synthetic Environment for Evaluation of Counter-Disinformation Solutions" />
+    <meta name="citation_article_type" content="Article" />
+    <meta name="citation_online_date" content="2022/4/7" />
+    <meta name="citation_publication_date" content="2022/4/7" />
+    <meta name="citation_author" content="Jesse Richman" />
+    <meta name="citation_author_email" content="jrichman@odu.edu" />
+    <meta name="citation_author_institution"
+          content="Old Dominion University, Norfolk, VA, United States" />
+    <meta name="citation_author" content="Lora Pitman" />
+    <meta name="citation_author_email" content="lhadzhid@odu.edu" />
+    <meta name="citation_author_institution"
+          content="Old Dominion University, Norfolk, VA, United States" />
+    <meta name="citation_author" content="Girish Sreevatsan Nandakumar" />
+    <meta name="citation_author_email" content="gnand002@odu.edu" />
+    <meta name="citation_author_institution"
+          content="Old Dominion University, Norfolk, VA, United States" />
+    <meta name="citation_abstract_html_url"
+          content="https://jsime.org/index.php/jsimeng/article/view/13" />
+    <meta name="citation_pdf_url"
+          content="https://articles.jsime.org/3/jsime-article-3-1.pdf" />
+    <meta name="citation_fulltext_html_url"
+          content="https://articles.jsime.org/3/1/A-Gamefied-Synthetic-Environment-for-Evaluation-of-Counter-Disinformation-Solutions" />
+    <!--Open Graph-->
+    <meta property="og:title"
+          content="A Gamefied Synthetic Environment for Evaluation of Counter-Disinformation Solutions" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+          content="This paper presents a simulation-based approach to developing strategies aimed at countering online disinformation and misinformation. This disruptive technology experiment incorporated a synthetic environment component, based on an adapted Susceptible-Infected-Recovered (SIR) epidemiological model to evaluate and visualize the effectiveness of suggested solutions to the issue. The participants in the simulation were given two realistic scenarios depicting a disinformation threat and were asked to select a number of solutions, described in Ideas-of-Systems (IoS) cards. During the event, the qualitative and quantitative characteristics of the IoS cards were tested in a synthetic environment, built after a SIR model. The participants, divided into teams, presented and justified their strategy which included three IoS card selections. A jury of subject matter experts, announced the winning team, based on the merits of the proposed strategies and the compatibility of the different cards, grouped together." />
+    <meta property="og:url"
+          content="https://articles.jsime.org/3/1/A-Gamefied-Synthetic-Environment-for-Evaluation-of-Counter-Disinformation-Solutions" />
+    <meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="JSimE" />
+    <meta property="og:site_name" content="Journal of Simulation Engineering" />
+    <!--Twitter-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title"
+          content="A Gamefied Synthetic Environment for Evaluation of Counter-Disinformation Solutions" />
+    <!--Canonical URL-->
+    <link rel="canonical"
+          href="https://articles.jsime.org/3/1/A-Gamefied-Synthetic-Environment-for-Evaluation-of-Counter-Disinformation-Solutions" />
+    <!--Stylesheets-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="../../jsime.css" />
+    <!-- Style -->
+    <style>
+      .small-caps {
+        font-variant: small-caps;
+      }
+
+      .table-matrix td {
+        border-style: hidden;
+        text-align: center;
+      }
+
+      .table-figure caption {
+        caption-side: bottom;
+      }
+
+      .table-figure td {
+        border-style: hidden;
+        text-align: center;
+        caption-side: bottom;
+        padding: 5px;
+      }
+
+      tr.border_top_bottom td {
+        border-top: 1pt solid black;
+        border-bottom: 1pt solid black;
+      }
+
+      td.border_left_right {
+        border-left: 1pt solid black;
+        border-right: 1pt solid black;
+      }
+
+      .page-break {
+        border: none;
+        margin: 0;
+        page-break-before: always;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="async"
+            src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push( arguments );
+      }
+      gtag( 'js', new Date() );
+      gtag( 'config', 'UA-115543812-1', {
+        'anonymize_ip': true
+      } );
+    </script>
+    <!--Scripts-->
+    <script defer src="../../jsime.js"></script>
+    <!--schema.org JSON-LD-->
+    <script type="application/ld+json">
+{
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "A Gamefied Synthetic Environment for Evaluation of Counter-Disinformation Solutions",
+      "author": [
+        { "@id": "/3/1/author-1" },
+        { "@id": "/3/1/author-2" },
+        { "@id": "/3/1/author-3" }
+      ],
+      "keywords": [ "This paper presents a simulation-based approach to developing strategies aimed at countering online disinformation and misinformation. This disruptive technology experiment incorporated a synthetic environment component, based on an adapted Susceptible-Infected-Recovered (SIR) epidemiological model to evaluate and visualize the effectiveness of suggested solutions to the issue. The participants in the simulation were given two realistic scenarios depicting a disinformation threat and were asked to select a number of solutions, described in Ideas-of-Systems (IoS) cards. During the event, the qualitative and quantitative characteristics of the IoS cards were tested in a synthetic environment, built after a SIR model. The participants, divided into teams, presented and justified their strategy which included three IoS card selections. A jury of subject matter experts, announced the winning team, based on the merits of the proposed strategies and the compatibility of the different cards, grouped together.",
+      "url": "https://articles.jsime.org/3/1/A-Gamefied-Synthetic-Environment-for-Evaluation-of-Counter-Disinformation-Solutions",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [
+        { "@id": "/3/1/author-1" },
+        { "@id": "/3/1/author-2" },
+        { "@id": "/3/1/author-3" }
+      ],
+      "copyrightYear": "2022",
+      "dateCreated": "2022-04-02",
+      "dateModified": "2020-04-07",
+      "datePublished": "2020-04-07",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2022-04-07",
+        "volumeNumber": "3",
+        "url": "https://articles.jsime.org/3/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": [
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010147.10010341",
+          "codeValue": "Computing methodologies~Modeling and simulation",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10002978.10003029.10003032",
+          "codeValue": "Security and privacy~Social aspects of security and privacy",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        }
+      ]
+    },
+    {
+      "@id": "/3/1/author-1",
+      "@type": "Person",
+      "name": "Jesse Richman",
+      "email": "jrichman@odu.edu",
+      "affiliation": [
+        { "@id": "/3/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/3/1/author-2",
+      "@type": "Person",
+      "name": "Lora Pitman",
+      "email": "lhadzhid@odu.edu",
+      "affiliation": [
+        { "@id": "/3/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/3/1/author-3",
+      "@type": "Person",
+      "name": "Girish Sreevatsan Nandakumar",
+      "email": "gnand002@odu.edu",
+      "affiliation": [
+        { "@id": "/3/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/3/1/affiliation-1",
+      "@type": "Organization",
+      "name": "Old Dominion University",
+      "address": {
+        "addressLocality": "Norfolk",
+        "addressRegion": "Virginia",
+        "addressCountry": "United States"
+      }
+    }
+  ]
+}
+</script>
+  </head>
+
+  <body vocab="http://schema.org/">
+    <header>
+      <a href="https://jsime.org" target="_blank"><img src="../../JSimE.svg"
+             style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of
+        Simulation Engineering</i>, Volume 3 (2022/2023). Article URL: <a
+         href="https://articles.jsime.org/3/1/A-Gamefied-Synthetic-Environment-for-Evaluation-of-Counter-Disinformation-Solutions"
+         id="articleURL" target="_blank">https://articles.jsime.org/3/1</a><a
+         id="PDF" class="suppressInPDF"
+         href="https://jsime.org/index.php/jsimeng/article/view/13"
+         style="position: relative; left: 1em" target="_blank"><img
+             src="../../icons/pdf.png" /></a>
+    </header>
+    <main>
+      <div id="front-matter">
+        <div id="article-number">7</div>
+        <h1 id="article-title">A Gamefied Synthetic Environment for Evaluation of Counter-Disinformation Solutions</h1>
+        <div id="article-title-abbr">Gamefied Synthetic Environment for Counter-Disinformation</div>
+        <div id="authors">
+          <address typeof="Person">
+            <div property="name">
+              Jesse Richman
+            </div>
+            <div property="email">
+              <a href="mailto:jrichman@odu.edu">jrichman@odu.edu</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Lora Pitman<sup><img src="../../icons/envelope.png" alt="Envelope" /></sup>
+            </div>
+            <div property="email">
+              <a href="mailto:lhadzhid@odu.edu">lhadzhid@odu.edu</a>
+            </div>
+          </address>
+          <address style="display: block; margin: 0.5em auto" typeof="Person">
+            <div property="name">
+              Girish S. Nandakumar
+            </div>
+            <div property="email">
+              <a href="mailto:gnand002@odu.edu">gnand002@odu.edu</a>
+            </div>
+          </address>
+          <div class="affiliation">
+            Old Dominion University, Norfolk, VA, United States
+          </div>
+        </div>
+        <div id="acm-subject-categories">
+          <h1>ACM Subject Categories</h1>
+          <ul>
+            <li><code>Computing methodologies~Modeling and simulation</code>
+            </li>
+            <li>
+              <code>Security and privacy~Social aspects of security and privacy</code>
+            </li>
+          </ul>
+        </div>
+        <div id="keywords">
+          <h1>Keywords</h1>
+          <ul class="list-inline comma-separated">
+            <li>Disinformation</li>
+            <li>Simulation</li>
+            <li>Synthetic Environment</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="sect0" role="doc-abstract">
+        <h1>Abstract</h1>
+
+        <p>
+          This paper presents a simulation-based approach to developing strategies aimed at countering online disinformation and misinformation. This disruptive technology experiment incorporated a synthetic environment component, based on an adapted Susceptible-Infected-Recovered (SIR) epidemiological model to evaluate and visualize the effectiveness of suggested solutions to the issue. The participants in the simulation were given two realistic scenarios depicting a disinformation threat and were asked to select a number of solutions, described in Ideas-of-Systems (IoS) cards. During the event, the qualitative and quantitative characteristics of the IoS cards were tested in a synthetic environment, built after a SIR model. The participants, divided into teams, presented and justified their strategy which included three IoS card selections. A jury of subject matter experts, announced the winning team, based on the merits of the proposed strategies and the compatibility of the different cards, grouped together.
+        </p>
+      </section>
+
+      <section id="sect1">
+        <h1>Introduction</h1>
+
+        <p>Online disinformation (false information deliberately intended to mislead) has emerged as one of the most serious challenges in the era of digital information. For example, disinformation related to a pandemic, such as the COVID-19 one, can both exacerbate a health crisis and have implications for the cohesiveness and unity of international security organizations and institutions. Starting in early 2020, both state and non-state actors began carrying out disinformation campaigns aimed at exploiting the pandemic to instill fear, create distrust, and destabilize Western communities. Pandemic-related disinformation was used as a weapon to undermine NATO and U.S. forces in multiple countries such as Latvia, Poland, and Lithuania (<a role="doc-biblioref" href="#bbc2020">BBC, 2020</a>). Disinformation campaigns are slowing the response to the pandemic and weakening confidence in local authorities and international entities (e.g., WHO, NATO, EU). Examples of the harmful effects of these campaigns include fake letters and emails that aim to instill fear in communities which have a NATO presence.</p>
+
+        <p>The need for virtual environments or "synthetic environments" has been repeatedly recognized by NATO and by leading think tanks such as the Atlantic Council (<a role="doc-biblioref" href="#daw2005">Daw, 2005</a>; <a role="doc-biblioref" href="#harper2020">Harper, 2020</a>). Synthetic environments (henceforth referred to as SENs) such as flight simulators have also been in use continuously. Scenarios involving kinetic warfare can be modeled and simulated much more easily than scenarios involving non-kinetic aspects such as disinformation and strategic decision making. However, today's 'gray zone conflicts' (<a role="doc-biblioref" href="#chipman2018">Chipman, 2018</a>; <a role="doc-biblioref" href="#spitzack2018">Spitzack, 2018</a>) have created a pressing need for simulation-based wargaming approaches to such non-kinetic topics. COVID-19 disinformation campaigns – the topic used in this experiment – is a suitable example for such an issue, requiring immediate attention. In the application reported here a SEN is adapted aimed at making people filter, refine, and combine the best solutions to the given problem (in the form of a scenario). Thus the virtual environment helps evaluate potential solutions to the disinformation problem being faced by NATO in a variety of domains.</p>
+
+        <p>This paper describes a successful application of SEN in the context of a wargame sponsored by NATO. It is the first study to describe the application of computational simulation methods to facilitate a virtual wargame in an international security context, with the application in this instance to strategies for combatting the spread of disinformation. Here the dynamics associated with COVID-19 disinformation served as a foundation for the scenarios used in the simulation. Much like a pandemic, disinformation and misinformation spread across communities and cast doubt in perceptions of security. Drawing on this parallel, a Susceptible-Infected-Resistant (SIR) model (<a role="doc-biblioref" href="#kermackMckendrick1927">Kermack &amp; McKendrick, 1927</a>) was chosen as the basis of the SEN for the war-simulation, described in this paper, to visualize and illustrate not only the detrimental and rapidly expanding consequences from disinformation, but also the potential solutions to this issue.</p>
+
+        <p>The study makes several contributions. First, it is a case study examining the implementation of SEN-based virtual war-game simulation that brought together participants in multiple NATO countries. Second, the SEN itself applies a novel SIR model customized to the problem of disinformation spread. Third, in the context of the SEN scenario case study, a series of new proposed technical strategies for combatting the spread of disinformation were tested through the wargame, providing a novel evaluation of these open-innovation-challenge sourced technological options. This paper's contributions thus include a case study evaluating the application of the SEN to multi-location virtual-wargaming by NATO, the modified SIR model which was the basis for the SEN, and the assessment and evaluation of the anti-disinformation technologies through the SEN-based virtual wargame.</p>
+
+        <p>The remainder of the paper proceeds as follows. <a href="#sect2">Section 2</a> provides an overview of the structure and sequencing of components of the experiment. <a href="#sect3">Section 3</a> introduces SIR epidemic models, and the history of their adaptation to the context of disinformation spread. <a href="#sect4">Section 4</a> describes the integration of the virtual environment as a component of the virtual wargame, the purpose to which these were applied in this case: evaluating potential technological tools proposed to NATO for countering disinformation spread. <a href="#sect5">Section 5</a> describes the results of the case study: how application of SEN as part of a virtual wargame played out, and the results of this application for the evaluation of the technology proposals. <a href="#sect6">Section 6</a> outlines what was achieved with the simulation and the limitations of the experiment.</p>
+      </section>
+
+      <section id="sect2">
+        <h1>Project Structure</h1>
+
+        <p>This study developed a SEN (Synthetic Environment) based on the SIR model as a core element of an internet-based virtual-wargaming exercise. The SEN was intended to use a distributed online format to help participants understand the problem of disinformation more deeply by modeling the dynamics that dictate the spread of both disinformation (i.e., false information intended to mislead) and misinformation (i.e., false information that is not spread with the intention to deceive) within social networks. At the same time it was also intended to help the organizers develop and evaluate solutions that can help counter such campaigns.</p>
+
+        <p>The simulation described in this paper presents an innovative approach that integrates a Disruptive Technology Experiment (DTEX). The Disruptive Technology Experiment (DTEX) is a NATO wargame designed by the NATO ACT Innovation Hub. DTEX is designed to test ideas and technologies that can solve problems for NATO. For this purpose, the simulation described in this paper was combined with the SEN that mimics the dynamics of disinformation and misinformation spread. The SEN, used in this simulation was an adaptation of an epidemiological SIR model used to understand the spread of diseases.</p>
+
+        <p>The overall experimental structure was as follows:</p>
+
+        <ol>
+          <li>Building on a classic agent-based SIR model (<a role="doc-biblioref" href="#stonedahlWilensky2008">Stonedahl &amp; Wilensky, 2008</a>), a model of the epidemic spread of disinformation in a network was created. This served as the SEN in the experiment.</li>
+          <li>Through an innovation challenge, proposed technological solutions to the challenge of disinformation spread were collected and summarized for experiment participants.</li>
+          <li>Experts rated the likely impact of the technological solutions for the parameters of the SEN.</li>
+          <li>Wargame participants were recruited, and two teams were created. Teams were briefed on the disinformation spread scenario and the technological solutions. Teams were given access to the SEN.</li>
+          <li>Teams communicated with each other using synchronous online communication to develop strategies involving selections of technological solutions.</li>
+          <li>Teams presented their solutions and were judged both on the basis of their presentation and on the duration of the disinformation 'infection' after the SEN parameters were modified based upon their proposed solution.</li>
+          <li>The research team evaluated the SEN and considered modifications to the model, and evaluated the proposed technological solutions.</li>
+        </ol>
+
+        <p>This amalgamated approach has been used to test 46 suggested solutions to counter disinformation that were collected through an open innovation challenge – a competition between different individuals or entities intended to introduce a solution to a problem. The core activity in this simulation involved two teams which competed against each other to identify the best of the open-innovation-challenge sourced ideas that solved problems detailed in realistic scenarios. The teams in the disinformation wargame or DTEX assessed the merit of the ideas qualitatively and then quantitatively, using the SEN environment, to decide the best solutions for each scenario that they were given.</p>
+      </section>
+
+      <section id="sect3">
+        <h1>The SIR Model</h1>
+
+        <section id="sect3.1">
+          <h1>Applicability of SIR Models to Disinformation Models</h1>
+
+          <p>Susceptible-Infected-Recovered (SIR) models such as the one applied to create the synthetic environment (SEN) used in this study have a long history of application across many fields. These models began in epidemiology in the 1920s with work by William Ogilvy Kermack and Anderson Gray McKendrick (<a role="doc-biblioref" href="#kermackMckendrick1927">Kermack &amp; McKendrick, 1927</a>), but have also long been applied to study the transmission of ideas, narratives, and rumors (<a role="doc-biblioref" href="#goffmanNewill1964">Goffman &amp; Newill, 1964</a>; <a role="doc-biblioref" href="#daleyKendall1964">Daley & Kendall, 1964</a>). These models capture key aspects relevant to the spread of disinformation and misinformation in social networks, and provide a parsimonious way to characterize components of the strategic situation faced by those seeking to influence information spread.</p>
+
+          <p>SIR models include a population consisting of individuals or agents of at least three types: susceptible, infected, and recovered or resistant<a href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref"><sup>1</sup></a>. Transition probabilities in the SIR model govern the movement of agents from one state to another. Solutions for SIR models have been examined numerically, through simulations, and in recent years for specific parameter values exact analytical solutions have been computed as well (<a role="doc-biblioref" href="#harkoEtAl2014">Harko et al., 2014</a>).</p>
+
+          <p>The typical results of a SIR model run involve initial infection spread as infected individuals initially encounter mostly susceptible individuals. Then, a peak level of infection intensity as recovery and less availability of susceptible individuals balances new infections. Lastly, there is typically a decline in the number of infected individuals as recovery / resistance combine with diminished numbers of susceptible individuals to end the epidemic, often before all susceptible individuals have become exposed. There are several SIR model variants with alternative assumptions. For example, in the SIS model recovered agents remain susceptible, while in the SIR model, recovered agents are no longer susceptible. In the SIRS model, resistance to infection fades over time. The SEIHFR model has six categories, adding Exposed (but not yet symptomatic), Hospitalized (and thus perhaps less infectious), and Funeral (dead, not buried, and hence potentially still infectious) categories and has been used to model Ebola epidemics (<a role="doc-biblioref" href="#drakeEtAl2015">Drake et al., 2015</a>). The model variant used in this project allows for a possibility that infected agents who recover will transition to either the susceptible (S) or resistant (R) categories. <a href="#sect3.2">Section 3.2</a> describes how we modified the standard SIR model to fit with the disinformation context.</p>
+
+          <p>SIR and related models have long been recognized as an effective framework for studying the spread of misinformation and disinformation. Key early work in the 1960s by Goffman and Newill (<a role="doc-biblioref" href="#goffmanNewill1964">Goffman &amp; Newill, 1964</a>>) and Daley and Kendall (<a role="doc-biblioref" href="#daleyKendall1964">Daley & Kendall, 1964</a>) pioneered the application of SIR and related models to the spread of information and rumors. These authors noted that the spread of ideas or information, like the spread of an infection, involved transmission from one individual to another, and that the SIR framework could provide a fruitful approach for modeling this process. At the same time, the models also account for a range of potential modifications such as effects of encountering other infected and/or resistant individuals.</p>
+
+          <p>The SIR model has been applied widely to information and idea transmission in fields including politics, economics, marketing, health, and communication. For example, recent work by Nobel prize winning economics professor Robert J. Schiller (<a role="doc-biblioref" href="#schiller2019">Schiller, 2019</a>), applies SIR epidemic models to understand the role of narratives in shaping economic behavior across a wide range of domains from speculation in Bitcoin to economic cycles, stock market bubbles, and many more. Work by Zhao, Weng and co-authors has expanded study of the spread of competing ideas and the dynamics of when and how ideas go 'viral' in social networks (<a role="doc-biblioref" href="#wengEtAl2012">Weng et al., 2012</a>; <a role="doc-biblioref" href="#wengEtAl2013">Weng et al., 2013</a>; <a role="doc-biblioref" href="#zhaoEtAl2013">Zhao et al., 2013</a>). Bauckhage and colleagues examined attention to social media services (<a role="doc-biblioref" href="#bauckhageEtAl2014">Bauckhage et al., 2014</a>) and viral videos (<a role="doc-biblioref" href="#bauckhageEtAl2015">Bauckhage et al., 2015</a>). Internet memes can also be effectively modeled using an SIR framework, and Beskow and co-authors extended this work to study the evolution of political memes (<a role="doc-biblioref" href="#beskowEtAl2020">Beskow et al., 2020</a>). Across domains, epidemic models have provided useful insights into idea, information, and disinformation transmission.</p>
+
+          <p>One important distinction between the models involves whether agents assort at random or exist in a network structure. Random assortment is simpler to model for obvious reasons, but network structures often are particularly important for modeling transmission of ideas in realistic settings because they allow for differences in influence between actors. The most relevant models for the analysis of disinformation involve models with network effects and these models are often best analyzed using agent-based models in which the network structure can be directly analyzed (<a role="doc-biblioref" href="#jiEtAl2017">Ji et al., 2017</a>). Infection of widely followed and trusted sources or sites has the potential to super-spread disinformation.</p>
+        </section>
+
+        <section id="sect3.2">
+          <h1>The SIR Synthetic Environment (SEN): Configuration and Settings</h1>
+
+          <p>Because of the potential for greater realism in a network model, we model disinformation spread in an agent-based network. The networked disinformation spread model used to create the SIR based synthetic environment (SEN) in the wargame was developed by modifying and adapting the "virus on a network" SIR model presented by Stonedahl and Wilensky (<a role="doc-biblioref" href="#stonedahlWilensky2008">2008</a>). The model was programed in NetLogo, an open-source platform for agent-based modeling (<a role="doc-biblioref" href="#wilensky1999">Wilensky, 1999</a>). For the purposes of the synthetic environment, the software was used to mimic and visualize the spread of disinformation. As mentioned previously in <a href="#sect3.1">Section 3.1</a>, related SIR models have a long history of application across many fields and in spite of their highly abstract and reductionist style, the SIR model can effectively capture the way in which disinformation spreads through a network of people.</p>
+
+          <p>Agents exist in a spatially clustered networked structure as in Stonedahl and Wilensky (<a role="doc-biblioref" href="#stonedahlWilensky2008">2008</a>). The configuration of our model, illustrated in <a href="#tab1">Table 1</a>, is made possible by initial settings which include the total <code>number-of-nodes</code> (agents in the SEN), the <code>average-node-degree</code>, showing how many other agents each agent in the SEN is connected to, the <code>initial-breakout-size</code>, depicting the scale of the disinformation spread, and by a series of transition or transmission probabilities which we describe below.</p>
+
+          <table id="tab1" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table
+                1.</strong> SEN Baseline Inputs constructing the environment in which DTEX was executed.
+            </caption>
+            <thead>
+              <tr>
+                <th style="text-align: center">Variable Reference Code</th>
+                <th style="text-align: center">Variable (SEN Slider)</th>
+                <th style="text-align: center">Baseline Value</th>
+                <th style="text-align: center">Explanation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center"><span class="math-span">Q</span></td>
+                <td>Total <code>number-of-nodes</code></td>
+                <td>200</td>
+                <td>Represents the total number of "people" in the virtual world. This number will remain the same throughout the experiment. Everyone is interconnected and shares information constantly, i.e., during every tick. The tick is the only unit of time in this SEN. In the beginning of each simulation, every node is treated as being susceptible to disinformation. Susceptible nodes are represented as blue stick figures.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">N</span></td>
+                <td><code>average-node-degree</code></td>
+                <td>20</td>
+                <td>The average number of 'people' each person is connected to. This number will remain the same throughout the experiment.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">A</span></td>
+                <td><code>initial-outbreak-size</code></td>
+                <td>15</td>
+                <td>The initial number of 'bad actors' who have opinions that are factually incorrect. Bad actors are represented as yellow stick figures.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">Β</span></td>
+                <td><code>disinformation-spread-chance</code></td>
+                <td>5%</td>
+                <td>Represents the probability of yellow nodes spreading their opinions to their nodes in each tick.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">T</span></td>
+                <td><code>fact-check-frequency</code></td>
+                <td>10 ticks</td>
+                <td>Represents how often each node fact-checks information before sharing it with others connected to that node. The baseline value indicates that, on average, each node fact-checks only 1 out of 10 times.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">Γ</span></td>
+                <td><code>recovery-chance</code></td>
+                <td>5%</td>
+                <td>Represents the probability of a yellow node recovering from disinformation.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">P</span></td>
+                <td><code>gain-resistance-chance</code></td>
+                <td>5%</td>
+                <td>Represents the probability of a node becoming immune to future disinformation altogether. Immune nodes are represented as green stick figures.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center"><span class="math-span">Ψ</span></td>
+                <td><code>resistance-fact-check-chance</code></td>
+                <td>0%</td>
+                <td>Represents the probability that a node which has become immune will 'push back' against disinformation by causing connected infected nodes to fact check.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Each node can be in one of three states - susceptible (S), infected (I), and resistant (R) (<a role="doc-biblioref" href="#stonedahlWilensky2008">Stonedahl &amp; Wilensky, 2008</a>). <em>Susceptible</em> (S) are vulnerable to disinformation due to low levels of awareness of the issue, lack of rational/critical thinking abilities, and/or other similar limitations. <em>Infected</em> (I) agents have been deceived by disinformation and perceive narratives spread by malicious actors as credible and trustworthy. Infected nodes tend to spread the information they have received and believed, thus becoming unwitting participants in the spread of disinformation or misinformation. Infected nodes are not always aware that they have been 'infected' at least until they 'fact-check'. Even those who do fact-check may still remain 'infected'. Therefore, not all infected nodes 'recover' from the condition of being infected. <em>Resistant</em> (R) agents are no longer vulnerable to disinformation due to fact-checking habits, high levels of awareness and rational/critical thinking abilities, and other cognitive and situational factors. The use of the term <em>resistant</em> which we adopt from Stonedahl and Wilensky (<a role="doc-biblioref" href="#stonedahlWilensky2008">2008</a>) is somewhat at variance with the use of the term <em>recovered</em> in some SIR models, but it is appropriate in our context as we distinguish between recovered agents.</p>
+
+          <p>Several parameters govern the transition of agents from one state to another. Infected agents spread disinformation to connected uninfected agents with a specified probability β. Infected agents also engage in fact checking with a specified frequency τ. When fact checking occurs, agents potentially recover (with a specified probability γ) with some failing to develop ongoing resistance to future infection by disinformation (returning to susceptible) and some developing resistance to future infection (with probability ρ.) Unlike most SIR models of disease, in the disinformation model, we also allow for the possibility that resistant agents connected with others infected with disinformation will push back, triggering additional fact checking. With a specified probability (ψ) a resistant agent may trigger fact checking among infected network connections and thereby potentially induce recovery to a susceptible state or the development of resistance.</p>
+
+          <p>In every step of the simulation (represented by a <em>tick</em>), each infected agent, marked by a red node, attempts to infect all of its connections with the disinformation. As a consequence, susceptible connections, marked with green nodes, may or may not get infected. The probability of infection is determined by β the <code>disinformation-spread-chance</code> setting. This characteristic represents the real-world equivalent of falling prey to a misleading headline, or to propaganda designed to elicit an emotional response favoring the actor spreading the false information. People that are <em>resistant</em>, marked with gray nodes, do not get infected. This represents the real-world equivalent of highly-aware people who have fact-checked and/or critically analyzed the disinformation and are no longer susceptible to it.</p>
+
+          <p>As opposed to this, <em>infected</em> people, marked with red nodes, are not always aware that they have been 'infected' by false information. In this model, every person has the potential to conduct a fact-check with a probability, which is controlled by τ, the <code>fact-check-frequency</code> setting. This represents the real-world event of a learning process in which an individual is being told by a person or an outlet they trust, in verbal or written form, that a particular piece of information is false.</p>
+
+          <p>If an agent successfully discovers through a fact check that they have indeed been 'infected', there is a chance that they might 'recover', i.e., get reliable and credible information. The probability of such a recovery is controlled by γ, the <code>recovery-chance</code> setting in the model. At the same time, a person's 'recovery' does not mean they will never get infected again. An appropriate analogy would be that one single human can get scammed or fall victim of phishing attacks many times. Therefore, some nodes may get infected again (modeled by a return to the susceptible group), some may not.</p>
+
+          <p>The probability of gaining this 'resistance' or 'immunity' is controlled by ρ, the <code>gain-resistance-chance</code> setting. When a person becomes resistant, the links between them and their connections are darkened, since they are no longer possible vectors for spreading misinformation. <a href="#fig1">Figure 1</a> shows a screenshot of the simulation in its final stage.</p>
+
+          <figure id="fig1" class="column-top">
+            <img src="./img/image1.png" alt="Synthetic Environment (SEN)" width="100%"/>
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 1.</strong> The Synthetic Environment (SEN) used in the simulation.
+            </figcaption>
+          </figure>
+
+          <p>As a result of feedback concerning the match between epidemiological models and the disinformation context in the SEN, we also modified the SIR model to allow for the potential that resistant individuals might actively resist the spread of disinformation triggering fact checks by connected infected agents with probability ψ.</p>
+
+          <p><a href="#fig2">Figure 2</a> illustrates the impact of differences in the model parameters in the simulation. The key point is that the outcome of a model run is highly contingent upon the parameters. With the same starting values except for the frequency of fact checking (τ), the panel on the left follows a trajectory in which a severe infection develops (fact checking occurs only every 10 ticks). The panel on the right follows a trajectory in which a more rapid development of resistance more rapidly ends the spread of disinformation and prevents it from ever simultaneously attracting a majority of the population (fact checking occurs every tick).</p>
+
+          <table id="fig2" class="table-figure top">
+            <caption class="multi-line-pdf">
+              <strong>Figure 2.</strong> Example model runs with different fact check frequencies.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig2a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/image2a.svg" alt="Example model 1" />
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig2b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/image2b.svg" alt="Example model 2" />
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>All simulation parameters could potentially be influenced by the teams playing the DTEX wargame through their strategic choices, as will be discussed in <a href="#sect4">Section 4</a>. This modification of parameters was one of the two ways the wargame-based test of the implementation of the anti-disinformation-spread technologies was evaluated. One half of the choice of the winning team was based upon which team's SEN inputs led to the most rapid elimination of the disinformation in the model (the lowest number of ticks at the end of the simulation). Teams were also judged on their argument concerning the choice of technologies and the strategy for deploying them.</p>
+        </section>
+      </section>
+
+      <section id="sect4">
+        <h1>DTEX War Game</h1>
+
+        <section id="sect4.1">
+          <h1>DTEX Process</h1>
+
+          <p>The DTEX Process used in this simulation was adapted from NATO's Disruptive Technology Assessment Game (DTAG) structure. The latter "is a table-top seminar wargame, used to assess potential future technologies and their impact on military operations and operating environment" (<a role="doc-biblioref" href="#natoact2010">NATO ACT, 2010</a>). Similarly to DTAG, DTEX also adopts the seminar wargame core, but reveals some more nuances in the way the simulation was conducted - in a fully online, synchronous environment.</p>
+
+          <p>The DTEX Process, illustrated in <a href="#fig3">Figure 3</a>, incorporated five steps, as follows. First, the participants studied the scenario and the issues described in it. The exact text of the scenarios can be found in <a href="#appendix2">Appendix 2</a>. They were also given some supplementary materials and had the opportunity to receive guidance about the scenario and the solutions from a facilitator. Second, the participants reviewed the IoS cards (see <a href="#appendix3">Appendix 3</a>) with proposed solutions. Third, each participant individually made a choice of three IoS cards which they found suitable to resolve the issues at hand. Fourth, participants discussed their choices with their teams and debated the rationales behind their choices. Fifth, each of the two teams deliberated on a final selection of IoS cards, based on the merits of the suggested solutions, their combined, synergetic effects, and the impact of the entire set of cards, as tested in SEN. After this process was completed, the participants prepared one-slide presentations with their choices, defended their strategy, and the winner was announced by a subject matter expert, who served as a judge.</p>
+
+          <figure id="fig3" class="column-top">
+            <img src="./img/image3.png" alt="DTEX Process" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 3.</strong> The DTEX Process.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="sect4.2">
+          <h1>Scenarios</h1>
+
+          <p>The scenarios with which the participants in the simulation were presented focused on social media disinformation. They presupposed that the Supreme Allied Commander Transformation (SACT) formed a small task force that will assist an Allied Command Operations (ACO) team in the ongoing fight against disinformation and the participants were a part of it. Next, they were asked to select three IoS cards (described in <a href="#sect4.3">Section 4.3</a>) which addressed the various specific issues underscored in both scenarios. The teams qualitatively evaluated the merits of each IoS card (and the combined impact of the chosen cards) and after they made their final choice of IoS cards, the quantitative effects of their choice of IoS cards, based on the expert ratings, was also tested in the SEN provided to them and their facilitator. Teams did not have direct access to the expert ratings of the cards. The faster the SEN eliminates the spread of dis/misinformation (fewer ticks to elimination), the better. The winning team was chosen based on both their rationale for their IoS card choices and on the temporal impact of their choices within the SEN. Equal weight was given to these two criteria to make sure that the solution is supported by qualitative and quantitative factors.</p>
+        </section>
+
+        <section id="sect4.3">
+          <h1>DTEX IoS Cards</h1>
+
+          <p>As mentioned in <a href="#sect4.1">Section 4.1</a> and <a href="#sect4.2">Section 4.2</a>, scenario play involved a choice of IoS cards by participants. As for the structure of the IoS cards, as shown in <a href="#fig4">Figure 4</a>, each card consists of various sections describing the technology intended to serve as a solution to the problem of disinformation on social media. In the first one, called <em>offerings</em>, the objectives of the technology are outlined, and then the technology itself is introduced through a brief overview. Next, the second section of the cards summarizes the input, the output, the process the technology is using to achieve its goals, and the supported technologies in which it will operate. The third and last section of the cards highlights advantages and limitations of the technology. The purpose of this section is to guide participants in their choices, as they could not obtain information about the proposed technologies directly from the contributors in the NATO Innovation Challenge through which these ideas were gathered. Description of the features of all IoS cards is available in the <a href="#appendix3">Appendix 3</a>.</p>
+
+          <figure id="fig4" class="top">
+            <img src="./img/image4.jpg" alt="Outline of an IoS Card" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 4.</strong> Outline of an IoS Card.
+            </figcaption>
+          </figure>
+
+          <p>In addition to the content summary of each card, the subject matter experts invited to contribute to this simulation assigned each IoS card a specific impact. The latter was expressed in numerical value calculated as the average of the expert ratings and contributed to visualizing the solutions in SEN. <a href="#fig5">Figure 5</a> shows the worksheet with all of the IoS cards' SEN inputs that was compiled and used by the facilitators to coordinate the team's activities and to process the inputs in SEN for the participants during the simulation.</p>
+
+          <figure id="fig5" class="top">
+            <img src="./img/image5.png" alt="Final SEN impacts for IoS Cards" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 5.</strong> Final SEN impacts for IoS Cards.
+            </figcaption>
+          </figure>
+
+          <p>Each of the categories of impact on the SEN (A through E) shapes elements of the simulation environment (e.g., fact check frequency τ, probability of disinformation spread β, etc.). Participants did not directly receive information about the ratings on the cards they received, but the ratings informed the way in which the simulated SIR model in the scenarios was modified as a result of group choices.  The rated impacts of the cards are discussed in <a href="#sect5.2">Section 5.2</a>.</p>
+        </section>
+
+        <section id="sect4.4">
+          <h1>The role of the participants</h1>
+
+          <p>As mentioned in <a href="#sect4.2">Section 4.2</a>, the participants in the experiment were asked to select three IoS cards and explain why they are the best choices to address the issues highlighted in the scenario. The participants also had to identify the priorities to which they adhered when choosing the cards. These priorities included five different objectives - <em>identification</em> of malicious communication material online, <em>categorization</em> of information (real vs. fake), <em>attribution</em> (finding sources of fake information), <em>additional analyses</em> (processing and analysis of collected information to fulfill other objectives), <em>visualization</em> of analyses, and <em>mitigation of effects</em> (countering disinformation and their effects by shielding the audience being targeted, disseminating counternarratives, etc.) After completing the selection of IoS cards, the participants were invited to test their choices in the SEN, where both the individual effects of their choices and their combined synergetic effects were visualized and assessed. Lastly, during a <em>confrontation session</em> between the different teams, the participants presented their proposed plan to the jury, which consisted of subject matter experts on the topic of disinformation.</p>
+        </section>
+      </section>
+
+      <section id="sect5">
+        <h1>Results</h1>
+
+        <p>This section discusses the results of the DTEX simulation. The DTEX event was well organized, the basic structure of the simulation worked well, and participants found the SEN a useful component in conjunction with their deliberations. Participants used the SEN during their deliberations to visualize the consequences of different strategies. The SEN was also used as one component of judging team decision-making. It also helped organize and structure discussion of the merits of different technologies aimed at combatting the spread of disinformation. A framework of two scenarios (see <a href="#appendix2">Appendix 2</a> for details) of increasing complexity was deemed appropriate, and seemed to help engender participant interest, engagement, thought, and analysis.</p>
+
+        <section id="sect5.1">
+          <h1>Group Dynamics Qualitative Observations</h1>
+
+          <p>In the first scenario, Group 2 seemed less organized than Group 1. Group 1 used screen share capabilities more effectively to help ground discussion of alternative cards, while Group 2 seemed to struggle a bit more to reach consensus, and as a result did not develop as effective and clear a set of plans for how to address the challenges in the scenario, nor how to present their plans.</p>
+
+          <p>In the second scenario, one of the members of Group 2 opened the discussion with a proposal that helped set the tone for a more productive deliberative process which set the stage for the Group 2 win in scenario 2. With her leadership they identified goals and reached consensus about them. Then they developed a combination of technology cards that would allow them to effectively achieve those goals. The structure of the deliberations could have potentially benefitted from more involvement by the moderators and a division of the cards into different categories (e.g., dashboards versus tools for intervention). By the second scenario, Group 2 seemed to have begun to do this kind of sorting of cards into categories on its own, and that process helped the group reach a more effective path to a solution, while Group 1 in the second scenario seemed to have more trouble structuring their deliberations and combining the synergies of the cards. Group 2 reached near-consensus with sufficient time remaining for multiple model runs in the SEN to test which of two alternative strategies would lead to better results. Ultimately, choice of the strategy rejected by Group 2 through this process would have led to less successful model runs than Group 1, and potentially to a loss in scenario 2, so the time the group was able to invest in this aspect of the deliberation seems to have been well spent.</p>
+
+          <p>The group dynamics described highlight some of the skills and approaches which determined the winning group. In particular, leadership, level of organization and structure of the decision-making process, along with an effective use of the technical capabilities of the SEN to which the participants had access contributed to Group 1's better performance in the first scenario, and Group 2's in the second scenario. These conclusions about the group dynamics in DTEX provide important insights for the successful selection process of technological solutions with a high level of impact against disinformation. They may be used in future iterations of this simulation to increase the productivity and competitiveness of both teams, thus ensuring a better learning experience for the participants and a more careful re-assessment of the IoS cards, previously ranked by experts, based on their characteristics.</p>
+        </section>
+
+        <section id="sect5.2">
+          <h1>IoS Cards: Strengths and Synergies</h1>
+
+          <p>As noted at the outset, the purpose of the SEN (SIR model) and wargame virtual simulation in this case was to evaluate proposed anti-disinformation technological tools submitted to NATO through an innovation challenge. This section discusses the results of that evaluation which is based upon the totality of the information collected including the actions and arguments made by wargame participants, expert rankings, and simulation results.</p>
+
+          <p>Prior to the DTEX wargame the IoS cards were ranked by experts for their ability to impact five different characteristics of disinformation spread in the SEN, and then evaluated by the competing teams to construct compelling and synergistic combinations of the cards. The characteristics were: A - Reduces Initial Outbreak Size, β - Reduces Disinformation Spread Chance, τ - Increases Fact Check Frequency, γ - Increases Recovery Chance, and ρ - Increases Gain Resistance Chance. The probability that a resistant agent will trigger a fact check by a connected infected agent (Ψ) was added after DTEX based on the simulation experience and so is not included in this section. Based upon the expert rankings and the results of the wargame, including qualitative analysis of participant discussion and arguments we have categorized each card in <a href="#tab2">Table 2</a> in terms of the best card(s) for addressing each aspect.</p>
+
+          <table id="tab2" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table
+                2.</strong> Cards with largest impacts on each aspect of SEN based upon expert ratings.
+            </caption>
+            <thead>
+              <tr>
+                <th style="text-align: center"><span class="math-span">A</span>  Reduces Initial Outbreak Size</th>
+                <th style="text-align: center"><span class="math-span">β</span> Reduces Disinformation Spread Chance</th>
+                <th style="text-align: center"><span class="math-span">τ</span> Increases Fact Check Frequency</th>
+                <th style="text-align: center"><span class="math-span">γ</span> Increases Recovery Chance</th>
+                <th style="text-align: center"><span class="math-span">ρ</span> Increases Gain Resistance Chance</th>
+                <th style="text-align: center">Average Impact Z-score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Best</b>: #33. Covid-19 MAP Media Analytics Platform. <b>Second Best</b>: A tie between #7, Combat Misinformation through Social Media, and #35 Profiling fake news spreaders on Social Media.</td>
+                <td><b>Best</b>: A three way tie between #20 DeepDetector, #5 SGOOF, and #35 Profiling fake news spreaders on Social Media.</td>
+                <td><b>Best</b>: #29 Intelligence Dashboard <b>Second Best</b>: #45 mLAi Analytics.</td>
+                <td><b>Best</b>: #39 PULSE <b>Second Best</b>: #7 Combat Misinformation Through Social Media.</td>
+                <td><b>Best</b>: A three way tie between #7 Combat Misinformation Through Social Media, #9 Zetane, and #22 Nunki.</td>
+                <td><b>Best</b>: #7 Combat Misinformation Through Social Media.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Containing initial outbreak size is potentially very important, especially if once the outbreak is identified, effective tools are available to curtail the spread of the outbreak. Card #33 was rated as providing the best impact on initial outbreak size. This technology provides a dashboard for decision-makers that "monitors all aspects of the spread of information (about COVID-19) and predicts what and how other topics will spread."  The key aspect of this platform for curtailing initial outbreak size is that ideally this platform will allow rapid identification of outbreaks of disinformation, allowing agile targeting responses to those outbreaks using various other tools before the outbreaks have time to become widespread.</p>
+
+          <p>Once an outbreak of disinformation has begun, a critical factor shaping its spread is the extent to which individuals or media <em>infected</em> with disinformation spread it to others. The three best-rated cards for curtailing the disinformation spread chance were implemented in different strategies, suggesting potential for fruitful combination between these cards for larger impact. IoS card #5 SGOOF uses data-mining, classification, and machine learning classification to develop a 'truth score' and classification for information. This could be fed into a dashboard similarly to #33, but it also could potentially be used in public-facing applications. IoS card #20 DeepDetector is a more specialized software application aimed at detecting and identifying deep-fakes in video footage. The current prototype is asserted to have a 95-98% accuracy and could provide an important tool both if fed into a dashboard and as a public-facing application to allow for rapid identification of likely faked video content in order to catalyze actions to limit its spread. Another IoS card - #35 Profiling fake news spreaders on Social Media takes a somewhat different tactic. Potentialize synergizing with #5 and #20, this machine learning application focuses on the profiles of fake news spreaders instead of on the news content itself. This could provide particularly valuable information in order to facilitate rapid response to the spread of fake news that targets accounts being used to spread disinformation.</p>
+
+          <p>Once disinformation has begun to spread widely, combatting it involves in part triggering fact checking that potentially leads individuals to believe they should not trust the disinformation. The best rated card for increasing fact check frequency was #29 Intelligence Dashboard. This dashboard proposal utilizes a combination of AI and human fact checking to identify and classify the most prevalent information. As with other dashboard proposals, the primary focus here is on enabling decisionmakers to take effective actions to increase fact check frequency or provide targeted individuals with fact checks of disinformation which they have been exposed to. Individuals who have come to believe disinformation may eventually <em>recover</em> by believing fact checks which disabuse them of belief in the false narratives provided by the disinformation source. The best rated card for increasing recovery chance was #39 PULSE. This proposal emphasizes the important counter-insurgency principle that all combatants are intelligence gatherers. It provides a framework for submissions from "front-line workers" to identify and cluster information on unaddressed issues and challenges. This could be an important component of any dashboard, helping decision-makers operate with better information concerning the current state of play in the spread of disinformation, and potentially facilitating the identification of unaddressed issues.</p>
+
+          <p>A key factor in ultimately containing a disinformation outbreak is the development of resistance to it in the form of individuals who are no longer susceptible to the disinformation. Three technology cards received the highest ratings for this element: #7, #9, and #22, and pursue two quite distinct strategies that would need to be synergized for the largest impact. IoS card #7 aims to achieve resistance through counter-spreading measures, a unique and very important aspect of this card compared to most of the other proposed technologies. In essence, the strategy behind using it is to achieve resistance to disinformation by identifying potential spreaders, and swamping the disinformation signal with alternative signals. This more active resistance by jamming disinformation signals moves beyond most other cards which emphasize identification of disinformation rather than active counter-information measures. Card #9 Zetane is a dashboard that aids in visualization of the geographic and regional trends in false information spread. #22 Nunki is another dashboard application which focuses on alerts concerning events and news spread, hopefully facilitating rapid response. Obviously, the dashboard applications would be most fruitfully combined with other measures, such as IoS card #7, since with dashboard strategies the resistance developed would involve societal level rapid-response to renewed spread of disinformation.</p>
+
+          <p>Fortunately, as discussed above, multiple technologies can be combined to address the challenges of disinformation. However, if only a single technology was to be used, the best overall technology in terms of impact relative to the others across the five categories is #7 Combat Information Through Social Media. What makes this strategy stand out is its emphasis on active measures. The high ratings given this card suggest that efforts to develop a suite of different active signal-jamming measures to combat disinformation would be well worth while. Combination of such measures with good dashboard and intelligence to identify threats would probably help to magnify the effectiveness of this technology.</p>
+        </section>
+      </section>
+
+      <section id="sect6">
+        <h1>Conclusions</h1>
+
+        <p>The simulation involving a virtual wargame using SEN succeeded across several dimensions. The DTEX project, described in this paper, set forth multiple objectives – producing ideas, testing them in a realistic scenario and observing the visualized effects of these ideas, educating the participants about the harmful effects of disinformation and the strengths and weaknesses of possible solutions, and testing the use of an internet-based virtual wargame. The fact that DTEX was conducted in a fully-online environment was also a step forward toward making such simulations and wargames more accessible across nations and thus more inclusive, diverse, and valuable. Another benefit of DTEX was that it created a collaborative setting in which participants from different backgrounds can contribute, as disinformation is a multidisciplinary topic that is researched by scholars and practitioners from various fields. The DTEX model also outlined opportunities for development and testing of solutions that pertain not only to other similar-to-disinformation issues, such as propaganda, and recruitment by radical organizations, but also to a wide range of other security issues, important to the international community.</p>
+
+        <p>One of the key elements of the DTEX war game scenario design involves the opportunity for groups to deliberate and play out the interaction between multiple technologies, as no single technology is likely to solve all of the problems presented by the scenarios, but some technologies are more compatible with each other than others. Deliberations about the tradeoffs between technologies provide important data about the challenges associated with integrating diverse (and potentially overlapping or competing) technologies to solve a problem, and their potential synergies. Hence, the experiment succeeded in building knowledge about the potential of the technology choices and the ways in which they could be effectively combined.</p>
+
+        <p>Another of the key elements of this study involved the use of SENs to facilitate interaction and evaluation in the context of a virtual wargame. Because the wargame was played out virtually, participants could be physically located in multiple NATO countries on multiple continents. By applying an epidemic-spread model to depict the spread of disinformation about the COVID-19 pandemic, these environment help participants visualize, conceptualize, apply, and analyze the consequences of the potential technological solutions for disinformation spread. The simulation as a case study demonstrated the utility of the SIR simulation as SEN for the virtual wargame.</p>
+
+        <p>In the process of describing our study, we also modified the SIR model to better capture some dynamics of disinformation flow, and those modifications (e.g., the possibility that resistance itself may be 'catching') can be incorporated into subsequent models of disinformation.</p>
+
+        <p>There were none the less some important limitations of this experiment. While the diversity of backgrounds of participants was a significant asset to the experiment, it also revealed some inequality in terms of how to best respond to the given scenario. For instance, students from political science backgrounds generally demonstrate more awareness about the way NATO is structured and how the different member-states work together. At the same time, they may not be equipped to assess the various technologies that were presented to them in the form of IoS cards from a more technical perspective. Another issue pertains to the ability to operate the SEN in which the cards were tested. In a fully asynchronous environment, which has the ability to overcome limitations of different time-zones, facilitators may not be able to be as helpful as they were in the synchronous online version of DTEX which this paper describes.</p>
+
+        <p>Aside from these limitations, the goals for which DTEX was designed and intended – innovation, education and collaboration, were successfully fulfilled mainly because of the virtual environment that helped participants. With the input and efforts of specialists from various fields, the simulation will further evolve and attempt to solve more of the problems of the future.</p>
+      </section>
+
+      <section id="sect7" role="doc-acknowledgements">
+        <h1>Acknowledgements</h1>
+
+        <p>
+          The authors of this paper would like to thank and acknowledge the NATO Innovation Hub and its partners for making DTEX possible and to express their appreciation for the helpful feedback of the anonymous reviewers who helped us improve this work.
+        </p>
+      </section>
+
+      <section id="sect8" class="suppressInPDF" role="doc-endnotes">
+        <h1>Footnotes</h1>
+        <ol>
+          <li id="ftn1" role="doc-endnote">The model we use introduces a slight change in terminology. Instead of <em>Recovered</em>, we have <em>Resistant</em> agents. In the disinformation context, we argue that an important conceptual difference from epidemiology is that resistant agents may trigger fact checks that spread their resistance to agents who have never been infected. In addition, our model shares some characteristics with SIS (susceptible-infectious-susceptible) models in that recovering from disinformation through fact checking may fail to produce long-term resistance to future infection: not all recovered agents become resistant.<sup><a role="doc-backlink"
+                  href="#fn_pointer_ftn1">[back]</a></sup></li>
+        </ol>
+      </section>
+
+      <section id="sect9" role="doc-bibliography">
+        <h1>Bibliography</h1>
+        <ul>
+          <li id="bauckhageEtAl2014" role="doc-biblioentry">Bauckhage, C., Kersting, K., &amp; Rastegarpanah, B. (2014). Collective Attention to Social Media Evolves According to Diffusion Models. <emph>WWW'14 Companion: Proceedings of the 23rd International Conference on World Wide Web</em>. Seoul: ACM. <a href="http://doi.org/10.1145/2567948.2577298" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="bauckhageEtAl2015" role="doc-biblioentry">Bauckhage, C., Hadiji, F., &amp; Kersting, K. (2015). How Viral Are Viral Videos? <em>Proceedings of the 9th Conference on Web and Social Media</em>. Oxford. <a href= "https://www.researchgate.net/profile/Christian_Bauckhage/publication/276282493_How_Viral_Are_Viral_Videos/links/55605eb708ae86c06b641ad5/How-Viral-Are-Viral-Videos.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="bbc2020" role="doc-biblioentry">BBC. (July 30, 2020). <em>Hackers Post Fake Stories on Real News Sites 'to Discredit NATO'</em>. <a href="https://www.bbc.com/news/technology-53594440" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="beskowEtAl2020" role="doc-biblioentry">Beskow, D. M, Kumar, S., &amp; Carley, K. M. (2020). The Evolution of Political Memes: Detecting and Characterizing Internet Memes with Multi-Modal Deep Learning. <em>Information Processing and Management</em>, 57(2), 102170. <a href="https://doi.org/10.1016/j.ipm.2019.102170" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="chipman2018" role="doc-biblioentry">Chipman, J. A. (November 16, 2018). New Geopolitical Challenge to the Rules-Based Order. <em>The International Institute for Strategic Studies</em>. <a href="https://www.iiss.org/blogs/analysis/2018/11/challenge-rules-based-order" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="daleyKendall1964" role="doc-biblioentry">Daley, D. J. &amp; Kendall, D. G. (1964). Epidemics and Rumours. <em>Nature</em>, 204, 1118. <a href="https://doi.org/10.1038/2041118a0" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="daw2005" role="doc-biblioentry">Daw, A. J. (2005). On the Use of Synthetic Environments for the Through Life Delivery of Capability. In <em>Analytical Support to Defence Transformation</em> (pp. 9-1 – 9-16). Meeting Proceedings RTO-MP-SAS-055, Paper 9. Neuilly-sur-Seine: RTO. <a href="https://www.sto.nato.int/publications/STO%20Meeting%20Proceedings/Forms/All%20MPs.aspx?RootFolder=%2Fpublications%2FSTO%20Meeting%20Proceedings%2FRTO%2DMP%2DSAS%2D055&FolderCTID=0x0120D5200078F9E87043356C409A0D30823AFA16F602008CF184CAB7588E468F5E9FA364E05BA5&View=%7B72ED425F-C31F-451C-A545-41122BBA61A7%7D" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="drakeEtAl2015" role="doc-biblioentry">Drake, J. M., Bakach, I., Just, M. R., O'Regan, S. M., Gambhir, M., &amp; Fung, I. C. (2015). Transmission Models of Historical Ebola Outbreaks. <em>Emerging Infectious Diseases</em>, 21(8), 1447-1450. <a href="https://doi.org/10.3201/eid2108.141613" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="goffmanNewill1964" role="doc-biblioentry">Goffman, W. &amp; Newill, V. A. (1964). Generalization of Epidemic Theory: An Application to the Transmission of Ideas. <em>Nature</em>, 204, 225-228. <a href="https://doi.org/10.1038/204225a0" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="harkoEtAl2014" role="doc-biblioentry">Harko, T., Lobo, F., &amp; Mak, M. K. (2014). Exact Analytical Solutions of the Susceptible-Infected-Recovered (SIR) Epidemic Model and of the SIR Model with Equal Death and Birth Rates. <em>Applied Mathematics and Computation</em>, 236, 184–194. <a href="https://doi.org/10.1016/j.amc.2014.03.030" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="harper2020" role="doc-biblioentry">Harper, C. (2020). 'Game out' decision making. <em>Atlantic Council</em>. <a href="https://www.atlanticcouncil.org/content-series/nato20-2020/game-out-decision-making/" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="jiEtAl2017" role="doc-biblioentry">Ji, S., Lü, L., Yeung, C. H., &amp; Hu, Y. (2017). Effective Spreading from Multiple Leaders Identified by Percolation in the Susceptible-Infected-Recovered (SIR) Model. <em>New Journal of Physics</em>, 19(7), 073020. <a href="https://doi.org/10.1088/1367-2630/aa76b0" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="kermackMckendrick1927" role="doc-biblioentry">Kermack, W. O., & McKendrick, A. G. (1927). A Contribution to the Mathematical Theory of Epidemics. <em>Proceediings of the Royal Society A: Mathematical, Physical, and Engineering Sciences</em>, 115(772), 700-721. <a href="https://doi.org/10.1098/rspa.1927.0118" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="natoact2010" role="doc-biblioentry">NATO ACT. (2010). <em>Disruptive Technology Assessment Game 'DTAG'</em>, Handbook v0.1. <a href="https://www.innovationhub-act.org/sites/default/files/docs/DTAG%20handbook.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="schiller2019" role="doc-biblioentry">Schiller, R. J. (2019). <em>Narrative Economics: How Stories Go Viral and Drive Major Economic Events</em>. Princeton, NJ: Princeton University Press. <a href="https://doi.org/10.2307/j.ctvdf0jm5" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="spitzack2018" role="doc-biblioentry">Spitzack, C. A. (2018). <em>Gray Is the New Black: Great Power Competition in the Gray Zone</em> (Publication No. 0000-0003-1707-0956) [Master's Thesis, The University of Texas at Austin], TexasScholar Works. <a href="https://repositories.lib.utexas.edu/handle/2152/67944?show=full" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="stonedahlWilensky2008" role="doc-biblioentry">Stonedahl, F. &amp; Wilensky, U. (2008). <em>NetLogo Virus on a Network model</em>. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. <a href="https://ccl.northwestern.edu/netlogo/models/VirusonaNetwork" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="wengEtAl2012" role="doc-biblioentry">Weng, L., Flammini, A., Vespignani, A., &amp; Menczer, F. (2012). Competition among Memes in a World with Limited Attention. <em>Scientific Reports</em>, 2(1), 335. <a href="https://doi.org/10.1038/srep00335" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="wengEtAl2013" role="doc-biblioentry">Weng, L., Menczer, F., &amp; Ahn, Y. (2013). Virality Prediction and Community Structure in Social Networks. <em>Scientific Reports</em>, 3(1), 2522. <a href="https://doi.org/10.1038/srep02522" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="wilensky1999" role="doc-biblioentry">Wilensky, U. (1999). NetLogo. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. <a href="https://ccl.northwestern.edu/netlogo/" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="zhaoEtAl2013" role="doc-biblioentry">Zhao, L., Cui, H., Qiu, X., Wang, X., &amp; Wang, J. (2013). SIR Rumor Spreading Model in the New Media Age. <em>Physica A: Statistical Mechanics and its Applications</em>, 392(4), 995–1003. <a href="https://doi.org/10.1016/j.physa.2012.09.030" target="_blank"><img src="../../icons/doi.png" /></a></li>
+        </ul>
+      </section>
+
+      <section id="sect10" class="no-counter">
+        <h1>Copyright Information</h1>
+        <p prefix="cc: http://creativecommons.org/ns#">
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"><img alt="Creative Commons License"
+                 src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+          Copyright © 2022 <span property="cc:attributionName">Jesse Richman</span>, <span property="cc:attributionName">Lora Pitman</span>, <span property="cc:attributionName">Girish S. Nandakumar</span>. This article is licensed under a <a rel="license"
+             href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank">Creative Commons Attribution 4.0 International
+            License</a>.
+        </p>
+      </section>
+
+      <section id="appendix1" class="no-counter top">
+        <h1>Appendix 1. SIR model code</h1>
+
+        <pre>
+          <code>
+turtles-own
+[
+  infected?           ;; if true, the turtle is infectious
+  resistant?          ;; if true, the turtle can't be infected
+  fact-check-timer    ;; number of ticks since this turtle's last fact-check
+]
+
+to setup
+  clear-all
+  setup-nodes
+  setup-spatially-clustered-network
+  ask n-of initial-outbreak-size turtles
+    [ become-infected ]
+  ask links [ set color white ]
+  reset-ticks
+end
+
+to setup-nodes
+  set-default-shape turtles "circle"
+  create-turtles number-of-nodes
+  [
+    ; for visual reasons, we don't put any nodes *too* close to the edges
+    setxy (random-xcor * 0.95) (random-ycor * 0.95)
+    become-susceptible
+    set fact-check-timer random fact-check-frequency
+  ]
+end
+
+to setup-spatially-clustered-network
+  let num-links (average-node-degree * number-of-nodes) / 2
+  while [count links < num-links ]
+  [
+    ask one-of turtles
+    [
+      let choice (min-one-of (other turtles with [not link-neighbor? myself])
+                   [distance myself])
+      if choice != nobody [ create-link-with choice ]
+    ]
+  ]
+  ; make the network look a little prettier
+  repeat 10
+  [
+    layout-spring turtles links 0.3 (world-width / (sqrt number-of-nodes)) 1
+  ]
+end
+
+to go
+  if all? turtles [not infected?]
+    [ stop ]
+  ask turtles
+  [
+     set fact-check-timer fact-check-timer + 1
+     if fact-check-timer >= fact-check-frequency
+       [ set fact-check-timer 0 ]
+  ]
+  spread-disinformation
+  do-fact-checks
+  tick
+end
+
+to become-infected  ;; turtle procedure
+  set infected? true
+  set resistant? false
+  set color red
+end
+
+to become-susceptible  ;; turtle procedure
+  set infected? false
+  set resistant? false
+  set color blue
+end
+
+to become-resistant  ;; turtle procedure
+  set infected? false
+  set resistant? true
+  set color gray
+  ask my-links [ set color gray - 2 ]
+end
+
+to spread-disinformation
+  ask turtles with [infected?]
+    [ ask link-neighbors with [not resistant?]
+        [ if random-float 100 < disinformation-spread-chance
+            [ become-infected ] ] ]
+end
+
+to do-fact-checks
+  ask turtles with [infected? and fact-check-timer = 0]
+  [
+    if random 100 < recovery-chance
+    [
+      ifelse random 100 < gain-resistance-chance
+        [ become-resistant ]
+        [ become-susceptible ]
+    ]
+  ]
+
+  ask turtles with [infected? and any? link-neighbors with [resistant?] ]
+  [
+    if random 100 < resistance-fact-check-probability
+    [
+      if random 100 < recovery-chance
+      [
+        ifelse random 100 < gain-resistance-chance
+          [ become-resistant ]
+          [ become-susceptible ]
+      ]
+    ]
+  ]
+end
+          </code>
+        </pre>
+
+        <p><b>NOTE</b>: This model is a modified version of the NetLogo Virus on a Network model (<a role="doc-biblioref" href="#stonedahlWilensky2008">Stonedahl &amp; Wilensky, 2008</a>), copyright 2008 Uri Wilensky. This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License.</p>
+      </section>
+
+      <hr class="page-break" />
+
+      <section id="appendix2" class="no-counter">
+        <h1>Appendix 2. DTEX scenarios</h1>
+
+        <section id="appendix2.1" class="no-counter">
+          <h1>Scenario 1</h1>
+
+          <section class="no-counter">
+          <h1>Background</h1>
+            <p>The Supreme Allied Commander Transformation (SACT) has handpicked you for a small task force that will assist an Allied Command Operations (ACO) team in the ongoing fight against disinformation. You have been asked to pick 5 technologies (IoS cards) that you believe will help solve the problems described in the following scenario.</p>
+
+            <p><b>Note</b>: Please stick to the details given in the IoS cards. The only creative license you can take is during the prediction and explanation of the outcomes in the future (where the technologies you’ve chosen will be implemented). Feel free to ask questions about the scenario, operating environment, and IoS cards. Your facilitator will be your main point of contact and will be available in your zoom room at all times.</p>
+          </section>
+
+          <section class="no-counter">
+            <h1>Description</h1>
+
+            <ol>
+              <li>In the midst of increased fear about new waves of COVID-19, there has been a barrage of fake posts across several social media platforms in multiple languages claiming that there has been large outbreaks of COVID-19 within NATO forces that are part of the Enhanced Forward Presence - a NATO-allied forward deployed defense and deterrence military posture in Central Europe through Poland and Northern Europe through Estonia, Latvia, and Lithuania.</li>
+              <li>NATO analysts have noticed that the dissemination of disinformation is happening largely through numerous small-scale 'influencers' - whose accounts are getting hacked or imitated. These accounts are spreading different messages depending on the populations they're targeting.</li>
+              <li>Highly graphic visuals and deep-fake videos are being used to depict highly dramatized scenes that are far from reality yet convincingly real. Videos with fake information - in the form of text alongside images - are the primary vectors. These videos seem to be designed to elicit strong emotional responses that seem to have the ultimate goal of creating a rift within NATO.</li>
+              <li>These social media posts are also well crafted. The language and cultural contexts are too good for AI to differentiate easily. Human-AI partnerships may be necessary. The type of fake personalities delivering these fake news reports also seem to be very effective in making the message look authentic. Forensic psychologists at NATO claim that they will be able to solve part of the disinformation problématique if more information about these 'talking heads' were made available to them.</li>
+              <li>The populations that were targeted by these disinformation attempts need to be identified in order to target mitigation efforts towards the same population. Managing such efforts also require dashboards that aggregate and visualize data using maps and other tools.</li>
+            </ol>
+
+            <p>You can use details from the following reports/articles to guide and support your choices of IoS cards:</p>
+
+            <ul>
+              <li><a href="https://www.cbc.ca/news/politics/nato-latvia-battle-group-pandemic-covid-coronavirus-disinformation-russia-1.5581248" target="_blank">Canadian-led NATO battlegroup in Latvia targeted by pandemic disinformation campaign</a></li>
+              <li><a href="https://www.wired.com/story/hackers-broke-into-real-news-sites-to-plant-fake-stories-anti-nato/" target="_blank">Hackers Broke Into Real News Sites to Plant Fake Stories</a></li>
+              <li><a href="https://www.state.gov/wp-content/uploads/2020/08/Pillars-of-Russia%E2%80%99s-Disinformation-and-Propaganda-Ecosystem_08-04-20.pdf" target="_blank">Pillars of Russia's Disinformation and Propaganda Ecosystem (Infographics on pages 8, 10)</a></li>
+            </ul>
+          </section>
+
+          <section class="no-counter">
+            <h1>Expectations</h1>
+
+            <ol>
+              <li><b>Pick five IoS cards</b> and explain why you think they are the best choices to address the issues.</li>
+              <li><b>Develop a plan</b> that leverages the five IoS cards you chose - both their individual strengths and their combined synergies. This plan should counter or mitigate the effects of disinformation campaigns. Explain how your IoS cards can combine their strengths.</li>
+              <li><b>Present your plan to the jury</b>, during the 'confrontation session' with the other team and convince them that your plan is the better one. Focus on explaining (a) how you plan to use the IoS cards and how you plan to combine their strengths, and (b) what effects you intend to achieve through your plan. Below is the full list of desired effects:
+                <ol>
+                  <li><b>Identification</b> of malicious communication material online</li>
+                  <li><b>Categorization</b> of information (real v. fake)</li>
+                  <li><b>Attribution</b>: Finding sources of fake information</li>
+                  <li><b>Additional Analyses</b>: Processing and analysis of collected information to fulfill other objectives</li>
+                  <li><b>Visualization</b> of analyses</li>
+                  <li><b>Mitigation of Effects</b>: Countering disinformation and their effects by shielding the audience being targeted, disseminating counternarratives, etc.</li>
+                </ol>
+              </li>
+            </ol>
+          </section>
+        </section>
+
+        <section id="appendix2.2" class="no-counter">
+          <h1>Scenario 2</h1>
+
+          <section class="no-counter">
+          <h1>Background</h1>
+            <p>The Supreme Allied Commander Transformation (SACT) has once again handpicked you for a small task force that will assist an Allied Command Operations (ACO) team in the ongoing fight against disinformation. You have been asked to pick 5 technologies (IoS cards) that you believe will help solve the problems described in the following scenario.</p>
+
+            <p><b>Note</b>: Please stick to the details given in the IoS cards. The only creative license you can take is during the prediction and explanation of the outcomes in the future (where the technologies you’ve chosen will be implemented). Feel free to ask questions about the scenario, operating environment, and IoS cards. Your facilitator will be your main point of contact and will be available in your zoom room at all times.</p>
+          </section>
+
+          <section class="no-counter">
+            <h1>Description</h1>
+
+            <ol>
+              <li>NATO teams have been monitoring COVID-19-related disinformation efforts for a while but are still not able to efficiently sort disinformation. Both bots and humans have been actively spreading disinformation but the teams are not able to differentiate the sources. These efforts seem to be targeting civilian populations across NATO nations. These disinformation campaigns are somehow able to target populations that seem to have low levels of awareness of the real nature of the pandemic and of the best practices to prevent spread. Experts suggest that such targeting is meant to spread anxiety about the future.</li>
+              <li>Troves of data have been collected by NATO teams which have been analyzing these bots. However, analysts are no longer able to extract actionable insights from these datasets. Team leaders have been affected by sensory overload caused by ineffective tools that are not able to aggregate and analyze such datasets.</li>
+              <li>Analysts have been manually aggregating and visualizing data points to present the big picture to their leaders and other decision makers. This has been drastically slowing down reaction times, allowing disinformation campaigns to spread virally in the meantime. Team leaders are skeptical of tools that oversimplify analyses because they believe they can lead to serious oversights. Analysts are not able to find tools that strike the right balance between sensory overload and potentially irresponsible reductionism.</li>
+              <li>NATO's sociologists and other interdisciplinary researchers are also not able to extract useful insights from these large datasets. Their goal is to connect bits and pieces, highlight similar narratives, and craft better counter-narratives and responses. These experts are also unable to obtain real time feedback on the spread of disinformation.</li>
+              <li>NATO is interested in using these large datasets to forecast future trends. Team leaders and policy makers currently lack such tools in their planning and decision-making processes.</li>
+            </ol>
+
+            <p>You can use details from the following reports/articles to guide and support your choices of IoS cards:</p>
+
+            <ul>
+              <li><a href="https://www.nato.int/cps/en/natohq/177273.htm" target="_blank">NATO's approach to countering disinformation: a focus on COVID-19</a></li>
+              <li><a href="https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/Ghostwriter-Influence-Campaign.pdf" target="_blank">'Ghostwriter' Influence Campaign: Unknown Actors Leverage Website Compromises and Fabricated Content to Push Narratives Aligned with Russian Security Interests</a></li>
+              <li><a href="https://foreignpolicy.com/2020/04/17/nato-cheif-rebukes-china-coronavirus-disinformation/" target="_blank">NATO Chief Rebukes China Over Coronavirus Disinformation</a></li>
+            </ul>
+          </section>
+
+          <section class="no-counter">
+            <h1>Expectations</h1>
+
+            <ol>
+              <li><b>Pick five IoS cards</b> and explain why you think they are the best choices to address the issues.</li>
+              <li><b>Develop a plan</b> that leverages the five IoS cards you chose - both their individual strengths and their combined synergies. This plan should counter or mitigate the effects of disinformation campaigns. Explain how your IoS cards can combine their strengths.</li>
+              <li><b>Present your plan to the jury</b>, during the 'confrontation session' with the other team and convince them that your plan is the better one. Focus on explaining (a) how you plan to use the IoS cards and how you plan to combine their strengths, and (b) what effects you intend to achieve through your plan. Below is the full list of desired effects:
+                <ol>
+                  <li><b>Identification</b> of malicious communication material online</li>
+                  <li><b>Categorization</b> of information (real v. fake)</li>
+                  <li><b>Attribution</b>: Finding sources of fake information</li>
+                  <li><b>Additional Analyses</b>: Processing and analysis of collected information to fulfill other objectives</li>
+                  <li><b>Visualization</b> of analyses</li>
+                  <li><b>Mitigation of Effects</b>: Countering disinformation and their effects by shielding the audience being targeted, disseminating counternarratives, etc.</li>
+                </ol>
+              </li>
+            </ol>
+          </section>
+        </section>
+      </section>
+
+      <hr class="page-break" />
+
+      <section id="appendix3" class="no-counter top">
+        <h1>Appendix 3. IoS Cards used in DTEX</h1>
+
+        <figure id="fig6" class="top">
+          <img src="./img/image6.png" />
+        </figure>
+
+        <figure id="fig7" class="top">
+          <img src="./img/image7.png" />
+        </figure>
+
+        <figure id="fig8" class="top">
+          <img src="./img/image8.png" />
+        </figure>
+
+        <figure id="fig9" class="top">
+          <img src="./img/image9.png" />
+        </figure>
+
+        <figure id="fig10" class="top">
+          <img src="./img/image10.png" />
+        </figure>
+
+        <figure id="fig11" class="top">
+          <img src="./img/image11.png" />
+        </figure>
+
+        <figure id="fig12" class="top">
+          <img src="./img/image12.png" />
+        </figure>
+
+        <figure id="fig13" class="top">
+          <img src="./img/image13.png" />
+        </figure>
+
+        <figure id="fig14" class="top">
+          <img src="./img/image14.png" />
+        </figure>
+
+        <figure id="fig15" class="top">
+          <img src="./img/image15.png" />
+        </figure>
+
+        <figure id="fig16" class="top">
+          <img src="./img/image16.png" />
+        </figure>
+
+        <figure id="fig17" class="top">
+          <img src="./img/image17.png" />
+        </figure>
+      </section>
+    </main>
+
+    <nav id="toc" class="suppressInPDF">
+      <h1>Outline</h1>
+      <ol start="0">
+        <li style="list-style: none;"><a href="#sect0">Abstract</a></li>
+        <li><a href="#sect1">Introduction</a></li>
+        <li><a href="#sect2">Project Structure</a></li>
+        <li><a href="#sect3">The SIR Model</a></li>
+        <li><a href="#sect4">DTEX War Game</a></li>
+        <li><a href="#sect5">Results</a></li>
+        <li><a href="#sect6">Conclusions</a></li>
+        <li style="list-style: none;"><a href="#sect7">Acknowledgements</a></li>
+        <li style="list-style: none;"><a href="#sect8">Footnotes</a></li>
+        <li style="list-style: none;"><a href="#sect9">Bibliography</a></li>
+        <li style="list-style: none;"><a href="#sect10">Copyright Information</a></li>
+        <li style="list-style: none;"><a href="#appendix1">Appendix 1: SIR model code</a></li>
+        <li style="list-style: none;"><a href="#appendix2">Appendix 2: DTEX scenarios</a></li>
+        <li style="list-style: none;"><a href="#appendix3">Appendix 3: IoS Cards used in DTEX</a></li>
+      </ol>
+      <div id="return-top">
+        <svg id="arrow-up" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M952.576 554.858667q0 29.141333-21.141333 51.434667l-42.858667 42.858667q-21.717333 21.717333-52.010667 21.717333-30.848 0-51.434667-21.717333l-168-167.424 0 402.282667q0 29.717333-21.418667 48.277333t-51.712 18.581333l-73.152 0q-30.293333 0-51.712-18.581333t-21.418667-48.277333l0-402.282667-168 167.424q-20.565333 21.717333-51.434667 21.717333t-51.434667-21.717333l-42.858667-42.858667q-21.717333-21.717333-21.717333-51.434667 0-30.293333 21.717333-52.010667l372.010667-372.010667q20.010667-21.141333 51.434667-21.141333 30.848 0 52.010667 21.141333l372.010667 372.010667q21.141333 22.293333 21.141333 52.010667z" /></svg><a href="">Return to top</a>
+      </div>
+      <div id="share">
+        <button id="share-this" title="Share this">Share...</button>
+        <ul class="links">
+          <li class="share facebook" title="Share on Facebook"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-facebook" viewBox="0 0 18 18">
+                <path
+                      d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-facebook" />
+            </svg></li>
+          <li class="share twitter" title="Share on Twitter"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-twitter" viewBox="0 0 18 18">
+                <path
+                      d="M16.5,4.3c-0.6,0.2-1.1,0.4-1.8,0.5c0.6-0.4,1.1-1,1.4-1.7c-0.6,0.4-1.3,0.6-2,0.8c-0.6-0.6-1.4-1-2.2-1 c-1.7,0-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7C6.3,6.5,4.1,5.3,2.5,3.4C2.3,3.9,2.1,4.4,2.1,5c0,1.1,0.5,2,1.4,2.6 c-0.5,0-1-0.2-1.4-0.4c0,0,0,0,0,0c0,1.5,1.1,2.8,2.5,3.1c-0.3,0.1-0.5,0.1-0.8,0.1c-0.2,0-0.4,0-0.6-0.1c0.4,1.2,1.5,2.1,2.9,2.2 c-1.1,0.8-2.4,1.3-3.8,1.3c-0.2,0-0.5,0-0.7,0c1.4,0.9,3,1.4,4.7,1.4c5.7,0,8.8-4.7,8.8-8.9c0-0.1,0-0.3,0-0.4 C15.6,5.5,16.1,4.9,16.5,4.3">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-twitter" />
+            </svg></li>
+          <li class="share linkedin" title="Share on LinkedIn"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-linkedin" viewBox="0 0 18 18">
+                <path
+                      d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-linkedin" />
+            </svg></li>
+          <li class="share email" title="Share with Email"><a
+               aria-label="Share with Email" href="" target="_blank"><svg
+                   aria-hidden="true" class="icon-social">
+                <symbol id="social-mail" viewBox="0 0 18 18">
+                  <path
+                        d="M9,8.2L3,4.5h12L9,8.2z M15,13.5H3V6l6,3.8L15,6V13.5z M15,3H3C2.2,3,1.5,3.7,1.5,4.5l0,9C1.5,14.3,2.2,15,3,15 h12c0.8,0,1.5-0.7,1.5-1.5v-9C16.5,3.7,15.8,3,15,3z">
+                  </path>
+                </symbol>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#social-mail" />
+              </svg></a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+
+</html>

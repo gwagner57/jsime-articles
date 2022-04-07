@@ -60,7 +60,7 @@ textarea {
   }
 }
 @page {
-  size: A4 /* A4 US-Letter */ portrait;
+  size: US-Letter /* A4 US-Letter */ portrait;
   margin: 2.5cm 2.5cm 2cm 2.5cm;
 
   @top-center {
@@ -380,10 +380,12 @@ textarea {
     margin-top: 2em
   }
   .top {
+    column-span: 2;
     float: top;
     margin-bottom: 2em
   }
   .bottom {
+    column-span: 2;
     float: bottom;
     margin-top: 2em
   }
