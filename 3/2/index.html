@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JSimE 3/2 - Improving Delivery Performance of Construction Manufacturing Using Machine Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Google Scholar-->
+    <meta name="citation_publisher"
+          content="Consortium for True Open Access in Modeling and Simulation" />
+    <meta name="citation_journal_title"
+          content="Journal of Simulation Engineering" />
+    <meta name="citation_journal_abbrev" content="JSimE" />
+    <meta name="citation_issn" content="2569-9466" />
+    <meta name="citation_volume" content="3" />
+    <meta name="citation_firstpage" content="8:1" />
+    <meta name="citation_lastpage" content="8:14" />
+    <meta name="citation_title"
+          content="Improving Delivery Performance of Construction Manufacturing Using Machine Learning" />
+    <meta name="citation_article_type" content="Article" />
+    <meta name="citation_online_date" content="2023/6/9" />
+    <meta name="citation_publication_date" content="2023/6/9" />
+    <meta name="citation_author" content="Ian Flood" />
+    <meta name="citation_author_email" content="flood@ufl.edu" />
+    <meta name="citation_author_institution"
+          content="University of Florida, Gainesville, FL, United States" />
+    <meta name="citation_author" content="Xiaoyan Zhou" />
+    <meta name="citation_author_email" content="zhouxiaoyan@ufl.edu" />
+    <meta name="citation_author_institution"
+          content="University of Florida, Gainesville, FL, United States" />
+    <meta name="citation_abstract_html_url"
+          content="https://jsime.org/index.php/jsimeng/article/view/19" />
+    <meta name="citation_pdf_url"
+          content="https://articles.jsime.org/3/jsime-article-3-2.pdf" />
+    <meta name="citation_fulltext_html_url"
+          content="https://articles.jsime.org/3/2/Improving Delivery Performance of Construction Manufacturing Using Machine Learning" />
+    <!--Open Graph-->
+    <meta property="og:title"
+          content="Improving Delivery Performance of Construction Manufacturing Using Machine Learning" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+          content="This paper is concerned with the development, testing, and optimization of a machine learning method for controlling the production of precast reinforced concrete components. A discussion is given identifying the unique challenges associated with achieving production efficiency in the construction industry, namely: uncertain and sporadic demand for work; high customization of the design of components; a need to produce work to order; and little prospect for stockpiling work. This is followed by a review of the methods available to tackle this problem, which can be divided into search-based techniques (such as heuristics) and experience-based techniques (such as artificial neural networks). A model of an actual factory for producing precast reinforced concrete components is then described, to be used in the development and testing of the controller. A reinforcement learning strategy is proposed for training a deep artificial neural network to act as the control policy for this factory. The ability of this policy to learn is evaluated, and its performance is compared to that of a rule-of-thumb and a random policy for a series of testing production runs.  The reinforcement learning method developed an effective and reliable policy that significantly outperformed the rule-of-thumb and random policies. An additional series of experiments were undertaken to further optimize the performance of the method, ranging the number of input variables presented to the policy. The paper concludes with an indication of proposed future research designed to further improve performance and to extend the scope of application of the method." />
+    <meta property="og:url"
+          content="https://articles.jsime.org/3/2/Improving Delivery Performance of Construction Manufacturing Using Machine Learning" />
+    <meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="JSimE" />
+    <meta property="og:site_name" content="Journal of Simulation Engineering" />
+    <!--Twitter-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title"
+          content="Improving Delivery Performance of Construction Manufacturing Using Machine Learning" />
+    <!--Canonical URL-->
+    <link rel="canonical"
+          href="https://articles.jsime.org/3/2/Improving Delivery Performance of Construction Manufacturing Using Machine Learning" />
+    <!--Stylesheets-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="../../jsime.css" />
+    <!-- Style -->
+    <style>
+      .small-caps {
+        font-variant: small-caps;
+      }
+
+      .table-matrix td {
+        border-style: hidden;
+        text-align: center;
+      }
+
+      .table-figure caption {
+        caption-side: bottom;
+      }
+
+      .table-figure td {
+        border-style: hidden;
+        text-align: center;
+        caption-side: bottom;
+        padding: 5px;
+      }
+
+      tr.border_top_bottom td {
+        border-top: 1pt solid black;
+        border-bottom: 1pt solid black;
+      }
+
+      td.border_left_right {
+        border-left: 1pt solid black;
+        border-right: 1pt solid black;
+      }
+
+      .page-break {
+        border: none;
+        margin: 0;
+        page-break-before: always;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="async"
+            src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push( arguments );
+      }
+      gtag( 'js', new Date() );
+      gtag( 'config', 'UA-115543812-1', {
+        'anonymize_ip': true
+      } );
+    </script>
+    <!--Scripts-->
+    <script defer src="../../jsime.js"></script>
+    <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML"></script>
+    <!--schema.org JSON-LD-->
+    <script type="application/ld+json">
+{
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Improving Delivery Performance of Construction Manufacturing Using Machine Learning",
+      "author": [
+        { "@id": "/3/2/author-1" },
+        { "@id": "/3/2/author-2" }
+      ],
+      "keywords": [ "This paper is concerned with the development, testing, and optimization of a machine learning method for controlling the production of precast reinforced concrete components. A discussion is given identifying the unique challenges associated with achieving production efficiency in the construction industry, namely: uncertain and sporadic demand for work; high customization of the design of components; a need to produce work to order; and little prospect for stockpiling work. This is followed by a review of the methods available to tackle this problem, which can be divided into search-based techniques (such as heuristics) and experience-based techniques (such as artificial neural networks). A model of an actual factory for producing precast reinforced concrete components is then described, to be used in the development and testing of the controller. A reinforcement learning strategy is proposed for training a deep artificial neural network to act as the control policy for this factory. The ability of this policy to learn is evaluated, and its performance is compared to that of a rule-of-thumb and a random policy for a series of testing production runs.  The reinforcement learning method developed an effective and reliable policy that significantly outperformed the rule-of-thumb and random policies. An additional series of experiments were undertaken to further optimize the performance of the method, ranging the number of input variables presented to the policy. The paper concludes with an indication of proposed future research designed to further improve performance and to extend the scope of application of the method.",
+      "url": "https://articles.jsime.org/3/2/Improving Delivery Performance of Construction Manufacturing Using Machine Learning",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [
+        { "@id": "/3/1/author-1" },
+        { "@id": "/3/1/author-2" }
+      ],
+      "copyrightYear": "2023",
+      "dateCreated": "2023-06-06",
+      "dateModified": "2023-06-09",
+      "datePublished": "2023-06-09",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2023-06-09",
+        "volumeNumber": "3",
+        "url": "https://articles.jsime.org/3/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": [
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010405.10010481.10010482.10010486",
+          "codeValue": "Applied computing~Operations research~Industry and manufacturing~Command and control",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010405.10010481.10010482.10003259",
+          "codeValue": "Applied computing~Operations research~Industry and manufacturing~Supply chain management",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10003752.10010070.10010071.10010261",
+          "codeValue": "Computing methodologies~Machine learning~Learning paradigms~Reinforcement learning",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        }
+      ]
+    },
+    {
+      "@id": "/3/2/author-1",
+      "@type": "Person",
+      "name": "Ian Flood",
+      "email": "flood@ufl.edu",
+      "affiliation": [
+        { "@id": "/3/2/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/3/2/author-2",
+      "@type": "Person",
+      "name": "Xiaoyan Zhou",
+      "email": "zhouxiaoyan@ufl.edu",
+      "affiliation": [
+        { "@id": "/3/2/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/3/2/affiliation-1",
+      "@type": "Organization",
+      "name": "University of Florida",
+      "address": {
+        "addressLocality": "Gainesville",
+        "addressRegion": "Florida",
+        "addressCountry": "United States"
+      }
+    }
+  ]
+}
+</script>
+  </head>
+
+  <body vocab="http://schema.org/">
+    <header>
+      <a href="https://jsime.org" target="_blank"><img src="../../JSimE.svg"
+             style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of
+        Simulation Engineering</i>, Volume 3 (2022/2023). Article URL: <a
+         href="https://articles.jsime.org/3/1/A-Gamefied-Synthetic-Environment-for-Evaluation-of-Counter-Disinformation-Solutions"
+         id="articleURL" target="_blank">https://articles.jsime.org/3/2</a><a
+         id="PDF" class="suppressInPDF"
+         href="https://jsime.org/index.php/jsimeng/article/view/19"
+         style="position: relative; left: 1em" target="_blank"><img
+             src="../../icons/pdf.png" /></a>
+    </header>
+    <main>
+      <div id="front-matter">
+        <div id="article-number">8</div>
+        <h1 id="article-title">Improving Delivery Performance of Construction Manufacturing Using Machine Learning</h1>
+        <div id="article-title-abbr">Improving Delivery Performance of Construction Manufacturing Using Machine Learning</div>
+        <div id="authors">
+          <address typeof="Person">
+            <div property="name">
+              Ian Flood<sup><img src="../../icons/envelope.png" alt="Envelope" /></sup>
+            </div>
+            <div property="email">
+              <a href="mailto:flood@ufl.edu">flood@ufl.edu</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Xiaoyan Zhou
+            </div>
+            <div property="email">
+              <a href="mailto:zhouxiaoyan@ufl.edu">zhouxiaoyan@ufl.edu</a>
+            </div>
+          </address>
+          <div class="affiliation">
+            University of Florida, Gainesville, FL, United States
+          </div>
+        </div>
+        <div id="acm-subject-categories">
+          <h1>ACM Subject Categories</h1>
+          <ul>
+            <li><code>Applied computing~Operations research~Industry and manufacturing~Command and control</code></li>
+            <li><code>Applied computing~Operations research~Industry and manufacturing~Supply chain management</code></li>
+            <li><code>Computing methodologies~Machine learning~Learning paradigms~Reinforcement learning</code></li>
+          </ul>
+        </div>
+        <div id="keywords">
+          <h1>Keywords</h1>
+          <ul class="list-inline comma-separated">
+            <li>Construction Manufacturing</li>
+            <li>Deep Artificial Neural Networks</li>
+            <li>Delivery Performance</li>
+            <li>Precast Reinforced Concrete Components</li>
+            <li>Reinforcement Learning</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="sect0" role="doc-abstract">
+        <h1>Abstract</h1>
+
+        <p>This paper is concerned with the development, testing, and optimization of a machine learning method for controlling the production of precast reinforced concrete components. A discussion is given identifying the unique challenges associated with achieving production efficiency in the construction industry, namely: uncertain and sporadic demand for work; high customization of the design of components; a need to produce work to order; and little prospect for stockpiling work. This is followed by a review of the methods available to tackle this problem, which can be divided into search-based techniques (such as heuristics) and experience-based techniques (such as artificial neural networks). A model of an actual factory for producing precast reinforced concrete components is then described, to be used in the development and testing of the controller. A reinforcement learning strategy is proposed for training a deep artificial neural network to act as the control policy for this factory. The ability of this policy to learn is evaluated, and its performance is compared to that of a rule-of-thumb and a random policy for a series of testing production runs.  The reinforcement learning method developed an effective and reliable policy that significantly outperformed the rule-of-thumb and random policies. An additional series of experiments were undertaken to further optimize the performance of the method, ranging the number of input variables presented to the policy. The paper concludes with an indication of proposed future research designed to further improve performance and to extend the scope of application of the method.</p>
+      </section>
+
+      <section id="sect1">
+        <h1>Introduction</h1>
+
+        <p>Factory-based construction manufacturing has the potential to overcome many of the inefficiencies of traditional on-site methods. However, achieving production efficiency in a construction factory is usually more challenging than for other manufacturing industries. This is because construction work does not lend itself to the methods of mass production. Work arrives in batches at irregular intervals with large fluctuations in demand, the work can be diverse in design both between and within batches, and the products are rarely reproduced. Consequently, work has to be made to order with little or no potential for stockpiling, and with large variations in the demand for productive resources.</p>
+
+        <p>Controlling construction operations (such as selecting the next job in a queue to be processed) is unlikely to be achieved optimally by simple manually crafted rules, given the complexities of construction demand. A more sophisticated rule system, taking into account a wide range of system situations and outcomes, is required.  A promising approach to this problem is machine learning (ML), whereby an artificial intelligence (AI) agent uses a deep artificial neural network (DANN) to control operations. These agents would act like an advisor in a human-in-the-loop system, or as a controller in an automated system, generating solutions whenever an operational decision is required.</p>
+
+        <p>The use of AI-based decision agents to control operations in construction is limited. Shitole et al. (<a role="doc-biblioref" href="#shitoleEtAl2019">2019</a>) developed an AI agent for optimizing a simulated earth-moving operation based on artificial neural networks (ANNs) trained using reinforcement learning (RL), and found it outperformed previously published manually crafted heuristics.  RL is a broad class of learning techniques based on discovery and rewards that has demonstrated much success in recent years (<a role="doc-biblioref" href="#suttonBarto2018">Sutton &amp; Barto, 2018</a>). Their earth-moving system comprised two excavators serving a fleet of dump-trucks.  The function of the AI agent was to direct the trucks to one or other of the excavators at a junction in the return road, with the goal of optimizing the overall production rate of the system. An issue with this approach to process control is its lack of extensibility. That is, the AI agent can only be applied to the earth-moving system considered in the study. Applying the AI agent to a new situation with a different site layout and/or equipment combination would require retraining. Although this could be achieved prior to the start of the new construction operation, it would nevertheless be a significant burden on pre-construction planning. Clearly, there is a need for more work in the area of ANN extensibility.</p>
+
+        <p>An alternative application area to site-based construction, with more immediate application given current AI technology, is factory centered manufactured construction. In this situation, the life-span of an AI agent should be relatively long, lasting at least until any reconfiguration of the factory system is required or a change occurs in its operating environment. This study is focused on factory-based construction manufacture, specifically for precast reinforced concrete (PRC) component production.</p>
+
+        <p>Optimization of customized PRC component production has been considered by several researchers (<a role="doc-biblioref" href="#leuHwang2001">Leu &amp; Hwang, 2001</a>; <a role="doc-biblioref" href="#chanHu2002">Chan &amp; Hu, 2002</a>; <a role="doc-biblioref" href="#benjaoranDawood2005">Benjaoran &amp; Dawood, 2005</a>), using genetic algorithms (GAs) to improve production performance. Although the approach was shown to be successful, heuristic search methods such as GAs are computationally expensive.  Therefore, they are not well suited to situations where decisions have to be made in real-time.</p>
+
+        <p>RL solutions based on a learned model, such as that developed by Shitole et al. (<a role="doc-biblioref" href="#shitoleEtAl2019">2019</a>), will generate rapid solutions to a decision problem, once trained. A number of authors have applied this method to the control of factory operations (<a role="doc-biblioref" href="#waschneckEtAl2018">Waschneck et al., 2018</a>; <a role="doc-biblioref" href="#zhouEtAl2020">Zhou et al., 2020</a>; <a role="doc-biblioref" href="#xiaEtAl2021">Xia et al., 2021</a>) and found results to be promising when compared to more conventional approaches such as rule-of-thumb decision techniques. Unfortunately, applications have been outside construction manufacturing, and therefore do not address many of the challenges of this industry (such as uncertainty in the arrival of jobs, size of the batches, processing time, and design of the products), although Waschneck et al. (<a role="doc-biblioref" href="#waschneckEtAl2018">2018</a>) did consider some level of product customization within the semiconductor industry.</p>
+
+        <p>This paper presents a more detailed analysis and extension to the work by Flood & Flood (<a role="doc-biblioref" href="#floodFlood2022">2022</a>) published in the proceedings of the 12th International Conference on Simulation and Modeling Methodologies, Technologies and Applications, Lisbon. The Lisbon paper performed a proof-of-concept on the viability of using an RL trained DANN to control factory-based manufacture of PRC components, given the unique demands of the construction industry. This paper goes beyond that proof-of-concept to: (a) model a real PRC component factory using data published by Wang et al. (<a role="doc-biblioref" href="#wangEtAl2018">2018</a>); (b) extend the depth and scope of the performance experiments and their analyses; and, (c) add new research investigating the impact on performance of increasing the choices made available to the DANN-based decision agent.</p>
+      </section>
+
+      <section id="sect2">
+        <h1>Factory-Based Production Control</h1>
+
+        <section id="sect2.1">
+          <h1>Decision Agents</h1>
+
+          <p>The future track followed by a construction manufacturing system is determined by both controllable and uncontrollable events. The controllable events provide an opportunity to steer this track along a line that is favorable to the manufacturer, optimizing performance in terms of, say, productivity and/or profit. This is achieved through the selection of an appropriate sequence of decisions wherever options exist. Examples of such decisions include prioritizing jobs in a queue, deciding when to take an item of equipment offline for maintenance, and selecting the number of machines to allocate to a process.</p>
+
+          <p>These decisions are made by one or more agents, as illustrated in <a href="#fig1">Figure 1</a>, that operate dynamically throughout the life of the manufacturing system. An agent monitors relevant variables defining the state of the system and its environment, <code>S</code>, (both current and possibly past states, and even predictions about future states) then uses these insights to decide on appropriate future actions to implement. Typically, these actions will concern events in the immediate future (given that the most relevant, accurate, and valuable information is available at the time of the decision) but can also be applied to events later in the future for decisions that have a long lead time, such as the purchase of resources.</p>
+
+          <figure id="fig1" class="top">
+            <img src="./img/figure1.png" alt="Dynamic system control by a decision agent" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 1.</strong> Dynamic system control by a decision agent.
+            </figcaption>
+          </figure>
+
+          <p>An important dichotomy of decision agents is search-based versus experience-based systems. Search-based agents, which include blind and heuristic methods, use a systematic exploration of the solution space looking for the best action attainable. They tailor a solution to the specific instance of the problem at hand. As such, they may find better optimized solutions than experience-based agents, although that needs to be tested. Search-based agents are also highly extensible, meaning they can be easily adapted to new versions of the problem. A shortcoming is that they can be computationally expensive and thus not suited to situations requiring real-time rapid decision making.</p>
+
+          <p>In contrast, experience-based agents, which include rules-of-thumb and ANNs, make decisions based on exposure to similar situations from the past. Once developed, an experience-based agent can output decisions rapidly. However, because the solutions they offer are generic rather than tailored to each situation, their decisions may not be as well optimized as those of search-based agents. Furthermore, experience-based agents tend to lack extensibility; each new version of the problem requires redevelopment of the agent, which in turn requires the acquisition and assimilation of large volumes of new information on system behavior.</p>
+
+          <p>A hybrid of these agent types is also possible. For example, an experience-based agent can be used to make the first attempt at a solution and then a search-based agent can be used to improve on this result. Conversely, a search-based agent could be used to acquire examples for development of an experience-based agent.</p>
+
+          <p>A longer term objective for this study is to quantify and compare the benefits of search-based and experience-based approaches to controlling construction production systems. This paper, however, focuses on experience-based approaches applied to factory-based construction manufacturing. Two experience-based methods are considered, a rule-of-thumb and a DANN, representing two extremes in functional complexity. DANNs are variants of ANNs that include multiple hidden layers or recursion between units. The additional structure offers a corresponding increase in functional complexity, although model development has additional challenges. Although a DANN is an experience-based approach, its development will involve the use of search techniques to gather good training solutions, specifically using RL techniques. The rule-of-thumb and the DANN are compared to a random decision making method used as a performance benchmark.</p>
+        </section>
+
+        <section id="sect2.2">
+          <h1>DANN Development Strategies</h1>
+
+          <p>For a construction manufacturing environment, optimal solutions to decision problems are not easily attained <em>a priori</em> or from direct observation of the real system. This excludes the direct use of supervised training techniques for development of the DANN. There are many ways around this problem, including using a strategy of hindsight whereby the agent explores alternative decision tracks in a simulation environment, then selects those that are most successful, effectively learning by trial-and-error.</p>
+
+          <p>For DANNs, there are two broad approaches to hindsight model development. The first is to explore adjustments to the structure and/or weights of the model directly, and to select those that result in a better performing decision track. This is in effect an evolutionary method (see, for example, Iba & Noman (<a role="doc-biblioref" href="#ibaNoman2020">2020</a>), and was the basic strategy investigated by Flood (<a role="doc-biblioref" href="#flood1989">1989</a>) for selecting sequences for construction jobs in an offline optimization problem. The second approach is to explore adjustments to the output from the model, then to evaluate their impact on the performance of the decision track and to feed this back to the model in a supervised manner. This was the approach adopted for this study, and can be classified as a RL method.</p>
+        </section>
+      </section>
+
+      <section id="sect3">
+        <h1>Modeling</h1>
+
+        <p>A key function of RL is the exploration of alternative decision tracks and their impact on the performance of the system. This experience is used to shape the decisions made by the agent, mapping from system state to action. This mapping is referred to as the decision policy.</p>
+
+        <p>In construction production (including factory-based construction manufacturing) it is not practicable to experiment with alternative decision policies using the real system. Construction work is rarely reproduced making it almost impossible to compare the effectiveness of alternative strategies. Artificially reproducing work is also not viable given the cost and time required to manufacture a construction component. One way around this problem is to build a simulation model of the construction production system, and then to use this to experiment with alternative policies. This concept is illustrated in <a href="#fig2">Figure 2</a>, where the blue line represents the historic track taken by the real system, and the orange lines represent alternative future tracks explored by different policies in a simulated version of the system. Information about the real system and its past behavior would be used to develop and validate the simulation model. The information gathered from the simulated system are used to develop and test (validate) the policy, as described in <a href="#sect4">Section 4</a>.
+
+        <figure id="fig2" class="top">
+          <img src="./img/figure2.png" alt="Historic track of the real system followed by simulated alternative future tracks of the system" />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 2.</strong> Historic track of the real system followed by simulated alternative future tracks of the system.
+          </figcaption>
+        </figure>
+
+        <section id="sect3.1">
+          <h1>Production Simulator</h1>
+
+          <p><a href="#fig3">Figure 3</a> shows a schematic model of the production system considered for this study, representing the manufacture of PRC components such as walls, floors, beams, and column units. The system and its process duration data were obtained from the study published by Wang et al. (<a role="doc-biblioref" href="#wangEtAl2018">2018</a>). This study was chosen because it captures the challenging and unique features of construction manufacturing, namely:</p>
+            
+          <ul>
+            <li>orders arrive in a sparse random manner, must be made to order and cannot be stockpiled;</li>
+            <li>each order consists of a batch of components variable in number;</li>
+            <li>many if not all components are unique in design both within a batch and between batches, and therefore have variable handling times at each process;</li>
+            <li>all components have uncertainty in the handling times at each process; and</li>
+            <li>all components must be delivered by a given date in accordance with a site assembly schedule.</li>
+          </ul>
+
+          <figure id="fig3" class="top">
+            <img src="./img/figure3.png" alt="Production model for precast reinforced concrete (PRC) components." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 3.</strong> Production model for precast reinforced concrete (PRC) components.
+            </figcaption>
+          </figure>
+
+          <p>In addition, the following assumptions were made about the system:</p>
+
+          <ul>
+            <li>the processes are executed sequentially by all components, in the order shown in <a href="#fig3">Figure 3</a>;</li>
+            <li>the arrival of orders is considered to be a Poisson process, with an arrival rate, <span class="math-span">λ</span> (the average number of order arrivals per unit of time), selected so that the work demand would slightly exceed the maximum throughput of the system (see <a href="#sect5">Section 5</a> for the selection of this value);</li>
+            <li>incoming orders consist of a batch of PRC components, the number of which is sampled from a positively skewed triangular distribution (rounded to a positive integer), with parameters chosen to generate a large variance in demand;</li>
+            <li>on-site delivery of a PRC component is measured as a contingency time beyond the sum of the component&apos;s process duration, and is also sampled from a triangular distribution;</li>
+            <li>work proceeds 24 hours per day without breaks;</li>
+            <li>each process has only sufficient resources to serve one component at a time, except the Cure process which can handle an unlimited number of components; and</li>
+            <li>curing time is considered to be the same for all PRC components.</li>
+          </ul>
+
+          <p>The stochastic time related data used for this study, including their distribution types, are given in <a href="#tab1">Table 1</a>. The dynamics of the system are given by the relative values of these data (rather than by their absolute values) and therefore time units are not included. The triangular distribution was adopted because it is computationally inexpensive and yet provides a versatile way of approximating a wide range of distribution shapes, including those with skew.</p>
+          
+          <table id="tab1" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table 1.</strong> Modeling the event, quantity, and durations of production variables.
+            </caption>
+            <thead>
+              <tr>
+                <th style="text-align: center">System Variable</th>
+                <th style="text-align: center">Form of Uncertainty</th>
+                <th style="text-align: center">Parameters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Order arrival time</td>
+                <td>Poisson process</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Arrival rate (<span class="math-span">λ</span>)</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">
+                         <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+                           <mfrac>
+                             <mn>1</mn>
+                             <mn>7,000</mn>
+                           </mfrac>
+                        </math>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Batch size</td>
+                <td>Discretized triangular distribution</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr style="border: none;">
+                      <td style="border: none; padding: 0px; text-align: center">1</td>
+                      <td style="border: none; padding: 0px; text-align: center">20</td>
+                      <td style="border: none; padding: 0px; text-align: center">100</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Rebar durations</td>
+                <td>Triangular distribution</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                       <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">120</td>
+                      <td style="border: none; padding: 0px; text-align: center">200</td>
+                      <td style="border: none; padding: 0px; text-align: center">250</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Forms durations</td>
+                <td>Triangular distribution</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                       <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">130</td>
+                      <td style="border: none; padding: 0px; text-align: center">150</td>
+                      <td style="border: none; padding: 0px; text-align: center">170</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Concrete duration</td>
+                <td>Triangular distribution</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                       <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">0</td>
+                      <td style="border: none; padding: 0px; text-align: center">50</td>
+                      <td style="border: none; padding: 0px; text-align: center">70</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Cure duration</td>
+                <td>Fixed</td>
+                <td>~</td>
+              </tr>
+              <tr>
+                <td>Strip duration</td>
+                <td>Triangular duration</td>
+                <td><table style="border: none;">
+                    <tr style="border: none;">
+                       <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">80</td>
+                      <td style="border: none; padding: 0px; text-align: center">100</td>
+                      <td style="border: none; padding: 0px; text-align: center">120</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Delivery duration</td>
+                <td>Triangular distribution</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                       <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">30</td>
+                      <td style="border: none; padding: 0px; text-align: center">50</td>
+                      <td style="border: none; padding: 0px; text-align: center">70</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Contingency time relative to site assembly time</td>
+                <td>Triangular distribution</td>
+                <td>
+                  <table style="border: none;">
+                    <tr style="border: none;">
+                       <td style="border: none; padding-bottom: 0px; text-align: center">Min</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Mode</td>
+                      <td style="border: none; padding-bottom: 0px; text-align: center">Max</td>
+                    </tr>
+                    <tr>
+                      <td style="border: none; padding: 0px; text-align: center">10</td>
+                      <td style="border: none; padding: 0px; text-align: center">100</td>
+                      <td style="border: none; padding: 0px; text-align: center">200</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="sect3.2">
+          <h1>Policy Types Considered</h1>
+
+          <p>The control of the system is undertaken by a decision agent as shown in <a href="#fig3">Figure 3</a>. Whenever a vacancy arises at a process, the agent will select a PRC component for processing from the corresponding queue, using its current policy. Three alternative types of policy were considered:</p>
+
+          <ol>
+            <li>A <b>random</b> policy in which the PRC component is selected from a queue using a uniformly distributed random variate. This was included as a performance benchmark for comparison with the other policies.</li>
+            <li>A <b>rule-of-thumb</b> policy in which the PRC component with the least remaining contingency time in the queue is selected. Note, negative contingencies (delays) are possible. This type of policy was included as a performance benchmark for comparison with the DANN policy.</li>
+            <li>A <b>DANN</b> policy developed using the RL method described in <a href="#sect4">Section 4</a>. The selection of a PRC component from a queue is based on system state information. Preliminary experiments indicated that a policy was only effective where bottlenecks formed in the system, in this case at the Rebar queue. Therefore, the DANN policy was only implemented for Rebar, and all other queues reverted to the rule-of-thumb policy.</li>
+          </ol>
+        </section>
+
+        <section id="sect3.3">
+          <h1>DANN Structure</h1>
+
+          <p>The DANN has a layered feedforward structure as shown in <a href="#fig4">Figure 4</a>.</p>
+
+          <figure id="fig4" class="top">
+            <img src="./img/figure4.png" alt="Structure of the DANN." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 4.</strong> Structure of the DANN.
+            </figcaption>
+          </figure>
+
+          <section id="sect3.3.1">
+            <h1>Input Layer</h1>
+
+            <p>The input layer receives both temporal and spatial information about the state of the system and the work to be completed. The input values specify the process durations and the remaining contingencies for the PRC components currently in the queue under consideration. These data are normalized at the input for each process. The location of the values at the input indicates the position in the queue, and the relevant process.</p>
+            
+            <p>An issue with this approach stems from the fact that the structure of the inputs to the DANN is fixed (DANNs are structurally rigid) yet the number of PRC components in the system that need to be evaluated is variable. To get around this, the DANN was designed to allow up to a stipulated number (N) of PRC components to be evaluated in each queue: if the number of PRC components in a queue is less than N then the spare input values are set to 0.0; and if the number of PRC components in a queue is greater than N then only the first N PRC components will be evaluated. Furthermore, the N PRC components evaluated are those with the least contingency, and in this sense the DANN is a hybrid with the rule-of-thumb policy. The value of N used varied between 0 and 30, as detailed in the results, <a href="#sect5">Section 5</a>.</p>
+          </section>
+
+          <section id="sect3.3.2">
+            <h1>Hidden Layers</h1>
+
+            <p>The number of hidden layers was set to 6 and the number of hidden units per layer was set to 64. These values were found to have good performance in the DANN training phase (see <a href="#sect4.2">Section 4.2</a>) in a preliminary search. A more thorough sensitivity analysis ranging these parameters is planned for future work.</p>
+            
+            <p>All hidden units adopted the ReLU (rectified linear unit) activation function due its computational efficiency and avoidance of the vanishing gradient problem (<a role="doc-biblioref" href="#glorotEtAl2011">Glorot et al., 2011</a>).</p>
+          </section>
+
+          <section id="sect3.3.3">
+            <h1>Output Layer</h1>
+
+            <p>The DANNs output layer is where the PRC components are selected from the queues for processing. All output units use a sigmoid activation function, thereby limiting their activation to values between 0.0 and 1.0. The output units correspond a position in the queue. The number of units is equal to N, the number of PRC components to be evaluated in a queue (see <a href="#sect3.3.1">Section 3.3.1</a>). The current length of a queue or N, whichever is smallest, determines the number of units that are active. The values generated at the active output units are normalized to sum to 1.0. This allows the output values to be treated as probabilities for selecting PRC components from a queue.</p>
+            
+            <p>The DANN policy has two modes of operation:</p>
+
+            <ul>
+              <li><b>Exploration</b>. This mode is used to steer the simulation through alternative partially-random tracks, to gathering high-reward input-output pattern pairs for training the DANN. Monte Carlo sampling is used to select PRC components based on the values generated at the relevant output units. The higher the value generated at an output, the more likely the corresponding PRC component will be selected. The broader strategy adopted for learning is given in <a href="#sect4">Section 4</a>.</li>
+              <li><b>Implementation</b>. This mode operates by selecting a PRC component from a queue based on the output unit that generates the highest value within its group. The operation is entirely deterministic. It is used to control the simulated system in non-training mode, to test the performance of the current policy. In addition, this is the mode that would be adopted when using the policy to control the real system.</li>
+            </ul>
+          </section>
+        </section>
+      </section>
+
+      <section id="sect4">
+        <h1>DANN Learning Strategy</h1>
+
+        <p>DANN development is a deeply nested process, as shown in <a href="#fig5">Figure 5</a>. The outer level of this process comprises two main phases: Phase I, the collection of training patterns through the exploration of alternative decision tracks; and, Phase II, the training of the DANN. These phases are cycled through a number of times until learning converges, each occasion using the most recent version of the DANN to control the simulation. Each time the system cycles back to Phase I, the simulation is reset to a new starting point. These phases are described in detail in the following two sections.</p>
+
+        <figure id="fig5" class="top">
+          <img src="./img/figure5.png" alt="Two phase reinforcement learning DANN development cycle." />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 5.</strong> Two phase reinforcement learning DANN development cycle.
+          </figcaption>
+        </figure>
+
+        <section id="sect4.1">
+          <h1>Collection of Training Patterns</h1>
+
+          <p>Collecting training patterns is undertaken in a series of stages <code>s</code>, as illustrated in the upper blue section of <a href="#fig5">Figure 5</a>. Each stage experiments with a predefined number of trials <code>t</code> simulating the fabrication of a set of PRC components. The trial with the best production performance (see <a href="#sect4.1.1">Section 4.1.1</a>) is selected for later training of the DANN, and as the lead-in for the next stage in the simulation. The training patterns collected are the mappings from input to output for each state transition in the selected trial.</p>
+          
+          <p>This process continues until a specified number of stages have been completed, each time collecting training patterns from the best performing trial. For future studies, parameters that can be investigated in terms of optimizing performance are the number of trials per stage, the number of PRC components to be fabricated per trial (this could be variable between stages), and the number of stages in the phase.</p>
+          
+          <p>After completion of this phase, the system moves to DANN training before returning for another round of collecting training patterns. The intent is that by cycling between Phases I and II in this manner, the policy will move towards a better solution incrementally.</p>
+
+          <section id="sect4.1.1">
+            <h1>Delivery Performance</h1>
+
+            <p>Delivery performance is measured in terms of delays to the delivery of PRC components, with smaller delays being more favorable. The cost function used for training is the root-mean-square (RMS) of these delays, as shown in <a href="#eq1">Equation 1</a>. Note, a PRC component could be delivered early (indicated by a negative delay) but the square operation would cancel the negative sign and thereby treat it as an equivalent delay.  Therefore, the delays in this function are offset relative to a base value to give greater emphasis to actual delays over early deliveries.</p>
+
+            <div id="eq1" class="equation">
+              <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                <mtable>
+                  <mlabeledtr>
+                    <mtd>
+                      <mtext>(1)</mtext>
+                    </mtd>
+                    <mtd columnalign="center">
+                      <mrow>
+                        <mtext>cost</mtext>
+                        <mo>=</mo>
+                        <msqrt>
+                          <mfrac>
+                            <mrow>
+                              <msubsup>
+                                <mo>&Sum;</mo>
+                                <mrow>
+                                  <mi>n</mi>
+                                </mrow>
+                                <mrow>
+                                  <mi>i</mi>
+                                  <mo>=</mo>
+                                  <mn>1</mn>
+                                </mrow>
+                              </msubsup>
+                              <msup>
+                                <mfenced open="(" close=")">
+                                  <mrow>
+                                    <msub>
+                                      <mi>d</mi>
+                                      <mi>i</mi>
+                                    </msub>
+                                    <mo>-</mo>
+                                    <mi>b</mi>
+                                  </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                              </msup>
+                            </mrow>
+                            <mrow>
+                              <mi>n</mi>
+                            </mrow>
+                          </mfrac>
+                        </msqrt>
+                      </mrow>
+                    </mtd>
+                  </mlabeledtr>
+                </mtable>
+              </math>
+            </div>
+
+            <p>where</p>
+
+            <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+                 <mi>d</mi>
+               </math> is the delay for the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                  <msup>
+                    <mi>i</mi>
+                    <mi>th</mi>
+                  </msup>
+                </mrow>
+              </math> PRC component at its completion;</p>
+
+            <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+                 <mi>n</mi>
+              </math> is the number of PRC components completed at the current trial;</p>
+
+            <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+                 <mi>b</mi>
+               </math> is the base value against which the delays are offset - this value is the maximum contingency time possible for a PRC component.</p>
+          </section>
+
+          <section id="sect4.1.2">
+            <h1>Rewards</h1>
+
+            <p>The learning strategy presented here collects training patterns based on their success in improving system performance. For this reason, a training pattern&apos;s output values are modified from that produced by the DANN to increase the probability of making the same selection in a similar circumstance. The modification (a reward) is to move the selected output value closer to 1.0, and to move the other relevant output values closer to 0.0, remembering that the output values are treated as probabilities of selecting a RC component from the queue. The extent of the modification will be treated as an experimental hyper-parameter, although for this study the rewards are set to 0.0 and 1.0 without any discount.</p>
+          </section>
+        </section>
+
+        <section id="sect4.2">
+          <h1>DANN Training</h1>
+
+          <p>The training patterns collected in Phase I are used to train the DANN, or to further train it in repeat cycles, as illustrated in the lower orange section of <a href="#fig5">Figure 5</a>.</p>
+
+          <p>The DANN was implemented in Python and PyTorch (<a role="doc-biblioref" href="#paszkeEtAl2019">Paszke et al., 2019</a>), using the optimizer RMSProp (root-mean-square propagation) and the loss function MSELoss (mean-squared-error) with reduction set to <code>mean</code>. Data loading used a mini-batch size of 64 (with a training set size typically around 2,000 per cycle) with shuffling switched on. The learning rate was set to 0.001.</p>
+
+          <p>Training was conducted until the output from the loss function had converged, which was typically within 1,000 epochs. Testing of the system was undertaken after the RL learning cycle had plateaued. This involved running the simulation in implementation mode (see <a href="#sect3.3.3">Section 3.3.3</a>) using a start point not used for learning.</p>
+        </section>
+      </section>
+
+      <section id="sect5">
+        <h1>Results and Discussion</h1>
+
+        <p>Ideally, there should be a balance between the demand for work (given by the batch size distribution for orders and their arrival rate, <span class="math-span">λ</span>) and the factory&apos;s maximum output (determined in part by the handling times for the processes). An efficient control policy will allow this balance to be achieved in an optimal way, either by maximizing the amount of work taken-on without causing deliveries to be late, or minimize the number of productive resources needed to fulfill the demand. This study considers a situation where the demand is slightly in excess of the balance point, and then compares the performances of the alternative policy types (give in <a href="#sect3.2">Section 3.2</a>) to increase delivery performance (as measured in <a href="#sect4.1.1">Section 4.1.1</a>). The first experiment was performed to identify the arrival rate, <span class="math-span">λ</span>, for orders that would give rise to this level of demand, given the handling times for the processes shown in <a href="#tab1">Table 1</a>. <a href="#fig6">Figure 6</a> shows the results from running the factory simulation five times using a range of different order arrival rates (from
+  <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>λ</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mn>1</mn>
+      <mn>5,000</mn>
+    </mfrac>
+  </math> to
+  <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>λ</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mn>1</mn>
+      <mn>9,000</mn>
+    </mfrac>
+  </math>). Each of these five simulations was run until a total of 10,000 individual PRC components were output (an average of 248 batches of PRC components per simulation run). Each curve shows the rolling average of the delays for the components across the 10,000 PRC component production runs. A rolling mean delay of 1,000, for example, indicates that on average the PRC components are delivered 1,000 time units late up to that point in the production run. The policy used to control the system was an untrained DANN. Based on these results, an order arrival rate of
+  <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>λ</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mn>1</mn>
+      <mn>7,000</mn>
+    </mfrac>
+  </math> was selected as it appeared to create a demand that slightly exceeds the output from the factory. This is difficult to verify, however, due to the strong stochastic nature of the system&apos;s behavior. Future research should check the resilience of the DANN policy to changes in the order arrival rate.</p>
+
+        <figure id="fig6" class="top">
+          <img src="./img/figure6.png" alt="Sensitivity of the rolling delays to changes in the order arrival rate (λ)." />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 6.</strong> Sensitivity of the rolling delays to changes in the order arrival rate (<span class="math-span">λ</span>).
+          </figcaption>
+        </figure>
+
+        <p>A series of experiments were undertaken to assess the ability of the DANN to learn an efficient policy for controlling the PRC production process, to compare its performance with both the rule-of-thumb and random policies outlined in <a href="#sect3.2">Section 3.2</a>, and to test the sensitivity of its performance to varying the number of PRC components (N) that it evaluates at its input (see <a href="#sect3.3.1">Section 3.3.1</a>).</p>
+
+        <section id="sect5.1">
+          <h1>Learning Performance</h1>
+
+          <p>The first performance experiment was designed to evaluate the ability of the DANN to learn using the proposed RL method described in <a href="#sect4">Section 4</a>. The parameters selected for the RL process were as follows:</p>
+
+          <ul>
+            <li>The number of cycles of Phases I and II was set to 20 (see <a href="#sect4.1">Section 4.1</a>, <a href="#fig5">Figure 5</a>) since initial experiments indicated that there was little learning being accumulated beyond this point.</li>
+            <li>The maximum number of PRC components, N, to be evaluated in a queue by the DANN (see <a href="#sect3.3.1">Section 3.3.1</a>) was set to 20 since the queue lengths were rarely found to extend beyond this value for the system considered.   Later, in <a href="#sect5.2">Section 5.2</a>, results are presented looking at the relationship between the value of N and performance.</li>
+            <li>During Phase I in the training cycle, training data was collected over a 2,000 PRC component production run, divided into 100 stages of 20 PRC components each and with 100 trials per stage (see <a href="#sect4.1">Section 4.1</a>, <a href="#fig5">Figure 5</a>). Each cycle generated around 2,000 training patterns. Future work will investigate the relationship between these parameters and performance.</li>
+            <li>Following the completion of each cycle, a testing run of the system was made for a sequence of 8,000 PRC components not used for training.</li>
+          </ul>
+
+          <p><a href="#fig7">Figure 7</a> shows the performance of the DANN control policy over 20 cycles of the RL method. Performance is measured as the mean improvement in delivery time provided by the DANN (using the random policy as the benchmark, <a href="#sect3.2">Section 3.2</a>) over a simulated production run. The training runs were performed for a sequence of 2,000 PRC components (results shown in orange), while the testing runs were performed for a sequence of 8,000 PRC components (results shown in blue). Each point in the figure indicates the mean improvement at a given stage in the RL cycle. For example, the best performance for a training run occurred at the 3<sup>rd</sup> RL cycle, where the DANN policy (compared to the random policy) had a mean improvement in delivery time of 36.6 time units per PRC component.</p>
+
+          <figure id="fig7" class="top">
+            <img src="./img/figure7.png" alt="Performance of the DANN policy relative to the random policy, over 20 RL cycles." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 7.</strong> Performance of the DANN policy relative to the random policy, over 20 RL cycles.
+            </figcaption>
+          </figure>
+
+          <p>The best version of the DANN should be selected based on the testing run since it is independent of training and therefore does not have any potential inherent bias towards the trained DANN. Thus, for the 20 cycles considered, the best performing DANN was that generated at the 14<sup>th</sup> RL cycle, having a mean improvement in delivery time of 21.4 time units per PRC component (about 3.9% of the active processing time for an average PRC component). Clearly, in this regard, the DANN outperformed the random policy.</p>
+          
+          <p><a href="#fig7">Figure 7</a> indicates that there is significant stochastic variance in the performance of the DANN over the RL cycles. For this reason, the linear trends for the two curves were also plotted on the figure. These trend lines indicate that both training and testing performance would likely improve if additional RL cycles were undertaken. The apparent positive trend for the testing performance suggests that the DANN is currently undertrained. The difference in the height of the two trend lines is to be expected, and is probably due to innate bias in the DANN to the data on which it was trained.</p>
+          
+          <p><a href="#fig8">Figure 8</a> shows a similar plot to that of <a href="#fig7">Figure 7</a>, except that the performance of the DANN is measured using the rule-of-thumb policy as the benchmark rather than the random policy. The conclusions drawn from <a href="#fig8">Figure 8</a> are similar to those from <a href="#fig7">Figure 7</a>, with the best version of the DANN being generated at the 14<sup>th</sup> RL cycle (according to the testing data), and with the DANN outperforming the rule-of-thumb policy, in this case by 23.2 time units per PRC component.</p>
+
+          <figure id="fig8" class="top">
+            <img src="./img/figure8.png" alt="Performance of the DANN policy relative to the rule-of-thumb policy, over 20 RL cycles." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 8.</strong> Performance of the DANN policy relative to the rule-of-thumb policy, over 20 RL cycles.
+            </figcaption>
+          </figure>
+
+          <p><a href="#fig8">Figure 9</a> compares the performances of the rule-of-thumb policy and DANN policy at different RL cycles, using the random policy as the benchmark. The lines indicate the rolling mean improvement in delivery time, with the dashed green line representing the rule-of-thumb policy, the gray lines representing the DANN policy at various RL cycles, and the black line representing the best performing DANN policy. The lowest gray line in the figure represents the DANN policy before it underwent any training. The best performing DANN is that generated at RL cycle 14 as noted earlier.</p>
+
+          <p><a href="#fig9a">Figure 9a</a> shows the relative performances of the specified policies over the 2,000 training PRC component run. The most significant point on this graph is at the 2,000th PRC component as that indicates performance based on all the training data. <a href="#fig9b">Figure 9b</a> shows the same but for 2,000 testing PRC components, taken from the middle of an 8,000 PRC component run. Looking at <a href="#fig9b">Figure 9b</a>, it is clear that the best DANN policy significantly outperformed the rule-of thumb policy for most of the plot. However, around the 4,400 PRC components location, the rule-of-thumb policy accumulated large gains that briefly took it beyond the performance of the best DANN policy. Indeed, whenever the DANN policy and rule-of-thumb policies experienced large peaks in performance, it appears the rule-of-thumb policy improved more quickly. This suggests that more training of the DANN may be beneficial in the scenarios that lead to these peaks.</p>
+
+          <table id="fig9" class="table-figure top">
+            <caption class="multi-line-pdf">
+              <strong>Figure 9.</strong> Comparative performance of the DANN and rule-of-thumb policies.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig9a">
+                    <img src="./img/figure9a.png" />
+                    <figcaption class="multi-line-pdf">
+                      <strong>(a)</strong> Performance over a run of 2,000 training PRC components.
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <figure id="fig9b">
+                    <img src="./img/figure9b.png" />
+                    <figcaption class="multi-line-pdf">
+                      <strong>(b)</strong> Performance over a run of 2,000 training PRC components.
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="#fig10">Figure 10</a> presents the same testing results as <a href="#fig9b">Figure 9b</a> but with the DANN&apos;s performance benchmarked against the rule-of-thumb policy indicated by the dashed green line. This shows more clearly the relative performances of the DANN and rule-of-thumb policies. The best DANN policy tends to hover around a 14 to 15 time unit per PRC component advantage over the rule-of-thumb policy, but with occasion dips in relative performance.</p>
+
+          <figure id="fig10" class="top">
+            <img src="./img/figure10.png" alt="Testing performance of the DANN using the rule-of-thumb as the benchmark." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 10.</strong> Testing performance of the DANN using the rule-of-thumb as the benchmark.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="sect5.2">
+          <h1>Performance Dependence on the Number of PRC Components Sampled by the DANN</h1>
+
+          <p>The experiments detailed in the previous section represent the initial formal training of the DANN, utilizing values for adjustable parameters selected based on the reasoning presented in <a href="#sect3.3.2">Section 3.3.2</a> and <a href="#sect5.1">Section 5.1</a>. Future studies will be focused on optimizing the performance of the DANN by conducting a set of sensitivity analyses, exploring a comprehensive range of values for each DANN parameter including the number of hidden layers, the number of units per hidden layer, and the number of cycles of Phases I and II. As an example of how sensitivity analysis can be used to improve performance, this section considers optimizing the parameter N, the number of PRC components in a queue that can be evaluated for processing. As noted in  <a href="#sect3.3.1">Section 3.3.1</a>, the input structure of a DANN is rigid and therefore the value for N has to be pre-determined. In the experiments reported above, N was set to a maximum of 20 PRC components. In this section, a sensitivity analysis is reported looking at the dependence of performance on the value of N, ranging from 5 to 30 in steps of 5 PRC components. These results are presented in <a href="#fig11">Figure 11</a>, with each curve representing the best DANN&apos;s generated over 20 RL training cycles for different values of N. Performance is shown for the last 2,000 PRC components in an 8,000 testing PRC component run, using the random policy as the benchmark. For comparison, the performance of the rule-of-thumb policy is also shown as a green dashed line. Note, the seed for the random number generators used in the stochastic sampling during simulation where different to the experiments in <a href="#sect5.1">Section 5.1</a>. This changed the absolute values generated in the production runs, but the characteristic performance behavior of the policies was similar.</p>
+
+          <figure id="fig11" class="top">
+            <img src="./img/figure11.png" alt="Dependence of performance on N, evaluated over a testing run of 8,000 PRC components." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 11.</strong> Dependence of performance on N, evaluated over a testing run of 8,000 PRC components.
+            </figcaption>
+          </figure>
+
+          <p>The optimum value for N was found to be 10 PRC components, providing a mean improvement in delivery time of 75.1. This is over twice the performance of the DANN trained with N set to the original value of 20, where the mean improvement in delivery time was found to be 35.3. A summary of the performances for the different values of N, measured at the end of the 8,000 testing PRC component run, is given in <a href="#fig12">Figure 12</a>. Note, the rule-of-thumb policy is equivalent to using a DANN with N set to 0, and is thus shown as such in this figure by the green marker. The overall form of the curve in <a href="#fig12">Figure 12</a> is not surprising and can be explain as follows. The initial increase in performance (from N = 0 to 10) is likely due to an increase in the number of choices available to the DANN policy when selecting the next PRC component to start working. The subsequent decrease in performance (from N = 10 onwards) is possibly due to several reasons including the rapidly increasing sparsity of training patterns in higher dimensional input space. The constancy of this observation, and its dependence on other system attributes (such as work demand), requires further investigation. Future work will also consider developing an array of DANNs, each trained to serve queues of different lengths rather than a one-size-fits-all approach.</p>
+
+          <figure id="fig12" class="top">
+            <img src="./img/figure12.png" alt="Summary of dependence of performance on N measured at the end of the testing run." />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 12.</strong> Summary of dependence of performance on N measured at the end of the testing run.
+            </figcaption>
+          </figure>
+        </section>
+      </section>
+
+      <section id="sect6">
+        <h1>Conclusion and Future Work</h1>
+
+        <p>The paper presented the development and evaluation of a DANN-based policy for controlling a construction factory producing PRC components, trained using RL techniques.  Control was concerned with selecting PRC components from a queue for processing (when the process became available) with the aim of optimizing delivery performance.  The performance of the DANN policy was compared to a rule-of-thumb and a random selection policy. The DANN was developed and tested using a simulation of an actual precast reinforced concrete factory.</p>
+
+        <p>A primary goal of this study was to determine if the DANN approach could cope with the unique challenges posed by the construction industry. The DANN proved able to learn an effective and reliable policy operating within this environment, and was found to significantly outperform the rule-of-thumb and random policies over long production runs (of 8,000 PRC components) except on some rare occasions.</p>
+
+        <p>An analysis of the progress of learning during the RL procedure indicated that addition training cycles, beyond the 20 considered, would likely improve the performance of the DANN policy. Furthermore, performance was found to be strongly dependent on the value adopted for N (the maximum number of PRC components in a queue considered for processing by the DANN). Based on these analyses, it is clear that the performance of the DANN has potential for further improvement. Indeed, there are many other parameters open to experiment that could further optimize performance, including:</p>
+
+        <ul>
+          <li>Undertaking sensitivity analyses on the structure and architecture of the DANN, including experimenting with the number of hidden layers, the number of hidden units per layer, and the inclusion of an ensemble of models.</li>
+          <li>Increasing the length and diversity of production runs used for training, thereby increasing the size and scope of the training dataset.</li>
+          <li>Undertaking sensitivity analyses on the RL hyper-parameters such as the reward term lengths, the rewards discount rate, the number of trials per stage, and the number of stages in a cycle.</li>
+          <li>Testing the performance of alternative RL algorithms.</li>
+        </ul>
+
+        <p>The following work is planned to increase the scope of application of the approach:</p>
+
+        <ul>
+          <li>Case studies aimed at identifying detailed performance data, logistics, and the practical issues associated with day-to-day control of construction manufacturing systems. This would include the use of alternative cost functions that reflect the range of objectives that different manufactures may consider important.</li>
+          <li>Increasing the range of state data used for input and the scope of the type of decisions made by the decision agent.</li>
+        </ul>
+
+        <p>Finally, a study is proposed comparing the performance of the RL-based DANN approach with heuristic search techniques to solve the same class of problems, considering both delivery performance and decision processing time.</p>
+      </section>
+        
+      <section id="sect7" role="doc-bibliography">
+        <h1>Bibliography</h1>
+        
+        <ul>
+          <li id="benjaoranDawood2005" role="doc-biblioentry">Benjaoran, V. &amp; Dawood, N. (2005). <em>An Application of Artificial Intelligence Planner for Bespoke Precast Concrete Production Planning: A Case Study</em>. <a href="https://itc.scix.net/paper/w78-2005-a11-5-benjaoran" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="chanHu2002" role="doc-biblioentry">Chan, W. T. &amp; Hu, H. (2002). Production Scheduling for Precast Plants Using a Flow Shop Sequencing Model. <em>Journal of Computing in Civil Engineering</em>, 16(3), 165-174. <a href="https://doi.org/10.1061/(ASCE)0887-3801(2002)16:3(165)" target="_blank"><img src="../../icons/doi.png" /></a><li>
+          <li id="flood1989" role="doc-biblioentry">Flood, I. (1989). A Neural Network Approach to the Sequencing of Construction Tasks. In <em>Proceedings of the 6th International Symposium on Automation and Robotics in Construction</em> (pp. 204-211). San Francisco, CA: IAARC. <a href="https://doi.org/10.22260/ISARC1989/0026" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="floodFlood2022" role="doc-biblioentry">Flood, I. &amp; Flood, P. D. L. (2022). Intelligent Control of Construction Manufacturing Processes Using Deep Reinforcement Learning. In <em>Proceedings of the 12th International Conference on Simulation and Modeling Methodologies, Technologies and Applications (SIMULTECH 2022)</em> (pp. 112-122). Lisbon, Portugal: SCITEPRESS. <a href="https://doi.org/10.5220/0011309600003274" target="_blank"><img src="../../icons/doi.png" /></a> <a href="https://www.scitepress.org/PublishedPapers/2022/113096/113096.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="glorotEtAl2011" role="doc-biblioentry">Glorot, X., Bordes, A., &amp; Bengio, Y. (2011). Deep Sparse Rectifier Neural Networks. In <em>Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics</em> (pp. 315-323). Proceedings of Machine Learning Research, vol 15. Fort Lauderdale, FL: PMLR. <a href="https://proceedings.mlr.press/v15/glorot11a.html" target="_blank"><img src="../../icons/html.png" /></a> <a href="http://proceedings.mlr.press/v15/glorot11a/glorot11a.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="ibaNoman2020" role="doc-biblioentry">Iba, H. &amp; Noman, N. (Eds.) (2020). <em>Deep Neural Evolution: Deep Learning with Evolutionary Computation</em>. Natural Computing Series, Springer Singapore. <a href="https://doi.org/10.1007/978-981-15-3685-4" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="leuHwang2001" role="doc-biblioentry">Leu, S. &amp; Hwang, S. (2001). Optimal Repetitive Scheduling Model with Shareble Resource Constraint. <em>Journal of Construction Engineering and Management</em>, 127(4), 270-280. <a href="https://doi.org/10.1061/(ASCE)0733-9364(2001)127:4(270)" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="paszkeEtAl2019" role="doc-biblioentry">Paszke, A., Gross, S., Massa, F., Lerer, A., Bradbury, J., Chanan, G., Killen, T., Lin, Z., Gimelshein, N., Antiga, L., Desmaison, A., Köpf, A., Yang, E., DeVito, Z., Raison, M., Tejani, A., Chilamkurthy, S., Steiner, B., Fang, L., Bai, J., &amp; Chintala, S. (2019). PyTorch: An Imperative Style, High-Performance Deep Learning Library. In Wallach, H., Larochelle, H., Beygelzimer, A., d&apos;Alché-Buc, F., Fox, E., &amp; Garnett, R. (eds) <em>Advances in Neural Information Processing Systems 32</em> (pp. 8024–8035). Red Hook, NY: Curran Associates, Inc. <a href="https://proceedings.neurips.cc/paper/2019/file/bdbca288fee7f92f2bfa9f7012727740-Paper.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="shitoleEtAl2019" role="doc-biblioentry">Shitole, V., Louis, J., &amp; Tadepalli, P. (2019). Optimizing Earth Moving Operations via Reinforcement Learning, In <em>Proceedings of the 2019 Winter Simulation Conference</em> (pp. 2954-2965). Piscataway, NJ: IEEE <a href="https://doi.org/10.1109/WSC40007.2019.9004935" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="suttonBarto2018" role="doc-biblioentry">Sutton, R. &amp; Barto, A. (2018). <em>Reinforcement Learning: An Introduction</em> (2nd ed.). Cambridge, MA: The MIT Press.</li>
+          <li id="wangEtAl2018" role="doc-biblioentry">Wang, Z., Hu, H., &amp; Gong. J. (2018). Framework for Modeling Operational Uncertainty to Optimize Offsite Production Scheduling of Precast Components. <em>Automation in Construction</em>, 86, 69-80. <a href="https://doi.org/10.1016/j.autcon.2017.10.026" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="waschneckEtAl2018" role="doc-biblioentry">Waschneck, B., Reichstaller, A., Belzner, L., Altenmüller, T., Bauernhansl, T., Knapp, A., &amp; Kyek, A. (2018). Optimization of Global Production Scheduling with Deep Reinforcement Learning. <em>Procedia CIRP</em>, 72, 1264-1269. <a href="https://doi.org/10.1016/j.procir.2018.03.212" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="xiaEtAl2021" role="doc-biblioentry">Xia, K., Sacco, C., Kirkpatrick, M., Saidy, C., Nguyen, L., Kircaliali, A., &amp; Harik, R. (2021). A Digital Twin to Train Deep Reinforcement Learning Agent for Smart Manufacturing Plants: Environment, Interfaces and Intelligence. <em>Journal of Manufacturing Systems</em>, 58 Part B, 210-230. <a href="https://doi.org/10.1016/j.jmsy.2020.06.012" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="zhouEtAl2020" role="doc-biblioentry">Zhou, L., Zhang, L., &amp; Horn, B. K. P. (2020). Deep Reinforcement Learning-Based Dynamic Scheduling in Smart Manufacturing. <em>Procedia CIRP</em>, 93, 383-388. <a href="https://doi.org/10.1016/j.procir.2020.05.163" target="_blank"><img src="../../icons/doi.png" /></a></li>
+        </ul>
+      </section>
+
+      <section id="sect8" class="no-counter">
+        <h1>Copyright Information</h1>
+        <p prefix="cc: http://creativecommons.org/ns#">
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"><img alt="Creative Commons License"
+                 src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+          Copyright © 2023 <span property="cc:attributionName">Ian Flood</span>, <span property="cc:attributionName">Xiaoyan Zhou</span>. This article is licensed under a <a rel="license"
+             href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank">Creative Commons Attribution 4.0 International
+            License</a>.
+        </p>
+      </section>
+    </main>
+
+    <nav id="toc" class="suppressInPDF">
+      <h1>Outline</h1>
+      <ol start="0">
+        <li style="list-style: none;"><a href="#sect0">Abstract</a></li>
+        <li><a href="#sect1">Introduction</a></li>
+        <li><a href="#sect2">Factory-Based Production Control</a></li>
+        <li><a href="#sect3">Modeling</a></li>
+        <li><a href="#sect4">DANN Learning Strategy</a></li>
+        <li><a href="#sect5">Results and Discussion</a></li>
+        <li><a href="#sect6">Conclusion and Future Work</a></li>
+        <li style="list-style: none;"><a href="#sect7">Bibliography</a></li>
+        <li style="list-style: none;"><a href="#sect8">Copyright Information</a></li>
+      </ol>
+      <div id="return-top">
+        <svg id="arrow-up" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M952.576 554.858667q0 29.141333-21.141333 51.434667l-42.858667 42.858667q-21.717333 21.717333-52.010667 21.717333-30.848 0-51.434667-21.717333l-168-167.424 0 402.282667q0 29.717333-21.418667 48.277333t-51.712 18.581333l-73.152 0q-30.293333 0-51.712-18.581333t-21.418667-48.277333l0-402.282667-168 167.424q-20.565333 21.717333-51.434667 21.717333t-51.434667-21.717333l-42.858667-42.858667q-21.717333-21.717333-21.717333-51.434667 0-30.293333 21.717333-52.010667l372.010667-372.010667q20.010667-21.141333 51.434667-21.141333 30.848 0 52.010667 21.141333l372.010667 372.010667q21.141333 22.293333 21.141333 52.010667z" /></svg><a href="">Return to top</a>
+      </div>
+      <div id="share">
+        <button id="share-this" title="Share this">Share...</button>
+        <ul class="links">
+          <li class="share facebook" title="Share on Facebook"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-facebook" viewBox="0 0 18 18">
+                <path
+                      d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-facebook" />
+            </svg></li>
+          <li class="share twitter" title="Share on Twitter"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-twitter" viewBox="0 0 18 18">
+                <path
+                      d="M16.5,4.3c-0.6,0.2-1.1,0.4-1.8,0.5c0.6-0.4,1.1-1,1.4-1.7c-0.6,0.4-1.3,0.6-2,0.8c-0.6-0.6-1.4-1-2.2-1 c-1.7,0-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7C6.3,6.5,4.1,5.3,2.5,3.4C2.3,3.9,2.1,4.4,2.1,5c0,1.1,0.5,2,1.4,2.6 c-0.5,0-1-0.2-1.4-0.4c0,0,0,0,0,0c0,1.5,1.1,2.8,2.5,3.1c-0.3,0.1-0.5,0.1-0.8,0.1c-0.2,0-0.4,0-0.6-0.1c0.4,1.2,1.5,2.1,2.9,2.2 c-1.1,0.8-2.4,1.3-3.8,1.3c-0.2,0-0.5,0-0.7,0c1.4,0.9,3,1.4,4.7,1.4c5.7,0,8.8-4.7,8.8-8.9c0-0.1,0-0.3,0-0.4 C15.6,5.5,16.1,4.9,16.5,4.3">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-twitter" />
+            </svg></li>
+          <li class="share linkedin" title="Share on LinkedIn"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-linkedin" viewBox="0 0 18 18">
+                <path
+                      d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-linkedin" />
+            </svg></li>
+          <li class="share email" title="Share with Email"><a
+               aria-label="Share with Email" href="" target="_blank"><svg
+                   aria-hidden="true" class="icon-social">
+                <symbol id="social-mail" viewBox="0 0 18 18">
+                  <path
+                        d="M9,8.2L3,4.5h12L9,8.2z M15,13.5H3V6l6,3.8L15,6V13.5z M15,3H3C2.2,3,1.5,3.7,1.5,4.5l0,9C1.5,14.3,2.2,15,3,15 h12c0.8,0,1.5-0.7,1.5-1.5v-9C16.5,3.7,15.8,3,15,3z">
+                  </path>
+                </symbol>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#social-mail" />
+              </svg></a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+
+</html>
