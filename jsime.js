@@ -52,3 +52,11 @@ if ( navigator.share ) {
   shareLinkList.style.display = "inline-block";
   setShareLinks();
 }
+/**
+ * Replace Footnote content
+ */
+function replaceFootnote(num) {
+    var fn = document.getElementById( "fn_pointer_ftn".concat(num) );
+    return fn.title.substring(11 + num.length);
+}
+Prince.addScriptFunc("replaceFootnote", replaceFootnote);

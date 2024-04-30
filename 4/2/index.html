@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JSimE 4/2 - E-Dossiers for Optimising Data Transmission in Italian Civil Area: Telematisation at the Tribunal of Cuneo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Google Scholar-->
+    <meta name="citation_publisher"
+          content="Consortium for True Open Access in Modeling and Simulation" />
+    <meta name="citation_journal_title"
+          content="Journal of Simulation Engineering" />
+    <meta name="citation_journal_abbrev" content="JSimE" />
+    <meta name="citation_issn" content="2569-9466" />
+    <meta name="citation_volume" content="4" />
+    <meta name="citation_firstpage" content="10:1" />
+    <meta name="citation_lastpage" content="10:11" />
+    <meta name="citation_title"
+          content="E-Dossiers for Optimising Data Transmission in Italian Civil Area: Telematisation at the Tribunal of Cuneo" />
+    <meta name="citation_article_type" content="Article" />
+    <meta name="citation_online_date" content="2024/4/30" />
+    <meta name="citation_publication_date" content="2024/4/30" />
+    <meta name="citation_author" content="Ilaria Angela Amantea" />
+    <meta name="citation_author_email" content="ilariaangela.amantea@unito.it" />
+    <meta name="citation_author_institution"
+          content="University of Turin, Turin, Italy" />
+    <meta name="citation_author" content="Marinella Quaranta" />
+    <meta name="citation_author_email" content="marinella.quaranta2@unibo.it" />
+    <meta name="citation_author_institution"
+          content="University of Bologna, Bologna, Italy" />
+    <meta name="citation_author" content="Marianna Molinari" />
+    <meta name="citation_author_email" content="marianna.molinari@unito.it" />
+    <meta name="citation_author_institution"
+          content="University of Bologna, Bologna, Italy" />
+    <meta name="citation_author" content="Christine Peduto" />
+    <meta name="citation_author_email" content="christine.peduto@giustizia.it" />
+    <meta name="citation_author_institution"
+          content="The Tribunal of Cuneo, Cuneo, Italy" />
+    <meta name="citation_author" content="Francesca Demarchi" />
+    <meta name="citation_author_email" content="francesca.demarchi@giustizia.it" />
+    <meta name="citation_author_institution"
+          content="The Tribunal of Cuneo, Cuneo, Italy" />
+    <meta name="citation_abstract_html_url"
+          content="https://jsime.org/index.php/jsimeng/article/view/22" />
+    <meta name="citation_pdf_url"
+          content="https://articles.jsime.org/4/jsime-article-4-2.pdf" />
+    <meta name="citation_fulltext_html_url"
+          content="https://articles.jsime.org/4/2/E-Dossiers-for-Optimising-Data-Transmission-in-Italian-Civil-Area:-Telematisation-at-the-Tribunal-of-Cuneo" />
+    <!--Open Graph-->
+    <meta property="og:title"
+          content="E-Dossiers for Optimising Data Transmission in Italian Civil Area: Telematisation at the Tribunal of Cuneo" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+          content="This article presents a framework for integrating Business Process Management (BPM) and simulation to optimize administration processes in Italian courts and tribunals. The aim is to support the telematisation and dematerialisation of dossiers so that paper-based records are eliminated and replaced by information systems workflows. Electronic dossiers can have a positive impact in terms of efficiency and productivity in several tribunals. In the Italian context, Legislative Decree no. 149/2022 set the goal of digitalising civil processes, while Legislative Decree no. 150/2022 mandated that the digitalisation of the criminal procedural system should be accelerated. This necessitates an analysis of each change process and a reorganization model. This article analyses the workflow of the civil area of the Tribunal of Cuneo, with a specific focus on files relating to civil litigation and labour practices divisions. The BPM method was used to capture pre-reform processes and introduce some corrective actions in order to create a new workflow model based on the digitalisation reforms and solutions required by the Italian Ministry of Justice. Since the digitalisation reform measures apply to all Italian courts and tribunals, the ultimate goal of this article is to provide an optimisation model that can be applied to all Italian civil processes and, in the future, criminal processes. An optimised exportable model for all the divisions of all tribunals in Italy will result in significant savings in the use of paper, operational costs and labour (which is particularly beneficial in situations of staff shortages). It will reduce backlogs and make smart working more feasible." />
+    <meta property="og:url"
+          content="https://articles.jsime.org/4/2/E-Dossiers-for-Optimising-Data-Transmission-in-Italian-Civil-Area:-Telematisation-at-the-Tribunal-of-Cuneo" />
+    <meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="JSimE" />
+    <meta property="og:site_name" content="Journal of Simulation Engineering" />
+    <!--Twitter-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title"
+          content="E-Dossiers for Optimising Data Transmission in Italian Civil Area: Telematisation at the Tribunal of Cuneo" />
+    <!--Canonical URL-->
+    <link rel="canonical"
+          href="https://articles.jsime.org/4/2/E-Dossiers-for-Optimising-Data-Transmission-in-Italian-Civil-Area:-Telematisation-at-the-Tribunal-of-Cuneo" />
+    <!--Stylesheets-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="../../jsime.css" />
+    <!-- Style -->
+    <style>
+      .small-caps {
+        font-variant: small-caps;
+      }
+
+      .table-matrix td {
+        border-style: hidden;
+        text-align: center;
+      }
+
+      .table-figure caption {
+        caption-side: bottom;
+      }
+
+      .table-figure td {
+        border-style: hidden;
+        text-align: center;
+        caption-side: bottom;
+        padding: 5px;
+      }
+
+      .table-outside td {
+        border-style: hidden;
+        caption-side: bottom;
+        padding: 5px;
+      }
+
+      .table-inside td {
+        text-align: right;
+        padding: 5px;
+        border: 1pt solid black;
+      }
+
+      tr.border_top_bottom td {
+        border-top: 1pt solid black;
+        border-bottom: 1pt solid black;
+      }
+
+      td.border_left_right {
+        border-left: 1pt solid black;
+        border-right: 1pt solid black;
+      }
+
+      .page-break {
+        border: none;
+        margin: 0;
+        page-break-before: always;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="async"
+            src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push( arguments );
+      }
+      gtag( 'js', new Date() );
+      gtag( 'config', 'UA-115543812-1', {
+        'anonymize_ip': true
+      } );
+    </script>
+    <!--Scripts-->
+    <script defer src="../../jsime.js"></script>
+    <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML"></script>
+    <!--schema.org JSON-LD-->
+    <script type="application/ld+json">
+{
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "E-Dossiers for Optimising Data Transmission in Italian Civil Area: Telematisation at the Tribunal of Cuneo",
+      "author": [
+        { "@id": "/4/2/author-1" },
+        { "@id": "/4/2/author-2" },
+        { "@id": "/4/2/author-3" },
+        { "@id": "/4/2/author-4" },
+        { "@id": "/4/2/author-5" }
+      ],
+        "keywords": [ "Business Process Management", "Courts", "Modelling and Simulation", "E-Dossier", "Telematisation and Dematerialisation" ],
+        "description": "This article presents a framework for integrating Business Process Management (BPM) and simulation to optimize administration processes in Italian courts and tribunals. The aim is to support the telematisation and dematerialisation of dossiers so that paper-based records are eliminated and replaced by information systems workflows. Electronic dossiers can have a positive impact in terms of efficiency and productivity in several tribunals. In the Italian context, Legislative Decree no. 149/2022 set the goal of digitalising civil processes, while Legislative Decree no. 150/2022 mandated that the digitalisation of the criminal procedural system should be accelerated. This necessitates an analysis of each change process and a reorganization model. This article analyses the workflow of the civil area of the Tribunal of Cuneo, with a specific focus on files relating to civil litigation and labour practices divisions. The BPM method was used to capture pre-reform processes and introduce some corrective actions in order to create a new workflow model based on the digitalisation reforms and solutions required by the Italian Ministry of Justice. Since the digitalisation reform measures apply to all Italian courts and tribunals, the ultimate goal of this article is to provide an optimisation model that can be applied to all Italian civil processes and, in the future, criminal processes. An optimised exportable model for all the divisions of all tribunals in Italy will result in significant savings in the use of paper, operational costs and labour (which is particularly beneficial in situations of staff shortages). It will reduce backlogs and make smart working more feasible.",
+      "url": "https://articles.jsime.org/4/2/E-Dossiers-for-Optimising-Data-Transmission-in-Italian-Civil-Area:-Telematisation-at-the-Tribunal-of-Cuneo",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [
+        { "@id": "/4/2/author-1" },
+        { "@id": "/4/2/author-2" },
+        { "@id": "/4/2/author-3" },
+        { "@id": "/4/2/author-4" },
+        { "@id": "/4/2/author-5" }
+      ],
+      "copyrightYear": "2024",
+      "dateCreated": "2024-04-27",
+      "dateModified": "2024-04-30",
+      "datePublished": "2024-04-30",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2024-04-30",
+        "volumeNumber": "4",
+        "url": "https://articles.jsime.org/4/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": [
+        {
+          "@type": "CategoryCode",
+          "identifier": "10002951",
+          "codeValue": "Information systems",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010147",
+          "codeValue": "Computing methodologies",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10010405",
+          "codeValue": "Applied computing",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        }
+      ]
+    },
+    {
+      "@id": "/4/2/author-1",
+      "@type": "Person",
+      "name": "Ilaria Angela Amantea",
+      "email": "ilariaangela.amantea@unito.it",
+      "affiliation": [
+        { "@id": "/4/2/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/4/2/author-2",
+      "@type": "Person",
+      "name": "Marinella Quaranta",
+      "email": "marinella.quaranta2@unibo.it",
+      "affiliation": [
+        { "@id": "/4/2/affiliation-1" },
+        { "@id": "/4/2/affiliation-2" }
+      ]
+    },
+    {
+      "@id": "/4/2/author-3",
+      "@type": "Person",
+      "name": "Marianna Molinari",
+      "email": "marianna.molinari@unito.it",
+      "affiliation": [
+        { "@id": "/4/2/affiliation-1" },
+        { "@id": "/4/2/affiliation-2" }
+      ]
+    },
+    {
+      "@id": "/4/2/author-4",
+      "@type": "Person",
+      "name": "Christine Peduto",
+      "email": "christine.peduto@giustizia.it",
+      "affiliation": [
+        { "@id": "/4/2/affiliation-3" }
+      ]
+    },
+    {
+      "@id": "/4/2/author-5",
+      "@type": "Person",
+      "name": "Francesca Demarchi",
+      "email": "francesca.demarchi@giustizia.it",
+      "affiliation": [
+        { "@id": "/4/2/affiliation-3" }
+      ]
+    },
+    {
+      "@id": "/4/2/affiliation-1",
+      "@type": "Organization",
+      "name": "University of Turin",
+      "address": {
+        "addressLocality": "Turin",
+        "addressCountry": "Italy"
+      }
+    },
+    {
+      "@id": "/4/2/affiliation-2",
+      "@type": "Organization",
+      "name": "University of Bologna",
+      "address": {
+        "addressLocality": "Bologna",
+        "addressCountry": "Italy"
+      }
+    },
+    {
+      "@id": "/4/2/affiliation-3",
+      "@type": "Organization",
+      "name": "The Tribunal of Cuneo",
+      "address": {
+        "addressLocality": "Cuneo",
+        "addressCountry": "Italy"
+      }
+    }
+  ]
+}
+</script>
+  </head>
+
+  <body vocab="http://schema.org/">
+    <header>
+      <a href="https://jsime.org" target="_blank"><img src="../../JSimE.svg"
+             style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of
+        Simulation Engineering</i>, Volume 4 (2024/2025). Article URL: <a
+         href="https://articles.jsime.org/4/2/E-Dossiers-for-Optimising-Data-Transmission-in-Italian-Civil-Area:-Telematisation-at-the-Tribunal-of-Cuneo"
+         id="articleURL" target="_blank">https://articles.jsime.org/4/2</a><a
+         id="PDF" class="suppressInPDF"
+         href="https://jsime.org/index.php/jsimeng/article/view/22"
+         style="position: relative; left: 1em" target="_blank"><img
+             src="../../icons/pdf.png" /></a>
+    </header>
+    <main>
+      <div id="front-matter">
+        <div id="article-number">10</div>
+        <h1 id="article-title">E-Dossiers for Optimising Data Transmission in Italian Civil Area: Telematisation at the Tribunal of Cuneo</h1>
+        <div id="article-title-abbr">E-Dossiers for Optimisation</div>
+        <div id="authors">
+          <address typeof="Person">
+            <div property="name">
+              Ilaria Angela Amantea<sup>1<img src="../../icons/envelope.png" alt="Envelope" /></sup>
+            </div>
+            <div property="email">
+              <a href="mailto:ilariaangela.amantea@unito.it">ilariaangela.amantea@unito.it</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Marinella Quaranta<sup>1,2</sup>
+            </div>
+            <div property="email">
+              <a href="mailto:marinella.quaranta2@unibo.it">marinella.quaranta2@unibo.it</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Marianna Molinari<sup>1,2</sup>
+            </div>
+            <div property="email">
+              <a href="mailto:marianna.molinari@unito.it">marianna.molinari@unito.it</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Christine Peduto<sup>3</sup>
+            </div>
+            <div property="email">
+              <a href="mailto:christine.peduto@giustizia.it">christine.peduto@giustizia.it</a>
+            </div>
+          </address>
+          <address style="display: block; margin: 0.5em auto" typeof="Person">
+            <div property="name">
+              Francesca Demarchi<sup>3</sup>
+            </div>
+            <div property="email">
+              <a href="mailto:francesca.demarchi@giustizia.it">francesca.demarchi@giustizia.it</a>
+            </div>
+          </address>
+          <div class="affiliation">
+            <sup>1</sup> University of Turin, Turin, Italy
+          </div>
+          <div class="affiliation">
+            <sup>2</sup> University of Bologna, Bologna, Italy
+          </div>
+          <div class="affiliation">
+            <sup>3</sup> The Tribunal of Cuneo, Cuneo, Italy
+          </div>
+        </div>
+        <div id="acm-subject-categories">
+          <h1>ACM Subject Categories</h1>
+          <ul>
+            <li><code>Information system</code></li>
+            <li><code>Computing methodologies</code></li>
+            <li><code>Applied computing</code></li>
+          </ul>
+        </div>
+        <div id="keywords">
+          <h1>Keywords</h1>
+          <ul class="list-inline comma-separated">
+            <li>Business Process Management</li>
+            <li>Courts</li>
+            <li>Modelling and Simulation</li>
+            <li>E-Dossier</li>
+            <li>Telematisation</li>
+            <li>Dematerialisation</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="sect0" role="doc-abstract">
+        <h1>Abstract</h1>
+
+        <p>This article presents a framework for integrating Business Process Management (BPM) and simulation to optimize administration processes in Italian courts and tribunals. The aim is to support the telematisation and dematerialisation of dossiers so that paper-based records are eliminated and replaced by information systems workflows. Electronic dossiers can have a positive impact in terms of efficiency and productivity in several tribunals. In the Italian context, Legislative Decree no. 149/2022 set the goal of digitalising civil processes, while Legislative Decree no. 150/2022 mandated that the digitalisation of the criminal procedural system should be accelerated. This necessitates an analysis of each change process and a reorganization model. This article analyses the workflow of the civil area of the Tribunal of Cuneo, with a specific focus on files relating to civil litigation and labour practices divisions. The BPM method was used to capture pre-reform processes and introduce some corrective actions in order to create a new workflow model based on the digitalisation reforms and solutions required by the Italian Ministry of Justice. Since the digitalisation reform measures apply to all Italian courts and tribunals, the ultimate goal of this article is to provide an optimisation model that can be applied to all Italian civil processes and, in the future, criminal processes. An optimised exportable model for all the divisions of all tribunals in Italy will result in significant savings in the use of paper, operational costs and labour (which is particularly beneficial in situations of staff shortages). It will reduce backlogs and make smart working more feasible.</p>
+      </section>
+
+      <section id="sect1">
+        <h1>Introduction</h1>
+
+        <p>Many pieces of legislation, reforms, and programs have been enacted in recent years to increase
+the efficiency and productivity of judicial offices and courts at both European and national levels. <em>Next Generation Ufficio Per il Processo</em> (NGUPP) (Next Generation Office for Trials)<span class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref" title="Footnote 1: The Project was called Nuovi schemi collaborativi tra Università e uffici giudiziari per il miglioramento dell'efficienza e delle prestazioni della giustizia nell'Italia del nord-ovest (New Collaborative Schemes between Universities and Judicial Offices to Improve the Efficiency and Performance of Justice in Northwest Italy). It involved 35 judicial offices in that macro area. The project was part of an Italian Ministry of Justice unitary project for disseminating the work of the Ufficio Per il Processo - Office for Trials and the implementation of innovative operating models in judicial offices in order to remove backlogs, which was part of a Progetto Operativo Nationale (PON) (National Operative Project) called Governance and Institutional Capacity 2014-2020.">1</a></sup></span> was one of Italy's biggest and most recent national programmes. The aim of NGUPP project was to enable the judicial offices of the macro area to acquire more efficient ways of handling litigation in order to reduce backlogs, and the digitalisation of judicial processes was a major part of that initiative. The project proposes to test new collaborative schemes between universities and judicial offices in order to provide office employees in the courts with multidisciplinary skills, improve the efficient operation of the contemporary court system, and support the digitisalisation and innovation process.</p>
+
+        <p>In the Italian judicial context, the Cartabia Reform introduced by Act no. 206/2021 and Legislative Decree no. 149/2022 establishes rules to make civil procedures simpler, optimal and more efficient.
+The framework of the Cartabia Reform includes Legislative Decree no. 150/2022 on efficient criminal proceedings and matters of restorative justice with provisions for ensuring expeditious judicial proceedings.</p>
+
+        <p>Despite what is prescribed by the law, files and dossiers are still printed out in most Italian courts. This is because several courts do not have enough staff and technical resources to do otherwise. The tools that are available have been provided without instructions or training courses. Naturally, the human aspect of resistance to change should also be taken into consideration.</p>
+
+        <p>Despite all efforts, e-dossiers are still a work in progress. In the courts of many Italian cities, dossiers of civil area are still in hard copy and, in some cases, partly on paper and partly in digital form.</p>
+
+        <p>Since 2012, the Italian Ministry of Justice has provided software for the digitalisation of civil processes. This software makes it possible for tribunal staff to create e-dossiers, carry out the necessary formalities (e.g. make the dossier available to the judge, receive the public prosecutor (PP) stamp) and communicate quickly with external entities such as <em>Poste Italiane</em> (the Italian post office). This software is a workflow software, so it records data about civil dossiers from their creation to their conclusion. Days, hours, minutes and even seconds are registered on the software of the Ministry of Justice, and each and every digital document related to an e-dossier is registered and made available in digital form to court staff and defendants. This tool should be used not only to create a completely digitalised process, meaning that it starts with paper documents that is afterwards recorded in a digital form. The tool should be used to foster a telematic process, meaning that the whole process from start to finish is electronic, avoiding hard copies as much as possible.</p>
+
+        <p>The Court of Cuneo is a model tribunal that is managing this change successfully and is now fully capable of telematising and occasionally dematerialising labour and civil litigation dossiers. This article describe the processes that have made telematisation possible, compares previous and current processes, and shows the time, money, and resource by comparing the previous and present processes. Our ultimate goal is to create a transferable model to help other Italian tribunals and support national reforms.</p>
+
+        <p>To examine the courts' business processes, we exploited the business process management methodology (<a role="doc-biblioref" href="#dumasEtAl2018">Dumas et al., 2018</a>; <a role="doc-biblioref" href="#aalstEtAl2010">Aalst et al., 2010</a>; <a role="doc-biblioref" href="#aboArisha2013">Abo-Hamad &amp; Arisha, 2013</a>). One of the central goals  of BPM (<a role="doc-biblioref" href="#dumasEtAl2018">Dumas et al., 2018</a>; <a role="doc-biblioref" href="#amanteaEtAl2018">Amantea et al., 2018</a>; <a role="doc-biblioref" href="#aalstEtAl2010">Aalst et al., 2010</a>; <a role="doc-biblioref" href="#aboArisha2013">Abo-Hamad &amp; Arisha, 2013</a>) is change management (<a role="doc-biblioref" href="#amanteaEtAl2020">Amantea et al., 2020</a>; <a role="doc-biblioref" href="#dilevaEtAl2020">Di Leva et al., 2020</a>; <a role="doc-biblioref" href="#amanteaEtAl2022">Amantea et al., 2022</a>; <a role="doc-biblioref" href="#amanteaEtAl2018">Amantea et al., 2018</a>). As our approach is process-centric, we provide a diagram of the process from a business perspective  using the Business Process Model and Notations (BPMN) standard language (<a role="doc-biblioref" href="#dilevaEtAl2020">Di Leva et al., 2020</a>; <a role="doc-biblioref" href="#allweyer2016">Allweyer, 2016</a>). With a process-centric approach relying on a process-aware information system in combination with the iGrafx simulation tool<span class="fn"><sup><a href="#ftn2" id="fn_pointer_ftn2" role="doc-noteref" title="Footnote 2: Grafx LCC. iGrafx Process 2015 for Six Sigma.">2</a></sup></span>, it is possible to redesign an organisation's business processes. By integrating these techniques, we can analyse the activities, related resources, time, costs, delays and bottlenecks (<a role="doc-biblioref" href="#martinhoEtAl2016">Martinho et al., 2016</a>; <a role="doc-biblioref" href="#mansEtAl2015">Mans et al., 2015</a>; <a role="doc-biblioref" href="#fernandezllatasEtAl2011">Fernández-Llatas et al., 2011</a>), all based on real data stored in the information system (IS) (<a role="doc-biblioref" href="#amanteaEtAl2022">Amantea et al., 2022</a>).</p>
+
+        <p>We outline the methodology in <a href="#sect2">Section 2</a>. In <a href="#sect3">Section 3</a>, we will describe the case study, demonstrate the application of the methodology, and present the results. In <a href="#sect4">Section 4</a>, we present our conclusions and future work.</p>
+      </section>
+
+      <section id="sect2">
+        <h1>Methodology</h1>
+
+        <p>The methodology is composed of the phases:</p>
+
+        <ul>
+          <li><b>Context and Data Analysis</b>: The aim of the analysis is to understand what the current situation is and what improvements are needed at different levels: organisational, technological and legal. The aim of this phase is to set the organisation's overall strategic scenario,  determine the functional components of the processes under consideration, and establish KPIs (Key Performance Indicators) such as cycle times, costs, resource allocation, etc., in order to measure process performance (<a role="doc-biblioref" href="#looyShafagatova2016">van Looy &amp; Shafagatova, 2016</a>).</li>
+          <li>
+            <p><b>Process Analysis and As-Is Model and Simulation</b>: The goal is to create a visual model of a process by determining the sequence of activities and the various crossroads (gateways) that lead to different routes depending on the choices made. To create this model, we spent a lot of time at the organisation under consideration, working alongside not only administrators but also all the staff at every level in order to capture the real model and the actual problems and bottlenecks in the process.</p>
+            
+            <p>The process in existence was then reconstructed and formalised in the BPMN standard language and then validated by court officers. The process diagram was then integrated with information about resources (and their capabilities), the execution time of the activities, costs, queue policy management, and other features in order to build the most accurate possible virtual representation of reality. The model had to simulate the real workload of the process extracted from the IS to obtain a comparative KPI evaluation and enable model validation. Both the model and the first simulation results were then validate by the employees of the organisation. A model obtained in this way is called an As-Is model of the process under consideration.</p>
+          </li>
+          <li>
+            <p><b>Process Reorganisation and the To-Be Model</b>: The objective is to introduce to the As-Is model one or more corrective actions in order to show different evolutionary scenarios (and their respective models). This phase includes solutions for restructuring the process, and for improving the detection and understanding of inefficiencies, bottlenecks, constraints and risks (<a role="doc-biblioref" href="#mansEtAl2015">Mans et al., 2015</a>). Simulating the different scenarios with the same workload (What-If analysis) allows us to compare the performance of these scenarios with that of the initial As-Is model. The comparison is made on the KPIs of the scenarios and the As-Is model until an acceptable solution is reached. In this way, a new model of the process (the To-Be model) is obtained.</p>
+
+            <p>In our case, we are interested in monitoring the throughput time and costs of activities performed in the <em>Ufficio di cancelleria</em> (Court registry) in the As-Is paper-based process versus the To-Be telematic model. With the iGrafx simulator, it is possible to place monitors on certain activities to measure the transition time from one activity to another.</p>
+
+            <p>During the simulation, the token proceeds to the activity, the monitor is activated and it then detects the time traveled by the token from the starting monitor to the arrival monitor (including time spent on waiting for resources, bottlenecks and various other activities). By inserting different monitors on different aspects of the process, it is possible to measure the cross-sections of the process that involve all the administrative activities of the court while excluding the times required for certain specific activities, like writing judgments, that are subject to legally prescribed timeframes and are therefore not optimisable.</p>
+          </li>
+          <li><b>Process Implementation, Monitoring and Process Export</b>: When the best scenario possible is found, it should be implemented. Once the new model with corrective actions is in place, it is important to monitor the results to ensure that the sequence of activities, resources, time and costs are optimised effectively with respect to various KPIs as mentioned above, and that no new issues arise. If new problems emerge or if new improvements have to be made, it is necessary to restart the analysis phase. However, if the model is effective, it is possible to consider exporting it into equivalent or similar processes, while paying attention to any contextual modifications necessary.</li>
+        </ul>
+      </section>
+
+      <section id="sect3">
+        <h1>Background and Case Study</h1>
+
+        <p>Several laws have been passed at European Union (EU) and Italian levels aimed at improving the efficiency and productivity of courts (i.e. the court registry activities and judges activities). On a more practical level, some rules have been drawn up by the Italian Ministry of Justice imposing the telematisation of files in civil litigation and labour divisions. Despite this, e-dossiers are still not used in most tribunals.</p>
+
+        <p>Although telematisation is now a legal obligation, there is still a strong resistance to change. The purpose of this case study is to show not only how to meet a regulatory obligation, but what the efficiency of this change would be. We analyzed a successful case study to show how the process was modified to move from a paper-based process to an e-dossier, where are the corrective actions and highlight all the achievable improvements in terms of time, costs, and resources.</p>
+
+        <p>The context analysis conducted inside tribunals revealed a lack of terminological clarity. Therefore, three essential terms are defined here:</p>
+
+        <ul>
+          <li><b>Digital copy</b>. Having a digital copy of a paper document means having a backup of that document. But it's important to point out that the original document remains the paper document (so this does not lead to a reduction in printed paper). Moreover, it does not necessarily imply that there is a workflow and/or digital traceability of the entire history of the document.</li>
+          <li><b>Telematic dossier</b>. Once created, the dossier is registered in the information system and all relevant documents follow the workflow in the system. All communications are carried out using the system, and all the tasks are traceable. The original dossier, including some initial paperwork, is still paper-based. The original documents are telematic and there is no need to print them.</li>
+          <li><b>Dematerialised dossier</b>. This is a 100% telematic dossier, and there is no longer a paper version of any document or initial paperwork. The dossier of the case is created and deleted entirely telematically. Of course, not all types of dossiers can be totally dematerialised yet, but all types of civil dossiers can be telematic.</li>
+        </ul>
+
+        <p>Another aspect to be taken into consideration is that the tools employed by the courts are provided by the Italian Ministry of Justice nationally and it is forbidden to modify the tools at the local level. Furthermore, there are some activities (particularly activities pertaining to judges or limitation periods) whose timeframes are set by the law, so it is not possible to make them go faster. Due to these constraints, we started by optimizing the clerks' activities (therefore, administrative activities) as they are subject to fewer temporal constraints at a legislative level. We used existing resources and reorganized them to support the telematisation of dossiers.</p>
+
+        <p>The starting assumption was that Italian courts and tribunals are understaffed, and further staff will soon be made redundant, while the amount of cases and files will not decrease, and Italian courts have a considerable backlog. Waiting for intervention from above means waiting for new reforms, which requires time, and in any case, they do not normally include instructions on the execution of technical processes. The only way to be more efficient today is to reduce the duration of the activities with existing and available resources. Reducing the time required for each activity means having to resolve (at least administratively) new cases faster and plan for getting rid of the backlog.</p>
+
+        <p>By telematising the files, it is possible to drastically reduce the time spent on: internal and external communication, searching for files, and making official copies of various documents upon request for external organizations (an activity that requires searching for physical documents in the archive, photocopying them, and putting a stamp attesting that they conform to the original). Those are all sources of constant interruption to other work in progress.</p>
+
+        <figure id="fig1" class="top">
+          <img src="./img/figure1.png" alt="Staff hierarchy of Italian Tribunals" />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 1.</strong> Staff hierarchy of Italian Tribunals.
+          </figcaption>
+        </figure>
+
+        <p>For reasons of clarity in <a href="#fig1">Figure 1</a> we show the hierarchy of the staff in the civil area of Italian Tribunals that we will consider. First of all, we decide to make a distinction between court and tribunal. With <em>Court</em> (<em>Corte</em>) we intend the activities that include the phase of discussion among parties and the decision of the judge. With <em>Tribunal</em> (<em>Tribunale</em>) we intend the whole business, so all types of activities at administrative, logistic, and organization levels, not only the decision part of the judicial process.</p>
+
+        <p>The image shows just the civil area excluding the criminal area. The civil area is divided into several of <em>Divisions</em> (<em>Sezioni</em>) (i.e. but not limited to, litigation division, labour division, commercial division, etc.). Each division has its proper staff. The staff of a division is made of two main categories: one or more <em>Judges</em> and the <em>Court Registry</em> (<em>Ufficio di Cancelleria</em>). The court registry has one <em>chief clerk</em> (<em>Funzionario</em>) who is responsible for and the coordinator of the office and which includes other <em>clerks</em> (<em>cancellieri</em>). They carry out all the administrative activities related to dossiers. The court registry includes also the <em>internal carriers</em> (<em>commessi</em>) which have the only function of making possible the exchange of paper documents between offices (i.e. between clerk to clerk, or between clerk to chief clerk, or between the court registry and judge, or between the court registry and the public prosecutor, or between the court registry and the archive).</p>
+
+        <p>Finally, there is a <em>car driver</em> available for all the civil area to carry documents and persons from this tribunal to for example the main tribunal of the area and some <em>UNEP</em> (<em>Uffici Notificazioni, Esecuzioni e Protesti</em>) or (<em>Ufficiali Giudiziari</em>) which are judicial officers, that have to deliver some specific notifications to lawyers or citizens.</p>
+
+        <section id="sect3.1">
+          <h1>Telematic and Dematerialised Dossiers at the Tribunal of Cuneo: From the As-Is Model to the To-Be Model</h1>
+
+          <p>The Tribunal of Cuneo is an excellent example of a tribunal that has been able to telematise, and sometimes dematerialise, all such files. The process of telematisation and dematerialisation started in 2010 and developed slowly until 2022.</p>
+
+          <p>For our first experiment, we focused on activities, from the perspective of the court registry, pertaining to proceedings about divorce or separation by mutual consent, since these cases are less subject to the whims of external parties. Proceedings about divorce or separation by mutual consent belong to the civil area, litigation division.</p>
+
+          <p><a href="#fig2">Figure 2</a> shows the As-Is model of the paper-based process used from 2010 until 2012 in the litigation division of the Civil Area of Cuneo.</p>
+            
+          <figure id="fig2" class="top">
+            <img src="./img/figure2.png" alt="As-Is paper process (Amantea et al., 2023a)" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 2.</strong> As-Is paper process (<a role="doc-biblioref" href="#amanteaEtAl2023a">Amantea et al., 2023a</a>).
+            </figcaption>
+          </figure>
+
+          <p>The court registry employed 1 chief clerk, 10 clerks, and 2 internal carriers. Moreover, there was 1 car driver available for all civil and criminal areas.</p>
+
+          <p>At the end of 2023, a reform was introduced to eliminate the role of internal carriers (see the <em>Internal carriers</em> lane in <a href="#fig2">Figure 2</a>). The internal carriers were responsible for bringing dossiers from one office to another within the court, archiving the dossiers, and searching for the documents contained in the dossier if someone needs them.</p>
+          
+          <p>Furthermore, the car driver retired at the end of 2023 and there is no legal disposition for a replacement.</p>
+
+          <p><a href="#fig3">Figure 3</a> shows the To-Be model of the telematic process developed progressively from 2012 to 2019 and subsequently optimized during this project (we look at the period until the end of the year 2022).</p>
+
+          <figure id="fig3" class="top">
+            <img src="./img/figure3.png" alt="The To-Be telematic process (Amantea et al., 2023a)" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 3.</strong> The To-Be telematic process (<a role="doc-biblioref" href="#amanteaEtAl2023a">Amantea et al., 2023a</a>).
+            </figcaption>
+          </figure>
+
+          <p>Comparing the two processes of <a href="#fig2">Figure 2</a> and <a href="#fig3">Figure 3</a>, we can see that the workflow of the information system (IS) implemented in the telematic process allows all communications to take place inside the system. Therefore, all the activities relating to the delivery of dossiers to different authorities are removed, and so the activities of the internal carriers, car driver, and UNEP are expired (and the lanes related to these functions are deleted too (see <a href="#fig3">Figure 3</a>). Moreover, the PP (public prosecutor) stamps are provided by the IS rather than the internal carriers.</p>
+
+          <p>As for time reductions, as already stated, some periods are set by the law, such as the timeframe for the judge to deliver the judgment, or the time before that judgment comes into force. Furthermore, some waiting times arise due to the interval required for the release of documents or stamps (e.g. by defense lawyers or public prosecutors (PPs)). Thus, we focus on administrative activities only. To measure time reductions, multiple monitors were introduced during the run of the simulations to allow different parts of the process to be isolated and measured.</p>
+
+          <p>The generators of the simulation are the same for both processes. As a matter of fact, judgments of litigation proceedings pending between 2010 and 2012 (As-Is) and between 2021 and 2022 (To-Be) have been estimated at an average of 800 per year.</p>
+
+          <p>The activities of the To-Be process are significantly reduced compared to the As-Is process, and the cycle times are generally reduced, as shown in <a href="#tab1">Table 1</a>.</p>
+
+          <table id="tab1" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table 1.</strong> Comparison of average cycle times, based on the same generator and measured in weeks, with the whole As-Is (paper-based) and To-Be (telematic) processes.
+            </caption>
+            <thead>
+              <tr>
+                <th style="text-align: center"></th>
+                <th style="text-align: center">Paper Dossier</th>
+                <th style="text-align: center">E-Dossier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Transactions</td>
+                <td>800</td>
+                <td>800</td>
+              </tr>
+              <tr>
+                <td>Average Cycle Time (in weeks)</td>
+                <td>67.98</td>
+                <td>22.12</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>This happened because with the IS, the archive of documents is always available, and because paper and in-person communications are now eliminated. This effectively eliminates the waiting time between a communication and the notification of the communication.</p>
+
+          <p>Moreover, by eliminating the role of lawyers in the delivery/withdrawal of documents, the work of the court registry staff can be better organized, with more flow and fewer interruptions. What's more, these structural changes also mean court registry staff can work from home.</p>
+
+          <p>As the number of activities is reduced, the monitors of the two processes show a significant difference in the average throughput time in the clerks' activities. Specifically, we set up the simulation monitors in a way that excludes times that are not directly related to the clerks' activities (e.g. waiting for the PP stamps, or handling communications from lawyers or municipalities).</p>
+
+          <p>To be clear, we split the processes into three parts related to the three main parts of the process – investigation stage, introductory stage, and decision-making stage – in order to get better time comparisons. In <a href="#fig2">Figure 2</a> and <a href="#fig3">Figure 3</a>, there are two coloured activities. The Investigation stage starts together with the beginning of the whole process and ends with the <em>"First hearing + Minutes"</em> activity, the Introductory stage starts from the <em>"First hearing + Minutes"</em> activity and ends with the  <em>"Publication"</em>, finally, the Decision-making stage starts from the <em>"Publication"</em> activity and ends with the end of the whole process.</p>
+
+          <p>In particular, and related to the Investigation stage, <a href="#tab2">Table 2</a> shows the average working time (in hours) of the paper dossier (<a href="#fig2">Figure 2</a>, <a href="#tab2a">Table 2(a)</a>) and the e-dossier (<a href="#fig3">Figure 3</a>, <a href="#tab2b">Table 2(b)</a>). Specifically, Monitor 2 measures the time from the start of the process (<em>"Lawyer Arrival"</em>) to the internal carrier's <em>"Sending dossier to judge"</em> activity, while Monitor 4 measures the time from the <em>"Sending dossier to clerk"</em> activity to the <em>"Sending dossier to judge"</em> activity, before the timer <em>"Waiting for hearing"</em>.</p>
+
+          <p>This is done precisely to exclude the judge's <em>"Schedule date of hearing"</em> activity, the <em>"Waiting for hearing"</em> time and the judge's <em>"First hearing + Minutes"</em> activity. This is because these activities are subject to a period of time established by the law.</p>
+
+          <table id="tab2" class="table-outside top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Table 2.</strong> Comparison of monitors' average cycle times measured (in hours) of the investigation stage (<a role="doc-biblioref" href="#amanteaEtAl2023a">Amantea et al., 2023a</a>).
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <table id="tab2a" class="table-inside">
+                    <thead>
+                      <th>Monitor</th>
+                      <th>Avg. Cycle Time</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monitor 2</td>
+                        <td>133.47</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 4</td>
+                        <td>197.58</td>
+                      </tr>
+                    </tbody>
+                    <caption>(a) As-Is on paper process
+                  </table>
+                </td>
+                <td>
+                  <table id="tab2b" class="table-inside">
+                    <thead>
+                      <th>Monitor</th>
+                      <th>Avg. Cycle Time</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monitor 2</td>
+                        <td>76.67</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 4</td>
+                        <td>107.03</td>
+                      </tr>
+                    </tbody>
+                    <caption>(b) To-Be E-Dossier process
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="#tab3">Table 3</a> shows the average working time (in hours) related to the investigation stage of the paper dossier process (<a href="#tab3a">Table 3(a)</a>) and the e-dossier process (<a href="#tab3b">Table 3(b)</a>). In particular, Monitors 6, 8, and 10 are related to activities before the judge's decision and avoid the steps carried out by external figures. Monitor 12 measures activities from the judge's decision to the publication of the judgment.</p>
+
+          <table id="tab3" class="table-outside top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Table 3.</strong> Comparison of monitors' average cycle times measured (in hours) of the introductory stage (<a role="doc-biblioref" href="#amanteaEtAl2023a">Amantea et al., 2023a</a>).
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <table id="tab3a" class="table-inside">
+                    <thead>
+                      <th>Monitor</th>
+                      <th>Avg. Cycle Time</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monitor 6</td>
+                        <td>42.99</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 8</td>
+                        <td>0.95</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 10</td>
+                        <td>949.47</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 12</td>
+                        <td>5.92</td>
+                      </tr>
+                    </tbody>
+                    <caption>(a) As-Is on paper process
+                  </table>
+                </td>
+                <td>
+                  <table id="tab3b" class="table-inside">
+                    <thead>
+                      <th>Monitor</th>
+                      <th>Avg. Cycle Time</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monitor 6</td>
+                        <td>13.69</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 8</td>
+                        <td>0.03</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 10</td>
+                        <td>15.79</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 12</td>
+                        <td>0.02</td>
+                      </tr>
+                    </tbody>
+                    <caption>(b) To-Be E-Dossier process
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Finally, <a href="#tab4">Table 4</a> shows the average working time (in hours) related to the decision-making stage of the paper dossier process (<a href="#tab4a">Table 4(a)</a>) and the e-dossier process (<a href="#tab4b">Table 4(b)</a>). In particular, Monitor 13 represents the time of the publication of the judgment. It starts from receipt of the judge's decision and is the starting point for notifying every interested party. With the IS, it is possible to send all communications at once and it is not necessary to manually register the reception of notifications, while the paper process involves several steps for sending and receiving communications. Thus, for the e-dossier, Monitor 13 covers instant communication, whereas, in the paper model, the different communication activities are covered by Monitors 15, 17, and 19. At the end of the legal waiting time for the prescription, Monitor 21 in the paper-based system and Monitor 15 in the e-dossier system show the average time required for archiving files.</p>
+
+          <table id="tab4" class="table-outside top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Table 4.</strong> Comparison of monitors' average cycle times measured (in hours) of the decision-making (<a role="doc-biblioref" href="#amanteaEtAl2023a">Amantea et al., 2023a</a>).
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <table id="tab4a" class="table-inside">
+                    <thead>
+                      <th>Monitor</th>
+                      <th>Avg. Cycle Time</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monitor 13</td>
+                        <td>0.41</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 15</td>
+                        <td>1,352.68</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 17</td>
+                        <td>1,277.85</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 19</td>
+                        <td>1,400.17</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 21</td>
+                        <td>3,434.78</td>
+                      </tr>
+                    </tbody>
+                    <caption>(a) As-Is on paper process
+                  </table>
+                </td>
+                <td>
+                  <table id="tab4b" class="table-inside">
+                    <thead>
+                      <th>Monitor</th>
+                      <th>Avg. Cycle Time</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monitor 13</td>
+                        <td>0.01</td>
+                      </tr>
+                      <tr>
+                        <td>Monitor 15</td>
+                        <td>3,142.77</td>
+                      </tr>
+                    </tbody>
+                    <caption>(b) To-Be E-Dossier process
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>It is important to emphasize the consequent drastic reduction in communication activities, in working time, and considerable cost reductions. Although it has not yet been possible to estimate the reduction in the number of printed copies of each official document and accompanying document, it has been possible to verify that there has been a reduction of € 5000 in postage costs each year from 2019 to 2022.</p>
+
+          <p>Nevertheless, according to the European objective of telematisation, Italy aims to reduce the number of internal carriers. This model allows the normal duties of the cou to continue while avoiding bottlenecks due to a lack of staff.</p>
+        </section>
+
+        <section id="sect3.2">
+          <h1>Model Reproducibility</h1>
+
+          <p>The above process relates only to the files of divorce and separation by mutual consent. It is used to demonstrate more linearly the effectiveness of the telematic process. Of course, these are not the only processes carried out in a tribunal, but the corrective and supporting actions used in the To-Be process are general actions usable in almost all procedures.</p>
+
+          <p>In order to allow this model to be exported, and to support telematisation in other divisions and in other Italian tribunals, the basic question is: how is it possible in practice to proceed from the As-Is model to the To-Be model? Which specific activities are required? What do the corrective actions consist of?</p>
+
+          <p>To answer these questions, we wrote a manual about telematising and dematerialising dossiers (<a role="doc-biblioref" href="#amanteaEtAl2023b">Amantea et al., 2023b</a>)</p>
+
+          <p>The manual consists of a video tutorial and a PDF document containing descriptions of the micro activities, agreements, and best practices that have already made it possible to have the entire process telematised. It discusses how to move from a paper process to a telematic process in situations of staff shortages, saving time and cost.</p>
+
+          <p>It covers providing to registry staff with the opportunity to work from home as well as reducing the level of communications with figures external to the court (lawyers and citizens). The new process avoids printing paper and the creation of physical files, which reduces the problem of storage space.</p>
+
+          <p>For some legal procedures, these corrective actions allow dossiers to be not only telematised but also dematerialised. These measures result in additional savings in paper and storage space.</p>
+        </section>
+      </section>
+
+      <section id="sect4">
+        <h1>Conclusions and Future Work</h1>
+
+        <p>Although telematisation is now mandatory, there is still a strong resistance to change. The goal of this article is to show not only how to comply with regulatory obligation, but also what the efficiency of this change would be. We analyzed a successful case study to show how the process can be modify to move from paper-based process to e-dossier in the Italian Civil Area, which are the corrective actions, and highlight all the achievable improvements in terms of time, costs, and resources.</p>
+
+        <p>In particular, this article outlines the dossier process implemented at the Tribunal of Cuneo in order to capture the current practice and where it has been possible to fully telematise (and in some cases dematerialise) the dossiers of the civil litigation division.</p>
+
+        <p>To highlight the actions that made telematisation possible, and the time, money, and resource savings brought about, the goal of our research was to model how operations were carried out in the past and how they are done today with a view to exporting the model. These relevant outcomes can be taken as a model for all other courts in Italy, as they will encounter the same issues in telematising and dematerialising dossiers. As a matter of fact, Legislative Decree no. 13/2023, approved by the Italian Council of Ministers on February 21, 2023, has established an obligation to telematise the introduction document, and judges and the public prosecutors are obliged to use a <em>processo civile telematico</em> (PCT) (telematic civil process) to record the decisions and minutes of all hearings. This means that Italian tribunals must update their current processes and switch from paper dossiers to e-dossiers. Therefore, the features and results presented in this article have to create a process model of an Italian telematic civil area that can be sustained, transplanted and reproduced in other tribunals to provide the same cost and efficiency gains.</p>
+
+        <p>The final output, based on our case study, is a manual for telematising and dematerialising dossiers. The manual provides a summary of practices developed in the Tribunal of Cuneo throughout the whole project and it is applicable to any other tribunal in Italy. The manual is available as a video tutorial and there is also a written version. Both are online, downloadable, and free of charge. As future work, we plan to extend this manual by adding other best practices that can be used in every court and in every division, because they are general best practices that are not related to the specific subject-matter of the cases.</p>
+
+        <p>Another future work will be to reproduce these optimisation measures to the Criminal Area of Cuneo, and then to other Italian courts, as requested by the Italian Ministry of Justice upon the creation of the project described in this article. Furthermore, in order to evaluate different aspects and get a higher-level and comprehensive vision, we will experiment with integrating the techniques of BPM and process mining (<a role="doc-biblioref" href="#aalstEtAl2015">Aalst et al., 2015</a>) to extract more useful information for further process optimizations.</p>
+      </section>
+
+      <section id="sect5" role="doc-acknowledgements">
+        <h1>Acknowledgements</h1>
+
+        <p>This research was conducted in the context of the Italian Ministry project <em>Next Generation Ufficio Per Il Processo (NGUPP): Nuovi schemi collaborativi tra Università e uffici giudiziari per il miglioramento dell'efficienza e delle Prestazioni della giustizia nell'Italia del nord-ovest</em> (Next Generation Office for Trials: New Collaborative Schemes between Universities and Judicial Offices for Improving the Efficiency and Performance of Justice in Northwest Italy) and thanks to the collaboration of Paolo Giovanni Demarchi Albengo, President of the Court of Cuneo (Italy) and all the tribunal and court staff.</p>
+      </section>
+
+      <section id="sect6" class="suppressInPDF" role="doc-endnotes">
+        <h1>Footnotes</h1>
+        <ol>
+          <li id="ftn1" role="doc-endnote">The Project was called <em>Nuovi schemi collaborativi tra Università e uffici giudiziari per il miglioramento dell'efficienza e delle prestazioni della giustizia
+nell'Italia del nord-ovest</em> (New Collaborative Schemes between Universities and Judicial Offices to Improve the Efficiency and Performance of Justice in Northwest Italy). It involved 35 judicial offices in that macro area. The project was part of an Italian Ministry of Justice unitary project for disseminating the work of the <em>Ufficio Per il Processo</em> - Office for Trials and the implementation of innovative operating models in judicial offices in order to remove backlogs, which was part of a <em>Progetto Operativo Nationale (PON)</em> (National Operative Project) called Governance and Institutional Capacity 2014-2020.<sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup></li>
+          <li id="ftn2" role="doc-endnote">Grafx LCC. iGrafx Process 2015 for Six Sigma.<sup><a role="doc-backlink" href="#fn_pointer_ftn2">[back]</a></sup></li>
+        </ol>
+      </section>
+        
+      <section id="sect7" role="doc-bibliography">
+        <h1>Bibliography</h1>
+
+        <ul>
+          <li id="aalstEtAl2010" role="doc-biblioentry">Aalst, W. V. D., Nakatumba, J., Rozinat, A., &amp; Russell, N. (2010). Business process simulation. In J. vom Brocke &amp; M. Rosemann (Ed.), <em>Handbook on Business Process Management 1</em> (pp. 313–338). Springer.</li>
+          <li id="aalstEtAl2015" role="doc-biblioentry">Aalst, W. V. D., Zhao, J. L., &amp; Wang, H. J. (2015). Business process intelligence: Connecting data and processes. <em>ACM Transactions on Management Information Systems</em>, 5(4):1–7. <a href="https://doi.org/10.1145/2685352" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="aboArisha2013" role="doc-biblioentry">Abo-Hamad, W. &amp; Arisha, A. (2013). Simulation-based framework to improve patient experience in an emergency department. <em>European Journal of Operational Research</em>, 224(1):154–166. <a href="https://doi.org/10.1016/j.ejor.2012.07.028" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="allweyer2016" role="doc-biblioentry">Allweyer, T. (2016). <em>BPMN 2.0: Introduction to the standard for business process modeling</em>. Books on Demand.</li>
+          <li id="amantea2022" role="doc-biblioentry">Amantea, I. A. (2022). <em>Methods and tools for analysis and management of risks and regulatory compliance in the healthcare sector: the Hospital at Home–HaH</em> [PhD thesis, University of Luxembourg, Luxembourg]. <a href="https://orbilu.uni.lu/handle/10993/52167" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="amanteaEtAl2018" role="doc-biblioentry">Amantea, I. A., Di Leva, A., &amp; Sulis, E. (2018). A simulation-driven approach in risk-aware business process management: A case study in healthcare. In <em>Proceedings of 8th International Conference on Simulation and Modeling Methodologies, Technologies and Applications</em> (pp. 98–105), Portugal:SciTePress. <a href="https://doi.org/10.5220/0006842100980105" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="amanteaEtAl2020" role="doc-biblioentry">Amantea, I. A., Sulis, E., Boella, G., Crespo, A., Bianca, D., Brunetti, E., Marinello, R., Grosso, M., Zoels, J.-C., Visciola, M., Guidorzi, E., Miolano, L., Ratti, G., Mazzoni, T., Zani, E., &amp; Ambrosini, S. (2020). Adopting technological devices in hospital at home: A modelling and simulation perspective. In <em>Proceedings of 10th International Conference on Simulation and Modeling Methodologies, Technologies and Applications</em> (pp. 110–119), Portugal:SciTePress. <a href="https://doi.org/10.5220/0009970801100119" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="amanteaEtAl2022" role="doc-biblioentry">Amantea, I. A., Sulis, E., Di Leva, A., Majolo, M., Paolo, R., Patti, &amp; L., Prinzis, A. (2022). Business process analysis and simulation: An industrial application. <em>Computing and Informatics</em>, 41(2):443–462. <a href="https://doi.org/10.31577/cai_2022_2_443" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="amanteaEtAl2023a" role="doc-biblioentry">Amantea, I. A., Quaranta, M., Molinari, M., Peduto, C., &amp; Demarchi, F. (2023a). The e-dossier as a tool to optimize civil courts: The Cuneo case. In <em>Proceedings of 13th International Conference on Simulation and Modeling Methodologies, Technologies and Applications</em> (pp. 425–431), Portugal:SciTePress. <a href="https://doi.org/10.5220/0012133200003546" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="amanteaEtAl2023b" role="doc-biblioentry">Amantea, I. A., Quaranta, M., &amp; Peduto, C. (2023b). Manuale per la telematizzazione e dematerializzazione dei fascicoli (usando SICID o SIECIC). <a href="https://www.nextgenerationupp.unito.it/contenuti#h.ezvrgi6dw7lq" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="dilevaEtAl2020" role="doc-biblioentry">Di Leva, A., Sulis, E., De Lellis, A., &amp; Amantea, I. A. (2020). Business process analysis and change management: The role of material resource planning and discrete-event simulation. In Lazazzara, A., Ricciardi, F., Za, S. (eds) <em>Exploring Digital Ecosystems</em> (pp. 211–221). Lecture Notes in Information Systems and Organisation, vol 33. Cham:Springer. <a href="https://doi.org/10.1007/978-3-030-23665-6_15" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="dumasEtAl2018" role="doc-biblioentry">Dumas, M., La Rosa, M., Mendling, J., &amp; Reijers, H. (2018). <em>Fundamentals of business process management</em> (2nd ed.). Springer.</li>
+          <li id="fernandezllatasEtAl2011" role="doc-biblioentry">Fernández-Llatas, C., Garcia-Gomez, J. M., Vicente, J., Naranjo, J. C., Robles, M., Benedi, J. M., &amp; Traver, V. (2011). Behaviour patterns detection for persuasive design in nursing homes to help dementia patients. In <em>2011 Annual International Conference of the IEEE Engineering in Medicine and Biology Society</em> (pp. 6413–6417). New York, NY:IEEE. <a href="https://doi.org/10.1109/IEMBS.2011.6091583" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="looyShafagatova2016" role="doc-biblioentry">van Looy, A. &amp; Shafagatova, A. (2016). Business process performance measurement: a structured literature review of indicators, measures and metrics. <em>SpringerPlus</em>, 5:1797. <a href="https://doi.org/10.1186/s40064-016-3498-1" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="mansEtAl2015" role="doc-biblioentry">Mans, R., Van der Aalst, W., &amp; Vanwersch, R. (2015). <em>Process mining in healthcare: evaluating and exploiting operational healthcare processes</em>. Springer.</li>
+          <li id="martinhoEtAl2016" role="doc-biblioentry">Martinho, R., Domingos, D., &amp; Respício, A. (2016). Evaluating the reliability of ambient-assisted living business processes. In <em>Proceedings of 18th International Conference on Simulation and Modeling Methodologies, Technologies and Applications</em> (pp. 528–536), Portugal:SciTePress. <a href="https://doi.org/10.5220/0005917005280536" target="_blank"><img src="../../icons/doi.png" /></a></li>
+        </ul>
+      </section>
+
+      <section id="sect8" class="no-counter">
+        <h1>Copyright Information</h1>
+        <p prefix="cc: http://creativecommons.org/ns#">
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Copyright © 2024 <span property="cc:attributionName">Ilaria Angela Amantea</span>, <span property="cc:attributionName">Marinella Quaranta</span>, <span property="cc:attributionName">Marianna Molinari</span>, <span property="cc:attributionName">Christine Peduto</span>, <span property="cc:attributionName">Francesca Demarchi</span>. This article is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
+        </p>
+      </section>
+    </main>
+
+    <nav id="toc" class="suppressInPDF">
+      <h1>Outline</h1>
+      <ol start="0">
+        <li style="list-style: none;"><a href="#sect0">Abstract</a></li>
+        <li><a href="#sect1">Introduction</a></li>
+        <li><a href="#sect2">Methodology</a></li>
+        <li><a href="#sect3">Background and Case Study</a></li>
+        <li><a href="#sect4">Conclusions and Future Work</a></li>
+        <li style="list-style: none;"><a href="#sect5">Acknowledgements</a></li>
+        <li style="list-style: none;"><a href="#sect6">Footnotes</a></li>
+        <li style="list-style: none;"><a href="#sect7">Bibliography</a></li>
+        <li style="list-style: none;"><a href="#sect8">Copyright Information</a></li>
+      </ol>
+      <div id="return-top">
+        <svg id="arrow-up" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M952.576 554.858667q0 29.141333-21.141333 51.434667l-42.858667 42.858667q-21.717333 21.717333-52.010667 21.717333-30.848 0-51.434667-21.717333l-168-167.424 0 402.282667q0 29.717333-21.418667 48.277333t-51.712 18.581333l-73.152 0q-30.293333 0-51.712-18.581333t-21.418667-48.277333l0-402.282667-168 167.424q-20.565333 21.717333-51.434667 21.717333t-51.434667-21.717333l-42.858667-42.858667q-21.717333-21.717333-21.717333-51.434667 0-30.293333 21.717333-52.010667l372.010667-372.010667q20.010667-21.141333 51.434667-21.141333 30.848 0 52.010667 21.141333l372.010667 372.010667q21.141333 22.293333 21.141333 52.010667z" /></svg><a href="">Return to top</a>
+      </div>
+      <div id="share">
+        <button id="share-this" title="Share this">Share...</button>
+        <ul class="links">
+          <li class="share facebook" title="Share on Facebook"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-facebook" viewBox="0 0 18 18">
+                <path
+                      d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-facebook" />
+            </svg></li>
+          <li class="share twitter" title="Share on X"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-twitter" viewBox="0 0 18 18">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-twitter" />
+            </svg></li>
+          <li class="share linkedin" title="Share on LinkedIn"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-linkedin" viewBox="0 0 18 18">
+                <path
+                      d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-linkedin" />
+            </svg></li>
+          <li class="share email" title="Share with Email"><a
+               aria-label="Share with Email" href="" target="_blank"><svg
+                   aria-hidden="true" class="icon-social">
+                <symbol id="social-mail" viewBox="0 0 18 18">
+                  <path
+                        d="M9,8.2L3,4.5h12L9,8.2z M15,13.5H3V6l6,3.8L15,6V13.5z M15,3H3C2.2,3,1.5,3.7,1.5,4.5l0,9C1.5,14.3,2.2,15,3,15 h12c0.8,0,1.5-0.7,1.5-1.5v-9C16.5,3.7,15.8,3,15,3z">
+                  </path>
+                </symbol>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#social-mail" />
+              </svg></a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+
+</html>
