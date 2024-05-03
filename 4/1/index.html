@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JSimE 4/1 - Simulating and Validating Vehicular Cloud Computing Applications in MEC-enabled 5G Environments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Google Scholar-->
+    <meta name="citation_publisher"
+          content="Consortium for True Open Access in Modeling and Simulation" />
+    <meta name="citation_journal_title"
+          content="Journal of Simulation Engineering" />
+    <meta name="citation_journal_abbrev" content="JSimE" />
+    <meta name="citation_issn" content="2569-9466" />
+    <meta name="citation_volume" content="4" />
+    <meta name="citation_firstpage" content="9:1" />
+    <meta name="citation_lastpage" content="9:15" />
+    <meta name="citation_title"
+          content="Simulating and Validating Vehicular Cloud Computing Applications in MEC-enabled 5G Environments" />
+    <meta name="citation_article_type" content="Article" />
+    <meta name="citation_online_date" content="2024/4/30" />
+    <meta name="citation_publication_date" content="2024/4/30" />
+    <meta name="citation_author" content="Angelo Feraudo" />
+    <meta name="citation_author_email" content="angelo.feraudo@unibo.it" />
+    <meta name="citation_author_institution"
+          content="Dept. Computer Science and Engineering - University of Bologna, Italy" />
+    <meta name="citation_author" content="Alessandro Calvio" />
+    <meta name="citation_author_email" content="alessandro.calvio@unibo.it" />
+    <meta name="citation_author_institution"
+          content="Dept. Computer Science and Engineering - University of Bologna, Italy" />
+    <meta name="citation_author" content="Paolo Bellavista" />
+    <meta name="citation_author_email" content="paolo.bellavista@unibo.it" />
+    <meta name="citation_author_institution"
+          content="Dept. Computer Science and Engineering - University of Bologna, Italy" />
+    <meta name="citation_abstract_html_url"
+          content="https://jsime.org/index.php/jsimeng/article/view/23https://articles.jsime.org/4/1/Simulating-and-Validating-Vehicular-Cloud-Computing-Applications-in-MEC-enabled-5G-Environments" />
+    <meta name="citation_pdf_url"
+          content="https://articles.jsime.org/4/jsime-article-4-1.pdf" />
+    <meta name="citation_fulltext_html_url"
+          content="https://articles.jsime.org/4/1/Simulating-and-Validating-Vehicular-Cloud-Computing-Applications-in-MEC-enabled-5G-Environments" />
+    <!--Open Graph-->
+    <meta property="og:title"
+          content="Simulating and Validating Vehicular Cloud Computing Applications in MEC-enabled 5G Environments" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+          content="The groundbreaking advancements in in-vehicle computing/communication resources and software are granting drivers' access to a diverse range of distributed applications and services. Edge Computing, alongside established frameworks like the European Telecommunications Standards Institute (ETSI) Multi-access Edge Computing (MEC), will play a vital role in these scenarios, by enabling the interoperable and standardized execution of these services at the edge of the network. In addition, Vehicular Cloud Computing (VCC) contributes to expanding computational capacity at the edge by leveraging computing/storage/communication resources offered by vehicles. This synergy holds the potential to forge robust computational infrastructures at the network edge, by favoring several benefits like real-time data processing and minimal latency. However, the research community lacks simulation tools for supporting the testing and validation of applications that exploit both the VCC paradigm and edge-enabled networks at the same time. In this paper, we present our novel simulation tool as a platform for researchers and engineers to design, test, and enhance next-generation distributed applications that exploit the concepts of vehicular, edge, and cloud computing. This simulation tool implements our novel ETSI MEC-compliant architecture, which, in a standard way, supports the leveraging of in-vehicle resources to increase edge computing ones. In addition, the paper reports performance results about the efficiency/scalability of our simulation platform and presents a practical use case where an original algorithm to distribute MEC application components on vehicular resources is validated." />
+    <meta property="og:url"
+          content="https://articles.jsime.org/4/1/Simulating-and-Validating-Vehicular-Cloud-Computing-Applications-in-MEC-enabled-5G-Environments" />
+    <meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="JSimE" />
+    <meta property="og:site_name" content="Journal of Simulation Engineering" />
+    <!--Twitter-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title"
+          content="Simulating and Validating Vehicular Cloud Computing Applications in MEC-enabled 5G Environments" />
+    <!--Canonical URL-->
+    <link rel="canonical"
+          href="https://articles.jsime.org/4/1/Simulating-and-Validating-Vehicular-Cloud-Computing-Applications-in-MEC-enabled-5G-Environments" />
+    <!--Stylesheets-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="../../jsime.css" />
+    <!-- Style -->
+    <style>
+      .small-caps {
+        font-variant: small-caps;
+      }
+
+      .table-matrix td {
+        border-style: hidden;
+        text-align: center;
+      }
+
+      .table-figure caption {
+        caption-side: bottom;
+      }
+
+      .table-figure td {
+        border-style: hidden;
+        text-align: center;
+        caption-side: bottom;
+        padding: 5px;
+      }
+
+      tr.border_top_bottom td {
+        border-top: 1pt solid black;
+        border-bottom: 1pt solid black;
+      }
+
+      td.border_left_right {
+        border-left: 1pt solid black;
+        border-right: 1pt solid black;
+      }
+
+      .page-break {
+        border: none;
+        margin: 0;
+        page-break-before: always;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="async"
+            src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-115543812-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push( arguments );
+      }
+      gtag( 'js', new Date() );
+      gtag( 'config', 'UA-115543812-1', {
+        'anonymize_ip': true
+      } );
+    </script>
+    <!--Scripts-->
+    <script defer src="../../jsime.js"></script>
+    <!--schema.org JSON-LD-->
+    <script type="application/ld+json">
+{
+  "@context": {
+    "@vocab": "http://schema.org",
+    "@base": "https://articles.jsime.org"
+  },
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Simulating and Validating Vehicular Cloud Computing Applications in MEC-enabled 5G Environments",
+      "author": [
+        { "@id": "/4/1/author-1" },
+        { "@id": "/4/1/author-2" },
+        { "@id": "/4/1/author-3" }
+      ],
+      "keywords": [ "Vehicular cloud computing", "Multi-access edge computing", "Vehicular networks", "5G", "OMNeT++" ],
+      "description": "The groundbreaking advancements in in-vehicle computing/communication resources and software are granting drivers' access to a diverse range of distributed applications and services. Edge Computing, alongside established frameworks like the European Telecommunications Standards Institute (ETSI) Multi-access Edge Computing (MEC), will play a vital role in these scenarios, by enabling the interoperable and standardized execution of these services at the edge of the network. In addition, Vehicular Cloud Computing (VCC) contributes to expanding computational capacity at the edge by leveraging computing/storage/communication resources offered by vehicles. This synergy holds the potential to forge robust computational infrastructures at the network edge, by favoring several benefits like real-time data processing and minimal latency. However, the research community lacks simulation tools for supporting the testing and validation of applications that exploit both the VCC paradigm and edge-enabled networks at the same time. In this paper, we present our novel simulation tool as a platform for researchers and engineers to design, test, and enhance next-generation distributed applications that exploit the concepts of vehicular, edge, and cloud computing. This simulation tool implements our novel ETSI MEC-compliant architecture, which, in a standard way, supports the leveraging of in-vehicle resources to increase edge computing ones. In addition, the paper reports performance results about the efficiency/scalability of our simulation platform and presents a practical use case where an original algorithm to distribute MEC application components on vehicular resources is validated.",
+      "url": "https://articles.jsime.org/4/1/Simulating-and-Validating-Vehicular-Cloud-Computing-Applications-in-MEC-enabled-5G-Environments",
+      "inLanguage": "en-US",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": [
+        { "@id": "/4/1/author-1" },
+        { "@id": "/4/1/author-2" },
+        { "@id": "/4/1/author-3" }
+      ],
+      "copyrightYear": "2024",
+      "dateCreated": "2024-04-17",
+      "dateModified": "2024-05-01",
+      "datePublished": "2024-04-30",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "datePublished": "2024-04-30",
+        "volumeNumber": "4",
+        "url": "https://articles.jsime.org/4/",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Simulation Engineering",
+          "issn": "2569-9466",
+          "url": "https://jsime.org",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Consortium for True Open Access in Modeling and Simulation",
+            "url": "https://articles.jsime.org/consortium-for-true-open-access"
+          },
+          "publishingPrinciples": "http://publicationethics.org/files/Code_of_conduct_for_journal_editors.pdf"
+        }
+      },
+      "about": [
+        {
+          "@type": "CategoryCode",
+          "identifier": "10003120.10003138",
+          "codeValue": "Human-centered computing~Ubiquitous and mobile computing",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10003033.10003079.10003080",
+          "codeValue": "Networks~Network performance modeling",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        },
+        {
+          "@type": "CategoryCode",
+          "identifier": "10003033.10003079.10003081",
+          "codeValue": "Networks~Network simulations",
+          "inCodeSet": "http://totem.semedica.com/taxonomy/The%20ACM%20Computing%20Classification%20System%20(CCS)"
+        }
+      ]
+    },
+    {
+      "@id": "/4/1/author-1",
+      "@type": "Person",
+      "name": "Angelo Feraudo",
+      "email": "angelo.feraudo@unibo.it",
+      "affiliation": [
+        { "@id": "/4/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/4/1/author-2",
+      "@type": "Person",
+      "name": "Alessandro Calvio",
+      "email": "alessandro.calvio@unibo.it",
+      "affiliation": [
+        { "@id": "/4/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/4/1/author-3",
+      "@type": "Person",
+      "name": "Paolo Bellavista",
+      "email": "paolo.bellavista@unibo.it",
+      "affiliation": [
+        { "@id": "/4/1/affiliation-1" }
+      ]
+    },
+    {
+      "@id": "/4/1/affiliation-1",
+      "@type": "Organization",
+      "name": "University of Bologna",
+      "address": {
+        "addressLocality": "Bologna",
+        "addressRegion": "Emilia-Romagna",
+        "addressCountry": "Italy"
+      }
+    }
+  ]
+}
+</script>
+  </head>
+
+  <body vocab="http://schema.org/">
+    <header>
+      <a href="https://jsime.org" target="_blank"><img src="../../JSimE.svg"
+             style="height: 24px; margin-right: 0.7em;" /></a><i>Journal of Simulation Engineering</i>, Volume 4 (2024/2025). Article URL: <a
+         href="https://articles.jsime.org/4/1/Simulating-and-Validating-Vehicular-Cloud-Computing-Applications-in-MEC-enabled-5G-Environments"
+         id="articleURL" target="_blank">https://articles.jsime.org/4/1</a><a id="PDF" class="suppressInPDF" href="https://articles.jsime.org/4/jsime-article-4-1.pdf" style="position: relative; left: 1em" target="_blank"><img src="../../icons/pdf.png" /></a>
+    </header>
+    <main>
+      <div id="front-matter">
+        <div id="article-number">9</div>
+        <h1 id="article-title">Simulating and Validating Vehicular Cloud Computing Applications in MEC-enabled 5G Environments</h1>
+        <div id="article-title-abbr">Simulating and Validating Vehicular Cloud Computing Applications</div>
+        <div id="authors">
+          <address typeof="Person">
+            <div property="name">
+              Angelo Feraudo
+            </div>
+            <div property="email">
+              <a href="mailto:angelo.feraudo@unibo.it">angelo.feraudo@unibo.it</a>
+            </div>
+          </address>
+          <address typeof="Person">
+            <div property="name">
+              Alessandro Calvio
+            </div>
+            <div property="email">
+              <a href="mailto:alessandro.calvio@unibo.it">alessandro.calvio@unibo.it</a>
+            </div>
+          </address>
+          <address style="display: block; margin: 0.5em auto" typeof="Person">
+            <div property="name">
+              Paolo Bellavista<sup><img src="../../icons/envelope.png" alt="Envelope" /></sup>
+            </div>
+            <div property="email">
+              <a href="mailto:paolo.bellavista@unibo.it">paolo.bellavista@unibo.it</a>
+            </div>
+          </address>
+          <div class="affiliation">
+            University of Bologna, Bologna, Italy
+          </div>
+        </div>
+        <div id="acm-subject-categories">
+          <h1>ACM Subject Categories</h1>
+          <ul>
+            <li><code>Human-centered computing~Ubiquitous and mobile computing</code>
+            </li>
+            <li>
+              <code>Networks~Network performance modeling</code>
+            </li>
+            <li>
+              <code>Networks~Network simulations</code>
+            </li>
+          </ul>
+        </div>
+        <div id="keywords">
+          <h1>Keywords</h1>
+          <ul class="list-inline comma-separated">
+            <li>Vehicular Cloud Computing</li>
+            <li>Multi-access Edge Computing</li>
+            <li>Vehicular Networks</li>
+            <li>5G</li>
+            <li>OMNeT++</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="sect0" role="doc-abstract">
+        <h1>Abstract</h1>
+
+        <p>The groundbreaking advancements in in-vehicle computing/communication resources and software are granting drivers' access to a diverse range of distributed applications and services. Edge Computing, alongside established frameworks like the European Telecommunications Standards Institute (ETSI) Multi-access Edge Computing (MEC), will play a vital role in these scenarios, by enabling the interoperable and standardized execution of these services at the edge of the network. In addition, Vehicular Cloud Computing (VCC) contributes to expanding computational capacity at the edge by leveraging computing/storage/communication resources offered by vehicles. This synergy holds the potential to forge robust computational infrastructures at the network edge, by favoring several benefits like real-time data processing and minimal latency. However, the research community lacks simulation tools for supporting the testing and validation of applications that exploit both the VCC paradigm and edge-enabled networks at the same time. In this paper, we present our novel simulation tool as a platform for researchers and engineers to design, test, and enhance next-generation distributed applications that exploit the concepts of vehicular, edge, and cloud computing. This simulation tool implements our novel ETSI MEC-compliant architecture, which, in a standard way, supports the leveraging of in-vehicle resources to increase edge computing ones. In addition, the paper reports performance results about the efficiency/scalability of our simulation platform and presents a practical use case where an original algorithm to distribute MEC application components on vehicular resources is validated.</p>
+      </section>
+
+      <section id="sect1">
+        <h1>Introduction</h1>
+
+        <p>The rapid advancement of computing technologies and next-generation wireless communication networks has revolutionized in-vehicle hardware, transforming vehicles into powerful mobile computation nodes on wheels (<a role="doc-biblioref" href="#mengEtAl2023">Meng et al., 2023</a>; <a role="doc-biblioref" href="#luShi2023">Lu &amp; Shi, 2023</a>; <a role="doc-biblioref" href="#olariu2020">Olariu, 2020</a>). As a result, drivers can now tap into an extensive array of distributed applications and services, very often cloud-based, as in other vertical domains, including improved access to information and entertainment features. This creates a new ecosystem with unique real-time demands, presenting substantial challenges for the backbone network and cloud infrastructure (<a role="doc-biblioref" href="#liuEtAl2021">Liu et al., 2021</a>). In such a scenario, edge computing has emerged as a solution by providing computational resources closer to the end-users. This provides a more efficient and effective way to handle the ever-increasing demand for computing and storage resources. Moreover, edge computing has the potential to replace traditional cloud solutions by reducing network stress, decreasing latency, improving efficiency, and enabling real-time data processing.</p>
+
+        <p>To accelerate the adoption of this paradigm, the European Telecommunications Standards Institute (ETSI) has proposed the Multi-access Edge Computing (MEC) standard (<a role="doc-biblioref" href="#etsi2022">ETSI, 2022</a>). This standard enables the execution of contextualized MEC-compliant applications near the data sources and/or users and within a virtualized and multi-tenant environment. Furthermore, the MEC standard facilitates the integration of cloud resources with those available at the edge, creating a complete cloud continuum of virtualized resources distributed within the network.</p>
+
+        <p>However, it has been predicted that a connected vehicle will transmit to cloud-based services 1 to 10 exabytes of data traffic per month by 2025 (<a role="doc-biblioref" href="#aecc2021">Automotive Edge Computing Consortium, 2021</a>). Therefore, with the escalating number of connected vehicles, there is an anticipated strain on the network in the upcoming years. This surge in data transmission poses challenges in speed and bandwidth, impeding the ability to meet the latency-sensitive requirements of some applications in this emerging execution ecosystem, even when the infrastructure is supported by edge resources. To address this issue, Vehicular Cloud Computing (VCC), also known as Vehicular Computing, has emerged as a promising paradigm to support distributed applications designed according to the edge cloud approach (<a role="doc-biblioref" href="#luShi2023">Lu &amp; Shi, 2023</a>; <a role="doc-biblioref" href="#bitamEtAl2015">Bitam et al., 2015</a>; <a role="doc-biblioref" href="#gerla2012">Gerla, 2012</a>; <a role="doc-biblioref" href="#olariuEtAl2011">Olariu et al., 2011</a>). VCC leverages the computing/storage/communication resources available on vehicles to create cost-effective mobile clouds at the far-edge. These dynamic clouds can be formed autonomously by vehicles, by exploiting Vehicular Ad-Hoc Networks (VANETs). These networks facilitate the exchange of information necessary for vehicles to share their resources among themselves and/or with nearby edge nodes to extend their virtualized resources for service execution.</p>
+
+        <figure id="fig1" class="top">
+            <img src="./img/figure1.png" alt="A smart city setting with unexploited vehicle resources" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 1.</strong> A smart city setting with unexploited vehicle resources.
+            </figcaption>
+          </figure>
+
+        <p>To support the deployment of software components across different vehicle computer variants, the traditional embedded platform of vehicles needs to be replaced with a software-defined architecture (<a role="doc-biblioref" href="#luShi2023">Lu &amp; Shi, 2023</a>). This architecture allows vehicles to support cloud-native technologies and receive over-the-air (OTA) updates throughout their life-cycle. Leading software companies are collaborating closely with automotive developers to expedite the widespread implementation of this advanced architecture. One notable solution in this direction is the ARM's Scalable Open Architecture for Embedded Edge (SOAFEE) project. Similarly, the challenge persists when discussing a standardized model for supporting the integration of these resources across the cloud continuum spectrum. Several frameworks and models (<a role="doc-biblioref" href="#luShi2023">Lu &amp; Shi, 2023</a>; <a role="doc-biblioref" href="#olariu2020">Olariu, 2020</a>) proposed to incorporate/exploit resources included in software-defined vehicular networks into/with the cloud infrastructure, ensuring seamless connectivity and resource utilization. Furthermore, since practical experiments on vehicular network environments are expensive and challenging, some recent studies have focused on providing simulation frameworks (<a role="doc-biblioref" href="#ahmedEtAl2019">Ahmed et al., 2019</a>). However, most of the existing models and frameworks proposed neglect and make no consideration of the challenges arising in multi-vendor and multi-domain environments (<a role="doc-biblioref" href="#luShi2023">Lu &amp; Shi, 2023</a>; <a role="doc-biblioref" href="#bitamEtAl2015">Bitam et al., 2015</a>). Moreover, they mostly present algorithmic approaches for assessing the likelihood of vehicles completing task execution. These approaches typically do not address migration when a vehicle exits the cloud during task execution. Lastly, to the best of our knowledge, there is currently no simulation tool providing a unified platform for vehicular computing, enabling researchers to design and test their algorithms.</p>
+
+        <p>This paper originally provides an extensive description and reports about the extensions that we recently implemented to the simulation platform firstly presented in Feraudo et al. (<a role="doc-biblioref" href="#feraudoEtAl2023a">2023</a>). The platform relies on the OMNeT++ network simulator as the underlying framework and incorporates the Simu5G library to model the 5G network and communications aspects. It provides an environment where researchers and engineers can explore, test, and design innovative solutions using the vehicular computing paradigm, by leveraging previously unused resources of stationary (e.g., parked) vehicles (<a href="#fig1">Figure 1</a>). The simulation platform implements an improved version of the ETSI standard (<a role="doc-biblioref" href="#feraudoEtAl2023b">Feraudo et al., 2023</a>), which enhances MEC-compliant edge nodes with resources from vehicles within a designated Area of Interest (AoI). In such a context, the resources provided by the vehicles are registered in the edge resource pool and can be accessed through standardized interfaces. The modeled architecture allows dealing with some of the primary challenges arising in vehicular computing environments, such as the integration with cloud resources and enabling the coexistence of heterogeneous technologies. Furthermore, it allows dealing with resource volatility issues (i.e., nodes that dynamically join/leave during service provisioning) via a standard-compliant  migration mechanism that we have originally integrated.</p>
+
+        <p>In addition, the paper provides a comprehensive description of guidelines and technical insights about our implementation deployment, by highlighting the essential interactions for supporting dynamic resource management, vehicle mobility, and application relocation. Moreover, it carefully identifies the contributions of our solution with regards to the existing state-of-the-art in the related literature. Our simulation framework is openly accessible to researchers through the GitHub repository<span class="fn"><sup><a href="#ftn1" id="fn_pointer_ftn1" role="doc-noteref" title="Footnote 1: MEC extension (https://github.com/aferaudo/Simu5G/tree/feat/vim-extension)">1</a></sup></span>.</p>
+
+        <p>The remainder of this paper is structured as follows. <a href="#sect2">Section 2</a> provides an overview of the related background, which includes a description of the ETSI MEC reference model and vehicular computing paradigm. <a href="#sect3">Section 3</a> includes an overview of the related research. <a href="#sect4">Section 4</a> provides a comprehensive overview of the architecture behind the simulation platform. Additionally, it presents the interactions and modules that we have originally implemented to create a MEC-compliant vehicular computing environment in a 5G network. Then, we evaluate the performance of our simulation platform, while performing resource management and by providing a practical proof of its usage in <a href="#sect5">Section 5</a>. This section also identifies the contributions of the solution proposed with respect to the existing model proposals within the state-of-the-art. Lastly, <a href="#sect6">Section 6</a> concludes the findings of this work and presents future directions.</p>
+      </section>
+
+      <section id="sect2">
+        <h1>Background</h1>
+
+        <section id="sect2.1">
+          <h1>ETSI Multi-access Edge Computing</h1>
+
+          <p>The European Telecommunications Standards Institute (ETSI) proposed the MEC standard to meet the need for a virtualized and multi-tenant environment at the edge of the network. It allows the execution of so-called MEC Applications (MEC-App) compliant with the specification. <a href="#fig2">Figure 2</a> depicts all the main functional components encompassed within the reference architecture which can be divided into two main parts: the system and the host levels. Each component is linked to the others via reference points allowing the exchange of standardized information, i.e., management (Mm), external (Mx), and MEC Platform-related (Mp).</p>
+
+          <figure id="fig2" class="top">
+            <img src="./img/figure2.png" alt="The standard MEC architecture provided by ETSI" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 2.</strong> The standard MEC architecture provided by ETSI.
+            </figcaption>
+          </figure>
+
+          <p>The host level of the architecture comprises the main functional elements in charge of managing the virtualized environment and its resources (i.e., storage, computing, and network resources). Furthermore, these components implement the real mechanism used to instantiate, delete, and control the actual MEC-Apps running on top of the infrastructure. Going more into the details of each element, the Virtualisation Infrastructure Manager (VIM) is responsible for managing the virtualized resources of the underlying Virtualisation Infrastructure (VI) of the MEC node. All the operations needed to prepare the infrastructure to run the new MEC-App occur in this component. The MEC-H also offers the possibility, for MEC-Apps, to interact with standard services, i.e. Location Service, Radio Network Information Service, Application Mobility Service (AMS), through the MEC Platform (MEC-P). The platform exposes a service registry that contains the information related to the different endpoints of the services. Finally, the MEC Platform Manager (MEC-PM) acts as an intermediate between the orchestrator and the MEC-H by communicating possible communication events that occur.</p>
+
+          <p>For the sake of clarity, we have reported all the standard-related acronyms in <a href="#tab1">Table 1</a>.</p>
+
+          <table id="tab1" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table 1.</strong> Table of acronyms for MEC elements.
+            </caption>
+            <thead>
+              <tr>
+                <th style="text-align: center">Abbreviations</th>
+                <th style="text-align: center">Definition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AMS</td>
+                <td>Application Mobility Service</td>
+              </tr>
+              <tr>
+                <td>D-App</td>
+                <td>Device App</td>
+              </tr>
+              <tr>
+                <td>MEC</td>
+                <td>Multi-access Edge Computing</td>
+              </tr>
+              <tr>
+                <td>MEC-App</td>
+                <td>MEC-Application</td>
+              </tr>
+              <tr>
+                <td>MEC-H</td>
+                <td>MEC Host</td>
+              </tr>
+              <tr>
+                <td>MEC-O</td>
+                <td>MEC Orchestrator</td>
+              </tr>
+              <tr>
+                <td>MEC-P</td>
+                <td>MEC Platform</td>
+              </tr>
+              <tr>
+                <td>MEC-PM</td>
+                <td>MEC Platform Manager</td>
+              </tr>
+              <tr>
+                <td>UALCMP</td>
+                <td>User Application LifeCycle Management Proxy</td>
+              </tr>
+              <tr>
+                <td>VI</td>
+                <td>Virtualization Infrastructure</td>
+              </tr>
+              <tr>
+                <td>VIM</td>
+                <td>Virtualization Infrastructure Manager</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="sect2.2">
+          <h1>Vehicular Computing Paradigm</h1>
+
+          <p>The early investigations into the Vehicular Cloud Computing (VCC) paradigm were led by Olariu et al. (<a role="doc-biblioref" href="#olariuEtAl2011">2011</a>) and Gerla (<a role="doc-biblioref" href="#gerla2012">2012</a>). Their definition relies on the idea that modern-day vehicles come equipped with powerful on-board computers, ample storage, and an array of sensing devices. Olariu et al. (<a role="doc-biblioref" href="#olariuEtAl2011">2011</a>) defined Vehicular Computing as a collaborative way to share resources among vehicles to solve problems that would otherwise require a significant amount of time with a more traditional centralized architecture, in particular for context-specific applications. In Gerla (<a role="doc-biblioref" href="#gerla2012">2012</a>), Vehicular Computing keeps the information gathered by vehicle sensors locally and share it solely with other vehicles, as the sheer volume of in-vehicle generated data can pose serious technical challenges for the network infrastructure. Indeed, with the proliferation of sensors in vehicles (<a role="doc-biblioref" href="#mengEtAl2023">Meng et al.,2023</a>), it is predicted an exponential growth in the data traffic generated by vehicles (<a role="doc-biblioref" href="#aecc2021">Automotive Edge Computing Consortium ,2021</a>). Therefore, Vehicular Computing proves to be crucial in mitigating network congestion by facilitating data pre-processing directly among groups of vehicles (<a role="doc-biblioref" href="#gerla2012">Gerla, 2012</a>).</p>
+
+          <p>As evolution of the VCC paradigm, the paradigm of Vehicular Edge Computing (VEC) has emerged as the integration of vehicular networks with the edge infrastructure. In this sense, VEC facilitates the bringing of computational resources closer to vehicle users allowing the latency times and improving availability of applications via Vehicle-to-Infrastructure (V2I) communications. In a tentative to contribute to the advancement of VEC state-of-the-art, we introduced a novel ETSI MEC-compliant architecture in our recent work (<a role="doc-biblioref" href="#feraudoEtAl2023b">Feraudo et al., 2023</a>), outlined in <a href="#sect4.1">Section 4.1</a>. The architecture expands the edge resource pool by leveraging vehicular computational resources and forms the foundation of the simulation tool presented in this paper.</p>
+
+          <p>Despite its potential benefits, such a vehicular computing environment also poses several challenges that must be addressed. These challenges include distributed ownership, as each vehicle has a single owner responsible for deciding whether to share onboard resources; high node mobility, which makes it difficult to predict the vehicular residency times in the cloud even when clouds are formed using resources of stationary cars within a parking lot; device heterogeneity, as vehicles are manufactured by different companies; security and privacy.</p>
+        </section>
+      </section>
+
+      <section id="sect3">
+        <h1>Related Work</h1>
+
+        <p>To strengthen resource availability at the network edge, various studies have suggested harnessing the underutilized computational power of both stationary and mobile vehicles (<a role="doc-biblioref" href="#luShi2023">Lu &amp; Shi, 2023</a>; <a role="doc-biblioref" href="#olariu2020">Olariu, 2020</a>; <a role="doc-biblioref" href="#ahmedEtAl2019">Ahmed et al., 2019</a>). These opportunistic resources can be utilized for diverse purposes to handle the growing number of applications used in vehicular networks. For instance, vehicles can function as relay nodes (<a role="doc-biblioref" href="#liuEtAl2011">Liu et al., 2011</a>; <a role="doc-biblioref" href="#qinEtAl2022">Qin et al., 2022</a>) to enhance network connectivity or as computing nodes (<a role="doc-biblioref" href="#fengEtAl2017">Feng et al., 2017</a>; <a role="doc-biblioref" href="#huangEtAl2018">Huang et al., 2018</a>; <a role="doc-biblioref" href="#rahmanEtAl2020">Rahman et al., 2020</a>; <a role="doc-biblioref" href="#dresslerEtAl2014">Dressler et al., 2014</a>; <a role="doc-biblioref" href="#maEtAl2021">Ma et al., 2021</a>) to reduce the impact of these applications on edge node performance. Rajput et al. (<a role="doc-biblioref" href="#rajputEtAl2023">2023</a>) introduced the Vehicular Static Cloud-VANET framework, a unified infrastructure that integrates resources from parked vehicles—spanning communication and computing—into the cloud data center. Similarly, Li et al. (<a role="doc-biblioref" href="#liEtAl2019">2019</a>) formulated an energy-efficient model for parked vehicular computing, coupled with an incentive mechanism. This mechanism aims to motivate vehicle owners to actively participate in cloud formation by contributing with vehicle on-board resources. Dressler et al. (<a role="doc-biblioref" href="#dresslerEtAl2014">2014</a>) suggested leveraging resources within parked vehicles as shared storage for storing and retrieving location-based data on a large scale.</p>
+
+        <p>Other works focused on dynamically forming micro-datacenters using in-vehicle resources without infrastructure requirements (<a role="doc-biblioref" href="#fengEtAl2017">Feng et al., 2017</a>; <a role="doc-biblioref" href="#kamakshiShankarSriram2020">Kamakshi &amp; Shankar Sriram, 2020</a>; <a role="doc-biblioref" href="#buteEtAl2022">Bute et al., 2022</a>). Feng et al. (<a role="doc-biblioref" href="#fengEtAl2017">2017</a>) presented a workflow for the autonomous formation of groups of vehicles, utilizing an algorithm based on ant colony optimization to schedule job distribution. Kamakshi &amp; Shankar Sriram (<a role="doc-biblioref" href="#kamakshiShankarSriram2020">2020</a>) considered vehicles' relative mobility (i.e., relative speed and distance) to aggregate vehicles in communities, while Bute et al. (<a role="doc-biblioref" href="#buteEtAl2022">2022</a>) designed an algorithm using the fuzzy logic for vehicular cluster formation.</p>
+
+        <p>From another perspective, some recent studies have focused on providing simulation frameworks (<a role="doc-biblioref" href="#ahmedEtAl2019">Ahmed et al., 2019</a>) since practical experiments on vehicular network environments are expensive and challenging. In fact, to validate their proposals, some of the works in the literature (<a role="doc-biblioref" href="#chaEtAl2021">Cha et al., 2021</a>; <a role="doc-biblioref" href="#maEtAl2021">Ma et al., 2021</a>; <a role="doc-biblioref" href="#rahmanEtAl2020">Rahman et al., 2020</a>; <a role="doc-biblioref" href="#fengEtAl2017">Feng et al., 2017</a>) have utilized these simulation frameworks mainly for i) generating vehicle traces and ii) simulating the behavior of vehicular network protocols. To the best of our knowledge, there is currently no simulation tool that offers a single vehicular computing-based platform where researchers can design/test their algorithms and applications while exploiting at the same time the vehicular computing paradigm and the MEC standard deployment environment. This paper presents the implementation details of our simulation tool, which offers a platform where researchers and engineers can exploit the features of Vehicular Computing. The tool has been introduced in Feraudo et al. (<a role="doc-biblioref" href="#feraudoEtAl2023a">2023</a>). With respect to (<a role="doc-biblioref" href="#feraudoEtAl2023a">Feraudo et al., 2023</a>), this article reports a more comprehensive description of functionalities, including a detailed overview of the underlining architecture and interactions needed when migrating applications running on vehicles leaving the cluster. Furthermore, this paper highlights where this collocate within the state-of-the-art, by providing a detailed study of the existing solutions in this context.</p>
+      </section>
+
+      <section id="sect4">
+        <h1>Unveiling Our Cutting-Edge Vehicular Computing Platform</h1>
+
+        <p>In this section, we start by presenting a comprehensive overview of the ETSI MEC-compliant Vehicular Computing architecture proposed in our previous work (<a role="doc-biblioref" href="#feraudoEtAl2023b">Feraudo et al., 2023</a>). Furthermore, we describe our novel and comprehensive simulation-oriented platform that facilitates the design and testing phases of modern vehicular computing applications in 5G-enabled environments. Our platform significantly extends the OMNeT++ tool, a discrete and event-based network simulator widely used in research communities, and employs the state-of-the-art Simu5G library (<a role="doc-biblioref" href="#nardiniEtAl2020">Nardini et al., 2020</a>) for 5G communication modeling.</p>
+
+        <section id="sect4.1">
+          <h1>General Overview</h1>
+
+          <p>As illustrated in <a href="#fig3">Figure 3</a>, our approach leverages the underutilized resources of vehicles, by integrating them into the MEC system resource pool. In contrast to the traditional ETSI MEC architecture (see <a href="#fig2">Figure 2</a>), the proposed model encompasses mechanisms capable of deploying and distributing applications on MEC-H (local) and vehicular (remote) resources, all while actively addressing concerns related to resource volatility.</p>
+          
+          <figure id="fig3" class="top">
+            <img src="./img/figure3.png" alt="Our extended MEC architecture to leverage vehicle resources" />
+            <figcaption class="multi-line-pdf">
+              <strong>Figure 3.</strong> Our extended MEC architecture to leverage vehicle resources.
+            </figcaption>
+          </figure>
+
+          <p>The red dashed circle in <a href="#fig3">Figure 3</a>, defined by each MEC-H, represents the Area of Interest (AoI) within which vehicle resources are collected. The AoI may coincide with the coverage of a single base station or multiple base stations. This depends on where the MEC-H is located, i.e., at either the network edge (close to the base station) or the central data network (at aggregation points). In the scenario considered in this manuscript, the AoI coincides with the parking area where the MEC-H is located.</p>
+
+          <p>To model the resource acquisition procedure, our extended MEC architecture introduces an external entity at the MEC system level running a Broker, which represents the message broker of a publish-subscribe system. It allows MEC-H subscriptions to the AoI and manages their notification whenever a new vehicle enters or leaves the area. The same entity runs a reward system encouraging vehicles to lease their local virtualized resources, e.g., computing power, and join the resource pool. It relies on a device-initiated scheme requiring mobile nodes to request available rewards contextualized to the AoI. Thus, whenever a new device accepts the MEC-H rewards related to that area, it publishes the amount of resources that it is willing to make available. In addition, once a device leaves the AoI, the MEC-H receives the notification, removes the concerned resources from those available in the pool, and starts the mobility procedure for the apps running on that device. The mobility procedure extends the Application Mobility Service (AMS) API provided by the ETSI standard, enabling seamless intra-host migration from a vehicle leaving the parking area to the local resources of the MEC host. It should be noted that if a device does not communicate its intention to leave the area, our MEC module cannot detect autnomously this new condition. In fact, it is the client of the application running on the leaving device that will initiate a new instantiation once it detects that the app is no longer responsive; this client detection process is automated in our platform and is in line with what specified by the ETSI standard specification (functionality of the Device App running on client devices.</p>
+
+          <p>By exploring slightly finer technical details, the VIM is the central MEC-H internal entity to be affected during resource acquisition, as it is in charge of administering the MEC-H resource pool and preparing the VI for the deployment of MEC applications. It operates to handle a heterogeneous pool of distributed resources. Specifically, once registered to the MEC-O, the VIM specifies the content of interest to the Broker corresponding to the AoI parameters (e.g., circle center and diameter) given during its configuration. Thus, when the Broker notifies it of new device resource acquisition, the VIM stores the endpoint information corresponding to an external VI address and the resource capacity of that device. This enables the VIM to monitor and manage the individual contributions of each host in terms of computational resources, effectively handling their volatility.</p>
+        </section>
+
+        <section id="sect4.2">
+          <h1>Simulation Platform</h1>
+
+          <p>This section will go into the details of the implementation of our vehicular computing architecture introduced previously, by describing all the modules needed to support both the exploitation of external vehicular resources in MEC-compliant scenarios and the intra-host migration of the MEC applications to guarantee service availability. The scenario supported by our original simulation platform relates to smart city deployment environments with parked and mobile vehicles. The parked vehicles serve as resource providers to the ETSI-compliant infrastructure, while the moving cars act as requesters for the execution of supported applications.</p>
+
+          <section id="sect4.2.1">
+            <h1>Simulation Modules</h1>
+
+            <p>In <a href="#fig4">Figure 4</a> we present the structure and the deployment of our simulation model's main components. From a structural point of view, our models encompass a set of physical machines that host each of the main entities of our extended MEC architecture, developed as applications. In this way, each MEC actor can be abstracted from the machine running it. A set of hosts, the Resource Infrastructure Host, the MEC-PM, and the MEC-P, represent the core of the MEC Host, in charge of managing the life-cycle of MEC Apps and providing MEC services compliant with the specification.</p>
+
+            <figure id="fig4" class="top">
+              <img src="./img/figure4.png" alt="Simulation tool modules structure" />
+              <figcaption class="multi-line-pdf">
+                <strong>Figure 4.</strong> Simulation tool modules structure.
+              </figcaption>
+            </figure>
+
+            <p>The core of our tools leverages vehicle resources enabling the execution of applications on the far-edge layer. To support this kind of behavior, the simulation model defines the MEC car module, which extends the New Radio User Equipment (NRUE) defined in Simu5G. Such a module wraps any 5G-enabled device and provides computational resources (e.g., CPU, RAM, and storage) to run applications orchestrated from the MEC-H. The capabilities of this module are two-fold: on the one hand, the running ClientResApp allows the joining procedures to be initiated to the resource pool of a specific MEC-H, receives the list of rewards, and chooses one of them deciding whether the vehicle can join or not. At the same time, it is also in charge of the resource release procedures when the vehicle leaves the AoI (<a href="#sect4">Section 4</a>). On the other hand, it executes the VI application which manages all the local resources based on the central MEC-H instructions and is in charge of deploying or deleting any MEC App on top of it. The VI module is engineered to seamlessly execute its functions on any host with a resource infrastructure, being able to integrate any 5G-enabled device into the MEC-H resource pool.</p>
+
+            <p>In this new extended architecture, MEC-Hs are now able to support both local and remote resources. As a result, the VIM has to deal with scheduling, preparing, and releasing both local and remote resources. The scheduling part happens by means of an extensible system of scheduling algorithms that can be used to choose the best host on which to deploy applications based on some semantics that may favor certain behaviors. After the choice, the interaction with the remote hosts takes place with a set of VI deployed on top of them to handle remote commands for allocating, relocating, and terminating MEC applications.</p>
+
+            <p>Based on the characteristics of our MEC extended architecture, a vehicle is allowed to leave the resource pool at any moment by causing eventual service disruption for the services it was hosting. To avoid this problem, a migration service is mandatory to guarantee the service availability and avoid delays. Our simulation model deals with this requirement by providing a custom implementation of the AMS service, extended to support MEC-assisted intra-host migrations and address volatility issues in a transparent way. In detail, each MEC App can be relocated from a remote host to the central infrastructure dealing also with the context synchronization between the two applications.</p>
+          </section>
+
+          <section id="sect4.2.2">
+            <h1>Simulation Interactions: Resource Management</h1>
+
+            <p>This subsection highlights all the sequence schema related to the allocation and release of dynamic resources by the MEC-H. On a general level, this is mainly done with the introduction of a new component, the Broker, briefly described in <a href="#sect4.1">Section 4.1</a>. The main role of this actor is to enable the registration and deallocation of vehicle resources present in the AoI by exploiting a system of subscription to ensure that the necessary resources are acquired, released, and allocated.</p>
+
+              <table id="fig5" class="table-figure top" width="100%">
+              <caption class="multi-line-pdf">
+                <strong>Figure 5.</strong> Sequence diagram device-initiated scheme.
+              </caption>
+              <tbody>
+                <tr>
+                  <td>
+                    <figure id="fig5a" data-enlarge-by="0.5" data-move-x="right">
+                      <img src="./img/figure5a.png" />
+                      <figcaption>
+                        <strong>(a)</strong> Resource releasing sequence diagram.
+                      </figcaption>
+                    </figure>
+                  </td>
+                  <td>
+                    <figure id="fig5b" data-enlarge-by="0.5" data-move-x="left">
+                      <img src="./img/figure5b.png" />
+                      <figcaption>
+                        <strong>(b)</strong> Resource releasing sequence diagram.
+                      </figcaption>
+                    </figure>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><b>Resource Acquisition</b> <a href="#fig5a">Figure 5(a)</a> describes all the steps required for a vehicle that enters in the AoI to join the MEC-H resource pool. The first phase uses an incentive mechanism consisting of the selection of a reward for participation in the pool. The vehicle receives the list of possible rewards and selects the best one, thus making itself available to surrender its resources (steps (1) - (3)). In the second part, the vehicle's interaction shifts to the broker, who receives information on the availability of the new resources and communicates them to the MEC-H, also providing location details (steps (3) - (6)).</p>
+
+            <p><b>Resource Allocation</b> An example of an interaction scheme for app instantiation on remote resources is reported in <a href="#fig6">Figure 6</a>. The procedure starts with the instantiation request of a new MEC App, done by the Device App and forwarded, through a service chain, from the UALCMP up to the VIM (steps (1) - (6)) where the actual allocation of the app is performed. The VIM manages all the information related to the vehicles participating in the pool and for each of them, it maintains a set of useful information for the scheduling phase. Depending on the chosen algorithm, the app requirements, and the resource contribution of each host, the VIM ends up with the selection of a single remote host where to deploy the application (step (7)).</p>
+
+            <figure id="fig6" class="column-top">
+              <img src="./img/figure6.png" alt="Resource allocation sequence diagram" />
+              <figcaption class="multi-line-pdf">
+                <strong>Figure 6.</strong> Resource allocation sequence diagram.
+              </figcaption>
+            </figure>
+
+            <p><b>Resource Releasing</b> <a href="#fig5b">Figure 5(b)</a> shows the interactions needed when devices leave the resource pool. In such a scenario, once the corresponding MEC-H receives the notification, it removes the concerned resources from those available in the pool and starts the mobility procedure for the apps running on that device. Occasionally, a leaving vehicle can have several applications running on top of it. In this case, the resource releasing is also the moment in which a migration procedure is triggered for each of them, as described in <a href="#sect4.2.3">Section 4.2.3</a>.</p>
+          </section>
+
+          <section id="sect4.2.3">
+            <h1>Simulation Interactions: Application Mobility Service</h1>
+
+            <p>This subsection provides all the interaction schema related to our implementation of the AMS, compliant with the specification. This version of AMS supports the intra-host migration for applications running on a host leaving the resource pool, helping to preserve the service availability in a transparent way with respect to the client actors. This is achieved through the implementation of a subscriptions and notifications system that helps in involving all the modules interested in specific migration events. Each procedure handles a different aspect of the procedure highlighting also the operations that MEC Apps need to fulfill in order to support migration scenarios.</p>
+
+            <p><b>Subscription</b> The initial prerequisite for facilitating migration is to establish the systemic recognition of each new MEC-App by the AMS. <a href="#fig7">Figure 7</a> delineates the comprehensive operations executed by all involved modules upon the instantiation of a novel MEC-App.</p>
+
+            <figure id="fig7" class="column-top">
+              <img src="./img/figure7.png" alt="AMS interaction schema - Subscription phase" />
+              <figcaption class="multi-line-pdf">
+                <strong>Figure 7.</strong> AMS interaction schema - Subscription phase.
+              </figcaption>
+            </figure>
+
+            <p>At the startup time, the MEC-App registers to the AMS service receiving a registration ID. Afterward, it subscribes to the event of <code>INTERHOST_MOVEOUT_TRIGGERED</code> to be informed about the creation of migrated copies of the app and start the necessary context transfer procedure.</p>
+
+            <p>The instantiation of the MEC-App also has backward effects on the actors involved in the creation process. The MEC-PM subscribes to two different events which are respectively the <code>INTERHOST_MOVEOUT_TRIGGERED</code> and <code>INTERHOST_MOVEOUT_COMPLETED</code> to be notified about the leaving of the host from the resource pool and the completion of the migration procedure. These notifications are necessary to start the migration procedure and update the app information. Finally, the UALCMP subscribes for the <code>INTERHOST_MOVEOUT_COMPLETED</code> event to get all the information about the new migrated app and give the information about the new location back to the User Application.</p>
+
+            <p><b>Unsubscription</b> In opposition to the previous schema, the deletion or the migration of a MEC-App causes the unsubscription from the related events by all the actors involved (<a href="#fig8">Figure 8</a>). Thus, the UALCMP, the MEC-PM, and the interested MEC-App unsubscribe from all the <code>INTERHOST_MOVEOUT</code> events. Next, the app is removed from the system with the proper unregistration.</p>
+
+            <table id="fig8" class="table-figure top" width="100%">
+              <caption class="multi-line-pdf">
+                <strong>Figure 8.</strong> AMS interaction schema - Unsubscription phase.
+              </caption>
+              <tbody>
+                <tr>
+                  <td>
+                    <figure id="fig8a" data-enlarge-by="0.5" data-move-x="right">
+                      <img src="./img/figure8a.png" />
+                      <figcaption>
+                        <strong>(a)</strong> UALCMP unsubscription.
+                      </figcaption>
+                    </figure>
+                  </td>
+                  <td>
+                    <figure id="fig8b" data-enlarge-by="0.5" data-move-x="left">
+                      <img src="./img/figure8b.png" />
+                      <figcaption>
+                        <strong>(b)</strong> MECPM unsubscription.
+                      </figcaption>
+                    </figure>
+                  </td>
+                  <td>
+                    <figure id="fig8c" data-enlarge-by="0.5" data-move-x="left">
+                      <img src="./img/figure8c.png" />
+                      <figcaption>
+                        <strong>(c)</strong> MEC App unsubscription and unregistration.
+                      </figcaption>
+                    </figure>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><b>Context trigger</b> <a href="#fig9">Figure 9</a> (steps A and B) depicts all the interactions that occur when the migration process is initiated. This trigger is the starting point to enable the creation of a copy of the migrating MEC-App on the central MEC-H infrastructure. However, the procedure holds the potential for future enhancements. It enables the possibility of selecting an alternative host within the resource pool, according to the supported scheduling algorithms.</p>
+
+            <table id="fig9" class="table-figure top" width="100%">
+              <caption class="multi-line-pdf">
+                <strong>Figure 9.</strong> AMS interaction schema - Context trigger.
+              </caption>
+              <tbody>
+                <tr>
+                  <td>
+                    <figure id="fig9a" data-enlarge-by="0.5" data-move-x="right">
+                      <img src="./img/figure9a.png" />
+                      <figcaption>
+                        <strong>(a)</strong> Step A.
+                      </figcaption>
+                    </figure>
+                  </td>
+                  <td>
+                    <figure id="fig9b" data-enlarge-by="0.5" data-move-x="left">
+                      <img src="./img/figure9b.png" />
+                      <figcaption>
+                        <strong>(b)</strong> Step B.
+                      </figcaption>
+                    </figure>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>Whenever a host participating in the resource pool leaves the AoI, the broker notifies the information to the VIM to start the resource-releasing procedure (<a href="#fig5b">Figure 5(b)</a>). At the same time, the notification represents also the instant in which the VIM checks if there is any MEC-App running on the leaving host. In such a case, the VIM triggers the migration for any of them. The <code>ParkMigrationTrigger</code> is sent to the MEC-PM which forwards the notification <code>INTERHOST_MOVEOUT_TRIGGERED</code> up to the AMS. Afterward, the AMS is in charge of notifying all the modules that have an active subscription to the TRIGGERED event. In this phase, the MEC-PM is the main actor that receives a notification and sends the <code>ServiceMobilityRequest</code> message to the VIM which leverages its local VI App to create a copy of the migrating app. This message serves to request the VIM to move  MEC-Apps from one host to another. At the end (<a href="#fig9b">Figure 9(b)</a>), the MEC-PM receives the information about the successful instantiation and emits a new notification for the <code>INTERHOST_MOVEOUT_TRIGGERED</code>. The main difference with the previous one is in the body of the notification, which contains the information about the location of the new app. Hence, this information can be available at the system level for all the interested actors.</p>
+
+            <p><b>Context transfer</b> The context transfer procedure aims to synchronize the state of the two MEC apps — both the migrating and the migrated. This ensures that the new MEC is able to continue delivering the service to client apps with less disruptions. At the startup, the new MEC-App executes the operation of subscription and registration and listens on a socket until the proper operational state is injected. This step is triggered by the <code>INTERHOST_MOVEOUT_TRIGGERED</code> notification on the migrating app, which contains all the information related to the location of the new service (<a href="#fig10">Figure 10</a>). Using this data, the migrating MEC-App establishes a communication channel with the newly created MEC-App, through which it transmits the information related to the service's state. Once the new MEC-App has been initialized with the new state, it forwards this information to the AMS service, which in turn notifies the UALCMP about the new MEC-App location. Specifically, the last step consists of updating the information related to the serving service on the UE App side. This is achieved with a backward process where the new location is propagated through the Device App up to the UE App.</p>
+
+            <figure id="fig10" class="-column-top">
+              <img src="./img/figure10.png" alt="AMS interaction schema - Context transfer" />
+              <figcaption class="multi-line-pdf">
+                <strong>Figure 10.</strong> AMS interaction schema - Context transfer.
+              </figcaption>
+            </figure>
+            
+          </section>
+        </section>
+      </section>
+
+      <section id="sect5">
+        <h1>Performance Evaluation</h1>
+
+        <p>In this section, we report on some relevant performance indicators measured on top of our simulation platform, described previously, for some examples of vehicular cloud computing applications. Additionally, we show how our simulation platform can be utilized to define and evaluate an algorithm that efficiently distributes MEC applications on stationary vehicular resources.</p>
+
+        <figure id="fig11" class="top">
+          <img src="./img/figure11.png" alt="OMNeT++ simulation environment" />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 11.</strong> OMNeT++ simulation environment.
+          </figcaption>
+        </figure>
+
+        <p>Our experiments were conducted in a 5G standalone network environment with a numerology index <span class="math-span">μ = 2</span>. As illustrated in <a href="#fig11">Figure 11</a>, the network consists of two MEC-Hs (<em>mechost1</em> and <em>mechost2</em>) each connected to a gNB, with the scenario taking place in two parking areas situated in close proximity to the gNBs. We also implemented a basic reward scheme for the resource acquisition procedure, which utilizes integer values accepted by all participating vehicles. For the sake of clarity, the evaluations outlined in this paper consider only performance related to one MEC-H. The experiments were carried out on a Linux Virtual Machine running OMNeT++ having 16 CPUs and 64Gb of RAM.</p>
+
+        <section id="sect5.1">
+          <h1>Resource Management</h1>
+
+          <p>As described in <a href="#sect4">Section 4</a>, resource management involves the operations for acquiring, allocating, and releasing remote resources.</p>
+
+          <table id="fig12" class="table-figure top" width="100%">
+            <caption class="multi-line-pdf">
+              <strong>Figure 12.</strong> Resources management times and vehicle distribution in a parking lot.
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <figure id="fig12a" data-enlarge-by="0.5" data-move-x="right">
+                    <img src="./img/figure12a.png" />
+                    <figcaption>
+                      <strong>(a)</strong> Resource acquisition and
+releasing protocol times.
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure id="fig12b" data-enlarge-by="0.5" data-move-x="left">
+                    <img src="./img/figure12b.png" />
+                    <figcaption>
+                      <strong>(b)</strong> Ceentral Garage City of Arnhem entering and leaving vehicles.
+                    </figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="#fig12a">Figure 12(a)</a> illustrates the time required by the protocols for collecting and releasing resources from vehicles as they enter or leave the parking lot within the MEC-H AoI. The join time shown in the figure indicates the time interval for the MEC-H to recognize the availability of a new vehicle for MEC-Apps allocation (step (1) - (6) in <a href="#fig5a">Figure 5(a)</a>). On the other hand, the release time is the interval required by the MEC-H to remove the vehicle from the resource pool (steps (1) - (4) in <a href="#fig5b">Figure 5(b)</a>). The figure indicates that the join time follows a growing trend ranging from 13 to 40 ms as the number of cars participating in the resource acquisition procedure increases, whereas the release time remains relatively constant (around 7 ms). The difference in performance between the join and release times can be attributed to the varying number of request/response messages generated by the two protocols. On the one hand, the resource release process necessitates only a few messages to exclude a vehicle effectively from the pool. On the other hand, the resource acquisition process involves a series of request/response messages because the device-initiated reward scheme mandates that the vehicle requests available rewards. However, it is unlikely for a large number of vehicles to enter a parking lot simultaneously. Such a scenario may only occur during special events like festivals or football matches. To support this claim, we analyzed the data of three parking garages in the city of Arnhem, which is available on the Open Parkeer data portal<span class="fn"><sup><a href="#ftn2" id="fn_pointer_ftn2" role="doc-noteref" title="Footnote 2: https://parkeerdata.nl/opendata/arnhem/parkeergarages/transactiedata-parkeergarages">2</a></sup></span>. <a href="#fig12b">Figure 12(b)</a>Figure depicts the average number of cars entering and leaving the most used garage during rush hours. The figure clearly shows that the number of parked vehicles reaches almost the maximum considered in our test setup between 17:30 and 18:30. Moreover, it is important to note that the peak of participating vehicles does not necessarily occur simultaneously because data were sampled with 30-minute periodicity.</p>
+
+          <p>To analyze the time required to allocate MEC applications on remote resources, we measured the delay introduced by the interactions between the VI and VIM during steps (7)-(8) of the process in <a href="#fig6">Figure 6</a>. The simulation involves multiple UEs requesting MEC app execution and several parked cars belonging to the MEC-H resource pool. MEC-Apps are evenly distributed on remote nodes using a Round Robin scheduler. We repeated the simulation 10 times with varying numbers of UEs and parked cars.</p>
+
+          <figure id="fig13" class="column-top">
+          <img src="./img/figure13.png" alt="Resource allocation time" />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 13.</strong> Resource allocation time.
+          </figcaption>
+        </figure>
+
+          <p><a href="#fig13">Figure 13</a> illustrates that the delays associated with resource allocation follow an exponential growth that depends on the number of MEC applications deployed on parked cars. This is confirmed by the overlapping curves, which indicate that the delay values remain relatively constant even when the number of parked cars varies. It is worth mentioning that we simulated the worst-case scenario, in which all UEs requested MEC app execution simultaneously, thus leading to a substantial increase in network traffic. Despite this, the delay caused by these interactions remained negligible, even when the number of requests exceeded 300, with a delay of approximately 40ms.</p>
+        </section>
+
+        <section id="sect5.2">
+          <h1>A Custom Scheduler for Stationary Vehicular Resources</h1>
+
+          <p>We have developed and tested a custom scheduling algorithm using our simulation platform to demonstrate how it can aid researchers in designing, evaluating, and assessing new algorithms and protocols. It aims at minimizing the number of migrations generated by vehicles leaving the parking lot while running applications.</p>
+
+          <p>To generate vehicle and user behaviors, we recreated the scenario utilized in (<a role="doc-biblioref" href="#feraudoEtAl2023b">Feraudo et al., 2023</a>). This approach involves constructing a series of Poisson and Gaussian distributions using two real-world datasets. The Arnhem dataset, already presented in the previous section, was used to model the distributions describing vehicle entry and residency times in a parking lot. The Bologna WiFi dataset<span class="fn"><sup><a href="#ftn3" id="fn_pointer_ftn3" role="doc-noteref" title="Footnote 3: https://opendata.comune.bologna.it/explore/dataset/iperbole-wifi-affluenza/information/">3</a></sup></span> provided information on user activities on Open WiFi networks within the city of Bologna, which enabled the creation of distributions mimicking the user behavior during each hour of the day. As in our previous work, we assume that each vehicle that enters the parking lot accepts the rewards proposed by the MEC-H, and each user request triggers the execution of a one-to-one MEC-Apps.</p>
+
+          <p>We simulated a 24-hour period of vehicle and user activities, taking into account a parking lot capacity of 150 vehicles. We run three simulations, one for each scheduling algorithm, namely best first, round robin, and our custom algorithm. The performance of these algorithms was evaluated based on the number of migrations they generated, as this directly impacts the reliability of MEC applications. In other words, a lower number of migrations is desirable for improved performance. For the sake of clarity, we reported the results associated with rush hours.</p>
+
+          <figure id="fig14" class="column-top">
+          <img src="./img/figure14.png" alt="Comparison scheduling algorithms in terms of migrations" />
+          <figcaption class="multi-line-pdf">
+            <strong>Figure 14.</strong> Comparison scheduling algorithms in terms of migrations.
+          </figcaption>
+        </figure>
+
+          <p><a href="#fig14">Figure 14</a> reports the associated performance results, by referring to the most challenging case of the day hours with highest levels of user and vehicle activity. The best first algorithm chooses the first available vehicle from the pool that has sufficient resources to execute the application. This approach can lead to a large number of migrations, as the selected vehicles may leave the parking lot while running all the applications they are capable of executing. In fact, the number of migrations exceeds 60 at the 12th hour of the simulation. Conversely, the round-robin algorithm maintains a steady number of migrations (around 7.42 in average) as the applications are equally distributed on the vehicles belonging to the MEC-H resource pool.</p>
+
+          <p>In addition, by using our simulation platform, we have developed a custom scheduler that relies on multiple Gaussian distributions by using means and standard deviation produced after a pre-processing phase of the Arnhem dataset, which generated the average occupancy time based on a 10-minute interval sampling. Hence, for each vehicle that belongs to the resource pool, the custom scheduler utilizes the time at which it joined the pool and the aforementioned distributions to predict its residency time. It then assigns the MEC application to the vehicle with the highest remaining residency time. The results in the figure demonstrate how this algorithm can largely over-perform the others in the considered application scenario: even if it could be enhanced via more sophisticated machine learning techniques, already in its simple current version it generates only around 20 migrations at the 18th hour of the simulation.</p>
+
+          </section>
+
+        <section id="sect5.3">
+          <h1>A Comparative Study of Existing Solutions</h1>
+
+          <p>To provide a better understanding of the contributions made in this work, we summarized in <a href="#tab2">Table 2</a> the key characteristics of existing solutions that provide a Vehicular Computing model. The table highlights the communication model under consideration during experimentation, how the solution handles the high dynamism inherent in the VANET environment, resources used to create the dynamic computing nodes, i.e., mobile or stationary, adherence to a standard for edge solutions, the provision of a open source platform to design and test other proposals, and lastly, whether infrastructure support is requisite for the vehicular cloud formation.</p>
+
+          <table id="tab2" class="top">
+            <caption class="multi-line-html multi-line-pdf"><strong>Table 2.</strong> Difference between existing solutions and our scheme.
+            </caption>
+            <thead>
+              <tr>
+                <th style="text-align: center">Work</th>
+                <th style="text-align: center">Comm. Model</th>
+                <th style="text-align: center">Mobility Control</th>
+                <th style="text-align: center">Resources</th>
+                <th style="text-align: center">Standard Compliance</th>
+                <th style="text-align: center">Open Source</th>
+                <th style="text-align: center">Infrastructure Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Our</td>
+                <td>5G SA and model 1</td>
+                <td>AMS API</td>
+                <td>Relatively Static</td>
+                <td>&#10003;</td>
+                <td>&#10003;</td>
+                <td>Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#rajputEtAl2023">Rajput et al., 2023</a>)</td>
+                <td>802.11p</td>
+                <td>N.A.</td>
+                <td>Stationary</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#liEtAl2019">Li et al., 2019</a>)</td>
+                <td>N.A.</td>
+                <td>N.A.</td>
+                <td>Stationary</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#fanEtAl2022">Fan et al., 2022</a>)</td>
+                <td>N.A.</td>
+                <td>N.A.</td>
+                <td>Stationary and Moving</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#dresslerEtAl2014">Dressler et al., 2014</a>)</td>
+                <td>802.11p</td>
+                <td>N.A.</td>
+                <td>Stationary</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Not Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#chaEtAl2021">Cha et al., 2021</a>)</td>
+                <td>802.11p</td>
+                <td>N.A.</td>
+                <td>Stationary and Moving</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Not Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#fengEtAl2017">Feng et al., 2017</a>)</td>
+                <td>802.11p</td>
+                <td>N.A.</td>
+                <td>Stationary and Moving</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Not Needed</td>
+              </tr>
+              <tr>
+                <td>(<a role="doc-biblioref" href="#buteEtAl2022">Bute et al., 2022</a>)</td>
+                <td>LTE mode 4</td>
+                <td>N.A.</td>
+                <td>Moving</td>
+                <td>X</td>
+                <td>X</td>
+                <td>Not Needed</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Rajput et al. (<a role="doc-biblioref" href="#rajputEtAl2023">2023</a>) proposed the Vehicular Static Cloud-VANET model, which aims to establish a cohesive infrastructure capable of hosting Intelligent Transportation System (ITS) services. The model employs a centralized controller to integrate resources provided by parked vehicle, equipped with IEEE 802.11p enabled On-Board Unit (OBU), with those provided by the cloud, and receives request from on-road vehicles. To assign a job to a vehicle, the authors use the vehicle residency time, i.e., the time for which a vehicle remains part of the vehicular cloud. This allows them to avoid to worry about the migration of the task, which occurs when a vehicle leave the parking lot. Similarly, Li et al. (<a role="doc-biblioref" href="#liEtAl2019">2019</a>) considers the residency time for task allocation on parked vehicles, through the definition of predefined contracts. Using these contracts, the authors define the incentive used to motivate vehicle owners in providing in-vehicle resources. In the same direction, Fan et al. (<a role="doc-biblioref" href="#fanEtAl2022">2022</a>) proposed a joint task offloading and resource allocation strategy for cloud of vehicles covered by a base station.</p>
+
+          <p>Dressler et al. (<a role="doc-biblioref" href="#dresslerEtAl2014">2014</a>) extended an existing routing algorithm to allow the dynamic creation of a distributed storage and improvement in network connectivity without the need of RSUs, by exploiting resources provided by vehicle as they enter and leave a parking lot. The authors conducted extensive simulations using OMNet++ and SUMO (<a role="doc-biblioref" href="#lopezEtAl2018">Lopez et al., 2018</a>). Cha et al. (<a role="doc-biblioref" href="#chaEtAl2021">2021</a>) presented an algorithm designed for the autonomous formation of vehicle clouds, leveraging a predictive metric termed "companion time". This metric delineates the duration for which vehicles maintain proximity to each other, facilitating the creation of a cohesive cloud of vehicles not only in parking scenarios but also when they are moving slowly. Similarly, Feng et al. (<a role="doc-biblioref" href="#fengEtAl2017">2017</a>) proposed AVE a framework that exploits beaconing to dynamically form cloud of vehicles. The authors also provide a scheduling algorithm for job assignment based on the ant colony optimization problem. Bute et al. (<a role="doc-biblioref" href="#buteEtAl2022">2019</a>) explore a scenario involving vehicles dynamically forming clusters on a highway to establish a collaborative computing platform with the cloud infrastructure. The selection of the cluster head is accomplished through the application of a fuzzy logic algorithm, utilizing metrics that ensure stable connectivity between nodes, thereby facilitating reliable communication.</p>
+
+          <p>The solutions proposed by the above authors do not refer to a standard for the integration of vehicular resources in the cloud-continuum spectrum. Indeed, they mostly define a new architecture or workflow to be used for in-vehicle resources acquisition. As outlined in <a href="#tab2">Table 2</a>, <em>Mobility Control</em> column, most of the works propose algorithmic strategies used to evaluate the probability of nodes to complete task execution, thus, they do not perform migration in case of a node leaving the cloud while executing tasks. Ge et al. (<a role="doc-biblioref" href="#geEtAl2020">2020</a>) formulated the service migration process for parked vehicle scenario, as vehicles leave the parking lot or refuse to continue providing the service. However, the solution focuses only on providing a mathematical formulation migration problem, by neglecting other challenges introduced in Vehicular Computing real-world scenarios. These encompass procedures for vehicle resources join and leave procedures, incentive mechanism to motivate vehicle owners, and the aspect of standardization.</p>
+
+          <p>To the best of our knowledge, there is currently no simulation tool that offers a single vehicular computing-based platform where researchers can design/test their algorithms and applications while exploiting at the same time the vehicular computing paradigm and the MEC standard deployment environment.</p>
+
+          <p>Furthermore, compared to the other existing solutions, our simulation tool incorporates a MEC-assisted procedure facilitating the migration of tasks allocated to vehicles departing from the parking lot or declining to continue providing services (see <a href="#sect4">Section 4</a>). At present, the tool supports quasi-mobile vehicles, specifically those exiting the confines of the parking lot. Additionally, as our platform adopts ETSI-compliant API for service migration, it becomes versatile enough to extend its support to acquiring resources from moving vehicles.</p>
+        </section>
+      </section>
+
+      <section id="sect6">
+        <h1>Conclusions and Future Work</h1>
+
+        <p>This paper provides the readers with a comprehensive overview of our design for an ETSI MEC-compliant architecture, specifically tailored to support the dynamic acquisition of vehicular resources. In addition, it presents, with in-depth design and implementation details, our simulation/oriented platform (<a role="doc-biblioref" href="#feraudoEtAl2023a">Feraudo et al., 2023</a>) that faithfully replicates the proposed MEC/compliant architecture. We claim that our platform empowers researchers to model their solutions, by focusing on scheduling procedures at either edge level or vehicular level, and on the development of innovative applications that exploit the potential of Vehicular Computing. The paper also provides a practical deployment example that illustrates how our simulation framework can be utilized for designing, testing, and implementing vehicular computing applications. Finally, it highlights the novel contributions of our solution if compared with existing related proposals in the state-of-the-art literature. Despite the current version of our simulation framework enables researchers to design applications leveraging the vehicular computing paradigm, it is currently limited to supporting stationary vehicles or slowly-mobile ones, such as the vehicles leaving a parking lot; that priority in our implementation work depended on the envisioned VCC applications that we were willing to support. However, considering the versatility of the model and the implementation of our simulation platform, our future plans include expanding it to support the automated distribution of MEC applications on fully-mobile vehicles. Additionally, we intend to explore other innovative application scenarios, such as decentralized machine learning operations by quasi-autonomous mobile vehicles, based on pre-trained models and successively improved via local refinement learning.</p>
+      </section>
+
+      <section id="sect7" role="doc-acknowledgements">
+        <h1>Acknowledgements</h1>
+
+        <p>A preliminary version of this article was presented at the INSTICC SIMULTECH 2023, Rome, Italy, 12–14 July 2023.</p>
+      </section>
+
+      <section id="sect8" class="suppressInPDF" role="doc-endnotes">
+        <h1>Footnotes</h1>
+        <ol>
+          <li id="ftn1" role="doc-endnote">MEC extension (<a href="https://github.com/aferaudo/Simu5G/tree/feat/vim-extension" target="_blank">https://github.com/aferaudo/Simu5G/tree/feat/vim-extension</a>)<sup><a role="doc-backlink" href="#fn_pointer_ftn1">[back]</a></sup></li>
+          <li id="ftn2" role="doc-endnote"><a href="https://parkeerdata.nl/opendata/arnhem/parkeergarages/transactiedata-parkeergarages" target="_blank">https://parkeerdata.nl/opendata/arnhem/parkeergarages/transactiedata-parkeergarages</a><sup><a role="doc-backlink" href="#fn_pointer_ftn2">[back]</a></sup></li>
+          <li id="ftn3" role="doc-endnote"><a href="https://opendata.comune.bologna.it/explore/dataset/iperbole-wifi-affluenza/information/" target="_blank">https://opendata.comune.bologna.it/explore/dataset/iperbole-wifi-affluenza/information/</a><sup><a role="doc-backlink" href="#fn_pointer_ftn3">[back]</a></sup></li>
+        </ol>
+      </section>
+
+      <section id="sect9" role="doc-bibliography">
+        <h1>Bibliography</h1>
+        <ul>
+          <li id="ahmedEtAl2019" role="doc-biblioentry">Ahmed, B., Malik, A. W., Hafeez, T., &amp; Ahmed, N. (2019). Services and simulation frameworks for vehicular cloud computing: A contemporary survey. <em>Journal on Wireless Communications and Networking</em>, 4(2019). <a href="https://doi.org/10.1186/s13638-018-1315-y" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="aecc2021" role="doc-biblioentry">Automotive Edge Computing Consortium (2021). <em>Break down the barriers to automotive edge adoption</em> [White paper]. <a href= "https://aecc.org/wp-content/uploads/2021/06/Breaking_down_the_barriers_to_automotive_edge_adoption.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="bitamEtAl2015" role="doc-biblioentry">Bitam, S., Mellouk, A., &amp; Zeadally, S. (2015). Vanet-cloud: A generic cloud computing model for vehicular ad hoc networks. <em>IEEE Wireless Communications</em>, 22(1):96–102. <a href="https://doi.org/10.1109/MWC.2015.7054724" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="buteEtAl2022" role="doc-biblioentry">Bute, M. S., Fan, P., Liu, G., Abbas, F., &amp; Ding, Z. (2022). A cluster-based cooperative computation offloading scheme for C-V2X networks. <em>Ad Hoc Networks</em>, 132:102862. <a href="https://doi.org/10.1016/j.adhoc.2022.102862" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="chaEtAl2021" role="biblioentry">Cha, N., Wu, C., Yoshinaga, T., Ji, Y., &amp; Yau, K.-L. A. (2021). Virtual edge: Exploring computation offloading in collaborative vehicular edge computing. <em>IEEE Access</em>, 9:37739–37751. <a href="https://doi.org/10.1109/ACCESS.2021.3063246" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="dresslerEtAl2014" role="doc-biblioentry">Dressler, F., Handle, P., &amp; Sommer, C. (2014). Towards a vehicular cloud - using parked vehicles as a temporary network and storage infrastructure. In <em>Proceedings of the 2014 ACM International Workshop on Wireless and Mobile Technologies for Smart Cities</em> (pp. 11–18), New York, NY:ACM. <a href="https://doi.org/10.1145/2633661.2633671" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="etsi2022" role="doc-biblioentry">ETSI (2022). GS MEC 003 - V3.1.1. <a href= "https://www.etsi.org/deliver/etsi_gs/MEC/001_099/003/03.01.01_60/gs_mec003v030101p.pdf" target="_blank"><img src="../../icons/pdf.png" /></a></li>
+          <li id="fanEtAl2022" role="doc-biblioentry">Fan, W., Liu, J., Hua, M., Wu, F., &amp; Liu, Y. (2022). Joint task offloading and resource allocation for multi-access edge computing assisted by parked and moving vehicles. <em>IEEE Transactions on Vehicular Technology</em>, 71(5):5314–5330. <a href="https://doi.org/10.1109/TVT.2022.3149937" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="fengEtAl2017" role="doc-biblioentry">Feng, J., Liu, Z., Wu, C., &amp; Ji, Y. (2017). Ave: Autonomous vehicular edge computing framework with ACO-based scheduling. <em>IEEE Transactions on Vehicular Technology</em>, 66(12):10660–10675. <a href="https://doi.org/10.1109/TVT.2017.2714704" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="feraudoEtAl2023a" role="doc-biblioentry">Feraudo, A., Calvio, A., &amp; Bellavista, P. (2023a). A novel OMNeT++-based simulation tool for vehicular cloud computing in ETSI MEC-compliant 5G environments. In <em>Proceedings of the 13th International Conference on Simulation and Modeling Methodologies, Technologies and Applications</em> (pp. 448–455), Portugal:SciTePress. <a href="https://doi.org/10.5220/0012140900003546" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="feraudoEtAl2023b" role="doc-biblioentry">Feraudo, A., Calvio, A., Bujari, A., &amp; Bellavista, P. (2023b). A novel design for advanced 5G deployment environments with virtualized resources at vehicular and MEC nodes. <em>IEEE Vehicular Networking Conference (VNC)</em> (pp. 97–103), New York, NY:IEEE. <a href="https://doi.org/10.1109/VNC57357.2023.10136327" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="geEtAl2020" role="doc-biblioentry">Ge, S., Cheng, M., He, X., &amp; Zhou, X. (2020). A two-stage service migration algorithm in parked vehicle edge computing for internet of things. <em>Sensors</em>, 20(10):2786. <a href="https://doi.org/10.3390/s20102786" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="gerla2012" role="doc-biblioentry">Gerla, M. (2012). Vehicular cloud computing. In <em>The 11th Annual Mediterranean Ad Hoc Networking Workshop (Med-Hoc-Net)</em> (pp. 152–155), New York, NY:IEEE. <a href="https://doi.org/10.1109/MedHocNet.2012.6257116" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="huangEtAl2018" role="doc-biblioentry">Huang, X., Yu, R., Liu, J., &amp; Shu, L. (2018). Parked vehicle edge computing: Exploiting opportunistic resources for distributed mobile applications. <em>IEEE Access</em>, 6:66649–66663. <a href="https://doi.org/10.1109/ACCESS.2018.2879578" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="kamakshiShankarSriram2020" role="doc-biblioentry">Kamakshi, S. &amp; Shankar Sriram, V. (2020). Modularity based mobility aware community detection algorithm for broadcast storm mitigation in VANETs. <em>Ad Hoc Networks</em>, 104:102161. <a href="https://doi.org/10.1016/j.adhoc.2020.102161" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="liEtAl2019" role="doc-biblioentry">Li, C., Wang, S., Huang, X., Li, X., Yu, R., &amp; Zhao, F. (2019). Parked vehicular computing for energy-efficient internet of vehicles: A contract theoretic approach. <em>IEEE Internet of Things Journal</em>, 6(4):6079–6088. <a href="https://doi.org/10.1109/JIOT.2018.2869892" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="liuEtAl2021" role="doc-biblioentry">Liu, L., Chen, C., Pei, Q., Maharjan, S., &amp; Zhang, Y. (2021). Vehicular edge computing and networking: A survey. <em>Mobile networks and applications</em>, 26:1145–1168. <a href="https://doi.org/10.1007/s11036-020-01624-1" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="liuEtAl2011" role="doc-biblioentry">Liu, N., Liu, M., Lou, W., Chen, G., &amp; Cao, J. (2011). PVA in VANETs: Stopped cars are not silent. In <em>Proceedings IEEE INFOCOM</em> (pp. 431–435), New York, NY:IEEE. <a href="https://doi.org/10.1109/INFCOM.2011.5935198" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="lopezEtAl2018" role="doc-biblioentry">Lopez, P. A., Behrisch, M., Bieker-Walz, L., Erdmann, J., Flötteröd, Y.-P., Hilbrich, R., Lücken, L., Rummel, J., Wagner, P., &amp; Wiessner, E. (2018). Microscopic traffic simulation using SUMO. In <em>21st International Conference on Intelligent Transportation Systems (ITSC)</em> (pp. 2575–2582), Nwq York, NY:IEEE. <a href="https://doi.org/10.1109/ITSC.2018.8569938" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="luShi2023" role="doc-biblioentry">Lu, S. &amp; Shi, W. (2023). Vehicle computing: Vision and challenges. <em>Journal of Information and Intelligence</em>, 1(1):23–35. <a href="https://doi.org/10.1016/j.jiixd.2022.10.001" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="maEtAl2021" role="doc-biblioentry">Ma, C., Zhu, J., Liu, M., Zhao, H., Liu, N., Zou, X. (2021). Parking edge computing: Parked-vehicle-assisted task offloading for urban VANETs. <em>IEEE Internet of Things Journal</em>, 8(11):9344–9358. <a href="https://doi.org/10.1109/JIOT.2021.3056396" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="mengEtAl2023" role="doc-biblioentry">Meng, T., Huang, J., Chew, C.-M., Yang, D., and Zhong, Z. (2023). Configuration and design schemes of environmental sensing and vehicle computing systems for automated driving: A review. <em>IEEE Sensors Journal</em>, 23(14):15305–15320. <a href="https://doi.org/10.1109/JSEN.2023.3260193" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="meredithEtAl2021" role="doc-biblioentry">Meredith, J., Firmin, F., &amp; Pope, M. (2022). <em>Release 16 description; Summary of Rel-16 Work Items</em>. <a href="https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3493" target="_blank"><img src="../../icons/html.png" /></a></li>
+          <li id="nardiniEtAl2020" role="doc-biblioentry">Nardini, G., Stea, G., Virdis, A., and Sabella, D. (2020). Simu5G: A system-level simulator for 5G networks. In <em>Proceedings of the 10th International Conference on Simulation and Modeling Methodologies, Technologies and Applications</em> (pp. 68–80), Portugal:SciTePress. <a href="https://doi.org/10.5220/0009826400680080" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="olariu2020" role="doc-biblioentry">Olariu, S. (2020). A survey of vehicular cloud research: Trends, applications and challenges. <em>IEEE Transactions on Intelligent Transportation Systems</em>, 21(6):2648–2663. <a href="https://doi.org/10.1109/TITS.2019.2959743" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="olariuEtAl2011" role="doc-biblioentry">Olariu, S., Khalil, I., &amp; Abuelela, M. (2011). Taking VANET to the clouds. <em>International Journal of Pervasive Computing and Communications</em>, 7(1):7–21. <a href="https://doi.org/10.1108/17427371111123577" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="qinEtAl2022" role="doc-biblioentry">Qin, P., Fu, Y., Feng, X., Zhao, X., Wang, S., and Zhou, Z. (2022). Energy-efficient resource allocation for parked-cars-based cellular-V2V heterogeneous networks. <em>IEEE Internet of Things Journal</em>, 9(4):3046–3061. <a href="https://doi.org/10.1109/JIOT.2021.3094903" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="rahmanEtAl2020" role="doc-biblioentry">Rahman, F. H., Newaz, S. H. S., Au, T. W., Suhaili, W. S., Lee, G. M. (2020). Off-street vehicular fog for catering applications in 5G/B5G: A trust-based task mapping solution and open research issues. <em>IEEE Access</em>, 8:117218–117235. <a href="https://doi.org/10.1109/ACCESS.2020.3004738" target="_blank"><img src="../../icons/doi.png" /></a></li>
+          <li id="rajputEtAl2023" role="doc-biblioentry">Rajput, N. S., Singh, U., Dua, A., Kumar, N., Rodrigues, J. J. P. C., Sisodia, S., Elhoseny, M., and Lakys, Y. (2023). Amalgamating vehicular networks with vehicular clouds, AI, and big data for next-generation its services. <em>IEEE Transactions on Intelligent Transportation Systems</em>, 25(1):869–883. <a href="https://doi.org/10.1109/TITS.2023.3234559" target="_blank"><img src="../../icons/doi.png" /></a></li>
+        </ul>
+
+      </section>
+
+      <section id="sect10" class="no-counter">
+        <h1>Copyright Information</h1>
+        <p prefix="cc: http://creativecommons.org/ns#">
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"><img alt="Creative Commons License"
+                 src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+          Copyright © 2024 <span property="cc:attributionName">Angelo Feraudo</span>, <span property="cc:attributionName">Alessandro Calvio</span>, <span property="cc:attributionName">Paolo Bellavista</span>. This article is licensed under a <a rel="license"
+             href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank">Creative Commons Attribution 4.0 International
+            License</a>.
+        </p>
+      </section>
+    </main>
+
+    <nav id="toc" class="suppressInPDF">
+      <h1>Outline</h1>
+      <ol start="0">
+        <li style="list-style: none;"><a href="#sect0">Abstract</a></li>
+        <li><a href="#sect1">Introduction</a></li>
+        <li><a href="#sect2">Background</a></li>
+        <li><a href="#sect3">Related Work</a></li>
+        <li><a href="#sect4">Unveiling Our Cutting-Edge Vehicular Computing Platform</a></li>
+        <li><a href="#sect5">Performance Evaluation</a></li>
+        <li><a href="#sect6">Conclusive Remarks and Future Work</a></li>
+        <li style="list-style: none;"><a href="#sect7">Acknowledgements</a></li>
+        <li style="list-style: none;"><a href="#sect8">Footnotes</a></li>
+        <li style="list-style: none;"><a href="#sect9">Bibliography</a></li>
+        <li style="list-style: none;"><a href="#sect10">Copyright Information</a></li>
+      </ol>
+      <div id="return-top">
+        <svg id="arrow-up" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M952.576 554.858667q0 29.141333-21.141333 51.434667l-42.858667 42.858667q-21.717333 21.717333-52.010667 21.717333-30.848 0-51.434667-21.717333l-168-167.424 0 402.282667q0 29.717333-21.418667 48.277333t-51.712 18.581333l-73.152 0q-30.293333 0-51.712-18.581333t-21.418667-48.277333l0-402.282667-168 167.424q-20.565333 21.717333-51.434667 21.717333t-51.434667-21.717333l-42.858667-42.858667q-21.717333-21.717333-21.717333-51.434667 0-30.293333 21.717333-52.010667l372.010667-372.010667q20.010667-21.141333 51.434667-21.141333 30.848 0 52.010667 21.141333l372.010667 372.010667q21.141333 22.293333 21.141333 52.010667z" /></svg><a href="">Return to top</a>
+      </div>
+      <div id="share">
+        <button id="share-this" title="Share this">Share...</button>
+        <ul class="links">
+          <li class="share facebook" title="Share on Facebook"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-facebook" viewBox="0 0 18 18">
+                <path
+                      d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-facebook" />
+              </svg></li>
+          <li class="share twitter" title="Share on X"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-twitter" viewBox="0 0 18 18">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-twitter" />
+            </svg></li>
+          <li class="share linkedin" title="Share on LinkedIn"><svg
+                 aria-hidden="true" class="icon-social">
+              <symbol id="social-linkedin" viewBox="0 0 18 18">
+                <path
+                      d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z">
+                </path>
+              </symbol>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="#social-linkedin" />
+            </svg></li>
+          <li class="share email" title="Share with Email"><a
+               aria-label="Share with Email" href="" target="_blank"><svg
+                   aria-hidden="true" class="icon-social">
+                <symbol id="social-mail" viewBox="0 0 18 18">
+                  <path
+                        d="M9,8.2L3,4.5h12L9,8.2z M15,13.5H3V6l6,3.8L15,6V13.5z M15,3H3C2.2,3,1.5,3.7,1.5,4.5l0,9C1.5,14.3,2.2,15,3,15 h12c0.8,0,1.5-0.7,1.5-1.5v-9C16.5,3.7,15.8,3,15,3z">
+                  </path>
+                </symbol>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#social-mail" />
+              </svg></a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+
+</html>
