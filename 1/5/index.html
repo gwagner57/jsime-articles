@@ -7,40 +7,44 @@
   Methods</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--Google Scholar-->
-<meta name="citation_publisher"
-  content="Consortium for True Open Access in Modeling and Simulation" />
+<meta name="citation_publisher" content="Consortium for True Open Access in Modeling and Simulation" />
 <meta name="citation_journal_title" content="Journal of Simulation Engineering" />
 <meta name="citation_journal_abbrev" content="JSimE" />
 <meta name="citation_issn" content="2569-9466" />
 <meta name="citation_volume" content="1" />
+<meta name="citation_doi" content="10.5281/zenodo.11114192" />
 <meta name="citation_firstpage" content="5:1" />
 <meta name="citation_lastpage" content="5:22" />
-<meta name="citation_title"
-  content="Simulation Framework for Asynchronous Iterative Methods" />
+<meta name="citation_title" content="Simulation Framework for Asynchronous Iterative Methods" />
 <meta name="citation_article_type" content="Article" />
 <meta name="citation_online_date" content="2018/6/25" />
 <meta name="citation_publication_date" content="2018/6/28" />
 <meta name="citation_author" content="Evan Christopher Coleman" />
 <meta name="citation_author_email" content="evanccoleman@gmail.com" />
-<meta name="citation_author_institution"
-  content="Old Dominion University, Norfolk, VA, United States" />
+<meta name="citation_author_institution" content="Old Dominion University, Norfolk, VA, United States" />
 <meta name="citation_author" content="Erik Jensen" />
 <meta name="citation_author_email" content="ejens005@odu.edu" />
-<meta name="citation_author_institution"
-  content="Old Dominion University, Norfolk, VA, United States" />
+<meta name="citation_author_institution" content="Old Dominion University, Norfolk, VA, United States" />
 <meta name="citation_author" content="Masha Sosonkina" />
 <meta name="citation_author_email" content="msosonki@odu.edu" />
-<meta name="citation_author_institution"
-  content="Old Dominion University, Norfolk, VA, United States" />
-<meta name="citation_abstract_html_url"
-  content="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
-<meta name="citation_pdf_url"
-  content="https://articles.jsime.org/1/jsime-article-1-5.pdf" />
-<meta name="citation_fulltext_html_url"
-  content="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
+<meta name="citation_author_institution" content="Old Dominion University, Norfolk, VA, United States" />
+<meta name="citation_abstract_html_url" content="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
+<meta name="citation_pdf_url" content="https://articles.jsime.org/1/jsime-article-1-5.pdf" />
+<meta name="citation_fulltext_html_url" content="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
 <!--Open Graph-->
-<meta property="og:title" content="Simulation Framework for Asynchronous Iterative Methods" />
 <meta property="og:type" content="article" />
+<meta property="article:author" content="Evan C. Coleman" />
+<meta property="article:author" content="Erik Jensen" />
+<meta property="article:author" content="Masha Sosonkina" />
+<meta property="article:section" content="Article" />
+<meta property="article:tag" content="Asynchronous Iterative Methods" />
+<meta property="article:tag" content="Fault Tolerance" />
+<meta property="article:tag" content="Asynchronous Simulation" />
+<meta property="article:tag" content="Shared Memory" />
+<meta property="article:tag" content="Intel Xeon Phi" />
+<meta property="article:published_time" content="2018-06-28" />
+<meta property="article:modified_time" content="2024-05-12" />
+<meta property="og:title" content="Simulation Framework for Asynchronous Iterative Methods" />
 <meta property="og:description" content="As high-performance computing (HPC) platforms progress towards exascale, computational methods must be revamped to successfully leverage them. In particular, (1) asynchronous methods become of great importance because synchronization becomes prohibitively expensive and (2) resilience of computations must be achieved, e.g., using checkpointing selectively which may otherwise become prohibitively expensive due to the sheer scale of the computing environment. In this work, a simulation framework for asynchronous iterative methods is proposed and tested on HPC accelerator (shared-memory) architecture. The design proposed here offers a lightweight alternative to existing computational frameworks to allow for easy experimentation with various relaxation iterative techniques, solution updating schemes, and predicted performance. The simulation framework is implemented in MATLAB® using function handles which offers a modular, easily extensible design. An example of a case study using the simulation framework is presented to examine the efficacy of different checkpointing schemes for asynchronous relaxation methods." />
 <meta property="og:url" content="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
 <meta property="og:image" content="https://articles.jsime.org/JSimE.svg" />
@@ -51,11 +55,9 @@
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Simulation Framework for Asynchronous Iterative Methods" />
 <!--Canonical URL-->
-<link rel="canonical"
-  href="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
+<link rel="canonical" href="https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods" />
 <!--Stylesheets-->
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 <link rel="stylesheet" href="../../pseudocode.min.css" />
 <link rel="stylesheet" href="../../jsime.css" />
 <!-- Style -->
@@ -105,8 +107,7 @@ td.border_left_right {
 </script>
 <!--Scripts-->
 <script defer src="../../jsime.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML"></script>
 <!--schema.org JSON-LD-->
 <script type="application/ld+json">
 {
@@ -126,6 +127,7 @@ td.border_left_right {
       "keywords": [ "Asynchronous Iterative Methods", "Fault Tolerance", "Asynchronous Simulation", "Shared Memory", "Intel Xeon Phi" ],
       "description": "As high-performance computing (HPC) platforms progress towards exascale, computational methods must be revamped to successfully leverage them. In particular, (1) asynchronous methods become of great importance because synchronization becomes prohibitively expensive and (2) resilience of computations must be achieved, e.g., using checkpointing selectively which may otherwise become prohibitively expensive due to the sheer scale of the computing environment. In this work, a simulation framework for asynchronous iterative methods is proposed and tested on HPC accelerator (shared-memory) architecture. The design proposed here offers a lightweight alternative to existing computational frameworks to allow for easy experimentation with various relaxation iterative techniques, solution updating schemes, and predicted performance. The simulation framework is implemented in MATLAB® using function handles which offers a modular, easily extensible design. An example of a case study using the simulation framework is presented to examine the efficacy of different checkpointing schemes for asynchronous relaxation methods.",
       "url": "https://articles.jsime.org/1/5/Simulation-Framework-for-Asynchronous-Iterative-Methods",
+      "sameAs": "https://doi.org/10.5281/zenodo.11114192",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "copyrightHolder": [
@@ -135,7 +137,7 @@ td.border_left_right {
       ],
       "copyrightYear": "2018",
       "dateCreated": "2018-06-25",
-      "dateModified": "2024-05-03",
+      "dateModified": "2024-05-12",
       "datePublished": "2018-06-28",
       "isPartOf": {
         "@type": "PublicationVolume",
