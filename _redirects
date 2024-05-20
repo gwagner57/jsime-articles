@@ -1,0 +1,2 @@
+# Rewrite a path with a slug
+/:volume/:articleno/:slug  /:volume/:articleno  200
