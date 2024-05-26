@@ -1,0 +1,115 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    font: 1.1rem/1.5 "Helvetica", "Helvetica Neue", "Arial", "sans-serif";
+    margin: 0 auto;
+    hyphens: auto;
+}
+.header-menu,
+footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.header-menu {
+    height: 125px;
+    background-color: white;
+}
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%
+}
+.logo {
+    display: inline-block;
+}
+.logo img {
+    width: 12em;
+    vertical-align: center;
+}
+.navlinks {
+    display: flex;
+    list-style: none;
+}
+.nav-item a {
+    display: inline-block;
+    font-size: 1.2em;
+    color: dimgrey;
+    padding: 0 10px;
+}
+.nav-item a:link,
+.nav-item a:visited {
+    text-decoration: none;
+}
+.nav-item a:hover {
+    text-decoration: underline;
+}
+main {
+    display: flex;
+    flex: 0.6;
+    width: 100%;
+}
+article {
+    margin: 0 30em 0 30em;
+}
+article h1 {
+    font-size: 1.75em;
+}
+article h2 {
+    font-size: 1.25em;
+}
+article h3 {
+    font-size: 1em;
+}
+figure img {
+    width: 47em;
+}
+button {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background: black;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+}
+button a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+details {
+    margin-bottom: 1em;
+}
+
+details .title {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+details .authors {
+    font-size: 1.1em;
+    font-style: italic;
+}
+footer {
+    flex: 1;
+    padding: 20px 0 50px 0;
+    background-color: black;
+    color: white;
+}
+footer p {
+    width: 100%;
+    text-align: center;
+}
+footer a:link,
+footer a:visited {
+    color: white;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
